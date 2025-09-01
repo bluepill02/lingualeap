@@ -37,6 +37,8 @@ import {
   MicroLesson,
 } from '@/lib/types';
 import { ConfettiBurst } from '@/components/ui/confetti-burst';
+import { ShareableAchievementCard } from '@/components/ui/shareable-achievement-card';
+
 
 function VocabularyTable({
   vocabulary,
@@ -114,7 +116,7 @@ function DialogueSection({ dialogue }: { dialogue: MicroLesson['dialogue'] }) {
   );
 }
 
-function QuizSection({ quizzes }: { quizzes: MicroLesson['quizzes'] }) {
+function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: MicroLesson['quizzes'] }) {
   const [answers, setAnswers] = useState<(string | null)[]>(
     Array(quizzes.length).fill(null)
   );
@@ -133,6 +135,16 @@ function QuizSection({ quizzes }: { quizzes: MicroLesson['quizzes'] }) {
   const correctAnswers = quizzes.filter(
     (quiz, index) => answers[index] && answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
   ).length;
+
+  if (submitted) {
+    return (
+        <ShareableAchievementCard 
+            lessonTitle={lessonTitle}
+            score={correctAnswers}
+            totalQuestions={quizzes.length}
+        />
+    )
+  }
 
   return (
     <Card>
@@ -252,7 +264,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
 
       <VocabularyTable vocabulary={lesson.vocabulary} />
       <DialogueSection dialogue={lesson.dialogue} />
-      <QuizSection quizzes={lesson.quizzes} />
+      <QuizSection lessonTitle={lesson.title} quizzes={lesson.quizzes} />
 
       <Card className="bg-primary/10">
         <CardHeader>
@@ -265,7 +277,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
 
       <div className="flex justify-center">
         <Button size="lg" onClick={() => router.back()}>
-          Complete Lesson
+          Back to Lessons
         </Button>
       </div>
     </div>
