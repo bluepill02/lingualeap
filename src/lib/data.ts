@@ -1,24 +1,43 @@
 
 import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle } from './types';
+import { learnerPersonas } from './personas';
 
 export const mockUser: User = {
   id: 'user-1',
   name: 'Alex',
   email: 'alex@example.com',
-  avatarUrl: 'https://picsum.photos/100/100',
+  avatarUrl: 'https://picsum.photos/100/100?a=1',
   streak: 12,
-  language: 'Spanish',
+  language: 'Hindi',
   timezone: 'America/New_York',
   isPro: false,
+  proficiency: 'Beginner',
+  goals: ['Travel', 'Career'],
+  persona: learnerPersonas[0].type,
 };
+
+export const allUsers: User[] = [
+    mockUser,
+    { id: 'user-2', name: 'Priya', email: 'priya@example.com', avatarUrl: 'https://picsum.photos/100/100?a=2', streak: 25, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Career', 'Exams'], persona: learnerPersonas[1].type },
+    { id: 'user-3', name: 'Chen', email: 'chen@example.com', avatarUrl: 'https://picsum.photos/100/100?a=3', streak: 5, language: 'Hindi', timezone: 'Asia/Shanghai', isPro: false, proficiency: 'Beginner', goals: ['Culture', 'Travel'], persona: learnerPersonas[2].type },
+    { id: 'user-4', name: 'Maria', email: 'maria@example.com', avatarUrl: 'https://picsum.photos/100/100?a=4', streak: 50, language: 'Hindi', timezone: 'Europe/Madrid', isPro: true, proficiency: 'Advanced', goals: ['Culture', 'Mentorship'], persona: learnerPersonas[3].type },
+    { id: 'user-5', name: 'David', email: 'david@example.com', avatarUrl: 'https://picsum.photos/100/100?a=5', streak: 2, language: 'Hindi', timezone: 'America/New_York', isPro: false, proficiency: 'Beginner', goals: ['Travel'], persona: learnerPersonas[0].type },
+    { id: 'user-6', name: 'Fatima', email: 'fatima@example.com', avatarUrl: 'https://picsum.photos/100/100?a=6', streak: 15, language: 'Hindi', timezone: 'Asia/Dubai', isPro: true, proficiency: 'Intermediate', goals: ['Career'], persona: learnerPersonas[1].type },
+    { id: 'user-7', name: 'Kenji', email: 'kenji@example.com', avatarUrl: 'https://picsum.photos/100/100?a=7', streak: 8, language: 'Hindi', timezone: 'Asia/Tokyo', isPro: false, proficiency: 'Beginner', goals: ['Culture'], persona: learnerPersonas[2].type },
+    { id: 'user-8', name: 'Sofia', email: 'sofia@example.com', avatarUrl: 'https://picsum.photos/100/100?a=8', streak: 100, language: 'Hindi', timezone: 'Europe/Lisbon', isPro: true, proficiency: 'Advanced', goals: ['Mentorship', 'Culture'], persona: learnerPersonas[3].type },
+    { id: 'user-9', name: 'Liam', email: 'liam@example.com', avatarUrl: 'https://picsum.photos/100/100?a=9', streak: 1, language: 'Hindi', timezone: 'America/Los_Angeles', isPro: false, proficiency: 'Beginner', goals: ['Travel'], persona: learnerPersonas[0].type },
+    { id: 'user-10', name: 'Aarav', email: 'aarav@example.com', avatarUrl: 'https://picsum.photos/100/100?a=10', streak: 30, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Exams'], persona: learnerPersonas[1].type },
+];
+
 
 export const companionCircle: CompanionCircle = {
   id: 'circle-1',
   members: [
-    { id: 'user-1', name: 'Alex', avatarUrl: 'https://picsum.photos/100/100?a=1' },
-    { id: 'user-2', name: 'Priya', avatarUrl: 'https://picsum.photos/100/100?a=2' },
-    { id: 'user-3', name: 'Chen', avatarUrl: 'https://picsum.photos/100/100?a=3' },
-    { id: 'user-4', name: 'Maria', avatarUrl: 'https://picsum.photos/100/100?a=4' },
+    mockUser,
+    allUsers[1],
+    allUsers[2],
+    allUsers[3],
+    allUsers[4],
   ],
   leaderId: 'user-2',
 }

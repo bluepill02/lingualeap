@@ -8,6 +8,9 @@ export interface User {
   language: string;
   timezone: string;
   isPro: boolean;
+  proficiency: 'Beginner' | 'Intermediate' | 'Advanced';
+  goals: string[];
+  persona: string;
 }
 
 export interface Lesson {

@@ -1,4 +1,6 @@
 
+'use client';
+
 import Link from 'next/link';
 import {
   Card,
@@ -28,6 +30,7 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { getWeek } from 'date-fns';
 
 const stats = [
   {
@@ -232,6 +235,10 @@ function LearningAnalyticsCard() {
 }
 
 function CompanionCircleCard() {
+    const currentWeek = getWeek(new Date());
+    const leaderIndex = currentWeek % companionCircle.members.length;
+    const leader = companionCircle.members[leaderIndex];
+
     return (
         <Card className="bg-card/50">
             <CardHeader>
@@ -240,7 +247,7 @@ function CompanionCircleCard() {
                     Companion Circle
                 </CardTitle>
                 <CardDescription>
-                    Learn and grow with your peers.
+                    Learn and grow with your peers. This week's leader is {leader.name}.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -256,7 +263,7 @@ function CompanionCircleCard() {
                     {companionCircle.members.map((member) => (
                         <div key={member.id} className="flex items-center justify-between text-sm">
                             <span className="font-medium">{member.name}</span>
-                            {member.id === companionCircle.leaderId && (
+                            {member.id === leader.id && (
                                 <Badge variant="secondary" className="flex items-center gap-1">
                                     <Crown className="h-3 w-3 text-yellow-500" />
                                     Leader
