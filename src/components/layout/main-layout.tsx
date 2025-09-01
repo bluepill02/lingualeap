@@ -21,6 +21,7 @@ import {
   Settings,
   CreditCard,
   GraduationCap,
+  ClipboardCheck,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -54,6 +55,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/flashcards',
       label: 'Flashcards',
       icon: GraduationCap,
+    },
+    {
+      href: '/exam-prep',
+      label: 'Exam Module',
+      icon: ClipboardCheck,
     },
     {
       href: '/settings',

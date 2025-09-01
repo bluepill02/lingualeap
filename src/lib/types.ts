@@ -83,3 +83,37 @@ export interface FillInTheBlankQuiz extends BaseQuiz {
     type: 'fill-in-the-blank';
     answer: string;
 }
+
+// Exam Prep Types
+export interface VocabEntry {
+    word: string;
+    romanization: string;
+    definition: string;
+    partOfSpeech: string;
+    sentence: string;
+    sentenceRoman: string;
+    sentenceTranslation: string;
+}
+
+export interface ExamQuizQuestion {
+    question: string;
+    options?: string[];
+    answer: string;
+    type: 'multiple-choice' | 'fill-in-the-blank';
+}
+
+export interface ErrorAnalysisItem {
+    pitfall: string;
+    tip: string;
+}
+
+export interface ExamModule {
+    id: string;
+    title: string;
+    examName: string;
+    language: string;
+    category: string;
+    vocabulary: VocabEntry[];
+    quizzes: ExamQuizQuestion[];
+    errorAnalysis: ErrorAnalysisItem[];
+}
