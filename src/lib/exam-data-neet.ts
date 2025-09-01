@@ -19,7 +19,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'ஒளிவிலகல் (Olivillagal)',
             romanization: 'Olivillagal',
-            definition: 'The bending of a wave when it enters a medium where its speed is different (Refraction).',
+            definition: 'Refraction. This is the bending of light when it travels from one medium (ஊடகம்) to another (e.g., from air to water). This happens because the speed of light changes. Analogy: It\'s like a car moving from a smooth road onto a sandy patch; one wheel slows down first, causing the car to turn. This is why a pencil in a glass of water looks bent.',
             partOfSpeech: 'Noun',
             sentence: 'நீர் உள்ள குவளையில் உள்ள குச்சி வளைந்து காணப்படுவதற்கு ஒளிவிலகல் ஒரு காரணம்.',
             sentenceRoman: 'Neer ulla kuvalaiyil ulla kuchi valaindhu kaanappaduvatharku olivillagal oru kaaranam.',
@@ -28,7 +28,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'குவிலென்சு (Kuvilensu)',
             romanization: 'Kuvilensu',
-            definition: 'A lens that converges rays of light that are traveling parallel to its principal axis (Convex Lens).',
+            definition: 'Convex Lens. A lens that is thicker in the middle and converges (ஒருங்கிணைக்கிறது) parallel rays of light to a single focal point. Think of a magnifying glass focusing sunlight to a small, hot point. It is used to correct hypermetropia (தூரப்பார்வை).',
             partOfSpeech: 'Noun',
             sentence: 'தொலைநோக்கிகளில் பொருட்களை பெரிதாக்க குவிலென்சுகள் பயன்படுத்தப்படுகின்றன.',
             sentenceRoman: 'Tholainookkigalil porutkalai perithaakka kuvilensugal payanpaduthappadukinrana.',
@@ -37,7 +37,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'குழிலென்சு (Kulilensu)',
             romanization: 'Kulilensu',
-            definition: 'A lens that diverges a straight light beam from the source into a diminished, upright, virtual image (Concave Lens).',
+            definition: 'Concave Lens. A lens that is thinner in the middle and diverges (விரிக்கிறது) a straight beam of light. It spreads the light out. This is commonly used in spectacles to correct myopia (கிட்டப்பார்வை).',
             partOfSpeech: 'Noun',
             sentence: 'கிட்டப்பார்வை குறைபாட்டை சரிசெய்ய குழிலென்சு கொண்ட கண்ணாடிகள் உதவுகின்றன.',
             sentenceRoman: 'Kittapparvai kuraipaattai sariseyya kulilensu konda kannaadigal uthavukinrana.',
@@ -46,7 +46,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'கோளகப் பிறழ்ச்சி (Kolaga piralchi)',
             romanization: 'Kolaga piralchi',
-            definition: 'A distortion in an image formed by a lens or curved mirror, caused by the shape of the lens or mirror (Spherical Aberration).',
+            definition: 'Spherical Aberration. This is an imperfection or defect in lenses where light rays hitting the edge of the lens focus at a slightly different point than rays hitting the center. This causes the image to be blurry. It is a limitation of using spherical surfaces for lenses.',
             partOfSpeech: 'Noun',
             sentence: 'தரம் குறைந்த லென்சுகளில் கோளகப் பிறழ்ச்சி ஒரு பொதுவான সমস্যা ஆகும்.',
             sentenceRoman: 'Tharam kuraintha lensugalil kolaga piralchi oru pothuvaana pirachanai aagum.',
@@ -55,7 +55,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'அலைநீளம் (Alaineelam)',
             romanization: 'Alaineelam',
-            definition: 'The spatial period of a periodic wave – the distance over which the wave\'s shape repeats (Wavelength).',
+            definition: 'Wavelength (λ). The distance over which the wave\'s shape repeats. In the visible spectrum, red light has the longest wavelength, and violet light has the shortest. Longer wavelength means lower energy.',
             partOfSpeech: 'Noun',
             sentence: 'சிவப்பு நிறத்தின் அலைநீளம் ஊதா நிறத்தை விட அதிகம்.',
             sentenceRoman: 'Sivappu niraththin alaineelam oodhaa niraththai vida adhigam.',
@@ -64,7 +64,7 @@ export const neetPhysicsTamil: ExamModule = {
         {
             word: 'அதிர்வெண் (Athirven)',
             romanization: 'Athirven',
-            definition: 'The number of occurrences of a repeating event per unit of time (Frequency).',
+            definition: 'Frequency (f). The number of waves that pass a point in a given amount of time. Frequency is directly proportional to energy (E = hf). Violet light has a higher frequency and thus more energy than red light.',
             partOfSpeech: 'Noun',
             sentence: 'ஒளியின் ஆற்றல் அதன் அதிர்வெண்ணைப் பொறுத்தது.',
             sentenceRoman: 'Oliyin aatral adhan athirvennaip poruththathu.',
@@ -104,11 +104,11 @@ export const neetPhysicsTamil: ExamModule = {
     errorAnalysis: [
         {
             pitfall: 'Sign Convention in Lens Formula (லென்சு சூத்திரத்தில் குறியீட்டு மரபு)',
-            tip: 'TN government school students often get confused with sign conventions. Remember this rule: for a குவிலென்சு (convex lens), the focal length (f) is always positive. For a குழிலென்சு (concave lens), it is always negative. Always measure distances from the optical center. Real images have positive v, virtual images have negative v.'
+            tip: 'This is the most common place to lose marks. Remember this simple rule: For a குவிலென்சு (convex lens), focal length (f) is always positive. For a குழிலென்சு (concave lens), it is always negative. Always measure all distances from the optical center. Light direction is positive.'
         },
         {
             pitfall: 'Lens Maker\'s Formula Application (லென்சு உருவாக்குபவர் சூத்திரம்)',
-            tip: 'This is a high-yield formula for NEET. The key is to correctly identify the radii of curvature (R1 and R2). Remember the formula: 1/f = (n-1)(1/R1 - 1/R2). For a biconvex lens, R1 is positive and R2 is negative, which makes the (1/R1 - 1/R2) term positive. Practice this for different lens types.'
+            tip: 'This is a high-yield formula for NEET. The key is to correctly identify the signs of the radii of curvature (R1 and R2). Remember the formula: 1/f = (n-1)(1/R1 - 1/R2). For a biconvex lens (இருபுறமும் குவிந்த), R1 is positive and R2 is negative, making the (1/R1 - 1/R2) term positive. Practice this for different lens types.'
         }
     ]
 };

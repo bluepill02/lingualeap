@@ -19,7 +19,7 @@ export const neetChemistryTamil: ExamModule = {
         {
             word: 'வேதிப் பிணைப்பு (Vethi Pinaippu)',
             romanization: 'Vethi Pinaippu',
-            definition: 'An attraction between atoms, ions or molecules that enables the formation of chemical compounds (Chemical Bond).',
+            definition: 'Chemical Bond. The force of attraction that holds atoms together in a molecule or compound. Think of it as the "glue" that connects atoms. There are different types of glue, like சகப்பிணைப்பு (covalent) and அயனிப் பிணைப்பு (ionic).',
             partOfSpeech: 'Noun',
             sentence: 'அணுக்களுக்கு இடையிலான வேதிப் பிணைப்பு மூலக்கூறுகளை உருவாக்குகிறது.',
             sentenceRoman: 'Anukkalukku idaiyilana vethi pinaippu moolakkurugalai uruvaakkugirathu.',
@@ -28,7 +28,7 @@ export const neetChemistryTamil: ExamModule = {
         {
             word: 'சகப்பிணைப்பு (Sagapinaippu)',
             romanization: 'Sagapinaippu',
-            definition: 'A chemical bond that involves the sharing of electron pairs between atoms (Covalent Bond).',
+            definition: 'Covalent Bond. A bond formed when two atoms share electrons (எலக்ட்ரான் பகிர்வு). This is like two friends sharing their lunch. It typically occurs between two non-metals (அலோகங்கள்).',
             partOfSpeech: 'Noun',
             sentence: 'மீத்தேன் மூலக்கூறில் கார்பன் மற்றும் ஹைட்ரஜன் இடையே சகப்பிணைப்பு உள்ளது.',
             sentenceRoman: 'Meethen moolakkuril kaarban matrum haidrajan idaiye sagapinaippu ullathu.',
@@ -37,7 +37,7 @@ export const neetChemistryTamil: ExamModule = {
         {
             word: 'அயனிப் பிணைப்பு (Ayani Pinaippu)',
             romanization: 'Ayani Pinaippu',
-            definition: 'A type of chemical bond formed through an electrostatic attraction between two oppositely charged ions (Ionic Bond).',
+            definition: 'Ionic Bond. A bond formed by the complete transfer of one or more electrons from a metal (உலோகம்) to a non-metal (அலோகம்). This creates ions (அயனிகள்) with opposite charges that attract each other, like tiny magnets.',
             partOfSpeech: 'Noun',
             sentence: 'சோடியம் குளோரைடில் (NaCl) சோடியம் மற்றும் குளோரின் இடையே அயனிப் பிணைப்பு உருவாகிறது.',
             sentenceRoman: 'Sodium kloraidil sodiyam matrum kulorin idaiye ayani pinaippu uruvaagirathu.',
@@ -46,7 +46,7 @@ export const neetChemistryTamil: ExamModule = {
         {
             word: 'இனக்கலப்பு (Inakkalappu)',
             romanization: 'Inakkalappu',
-            definition: 'The concept of mixing atomic orbitals to form new hybrid orbitals suitable for the qualitative description of atomic bonding properties (Hybridization).',
+            definition: 'Hybridization. The concept of mixing atomic orbitals (அணு ஆர்பிட்டால்கள்) into new hybrid orbitals. This allows atoms to form more stable bonds and explains the observed molecular shapes. For example, carbon mixes one \'s\' and three \'p\' orbitals to form four identical \'sp3\' orbitals in methane.',
             partOfSpeech: 'Noun',
             sentence: 'மீத்தேனில் உள்ள கார்பன் அணு sp3 இனக்கலப்பில் உள்ளது.',
             sentenceRoman: 'Meethenil ulla kaarban anu sp3 inakkalappil ullathu.',
@@ -55,7 +55,7 @@ export const neetChemistryTamil: ExamModule = {
         {
             word: 'மூலக்கூறு வடிவியல் (Moolakkuru Vadiviyal)',
             romanization: 'Moolakkuru Vadiviyal',
-            definition: 'The three-dimensional arrangement of the atoms that constitute a molecule (Molecular Geometry).',
+            definition: 'Molecular Geometry. The 3D arrangement of atoms in a molecule. This shape is crucial as it determines many properties of the molecule. VSEPR theory helps us predict this shape (e.g., tetrahedral, linear).',
             partOfSpeech: 'Noun',
             sentence: 'VSEPR கொள்கை மூலக்கூறு வடிவியலை கணிக்க உதவுகிறது.',
             sentenceRoman: 'VSEPR kolgai moolakkuru vadiviyalai kanikka uthavugirathu.',
