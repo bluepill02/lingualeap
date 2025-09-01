@@ -36,6 +36,7 @@ import {
   FillInTheBlankQuiz,
   MicroLesson,
 } from '@/lib/types';
+import { ConfettiBurst } from '@/components/ui/confetti-burst';
 
 function VocabularyTable({
   vocabulary,
@@ -139,8 +140,11 @@ function QuizSection({ quizzes }: { quizzes: MicroLesson['quizzes'] }) {
         <CardTitle>Quiz</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
-        {quizzes.map((quiz, index) => (
-          <div key={index}>
+        {quizzes.map((quiz, index) => {
+          const isCorrect = submitted && answers[index]?.toLowerCase() === quiz.answer.toLowerCase();
+          return (
+          <div key={index} className="relative">
+            {isCorrect && <ConfettiBurst />}
             <p className="font-medium mb-2">{quiz.question}</p>
             {quiz.type === 'multiple-choice' ? (
               <div className="space-y-2">
@@ -188,7 +192,7 @@ function QuizSection({ quizzes }: { quizzes: MicroLesson['quizzes'] }) {
                 <p className="text-sm text-green-500 mt-1">Correct answer: {quiz.answer}</p>
             )}
           </div>
-        ))}
+        )})}
         {!submitted ? (
           <Button onClick={handleSubmit} disabled={answers.includes(null)}>
             Submit Answers
