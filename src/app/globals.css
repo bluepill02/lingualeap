@@ -48,6 +48,17 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 337 82% 51%; /* Brilliant Magenta */
   }
+
+  /* Holi Splash Theme */
+  .dark.theme-holi {
+    --primary: 326 100% 72%; /* Holi Pink */
+    --primary-foreground: 326 100% 10%;
+    --secondary: 217 91% 60%; /* Vibrant Blue */
+    --secondary-foreground: 217 91% 95%;
+    --accent: 31 92% 56%; /* Saffron Orange */
+    --accent-foreground: 31 92% 10%;
+    --ring: 326 100% 72%;
+  }
 }
 
 @layer base {
