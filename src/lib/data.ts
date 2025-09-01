@@ -529,7 +529,7 @@ export const allMicroLessons: MicroLesson[] = [
             { type: 'multiple-choice', question: 'What is the Maithili word for "Art"?', options: ['Sundar', 'Kala', 'Painting', 'Pranaam'], answer: 'Kala' },
             { type: 'fill-in-the-blank', question: 'To say "This is so beautiful", you can say "Ee ____ ____ achhi".', answer: 'ketek sundar' },
         ],
-        followUp: 'Appreciate a piece of Madhubani art by saying "Ee ketek sundar achhi".'
+        followUp: 'Appreciate a piece of Madhubani art by saying "Ee ketek sundar achhi."'
     },
     // Malayalam
     {
