@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -10,6 +11,11 @@ const examModules = [
     description: 'Generate a custom quiz on any topic instantly using AI. Perfect for hyper-personalized learning.',
     href: '/exam-prep/on-demand',
     isNew: true,
+  },
+  {
+    title: 'NEET: Physics (Tamil)',
+    description: 'Essential Physics concepts in Tamil for medical entrance exams.',
+    href: '/exam-prep/neet'
   },
   {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
