@@ -26,6 +26,11 @@ const examModules = [
     href: '/exam-prep/bpsc'
   },
   {
+    title: 'MPSC: Marathi Idioms & Phrases',
+    description: 'Master important Marathi idioms (वाक्प्रचार) and proverbs (म्हणी) for the MPSC Rajyaseva exam.',
+    href: '/exam-prep/mpsc'
+  },
+  {
     title: 'TNPSC: General Tamil Vocabulary',
     description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
     href: '/exam-prep/tnpsc'
