@@ -1,67 +1,152 @@
+'use client';
 
-'use server';
-/**
- * @fileOverview IELTS Exam Module Generator. This flow uses AI to generate a full exam prep module based on user specifications.
- *
- * - generateIeltsModule - A function to generate the IELTS module.
- * - GenerateIeltsModuleInput - The input type for the generateIeltsModule function.
- * - GenerateIeltsModuleOutput - The return type for the generateIeltsModule function.
- */
+import * as React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import {
+  SidebarProvider,
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarFooter,
+  SidebarInset,
+  SidebarTrigger,
+} from '@/components/ui/sidebar';
+import {
+  BookOpen,
+  Home,
+  Settings,
+  CreditCard,
+  GraduationCap,
+  ClipboardCheck,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { LinguaLeapLogo } from '@/components/icons';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { mockUser } from '@/lib/data';
+import { Separator } from '../ui/separator';
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+export default function MainLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
 
-const GenerateIeltsModuleInputSchema = z.object({
-  variant: z.enum(['Academic', 'General Training']).describe("The IELTS exam variant for which to generate the module."),
-});
-export type GenerateIeltsModuleInput = z.infer<typeof GenerateIeltsModuleInputSchema>;
+  const menuItems = [
+    {
+      href: '/dashboard',
+      label: 'Dashboard',
+      icon: Home,
+    },
+    {
+      href: '/lessons',
+      label: 'Lessons',
+      icon: BookOpen,
+    },
+    {
+      href: '/flashcards',
+      label: 'Flashcards',
+      icon: GraduationCap,
+    },
+    {
+      href: '/exam-prep',
+      label: 'Exam Module',
+      icon: ClipboardCheck,
+    },
+    {
+      href: '/settings',
+      label: 'Settings',
+      icon: Settings,
+    },
+  ];
 
-const GenerateIeltsModuleOutputSchema = z.object({
-    markdownContent: z.string().describe("The full IELTS module content in Markdown format.")
-});
-export type GenerateIeltsModuleOutput = z.infer<typeof GenerateIeltsModuleOutputSchema>;
+  return (
+    <SidebarProvider>
+      <Sidebar>
+        <SidebarHeader>
+          <div className="flex items-center gap-2">
+            <LinguaLeapLogo className="size-8 text-primary" />
+            <h1 className="text-xl font-bold font-headline text-primary">
+              LinguaLeap
+            </h1>
+          </div>
+        </SidebarHeader>
+        <SidebarContent>
+          <SidebarMenu>
+            {menuItems.map((item) => (
+              <SidebarMenuItem key={item.href}>
+                <Link href={item.href}>
+                  <SidebarMenuButton
+                    isActive={pathname === item.href}
+                    tooltip={item.label}
+                  >
+                    <item.icon />
+                    <span>{item.label}</span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarContent>
+        <SidebarFooter>
+          <Link href="/upgrade">
+            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+              <CreditCard className="mr-2" />
+              Upgrade to Pro
+            </Button>
+          </Link>
+        </SidebarFooter>
+      </Sidebar>
+      <SidebarInset>
+        <header className="flex h-16 items-center justify-between border-b bg-card px-6">
+          <SidebarTrigger />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                <Avatar>
+                  <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
+                  <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56" align="end" forceMount>
+              <DropdownMenuLabel className="font-normal">
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-medium leading-none font-headline">{mockUser.name}</p>
+                  <p className="text-xs leading-none text-muted-foreground">
+                    {mockUser.email}
+                  </p>
+                </div>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Log out</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </header>
 
-
-export async function generateIeltsModule(input: GenerateIeltsModuleInput): Promise<GenerateIeltsModuleOutput> {
-  return ieltsModuleGeneratorFlow(input);
+        <main className="flex-1 p-6 md:p-8">{children}</main>
+        
+        <footer className="mt-auto p-6 text-center text-xs text-muted-foreground">
+            <Separator className="my-4" />
+            <div className="flex items-center justify-center gap-4">
+                <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
+                <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
+            </div>
+            <p className="mt-2">© {new Date().getFullYear()} LinguaLeap. All rights reserved.</p>
+        </footer>
+      </SidebarInset>
+    </SidebarProvider>
+  );
 }
-
-const prompt = ai.definePrompt({
-  name: 'ieltsModulePrompt',
-  input: {schema: GenerateIeltsModuleInputSchema},
-  output: {schema: GenerateIeltsModuleOutputSchema},
-  prompt: `You are an expert English exam-prep content creator. Focus on the IELTS {{variant}} exam. Generate structured, exam-ready vocabulary modules in Markdown.
-
-For the IELTS {{variant}} exam, produce these modules:
-
-1. Synonyms & Antonyms (100 entries)
-2. One-Word Substitutions (80 entries)
-3. Idioms & Phrases (60 entries)
-4. Proverbs & Sayings (20 entries)
-5. Collocations & Common Usage (80 entries)
-6. Fill-in-the-Blank Bank (15 sentences)
-7. Sentence Correction Exercises (15 sentences)
-8. Quiz 1: 10 multiple-choice questions (Modules 1–3)
-9. Quiz 2: 10 fill-in-the-blank questions (Modules 5–6)
-
-Formatting Requirements:
-- Use Markdown tables for modules 1–5 with the requested columns.
-- Use numbered lists for modules 6–7 and for quizzes.
-- Group each module under its own "##" heading.
-- Add a horizontal divider ("---") between major sections for readability.
-
-Return the entire response as a single markdown string in the 'markdownContent' field.
-`,
-});
-
-const ieltsModuleGeneratorFlow = ai.defineFlow(
-  {
-    name: 'ieltsModuleGeneratorFlow',
-    inputSchema: GenerateIeltsModuleInputSchema,
-    outputSchema: GenerateIeltsModuleOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
-  }
-);
