@@ -39,7 +39,7 @@ export default function LessonsPage() {
               </div>
             </div>
             <CardFooter>
-              <Link href={`/lessons/${lesson.id}`} legacyBehavior passHref>
+              <Link href={`/lessons/${lesson.id}`}>
                 <Button className="w-full">Start Lesson</Button>
               </Link>
             </CardFooter>

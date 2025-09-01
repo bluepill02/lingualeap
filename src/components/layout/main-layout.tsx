@@ -41,7 +41,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   const menuItems = [
     {
-      href: '/',
+      href: '/dashboard',
       label: 'Dashboard',
       icon: Home,
     },
@@ -77,7 +77,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <SidebarMenu>
             {menuItems.map((item) => (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
+                <Link href={item.href}>
                   <SidebarMenuButton
                     isActive={pathname === item.href}
                     tooltip={item.label}
@@ -91,7 +91,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
-          <Link href="/upgrade" legacyBehavior passHref>
+          <Link href="/upgrade">
             <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
               <CreditCard className="mr-2" />
               Upgrade to Pro

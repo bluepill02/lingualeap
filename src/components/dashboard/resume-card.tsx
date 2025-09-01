@@ -32,7 +32,7 @@ export function ResumeCard() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Link href={`/lessons/${lastLesson.id}`} legacyBehavior passHref>
+          <Link href={`/lessons/${lastLesson.id}`}>
             <Button size="lg" className="w-full">
               <Play className="mr-2" />
               Continue Lesson

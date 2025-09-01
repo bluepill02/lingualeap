@@ -201,7 +201,7 @@ export default function LanguageSelectionPage() {
                   {lang.lessons > 0 ? `${lang.lessons} lesson decks available` : 'Coming Soon'}
                 </p>
               </div>
-              <Link href={lang.href} passHref>
+              <Link href={lang.href}>
                 <Button variant="outline" disabled={lang.lessons === 0}>Start Learning</Button>
               </Link>
             </CardContent>

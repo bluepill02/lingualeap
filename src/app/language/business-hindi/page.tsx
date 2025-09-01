@@ -61,7 +61,7 @@ export default function BusinessHindiPage() {
                                 <span>{lesson.duration}</span>
                             </div>
                         </div>
-                        <Link href={`/lessons/${lesson.id}`} passHref>
+                        <Link href={`/lessons/${lesson.id}`}>
                             <Button size="sm">
                                 <Play className="w-4 h-4 mr-2" />
                                 Start

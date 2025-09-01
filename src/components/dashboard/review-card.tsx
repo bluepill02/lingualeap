@@ -31,7 +31,7 @@ export function ReviewCard() {
         </div>
       </CardContent>
       <CardFooter>
-        <Link href="/flashcards" legacyBehavior passHref>
+        <Link href="/flashcards">
           <Button className="w-full">Start Review</Button>
         </Link>
       </CardFooter>

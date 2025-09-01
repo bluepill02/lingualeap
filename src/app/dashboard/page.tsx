@@ -97,7 +97,7 @@ function SmartStudyPlanCard() {
           <Lightbulb className="h-5 w-5 text-yellow-400" />
           <span>You've learned 0 words so far!</span>
         </div>
-        <Link href="/language-selection" passHref>
+        <Link href="/language-selection">
           <Button className="w-full" size="lg">
             Start Smart Session
           </Button>
