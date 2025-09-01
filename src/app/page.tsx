@@ -1,58 +1,63 @@
 'use client';
-import { Book, Headphones, Globe, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { LinguaLeapLogo } from '@/components/icons';
-
-const features = [
-  {
-    icon: Book,
-    name: 'Smart Cards',
-  },
-  {
-    icon: Headphones,
-    name: 'Audio Learning',
-  },
-  {
-    icon: Globe,
-    name: 'Real Situations',
-  },
-];
+import Image from 'next/image';
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 text-center text-foreground">
-      <div className="flex max-w-md flex-col items-center">
-        <div className="relative mb-4">
-          <Globe className="h-16 w-16 text-white" />
-          <Headphones className="absolute bottom-0 right-0 h-6 w-6 text-blue-400" />
+    <div className="flex min-h-screen flex-col">
+      <header className="container mx-auto flex items-center justify-between p-4">
+        <div className="flex items-center gap-2">
+          <LinguaLeapLogo className="size-8 text-primary" />
+          <h1 className="text-xl font-bold font-headline text-foreground">
+            LinguaLeap
+          </h1>
         </div>
-        <h1 className="text-5xl font-bold text-white">Bite-Size Lingo</h1>
-        <p className="mb-6 text-lg text-blue-300">Tutor</p>
-        <p className="mb-10 text-lg text-gray-300">
-          Master languages in just 2-3 minutes daily with AI-powered
-          flashcards, audio lessons, and smart spaced repetition.
-        </p>
+        <nav className="flex items-center gap-4">
+          <Button variant="ghost">Log In</Button>
+          <Link href="/dashboard">
+            <Button className="bg-primary hover:bg-primary/90">
+              Get Started Free
+            </Button>
+          </Link>
+        </nav>
+      </header>
 
-        <div className="mb-12 flex justify-center gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-center gap-2">
-              <feature.icon className="h-8 w-8 text-blue-300" />
-              <span className="text-white">{feature.name}</span>
+      <main className="flex-1">
+        <section className="relative flex items-center justify-center h-[calc(100vh-80px)] text-center">
+            <div className="absolute inset-0 z-0">
+                <Image 
+                    src="https://picsum.photos/1200/800"
+                    alt="Festive background"
+                    data-ai-hint="indian festival colors"
+                    fill
+                    className="object-cover opacity-20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
             </div>
-          ))}
-        </div>
 
-        <Link href="/dashboard" className="w-full">
-          <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700">
-            Get Started
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </Link>
-        <p className="mt-4 text-sm text-gray-400">
-          Free trial • Premium ₹99/month
-        </p>
-      </div>
+            <div className="container relative z-10 mx-auto flex flex-col items-center px-4">
+                <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl">
+                    Learn a Language, Live the Culture
+                </h1>
+                <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+                    Master Indian languages with bite-sized lessons that are as vibrant and diverse as India itself.
+                </p>
+                <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+                    <Link href="/dashboard">
+                        <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+                            Start Your Journey <ArrowRight className="ml-2" />
+                        </Button>
+                    </Link>
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                        Explore Courses
+                    </Button>
+                </div>
+            </div>
+        </section>
+      </main>
     </div>
   );
 }
