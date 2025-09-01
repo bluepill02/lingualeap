@@ -1,8 +1,9 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, Briefcase, Globe, Users } from 'lucide-react';
+import { ArrowLeft, Briefcase, Globe, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
 const languages = [
@@ -15,16 +16,37 @@ const languages = [
   },
   {
     icon: Globe,
-    title: 'Travel Spanish',
-    description: 'Essential Spanish for travelers',
-    lessons: 3,
+    title: 'Bengali',
+    description: 'Learn the sweet language of Bengal',
+    lessons: 0,
     href: '#',
   },
   {
     icon: Users,
-    title: 'Tech English',
-    description: 'Technical English for developers',
-    lessons: 3,
+    title: 'Marathi',
+    description: 'Start your journey into the language of Maharashtra',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Tamil',
+    description: 'Explore one of the world\'s oldest languages',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Globe,
+    title: 'Telugu',
+    description: 'Discover the "Italian of the East"',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Gujarati',
+    description: 'Learn the language of the vibrant state of Gujarat',
+    lessons: 0,
     href: '#',
   },
 ];
@@ -51,11 +73,11 @@ export default function LanguageSelectionPage() {
                 <h2 className="font-bold text-lg">{lang.title}</h2>
                 <p className="text-muted-foreground text-sm">{lang.description}</p>
                 <p className="text-muted-foreground text-xs mt-2">
-                  {lang.lessons} lesson decks available
+                  {lang.lessons > 0 ? `${lang.lessons} lesson decks available` : 'Coming Soon'}
                 </p>
               </div>
               <Link href={lang.href} passHref>
-                <Button variant="outline">Start Learning</Button>
+                <Button variant="outline" disabled={lang.lessons === 0}>Start Learning</Button>
               </Link>
             </CardContent>
           </Card>
@@ -65,7 +87,7 @@ export default function LanguageSelectionPage() {
             <Globe className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
             <h2 className="font-bold text-lg">More Languages Coming Soon</h2>
             <p className="text-muted-foreground text-sm">
-              French, German, Japanese, and more languages will be available soon
+              We are working on adding more Indian languages, and other languages from around the world.
             </p>
             <p className="text-muted-foreground text-xs mt-2">Stay tuned for updates!</p>
           </CardContent>
