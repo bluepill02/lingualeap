@@ -1,5 +1,4 @@
 
-
 import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass } from './types';
 import { learnerPersonas } from './personas';
 
