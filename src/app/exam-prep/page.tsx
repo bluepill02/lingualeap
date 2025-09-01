@@ -21,6 +21,11 @@ const examModules = [
     href: '/exam-prep/psc'
   },
   {
+    title: 'BPSC: Modern History Terminology',
+    description: 'Key historical terms and concepts in Hindi for the Bihar Public Service Commission exam.',
+    href: '/exam-prep/bpsc'
+  },
+  {
     title: 'TNPSC: General Tamil Vocabulary',
     description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
     href: '/exam-prep/tnpsc'
