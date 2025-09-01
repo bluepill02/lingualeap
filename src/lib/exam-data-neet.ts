@@ -3,95 +3,95 @@ import type { ExamModule } from './types';
 
 export const neetPhysicsTamil: ExamModule = {
     id: 'exam-neet-physics-tamil',
-    title: 'NEET: Physics (Tamil)',
+    title: 'NEET: Physics (Optics)',
     examName: 'NEET',
     language: 'Tamil',
     category: 'Physics',
     vocabulary: [
         {
-            word: 'விசை (Visai)',
-            romanization: 'Visai',
-            definition: 'An interaction that, when unopposed, will change the motion of an object (Force).',
+            word: 'ஒளிவிலகல் (Olivillagal)',
+            romanization: 'Olivillagal',
+            definition: 'The bending of a wave when it enters a medium where its speed is different (Refraction).',
             partOfSpeech: 'Noun',
-            sentence: 'பொருளின் மீது விசை செயல்படும்போது அதன் திசைவேகம் மாறும்.',
-            sentenceRoman: 'Porulin meethu visai seyalpadumpothu athan thisaivegam maarum.',
-            sentenceTranslation: 'When a force acts on an object, its velocity will change.'
+            sentence: 'நீர் உள்ள குவளையில் உள்ள குச்சி வளைந்து காணப்படுவதற்கு ஒளிவிலகல் ஒரு காரணம்.',
+            sentenceRoman: 'Neer ulla kuvalaiyil ulla kuchi valaindhu kaanappaduvatharku olivillagal oru kaaranam.',
+            sentenceTranslation: 'Refraction is a reason why a stick in a glass of water appears bent.'
         },
         {
-            word: 'ஆற்றல் (Aatral)',
-            romanization: 'Aatral',
-            definition: 'The capacity for doing work. It may exist in potential, kinetic, thermal, electrical, chemical, nuclear, or other various forms (Energy).',
+            word: 'குவிலென்சு (Kuvilensu)',
+            romanization: 'Kuvilensu',
+            definition: 'A lens that converges rays of light that are traveling parallel to its principal axis (Convex Lens).',
             partOfSpeech: 'Noun',
-            sentence: 'சூரியன் ஒரு மிகப்பெரிய ஆற்றல் மூலம் ஆகும்.',
-            sentenceRoman: 'Sooriyan oru migapperiya aatral moolam aagum.',
-            sentenceTranslation: 'The sun is a very large source of energy.'
+            sentence: 'தொலைநோக்கிகளில் பொருட்களை பெரிதாக்க குவிலென்சுகள் பயன்படுத்தப்படுகின்றன.',
+            sentenceRoman: 'Tholainookkigalil porutkalai perithaakka kuvilensugal payanpaduthappadukinrana.',
+            sentenceTranslation: 'Convex lenses are used in telescopes to magnify objects.'
         },
         {
-            word: 'மின்னோட்டம் (Minnotam)',
-            romanization: 'Minnotam',
-            definition: 'A flow of electric charge, especially one through a conductor (Electric Current).',
+            word: 'குழிலென்சு (Kulilensu)',
+            romanization: 'Kulilensu',
+            definition: 'A lens that diverges a straight light beam from the source into a diminished, upright, virtual image (Concave Lens).',
             partOfSpeech: 'Noun',
-            sentence: 'ஒரு கடத்தியில் உள்ள மின்னூட்டங்களின் இயக்கமே மின்னோட்டம் எனப்படும்.',
-            sentenceRoman: 'Oru kadathiyil ulla minnoottangalin iyakkame minnotam enappadum.',
-            sentenceTranslation: 'The movement of electric charges in a conductor is called electric current.'
+            sentence: 'கிட்டப்பார்வை குறைபாட்டை சரிசெய்ய குழிலென்சு கொண்ட கண்ணாடிகள் உதவுகின்றன.',
+            sentenceRoman: 'Kittapparvai kuraipaattai sariseyya kulilensu konda kannaadigal uthavukinrana.',
+            sentenceTranslation: 'Spectacles with concave lenses help to correct myopia (nearsightedness).'
         },
         {
-            word: 'அலை (Alai)',
-            romanization: 'Alai',
-            definition: 'A disturbance that transfers energy through matter or space, with little or no associated mass transport (Wave).',
+            word: 'அலைநீளம் (Alaineelam)',
+            romanization: 'Alaineelam',
+            definition: 'The spatial period of a periodic wave – the distance over which the wave\'s shape repeats (Wavelength).',
             partOfSpeech: 'Noun',
-            sentence: 'ஒளி மற்றும் ஒலி இரண்டும் அலை வடிவில் பயணிக்கின்றன.',
-            sentenceRoman: 'Oli matrum oli irandum alai vadivil payanikkinrana.',
-            sentenceTranslation: 'Both light and sound travel in the form of waves.'
+            sentence: 'சிவப்பு நிறத்தின் அலைநீளம் ஊதா நிறத்தை விட அதிகம்.',
+            sentenceRoman: 'Sivappu niraththin alaineelam oodhaa niraththai vida adhigam.',
+            sentenceTranslation: 'The wavelength of red light is greater than that of violet light.'
         },
         {
             word: 'அதிர்வெண் (Athirven)',
             romanization: 'Athirven',
             definition: 'The number of occurrences of a repeating event per unit of time (Frequency).',
             partOfSpeech: 'Noun',
-            sentence: 'வானொலி நிலையங்கள் வெவ்வேறு அதிர்வெண்களில் தங்கள் நிகழ்ச்சிகளை ஒலிபரப்புகின்றன.',
-            sentenceRoman: 'Vaanoli nilaiyangal vevveru athirvenkalil thangal nigalchigalai oliparappukinrana.',
-            sentenceTranslation: 'Radio stations broadcast their programs at different frequencies.'
+            sentence: 'ஒளியின் ஆற்றல் அதன் அதிர்வெண்ணைப் பொறுத்தது.',
+            sentenceRoman: 'Oliyin aatral adhan athirvennaip poruththathu.',
+            sentenceTranslation: 'The energy of light depends on its frequency.'
         }
     ],
     quizzes: [
         {
             type: 'multiple-choice',
-            question: 'What is the Tamil word for "Force"?',
-            options: ['ஆற்றல் (Aatral)', 'விசை (Visai)', 'அலை (Alai)', 'மின்னோட்டம் (Minnotam)'],
-            answer: 'விசை (Visai)'
+            question: 'What is the Tamil word for "Refraction"?',
+            options: ['ஒளி எதிரொளிப்பு (Oli edhirolippu)', 'ஒளிவிலகல் (Olivillagal)', 'முழு அக எதிரொளிப்பு (Muzhu aga edhirolippu)', 'ஒளிச்சிதறல் (Olichitharal)'],
+            answer: 'ஒளிவிலகல் (Olivillagal)'
         },
         {
             type: 'multiple-choice',
-            question: 'The flow of electric charge is known as:',
-            options: ['அதிர்வெண் (Athirven)', 'ஆற்றல் (Aatral)', 'மின்னோட்டம் (Minnotam)', 'விசை (Visai)'],
-            answer: 'மின்னோட்டம் (Minnotam)'
+            question: 'Which lens is used to correct myopia (nearsightedness)?',
+            options: ['குவிலென்சு (Kuvilensu)', 'குழிலென்சு (Kulilensu)', 'சமதள லென்சு (Samathala lensu)', 'உருளை லென்சு (Urulai lensu)'],
+            answer: 'குழிலென்சு (Kulilensu)'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'The number of waves passing a point in a certain time is called ____.',
-            answer: 'அதிர்வெண்'
+            question: 'The distance over which a wave\'s shape repeats is called ____.',
+            answer: 'அலைநீளம்'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'The capacity to do work is called ____.',
-            answer: 'ஆற்றல்'
+            question: 'A convex lens is known as a ____ in Tamil.',
+            answer: 'குவிலென்சு'
         },
         {
             type: 'multiple-choice',
-            question: 'What is the Tamil term for "Wave"?',
-            options: ['விசை (Visai)', 'அதிர்வெண் (Athirven)', 'ஆற்றல் (Aatral)', 'அலை (Alai)'],
-            answer: 'அலை (Alai)'
+            question: 'The energy of a photon is directly proportional to its:',
+            options: ['அலைநீளம் (Alaineelam)', 'வேகம் (Vegam)', 'அதிர்வெண் (Athirven)', 'பருமன் (Paruman)'],
+            answer: 'அதிர்வெண் (Athirven)'
         }
     ],
     errorAnalysis: [
         {
-            pitfall: 'Unit Conversion Errors',
-            tip: 'In NEET physics problems, a common mistake is forgetting to convert all units to the SI system (meters, kilograms, seconds) before calculation. For example, if distance is given in centimeters, always convert it to meters first.'
+            pitfall: 'Sign Convention in Lens Formula',
+            tip: 'TN government school students often get confused with sign conventions. Remember this rule: for a குவிலென்சு (convex lens), the focal length (குவியத்தூரம்) is always positive. For a குழிலென்சு (concave lens), it is always negative. Practice this with the lens formula: 1/f = 1/v - 1/u.'
         },
         {
-            pitfall: 'Sign Convention in Optics',
-            tip: 'Forgetting the correct sign conventions for lenses and mirrors (e.g., focal length for a convex lens is positive, for a concave lens is negative) is a frequent source of errors. Create a simple chart for sign conventions and review it before solving problems.'
+            pitfall: 'Confusing Refraction and Reflection',
+            tip: 'ஒளிவிலகல் (Refraction) is bending of light when it changes medium. ஒளி எதிரொளிப்பு (Reflection) is bouncing back of light. Remember விலகுதல் (vilaguthal) means to deviate, while எதிரொளி (edhiroli) means echo or reflection. This distinction is crucial for ray diagrams.'
         }
     ]
 };

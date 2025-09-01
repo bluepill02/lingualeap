@@ -1,5 +1,4 @@
 
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -13,9 +12,19 @@ const examModules = [
     isNew: true,
   },
   {
-    title: 'NEET: Physics (Tamil)',
+    title: 'NEET: Physics (Optics)',
     description: 'Essential Physics concepts in Tamil for medical entrance exams.',
     href: '/exam-prep/neet'
+  },
+  {
+    title: 'NEET: Chemistry (Chemical Bonding)',
+    description: 'Essential Chemistry concepts in Tamil for medical entrance exams.',
+    href: '/exam-prep/neet-chemistry'
+  },
+  {
+    title: 'NEET: Biology (Genetics)',
+    description: 'Essential Biology concepts in Tamil for medical entrance exams.',
+    href: '/exam-prep/neet-biology'
   },
   {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
