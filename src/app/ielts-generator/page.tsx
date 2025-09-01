@@ -35,7 +35,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
-import { Separator } from '../ui/separator';
+import { Separator } from '@/components/ui/separator';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
