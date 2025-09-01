@@ -1,0 +1,136 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+import { flashcards } from '@/lib/data';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+import { Volume2, Mic, Play, RotateCw } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+
+export default function FlashcardsPage() {
+  const [dueCards, setDueCards] = useState(
+    flashcards.filter((fc) => new Date(fc.nextDue) <= new Date())
+  );
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  if (dueCards.length === 0) {
+    return (
+      <div className="text-center">
+        <h1 className="text-3xl font-bold font-headline">All Caught Up!</h1>
+        <p className="text-muted-foreground mt-2">
+          You have no flashcards due for review. Come back later!
+        </p>
+      </div>
+    );
+  }
+
+  const currentFlashcard = dueCards[currentIndex];
+  const progress = ((currentIndex + 1) / dueCards.length) * 100;
+
+  const handleRating = (rating: 'forgot' | 'hard' | 'good' | 'easy') => {
+    console.log(`Rated ${currentFlashcard.id} as ${rating}`);
+    // Here you would implement FSRS logic to update card properties
+    // For now, we'll just move to the next card
+    if (currentIndex < dueCards.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setIsFlipped(false);
+    } else {
+      // End of review session
+      setDueCards([]);
+    }
+  };
+
+  return (
+    <div className="mx-auto max-w-2xl">
+      <h1 className="mb-4 text-center text-3xl font-bold font-headline">Flashcard Review</h1>
+      <Progress value={progress} className="mb-6 h-3" />
+      
+      <Card
+        className="relative min-h-[450px] cursor-pointer perspective-[1000px]"
+        onClick={() => setIsFlipped(!isFlipped)}
+      >
+        <div
+          className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
+            isFlipped ? 'rotate-y-180' : ''
+          }`}
+        >
+          {/* Front of Card */}
+          <div className="absolute w-full h-full backface-hidden flex flex-col">
+            <CardHeader className="text-center">
+              <p className="text-lg text-muted-foreground">Translate this word</p>
+            </CardHeader>
+            <CardContent className="flex flex-1 flex-col items-center justify-center">
+              <h2 className="text-6xl font-bold font-headline">
+                {currentFlashcard.word}
+              </h2>
+            </CardContent>
+            <CardFooter className="justify-center">
+                <Button variant="ghost" className="text-muted-foreground" onClick={(e) => { e.stopPropagation(); setIsFlipped(true); }}>
+                    <RotateCw className="mr-2 h-4 w-4" /> Flip card
+                </Button>
+            </CardFooter>
+          </div>
+
+          {/* Back of Card */}
+          <div className="absolute w-full h-full backface-hidden rotate-y-180 flex flex-col">
+            <CardContent className="p-6 flex-1 flex flex-col items-center justify-center text-center">
+              <h2 className="text-5xl font-bold font-headline">{currentFlashcard.translation}</h2>
+              <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.phonetic}</p>
+              
+              <Separator className="my-6 w-1/2" />
+              
+              <div className="flex items-center justify-center gap-2">
+                <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
+                    <Volume2 />
+                </Button>
+                <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
+                    <Mic />
+                </Button>
+                <Button size="icon" variant="ghost" disabled onClick={(e) => e.stopPropagation()}>
+                    <Play />
+                </Button>
+              </div>
+              <Image src={currentFlashcard.imageUrl} alt={currentFlashcard.translation} data-ai-hint="language illustration" width={150} height={100} className="mt-6 rounded-lg" />
+            </CardContent>
+          </div>
+        </div>
+      </Card>
+
+      {isFlipped && (
+        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 animate-in fade-in">
+          <Button
+            variant="destructive"
+            className="py-6 text-base"
+            onClick={() => handleRating('forgot')}
+          >
+            Forgot
+          </Button>
+          <Button
+            variant="outline"
+            className="py-6 text-base text-orange-500 border-orange-500 hover:bg-orange-500/10 hover:text-orange-600"
+            onClick={() => handleRating('hard')}
+          >
+            Hard
+          </Button>
+          <Button
+            variant="outline"
+            className="py-6 text-base text-primary border-primary hover:bg-primary/10 hover:text-primary"
+            onClick={() => handleRating('good')}
+          >
+            Good
+          </Button>
+          <Button
+            variant="outline"
+            className="py-6 text-base text-green-500 border-green-500 hover:bg-green-500/10 hover:text-green-600"
+            onClick={() => handleRating('easy')}
+          >
+            Easy
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+}
