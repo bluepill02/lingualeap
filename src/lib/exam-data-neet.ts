@@ -36,6 +36,15 @@ export const neetPhysicsTamil: ExamModule = {
             sentenceTranslation: 'Spectacles with concave lenses help to correct myopia (nearsightedness).'
         },
         {
+            word: 'கோளகப் பிறழ்ச்சி (Kolaga piralchi)',
+            romanization: 'Kolaga piralchi',
+            definition: 'A distortion in an image formed by a lens or curved mirror, caused by the shape of the lens or mirror (Spherical Aberration).',
+            partOfSpeech: 'Noun',
+            sentence: 'தரம் குறைந்த லென்சுகளில் கோளகப் பிறழ்ச்சி ஒரு பொதுவான সমস্যা ஆகும்.',
+            sentenceRoman: 'Tharam kuraintha lensugalil kolaga piralchi oru pothuvaana pirachanai aagum.',
+            sentenceTranslation: 'Spherical aberration is a common problem in low-quality lenses.'
+        },
+        {
             word: 'அலைநீளம் (Alaineelam)',
             romanization: 'Alaineelam',
             definition: 'The spatial period of a periodic wave – the distance over which the wave\'s shape repeats (Wavelength).',
@@ -74,8 +83,8 @@ export const neetPhysicsTamil: ExamModule = {
         },
         {
             type: 'fill-in-the-blank',
-            question: 'A convex lens is known as a ____ in Tamil.',
-            answer: 'குவிலென்சு'
+            question: 'Image distortion in a lens due to its shape is called ____.',
+            answer: 'கோளகப் பிறழ்ச்சி'
         },
         {
             type: 'multiple-choice',
@@ -86,12 +95,12 @@ export const neetPhysicsTamil: ExamModule = {
     ],
     errorAnalysis: [
         {
-            pitfall: 'Sign Convention in Lens Formula',
-            tip: 'TN government school students often get confused with sign conventions. Remember this rule: for a குவிலென்சு (convex lens), the focal length (குவியத்தூரம்) is always positive. For a குழிலென்சு (concave lens), it is always negative. Practice this with the lens formula: 1/f = 1/v - 1/u.'
+            pitfall: 'Sign Convention in Lens Formula (லென்சு சூத்திரத்தில் குறியீட்டு மரபு)',
+            tip: 'TN government school students often get confused with sign conventions. Remember this rule: for a குவிலென்சு (convex lens), the focal length (f) is always positive. For a குழிலென்சு (concave lens), it is always negative. Always measure distances from the optical center. Real images have positive v, virtual images have negative v.'
         },
         {
-            pitfall: 'Confusing Refraction and Reflection',
-            tip: 'ஒளிவிலகல் (Refraction) is bending of light when it changes medium. ஒளி எதிரொளிப்பு (Reflection) is bouncing back of light. Remember விலகுதல் (vilaguthal) means to deviate, while எதிரொளி (edhiroli) means echo or reflection. This distinction is crucial for ray diagrams.'
+            pitfall: 'Lens Maker\'s Formula Application (லென்சு உருவாக்குபவர் சூத்திரம்)',
+            tip: 'This is a high-yield formula for NEET. The key is to correctly identify the radii of curvature (R1 and R2). Remember the formula: 1/f = (n-1)(1/R1 - 1/R2). For a biconvex lens, R1 is positive and R2 is negative, which makes the (1/R1 - 1/R2) term positive. Practice this for different lens types.'
         }
     ]
 };

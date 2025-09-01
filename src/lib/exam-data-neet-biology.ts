@@ -18,15 +18,6 @@ export const neetBiologyTamil: ExamModule = {
             sentenceTranslation: 'Gregor Mendel is called the father of modern genetics.'
         },
         {
-            word: 'குரோமோசோம் (Kuromosom)',
-            romanization: 'Kuromosom',
-            definition: 'A thread-like structure of nucleic acids and protein found in the nucleus of most living cells, carrying genetic information in the form of genes (Chromosome).',
-            partOfSpeech: 'Noun',
-            sentence: 'மனித செல்களில் 23 ஜோடி குரோமோசோம்கள் உள்ளன.',
-            sentenceRoman: 'Manitha selgalil 23 jodi kuromosomgal ullana.',
-            sentenceTranslation: 'There are 23 pairs of chromosomes in human cells.'
-        },
-        {
             word: 'மரபணு (Marabanu)',
             romanization: 'Marabanu',
             definition: 'A unit of heredity which is transferred from a parent to offspring and is held to determine some characteristic of the offspring (Gene).',
@@ -36,9 +27,27 @@ export const neetBiologyTamil: ExamModule = {
             sentenceTranslation: 'Eye color is determined by a specific gene.'
         },
         {
+            word: 'அல்லீல் (Alleel)',
+            romanization: 'Alleel',
+            definition: 'One of two or more alternative forms of a gene that arise by mutation and are found at the same place on a chromosome (Allele).',
+            partOfSpeech: 'Noun',
+            sentence: 'ஒரு மரபணுவின் வெவ்வேறு வடிவங்கள் அல்லீல்கள் எனப்படும்.',
+            sentenceRoman: 'Oru marabanuvin vevveru vadivangal alleelgal enappadum.',
+            sentenceTranslation: 'Different forms of a gene are called alleles.'
+        },
+        {
+            word: 'புறத்தோற்றம் (Puraththotram)',
+            romanization: 'Puraththotram',
+            definition: 'The set of observable characteristics of an individual resulting from the interaction of its genotype with the environment (Phenotype).',
+            partOfSpeech: 'Noun',
+            sentence: 'மரபுக்கூறு மற்றும் சுற்றுச்சூழல் காரணிகளால் ஒரு உயிரினத்தின் புறத்தோற்றம் தீர்மானிக்கப்படுகிறது.',
+            sentenceRoman: 'Marabukkooru matrum sutruchulal kaaranigalal oru uyirinaththin puraththotram theermaanikkappadugirathu.',
+            sentenceTranslation: 'An organism\'s phenotype is determined by genotype and environmental factors.'
+        },
+        {
             word: 'மைட்டாசிஸ் (Maittasis)',
             romanization: 'Maittasis',
-            definition: 'A type of cell division that results in two daughter cells each having the same number and kind of chromosomes as the parent nucleus, typical of ordinary tissue growth (Mitosis).',
+            definition: 'A type of cell division that results in two daughter cells each having the same number and kind of chromosomes as the parent nucleus (Mitosis).',
             partOfSpeech: 'Noun',
             sentence: 'உடல் வளர்ச்சி மற்றும் பழுதுபார்த்தலுக்கு மைட்டாசிஸ் அவசியம்.',
             sentenceRoman: 'Udal valarchi matrum paluthupaarthalukku maittasis avasiyam.',
@@ -69,29 +78,29 @@ export const neetBiologyTamil: ExamModule = {
         },
         {
             type: 'fill-in-the-blank',
-            question: 'The study of genes and heredity is called ____.',
-            answer: 'மரபியல்'
+            question: 'The set of observable characteristics of an individual is called ____.',
+            answer: 'புறத்தோற்றம்'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'Cell division for tissue growth is known as ____.',
-            answer: 'மைட்டாசிஸ்'
+            question: 'Alternative forms of a gene are known as ____.',
+            answer: 'அல்லீல்'
         },
         {
             type: 'multiple-choice',
-            question: 'How many pairs of chromosomes are in a typical human cell?',
-            options: ['22', '23', '46', '48'],
-            answer: '23'
+            question: 'Cell division for body growth is called:',
+            options: ['மியாசிஸ் (Miyasis)', 'இணைவு (Inaivu)', 'குன்றல் பகுப்பு (Kundral paguppu)', 'மைட்டாசிஸ் (Maittasis)'],
+            answer: 'மைட்டாசிஸ் (Maittasis)'
         }
     ],
     errorAnalysis: [
         {
-            pitfall: 'Confusing Mitosis and Meiosis Stages',
-            tip: 'TN students should use mnemonics. For Mitosis, remember "PMAT" (Prophase, Metaphase, Anaphase, Telophase). For Meiosis, it\'s "PMAT twice" (PMAT I and PMat II). The key difference is that homologous chromosomes pair up in Prophase I of Meiosis, which does not happen in Mitosis.'
+            pitfall: 'Confusing Mitosis and Meiosis Stages (மைட்டாசிஸ் மற்றும் மியாசிஸ் நிலைகள்)',
+            tip: 'Use mnemonics. For Mitosis, remember "PMAT" (Prophase, Metaphase, Anaphase, Telophase) - இதை "பூ மேல ஆணி தைத்தது" (Poo Mela Aani Thaithathu) என்று ஞாபகம் வைக்கலாம். For Meiosis, it\'s "PMAT twice". The key difference is that homologous chromosomes pair up (crossing-over) in Prophase I of Meiosis, which is a major source of genetic variation.'
         },
         {
-            pitfall: 'Misunderstanding Dominant and Recessive Alleles',
-            tip: 'ஓங்கு பண்பு (Dominant) allele will express itself even if only one copy is present (e.g., Tt). ஒடுங்கு பண்பு (Recessive) allele needs two copies to be expressed (e.g., tt). Drawing Punnett squares is the best way to solve genetics problems in NEET, so practice it well.'
+            pitfall: 'Codominance vs Incomplete Dominance (இணை ஓங்குதன்மை மற்றும் முழுமையற்ற ஓங்குதன்மை)',
+            tip: 'This is a very common confusion point. For codominance (இணை ஓங்குதன்மை), both alleles express themselves fully, like AB blood group. Think of it like a red flower and a white flower having patches of red and white. For incomplete dominance (முழுமையற்ற ஓங்குதன்மை), they blend, creating a new phenotype. A red and white flower producing a pink flower is the classic example.'
         }
     ]
 };

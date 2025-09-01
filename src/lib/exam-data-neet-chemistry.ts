@@ -36,22 +36,22 @@ export const neetChemistryTamil: ExamModule = {
             sentenceTranslation: 'An ionic bond is formed between sodium and chlorine in sodium chloride (NaCl).'
         },
         {
-            word: 'வினைவேகமாற்றி (Vinaivegamaatri)',
-            romanization: 'Vinaivegamaatri',
-            definition: 'A substance that increases the rate of a chemical reaction without itself undergoing any permanent chemical change (Catalyst).',
+            word: 'இனக்கலப்பு (Inakkalappu)',
+            romanization: 'Inakkalappu',
+            definition: 'The concept of mixing atomic orbitals to form new hybrid orbitals suitable for the qualitative description of atomic bonding properties (Hybridization).',
             partOfSpeech: 'Noun',
-            sentence: 'பல தொழில்துறை செயல்முறைகளில் வினைவேகமாற்றிகள் முக்கிய பங்கு வகிக்கின்றன.',
-            sentenceRoman: 'Pala thozhilthurai seyalmuraigalil vinaivegamaatrigal mukkiya pangu vagikkinrana.',
-            sentenceTranslation: 'Catalysts play an important role in many industrial processes.'
+            sentence: 'மீத்தேனில் உள்ள கார்பன் அணு sp3 இனக்கலப்பில் உள்ளது.',
+            sentenceRoman: 'Meethenil ulla kaarban anu sp3 inakkalappil ullathu.',
+            sentenceTranslation: 'The carbon atom in methane is in sp3 hybridization.'
         },
         {
-            word: 'வெப்பங்கொள் வினை (Veppangol Vinai)',
-            romanization: 'Veppangol Vinai',
-            definition: 'A reaction in which the system absorbs energy from its surroundings, usually in the form of heat (Endothermic Reaction).',
+            word: 'மூலக்கூறு வடிவியல் (Moolakkuru Vadiviyal)',
+            romanization: 'Moolakkuru Vadiviyal',
+            definition: 'The three-dimensional arrangement of the atoms that constitute a molecule (Molecular Geometry).',
             partOfSpeech: 'Noun',
-sentence: 'பனிக்கட்டி உருகுதல் ஒரு வெப்பங்கொள் வினை ஆகும்.',
-            sentenceRoman: 'Panikkatti uruguthal oru veppangol vinai aagum.',
-            sentenceTranslation: 'Melting of ice is an endothermic reaction.'
+            sentence: 'VSEPR கொள்கை மூலக்கூறு வடிவியலை கணிக்க உதவுகிறது.',
+            sentenceRoman: 'VSEPR kolgai moolakkuru vadiviyalai kanikka uthavugirathu.',
+            sentenceTranslation: 'VSEPR theory helps to predict molecular geometry.'
         }
     ],
     quizzes: [
@@ -63,14 +63,14 @@ sentence: 'பனிக்கட்டி உருகுதல் ஒரு வ
         },
         {
             type: 'multiple-choice',
-            question: 'Which of the following is an example of an Endothermic Reaction?',
-            options: ['Combustion', 'Neutralization', 'Melting of ice', 'Respiration'],
-            answer: 'Melting of ice'
+            question: 'What concept describes the mixing of atomic orbitals to form new orbitals for bonding?',
+            options: ['மூலக்கூறு வடிவியல் (Moolakkuru Vadiviyal)', 'வேதிப் பிணைப்பு (Vethi Pinaippu)', 'அயனியாக்கம் (Ayaniyakkam)', 'இனக்கலப்பு (Inakkalappu)'],
+            answer: 'இனக்கலப்பு (Inakkalappu)'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'A substance that speeds up a reaction is called a ____.',
-            answer: 'வினைவேகமாற்றி'
+            question: 'VSEPR theory is used to predict ____ ____.',
+            answer: 'மூலக்கூறு வடிவியல்'
         },
         {
             type: 'fill-in-the-blank',
@@ -79,19 +79,19 @@ sentence: 'பனிக்கட்டி உருகுதல் ஒரு வ
         },
         {
             type: 'multiple-choice',
-            question: 'What is the Tamil term for "Chemical Bond"?',
-            options: ['அணு அமைப்பு (Anu amaippu)', 'வேதி வினை (Vethi vinai)', 'வேதிப் பிணைப்பு (Vethi Pinaippu)', 'மூலக்கூறு (Moolakkuru)'],
-            answer: 'வேதிப் பிணைப்பு (Vethi Pinaippu)'
+            question: 'What is the hybridization of the carbon atom in methane?',
+            options: ['sp', 'sp2', 'sp3', 'dsp2'],
+            answer: 'sp3'
         }
     ],
     errorAnalysis: [
         {
             pitfall: 'Hybridization Confusion (இனக்கலப்பு)',
-            tip: 'For NEET, predicting the hybridization (sp, sp2, sp3) is key. A simple trick for TN students is to count the number of sigma bonds + lone pairs around the central atom. 2 means sp, 3 means sp2, 4 means sp3. Don\'t forget to count the lone pairs!'
+            tip: 'For NEET, predicting the hybridization (sp, sp2, sp3) is key. A simple trick for TN students is to count the number of sigma (σ) bonds + lone pairs around the central atom. 2 means sp, 3 means sp2, 4 means sp3. Don\'t forget to count the lone pairs! This is a guaranteed question.'
         },
         {
             pitfall: 'Misidentifying Bond Types',
-            tip: 'Remember this rule: an அயனிப் பிணைப்பு (Ionic Bond) usually forms between a metal (உலோகம்) and a non-metal (அலோகம்). A சகப்பிணைப்பு (Covalent Bond) forms between two non-metals. Identifying the elements in the compound is the first step.'
+            tip: 'Remember this rule of thumb: an அயனிப் பிணைப்பு (Ionic Bond) usually forms between a metal (உலோகம்) and a non-metal (அலோகம்), due to large electronegativity difference. A சகப்பிணைப்பு (Covalent Bond) forms between two non-metals. Identifying the elements in the compound is the first step.'
         }
     ]
 };
