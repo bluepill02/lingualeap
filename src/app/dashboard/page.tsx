@@ -17,14 +17,13 @@ import {
   Target,
   Clock,
   Settings,
-  LogOut,
   Lightbulb,
   Sparkles,
   Play,
   TrendingUp,
   CalendarDays,
   Users,
-  Crown
+  Crown,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -87,7 +86,7 @@ function SmartStudyPlanCard() {
           Smart Study Plan
         </CardTitle>
         <CardDescription>
-          Personalized recommendations based on your progress
+          Your AI-powered path to mastering {mockUser.language}.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -103,7 +102,7 @@ function SmartStudyPlanCard() {
         </div>
         <div className="bg-primary/10 text-primary-foreground p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
           <Lightbulb className="h-5 w-5 text-accent" />
-          <span>You've learned 0 words so far!</span>
+          <span>You've learned 0 words so far! Keep going to unlock personalized insights.</span>
         </div>
         <Link href="/language-selection">
           <Button className="w-full" size="lg">
@@ -140,9 +139,11 @@ function ContinueLearningCard() {
             <p className="text-sm text-muted-foreground">Minutes</p>
           </div>
         </div>
-        <Button className="w-full mt-6" size="lg">
-          Start New Lesson
-        </Button>
+        <Link href="/lessons">
+            <Button className="w-full mt-6" size="lg">
+            Start New Lesson
+            </Button>
+        </Link>
       </CardContent>
     </Card>
   );
@@ -163,7 +164,7 @@ function LearningAnalyticsCard() {
             <h3 className="text-sm font-medium">Vocabulary Progress</h3>
             <span className="text-sm text-muted-foreground">0 / 4 mastered</span>
           </div>
-          <Progress value={25} className="h-2" />
+          <Progress value={0} className="h-2" />
           <div className="flex justify-between text-xs text-muted-foreground mt-2">
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-secondary"></span>
@@ -223,7 +224,7 @@ function LearningAnalyticsCard() {
             </TabsList>
             <TabsContent value="recently">
                 <div className="text-center p-4">
-                     <p className="text-2xl font-bold">75%</p>
+                     <p className="text-2xl font-bold">0%</p>
                      <p className="text-sm text-muted-foreground">Recent Accuracy</p>
                 </div>
             </TabsContent>
@@ -289,12 +290,11 @@ export default function DashboardPage() {
             Good afternoon, {mockUser.name}!
           </h1>
           <div className="flex gap-2">
-            <Button variant="ghost" size="icon">
-              <Settings className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <LogOut className="h-5 w-5" />
-            </Button>
+             <Link href="/settings">
+              <Button variant="ghost" size="icon">
+                <Settings className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -320,3 +320,6 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+
+    
