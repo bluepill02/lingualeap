@@ -1,4 +1,3 @@
-
 import type { ExamModule } from './types';
 
 export const mpscMarathiIdioms: ExamModule = {
@@ -22,7 +21,7 @@ export const mpscMarathiIdioms: ExamModule = {
             romanization: 'Potat gola yene',
             definition: 'To feel very scared or anxious.',
             partOfSpeech: 'Idiom',
-            sentence: 'परीक्षेच्या निकालाची वाट पाहताना माझ्या पोटात गोळा आला होता.',
+            sentence: 'परीक्षेच्या निकालाची वाट पाहताना माझ्या पोटात गोळा आला होता।',
             sentenceRoman: 'Parikshechya nikalachi vaat pahtana majhya potat gola aala hota.',
             sentenceTranslation: 'I felt very anxious while waiting for the exam results.'
         },
@@ -40,7 +39,7 @@ export const mpscMarathiIdioms: ExamModule = {
             romanization: 'Tondat bot ghalne',
             definition: 'To be astonished or amazed.',
             partOfSpeech: 'Idiom',
-            sentence: 'त्याची कलाकारी पाहून सर्वांनी तोंडात बोट घातली.',
+            sentence: 'त्याची कलाकारी पाहून सर्वांनी तोंडात बोट घातली।',
             sentenceRoman: 'Tyachi kalakari pahun sarvanni tondat bot ghatli.',
             sentenceTranslation: 'Everyone was amazed to see his artistry.'
         },

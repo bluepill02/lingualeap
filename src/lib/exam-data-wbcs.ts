@@ -1,4 +1,3 @@
-
 import type { ExamModule } from './types';
 
 export const wbcsBengaliSynonymsAntonyms: ExamModule = {

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -168,7 +167,7 @@ export default function UpscExamPrepPage() {
         <CardHeader>
             <CardTitle className="flex items-center gap-2"><AlertTriangle className="text-yellow-500" />Error Analysis</CardTitle>
             <CardDescription>Common pitfalls and tips to avoid them.</CardDescription>
-        </Header>
+        </CardHeader>
         <CardContent className="space-y-4">
             {module.errorAnalysis.map((item, index) => (
                 <div key={index} className="p-4 border-l-4 border-yellow-500 bg-yellow-500/10 rounded-r-md">
