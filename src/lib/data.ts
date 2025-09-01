@@ -192,103 +192,55 @@ export const businessHindiLessonDecks: LessonDeck[] = [
 ];
 
 export const allLessonDecks: LessonDeck[] = [
-  {
-    id: 'deck-hindi-1',
-    title: 'Delhi Market Bargaining',
-    description: 'Learn to haggle like a local!',
-    lessons: [
-      { id: 'lesson-hindi-1', title: 'Buying Souvenirs', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-bengali-1',
-    title: 'Kolkata Sweet Shop',
-    description: 'Order famous Bengali sweets.',
-    lessons: [
-      { id: 'lesson-bengali-1', title: 'Ordering Mishti', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-telugu-1',
-    title: 'Hyderabad Biryani House',
-    description: 'Savoring the famous Hyderabadi biryani.',
-    lessons: [
-      { id: 'lesson-telugu-1', title: 'Ordering Biryani', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-marathi-1',
-    title: 'Mumbai Local Train',
-    description: 'Navigating the bustling local trains.',
-    lessons: [
-      { id: 'lesson-marathi-1', title: 'Asking for Directions', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-tamil-1',
-    title: 'Chennai Silk Saree Shopping',
-    description: 'Experience traditional shopping.',
-    lessons: [
-      { id: 'lesson-tamil-1', title: 'Buying a Saree', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-gujarati-1',
-    title: 'Ahmedabad Kite Festival',
-    description: 'Enjoy the vibrant Uttarayan festival.',
-    lessons: [
-      { id: 'lesson-gujarati-1', title: 'Flying Kites', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-urdu-1',
-    title: 'Lucknow Poetry Gathering',
-    description: 'Immerse in the world of Shayari.',
-    lessons: [
-      { id: 'lesson-urdu-1', title: 'Appreciating Poetry', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-kannada-1',
-    title: 'Bengaluru Tech Park Cafe',
-    description: 'Conversations in a modern cafe.',
-    lessons: [
-      { id: 'lesson-kannada-1', title: 'Tech Talk over Coffee', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-malayalam-1',
-    title: 'Kerala Backwaters Houseboat',
-    description: 'Relaxing on the serene backwaters.',
-    lessons: [
-      { id: 'lesson-malayalam-1', title: 'Talking to the Boatman', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-odia-1',
-    title: 'Puri Beach Handicrafts',
-    description: 'Buying local crafts by the sea.',
-    lessons: [
-      { id: 'lesson-odia-1', title: 'Shopping for Handicrafts', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-punjabi-1',
-    title: 'Amritsar Langar Seva',
-    description: 'Volunteering at the Golden Temple.',
-    lessons: [
-      { id: 'lesson-punjabi-1', title: 'Serving at Langar', duration: '2-3 min' },
-    ],
-  },
-  {
-    id: 'deck-assamese-1',
-    title: 'Guwahati Bihu Festival',
-    description: 'Celebrating the Assamese New Year.',
-    lessons: [
-      { id: 'lesson-assamese-1', title: 'Enjoying Bihu', duration: '2-3 min' },
-    ],
-  },
-    // Adding stubs for the rest
+  // Hindi
+  { id: 'deck-hindi-1', title: 'Delhi Market Bargaining', description: 'Learn to haggle like a local!', lessons: [{ id: 'lesson-hindi-1', title: 'Buying Souvenirs', duration: '2-3 min' }]},
+  { id: 'deck-hindi-2', title: 'Giving a Rickshaw Driver Directions', description: 'Navigate the city with confidence.', lessons: [{ id: 'lesson-hindi-2', title: 'From Connaught Place to India Gate', duration: '3-4 min' }]},
+  
+  // Bengali
+  { id: 'deck-bengali-1', title: 'Kolkata Sweet Shop', description: 'Order famous Bengali sweets.', lessons: [{ id: 'lesson-bengali-1', title: 'Ordering Mishti', duration: '2-3 min' }]},
+  { id: 'deck-bengali-2', title: 'Discussing Football at a Tea Stall', description: 'Chat about Mohun Bagan vs East Bengal.', lessons: [{ id: 'lesson-bengali-2', title: 'Passion for Football', duration: '4-5 min' }]},
+
+  // Telugu
+  { id: 'deck-telugu-1', title: 'Hyderabad Biryani House', description: 'Savoring the famous Hyderabadi biryani.', lessons: [{ id: 'lesson-telugu-1', title: 'Ordering Biryani', duration: '2-3 min' }]},
+  { id: 'deck-telugu-2', title: 'Talking about a Telugu Movie', description: 'Discussing the latest blockbuster.', lessons: [{ id: 'lesson-telugu-2', title: 'Movie Review Chat', duration: '4-5 min' }]},
+
+  // Marathi
+  { id: 'deck-marathi-1', title: 'Mumbai Local Train', description: 'Navigating the bustling local trains.', lessons: [{ id: 'lesson-marathi-1', title: 'Asking for Directions', duration: '2-3 min' }]},
+  { id: 'deck-marathi-2', title: 'Discussing Ganesh Chaturthi Plans', description: 'Chat about festival preparations.', lessons: [{ id: 'lesson-marathi-2', title: 'Festival Preparations', duration: '3-4 min' }]},
+
+  // Tamil
+  { id: 'deck-tamil-1', title: 'Chennai Silk Saree Shopping', description: 'Experience traditional shopping.', lessons: [{ id: 'lesson-tamil-1', title: 'Buying a Saree', duration: '2-3 min' }]},
+  { id: 'deck-tamil-2', title: 'At a Carnatic Music Concert', description: 'Appreciating classical music.', lessons: [{ id: 'lesson-tamil-2', title: 'Praising a Performance', duration: '3-4 min' }]},
+
+  // Gujarati
+  { id: 'deck-gujarati-1', title: 'Ahmedabad Kite Festival', description: 'Enjoy the vibrant Uttarayan festival.', lessons: [{ id: 'lesson-gujarati-1', title: 'Flying Kites', duration: '2-3 min' }]},
+  { id: 'deck-gujarati-2', title: 'Planning a Garba Night', description: 'Discussing Navratri festivities.', lessons: [{ id: 'lesson-gujarati-2', title: 'Garba Practice', duration: '3-4 min' }]},
+
+  // Urdu
+  { id: 'deck-urdu-1', title: 'Lucknow Poetry Gathering', description: 'Immerse in the world of Shayari.', lessons: [{ id: 'lesson-urdu-1', title: 'Appreciating Poetry', duration: '2-3 min' }]},
+  { id: 'deck-urdu-2', title: 'Ordering Kebabs at Tunday Kababi', description: 'A culinary delight in Lucknow.', lessons: [{ id: 'lesson-urdu-2', title: 'Foodie Conversation', duration: '3-4 min' }]},
+
+  // Kannada
+  { id: 'deck-kannada-1', title: 'Bengaluru Tech Park Cafe', description: 'Conversations in a modern cafe.', lessons: [{ id: 'lesson-kannada-1', title: 'Tech Talk over Coffee', duration: '2-3 min' }]},
+  { id: 'deck-kannada-2', title: 'Visiting Lalbagh Botanical Garden', description: 'Discussing nature and flowers.', lessons: [{ id: 'lesson-kannada-2', title: 'A Walk in the Park', duration: '3-4 min' }]},
+
+  // Malayalam
+  { id: 'deck-malayalam-1', title: 'Kerala Backwaters Houseboat', description: 'Relaxing on the serene backwaters.', lessons: [{ id: 'lesson-malayalam-1', title: 'Talking to the Boatman', duration: '2-3 min' }]},
+  { id: 'deck-malayalam-2', title: 'Celebrating Onam Sadhya', description: 'A traditional feast.', lessons: [{ id: 'lesson-malayalam-2', title: 'About the Sadhya', duration: '4-5 min' }]},
+
+  // Odia
+  { id: 'deck-odia-1', title: 'Puri Beach Handicrafts', description: 'Buying local crafts by the sea.', lessons: [{ id: 'lesson-odia-1', title: 'Shopping for Handicrafts', duration: '2-3 min' }]},
+  { id: 'deck-odia-2', title: 'Visiting the Konark Sun Temple', description: 'Discussing history and architecture.', lessons: [{ id: 'lesson-odia-2', title: 'An Architectural Marvel', duration: '4-5 min' }]},
+  
+  // Punjabi
+  { id: 'deck-punjabi-1', title: 'Amritsar Langar Seva', description: 'Volunteering at the Golden Temple.', lessons: [{ id: 'lesson-punjabi-1', title: 'Serving at Langar', duration: '2-3 min' }]},
+  { id: 'deck-punjabi-2', title: 'A Bhangra Practice Session', description: 'Learning the energetic dance form.', lessons: [{ id: 'lesson-punjabi-2', title: 'Lets Dance!', duration: '3-4 min' }]},
+
+  // Assamese
+  { id: 'deck-assamese-1', title: 'Guwahati Bihu Festival', description: 'Celebrating the Assamese New Year.', lessons: [{ id: 'lesson-assamese-1', title: 'Enjoying Bihu', duration: '2-3 min' }]},
+  { id: 'deck-assamese-2', title: 'A Visit to Kaziranga National Park', description: 'Spotting the one-horned rhino.', lessons: [{ id: 'lesson-assamese-2', title: 'Wildlife Safari', duration: '4-5 min' }]},
+  
+  // Stubs for other languages
   { id: 'deck-bodo-1', title: 'Bodo Village Visit', description: 'Exploring local life.', lessons: [{id: 'lesson-bodo-1', title: 'Greetings', duration: '2-3 min'}] },
   { id: 'deck-dogri-1', title: 'Jammu Temple Visit', description: 'A spiritual journey.', lessons: [{id: 'lesson-dogri-1', title: 'At the Temple', duration: '2-3 min'}] },
   { id: 'deck-kashmiri-1', title: 'Srinagar Shikara Ride', description: 'Floating on Dal Lake.', lessons: [{id: 'lesson-kashmiri-1', title: 'On the Shikara', duration: '2-3 min'}] },
@@ -669,7 +621,7 @@ export const allMicroLessons: MicroLesson[] = [
             { type: 'multiple-choice', question: 'How do you say "tea" in Nepali?', options: ['Namaste', 'Mitho', 'Kati', 'Chiya'], answer: 'Chiya' },
             { type: 'fill-in-the-blank', question: 'To say something is tasty, you say it is ____.', answer: 'Mitho' },
         ],
-        followUp: 'Order tea in Darjeeling by saying "Ek cup chiya dinuhos".'
+        followUp: 'Order tea in Darjeeling by saying "Ek cup chiya dinuhos."'
     },
     // Odia
     {

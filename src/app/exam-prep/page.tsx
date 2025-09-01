@@ -35,6 +35,16 @@ const examModules = [
     href: '/exam-prep/gpsc'
   },
   {
+    title: 'RPSC: Rajasthani Vocabulary & Idioms',
+    description: 'Essential vocabulary and idioms for the Rajasthan Public Service Commission exams.',
+    href: '/exam-prep/rpsc'
+  },
+  {
+    title: 'UPPCS: Hindi Letter Writing & Vocabulary',
+    description: 'Formal vocabulary and phrasing for the Uttar Pradesh Public Service Commission Main exam.',
+    href: '/exam-prep/uppcs'
+  },
+  {
     title: 'TNPSC: General Tamil Vocabulary',
     description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
     href: '/exam-prep/tnpsc'
@@ -72,7 +82,7 @@ export default function ExamPrepLandingPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {examModules.map((module) => (
+        {examModules.sort((a,b) => a.title.localeCompare(b.title)).map((module) => (
           <Card key={module.title} className="flex flex-col">
             <CardHeader>
               <CardTitle>{module.title}</CardTitle>
