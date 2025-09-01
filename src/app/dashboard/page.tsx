@@ -241,14 +241,14 @@ export default function DashboardPage() {
 
           <div>
             <h3 className="text-sm font-medium mb-3">This Week's Activity</h3>
-            <div className="grid grid-cols-7 gap-2 items-end h-20 px-2">
+            <div className="grid grid-cols-7 gap-2 h-20 px-2">
               {weekActivity.map((item, index) => (
-                <div key={index} className="flex flex-col items-center gap-1 text-center">
+                <div key={index} className="flex flex-col-reverse items-center gap-1 text-center">
+                  <span className="text-xs text-muted-foreground">{item.day}</span>
                   <div
                     className="w-4 bg-primary rounded-t-sm"
                     style={{ height: `${item.activity * 100}%` }}
                   ></div>
-                  <span className="text-xs text-muted-foreground">{item.day}</span>
                 </div>
               ))}
             </div>
