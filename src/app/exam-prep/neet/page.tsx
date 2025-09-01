@@ -15,9 +15,15 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, XCircle, AlertTriangle, BookCheck } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, BookCheck, Lightbulb, BrainCircuit } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { SyllabusMapping } from '@/lib/types';
+import { SyllabusMapping, WorkedExample } from '@/lib/types';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 
 function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | undefined }) {
@@ -53,6 +59,47 @@ function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | undefin
             </CardContent>
         </Card>
     );
+}
+
+function WorkedExamplesCard({ examples }: { examples: WorkedExample[] | undefined }) {
+    if (!examples || examples.length === 0) return null;
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><BrainCircuit className="text-primary" />Worked Examples</CardTitle>
+                <CardDescription>Step-by-step solutions to common exam-level problems.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                    {examples.map((example, index) => (
+                         <AccordionItem value={`item-${index}`} key={index}>
+                            <AccordionTrigger className="font-bold text-left">{index + 1}. {example.problem}</AccordionTrigger>
+                            <AccordionContent className="space-y-4 pt-2">
+                               {example.steps.map(step => (
+                                   <div key={step.step} className="p-2 border-l-2 border-primary/50 bg-primary/5">
+                                       <p className="font-semibold text-sm">Step {step.step}: {step.explanation}</p>
+                                       {step.calculation && (
+                                           <p className="text-sm font-mono bg-muted p-2 rounded-md mt-1">{step.calculation}</p>
+                                       )}
+                                   </div>
+                               ))}
+                               <div className="p-2 border-l-2 border-green-500/50 bg-green-500/5">
+                                   <p className="font-semibold text-sm">Final Answer:</p>
+                                   <p className="text-sm font-bold">{example.answer}</p>
+                               </div>
+                               <Alert className="mt-4 border-accent bg-accent/5">
+                                    <Lightbulb className="h-4 w-4 text-accent" />
+                                    <AlertTitle>Expert Tip</AlertTitle>
+                                    <AlertDescription>{example.tip}</AlertDescription>
+                                </Alert>
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </CardContent>
+        </Card>
+    )
 }
 
 export default function NeetExamPrepPage() {
@@ -199,6 +246,8 @@ export default function NeetExamPrepPage() {
       </Card>
 
       <Separator />
+
+      <WorkedExamplesCard examples={module.workedExamples} />
 
       <Card>
         <CardHeader>

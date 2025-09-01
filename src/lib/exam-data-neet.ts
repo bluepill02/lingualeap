@@ -101,6 +101,40 @@ export const neetPhysicsTamil: ExamModule = {
             answer: 'அதிர்வெண் (Athirven)'
         }
     ],
+    workedExamples: [
+        {
+            problem: 'A biconvex lens has radii of curvature of 20 cm and 30 cm. If the refractive index of the lens material is 1.5, what is its focal length? இருபுறமும் குவிந்த லென்சின் வளைவு ஆரங்கள் 20 செ.மீ மற்றும் 30 செ.மீ. லென்சின் ஒளிவிலகல் எண் 1.5 எனில், அதன் குவியத்தூரம் என்ன?',
+            steps: [
+                {
+                    step: 1,
+                    explanation: 'Identify the given values and apply the sign convention. For a biconvex lens, the first surface (where light enters) has a positive radius of curvature and the second has a negative one.',
+                    calculation: 'R₁ = +20 cm, R₂ = -30 cm, n = 1.5'
+                },
+                {
+                    step: 2,
+                    explanation: 'Use the Lens Maker\'s Formula: 1/f = (n - 1) * (1/R₁ - 1/R₂)',
+                    calculation: '1/f = (1.5 - 1) * (1/20 - 1/(-30))'
+                },
+                {
+                    step: 3,
+                    explanation: 'Simplify the expression inside the brackets. The double negative becomes a positive.',
+                    calculation: '1/f = 0.5 * (1/20 + 1/30)'
+                },
+                {
+                    step: 4,
+                    explanation: 'Find a common denominator (60) to add the fractions.',
+                    calculation: '1/f = 0.5 * ((3 + 2) / 60) = 0.5 * (5 / 60)'
+                },
+                {
+                    step: 5,
+                    explanation: 'Perform the final calculation to find 1/f, then invert the result to find f.',
+                    calculation: '1/f = 0.5 * (1 / 12) = 1 / 24. Therefore, f = 24 cm.'
+                }
+            ],
+            answer: 'The focal length (குவியத்தூரம்) of the lens is +24 cm.',
+            tip: 'The sign convention (குறியீட்டு மரபு) is the most critical part of this problem. A single sign error will lead to the wrong answer. Always draw a rough diagram to visualize the lens and the direction of light to confirm your signs for R₁ and R₂.'
+        }
+    ],
     errorAnalysis: [
         {
             pitfall: 'Sign Convention in Lens Formula (லென்சு சூத்திரத்தில் குறியீட்டு மரபு)',

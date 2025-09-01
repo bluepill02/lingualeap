@@ -120,6 +120,17 @@ export interface SyllabusMapping {
     notes: string;
 }
 
+export interface WorkedExample {
+    problem: string;
+    steps: {
+        step: number;
+        explanation: string;
+        calculation?: string;
+    }[];
+    answer: string;
+    tip: string;
+}
+
 export interface ExamModule {
     id: string;
     title: string;
@@ -130,6 +141,7 @@ export interface ExamModule {
     quizzes: ExamQuizQuestion[];
     errorAnalysis: ErrorAnalysisItem[];
     syllabusMapping?: SyllabusMapping[];
+    workedExamples?: WorkedExample[];
 }
 
 export interface CompanionCircle {
