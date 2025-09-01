@@ -5,6 +5,11 @@ import Link from 'next/link';
 
 const examModules = [
   {
+    title: 'IELTS: AI-Generated Study Module',
+    description: 'Create a personalized study guide for the Academic or General Training IELTS exam.',
+    href: '/ielts-generator'
+  },
+  {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
     description: 'Master essential Hindi vocabulary for the Staff Selection Commission Combined Graduate Level exam.',
     href: '/exam-prep/ssc-cgl'
