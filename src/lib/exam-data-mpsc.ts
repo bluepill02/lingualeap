@@ -12,7 +12,7 @@ export const mpscMarathiIdioms: ExamModule = {
             romanization: 'Angavar kata yene',
             definition: 'To get goosebumps due to fear or excitement.',
             partOfSpeech: 'Idiom',
-            sentence: 'तो भयानक चित्रपट पाहून माझ्या अंगावर काटा आला.',
+            sentence: 'तो भयानक चित्रपट पाहून माझ्या अंगावर काटा आला।',
             sentenceRoman: 'To bhayanak chitrapat pahun majhya angavar kata aala.',
             sentenceTranslation: 'I got goosebumps after watching that horror movie.'
         },
