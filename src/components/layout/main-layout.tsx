@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -22,6 +23,7 @@ import {
   CreditCard,
   GraduationCap,
   ClipboardCheck,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -60,6 +62,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/exam-prep',
       label: 'Exam Module',
       icon: ClipboardCheck,
+    },
+    {
+        href: '/ielts-generator',
+        label: 'IELTS Generator',
+        icon: FileText,
     },
     {
       href: '/settings',
