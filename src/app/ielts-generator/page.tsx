@@ -1,152 +1,104 @@
 'use client';
 
 import * as React from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarHeader,
-  SidebarContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarFooter,
-  SidebarInset,
-  SidebarTrigger,
-} from '@/components/ui/sidebar';
-import {
-  BookOpen,
-  Home,
-  Settings,
-  CreditCard,
-  GraduationCap,
-  ClipboardCheck,
-} from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { LinguaLeapLogo } from '@/components/icons';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { mockUser } from '@/lib/data';
-import { Separator } from '@/components/ui/separator';
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
+import { Loader2, Wand2 } from 'lucide-react';
+import { useExamModuleGenerator } from '@/hooks/use-ielts-generator';
+import ReactMarkdown from 'react-markdown';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
+export default function IeltsGeneratorPage() {
+  const { loading, error, result, generate } = useExamModuleGenerator();
+  const [variant, setVariant] = React.useState<'Academic' | 'General Training'>('Academic');
 
-  const menuItems = [
-    {
-      href: '/dashboard',
-      label: 'Dashboard',
-      icon: Home,
-    },
-    {
-      href: '/lessons',
-      label: 'Lessons',
-      icon: BookOpen,
-    },
-    {
-      href: '/flashcards',
-      label: 'Flashcards',
-      icon: GraduationCap,
-    },
-    {
-      href: '/exam-prep',
-      label: 'Exam Module',
-      icon: ClipboardCheck,
-    },
-    {
-      href: '/settings',
-      label: 'Settings',
-      icon: Settings,
-    },
-  ];
+  const handleGenerate = () => {
+    generate(variant);
+  };
 
   return (
-    <SidebarProvider>
-      <Sidebar>
-        <SidebarHeader>
-          <div className="flex items-center gap-2">
-            <LinguaLeapLogo className="size-8 text-primary" />
-            <h1 className="text-xl font-bold font-headline text-primary">
-              LinguaLeap
-            </h1>
-          </div>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarMenu>
-            {menuItems.map((item) => (
-              <SidebarMenuItem key={item.href}>
-                <Link href={item.href}>
-                  <SidebarMenuButton
-                    isActive={pathname === item.href}
-                    tooltip={item.label}
-                  >
-                    <item.icon />
-                    <span>{item.label}</span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarContent>
-        <SidebarFooter>
-          <Link href="/upgrade">
-            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              <CreditCard className="mr-2" />
-              Upgrade to Pro
-            </Button>
-          </Link>
-        </SidebarFooter>
-      </Sidebar>
-      <SidebarInset>
-        <header className="flex h-16 items-center justify-between border-b bg-card px-6">
-          <SidebarTrigger />
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                <Avatar>
-                  <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
-                  <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-              <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none font-headline">{mockUser.name}</p>
-                  <p className="text-xs leading-none text-muted-foreground">
-                    {mockUser.email}
-                  </p>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Log out</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </header>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold font-headline">
+          IELTS Exam Module Generator
+        </h1>
+        <p className="text-muted-foreground">
+          Generate a custom IELTS preparation module using AI.
+        </p>
+      </div>
 
-        <main className="flex-1 p-6 md:p-8">{children}</main>
-        
-        <footer className="mt-auto p-6 text-center text-xs text-muted-foreground">
-            <Separator className="my-4" />
-            <div className="flex items-center justify-center gap-4">
-                <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
-                <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
+      <Card>
+        <CardHeader>
+          <CardTitle>Configuration</CardTitle>
+          <CardDescription>
+            Select the exam variant to generate a module for.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <label htmlFor="variant-select" className="text-sm font-medium">
+              Exam Variant
+            </label>
+            <Select
+              value={variant}
+              onValueChange={(value: 'Academic' | 'General Training') => setVariant(value)}
+            >
+              <SelectTrigger id="variant-select" className="w-[180px]">
+                <SelectValue placeholder="Select variant" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Academic">Academic</SelectItem>
+                <SelectItem value="General Training">General Training</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <Button onClick={handleGenerate} disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 animate-spin" /> Generating...
+              </>
+            ) : (
+              <>
+                <Wand2 className="mr-2" /> Generate Module
+              </>
+            )}
+          </Button>
+        </CardContent>
+      </Card>
+
+      {error && (
+        <Alert variant="destructive">
+          <AlertTitle>Error</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
+
+      {result && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Generated Module</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="prose dark:prose-invert max-w-none">
+              <ReactMarkdown>{result}</ReactMarkdown>
             </div>
-            <p className="mt-2">© {new Date().getFullYear()} LinguaLeap. All rights reserved.</p>
-        </footer>
-      </SidebarInset>
-    </SidebarProvider>
+          </CardContent>
+        </Card>
+      )}
+    </div>
   );
 }

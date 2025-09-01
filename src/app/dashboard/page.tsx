@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { mockUser, companionCircle } from '@/lib/data';
+import { mockUser, companionCircle, flashcards } from '@/lib/data';
 import {
   Trophy,
   BrainCircuit,
@@ -31,6 +31,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { getWeek } from 'date-fns';
 
+const masteredWords = flashcards.filter(fc => fc.stability > 10).length;
+const dueToday = flashcards.filter(fc => new Date(fc.nextDue) <= new Date()).length;
+
 const stats = [
   {
     icon: Trophy,
@@ -40,7 +43,7 @@ const stats = [
   },
   {
     icon: BrainCircuit,
-    value: 0,
+    value: masteredWords,
     label: 'Words Mastered',
     color: 'text-secondary',
   },
@@ -52,7 +55,7 @@ const stats = [
   },
   {
     icon: Clock,
-    value: 0,
+    value: dueToday,
     label: 'Due Today',
     color: 'text-primary',
   },
@@ -102,7 +105,7 @@ function SmartStudyPlanCard() {
         </div>
         <div className="bg-primary/10 text-primary-foreground p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
           <Lightbulb className="h-5 w-5 text-accent" />
-          <span>You've learned 0 words so far! Keep going to unlock personalized insights.</span>
+          <span>You've learned {flashcards.length} words so far! Keep going to unlock personalized insights.</span>
         </div>
         <Link href="/language-selection">
           <Button className="w-full" size="lg">
@@ -131,7 +134,7 @@ function ContinueLearningCard() {
             <p className="text-sm text-muted-foreground">Lessons</p>
           </div>
           <div>
-            <p className="text-2xl font-bold">0</p>
+            <p className="text-2xl font-bold">{flashcards.length}</p>
             <p className="text-sm text-muted-foreground">Flashcards</p>
           </div>
           <div>
@@ -162,9 +165,9 @@ function LearningAnalyticsCard() {
         <div>
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-sm font-medium">Vocabulary Progress</h3>
-            <span className="text-sm text-muted-foreground">0 / 4 mastered</span>
+            <span className="text-sm text-muted-foreground">{masteredWords} / {flashcards.length} mastered</span>
           </div>
-          <Progress value={0} className="h-2" />
+          <Progress value={(masteredWords / flashcards.length) * 100} className="h-2" />
           <div className="flex justify-between text-xs text-muted-foreground mt-2">
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-secondary"></span>
