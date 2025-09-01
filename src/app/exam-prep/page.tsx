@@ -17,6 +17,11 @@ const examModules = [
     href: '/exam-prep/neet'
   },
   {
+    title: 'NEET: Physics (Electrostatics)',
+    description: 'Master Coulomb\'s law, electric fields, and potential with this dedicated module.',
+    href: '/exam-prep/neet-electrostatics'
+  },
+  {
     title: 'NEET: Chemistry (Chemical Bonding)',
     description: 'Essential Chemistry concepts in Tamil for medical entrance exams.',
     href: '/exam-prep/neet-chemistry'
@@ -25,6 +30,11 @@ const examModules = [
     title: 'NEET: Chemistry (Thermodynamics)',
     description: 'Master the laws of energy and spontaneity with tailored notes for NEET.',
     href: '/exam-prep/neet-thermodynamics'
+  },
+  {
+    title: 'NEET: Chemistry (Equilibrium)',
+    description: 'Understand chemical equilibrium and Le Chatelier\'s principle with expert notes.',
+    href: '/exam-prep/neet-equilibrium'
   },
   {
     title: 'NEET: Biology (Genetics)',
