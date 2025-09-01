@@ -11,18 +11,21 @@ const languages = [
     title: 'Business Hindi',
     description: 'Professional Hindi for workplace communication',
     lessons: 3,
+    href: '/language/business-hindi',
   },
   {
     icon: Globe,
     title: 'Travel Spanish',
     description: 'Essential Spanish for travelers',
     lessons: 3,
+    href: '#',
   },
   {
     icon: Users,
     title: 'Tech English',
     description: 'Technical English for developers',
     lessons: 3,
+    href: '#',
   },
 ];
 
@@ -51,7 +54,9 @@ export default function LanguageSelectionPage() {
                   {lang.lessons} lesson decks available
                 </p>
               </div>
-              <Button variant="outline">Start Learning</Button>
+              <Link href={lang.href} passHref>
+                <Button variant="outline">Start Learning</Button>
+              </Link>
             </CardContent>
           </Card>
         ))}
