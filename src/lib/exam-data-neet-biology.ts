@@ -62,6 +62,40 @@ export const neetBiologyTamil: ExamModule = {
             sentenceTranslation: 'Both homozygous (TT) and heterozygous (Tt) genotypes can give the same phenotype (tall).'
         }
     ],
+    workedExamples: [
+        {
+            problem: 'In pea plants, round seeds (R) are dominant to wrinkled seeds (r), and yellow cotyledons (Y) are dominant to green cotyledons (y). What is the expected phenotypic ratio of offspring from a RrYy x RrYy cross (dihybrid cross)?',
+            steps: [
+                {
+                    step: 1,
+                    explanation: 'Identify the genotypes of the parents and the independent assortment of alleles. This is a classic dihybrid cross.',
+                    calculation: 'Parent 1: RrYy, Parent 2: RrYy'
+                },
+                {
+                    step: 2,
+                    explanation: 'Determine all possible gametes from each parent. Each gamete gets one allele for seed shape and one for cotyledon color.',
+                    calculation: 'Possible gametes: RY, Ry, rY, ry'
+                },
+                {
+                    step: 3,
+                    explanation: 'Set up a 4x4 Punnett square with the gametes from both parents along the top and side.',
+                    calculation: 'Create a 16-square grid. Top: RY, Ry, rY, ry. Side: RY, Ry, rY, ry.'
+                },
+                {
+                    step: 4,
+                    explanation: 'Fill in the Punnett square to find all possible genotypes of the offspring.',
+                    calculation: '(Example cell: RY from parent 1 and RY from parent 2 gives RRYY)'
+                },
+                {
+                    step: 5,
+                    explanation: 'Count the number of offspring with each phenotype. Remember that R is dominant over r, and Y is dominant over y.',
+                    calculation: 'Round & Yellow (R_Y_): 9, Round & Green (R_yy): 3, Wrinkled & Yellow (rrY_): 3, Wrinkled & Green (rryy): 1'
+                }
+            ],
+            answer: 'The phenotypic ratio is 9:3:3:1 for Round-Yellow : Round-Green : Wrinkled-Yellow : Wrinkled-Green.',
+            tip: 'The 9:3:3:1 ratio is a fundamental concept. Memorize it, but also understand how to derive it. For probability questions, you can solve it faster by treating it as two separate monohybrid crosses: (3 Round : 1 Wrinkled) * (3 Yellow : 1 Green) = 9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green.'
+        }
+    ],
     quizzes: [
         {
             type: 'multiple-choice',

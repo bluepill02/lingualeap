@@ -62,6 +62,40 @@ export const neetChemistryTamil: ExamModule = {
             sentenceTranslation: 'VSEPR theory helps to predict molecular geometry.'
         }
     ],
+    workedExamples: [
+        {
+            problem: 'Predict the geometry and bond angle of Ammonia (NH₃) molecule using VSEPR theory. அம்மோனியா (NH₃) மூலக்கூறின் வடிவியல் மற்றும் பிணைப்புக் கோணத்தை VSEPR கொள்கையைப் பயன்படுத்தி கணிக்கவும்.',
+            steps: [
+                {
+                    step: 1,
+                    explanation: 'Find the central atom and the total number of valence electrons. In NH₃, Nitrogen (N) is the central atom.',
+                    calculation: 'Valence e⁻ of N = 5. Valence e⁻ of H = 1. Total valence e⁻ = 5 + 3(1) = 8.'
+                },
+                {
+                    step: 2,
+                    explanation: 'Determine the number of bond pairs and lone pairs around the central atom. Total pairs = Total valence e⁻ / 2.',
+                    calculation: 'Total pairs = 8 / 2 = 4 pairs. Bond pairs = 3 (since N is bonded to 3 H atoms). Lone pairs = Total pairs - Bond pairs = 4 - 3 = 1 lone pair.'
+                },
+                {
+                    step: 3,
+                    explanation: 'Determine the electron geometry based on the total number of electron pairs (4). This corresponds to sp3 hybridization, so the electron geometry is Tetrahedral.',
+                    calculation: 'Electron Geometry: Tetrahedral (நான்முகி)'
+                },
+                {
+                    step: 4,
+                    explanation: 'Determine the molecular geometry by considering the lone pairs. The lone pair-bond pair repulsion is stronger than bond pair-bond pair repulsion, which pushes the bonds closer together.',
+                    calculation: 'Shape: Trigonal Pyramidal (முக்கோணப் பிரமிடு)'
+                },
+                {
+                    step: 5,
+                    explanation: 'Predict the bond angle. A perfect tetrahedral angle is 109.5°. The lone pair repulsion reduces this angle.',
+                    calculation: 'The H-N-H bond angle is approximately 107°.'
+                }
+            ],
+            answer: 'The geometry of NH₃ is Trigonal Pyramidal and the bond angle is approximately 107°.',
+            tip: 'The key to VSEPR is to remember that lone pairs (தனித்த எலக்ட்ரான் இரட்டைகள்) repel more than bond pairs (பிணைப்பு எலக்ட்ரான் இரட்டைகள்). For NEET, any time you see one lone pair in a tetrahedral electron geometry, the molecular shape will be trigonal pyramidal and the angle will be slightly less than 109.5°.'
+        }
+    ],
     quizzes: [
         {
             type: 'multiple-choice',

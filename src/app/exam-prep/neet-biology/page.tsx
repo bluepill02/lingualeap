@@ -15,45 +15,9 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, XCircle, AlertTriangle, BookCheck } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { SyllabusMapping } from '@/lib/types';
-
-
-function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | undefined }) {
-    if (!mapping || mapping.length === 0) return null;
-
-    return (
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2"><BookCheck className="text-primary" />Syllabus & Standards Mapping</CardTitle>
-                <CardDescription>Connecting NEET topics to TN State Board & NCERT curriculum.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Topic</TableHead>
-                            <TableHead>TN Board Chapter</TableHead>
-                            <TableHead>NCERT Reference</TableHead>
-                            <TableHead>Expert Notes</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {mapping.map((item, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="font-bold">{item.topic}</TableCell>
-                                <TableCell>{item.tnBoardChapter}</TableCell>
-                                <TableCell>{item.ncertReference}</TableCell>
-                                <TableCell className="text-sm">{item.notes}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </CardContent>
-        </Card>
-    );
-}
+import { SyllabusMappingCard, WorkedExamplesCard } from '@/components/exam/exam-components';
 
 export default function NeetBiologyExamPrepPage() {
     const module = neetBiologyTamil;
@@ -196,6 +160,8 @@ export default function NeetBiologyExamPrepPage() {
       </Card>
 
       <Separator />
+      
+      <WorkedExamplesCard examples={module.workedExamples} />
 
       <Card>
         <CardHeader>
