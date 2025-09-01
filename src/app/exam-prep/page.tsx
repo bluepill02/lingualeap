@@ -22,6 +22,11 @@ const examModules = [
     href: '/exam-prep/neet-chemistry'
   },
   {
+    title: 'NEET: Chemistry (Thermodynamics)',
+    description: 'Master the laws of energy and spontaneity with tailored notes for NEET.',
+    href: '/exam-prep/neet-thermodynamics'
+  },
+  {
     title: 'NEET: Biology (Genetics)',
     description: 'Essential Biology concepts in Tamil for medical entrance exams.',
     href: '/exam-prep/neet-biology'
