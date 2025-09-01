@@ -24,6 +24,11 @@ const examModules = [
     title: 'TNPSC: General Tamil Vocabulary',
     description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
     href: '/exam-prep/tnpsc'
+  },
+  {
+    title: 'Tamil Nadu TET: Pedagogy & Grammar',
+    description: 'Key concepts in teaching methodology and grammar for the Teacher Eligibility Test.',
+    href: '/exam-prep/tet'
   }
 ];
 
