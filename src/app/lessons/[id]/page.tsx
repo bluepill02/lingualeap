@@ -1,144 +1,269 @@
+
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { notFound, useRouter } from 'next/navigation';
-import { lessons, flashcards as allFlashcards } from '@/lib/data';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { Badge } from '@/components/ui/badge';
+import { allMicroLessons, allLessonDecks } from '@/lib/data';
 import {
   ArrowLeft,
-  ChevronRight,
-  Volume2,
-  Mic,
-  RotateCcw,
   Lightbulb,
-  BookCopy,
+  Volume2,
+  CheckCircle,
+  XCircle,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { Input } from '@/components/ui/input';
+import {
+  MultipleChoiceQuiz,
+  FillInTheBlankQuiz,
+  MicroLesson,
+} from '@/lib/types';
+
+function VocabularyTable({
+  vocabulary,
+}: {
+  vocabulary: MicroLesson['vocabulary'];
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Vocabulary</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Word</TableHead>
+              <TableHead>Romanization</TableHead>
+              <TableHead>Definition</TableHead>
+              <TableHead className="text-right">Listen</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {vocabulary.map((item) => (
+              <TableRow key={item.word}>
+                <TableCell className="font-bold text-lg">
+                  {item.word}
+                  <span className="block text-sm font-normal text-muted-foreground">
+                    {item.ipa}
+                  </span>
+                </TableCell>
+                <TableCell>{item.romanization}</TableCell>
+                <TableCell>{item.definition}</TableCell>
+                <TableCell className="text-right">
+                  <Button variant="ghost" size="icon">
+                    <Volume2 className="h-5 w-5" />
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
+
+function DialogueSection({ dialogue }: { dialogue: MicroLesson['dialogue'] }) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Dialogue</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {dialogue.map((line, index) => (
+          <div
+            key={index}
+            className={`flex ${
+              line.speaker === 'Customer' ? 'justify-start' : 'justify-end'
+            }`}
+          >
+            <div
+              className={`p-3 rounded-lg max-w-[80%] ${
+                line.speaker === 'Customer'
+                  ? 'bg-primary/10'
+                  : 'bg-secondary'
+              }`}
+            >
+              <p className="font-bold text-sm mb-1">{line.speaker}</p>
+              <p>{line.line}</p>
+            </div>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+function QuizSection({ quizzes }: { quizzes: MicroLesson['quizzes'] }) {
+  const [answers, setAnswers] = useState<(string | null)[]>(
+    Array(quizzes.length).fill(null)
+  );
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleOptionChange = (quizIndex: number, option: string) => {
+    const newAnswers = [...answers];
+    newAnswers[quizIndex] = option;
+    setAnswers(newAnswers);
+  };
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
+
+  const correctAnswers = quizzes.filter(
+    (quiz, index) => answers[index] && answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
+  ).length;
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Quiz</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {quizzes.map((quiz, index) => (
+          <div key={index}>
+            <p className="font-medium mb-2">{quiz.question}</p>
+            {quiz.type === 'multiple-choice' ? (
+              <div className="space-y-2">
+                {(quiz as MultipleChoiceQuiz).options.map((option) => (
+                  <Button
+                    key={option}
+                    variant={
+                      submitted && answers[index] === option
+                        ? option === quiz.answer
+                          ? 'default'
+                          : 'destructive'
+                        : 'outline'
+                    }
+                    className="w-full justify-start"
+                    onClick={() => !submitted && handleOptionChange(index, option)}
+                    disabled={submitted}
+                  >
+                    {submitted &&
+                      answers[index] === option &&
+                      (option === quiz.answer ? (
+                        <CheckCircle className="mr-2 h-4 w-4" />
+                      ) : (
+                        <XCircle className="mr-2 h-4 w-4" />
+                      ))}
+                    {option}
+                  </Button>
+                ))}
+              </div>
+            ) : (
+              <Input
+                placeholder="Your answer..."
+                value={answers[index] || ''}
+                onChange={(e) => handleOptionChange(index, e.target.value)}
+                disabled={submitted}
+                className={
+                  submitted
+                    ? answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
+                      ? 'border-green-500'
+                      : 'border-destructive'
+                    : ''
+                }
+              />
+            )}
+            {submitted && answers[index]?.toLowerCase() !== quiz.answer.toLowerCase() && (
+                <p className="text-sm text-green-500 mt-1">Correct answer: {quiz.answer}</p>
+            )}
+          </div>
+        ))}
+        {!submitted ? (
+          <Button onClick={handleSubmit} disabled={answers.includes(null)}>
+            Submit Answers
+          </Button>
+        ) : (
+          <div className="p-4 bg-secondary rounded-lg text-center">
+            <p className="text-lg font-bold">
+              You got {correctAnswers} out of {quizzes.length} correct!
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function LessonPage({ params }: { params: { id: string } }) {
   const router = useRouter();
-  const lesson = lessons.find((l) => l.id === params.id);
-  
-  const [currentStep, setCurrentStep] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
+  const lesson = allMicroLessons.find((l) => l.id === params.id);
+  const deck = allLessonDecks.find((d) => d.id === lesson?.deckId);
 
-  if (!lesson) {
+  if (!lesson || !deck) {
     notFound();
   }
 
-  const lessonFlashcards = lesson.flashcardIds
-    .map((id) => allFlashcards.find((fc) => fc.id === id))
-    .filter((fc): fc is NonNullable<typeof fc> => fc !== undefined);
-  
-  if (lessonFlashcards.length === 0) {
-    return <p>This lesson has no flashcards.</p>
-  }
-
-  const currentFlashcard = lessonFlashcards[currentStep];
-
-  const handleNext = () => {
-    if (currentStep < lessonFlashcards.length - 1) {
-      setCurrentStep(currentStep + 1);
-      setIsFlipped(false);
-    } else {
-      // Logic to end lesson or go to quiz can be added here
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-      setIsFlipped(false);
-    }
-  };
+  const progress = 50;
 
   return (
-    <div className="mx-auto max-w-2xl">
-      <header className="flex items-center justify-between mb-6">
+    <div className="mx-auto max-w-4xl space-y-8">
+      <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" onClick={() => router.back()}>
-                <ArrowLeft />
-            </Button>
-            <div>
-                <h1 className="text-2xl font-bold font-headline">{lesson.title}</h1>
-                <p className="text-muted-foreground">Business Hindi • A1</p>
-            </div>
+          <Button variant="ghost" size="icon" onClick={() => router.back()}>
+            <ArrowLeft />
+          </Button>
+          <div>
+            <h1 className="text-2xl font-bold font-headline">{lesson.title}</h1>
+            <p className="text-muted-foreground">{deck.title}</p>
+          </div>
         </div>
         <div className="flex items-center gap-4">
-            <Badge variant="outline" className="text-sm">{currentStep + 1} / {lessonFlashcards.length}</Badge>
-            <Button variant="ghost" size="icon">
-                <Lightbulb className="text-yellow-400" />
-            </Button>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Lightbulb className="text-yellow-400" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{lesson.culturalTip}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       </header>
 
-      <Card
-        className="relative min-h-[350px] cursor-pointer bg-card/50 flex flex-col justify-center items-center text-center"
-        onClick={() => setIsFlipped(!isFlipped)}
-      >
-        {!isFlipped ? (
-            <>
-                <Badge variant="secondary" className="mb-4">interjection</Badge>
-                <h2 className="text-6xl font-bold font-headline text-primary">
-                    {currentFlashcard.word}
-                </h2>
-                <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.phonetic}</p>
-                <p className="text-sm text-muted-foreground mt-8">Press Space or click to reveal translation</p>
-            </>
-        ) : (
-            <>
-                <h2 className="text-6xl font-bold font-headline text-primary">
-                    {currentFlashcard.translation}
-                </h2>
-                <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.word}</p>
-            </>
-        )}
-        
-        <CardContent className="absolute bottom-6 flex items-center justify-center gap-2">
-            <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
-                <Volume2 />
-            </Button>
-            <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
-                <Mic />
-            </Button>
+      <Progress value={progress} className="h-2" />
+
+      <VocabularyTable vocabulary={lesson.vocabulary} />
+      <DialogueSection dialogue={lesson.dialogue} />
+      <QuizSection quizzes={lesson.quizzes} />
+
+      <Card className="bg-primary/10">
+        <CardHeader>
+          <CardTitle>Next Steps</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>{lesson.followUp}</p>
         </CardContent>
       </Card>
 
-      <div className="flex justify-between items-center my-6">
-        <Button variant="ghost" onClick={handlePrev} disabled={currentStep === 0}>
-            <RotateCcw className="mr-2 h-4 w-4" />
-            Previous
-        </Button>
-        <Button onClick={handleNext} disabled={currentStep === lessonFlashcards.length -1}>
-            Next
-            <ChevronRight className="ml-2 h-4 w-4" />
+      <div className="flex justify-center">
+        <Button size="lg" onClick={() => router.back()}>
+          Complete Lesson
         </Button>
       </div>
-
-      <Card className="bg-card/50">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <BookCopy className="w-6 h-6 text-primary mt-1" />
-              <div>
-                <h3 className="text-lg font-bold">Learning Objectives</h3>
-                <ul className="list-disc list-inside text-muted-foreground mt-2 space-y-1">
-                    <li>Greet people professionally in Hindi</li>
-                    <li>Order food and beverages</li>
-                    <li>Handle basic transactions</li>
-                    <li>Use polite expressions</li>
-                </ul>
-                <div className="mt-4 bg-primary/10 p-3 rounded-md">
-                    <p className="font-semibold text-sm">Cultural Note:</p>
-                    <p className="text-sm text-muted-foreground">In Chennai, English and Tamil are widely spoken, but Hindi is appreciated in business contexts.</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-      </Card>
     </div>
   );
 }
