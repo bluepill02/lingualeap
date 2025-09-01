@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import {
   Card,
@@ -7,7 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { mockUser } from '@/lib/data';
+import { mockUser, companionCircle } from '@/lib/data';
 import {
   Trophy,
   BrainCircuit,
@@ -20,9 +21,13 @@ import {
   Play,
   TrendingUp,
   CalendarDays,
+  Users,
+  Crown
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 
 const stats = [
   {
@@ -226,6 +231,48 @@ function LearningAnalyticsCard() {
   );
 }
 
+function CompanionCircleCard() {
+    return (
+        <Card className="bg-card/50">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                    <Users className="h-5 w-5 text-primary" />
+                    Companion Circle
+                </CardTitle>
+                <CardDescription>
+                    Learn and grow with your peers.
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div className="flex -space-x-2 overflow-hidden">
+                    {companionCircle.members.map((member) => (
+                        <Avatar key={member.id} className="inline-block h-10 w-10 rounded-full ring-2 ring-background">
+                            <AvatarImage src={member.avatarUrl} alt={member.name} />
+                            <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                    ))}
+                </div>
+                <div className="mt-4 space-y-2">
+                    {companionCircle.members.map((member) => (
+                        <div key={member.id} className="flex items-center justify-between text-sm">
+                            <span className="font-medium">{member.name}</span>
+                            {member.id === companionCircle.leaderId && (
+                                <Badge variant="secondary" className="flex items-center gap-1">
+                                    <Crown className="h-3 w-3 text-yellow-500" />
+                                    Leader
+                                </Badge>
+                            )}
+                        </div>
+                    ))}
+                </div>
+                <Button variant="outline" className="w-full mt-4">
+                    View Circle
+                </Button>
+            </CardContent>
+        </Card>
+    )
+}
+
 export default function DashboardPage() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -256,6 +303,7 @@ export default function DashboardPage() {
           ))}
         </div>
         <SmartStudyPlanCard />
+        <CompanionCircleCard />
       </div>
 
       <div className="space-y-6">

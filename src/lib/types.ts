@@ -1,3 +1,4 @@
+
 export interface User {
   id: string;
   name: string;
@@ -116,4 +117,14 @@ export interface ExamModule {
     vocabulary: VocabEntry[];
     quizzes: ExamQuizQuestion[];
     errorAnalysis: ErrorAnalysisItem[];
+}
+
+export interface CompanionCircle {
+    id: string;
+    members: {
+        id: string;
+        name: string;
+        avatarUrl: string;
+    }[];
+    leaderId: string;
 }

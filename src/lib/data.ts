@@ -1,5 +1,5 @@
 
-import type { User, Lesson, Flashcard, LessonDeck, MicroLesson } from './types';
+import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle } from './types';
 
 export const mockUser: User = {
   id: 'user-1',
@@ -11,6 +11,17 @@ export const mockUser: User = {
   timezone: 'America/New_York',
   isPro: false,
 };
+
+export const companionCircle: CompanionCircle = {
+  id: 'circle-1',
+  members: [
+    { id: 'user-1', name: 'Alex', avatarUrl: 'https://picsum.photos/100/100?a=1' },
+    { id: 'user-2', name: 'Priya', avatarUrl: 'https://picsum.photos/100/100?a=2' },
+    { id: 'user-3', name: 'Chen', avatarUrl: 'https://picsum.photos/100/100?a=3' },
+    { id: 'user-4', name: 'Maria', avatarUrl: 'https://picsum.photos/100/100?a=4' },
+  ],
+  leaderId: 'user-2',
+}
 
 export const flashcards: Flashcard[] = [
   {
