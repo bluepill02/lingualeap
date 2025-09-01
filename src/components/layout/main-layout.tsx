@@ -24,6 +24,7 @@ import {
   GraduationCap,
   ClipboardCheck,
   Camera,
+  Bot,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -57,6 +58,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/flashcards',
       label: 'Flashcards',
       icon: GraduationCap,
+    },
+    {
+      href: '/personal-tutor',
+      label: 'Personal Tutor',
+      icon: Bot,
     },
     {
       href: '/exam-prep',
