@@ -24,12 +24,14 @@ import {
   CalendarDays,
   Users,
   Crown,
+  Loader2,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { getWeek } from 'date-fns';
+import { getWeek, format } from 'date-fns';
+import { useEffect, useState } from 'react';
 
 const masteredWords = flashcards.filter(fc => fc.stability > 10).length;
 const dueToday = flashcards.filter(fc => new Date(fc.nextDue) <= new Date()).length;
@@ -96,7 +98,7 @@ function SmartStudyPlanCard() {
         <div className="flex justify-between text-center mb-4">
           <div>
             <p className="text-muted-foreground text-sm">Focus Areas</p>
-            <p className="font-bold">{flashcards.length} words</p>
+            <p className="font-bold">{dueToday} words</p>
           </div>
           <div>
             <p className="text-muted-foreground text-sm">Suggested Time</p>
@@ -105,9 +107,9 @@ function SmartStudyPlanCard() {
         </div>
         <div className="bg-primary/10 text-primary-foreground p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
           <Lightbulb className="h-5 w-5 text-accent" />
-          <span>You've learned {flashcards.length} words so far! Keep going to unlock personalized insights.</span>
+          <span>You've learned {masteredWords} words so far! Keep going to unlock personalized insights.</span>
         </div>
-        <Link href="/language-selection">
+        <Link href="/flashcards">
           <Button className="w-full" size="lg">
             Start Smart Session
           </Button>
@@ -153,8 +155,23 @@ function ContinueLearningCard() {
 }
 
 function LearningAnalyticsCard() {
+  const [joinedDate, setJoinedDate] = useState<string | null>(null);
+  const [accuracy, setAccuracy] = useState<string | null>(null);
   const totalFlashcards = flashcards.length;
   const progressValue = totalFlashcards > 0 ? (masteredWords / totalFlashcards) * 100 : 0;
+
+  useEffect(() => {
+    // Avoid hydration mismatch by setting date on client
+    setJoinedDate(format(new Date(), 'MMMM d, yyyy'));
+
+    // Simulate fetching accuracy data
+    const timer = setTimeout(() => {
+      setAccuracy('Coming soon');
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Card className="bg-card/50">
       <CardHeader>
@@ -218,29 +235,48 @@ function LearningAnalyticsCard() {
           </div>
         </div>
         
-        <Tabs defaultValue="recently" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+        <Tabs defaultValue="joined" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="joined">
                     <CalendarDays className="mr-2 h-4 w-4"/>
                     Joined
                 </TabsTrigger>
-                <TabsTrigger value="recently">Recently</TabsTrigger>
                 <TabsTrigger value="accuracy">Accuracy</TabsTrigger>
             </TabsList>
-            <TabsContent value="recently">
+            <TabsContent value="joined">
                 <div className="text-center p-4">
-                     <p className="text-2xl font-bold">0%</p>
-                     <p className="text-sm text-muted-foreground">Recent Accuracy</p>
+                     {joinedDate ? (
+                        <>
+                            <p className="text-2xl font-bold">{joinedDate}</p>
+                            <p className="text-sm text-muted-foreground">Date Joined</p>
+                        </>
+                     ) : (
+                        <Loader2 className="animate-spin" />
+                     )}
+                </div>
+            </TabsContent>
+            <TabsContent value="accuracy">
+                <div className="text-center p-4">
+                    {accuracy ? (
+                        <>
+                            <p className="text-2xl font-bold">{accuracy}</p>
+                            <p className="text-sm text-muted-foreground">Recent Accuracy</p>
+                        </>
+                    ) : (
+                        <Loader2 className="animate-spin" />
+                    )}
                 </div>
             </TabsContent>
         </Tabs>
-
       </CardContent>
     </Card>
   );
 }
 
 function CompanionCircleCard() {
+    if (!companionCircle || !companionCircle.members || companionCircle.members.length === 0) {
+        return null;
+    }
     const currentWeek = getWeek(new Date());
     const leaderIndex = currentWeek % companionCircle.members.length;
     const leader = companionCircle.members[leaderIndex];
@@ -285,12 +321,25 @@ function CompanionCircleCard() {
 }
 
 export default function DashboardPage() {
+  const [greeting, setGreeting] = useState('');
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+        setGreeting('Good morning');
+    } else if (hour < 18) {
+        setGreeting('Good afternoon');
+    } else {
+        setGreeting('Good evening');
+    }
+  }, []);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="md:col-span-2 space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">
-            Good afternoon, {mockUser.name}!
+            {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
           </h1>
           <div className="flex gap-2">
              <Link href="/settings">
@@ -323,5 +372,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-    

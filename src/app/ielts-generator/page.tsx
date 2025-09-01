@@ -10,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Textarea } from '@/components/ui/textarea';
 import { Loader2, Wand2 } from 'lucide-react';
 import { useExamModuleGenerator } from '@/hooks/use-ielts-generator';
 import ReactMarkdown from 'react-markdown';
@@ -22,6 +21,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function IeltsGeneratorPage() {
   const { loading, error, result, generate } = useExamModuleGenerator();
@@ -103,5 +103,3 @@ export default function IeltsGeneratorPage() {
     </div>
   );
 }
-
-    
