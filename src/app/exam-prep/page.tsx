@@ -29,6 +29,11 @@ const examModules = [
     title: 'Tamil Nadu TET: Pedagogy & Grammar',
     description: 'Key concepts in teaching methodology and grammar for the Teacher Eligibility Test.',
     href: '/exam-prep/tet'
+  },
+  {
+    title: 'WBPSC: Bengali One-Word Substitutions',
+    description: 'Learn essential one-word substitutions for the West Bengal Public Service Commission exams.',
+    href: '/exam-prep/wbpsc'
   }
 ];
 
