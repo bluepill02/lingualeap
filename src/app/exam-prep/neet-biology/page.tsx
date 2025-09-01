@@ -89,15 +89,14 @@ export default function NeetBiologyExamPrepPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Vocabulary List</CardTitle>
-          <CardDescription>Key Biology Terms for NEET</CardDescription>
+          <CardTitle>Key Concepts</CardTitle>
+          <CardDescription>Fundamental terms in {module.category} for NEET</CardDescription>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead>Term</TableHead>
-                <TableHead>POS</TableHead>
                 <TableHead>Definition</TableHead>
                 <TableHead>Sample Sentence</TableHead>
               </TableRow>
@@ -108,11 +107,9 @@ export default function NeetBiologyExamPrepPage() {
                   <TableCell className="font-bold">
                     {item.word}
                     <span className="block text-sm font-normal text-muted-foreground">{item.romanization}</span>
+                     <Badge variant="secondary" className="mt-1">{item.partOfSpeech}</Badge>
                   </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">{item.partOfSpeech}</Badge>
-                  </TableCell>
-                  <TableCell>{item.definition}</TableCell>
+                  <TableCell className="text-sm">{item.definition}</TableCell>
                   <TableCell>
                     {item.sentence}
                     <span className="block text-xs italic text-muted-foreground mt-1">
