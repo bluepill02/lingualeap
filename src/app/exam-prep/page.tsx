@@ -31,6 +31,11 @@ const examModules = [
     href: '/exam-prep/mpsc'
   },
   {
+    title: 'GPSC: Gujarati Proverbs & Sayings',
+    description: 'Learn key proverbs (કહેવતો) for the Gujarat Public Service Commission exams.',
+    href: '/exam-prep/gpsc'
+  },
+  {
     title: 'TNPSC: General Tamil Vocabulary',
     description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
     href: '/exam-prep/tnpsc'
