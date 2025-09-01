@@ -54,6 +54,11 @@ const examModules = [
     title: 'WBCS: Bengali Synonyms & Antonyms',
     description: 'Master Bengali সমার্থক ও বিপরীতার্থক শব্দ for the West Bengal Civil Service exam.',
     href: '/exam-prep/wbcs'
+  },
+  {
+    title: 'Banking Clerical: Gujarati Proverbs',
+    description: 'Essential Gujarati proverbs and their usage for banking clerical exams.',
+    href: '/exam-prep/banking-clerical'
   }
 ];
 
