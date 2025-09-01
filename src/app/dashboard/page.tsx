@@ -109,13 +109,13 @@ export default function DashboardPage() {
   ];
 
   const weekActivity = [
+    { day: 'S', activity: 0.2 },
+    { day: 'M', activity: 0.5 },
     { day: 'T', activity: 0.8 },
     { day: 'W', activity: 0.6 },
     { day: 'T', activity: 0.9 },
     { day: 'F', activity: 0.7 },
     { day: 'S', activity: 0.4 },
-    { day: 'S', activity: 0.2 },
-    { day: 'M', activity: 0.5 },
   ];
 
   function SmartStudyPlanCard() {
