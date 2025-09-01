@@ -14,6 +14,11 @@ const examModules = [
     title: 'UPSC Prelims: Hindi Comprehension & Vocabulary',
     description: 'Build a strong foundation in Hindi vocabulary and idioms for the UPSC Civil Services Preliminary Exam.',
     href: '/exam-prep/upsc'
+  },
+  {
+    title: 'State PSC: Hindi Proverbs & Sayings',
+    description: 'Understand and learn to use common Hindi proverbs for various state-level public service commission exams.',
+    href: '/exam-prep/psc'
   }
 ];
 
