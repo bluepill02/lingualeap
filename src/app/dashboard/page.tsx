@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { mockUser, companionCircle, flashcards } from '@/lib/data';
+import { mockUser, companionCircle, flashcards, lessons } from '@/lib/data';
 import {
   Trophy,
   BrainCircuit,
@@ -96,7 +96,7 @@ function SmartStudyPlanCard() {
         <div className="flex justify-between text-center mb-4">
           <div>
             <p className="text-muted-foreground text-sm">Focus Areas</p>
-            <p className="font-bold">0 words</p>
+            <p className="font-bold">{flashcards.length} words</p>
           </div>
           <div>
             <p className="text-muted-foreground text-sm">Suggested Time</p>
@@ -130,7 +130,7 @@ function ContinueLearningCard() {
       <CardContent className="text-center">
         <div className="flex justify-around">
           <div>
-            <p className="text-2xl font-bold">0</p>
+            <p className="text-2xl font-bold">{lessons.length}</p>
             <p className="text-sm text-muted-foreground">Lessons</p>
           </div>
           <div>
@@ -138,7 +138,7 @@ function ContinueLearningCard() {
             <p className="text-sm text-muted-foreground">Flashcards</p>
           </div>
           <div>
-            <p className="text-2xl font-bold">0</p>
+            <p className="text-2xl font-bold">15</p>
             <p className="text-sm text-muted-foreground">Minutes</p>
           </div>
         </div>
@@ -153,6 +153,8 @@ function ContinueLearningCard() {
 }
 
 function LearningAnalyticsCard() {
+  const totalFlashcards = flashcards.length;
+  const progressValue = totalFlashcards > 0 ? (masteredWords / totalFlashcards) * 100 : 0;
   return (
     <Card className="bg-card/50">
       <CardHeader>
@@ -165,9 +167,9 @@ function LearningAnalyticsCard() {
         <div>
           <div className="flex justify-between items-center mb-2">
             <h3 className="text-sm font-medium">Vocabulary Progress</h3>
-            <span className="text-sm text-muted-foreground">{masteredWords} / {flashcards.length} mastered</span>
+            <span className="text-sm text-muted-foreground">{masteredWords} / {totalFlashcards} mastered</span>
           </div>
-          <Progress value={(masteredWords / flashcards.length) * 100} className="h-2" />
+          <Progress value={progressValue} className="h-2" />
           <div className="flex justify-between text-xs text-muted-foreground mt-2">
             <div className="flex items-center gap-1.5">
               <span className="h-2 w-2 rounded-full bg-secondary"></span>
@@ -321,6 +323,5 @@ export default function DashboardPage() {
     </div>
   );
 }
-
 
     
