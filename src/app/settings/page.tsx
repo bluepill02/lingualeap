@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -19,6 +20,7 @@ import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
 import { Separator } from '@/components/ui/separator';
+import { Calendar } from 'lucide-react';
 
 export default function SettingsPage() {
   return (
@@ -58,6 +60,27 @@ export default function SettingsPage() {
             </div>
           </div>
           <Button>Save Profile</Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="font-headline">Connected Accounts</CardTitle>
+          <CardDescription>
+            Link your calendar to enable smart scheduling.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+            <Card className="flex items-center justify-between p-4">
+                <div className="flex items-center gap-4">
+                    <Calendar className="text-primary"/>
+                    <div>
+                        <h3 className="font-semibold">Google Calendar</h3>
+                        <p className="text-sm text-muted-foreground">Not connected</p>
+                    </div>
+                </div>
+                <Button variant="outline">Connect</Button>
+            </Card>
         </CardContent>
       </Card>
       
@@ -122,6 +145,13 @@ export default function SettingsPage() {
                     <p className="text-sm text-muted-foreground">Get reminded of due flashcards and upcoming streak expiry.</p>
                 </div>
                 <Switch defaultChecked />
+            </div>
+            <div className="flex items-center justify-between rounded-lg border p-4">
+                <div>
+                    <h3 className="font-semibold">Smart Scheduling via Calendar</h3>
+                    <p className="text-sm text-muted-foreground">Automatically find time in your calendar for micro-sessions.</p>
+                </div>
+                <Switch />
             </div>
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
