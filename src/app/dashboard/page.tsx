@@ -64,7 +64,7 @@ export default function DashboardPage() {
   const totalFlashcards = flashcards.length;
   const progressValue = totalFlashcards > 0 ? (masteredWords / totalFlashcards) * 100 : 0;
   
-  const proficiencyMap = {
+  const proficiencyMap: { [key: string]: string } = {
     'Beginner': 'A1',
     'Intermediate': 'A2',
     'Advanced': 'B1',
