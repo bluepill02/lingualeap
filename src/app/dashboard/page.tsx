@@ -29,13 +29,13 @@ const stats = [
     icon: Trophy,
     value: mockUser.streak,
     label: 'Day Streak',
-    color: 'text-yellow-400',
+    color: 'text-accent',
   },
   {
     icon: BrainCircuit,
     value: 0,
     label: 'Words Mastered',
-    color: 'text-purple-400',
+    color: 'text-secondary',
   },
   {
     icon: Target,
@@ -47,7 +47,7 @@ const stats = [
     icon: Clock,
     value: 0,
     label: 'Due Today',
-    color: 'text-blue-400',
+    color: 'text-primary',
   },
 ];
 
@@ -94,7 +94,7 @@ function SmartStudyPlanCard() {
           </div>
         </div>
         <div className="bg-primary/10 text-primary-foreground p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
-          <Lightbulb className="h-5 w-5 text-yellow-400" />
+          <Lightbulb className="h-5 w-5 text-accent" />
           <span>You've learned 0 words so far!</span>
         </div>
         <Link href="/language-selection">
@@ -158,15 +158,15 @@ function LearningAnalyticsCard() {
           <Progress value={25} className="h-2" />
           <div className="flex justify-between text-xs text-muted-foreground mt-2">
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              <span className="h-2 w-2 rounded-full bg-secondary"></span>
               <span>Mastered</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-yellow-500"></span>
+              <span className="h-2 w-2 rounded-full bg-accent"></span>
               <span>Learning</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-blue-500"></span>
+              <span className="h-2 w-2 rounded-full bg-primary"></span>
               <span>New</span>
             </div>
           </div>
@@ -246,7 +246,7 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat) => (
-            <Card key={stat.label} className="bg-card/50 text-center">
+            <Card key={stat.label} className="text-center">
               <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
                 <stat.icon className={`h-8 w-8 ${stat.color}`} />
                 <p className="text-2xl font-bold">{stat.value}</p>

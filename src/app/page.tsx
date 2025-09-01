@@ -18,7 +18,7 @@ export default function LandingPage() {
         <nav className="flex items-center gap-4">
           <Button variant="ghost">Log In</Button>
           <Link href="/dashboard">
-            <Button className="bg-primary hover:bg-primary/90">
+            <Button>
               Get Started Free
             </Button>
           </Link>
@@ -39,7 +39,7 @@ export default function LandingPage() {
             </div>
 
             <div className="container relative z-10 mx-auto flex flex-col items-center px-4">
-                <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl">
+                <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                     Learn a Language, Live the Culture
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
@@ -47,7 +47,7 @@ export default function LandingPage() {
                 </p>
                 <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                     <Link href="/dashboard">
-                        <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90">
+                        <Button size="lg" className="w-full sm:w-auto">
                             Start Your Journey <ArrowRight className="ml-2" />
                         </Button>
                     </Link>
