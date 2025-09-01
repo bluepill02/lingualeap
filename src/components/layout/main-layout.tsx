@@ -23,6 +23,7 @@ import {
   CreditCard,
   GraduationCap,
   ClipboardCheck,
+  Camera,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -63,6 +64,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       icon: ClipboardCheck,
     },
     {
+      href: '/ar-immersion',
+      label: 'AR Immersion',
+      icon: Camera,
+    },
+    {
       href: '/settings',
       label: 'Settings',
       icon: Settings,
@@ -86,7 +92,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
               <SidebarMenuItem key={item.href}>
                 <Link href={item.href}>
                   <SidebarMenuButton
-                    isActive={pathname === item.href}
+                    isActive={pathname.startsWith(item.href)}
                     tooltip={item.label}
                   >
                     <item.icon />

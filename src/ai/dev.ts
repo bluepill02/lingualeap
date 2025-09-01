@@ -1,5 +1,9 @@
+'use server';
+
 import { config } from 'dotenv';
 config();
 
 import '@/ai/flows/story-generator';
 import '@/ai/flows/personalized-learning-reminders';
+import '@/ai/flows/ielts-module-generator';
+import '@/ai/flows/ar-immersion-flow';
