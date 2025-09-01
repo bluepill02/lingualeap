@@ -31,6 +31,7 @@ export interface Flashcard {
   interval: number;
   lastReviewed: string;
   nextDue: string;
+  lessonId: string;
 }
 
 export interface ReviewLog {
@@ -39,4 +40,46 @@ export interface ReviewLog {
   flashcardId: string;
   rating: 'forgot' | 'hard' | 'good' | 'easy';
   reviewedAt: string;
+}
+
+export interface LessonDeck {
+    id: string;
+    title: string;
+    description: string;
+    lessons: { id: string; title: string; duration: string }[];
+}
+
+export interface MicroLesson {
+    id: string;
+    title: string;
+    deckId: string;
+    vocabulary: {
+        word: string;
+        romanization: string;
+        definition: string;
+        ipa: string;
+    }[];
+    dialogue: {
+        speaker: 'Customer' | 'Server';
+        line: string;
+    }[];
+    culturalTip: string;
+    quizzes: (MultipleChoiceQuiz | FillInTheBlankQuiz)[];
+    followUp: string;
+}
+
+interface BaseQuiz {
+    type: 'multiple-choice' | 'fill-in-the-blank';
+    question: string;
+}
+
+export interface MultipleChoiceQuiz extends BaseQuiz {
+    type: 'multiple-choice';
+    options: string[];
+    answer: string;
+}
+
+export interface FillInTheBlankQuiz extends BaseQuiz {
+    type: 'fill-in-the-blank';
+    answer: string;
 }

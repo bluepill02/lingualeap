@@ -15,35 +15,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
-
-const decks = [
-  {
-    icon: Coffee,
-    title: 'Chennai Café Conversation',
-    description: 'Real-world conversations and vocabulary',
-    lessons: 1,
-    duration: '2-3 min',
-    deck: 1,
-  },
-  {
-    icon: Briefcase,
-    title: 'Office Meetings',
-    description: 'Real-world conversations and vocabulary',
-    lessons: 1,
-    duration: '2-3 min',
-    deck: 2,
-  },
-  {
-    icon: Phone,
-    title: 'Professional Phone Calls',
-    description: 'Real-world conversations and vocabulary',
-    lessons: 1,
-    duration: '2-3 min',
-    deck: 3,
-  },
-];
+import { businessHindiLessonDecks } from '@/lib/data';
 
 export default function BusinessHindiPage() {
+  const decks = businessHindiLessonDecks;
+
   return (
     <div className="max-w-2xl mx-auto py-8 px-4">
       <Link href="/language-selection" className="flex items-center gap-2 text-primary mb-4">
@@ -58,10 +34,10 @@ export default function BusinessHindiPage() {
       </div>
       <div className="space-y-4">
         {decks.map((deck) => (
-          <Card key={deck.deck} className="bg-card/50">
+          <Card key={deck.id} className="bg-card/50">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <deck.icon className="w-8 h-8 text-primary mt-1" />
+                <Briefcase className="w-8 h-8 text-primary mt-1" />
                 <div className="flex-grow">
                   <div className="flex justify-between items-start">
                     <div>
@@ -70,24 +46,28 @@ export default function BusinessHindiPage() {
                         {deck.description}
                       </p>
                     </div>
-                    <Badge variant="outline">Deck {deck.deck}</Badge>
+                    <Badge variant="outline">Deck {decks.indexOf(deck) + 1}</Badge>
                   </div>
-                  <div className="flex items-center justify-between mt-4">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1.5">
-                        <BookOpen className="w-4 h-4" />
-                        <span>{deck.lessons} lesson</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4" />
-                        <span>{deck.duration}</span>
-                      </div>
-                    </div>
-                    <Button size="sm">
-                      <Play className="w-4 h-4 mr-2" />
-                      Start
-                    </Button>
-                  </div>
+                  {deck.lessons.map((lesson) => (
+                     <div key={lesson.id} className="flex items-center justify-between mt-4">
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-1.5">
+                                <BookOpen className="w-4 h-4" />
+                                <span>{lesson.title}</span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                                <Clock className="w-4 h-4" />
+                                <span>{lesson.duration}</span>
+                            </div>
+                        </div>
+                        <Link href={`/lessons/${lesson.id}`} passHref>
+                            <Button size="sm">
+                                <Play className="w-4 h-4 mr-2" />
+                                Start
+                            </Button>
+                        </Link>
+                     </div>
+                  ))}
                 </div>
               </div>
             </CardContent>
