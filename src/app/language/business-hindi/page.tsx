@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -15,10 +16,10 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
-import { businessHindiLessonDecks } from '@/lib/data';
+import { allLessonDecks } from '@/lib/data';
 
 export default function BusinessHindiPage() {
-  const decks = businessHindiLessonDecks;
+  const decks = allLessonDecks.filter(deck => deck.id.startsWith('deck-bh-'));
 
   return (
     <div className="max-w-2xl mx-auto py-8 px-4">
@@ -82,7 +83,7 @@ export default function BusinessHindiPage() {
             <div className="flex items-center gap-4">
               <Progress value={0} className="h-2 flex-1" />
               <span className="text-sm text-muted-foreground">
-                0 of 3 decks completed
+                0 of {decks.length} decks completed
               </span>
             </div>
           </CardContent>
