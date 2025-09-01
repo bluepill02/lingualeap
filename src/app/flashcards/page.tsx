@@ -4,21 +4,24 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { flashcards } from '@/lib/data';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Volume2, Mic, Play, RotateCw, BookText, Loader } from 'lucide-react';
+import { Volume2, Mic, Play, RotateCw, BookText, Loader, PartyPopper, Repeat } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { generateStory } from '@/ai/flows/story-generator';
+import Link from 'next/link';
 
 export default function FlashcardsPage() {
-  const [dueCards, setDueCards] = useState(
+  const [initialDueCards] = useState(
     flashcards.filter((fc) => new Date(fc.nextDue) <= new Date())
   );
+  const [dueCards, setDueCards] = useState(initialDueCards);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [story, setStory] = useState('');
   const [loadingStory, setLoadingStory] = useState(false);
+  const [sessionComplete, setSessionComplete] = useState(false);
 
   useEffect(() => {
     if (isFlipped && dueCards[currentIndex]) {
@@ -35,26 +38,12 @@ export default function FlashcardsPage() {
     }
   }, [isFlipped, currentIndex, dueCards]);
 
-  if (dueCards.length === 0) {
-    return (
-      <div className="text-center">
-        <h1 className="text-3xl font-bold font-headline">All Caught Up!</h1>
-        <p className="text-muted-foreground mt-2">
-          You have no flashcards due for review. Come back later!
-        </p>
-      </div>
-    );
-  }
-
-  const currentFlashcard = dueCards[currentIndex];
-  const progress = ((currentIndex + 1) / dueCards.length) * 100;
-
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
   const handleRating = (rating: 'forgot' | 'hard' | 'good' | 'easy') => {
-    console.log(`Rated ${currentFlashcard.id} as ${rating}`);
+    console.log(`Rated ${dueCards[currentIndex].id} as ${rating}`);
     // Here you would implement FSRS logic to update card properties
     // For now, we'll just move to the next card
     if (currentIndex < dueCards.length - 1) {
@@ -63,9 +52,52 @@ export default function FlashcardsPage() {
       setStory('');
     } else {
       // End of review session
-      setDueCards([]);
+      setSessionComplete(true);
     }
   };
+  
+  if (initialDueCards.length === 0) {
+    return (
+      <div className="text-center">
+        <Card className="max-w-md mx-auto">
+            <CardHeader>
+                <CardTitle className="font-headline text-2xl">All Caught Up!</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <PartyPopper className="w-16 h-16 text-primary mx-auto mb-4" />
+                <p className="text-muted-foreground mt-2">
+                You have no flashcards due for review. Come back later!
+                </p>
+            </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (sessionComplete) {
+     return (
+      <div className="text-center">
+        <Card className="max-w-md mx-auto">
+            <CardHeader>
+                <CardTitle className="font-headline text-2xl">Session Complete!</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <PartyPopper className="w-16 h-16 text-primary mx-auto mb-4" />
+                <p className="text-muted-foreground mt-2">
+                    You reviewed {dueCards.length} card{dueCards.length > 1 ? 's' : ''}. Great job!
+                </p>
+                <Link href="/dashboard">
+                    <Button className="mt-6">Back to Dashboard</Button>
+                </Link>
+            </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  const currentFlashcard = dueCards[currentIndex];
+  const progress = ((currentIndex + 1) / dueCards.length) * 100;
+
 
   return (
     <div className="mx-auto max-w-2xl">

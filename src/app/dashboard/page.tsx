@@ -63,6 +63,14 @@ export default function DashboardPage() {
   const dueToday = flashcards.filter(fc => new Date(fc.nextDue) <= new Date()).length;
   const totalFlashcards = flashcards.length;
   const progressValue = totalFlashcards > 0 ? (masteredWords / totalFlashcards) * 100 : 0;
+  
+  const proficiencyMap = {
+    'Beginner': 'A1',
+    'Intermediate': 'A2',
+    'Advanced': 'B1',
+  };
+  
+  const cefrLevel = proficiencyMap[mockUser.proficiency] || 'A1';
 
   const stats = [
     {
@@ -79,7 +87,7 @@ export default function DashboardPage() {
     },
     {
       icon: Target,
-      value: 'A1',
+      value: cefrLevel,
       label: 'CEFR Level',
       color: 'text-green-400',
     },
