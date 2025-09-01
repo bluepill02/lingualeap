@@ -1,9 +1,16 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 const examModules = [
+  {
+    title: 'On-Demand Quiz Generator',
+    description: 'Generate a custom quiz on any topic instantly using AI. Perfect for hyper-personalized learning.',
+    href: '/exam-prep/on-demand',
+    isNew: true,
+  },
   {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
     description: 'Master essential Hindi vocabulary for the Staff Selection Commission Combined Graduate Level exam.',
@@ -82,10 +89,17 @@ export default function ExamPrepLandingPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {examModules.sort((a,b) => a.title.localeCompare(b.title)).map((module) => (
-          <Card key={module.title} className="flex flex-col">
+        {examModules.sort((a,b) => {
+            if (a.isNew) return -1;
+            if (b.isNew) return 1;
+            return a.title.localeCompare(b.title);
+        }).map((module) => (
+          <Card key={module.title} className={`flex flex-col ${module.isNew ? 'border-primary ring-2 ring-primary' : ''}`}>
             <CardHeader>
-              <CardTitle>{module.title}</CardTitle>
+              <CardTitle className='flex items-center gap-2'>
+                {module.isNew && <Sparkles className="text-primary h-5 w-5" />}
+                {module.title}
+                </CardTitle>
               <CardDescription>{module.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-grow" />

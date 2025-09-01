@@ -10,6 +10,8 @@ import '@/ai/flows/ar-immersion-flow';
 import '@/ai/flows/matchmaking-flow';
 import '@/ai/flows/personal-tutor-flow';
 import '@/ai/flows/pronunciation-analysis-flow';
+import '@/ai/flows/quiz-generator';
+
 
 
 
