@@ -39,6 +39,11 @@ const examModules = [
     title: 'WBPSC: Bengali One-Word Substitutions',
     description: 'Learn essential one-word substitutions for the West Bengal Public Service Commission exams.',
     href: '/exam-prep/wbpsc'
+  },
+  {
+    title: 'WBCS: Bengali Synonyms & Antonyms',
+    description: 'Master Bengali সমার্থক ও বিপরীতার্থক শব্দ for the West Bengal Civil Service exam.',
+    href: '/exam-prep/wbcs'
   }
 ];
 
