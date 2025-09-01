@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { flashcards } from '@/lib/data';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Volume2, Mic, Play, RotateCw } from 'lucide-react';
+import { Volume2, Mic, Play, RotateCw, BookText, Loader } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import { generateStory } from '@/ai/flows/story-generator';
 
 export default function FlashcardsPage() {
   const [dueCards, setDueCards] = useState(
@@ -15,6 +16,23 @@ export default function FlashcardsPage() {
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [story, setStory] = useState('');
+  const [loadingStory, setLoadingStory] = useState(false);
+
+  useEffect(() => {
+    if (isFlipped && dueCards[currentIndex]) {
+      setLoadingStory(true);
+      generateStory({ word: dueCards[currentIndex].word, definition: dueCards[currentIndex].translation })
+        .then(response => {
+          setStory(response.story);
+        })
+        .catch(err => {
+          console.error(err);
+          setStory('Could not generate a story for this word.');
+        })
+        .finally(() => setLoadingStory(false));
+    }
+  }, [isFlipped, currentIndex, dueCards]);
 
   if (dueCards.length === 0) {
     return (
@@ -30,6 +48,10 @@ export default function FlashcardsPage() {
   const currentFlashcard = dueCards[currentIndex];
   const progress = ((currentIndex + 1) / dueCards.length) * 100;
 
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   const handleRating = (rating: 'forgot' | 'hard' | 'good' | 'easy') => {
     console.log(`Rated ${currentFlashcard.id} as ${rating}`);
     // Here you would implement FSRS logic to update card properties
@@ -37,6 +59,7 @@ export default function FlashcardsPage() {
     if (currentIndex < dueCards.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
+      setStory('');
     } else {
       // End of review session
       setDueCards([]);
@@ -50,7 +73,7 @@ export default function FlashcardsPage() {
       
       <Card
         className="relative min-h-[450px] cursor-pointer perspective-[1000px]"
-        onClick={() => setIsFlipped(!isFlipped)}
+        onClick={handleFlip}
       >
         <div
           className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
@@ -68,7 +91,7 @@ export default function FlashcardsPage() {
               </h2>
             </CardContent>
             <CardFooter className="justify-center">
-                <Button variant="ghost" className="text-muted-foreground" onClick={(e) => { e.stopPropagation(); setIsFlipped(true); }}>
+                <Button variant="ghost" className="text-muted-foreground" onClick={(e) => { e.stopPropagation(); handleFlip(); }}>
                     <RotateCw className="mr-2 h-4 w-4" /> Flip card
                 </Button>
             </CardFooter>
@@ -80,7 +103,7 @@ export default function FlashcardsPage() {
               <h2 className="text-5xl font-bold font-headline">{currentFlashcard.translation}</h2>
               <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.phonetic}</p>
               
-              <Separator className="my-6 w-1/2" />
+              <Separator className="my-4 w-1/2" />
               
               <div className="flex items-center justify-center gap-2">
                 <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
@@ -93,7 +116,23 @@ export default function FlashcardsPage() {
                     <Play />
                 </Button>
               </div>
-              <Image src={currentFlashcard.imageUrl} alt={currentFlashcard.translation} data-ai-hint="language illustration" width={150} height={100} className="mt-6 rounded-lg" />
+              <Image src={currentFlashcard.imageUrl} alt={currentFlashcard.translation} data-ai-hint="language illustration" width={150} height={100} className="mt-4 rounded-lg" />
+              
+              <Separator className="my-4 w-full" />
+              
+              <div className="text-left w-full">
+                <h3 className="flex items-center font-semibold text-sm mb-2"><BookText className="mr-2" /> Cosmic Chronicle</h3>
+                {loadingStory ? (
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                    <Loader className="animate-spin" />
+                    <p>Your avatar's next chapter is being written...</p>
+                  </div>
+                ) : (
+                  <p className="text-sm text-muted-foreground italic">
+                    {story}
+                  </p>
+                )}
+              </div>
             </CardContent>
           </div>
         </div>
