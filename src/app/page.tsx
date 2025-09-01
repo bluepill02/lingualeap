@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <header className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center gap-2">
           <LinguaLeapLogo className="size-8 text-primary" />
@@ -30,20 +30,20 @@ export default function LandingPage() {
             <div className="absolute inset-0 z-0">
                 <Image 
                     src="https://picsum.photos/1200/800"
-                    alt="Festive background"
-                    data-ai-hint="indian festival colors"
+                    alt="Abstract background"
+                    data-ai-hint="professional learning"
                     fill
-                    className="object-cover opacity-20"
+                    className="object-cover opacity-10"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
             </div>
 
             <div className="container relative z-10 mx-auto flex flex-col items-center px-4">
-                <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                    Learn a Language, Live the Culture
+                <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl">
+                    Master Indian Languages with Confidence
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-                    Master Indian languages with bite-sized lessons that are as vibrant and diverse as India itself.
+                    Our platform combines proven learning science with AI-powered tools to create a professional and effective path to fluency.
                 </p>
                 <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                     <Link href="/dashboard">
