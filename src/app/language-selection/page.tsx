@@ -16,8 +16,78 @@ const languages = [
   },
   {
     icon: Globe,
+    title: 'Assamese',
+    description: 'Discover the official language of Assam',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Globe,
     title: 'Bengali',
     description: 'Learn the sweet language of Bengal',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Bodo',
+    description: 'Explore the Tibeto-Burman language from Northeast India',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Dogri',
+    description: 'Learn the Indo-Aryan language spoken in Jammu and Kashmir',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Gujarati',
+    description: 'Learn the language of the vibrant state of Gujarat',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Kannada',
+    description: 'Delve into a Dravidian language of Karnataka',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Globe,
+    title: 'Kashmiri',
+    description: 'Experience the Dardic language of the Kashmir Valley',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Konkani',
+    description: 'Learn the language of the Goan coast',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Globe,
+    title: 'Maithili',
+    description: 'Discover the Indo-Aryan language of Bihar and Jharkhand',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Malayalam',
+    description: 'Explore the Dravidian language of Kerala',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Manipuri (Meitei)',
+    description: 'Learn the primary language of Manipur',
     lessons: 0,
     href: '#',
   },
@@ -29,9 +99,51 @@ const languages = [
     href: '#',
   },
   {
+    icon: Globe,
+    title: 'Nepali',
+    description: 'The lingua franca of Nepal, also spoken in parts of India',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Odia',
+    description: 'Learn the official language of Odisha',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Punjabi',
+    description: 'The language of the Punjab region',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: BookOpen,
+    title: 'Sanskrit',
+    description: 'Explore the classical language of ancient India',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Globe,
+    title: 'Santali',
+    description: 'A Munda language spoken by the Santal people',
+    lessons: 0,
+    href: '#',
+  },
+  {
+    icon: Users,
+    title: 'Sindhi',
+    description: 'The language of the Sindhi people',
+    lessons: 0,
+    href: '#',
+  },
+  {
     icon: BookOpen,
     title: 'Tamil',
-    description: 'Explore one of the world\'s oldest languages',
+    description: "Explore one of the world's oldest languages",
     lessons: 0,
     href: '#',
   },
@@ -43,9 +155,9 @@ const languages = [
     href: '#',
   },
   {
-    icon: Users,
-    title: 'Gujarati',
-    description: 'Learn the language of the vibrant state of Gujarat',
+    icon: BookOpen,
+    title: 'Urdu',
+    description: 'Learn the poetic language with Perso-Arabic script',
     lessons: 0,
     href: '#',
   },
@@ -87,7 +199,7 @@ export default function LanguageSelectionPage() {
             <Globe className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
             <h2 className="font-bold text-lg">More Languages Coming Soon</h2>
             <p className="text-muted-foreground text-sm">
-              We are working on adding more Indian languages, and other languages from around the world.
+              We are working on adding even more languages from around the world.
             </p>
             <p className="text-muted-foreground text-xs mt-2">Stay tuned for updates!</p>
           </CardContent>
