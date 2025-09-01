@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -96,9 +97,11 @@ function SmartStudyPlanCard() {
           <Lightbulb className="h-5 w-5 text-yellow-400" />
           <span>You've learned 0 words so far!</span>
         </div>
-        <Button className="w-full" size="lg">
-          Start Smart Session
-        </Button>
+        <Link href="/language-selection" passHref>
+          <Button className="w-full" size="lg">
+            Start Smart Session
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );
