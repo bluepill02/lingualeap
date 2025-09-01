@@ -8,6 +8,7 @@ import {
   Play,
   Lightbulb,
   ArrowLeft,
+  ChevronDown,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -15,9 +16,21 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import { allLessonDecks } from '@/lib/data';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 export default function KonkaniPage() {
   const decks = allLessonDecks.filter(deck => deck.id.startsWith('deck-konkani-'));
+  const levels = ['Foundations', 'Intermediate', 'Advanced'];
+  const decksByLevel = levels.map(level => ({
+    level,
+    decks: decks.filter(deck => deck.level === level)
+  }));
+
 
   return (
     <div className="max-w-2xl mx-auto py-8 px-4">
@@ -31,48 +44,59 @@ export default function KonkaniPage() {
           Select a deck to start learning
         </p>
       </div>
-      <div className="space-y-4">
-        {decks.map((deck) => (
-          <Card key={deck.id} className="bg-card/50">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <Briefcase className="w-8 h-8 text-primary mt-1" />
-                <div className="flex-grow">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h2 className="font-bold text-lg">{deck.title}</h2>
-                      <p className="text-muted-foreground text-sm">
-                        {deck.description}
-                      </p>
-                    </div>
-                    <Badge variant="outline">Deck {decks.indexOf(deck) + 1}</Badge>
-                  </div>
-                  {deck.lessons.map((lesson) => (
-                     <div key={lesson.id} className="flex items-center justify-between mt-4">
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-1.5">
-                                <BookOpen className="w-4 h-4" />
-                                <span>{lesson.title}</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <Clock className="w-4 h-4" />
-                                <span>{lesson.duration}</span>
-                            </div>
+      
+      <Accordion type="multiple" defaultValue={['Foundations']} className="w-full space-y-4">
+        {decksByLevel.map((levelGroup, index) => levelGroup.decks.length > 0 && (
+          <AccordionItem value={levelGroup.level} key={index} className="border-none">
+            <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md hover:bg-muted/80">
+              {levelGroup.level}
+            </AccordionTrigger>
+            <AccordionContent className="pt-4 space-y-4">
+              {levelGroup.decks.map((deck) => (
+                <Card key={deck.id} className="bg-card/50">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <Briefcase className="w-8 h-8 text-primary mt-1" />
+                      <div className="flex-grow">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h2 className="font-bold text-lg">{deck.title}</h2>
+                            <p className="text-muted-foreground text-sm">
+                              {deck.description}
+                            </p>
+                          </div>
+                          <Badge variant="outline">Deck {decks.indexOf(deck) + 1}</Badge>
                         </div>
-                        <Link href={`/lessons/${lesson.id}`}>
-                            <Button size="sm">
-                                <Play className="w-4 h-4 mr-2" />
-                                Start
-                            </Button>
-                        </Link>
-                     </div>
-                  ))}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                        {deck.lessons.map((lesson) => (
+                          <div key={lesson.id} className="flex items-center justify-between mt-4">
+                              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                  <div className="flex items-center gap-1.5">
+                                      <BookOpen className="w-4 h-4" />
+                                      <span>{lesson.title}</span>
+                                  </div>
+                                  <div className="flex items-center gap-1.5">
+                                      <Clock className="w-4 h-4" />
+                                      <span>{lesson.duration}</span>
+                                  </div>
+                              </div>
+                              <Link href={`/lessons/${lesson.id}`}>
+                                  <Button size="sm">
+                                      <Play className="w-4 h-4 mr-2" />
+                                      Start
+                                  </Button>
+                              </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
+
 
       <div className="mt-8 space-y-4">
         <Card className="bg-card/50">

@@ -50,6 +50,7 @@ export interface LessonDeck {
     id: string;
     title: string;
     description: string;
+    level: 'Foundations' | 'Intermediate' | 'Advanced';
     lessons: { id: string; title: string; duration: string }[];
 }
 
