@@ -191,7 +191,7 @@ function LearningAnalyticsCard() {
               >
                 <p className="font-bold text-primary">{item.level}</p>
                 <p className="text-xs text-muted-foreground">
-                  {item.words} words
+                  {item.words}
                 </p>
               </div>
             ))}
@@ -252,18 +252,16 @@ function CompanionCircleCard() {
                 </CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="flex -space-x-2 overflow-hidden">
-                    {companionCircle.members.map((member) => (
-                        <Avatar key={member.id} className="inline-block h-10 w-10 rounded-full ring-2 ring-background">
-                            <AvatarImage src={member.avatarUrl} alt={member.name} />
-                            <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                    ))}
-                </div>
-                <div className="mt-4 space-y-2">
+                <div className="mt-4 space-y-4">
                     {companionCircle.members.map((member) => (
                         <div key={member.id} className="flex items-center justify-between text-sm">
-                            <span className="font-medium">{member.name}</span>
+                           <div className="flex items-center gap-3">
+                                <Avatar className="h-10 w-10">
+                                    <AvatarImage src={member.avatarUrl} alt={member.name} />
+                                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                                </Avatar>
+                                <span className="font-medium">{member.name}</span>
+                            </div>
                             {member.id === leader.id && (
                                 <Badge variant="secondary" className="flex items-center gap-1">
                                     <Crown className="h-3 w-3 text-yellow-500" />
@@ -273,7 +271,7 @@ function CompanionCircleCard() {
                         </div>
                     ))}
                 </div>
-                <Button variant="outline" className="w-full mt-4">
+                <Button variant="outline" className="w-full mt-6">
                     View Circle
                 </Button>
             </CardContent>
