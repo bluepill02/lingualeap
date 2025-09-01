@@ -7,6 +7,14 @@ export const neetChemistryTamil: ExamModule = {
     examName: 'NEET',
     language: 'Tamil',
     category: 'Chemistry',
+    syllabusMapping: [
+        {
+            topic: 'Chemical Bonding and Molecular Structure',
+            tnBoardChapter: '11th Std Chemistry - Vol 1, Chapter 4: Chemical Bonding',
+            ncertReference: 'Class 11 Chemistry - Part 1, Chapter 4: Chemical Bonding and Molecular Structure',
+            notes: 'VSEPR theory and Hybridization are extremely important. NCERT provides excellent diagrams for molecular shapes. Practice predicting the geometry of at least 20-30 common molecules.'
+        }
+    ],
     vocabulary: [
         {
             word: 'வேதிப் பிணைப்பு (Vethi Pinaippu)',

@@ -24,7 +24,7 @@ export interface Lesson {
 }
 
 export interface Flashcard {
-  id: string;
+  id:string;
   word: string;
   translation: string;
   phonetic: string;
@@ -97,7 +97,7 @@ export interface VocabEntry {
     definition: string;
     partOfSpeech: string;
     sentence: string;
-    sentenceRoman: string;
+    sentenceRoman?: string;
     sentenceTranslation: string;
 }
 
@@ -113,6 +113,13 @@ export interface ErrorAnalysisItem {
     tip: string;
 }
 
+export interface SyllabusMapping {
+    topic: string;
+    tnBoardChapter: string;
+    ncertReference: string;
+    notes: string;
+}
+
 export interface ExamModule {
     id: string;
     title: string;
@@ -122,6 +129,7 @@ export interface ExamModule {
     vocabulary: VocabEntry[];
     quizzes: ExamQuizQuestion[];
     errorAnalysis: ErrorAnalysisItem[];
+    syllabusMapping?: SyllabusMapping[];
 }
 
 export interface CompanionCircle {

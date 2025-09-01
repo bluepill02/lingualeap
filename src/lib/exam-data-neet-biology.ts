@@ -7,6 +7,14 @@ export const neetBiologyTamil: ExamModule = {
     examName: 'NEET',
     language: 'Tamil',
     category: 'Biology',
+    syllabusMapping: [
+        {
+            topic: 'Principles of Inheritance and Variation',
+            tnBoardChapter: '12th Std Botany - Chapter 3: Chromosomal Basis of Inheritance & 12th Std Zoology - Chapter 2: Human Reproduction (related concepts)',
+            ncertReference: 'Class 12 Biology - Chapter 5: Principles of Inheritance and Variation',
+            notes: 'Mendelian genetics is the core. TN board students should pay extra attention to genetic disorders mentioned in NCERT, as they are frequently asked. Practice pedigree analysis extensively.'
+        }
+    ],
     vocabulary: [
         {
             word: 'மரபியல் (Marabiyal)',

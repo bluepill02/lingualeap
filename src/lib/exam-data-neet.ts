@@ -7,6 +7,14 @@ export const neetPhysicsTamil: ExamModule = {
     examName: 'NEET',
     language: 'Tamil',
     category: 'Physics',
+    syllabusMapping: [
+        {
+            topic: 'Ray Optics and Optical Instruments',
+            tnBoardChapter: '12th Std Physics - Vol 2, Chapter 6: Ray Optics',
+            ncertReference: 'Class 12 Physics - Part 2, Chapter 9: Ray Optics and Optical Instruments',
+            notes: 'TN Board book has detailed derivations. NCERT has more conceptual questions and real-world examples. Focus on numerical problems from both books. Lens Maker\'s formula is critical.'
+        }
+    ],
     vocabulary: [
         {
             word: 'ஒளிவிலகல் (Olivillagal)',
