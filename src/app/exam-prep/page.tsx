@@ -19,6 +19,11 @@ const examModules = [
     title: 'State PSC: Hindi Proverbs & Sayings',
     description: 'Understand and learn to use common Hindi proverbs for various state-level public service commission exams.',
     href: '/exam-prep/psc'
+  },
+  {
+    title: 'TNPSC: General Tamil Vocabulary',
+    description: 'Crucial vocabulary, idioms, and proverbs for the TNPSC Group 1-4 exams.',
+    href: '/exam-prep/tnpsc'
   }
 ];
 
