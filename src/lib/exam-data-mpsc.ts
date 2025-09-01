@@ -31,7 +31,7 @@ export const mpscMarathiIdioms: ExamModule = {
             romanization: 'Dolyat tel ghalun pahane',
             definition: 'To watch very carefully and attentively.',
             partOfSpeech: 'Idiom',
-            sentence: 'शिपाई रात्री डोळ्यात तेल घालून पहारा देत होता.',
+            sentence: 'शिपाई रात्री डोळ्यात तेल घालून पहारा देत होता।',
             sentenceRoman: 'Shipai ratri dolyat tel ghalun pahara det hota.',
             sentenceTranslation: 'The guard was keeping watch very attentively at night.'
         },
@@ -49,7 +49,7 @@ export const mpscMarathiIdioms: ExamModule = {
             romanization: 'Ram nasne',
             definition: 'To have no substance or meaning; to be pointless.',
             partOfSpeech: 'Idiom',
-            sentence: 'त्याच्या बोलण्यात काहीच राम नव्हता.',
+            sentence: 'त्याच्या बोलण्यात काहीच राम नव्हता।',
             sentenceRoman: 'Tyachya bolnyat kahich ram navhta.',
             sentenceTranslation: 'There was no substance in his talk.'
         }
