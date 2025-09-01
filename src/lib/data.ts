@@ -1,5 +1,6 @@
 
-import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle } from './types';
+
+import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass } from './types';
 import { learnerPersonas } from './personas';
 
 export const mockUser: User = {
@@ -819,4 +820,43 @@ export const allMicroLessons: MicroLesson[] = [
         ],
         followUp: 'Attend a "mushaira" (poetry reading) and show your appreciation with "Bahut khoob!"'
     }
+];
+
+export const liveClasses: LiveClass[] = [
+    {
+        id: 'lc-1',
+        topic: 'Mastering Hindi Tenses',
+        description: 'An interactive session focusing on past, present, and future tenses with live Q&A.',
+        instructor: 'Priya Sharma',
+        instructorAvatar: 'https://picsum.photos/100/100?a=2',
+        startTime: new Date(Date.now() - 30 * 60 * 1000).toISOString(), // 30 mins ago
+        endTime: new Date(Date.now() + 30 * 60 * 1000).toISOString(), // in 30 mins
+    },
+    {
+        id: 'lc-2',
+        topic: 'Advanced Bengali Vocabulary for WBCS',
+        description: 'A deep dive into complex vocabulary and synonyms for competitive exam aspirants.',
+        instructor: 'Dr. Arnab Basu',
+        instructorAvatar: 'https://picsum.photos/100/100?a=11',
+        startTime: new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString(), // in 2 hours
+        endTime: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString(), // in 3 hours
+    },
+    {
+        id: 'lc-3',
+        topic: 'Tamil for Travelers: A Cultural Guide',
+        description: 'Learn essential phrases and cultural etiquette for your next trip to Tamil Nadu.',
+        instructor: 'Meena Krishnan',
+        instructorAvatar: 'https://picsum.photos/100/100?a=12',
+        startTime: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000).toISOString(), // tomorrow
+        endTime: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000 + 60 * 60 * 1000).toISOString(),
+    },
+     {
+        id: 'lc-4',
+        topic: 'Doubt Clearing Session: Marathi Grammar',
+        description: 'Bring your questions about Marathi grammar and get them answered by an expert.',
+        instructor: 'Sameer Joshi',
+        instructorAvatar: 'https://picsum.photos/100/100?a=13',
+        startTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // in 2 days
+        endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 60 * 60 * 1000).toISOString(),
+    },
 ];

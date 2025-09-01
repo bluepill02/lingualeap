@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -25,6 +26,7 @@ import {
   ClipboardCheck,
   Camera,
   Bot,
+  Radio,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -73,6 +75,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/ar-immersion',
       label: 'AR Immersion',
       icon: Camera,
+    },
+    {
+      href: '/live-classes',
+      label: 'Live Classes',
+      icon: Radio,
     },
     {
       href: '/settings',

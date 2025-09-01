@@ -1,4 +1,5 @@
 
+
 export interface User {
   id: string;
   name: string;
@@ -131,4 +132,14 @@ export interface CompanionCircle {
         avatarUrl: string;
     }[];
     leaderId: string;
+}
+
+export interface LiveClass {
+  id: string;
+  topic: string;
+  description: string;
+  instructor: string;
+  instructorAvatar: string;
+  startTime: string;
+  endTime: string;
 }
