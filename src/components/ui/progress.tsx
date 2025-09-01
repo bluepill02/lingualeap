@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -18,11 +19,11 @@ const Progress = React.forwardRef<
     {...props}
   >
     <ProgressPrimitive.Indicator
-      className="h-full w-full flex-1 bg-primary transition-all"
+      className="h-full w-full flex-1 bg-primary transition-all animate-progress"
       style={{
         transform: `translateX(-${100 - (value || 0)}%)`,
         backgroundImage: 'repeating-linear-gradient(-45deg, hsl(var(--accent)) 0, hsl(var(--accent)) 10px, hsl(var(--primary)) 10px, hsl(var(--primary)) 20px)',
-        backgroundSize: '28.28px 28.28px'
+        backgroundSize: '40px 40px'
     }}
     />
   </ProgressPrimitive.Root>
