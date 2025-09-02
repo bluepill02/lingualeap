@@ -1,5 +1,3 @@
-
-
 import { biologyAndHumanWelfare } from './biology/biology-and-human-welfare';
 import { biotechnologyAndItsApplications } from './biology/biotechnology-and-its-applications';
 import { cellStructureAndFunction } from './biology/cell-structure-and-function';
@@ -23,6 +21,7 @@ import { pBlockElements } from './chemistry/p-block-elements';
 import { dAndFBlockElements } from './chemistry/d-and-f-block-elements';
 import { coordinationCompounds } from './chemistry/coordination-compounds';
 import { purificationAndCharacterisationOfOrganicCompounds } from './chemistry/purification-and-characterisation-of-organic-compounds';
+import { someBasicPrinciplesOfOrganicChemistry } from './chemistry/some-basic-principles-of-organic-chemistry';
 import { hydrocarbons } from './chemistry/hydrocarbons';
 import { organicCompoundsContainingHalogens } from './chemistry/organic-compounds-containing-halogens';
 import { organicCompoundsContainingOxygen } from './chemistry/organic-compounds-containing-oxygen';
@@ -50,7 +49,6 @@ import { atomsAndNuclei } from './physics/atoms-and-nuclei';
 import { electronicDevices } from './physics/electronic-devices';
 import { experimentalSkills } from './physics/experimental-skills';
 import type { NeetModule } from '@/lib/types';
-// Note: some-basic-principles-of-organic-chemistry is intentionally omitted as it is a placeholder
 
 const neetContent: Record<string, Record<string, NeetModule>> = {
     biology: {
@@ -76,9 +74,10 @@ const neetContent: Record<string, Record<string, NeetModule>> = {
         'chemical-kinetics': chemicalKinetics,
         'classification-of-elements-and-periodicity-in-properties': classificationOfElementsAndPeriodicityInProperties,
         'p-block-elements': pBlockElements,
-        'd-and-f-block-elements': dAndFBlockElements,
+        'd--and-f-block-elements': dAndFBlockElements,
         'coordination-compounds': coordinationCompounds,
         'purification-and-characterisation-of-organic-compounds': purificationAndCharacterisationOfOrganicCompounds,
+        'some-basic-principles-of-organic-chemistry': someBasicPrinciplesOfOrganicChemistry,
         'hydrocarbons': hydrocarbons,
         'organic-compounds-containing-halogens': organicCompoundsContainingHalogens,
         'organic-compounds-containing-oxygen': organicCompoundsContainingOxygen,
@@ -111,6 +110,11 @@ const neetContent: Record<string, Record<string, NeetModule>> = {
 };
 
 export function getNeetChapterContent(subject: string, chapter: string): NeetModule | null {
-    const slug = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
-    return neetContent[subject]?.[slug] || null;
+    // The chapter slug from the URL might be different from the module ID.
+    // e.g., URL has 'd-and-f-block-elements' but module ID might be 'chemistry-d-and-f-block-elements'
+    const moduleKey = Object.keys(neetContent[subject] || {}).find(key => key.endsWith(chapter));
+    if (moduleKey) {
+        return neetContent[subject][moduleKey];
+    }
+    return null;
 }
