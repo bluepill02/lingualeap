@@ -1,3 +1,4 @@
+
 import type { NeetModule } from '@/lib/types';
 
 export const thermodynamics: NeetModule = {
@@ -23,15 +24,19 @@ export const thermodynamics: NeetModule = {
 ### 4. Second Law of Thermodynamics (வெப்ப இயக்கவியலின் இரண்டாம் விதி)
 *   **Kelvin-Planck Statement:** It is impossible to construct a device that operates in a cycle and produces no other effect than the extraction of heat from a single body and the performance of an equivalent amount of work. (No heat engine can have 100% efficiency).
 *   **Clausius Statement:** It is impossible to construct a device that operates in a cycle and produces no other effect than the transfer of heat from a colder body to a hotter body. (Heat cannot spontaneously flow from cold to hot).
-*   **Entropy (என்ட்ரோபி):** A measure of molecular disorder or randomness. The entropy of the universe always increases in any spontaneous process.
+*   **Entropy (என்ட்ரோபி):** A measure of molecular disorder or randomness. The entropy of the universe always increases in any spontaneous process. (ஒரு வகுப்பறை, ஆசிரியர் இல்லாதபோது தானாகவே ஒழுங்கற்ற நிலைக்குச் செல்வது போல).
+*   ΔS_total = ΔS_sys + ΔS_surr > 0 for a spontaneous process.
 
-### 5. Heat Engines and Refrigerators (வெப்ப இயந்திரங்கள் மற்றும் குளிர்பதனிகள்)
-*   **Heat Engine:** A device that converts heat energy into mechanical work. Efficiency, η = 1 - T₂/T₁, where T₁ is the source temperature and T₂ is the sink temperature.
-*   **Refrigerator (and Heat Pump):** A device that works in a reverse cycle to transfer heat from a cold body to a hot body.
-*   **Coefficient of Performance (COP):** For a refrigerator, COP = Q₂ / W.
+### 5. Gibbs Free Energy (G) (கிப்ஸ் கட்டிலா ஆற்றல்)
+*   A thermodynamic potential that can be used to calculate the maximum reversible work that may be performed by a thermodynamic system at a constant temperature and pressure.
+*   **Gibbs Equation:** ΔG = ΔH - TΔS.
+*   **Spontaneity of a Reaction (ஒரு வினையின் தன்னிச்சை):**
+    *   If ΔG < 0, the process is spontaneous.
+    *   If ΔG > 0, the process is non-spontaneous.
+    *   If ΔG = 0, the system is at equilibrium.
 
-### 6. Carnot Engine (கார்னோ இயந்திரம்)
-*   A reversible, ideal heat engine that operates in a cycle between two temperatures. It has the maximum possible efficiency for any heat engine operating between two given temperatures.
+### 6. Third Law of Thermodynamics (வெப்ப இயக்கவியலின் மூன்றாம் விதி)
+*   The entropy of a perfect crystal at absolute zero (0 Kelvin) is zero.
 `,
   workedExamples: [
     {
@@ -236,7 +241,6 @@ export const thermodynamics: NeetModule = {
         "answer": "A",
         "explanation": "The reason correctly explains the assertion. Since there are no intermolecular forces, the internal energy consists only of the kinetic energy of the molecules, which is a function of temperature."
     },
-s
     {
         "assertion": "The slope of an adiabatic P-V curve is steeper than that of an isothermal curve.",
         "reason": "The ratio of specific heats, γ, is always greater than 1.",
