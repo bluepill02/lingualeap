@@ -1,7 +1,7 @@
 import 'dotenv/config';
 // scripts/generate-neet.ts
 
-import { GenkitClient } from "@genkit/client"
+import { GenkitClient } from "genkit"
 import fs from "fs"
 import path from "path"
 
