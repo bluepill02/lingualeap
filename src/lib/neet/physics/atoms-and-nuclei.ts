@@ -178,7 +178,7 @@ export const atomsAndNuclei: NeetModule = {
         explanation: "An alpha particle is a helium nucleus (⁴He₂), so its emission decreases the mass number by 4 and the atomic number by 2."
     },
     {
-        question": "Bohr's model of the atom:",
+        "question": "Bohr's model of the atom:",
         options: ["Assumes that the angular momentum of electrons is quantized", "Uses Einstein's photoelectric equation", "Predicts the same emission spectra for all types of atoms", "Could explain the Zeeman effect"],
         answer: "Assumes that the angular momentum of electrons is quantized",
         explanation: "The quantization of angular momentum (L = nh/2π) is one of the fundamental postulates of Bohr's model."
@@ -353,4 +353,4 @@ export const atomsAndNuclei: NeetModule = {
         "answer": "a-iii, b-ii, c-i, d-iv"
     }
   ]
-};
+}
