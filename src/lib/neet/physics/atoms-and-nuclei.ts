@@ -114,7 +114,7 @@ export const atomsAndNuclei: NeetModule = {
     {
         question: "The angular momentum of an electron in the nth orbit of a hydrogen atom, according to Bohr's model, is:",
         options: ["nh", "nh/2π", "n²h/2π", "h/n"],
-        answer": "nh/2π",
+        "answer": "nh/2π",
         explanation: "Bohr's second postulate states that the angular momentum is an integral multiple of h/2π."
     },
     {
