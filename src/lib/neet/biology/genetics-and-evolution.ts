@@ -92,6 +92,66 @@ export const geneticsAndEvolution: NeetModule = {
       answer: 'Transcription',
       explanation: 'Transcription is the first step of gene expression, where a particular segment of DNA is copied into RNA.'
     },
+    {
+        question: 'Which of the following represents a test cross?',
+        options: ['Ww x Ww', 'WW x Ww', 'Ww x ww', 'WW x WW'],
+        answer: 'Ww x ww',
+        explanation: 'A test cross is a cross between an organism with an unknown dominant genotype and an organism that is homozygous recessive for that trait.'
+    },
+    {
+        question: 'The term "operon" was proposed by:',
+        options: ['Watson and Crick', 'Jacob and Monod', 'Hershey and Chase', 'Griffith'],
+        answer: 'Jacob and Monod',
+        explanation: 'Francois Jacob and Jacques Monod proposed the operon model for gene regulation in bacteria.'
+    },
+    {
+        question: 'Which theory states that "ontogeny recapitulates phylogeny"?',
+        options: ['Theory of Natural Selection', 'Theory of Acquired Characters', 'Recapitulation Theory', 'Modern Synthetic Theory'],
+        answer: 'Recapitulation Theory',
+        explanation: 'Proposed by Ernst Haeckel, this theory suggests that the development of an organism (ontogeny) expresses all the intermediate forms of its ancestors throughout evolution (phylogeny).'
+    },
+    {
+        question: 'In the DNA double helix, the two strands are:',
+        options: ['Parallel', 'Anti-parallel', 'Perpendicular', 'Coiled in the same direction'],
+        answer: 'Anti-parallel',
+        explanation: 'The two strands run in opposite directions, one in the 5\' to 3\' direction and the other in the 3\' to 5\' direction.'
+    },
+    {
+        question: 'A man with blood group O marries a woman with blood group AB. What are the possible blood groups of their offspring?',
+        options: ['O and AB', 'A and B', 'A, B, and O', 'A, B, AB, and O'],
+        answer: 'A and B',
+        explanation: 'The man\'s genotype is ii. The woman\'s is IᴬIᴮ. The offspring can have genotypes Iᴬi (Blood group A) or Iᴮi (Blood group B).'
+    },
+    {
+        question: 'Which of the following is considered the "ultimate source of variation"?',
+        options: ['Recombination', 'Mutation', 'Genetic drift', 'Natural selection'],
+        answer: 'Mutation',
+        explanation: 'Mutations are random changes in the DNA sequence that create new alleles, providing the raw material for evolution.'
+    },
+    {
+        question: 'The enzyme required for transcription is:',
+        options: ['DNA polymerase', 'RNA polymerase', 'Ligase', 'Helicase'],
+        answer: 'RNA polymerase',
+        explanation: 'RNA polymerase is the enzyme that synthesizes RNA from a DNA template.'
+    },
+    {
+        question: 'Which of the following provides the most direct evidence for evolution?',
+        options: ['Comparative anatomy', 'Embryology', 'Fossils', 'Biogeography'],
+        answer: 'Fossils',
+        explanation: 'Fossils are the preserved remains of ancient organisms that provide a direct record of the history of life on Earth.'
+    },
+    {
+        "question": "Which of the following is a termination codon?",
+        "options": [ "AUG", "GUG", "UGA", "CGC" ],
+        "answer": "UGA",
+        "explanation": "UAA, UAG, and UGA are the three stop or termination codons in the genetic code."
+    },
+    {
+        "question": "The phenomenon of a single gene exhibiting multiple phenotypic effects is called:",
+        "options": [ "Co-dominance", "Pleiotropy", "Polygenic inheritance", "Multiple allelism" ],
+        "answer": "Pleiotropy",
+        "explanation": "Pleiotropy occurs when one gene influences two or more seemingly unrelated phenotypic traits. An example is phenylketonuria."
+    }
   ],
   assertionReasons: [
     {
@@ -111,6 +171,36 @@ export const geneticsAndEvolution: NeetModule = {
       reason: 'Analogous organs have a similar function but different evolutionary origins.',
       answer: 'A',
       explanation: 'Convergent evolution is the process whereby organisms not closely related independently evolve similar traits as a result of having to adapt to similar environments or ecological niches. This is perfectly illustrated by analogous organs.'
+    },
+    {
+        "assertion": "A person with blood group O can donate blood to a person with any other blood group.",
+        "reason": "O blood group individuals do not have any antigens on their RBCs.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since O blood group RBCs lack both A and B antigens, they do not trigger an immune reaction in recipients of other blood types, making them universal donors."
+    },
+    {
+        "assertion": "The Hardy-Weinberg principle states that allele frequencies in a population are stable from generation to generation.",
+        "reason": "This is applicable only when there are no evolutionary influences like mutation, selection, or genetic drift.",
+        "answer": "A",
+        "explanation": "The reason correctly states the conditions under which the principle holds true, thus explaining the assertion."
+    },
+    {
+        "assertion": "Haemophilia is a sex-linked recessive disorder.",
+        "reason": "It shows transmission from an unaffected carrier female to some of the male progeny.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the criss-cross inheritance pattern characteristic of X-linked recessive disorders, which explains the assertion."
+    },
+    {
+        "assertion": "In a DNA molecule, the percentage of Adenine is equal to the percentage of Thymine.",
+        "reason": "Adenine always pairs with Thymine through two hydrogen bonds.",
+        "answer": "A",
+        "explanation": "The reason (Chargaff's rule of base pairing) correctly explains why the amounts of A and T are equal."
+    },
+    {
+        "assertion": "Industrial melanism is an example of natural selection.",
+        "reason": "In a polluted environment, dark-colored moths were better camouflaged and survived, leading to an increase in their population.",
+        "answer": "A",
+        "explanation": "The reason correctly provides the mechanism of natural selection in the case of the peppered moth, explaining the assertion."
     }
   ],
   matchTheColumns: [
@@ -123,6 +213,21 @@ export const geneticsAndEvolution: NeetModule = {
       column1: ['a) Phenylketonuria', 'b) Sickle-cell anaemia', 'c) Down\'s syndrome', 'd) Turner\'s syndrome'],
       column2: ['i) Trisomy', 'ii) Autosomal recessive', 'iii) Monosomy of X-chromosome', 'iv) Co-dominance example'],
       answer: 'a-ii, b-iv, c-i, d-iii'
+    },
+    {
+      "column1": ["a) Homologous organs", "b) Analogous organs", "c) Vestigial organs", "d) Adaptive radiation"],
+      "column2": ["i) Wings of butterfly and bird", "ii) Appendix in humans", "iii) Forelimbs of man and whale", "iv) Darwin's finches"],
+      "answer": "a-iii, b-i, c-ii, d-iv"
+    },
+    {
+      "column1": ["a) Transcription", "b) Translation", "c) Replication", "d) Reverse Transcription"],
+      "column2": ["i) DNA → DNA", "ii) RNA → DNA", "iii) DNA → mRNA", "iv) mRNA → Protein"],
+      "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+      "column1": ["a) AUG", "b) UAA", "c) GGG", "d) CUU"],
+      "column2": ["i) Leucine", "ii) Start codon (Methionine)", "iii) Glycine", "iv) Stop codon"],
+      "answer": "a-ii, b-iv, c-iii, d-i"
     }
   ],
 };

@@ -102,6 +102,66 @@ export const plantPhysiology: NeetModule = {
       answer: 'Oxygen',
       explanation: 'Oxygen is the terminal electron acceptor in aerobic respiration. It combines with electrons and protons to form water.'
     },
+    {
+        question: 'The opening and closing of stomata is regulated by:',
+        options: ['Temperature', 'Light', 'Potassium ion concentration', 'Oxygen concentration'],
+        answer: 'Potassium ion concentration',
+        explanation: 'The influx and efflux of K+ ions into and out of the guard cells cause changes in their turgor pressure, leading to the opening and closing of the stomatal pore.'
+    },
+    {
+        question: 'Which of the following is required for the photolysis of water?',
+        options: ['Manganese (Mn)', 'Magnesium (Mg)', 'Zinc (Zn)', 'Copper (Cu)'],
+        answer: 'Manganese (Mn)',
+        explanation: 'The oxygen-evolving complex in Photosystem II requires manganese, chlorine, and calcium ions for the splitting of water.'
+    },
+    {
+        question: 'The common pathway for both aerobic and anaerobic respiration is:',
+        options: ['Krebs Cycle', 'Glycolysis', 'Electron Transport Chain', 'Calvin Cycle'],
+        answer: 'Glycolysis',
+        explanation: 'Glycolysis is the initial stage of glucose breakdown that occurs in the cytoplasm and does not require oxygen.'
+    },
+    {
+        question: 'The phenomenon of "bolting" in rosette plants is induced by which hormone?',
+        options: ['Auxin', 'Ethylene', 'Gibberellin', 'Cytokinin'],
+        answer: 'Gibberellin',
+        explanation: 'Gibberellins promote internode elongation just prior to flowering in rosette plants like cabbage, a phenomenon known as bolting.'
+    },
+    {
+        question: 'In C4 plants, the enzyme PEP carboxylase is found in:',
+        options: ['Bundle sheath cells', 'Mesophyll cells', 'Epidermal cells', 'Guard cells'],
+        answer: 'Mesophyll cells',
+        explanation: 'In the C4 pathway, initial CO₂ fixation is carried out by PEP carboxylase in the cytoplasm of the mesophyll cells.'
+    },
+    {
+        question: 'The conversion of atmospheric nitrogen to ammonia by living organisms is called:',
+        options: ['Nitrification', 'Denitrification', 'Nitrogen fixation', 'Ammonification'],
+        answer: 'Nitrogen fixation',
+        explanation: 'Nitrogen fixation is the process by which atmospheric nitrogen (N₂) is converted into ammonia (NH₃), a form usable by plants.'
+    },
+    {
+        question: 'The net gain of ATP molecules from one molecule of glucose during glycolysis is:',
+        options: ['2', '4', '8', '36'],
+        answer: '2',
+        explanation: 'During glycolysis, 4 ATP are produced, but 2 ATP are consumed in the preparatory phase, leading to a net gain of 2 ATP.'
+    },
+    {
+        question: 'Which light is most effective for photosynthesis?',
+        options: ['Green', 'Yellow', 'Red', 'Infrared'],
+        answer: 'Red',
+        explanation: 'The action spectrum of photosynthesis shows major peaks in the blue and red regions of the visible spectrum, with red light being slightly more effective.'
+    },
+    {
+        question: 'Apical dominance in plants is caused by:',
+        options: ['Cytokinins', 'Gibberellins', 'Ethylene', 'Auxins'],
+        answer: 'Auxins',
+        explanation: 'Auxins produced in the apical bud suppress the growth of lateral (axillary) buds, a phenomenon known as apical dominance.'
+    },
+    {
+        question: 'The process of guttation is due to:',
+        options: ['Transpiration', 'Root pressure', 'Osmosis', 'Diffusion'],
+        answer: 'Root pressure',
+        explanation: 'Guttation, the exudation of water droplets from the tips of leaves, is caused by positive pressure developed in the xylem due to water absorption by the roots.'
+    }
   ],
   assertionReasons: [
     {
@@ -115,6 +175,24 @@ export const plantPhysiology: NeetModule = {
       reason: 'C4 plants have a mechanism that increases the concentration of CO₂ at the enzyme site.',
       answer: 'A',
       explanation: 'The reason is the correct explanation for the assertion. The C4 pathway effectively pumps CO₂ into the bundle sheath cells, ensuring that RuBisCO has a high concentration of CO₂ and a low concentration of O₂, thus preventing photorespiration.'
+    },
+    {
+        "assertion": "The deficiency of molybdenum causes "whiptail" disease in cauliflower.",
+        "reason": "Molybdenum is a component of the enzyme nitrate reductase.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Nitrate reductase is essential for nitrogen metabolism. Its deficiency, caused by a lack of molybdenum, leads to the characteristic symptoms of whiptail disease."
+    },
+    {
+        "assertion": "In the electron transport system, oxygen is the ultimate electron acceptor.",
+        "reason": "The ETS is located in the outer mitochondrial membrane.",
+        "answer": "C",
+        "explanation": "The assertion is true. The reason is false; the electron transport system is located on the inner mitochondrial membrane."
+    },
+    {
+        "assertion": "Spraying sugarcane crops with gibberellins increases the yield.",
+        "reason": "Gibberellins increase the length of the stem.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since sugar is stored in the stem of sugarcane, increasing the stem length with gibberellins leads to a higher yield."
     }
   ],
   matchTheColumns: [
@@ -127,6 +205,21 @@ export const plantPhysiology: NeetModule = {
       column1: ['a) Glycolysis', 'b) Krebs Cycle', 'c) ETS', 'd) Fermentation'],
       column2: ['i) Inner mitochondrial membrane', 'ii) Cytoplasm, anaerobic', 'iii) Mitochondrial matrix', 'iv) Cytoplasm, common pathway'],
       answer: 'a-iv, b-iii, c-i, d-ii'
+    },
+    {
+      "column1": ["a) Photolysis of water", "b) C₃ cycle", "c) C₄ pathway", "d) Photoperiodism"],
+      "column2": ["i) Kranz anatomy", "ii) Phytochrome", "iii) Mn and Cl ions", "iv) RuBisCO enzyme"],
+      "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+      "column1": ["a) Nitrogen", "b) Phosphorus", "c) Potassium", "d) Boron"],
+      "column2": ["i) Required for pollen germination", "ii) Component of chlorophyll", "iii) Component of nucleic acids (ATP)", "iv) Opening and closing of stomata"],
+      "answer": "a-ii, b-iii, c-iv, d-i"
+    },
+    {
+      "column1": ["a) Cohesion", "b) Adhesion", "c) Surface Tension", "d) Guttation"],
+      "column2": ["i) Attraction to polar surfaces", "ii) Attraction among water molecules", "iii) Due to root pressure", "iv) More attraction in liquid phase than gas phase"],
+      "answer": "a-ii, b-i, c-iv, d-iii"
     }
   ],
 };

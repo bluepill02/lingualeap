@@ -83,6 +83,66 @@ export const reproduction: NeetModule = {
       options: ['Ovule', 'Ovary', 'Stigma', 'Petal'],
       answer: 'Ovary',
       explanation: 'After fertilization, the ovary of the flower matures and develops into the fruit, while the ovules inside it develop into seeds.'
+    },
+    {
+      question: 'Which of the following is a male accessory gland in humans?',
+      options: ['Ovary', 'Testis', 'Seminal vesicle', 'Bartholin\'s gland'],
+      answer: 'Seminal vesicle',
+      explanation: 'Seminal vesicles, prostate gland, and bulbourethral glands are the male accessory glands.'
+    },
+    {
+      question: 'The transfer of pollen from the anther to the stigma of another flower of the same plant is called:',
+      options: ['Autogamy', 'Geitonogamy', 'Xenogamy', 'Allogamy'],
+      answer: 'Geitonogamy',
+      explanation: 'Geitonogamy is functionally cross-pollination involving a pollinating agent, but genetically it is similar to autogamy since the pollen grains come from the same plant.'
+    },
+    {
+      question: 'The LH surge during the menstrual cycle triggers:',
+      options: ['Menstruation', 'Ovulation', 'Fertilization', 'Implantation'],
+      answer: 'Ovulation',
+      explanation: 'The rapid secretion of LH (Luteinizing Hormone) during the mid-cycle (around day 14) induces the rupture of the Graafian follicle and release of the ovum (ovulation).'
+    },
+    {
+      question: 'The nutritive tissue for the developing embryo in an angiosperm seed is the:',
+      options: ['Zygote', 'Endosperm', 'Integument', 'Cotyledon'],
+      answer: 'Endosperm',
+      explanation: 'The endosperm is a product of triple fusion and serves as the food-storing tissue for the embryo.'
+    },
+    {
+      question: 'The acrosome of the sperm contains:',
+      options: ['Mitochondria for energy', 'The nucleus with genetic material', 'Enzymes for fertilization', 'The tail for motility'],
+      answer: 'Enzymes for fertilization',
+      explanation: 'The acrosome is a cap-like structure filled with enzymes (like hyaluronidase) that help the sperm penetrate the layers of the ovum.'
+    },
+    {
+      question: 'A clone is a group of individuals obtained through:',
+      options: ['Self-pollination', 'Cross-pollination', 'Sexual reproduction', 'Asexual reproduction'],
+      answer: 'Asexual reproduction',
+      explanation: 'Clones are organisms that are genetically identical to each other and to the parent, which is a result of asexual reproduction.'
+    },
+    {
+      question: 'The placenta in humans acts as an endocrine tissue and produces several hormones. Which of the following is NOT produced by the placenta?',
+      options: ['hCG (Human Chorionic Gonadotropin)', 'hPL (Human Placental Lactogen)', 'Relaxin', 'LH (Luteinizing Hormone)'],
+      answer: 'LH (Luteinizing Hormone)',
+      explanation: 'LH is produced by the anterior pituitary gland. The placenta produces hCG, hPL, estrogens, and progestogens. Relaxin is also produced by the ovary in later stages.'
+    },
+    {
+        question: 'What is the function of the Sertoli cells in the testes?',
+        options: ['Synthesize testosterone', 'Undergo meiosis to form sperm', 'Provide nutrition to the germ cells', 'Store sperm'],
+        answer: 'Provide nutrition to the germ cells',
+        explanation: 'Sertoli cells provide structural support and nutrition to the developing spermatogonia and spermatozoa.'
+    },
+    {
+        question: 'Pollination by wind is called:',
+        options: ['Hydrophily', 'Entomophily', 'Anemophily', 'Ornithophily'],
+        answer: 'Anemophily',
+        explanation: 'Anemophily refers to pollination facilitated by wind.'
+    },
+    {
+        question: 'The signals for parturition originate from:',
+        options: ['The fully developed fetus and the placenta', 'The mother\'s pituitary gland only', 'The mother\'s ovary only', 'The endometrium of the uterus'],
+        answer: 'The fully developed fetus and the placenta',
+        explanation: 'The signals for childbirth originate from the fully developed fetus and the placenta which induce mild uterine contractions called the foetal ejection reflex.'
     }
   ],
   assertionReasons: [
@@ -97,6 +157,24 @@ export const reproduction: NeetModule = {
       reason: 'It is formed by the fusion of one male gamete with the two polar nuclei.',
       answer: 'A',
       explanation: 'The reason correctly explains the assertion. The fusion of one haploid male gamete (n) with the two haploid polar nuclei (n+n) results in a triploid (3n) primary endosperm nucleus.'
+    },
+    {
+        assertion: 'In humans, the testes are located outside the abdominal cavity in a scrotum.',
+        reason: 'The scrotum helps in maintaining a lower temperature than the normal body temperature, which is necessary for spermatogenesis.',
+        answer: 'A',
+        explanation: 'The reason correctly explains the assertion. Spermatogenesis requires a temperature 2-2.5°C lower than the internal body temperature.'
+    },
+    {
+        assertion: 'Cross-pollination is genetically more advantageous than self-pollination.',
+        reason: 'Cross-pollination brings genetically different types of pollen grains to the stigma, leading to genetic recombination.',
+        answer: 'A',
+        explanation: 'The reason correctly explains the assertion. The genetic variation introduced by cross-pollination is crucial for adaptation and evolution.'
+    },
+    {
+        assertion: 'The corpus luteum is essential for the maintenance of pregnancy in the initial stages.',
+        reason: 'It secretes large amounts of progesterone.',
+        answer: 'A',
+        explanation: 'The reason correctly explains the assertion. Progesterone is essential for maintaining the endometrium, and the corpus luteum is the primary source of progesterone after ovulation until the placenta takes over.'
     }
   ],
   matchTheColumns: [
@@ -109,6 +187,21 @@ export const reproduction: NeetModule = {
       column1: ['a) Wind Pollination', 'b) Water Pollination', 'c) Animal Pollination', 'd) Self Pollination'],
       column2: ['i) Geitonogamy', 'ii) Zoophily', 'iii) Hydrophily', 'iv) Anemophily'],
       answer: 'a-iv, b-iii, c-ii, d-i'
+    },
+    {
+      "column1": ["a) Pistils fused together", "b) Formation of gametes", "c) Unisexual female flower", "d) Male flower"],
+      "column2": ["i) Gametogenesis", "ii) Pistillate", "iii) Staminate", "iv) Syncarpous"],
+      "answer": "a-iv, b-i, c-ii, d-iii"
+    },
+    {
+      "column1": ["a) Ejaculatory duct", "b) Fallopian tube", "c) Uterus", "d) Vagina"],
+      "column2": ["i) Site of Implantation", "ii) Receives sperm during coitus", "iii) Site of Fertilization", "iv) Stores and transports sperm"],
+      "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+      "column1": ["a) Morula", "b) Blastocyst", "c) Trophoblast", "d) Inner cell mass"],
+      "column2": ["i) Differentiates as the embryo", "ii) Attaches to the endometrium", "iii) Embryo with 8 to 16 blastomeres", "iv) Hollow sphere of cells"],
+      "answer": "a-iii, b-iv, c-ii, d-i"
     }
   ]
 };

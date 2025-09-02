@@ -117,6 +117,66 @@ export const humanPhysiology: NeetModule = {
       options: ['Synapse', 'Sarcolemma', 'Synovial joint', 'Neuromuscular junction'],
       answer: 'Synapse',
       explanation: 'A synapse is the specialized junction where a nerve impulse is transmitted from one neuron to another.'
+    },
+    {
+      question: 'The enzyme pepsin digests:',
+      options: ['Carbohydrates', 'Fats', 'Proteins', 'Nucleic acids'],
+      answer: 'Proteins',
+      explanation: 'Pepsin is a proteolytic enzyme secreted in the stomach that begins the digestion of proteins into smaller polypeptides.'
+    },
+    {
+      question: 'The amount of air that can be inspired or expired during normal breathing is called:',
+      options: ['Tidal Volume', 'Inspiratory Reserve Volume', 'Expiratory Reserve Volume', 'Vital Capacity'],
+      answer: 'Tidal Volume',
+      explanation: 'Tidal volume (TV) is the volume of air moved into or out of the lungs during a quiet breath, typically about 500 ml.'
+    },
+    {
+      question: 'The "universal donor" blood group is:',
+      options: ['A', 'B', 'AB', 'O'],
+      answer: 'O',
+      explanation: 'Blood group O individuals lack A and B antigens on their RBCs, so their blood can be donated to people of any ABO blood group.'
+    },
+    {
+      question: 'Which hormone is responsible for the reabsorption of water in the distal parts of the nephron?',
+      options: ['Aldosterone', 'ADH (Antidiuretic Hormone)', 'Adrenaline', 'Glucagon'],
+      answer: 'ADH (Antidiuretic Hormone)',
+      explanation: 'ADH, also known as vasopressin, increases the permeability of the DCT and collecting ducts to water, promoting its reabsorption.'
+    },
+    {
+      question: 'The functional unit of muscle contraction is the:',
+      options: ['Myofibril', 'Muscle fibre', 'Sarcomere', 'Myosin'],
+      answer: 'Sarcomere',
+      explanation: 'The sarcomere is the basic contractile unit of a muscle fibre, extending from one Z-line to the next.'
+    },
+    {
+      question: 'Which part of the human brain is the center for controlling body temperature and the urge for eating and drinking?',
+      options: ['Cerebrum', 'Cerebellum', 'Medulla', 'Hypothalamus'],
+      answer: 'Hypothalamus',
+      explanation: 'The hypothalamus is a key part of the forebrain that regulates many homeostatic functions, including body temperature, thirst, and hunger.'
+    },
+    {
+      question: 'Which hormone lowers blood glucose levels?',
+      options: ['Glucagon', 'Insulin', 'Cortisol', 'Adrenaline'],
+      answer: 'Insulin',
+      explanation: 'Insulin, produced by the β-cells of the pancreas, facilitates the uptake of glucose by cells, thus lowering blood glucose levels.'
+    },
+    {
+        question: 'The QRS complex in a standard ECG represents:',
+        options: ['Repolarization of the atria', 'Depolarization of the ventricles', 'Repolarization of the ventricles', 'Depolarization of the atria'],
+        answer: 'Depolarization of the ventricles',
+        explanation: 'The QRS complex represents ventricular depolarization, which initiates ventricular contraction (systole).'
+    },
+    {
+        question: 'The number of floating ribs in the human body is:',
+        options: ['2 pairs', '3 pairs', '5 pairs', '7 pairs'],
+        answer: '2 pairs',
+        explanation: 'The last two pairs of ribs (11th and 12th) are not connected ventrally to the sternum and are therefore called floating ribs.'
+    },
+    {
+        question: 'A synapse is formed by the membrane of a pre-synaptic neuron and a post-synaptic neuron, which may or may not be separated by a gap called:',
+        options: ['Synaptic cleft', 'Axon terminal', 'Synaptic vesicle', 'Neurotransmitter'],
+        answer: 'Synaptic cleft',
+        explanation: 'The synaptic cleft is the physical space between the pre-synaptic and post-synaptic neurons in a chemical synapse.'
     }
   ],
   assertionReasons: [
@@ -131,6 +191,24 @@ export const humanPhysiology: NeetModule = {
       reason: 'Double circulation is a characteristic feature of all vertebrates.',
       answer: 'D',
       explanation: 'The assertion is false. Fishes have a two-chambered heart, and amphibians/reptiles (mostly) have a three-chambered heart. The reason is also false, as fishes have single circulation.'
+    },
+    {
+      "assertion": "The presence of HCl in the stomach is necessary for the process of digestion.",
+      "reason": "HCl converts inactive pepsinogen into active pepsin.",
+      "answer": "A",
+      "explanation": "The reason correctly explains one of the primary roles of HCl in digestion. The acidic environment it creates is essential for activating pepsin."
+    },
+    {
+      "assertion": "The functional residual capacity (FRC) represents the volume of air remaining in the lungs after a normal expiration.",
+      "reason": "FRC is the sum of Expiratory Reserve Volume (ERV) and Residual Volume (RV).",
+      "answer": "A",
+      "explanation": "The reason provides the correct definition and formula for FRC, explaining the assertion."
+    },
+    {
+      "assertion": "The contraction of a muscle fibre is an all-or-none phenomenon.",
+      "reason": "A muscle fibre either contracts fully in response to a stimulus above a threshold value or does not contract at all.",
+      "answer": "A",
+      "explanation": "The reason correctly defines the all-or-none principle as it applies to an individual muscle fibre."
     }
   ],
   matchTheColumns: [
@@ -143,6 +221,21 @@ export const humanPhysiology: NeetModule = {
       column1: ['a) Gout', 'b) Tetany', 'c) Myasthenia Gravis', 'd) Muscular Dystrophy'],
       column2: ['i) Autoimmune disorder affecting neuromuscular junction', 'ii) Genetic disorder causing progressive degeneration of muscle', 'iii) Rapid spasms due to low Ca++ in body fluid', 'iv) Inflammation of joints due to accumulation of uric acid crystals'],
       answer: 'a-iv, b-iii, c-i, d-ii'
+    },
+    {
+      "column1": ["a) Trypsin", "b) Amylase", "c) Lipase", "d) Pepsin"],
+      "column2": ["i) Stomach", "ii) Saliva", "iii) Pancreatic juice (for fats)", "iv) Pancreatic juice (for proteins)"],
+      "answer": "a-iv, b-ii, c-iii, d-i"
+    },
+    {
+      "column1": ["a) P-wave", "b) QRS complex", "c) T-wave", "d) Cardiac output"],
+      "column2": ["i) Ventricular repolarization", "ii) Stroke volume × Heart rate", "iii) Atrial depolarization", "iv) Ventricular depolarization"],
+      "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+      "column1": ["a) Hinge joint", "b) Pivot joint", "c) Ball and socket joint", "d) Saddle joint"],
+      "column2": ["i) Between atlas and axis", "ii) Shoulder joint", "iii) Knee joint", "iv) Between carpal and metacarpal of thumb"],
+      "answer": "a-iii, b-i, c-ii, d-iv"
     }
   ],
 };
