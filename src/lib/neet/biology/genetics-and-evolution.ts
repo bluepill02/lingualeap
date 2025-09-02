@@ -7,45 +7,45 @@ export const geneticsAndEvolution: NeetModule = {
   chapter: 'Genetics and Evolution',
   subject: 'Biology',
   conceptNotes: `
-### 1. Principles of Inheritance and Variation (மரபுக்கடத்தல் மற்றும் மாறுபாடுகளின் கோட்பாடுகள்)
+### 1. Heredity and variation (மரபுவழி மற்றும் மாறுபாடு)
 
-*   **Mendel's Laws of Inheritance (மெண்டலின் விதிகள்):**
-    *   **Law of Dominance (ஓங்குதன்மை விதி):** In a heterozygous pair, one allele (dominant) expresses itself, and the other (recessive) is masked.
-    *   **Law of Segregation (தனித்துப் பிரிதல் விதி):** During gamete formation, the two alleles for a heritable character separate (segregate) from each other so that each gamete ends up with only one allele.
-    *   **Law of Independent Assortment (சார்பின்றி ஒதுங்குதல் விதி):** Genes for different traits can segregate independently during the formation of gametes.
-*   **Deviations from Mendelism (மெண்டலிசத்திலிருந்து விலகல்கள்):**
-    *   **Incomplete Dominance (முழுமையற்ற ஓங்குதன்மை):** The F1 hybrid shows a phenotype that is intermediate between the two parental phenotypes (e.g., flower color in snapdragon). (சிவப்பு மற்றும் வெள்ளை பூக்கள் கலந்து இளஞ்சிவப்பு பூக்கள் உருவாவது போல).
-    *   **Co-dominance (இணை ஓங்குதன்மை):** Both alleles are expressed equally in the phenotype (e.g., AB blood group in humans).
-    *   **Multiple Alleles (பல் கூட்டλληல்கள்):** More than two alleles exist for a single gene (e.g., ABO blood group system).
-    *   **Pleiotropy (பல் பண்புக்கூறு):** A single gene affects multiple phenotypic traits.
-*   **Chromosomal Theory of Inheritance (குரோமோசோம் கோட்பாடு):** Proposed by Sutton and Boveri. States that genes are located on chromosomes and the behavior of chromosomes during meiosis accounts for inheritance patterns.
-*   **Sex Determination (பால் நிர்ணயம்):** XX-XY (humans, Drosophila), XX-XO (insects), ZW-ZZ (birds).
-*   **Genetic Disorders (மரபணு குறைபாடுகள்):**
-    *   **Mendelian Disorders:** Haemophilia, Sickle-cell anaemia, Phenylketonuria (PKU).
-    *   **Chromosomal Disorders:** Down's syndrome (Trisomy 21), Klinefelter's syndrome (XXY), Turner's syndrome (XO).
+*   **Mendelian Inheritance (மெண்டலின் மரபுவழி):** Laws of dominance, segregation, and independent assortment.
+*   **Deviations from Mendelism:**
+    *   **Incomplete dominance (முழுமையற்ற ஓங்குதன்மை):** Phenotype is a blend.
+    *   **Co-dominance (இணை ஓங்குதன்மை):** Both alleles express themselves fully.
+    *   **Multiple alleles and Inheritance of blood groups:** ABO blood group system.
+    *   **Pleiotropy (பல் பண்புக்கூறு):** One gene affecting multiple traits.
+*   **Elementary idea of polygenic inheritance:** Traits controlled by multiple genes.
+*   **Chromosome theory of inheritance (குரோமோசோம் மரபுவழி கோட்பாடு):** Genes are located on chromosomes.
+*   **Chromosomes and genes:** The physical basis of heredity.
+*   **Sex determination (பால் நிர்ணயம்):** In humans, birds, honey bee.
+*   **Linkage and crossing over (பிணைப்பு மற்றும் குறுக்கெதிர் மாற்றம்):** Tendency of genes on the same chromosome to be inherited together.
+*   **Sex linked inheritance:** Haemophilia, Colour blindness.
+*   **Mendelian disorders in humans:** Thalassemia.
+*   **Chromosomal disorders in humans:** Down’s syndrome, Turner’s and Klinefelter’s syndromes.
 
-### 2. Molecular Basis of Inheritance (மரபுக்கடத்தலின் மூலக்கூறு அடிப்படை)
+### 2. Molecular Basis of Inheritance (மரபுவழியின் மூலக்கூறு அடிப்படை)
 
-*   **The Genetic Material (மரபுப் பொருள்):** DNA is the genetic material in most organisms. Proved by Hershey-Chase experiment.
-*   **Structure of DNA (DNA அமைப்பு):** Double helix model proposed by Watson and Crick. It's a polymer of deoxyribonucleotides. The two strands are anti-parallel.
-*   **DNA Replication (DNA இரட்டிப்பாதல்):** Semiconservative model. DNA polymerase is the main enzyme.
-*   **Transcription (படியெடுத்தல்):** The process of copying genetic information from one strand of the DNA into RNA. Enzyme: RNA polymerase.
-*   **Genetic Code (மரபியல் குறியீடு):** The relationship between the sequence of nucleotides on mRNA and the sequence of amino acids in a polypeptide. It is a triplet code, universal, and degenerate.
-*   **Translation (மொழிபெயர்த்தல்):** The process of polymerization of amino acids to form a polypeptide. Occurs on ribosomes.
-*   **Gene Regulation (மரபணு ஒழுங்குப்பாடு):** The Lac operon model in *E.coli* is a classic example of gene regulation in prokaryotes.
-*   **Human Genome Project & DNA Fingerprinting:** Key applications of molecular biology.
+*   **Search for genetic material and DNA as genetic material:** Griffith's experiment, Hershey-Chase experiment.
+*   **Structure of DNA and RNA:** Double helix model of DNA.
+*   **DNA packaging:** How DNA is condensed into chromosomes.
+*   **DNA replication (DNA இரட்டிப்பாதல்):** Semiconservative model.
+*   **Central dogma:** The flow of genetic information (DNA → RNA → Protein).
+*   **Transcription, genetic code, translation (படியெடுத்தல், மரபுக் குறியீடு, மொழிபெயர்த்தல்):** The process of protein synthesis.
+*   **Gene expression and regulation - Lac Operon:** How genes are turned on and off.
+*   **Genome and human genome project.**
+*   **DNA finger printing (DNA கைரேகை தொழில்நுட்பம்).**
 
 ### 3. Evolution (பரிணாமம்)
 
-*   **Origin of Life (உயிரின் தோற்றம்):** Oparin-Haldane theory of chemical evolution. Miller-Urey experiment provided evidence.
-*   **Evidence for Evolution (பரிணாமத்திற்கான சான்றுகள்):**
-    *   Paleontological (fossils).
-    *   Comparative Anatomy: **Homologous organs** (same origin, different functions, e.g., forelimbs of man, whale, bat) indicate divergent evolution. **Analogous organs** (different origin, same function, e.g., wings of butterfly and birds) indicate convergent evolution. (ஒத்த உறுப்புகள் ஒரு மூதாதையரிடமிருந்து வருவதைக் காட்டுகின்றன, செயல்பாடு வேறுபட்டாலும். ஒப்புமை உறுப்புகள் வெவ்வேறு மூதாதையரிடமிருந்து வந்தாலும் ஒரே செயல்பாட்டைக் காட்டுகின்றன).
-*   **Theories of Evolution:**
-    *   **Lamarckism:** Theory of inheritance of acquired characters.
-    *   **Darwinism:** Theory of natural selection. Key concepts: overproduction, struggle for existence, variation, and survival of thefittest.
-*   **Hardy-Weinberg Principle (ஹார்டி-வெயின்பர்க் கொள்கை):** States that allele and genotype frequencies in a population will remain constant from generation to generation in the absence of other evolutionary influences. p² + 2pq + q² = 1.
-*   **Human Evolution (மனிதப் பரிணாமம்):** Key stages: *Dryopithecus* -> *Ramapithecus* -> *Australopithecus* -> *Homo habilis* -> *Homo erectus* -> *Homo neanderthalensis* -> *Homo sapiens*.
+*   **Origin of life (உயிரின் தோற்றம்):** Theories on the origin of life.
+*   **Biological evolution and evidences for biological evolution:** from Paleontology, comparative anatomy, embryology and molecular evidence.
+*   **Darwin’s contribution, Modern Synthetic theory of Evolution.**
+*   **Mechanism of evolution:** Variation (Mutation and Recombination) and Natural Selection with examples, types of natural selection.
+*   **Gene flow and genetic drift.**
+*   **Hardy-Weinberg’s principle (ஹார்டி-வெயின்பர்க் கொள்கை):** A principle of population genetics.
+*   **Adaptive Radiation:** Evolution of different species from a common ancestor.
+*   **Human evolution (மனிதப் பரிணாமம்).**
   `,
   workedExamples: [
     {

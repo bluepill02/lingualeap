@@ -7,37 +7,32 @@ export const reproduction: NeetModule = {
   chapter: 'Reproduction',
   subject: 'Biology',
   conceptNotes: `
-### 1. Reproduction in Organisms (உயிரினங்களில் இனப்பெருக்கம்)
+### 1. Sexual reproduction in flowering plants (பூக்கும் தாவரங்களில் பாலினப் பெருக்கம்)
+*   **Flower structure (மலர் அமைப்பு):** The reproductive unit of an angiosperm.
+*   **Development of male and female gametophytes (ஆண் மற்றும் பெண் கேமீட்டோஃபைட்டுகளின் வளர்ச்சி):** Formation of pollen grain and embryo sac.
+*   **Pollination (மகரந்தச் சேர்க்கை):** Types (autogamy, geitonogamy, xenogamy), agencies (wind, water, insects), and examples.
+*   **Outbreeding devices:** Mechanisms to discourage self-pollination and encourage cross-pollination.
+*   **Pollen-Pistil Interaction (மகரந்தத்தூள்-சூலகமுடி இடைவினை):** The events from pollen deposition on the stigma until the pollen tube enters the ovule.
+*   **Double fertilization (இரட்டைக் கருவுறுதல்):** A unique event in angiosperms involving syngamy and triple fusion.
+*   **Post fertilization events:** Development of endosperm and embryo, development of seed from ovule, and formation of fruit from ovary.
+*   **Special modes:** Apomixis (அபோமிக்ஸிஸ்), parthenocarpy (கருவுறாக்கனி), polyembryony (பல்கருநிலை).
+*   **Significance of seed and fruit formation:** Importance for dispersal and protection of the embryo.
 
-*   **Reproduction (இனப்பெருக்கம்):** A biological process by which new individual organisms – "offspring" – are produced from their "parents".
-*   **Asexual Reproduction (பாலில்லா இனப்பெருக்கம்):** A single parent gives rise to offspring. The offspring are genetically identical to the parent (clones).
-    *   Modes: Fission (பிளவுபடுதல்), Budding (மொட்டு விடுதல்), Spore formation (ஸ்போர் உருவாக்கம்), Fragmentation (துண்டாதல்), Vegetative propagation (உடல இனப்பெருக்கம்).
-*   **Sexual Reproduction (பாலினப் பெருக்கம்):** Involves the formation and fusion of gametes from two parents. The offspring are genetically different from the parents.
-    *   Events: Pre-fertilization (gametogenesis, gamete transfer), Fertilization (syngamy), Post-fertilization (zygote formation, embryogenesis).
+### 2. Human Reproduction (மனித இனப்பெருக்கம்)
+*   **Male and female reproductive systems (ஆண் மற்றும் பெண் இனப்பெருக்க மண்டலங்கள்):** Macroscopic anatomy and functions.
+*   **Microscopic anatomy of testis and ovary:** Structure of seminiferous tubules and ovarian follicles.
+*   **Gametogenesis (கேமீட் உருவாக்கம்):** Spermatogenesis & oogenesis.
+*   **Menstrual cycle (மாதவிடாய் சுழற்சி):** The reproductive cycle in female primates, regulated by hormones.
+*   **Fertilisation, embryo development upto blastocyst formation, implantation:** Fusion of gametes, cleavage, and embedding of the blastocyst into the endometrium.
+*   **Pregnancy and placenta formation (Elementary idea):** Role of the placenta.
+*   **Parturition (Elementary idea) (குழந்தைப்பேறு):** The process of childbirth.
+*   **Lactation (Elementary idea) (பால் சுரத்தல்):** Milk production after childbirth.
 
-### 2. Sexual Reproduction in Flowering Plants (பூக்கும் தாவரங்களில் பாலினப் பெருக்கம்)
-
-*   **Flower (மலர்):** The reproductive unit in angiosperms.
-*   **Structure of a Flower:**
-    *   **Androecium (மகரந்தத்தாள் வட்டம்):** Male reproductive part, consists of stamens. The anther produces pollen grains (male gametophytes).
-    *   **Gynoecium (சூலக வட்டம்):** Female reproductive part, consists of the pistil/carpel (stigma, style, ovary). The ovary contains ovules, which house the female gametophyte (embryo sac).
-*   **Pollination (மகரந்தச் சேர்க்கை):** Transfer of pollen grains from the anther to the stigma.
-    *   Types: Autogamy (self-pollination), Geitonogamy, Xenogamy (cross-pollination).
-    *   Agents: Wind (anemophily), Water (hydrophily), Insects (entomophily).
-*   **Double Fertilization (இரட்டைக் கருவுறுதல்):** A unique event in angiosperms. One male gamete fuses with the egg cell (syngamy) to form the zygote. The other male gamete fuses with the two polar nuclei to form the primary endosperm nucleus (PEN), which develops into the endosperm.
-*   **Post-fertilization Events:** The ovule develops into a seed, and the ovary develops into a fruit.
-
-### 3. Human Reproduction (மனித இனப்பெருக்கம்)
-
-*   **Male Reproductive System (ஆண் இனப்பெருக்க மண்டலம்):** Includes testes (produce sperm and testosterone), accessory ducts, and glands.
-    *   **Spermatogenesis (விந்து உருவாக்கம்):** The process of sperm formation in the testes.
-*   **Female Reproductive System (பெண் இனப்பெருக்க மண்டலம்):** Includes a pair of ovaries (produce ova/eggs and female hormones like estrogen and progesterone), oviducts (fallopian tubes), uterus, cervix, and vagina.
-    *   **Oogenesis (அண்டம் உருவாக்கம்):** The process of ovum formation in the ovaries.
-*   **Menstrual Cycle (மாதவிடாய் சுழற்சி):** The reproductive cycle in female primates. It involves cyclical changes in the ovary and uterus. Regulated by hormones like LH, FSH, estrogen, and progesterone.
-*   **Fertilization and Implantation (கருவுறுதல் மற்றும் பதித்தல்):** Fertilization usually occurs in the fallopian tube. The resulting zygote undergoes cleavage and develops into a blastocyst, which gets implanted in the uterine wall (endometrium).
-*   **Pregnancy and Embryonic Development (கர்ப்பம் மற்றும் கரு வளர்ச்சி):** After implantation, the chorionic villi and uterine tissue form the placenta, which connects the fetus to the mother.
-*   **Parturition and Lactation (குழந்தைப்பேறு மற்றும் பால் சுரத்தல்):** Parturition is the process of childbirth, induced by complex neuroendocrine mechanisms. Lactation is the production of milk by the mammary glands after childbirth.
-
+### 3. Reproductive Health (இனப்பெருக்க நலன்)
+*   **Need for reproductive health and prevention of sexually transmitted diseases (STD):** Importance of reproductive health and awareness of STDs.
+*   **Birth control - Need and Methods, Contraception and Medical Termination of Pregnancy (MTP):** Different methods of contraception and the concept of MTP.
+*   **Amniocentesis (பனிக்குடத் துளைப்பு):** A prenatal diagnostic technique.
+*   **Infertility and assisted reproductive technologies – IVF, ZIFT, GIFT (Elementary idea for general awareness).**
   `,
   workedExamples: [
     {
