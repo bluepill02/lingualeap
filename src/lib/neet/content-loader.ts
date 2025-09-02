@@ -9,6 +9,7 @@ import { humanPhysiology } from './biology/human-physiology';
 import { plantPhysiology } from './biology/plant-physiology';
 import { reproduction } from './biology/reproduction';
 import { structuralOrganisationInAnimalsAndPlants } from './biology/structural-organisation-in-animals-and-plants';
+import { pBlockElements } from './chemistry/p-block-elements';
 import type { NeetModule } from '@/lib/types';
 
 const neetContent: Record<string, Record<string, NeetModule>> = {
@@ -25,7 +26,7 @@ const neetContent: Record<string, Record<string, NeetModule>> = {
         'structural-organisation-in-animals-and-plants': structuralOrganisationInAnimalsAndPlants,
     },
     chemistry: {
-        // ... to be added
+        'p-block-elements': pBlockElements,
     },
     physics: {
         // ... to be added
