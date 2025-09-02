@@ -1,4 +1,5 @@
 
+
 export interface User {
   id: string;
   name: string;
@@ -121,14 +122,42 @@ export interface SyllabusMapping {
 
 export interface WorkedExample {
     problem: string;
-    steps: {
-        step: number;
-        explanation: string;
-        calculation?: string;
-    }[];
-    answer: string;
-    tip: string;
+    solution: string;
 }
+
+export interface MCQ {
+    question: string;
+    options: string[];
+    answer: string;
+    explanation: string;
+}
+
+export interface AssertionReason {
+    assertion: string;
+    reason: string;
+    answer: 'A' | 'B' | 'C' | 'D' | 'E';
+    explanation: string;
+}
+
+export interface MatchTheColumns {
+    column1: string[];
+    column2: string[];
+    answer: string;
+}
+
+
+export interface NeetModule {
+    id: string;
+    title: string;
+    chapter: string;
+    subject: string;
+    conceptNotes: string;
+    workedExamples: WorkedExample[];
+    mcqs: MCQ[];
+    assertionReasons: AssertionReason[];
+    matchTheColumns: MatchTheColumns[];
+}
+
 
 export interface ExamModule {
     id: string;
@@ -140,7 +169,16 @@ export interface ExamModule {
     quizzes: ExamQuizQuestion[];
     errorAnalysis: ErrorAnalysisItem[];
     syllabusMapping?: SyllabusMapping[];
-    workedExamples?: WorkedExample[];
+    workedExamples?: {
+        problem: string;
+        steps: {
+            step: number;
+            explanation: string;
+            calculation?: string;
+        }[];
+        answer: string;
+        tip: string;
+    }[];
 }
 
 export interface CompanionCircle {
