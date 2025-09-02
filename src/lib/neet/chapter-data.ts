@@ -1,4 +1,5 @@
 
+
 export const neetBiologyChapters = [
     { slug: 'biology-and-human-welfare', title: 'Biology And Human Welfare' },
     { slug: 'biotechnology-and-its-applications', title: 'Biotechnology And Its Applications' },
@@ -13,10 +14,46 @@ export const neetBiologyChapters = [
 ];
 
 export const neetChemistryChapters = [
-    { slug: 'p-block-elements', title: 'P Block Elements' },
-    // Add other chemistry chapters here as they are created
+    { slug: 'some-basic-concepts-in-chemistry', title: 'Some Basic Concepts in Chemistry' },
+    { slug: 'atomic-structure', title: 'Atomic Structure' },
+    { slug: 'chemical-bonding-and-molecular-structure', title: 'Chemical Bonding and Molecular Structure' },
+    { slug: 'chemical-thermodynamics', title: 'Chemical Thermodynamics' },
+    { slug: 'solutions', title: 'Solutions' },
+    { slug: 'equilibrium', title: 'Equilibrium' },
+    { slug: 'redox-reactions-and-electrochemistry', title: 'Redox Reactions and Electrochemistry' },
+    { slug: 'chemical-kinetics', title: 'Chemical Kinetics' },
+    { slug: 'classification-of-elements-and-periodicity-in-properties', title: 'Classification of Elements and Periodicity in Properties' },
+    { slug: 'p-block-elements', title: 'p-Block Elements' },
+    { slug: 'd-and-f-block-elements', title: 'd- and f-Block Elements' },
+    { slug: 'coordination-compounds', title: 'Coordination Compounds' },
+    { slug: 'purification-and-characterisation-of-organic-compounds', title: 'Purification and Characterisation of Organic Compounds' },
+    { slug: 'hydrocarbons', title: 'Hydrocarbons' },
+    { slug: 'organic-compounds-containing-halogens', title: 'Organic Compounds Containing Halogens' },
+    { slug: 'organic-compounds-containing-oxygen', title: 'Organic Compounds Containing Oxygen' },
+    { slug: 'organic-compounds-containing-nitrogen', title: 'Organic Compounds Containing Nitrogen' },
+    { slug: 'biomolecules', title: 'Biomolecules' },
+    { slug: 'principles-related-to-practical-chemistry', title: 'Principles Related to Practical Chemistry' },
 ];
 
 export const neetPhysicsChapters = [
-    // Add physics chapters here as they are created
+    { slug: 'physics-and-measurement', title: 'Physics and Measurement' },
+    { slug: 'kinematics', title: 'Kinematics' },
+    { slug: 'laws-of-motion', title: 'Laws of Motion' },
+    { slug: 'work-energy-and-power', title: 'Work, Energy, and Power' },
+    { slug: 'rotational-motion', title: 'Rotational Motion' },
+    { slug: 'gravitation', title: 'Gravitation' },
+    { slug: 'properties-of-solids-and-liquids', title: 'Properties of Solids and Liquids' },
+    { slug: 'thermodynamics', title: 'Thermodynamics' },
+    { slug: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases' },
+    { slug: 'oscillations-and-waves', title: 'Oscillations and Waves' },
+    { slug: 'electrostatics', title: 'Electrostatics' },
+    { slug: 'current-electricity', title: 'Current Electricity' },
+    { slug: 'magnetic-effects-of-current-and-magnetism', title: 'Magnetic Effects of Current and Magnetism' },
+    { slug: 'electromagnetic-induction-and-alternating-currents', title: 'Electromagnetic Induction and Alternating Currents' },
+    { slug: 'electromagnetic-waves', title: 'Electromagnetic Waves' },
+    { slug: 'optics', title: 'Optics' },
+    { slug: 'dual-nature-of-matter-and-radiation', title: 'Dual Nature of Matter and Radiation' },
+    { slug: 'atoms-and-nuclei', title: 'Atoms and Nuclei' },
+    { slug: 'electronic-devices', title: 'Electronic Devices' },
+    { slug: 'experimental-skills', title: 'Experimental Skills' },
 ];

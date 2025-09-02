@@ -7,7 +7,7 @@ export const equilibrium: NeetModule = {
   chapter: 'Equilibrium',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Physical and Chemical Equilibrium (இயற் 및 வேதிச் சமநிலை)
+### 1. Physical and Chemical Equilibrium (இயற் மற்றும் வேதிச் சமநிலை)
 *   **Equilibrium:** A state in a process when observable properties like concentration, pressure, and temperature do not show any change with time.
 *   **Chemical Equilibrium:** The state in a reversible reaction where the rate of the forward reaction equals the rate of the reverse reaction.
 
