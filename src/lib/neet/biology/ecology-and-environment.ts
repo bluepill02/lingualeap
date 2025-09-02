@@ -7,49 +7,20 @@ export const ecologyAndEnvironment: NeetModule = {
   chapter: 'Ecology and Environment',
   subject: 'Biology',
   conceptNotes: `
-### 1. Organisms and Populations (உயிரினங்கள் மற்றும் இனக்கூட்டம்)
-
-*   **Ecology (சூழலியல்):** The study of interactions among organisms and between the organism and its physical (abiotic) environment.
-*   **Population (இனக்கூட்டம்):** A group of individuals of the same species living in a given area.
-    *   **Population Attributes (இனக்கூட்ட பண்புகள்):** Birth rate (பிறப்பு விகிதம்), Death rate (இறப்பு விகிதம்), Sex ratio (பாலின விகிதம்), Age pyramid (வயது பிரமிடு).
-*   **Population Growth (இனக்கூட்ட வளர்ச்சி):**
-    *   **Exponential Growth (அடுக்குக்குறி வளர்ச்சி):** Occurs when resources are unlimited. Results in a J-shaped curve. (கட்டுப்பாடற்ற வளர்ச்சி, திருவிழாக் கூட்டம்போல). Formula: dN/dt = rN.
-    *   **Logistic Growth (லாஜிஸ்டிக் வளர்ச்சி):** Occurs when resources are limited. Results in a sigmoid or S-shaped curve. Includes the concept of Carrying Capacity (K) (தாங்குதிறன்). Formula: dN/dt = rN((K-N)/K).
-*   **Population Interactions (இனக்கூட்ட இடையீடுகள்):**
-    *   **Mutualism (+/+):** Both species benefit (e.g., Lichens). (கூட்டணி வியாபாரம் போல).
-    *   **Competition (-/-):** Both species are harmed.
-    *   **Predation (+/-):** Predator benefits, prey is harmed.
-    *   **Parasitism (+/-):** Parasite benefits, host is harmed.
-    *   **Commensalism (+/0):** One benefits, the other is unaffected (e.g., Orchid on a mango tree).
-    *   **Amensalism (-/0):** One is harmed, the other is unaffected.
+### 1. Organisms and Environment (உயிரினங்கள் மற்றும் சுற்றுச்சூழல்)
+*   **Organisms and Populations:** Population interactions-mutualism, competition, predation, parasitism; Population attributes-growth, birth rate and death rate, age distribution.
 
 ### 2. Ecosystem (சூழ்நிலை மண்டலம்)
+*   **Patterns, components:** Productivity and decomposition; Energy flow; Pyramids of number, biomass, energy.
 
-*   **Definition:** A functional unit of nature, where living organisms interact among themselves and also with the surrounding physical environment.
-*   **Components:**
-    *   **Producers (உற்பத்தியாளர்கள்):** Autotrophs, mainly photosynthetic plants.
-    *   **Consumers (நுகர்வோர்கள்):** Heterotrophs (Herbivores, Carnivores, Omnivores).
-    *   **Decomposers (சிதைப்பவைகள்):** Fungi and bacteria that break down dead organic matter.
-*   **Energy Flow (ஆற்றல் ஓட்டம்):** Unidirectional. Follows the 10% law (Lindeman's 10% law), where only 10% of the energy is transferred from one trophic level to the next.
-*   **Ecological Pyramids (சூழலியல் பிரமிடுகள்):** Graphical representation of the relationship between different organisms in an ecosystem. Can be Pyramid of Number, Biomass, or Energy. The Pyramid of Energy is always upright.
-*   **Nutrient Cycling (ஊட்டச்சத்து சுழற்சி):** Movement of nutrient elements through the various components of an ecosystem (e.g., Carbon cycle, Phosphorus cycle).
-
-### 3. Biodiversity and Conservation (பல்லுயிரியம் மற்றும் அதன் பாதுகாப்பு)
-
-*   **Biodiversity (பல்லுயிரியம்):** The variety of life forms at all levels of biological organization (genetic, species, and ecosystem diversity).
-*   **Patterns of Biodiversity:** Latitudinal gradients (diversity increases from poles to equator).
-*   **Loss of Biodiversity:** The "Evil Quartet" - Habitat loss and fragmentation, Over-exploitation, Alien species invasions, and Co-extinctions.
-*   **Conservation of Biodiversity:**
-    *   **In-situ Conservation (உள் வாழிடப் பாதுகாப்பு):** Conserving organisms in their natural habitat (e.g., National Parks, Sanctuaries, Biosphere Reserves). (வீட்டிலேயே வைத்துப் பாதுகாப்பது போல).
-    *   **Ex-situ Conservation (வெளி வாழிடப் பாதுகாப்பு):** Conserving organisms outside their natural habitat (e.g., Botanical gardens, Zoological parks, Gene banks). (மருத்துவமனையில் வைத்துப் பாதுகாப்பது போல).
-
-### 4. Environmental Issues (சுற்றுச்சூழல் பிரச்சினைகள்)
-
-*   **Pollution (மாசுபாடு):** Air, Water, Soil pollution.
-    *   **Greenhouse Effect and Global Warming (பசுங்குடில் விளைவும் புவி வெப்பமயமாதலும்):** Caused by increased levels of greenhouse gases (CO₂, CH₄, N₂O, CFCs).
-    *   **Ozone Depletion (ஓசோன் சிதைவு):** Depletion of the ozone layer in the stratosphere by chlorofluorocarbons (CFCs).
-    *   **Eutrophication (யூட்ரோஃபிகேஷன்):** The natural aging of a lake by nutrient enrichment. Cultural or accelerated eutrophication is caused by human activities.
-*   **Deforestation (காடழிப்பு):** Conversion of forested areas to non-forested ones.
+### 3. Biodiversity and its Conservation (பல்லுயிரியம் மற்றும் அதன் பாதுகாப்பு)
+*   **Concept of Biodiversity:** Understanding the variety of life on Earth.
+*   **Patterns of Biodiversity:** How diversity changes with latitude and area.
+*   **Importance of Biodiversity:** The value of biodiversity for ecosystem health and human well-being.
+*   **Loss of Biodiversity:** Threats like habitat loss, over-exploitation, etc.
+*   **Biodiversity conservation:**
+    *   **In-situ Conservation:** Hotspots, endangered organisms, extinction, Red Data Book, biosphere reserves, National parks and sanctuaries, Sacred Groves.
+    *   **Ex-situ Conservation:** Botanical gardens, zoos, etc.
   `,
   workedExamples: [
     {

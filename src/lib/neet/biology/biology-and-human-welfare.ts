@@ -7,38 +7,30 @@ export const biologyAndHumanWelfare: NeetModule = {
   chapter: 'Biology and Human Welfare',
   subject: 'Biology',
   conceptNotes: `
-### 1. Human Health and Diseases (மனித ஆரோக்கியமும் நோய்களும்)
+### 1. Health and Disease (ஆரோக்கியம் மற்றும் நோய்)
+*   **Health and Disease:** Basic concepts.
+*   **Pathogens; parasites causing human diseases:**
+    *   Malaria (மலேரியா)
+    *   Filariasis (யானைக்கால் நோய்)
+    *   Ascariasis (அஸ்காரிஸ்)
+    *   Typhoid (டைபாய்டு)
+    *   Pneumonia (நிமோனியா)
+    *   Common cold (சாதாரண சளி)
+    *   Amoebiasis (அமீபியாசிஸ்)
+    *   Ringworm (படர்தாமரை)
+    *   Dengue (டெங்கு)
+    *   Chikungunya (சிக்குன்குனியா)
+*   **Basic concepts of immunology - vaccines (நோய் எதிர்ப்பு சக்தியின் அடிப்படைகள் - தடுப்பூசிகள்):** Innate and acquired immunity, active and passive immunity.
+*   **Cancer, HIV and AIDS.**
+*   **Adolescence, drug and alcohol abuse, Tobacco abuse.**
 
-*   **Health (ஆரோக்கியம்):** A state of complete physical, mental, and social well-being, not merely the absence of disease or infirmity. (நோயற்ற வாழ்வே குறைவற்ற செல்வம் - "A life without disease is a life without want.")
-*   **Disease (நோய்):** Any condition that impairs the normal functioning of the body.
-    *   **Infectious Diseases (தொற்று நோய்கள்):** Caused by pathogens (e.g., bacteria, viruses, fungi, protozoa, helminths) and can be transmitted from person to person. (சாதாரண சளி, டைபாய்டு, மலேரியா)
-    *   **Non-infectious Diseases (தொற்றா நோய்கள்):** Not transmitted between people (e.g., cancer, diabetes, heart diseases). (புற்றுநோய், சர்க்கரை நோய்)
-
-#### Common Human Diseases (பொதுவான மனித நோய்கள்)
-A table summarizing common diseases, their pathogens, transmission, and symptoms. (This would be rendered as a table in the UI).
-
-### 2. Immunity (நோய் எதிர்ப்பு சக்தி)
-
-The body's ability to resist disease. (உடலின் நோய்களை எதிர்க்கும் திறன்)
-*   **Innate Immunity (இயல்பான நோய் எதிர்ப்பு சக்தி):** Non-specific, present from birth. (பிறப்பிலேயே இருக்கும் பாதுகாப்புப் படை)
-*   **Acquired Immunity (பெறப்பட்ட நோய் எதிர்ப்பு சக்தி):** Pathogen-specific, develops after exposure. (நோய் வந்த பிறகு அல்லது தடுப்பூசி மூலம் பெறும் பாதுகாப்பு)
-
-### 3. AIDS, Cancer, Drugs and Alcohol Abuse
-Brief overview of these topics, causes, and effects.
-
-### 4. Improvement in Food Production (உணவு உற்பத்தியில் மேம்பாடு)
-
-*   **Animal Husbandry (கால்நடை வளர்ப்பு):** Scientific management of livestock.
-*   **Plant Breeding (தாவரப் பெருக்கம்):** Creating desired plant types. Biofortification (உயிரி ஊட்டச்சத்து மேம்பாடு) is a key concept.
-*   **Single Cell Protein (SCP) (ஒற்றை செல் புரதம்):** Protein-rich biomass from microorganisms.
-
-### 5. Microbes in Human Welfare (மனித நலனில் நுண்ணுயிரிகள்)
-
-*   **Household Products:** Curd, Bread, Cheese.
-*   **Industrial Products:** Fermented Beverages, Antibiotics, Chemicals, Enzymes.
-*   **Sewage Treatment:** Primary and Secondary (biological) treatment.
-*   **Biogas Production:** Anaerobic digestion by methanogens.
-*   **Biocontrol Agents & Biofertilizers:** Using microbes to control pests and improve soil fertility.
+### 2. Microbes in Human Welfare (மனித நலனில் நுண்ணுயிரிகள்)
+*   **In household food processing:** Curd, bread, toddy, etc.
+*   **In industrial production:** Fermented beverages, antibiotics, organic acids, enzymes.
+*   **In sewage treatment:** Primary and secondary treatment.
+*   **In energy generation:** Biogas production.
+*   **As biocontrol agents (உயிரி கட்டுப்பாட்டுக் காரணிகள்):** Using microbes to control pests.
+*   **As biofertilizers (உயிர் உரங்கள்):** Using microbes to enhance soil fertility (e.g., Rhizobium, Azotobacter).
   `,
   workedExamples: [
     {
@@ -206,4 +198,3 @@ Brief overview of these topics, causes, and effects.
     }
   ],
 };
-

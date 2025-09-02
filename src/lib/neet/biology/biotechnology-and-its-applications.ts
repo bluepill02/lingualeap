@@ -7,38 +7,25 @@ export const biotechnologyAndItsApplications: NeetModule = {
   chapter: 'Biotechnology and Its Applications',
   subject: 'Biology',
   conceptNotes: `
-### 1. Agricultural Applications (வேளாண்மையில் பயன்பாடுகள்)
+### 1. Principles and Process of Biotechnology (உயிரி தொழில்நுட்பவியல்: கொள்கைகள் மற்றும் செயல்முறைகள்)
+*   **Genetic engineering (Recombinant DNA technology):** The core technique involving the alteration of the genetic makeup of an organism. This includes creating recombinant DNA, gene cloning, and gene transfer.
 
-*   **Pest Resistant Plants (பூச்சி எதிர்ப்பு தாவரங்கள்):** The primary goal is to reduce reliance on chemical pesticides.
-    *   **Bt Cotton (Bt பருத்தி):** A classic example. The bacterium *Bacillus thuringiensis* produces a protein crystal (Cry protein) that is toxic to certain insects (like cotton bollworms). The gene for this protein (cry gene) is isolated and introduced into the cotton plant. When an insect eats the cotton, the toxin is activated in its alkaline gut, killing the insect. (இது ஒரு இயற்கை பூச்சிக்கொல்லி போல செயல்படுகிறது - It acts like a natural pesticide).
-*   **Pest Resistance using RNAi (RNA குறுக்கீடு):** RNA interference (RNAi) is a natural cellular defense mechanism in all eukaryotes. It involves silencing a specific mRNA molecule.
-    *   This has been used to make tobacco plants resistant to the nematode *Meloidogyne incognita*. A gene is introduced into the plant that produces both sense and anti-sense RNA for a specific nematode mRNA. This forms double-stranded RNA (dsRNA), which triggers RNAi in the nematode, silencing the essential mRNA and killing the parasite.
-*   **Genetically Modified Crops for Enhanced Nutrition:** e.g., Golden Rice (தங்க அரிசி) - a variety of rice engineered to produce Vitamin A, combating blindness.
+### 2. Application of Biotechnology in Health (சுகாதாரத்தில் உயிரி தொழில்நுட்பவியலின் பயன்பாடு)
+*   **Human insulin and vaccine production:** Using genetically engineered organisms (like *E. coli*) to produce large quantities of safe and effective human insulin ("humulin") and recombinant vaccines (e.g., Hepatitis B vaccine).
+*   **Gene Therapy (மரபணு சிகிச்சை):** The collection of methods that allows the correction of a gene defect that has been diagnosed in a child/embryo. The first clinical gene therapy was given for Adenosine Deaminase (ADA) deficiency.
 
-### 2. Medical Applications (மருத்துவத்தில் பயன்பாடுகள்)
+### 3. Application of Biotechnology in Agriculture (வேளாண்மையில் உயிரி தொழில்நுட்பவியலின் பயன்பாடு)
+*   **Genetically Modified Organisms (GMO):** Plants, bacteria, fungi, and animals whose genes have been altered by manipulation.
+*   **Bt crops:** Crops made resistant to pests. The classic example is **Bt cotton**, which produces an insecticidal protein from the bacterium *Bacillus thuringiensis* to protect against cotton bollworms.
 
-*   **Genetically Engineered Insulin (மரபணு மாற்றப்பட்ட இன்சுலின்):** Previously, insulin for diabetics was extracted from slaughtered cattle and pigs, which could cause allergies. Now, the human insulin gene is inserted into *E. coli* bacteria, which then produce large quantities of "humulin." The A and B peptide chains are produced separately, extracted, and combined by creating disulfide bonds.
-*   **Gene Therapy (மரபணு சிகிச்சை):** A collection of methods that allows the correction of a gene defect.
-    *   The first clinical gene therapy was given in 1990 to a 4-year-old girl with Adenosine Deaminase (ADA) deficiency. This disorder affects the immune system. The therapy involves removing lymphocytes from the patient, introducing a functional ADA cDNA into them using a retroviral vector, and returning them to the patient. However, this is not a permanent cure as the cells are mortal.
-*   **Molecular Diagnosis (மூலக்கூறு கண்டறிதல்):** Using molecular biology techniques to diagnose diseases.
-    *   **PCR (Polymerase Chain Reaction):** Can detect very low concentrations of bacteria or viruses by amplifying their nucleic acid. Used to detect HIV in suspected AIDS patients.
-    *   **ELISA (Enzyme-Linked Immunosorbent Assay):** Based on the antigen-antibody interaction. Infection by a pathogen can be detected by the presence of antigens or by detecting the antibodies synthesized against the pathogen.
+### 4. Transgenic Animals (மரபணு மாற்றப்பட்ட விலங்குகள்)
+*   Animals that have had their DNA manipulated to possess and express an extra (foreign) gene.
+*   Used to study diseases, test vaccine safety, and produce useful biological products (e.g., 'Rosie' the cow).
 
-### 3. Transgenic Animals (மரபணு மாற்றப்பட்ட விலங்குகள்)
-
-Animals that have had their DNA manipulated to possess and express an extra (foreign) gene.
-*   **Reasons for creating them:**
-    *   To study normal physiology and development.
-    *   To study diseases (e.g., creating models for cancer, cystic fibrosis).
-    *   To produce useful biological products (e.g., Rosie the cow produced human protein-enriched milk; alpha-1-antitrypsin for emphysema treatment).
-    *   To test vaccine safety (e.g., transgenic mice for polio vaccine testing).
-    *   To test chemical safety (toxicity testing).
-
-### 4. Ethical Issues (தார்மீக சிக்கல்கள்)
-
-*   Manipulation of living organisms by humans requires regulation.
-*   **GEAC (Genetic Engineering Approval Committee):** An Indian government organization that makes decisions regarding the validity of GM research and the safety of introducing GM organisms for public services.
-*   **Biopiracy (உயிரித் திருட்டு):** The use of bio-resources by multinational companies and other organizations without proper authorization from the countries and people concerned and without compensatory payment. (நமது நாட்டு வளங்களை மற்றவர்கள் அனுமதியின்றி திருடுவது - Others stealing our country's resources without permission).
+### 5. Biosafety Issues (உயிர்ப் பாதுகாப்பு சிக்கல்கள்)
+*   Ethical issues arising from genetic modification.
+*   **Biopiracy (உயிரித் திருட்டு):** The term used to refer to the use of bio-resources by multinational companies and other organisations without proper authorisation from the countries and people concerned without compensatory payment.
+*   **Patents:** Legal rights granted to an inventor to prevent others from commercially using their invention.
   `,
   workedExamples: [
     {
@@ -154,7 +141,7 @@ Animals that have had their DNA manipulated to possess and express an extra (for
     {
         question: 'Which vector is commonly used in creating transgenic plants?',
         options: ['Retrovirus', 'Bacteriophage', 'Ti plasmid of *Agrobacterium*', 'Yeast artificial chromosome (YAC)'],
-        answer: 'Ti plasmid of *Agroba_cterium*',
+        answer: 'Ti plasmid of *Agrobacterium*',
         explanation: '*Agrobacterium tumefaciens* is a natural genetic engineer of plants, and its Ti plasmid is widely used as a vector.'
     },
     {
