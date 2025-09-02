@@ -323,26 +323,26 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     },
     {
         column1: ["a) Ultraviolet Catastrophe", "b) Hertz's Observations", "c) Lenard's Observations", "d) Heisenberg"],
-        column2: ["i) K.E. depends on frequency, not intensity", "ii) Quantum Mechanics", "iii) Failure of classical wave theory", "iv) Sparking was enhanced by UV light"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        column2": ["i) K.E. depends on frequency, not intensity", "ii) Quantum Mechanics", "iii) Failure of classical wave theory", "iv) Sparking was enhanced by UV light"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Wave property", "b) Particle property", "c) Dual nature", "d) Quantization"],
-        column2": ["i) Momentum", "ii) Interference", "iii) Energy levels in an atom", "iv) Compton effect"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Wave property", "b) Particle property", "c) Dual nature", "d) Quantization"],
+        "column2": ["i) Momentum", "ii) Interference", "iii) Energy levels in an atom", "iv) Compton effect"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) λ = h/mv", "b) E = mc²", "c) E = hν", "d) hν = Φ + eV_s"],
-        column2: ["i) Mass-energy equivalence", "ii) Planck's equation", "iii) Einstein's photoelectric equation", "iv) de Broglie relation"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) λ = h/mv", "b) E = mc²", "c) E = hν", "d) hν = Φ + eV_s"],
+        "column2": ["i) Mass-energy equivalence", "ii) Planck's equation", "iii) Einstein's photoelectric equation", "iv) de Broglie relation"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Unit of h", "b) Unit of Φ", "c) Unit of λ", "d) Unit of p"],
-        column2: ["i) meter", "ii) kg⋅m/s", "iii) Joule-second", "iv) Joule or eV"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Unit of h", "b) Unit of Φ", "c) Unit of λ", "d) Unit of p"],
+        "column2": ["i) meter", "ii) kg⋅m/s", "iii) Joule-second", "iv) Joule or eV"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1": ["a) Cathode", "b) Anode", "c) Photon", "d) Electron"],
+        "column1": ["a) Cathode", "b) Anode", "c) Photon", "d) Electron"],
         "column2": ["i) Emits electrons in photoelectric effect", "ii) Particle of light", "iii) Emitted particle", "iv) Collects electrons"],
         "answer": "a-i, b-iv, c-ii, d-iii"
     },
@@ -358,3 +358,5 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     }
   ]
 };
+
+    
