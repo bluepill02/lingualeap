@@ -7,7 +7,7 @@ export const gravitation: NeetModule = {
   chapter: 'Gravitation',
   subject: 'Physics',
   conceptNotes: `
-### 1. Newton's Law of Gravitation (நியூட்டனின் ஈர்ப்பு விதி)
+### 1. The Universal Law of Gravitation (நியூட்டனின் ஈர்ப்பு விதி)
 *   Every particle in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers. F = G(m₁m₂)/r².
 *   G is the universal gravitational constant.
 
@@ -15,23 +15,22 @@ export const gravitation: NeetModule = {
 *   The acceleration produced in a freely falling body due to the Earth's gravitational pull.
 *   g = GM/R², where M and R are the mass and radius of the Earth.
 *   **Variation of g:**
-    *   **With Altitude (h):** g' = g(1 - 2h/R) for h << R.
-    *   **With Depth (d):** g' = g(1 - d/R).
-    *   **With Rotation of Earth:** g decreases due to rotation, with the maximum decrease at the equator and no change at the poles.
+    *   With Altitude (h): g' = g(1 - 2h/R) for h << R. Or more generally, g' = GM / (R+h)².
+    *   With Depth (d): g' = g(1 - d/R).
 
-### 3. Gravitational Potential and Potential Energy (ஈர்ப்பு அழுத்தம் மற்றும் நிலை ஆற்றல்)
-*   **Gravitational Potential Energy (U):** U = -GMm/r.
-*   **Gravitational Potential (V):** V = -GM/r.
-
-### 4. Satellites (துணைக்கோள்கள்)
-*   **Orbital Velocity (vₒ):** The velocity required to put a satellite into a circular orbit around a planet. vₒ = √(GM/r), where r is the radius of the orbit.
-*   **Escape Velocity (vₑ):** The minimum velocity with which a body must be projected from the surface of a planet so that it escapes its gravitational field. vₑ = √(2GM/R) = √2 * vₒ (for an orbit close to the surface).
-*   **Geostationary Satellite:** A satellite that appears stationary from the Earth. It revolves in an equatorial orbit with a time period of 24 hours.
-
-### 5. Kepler's Laws of Planetary Motion (கெப்ளரின் கோள் இயக்க விதிகள்)
+### 3. Kepler's Laws of Planetary Motion (கெப்ளரின் கோள் இயக்க விதிகள்)
 1.  **Law of Orbits:** All planets move in elliptical orbits with the Sun at one of the foci.
-2.  **Law of Areas:** The line that joins any planet to the Sun sweeps equal areas in equal intervals of time. (This implies that the angular momentum of the planet is conserved). (ஒரு கோள் சூரியனுக்கு அருகில் வரும்போது வேகமாகச் செல்லும், தொலைவில் செல்லும்போது மெதுவாகச் செல்லும்).
+2.  **Law of Areas:** The line that joins any planet to the Sun sweeps equal areas in equal intervals of time. (This implies that the angular momentum of the planet is conserved).
 3.  **Law of Periods:** The square of the time period of revolution of a planet is proportional to the cube of the semi-major axis of its elliptical orbit. T² ∝ a³.
+
+### 4. Gravitational Potential Energy and Potential (ஈர்ப்பு நிலை ஆற்றல் மற்றும் ஈர்ப்பு அழுத்தம்)
+*   **Gravitational Potential Energy (U):** The work done in bringing a body from infinity to a point in the gravitational field. U = -GMm/r.
+*   **Gravitational Potential (V):** The potential energy per unit mass. V = -GM/r.
+
+### 5. Motion of a Satellite (துணைக்கோள் இயக்கம்)
+*   **Escape Velocity (vₑ):** The minimum velocity with which a body must be projected from the surface of a planet so that it escapes its gravitational field. vₑ = √(2GM/R).
+*   **Orbital Velocity (vₒ):** The velocity required to put a satellite into a circular orbit around a planet. vₒ = √(GM/r), where r is the radius of the orbit.
+*   **Time Period and Energy of Satellite:** The time taken for one complete orbit. T = 2πr / vₒ. The total energy of an orbiting satellite is negative, E = -GMm/2r.
 `,
   workedExamples: [
     {
@@ -40,7 +39,7 @@ export const gravitation: NeetModule = {
     },
     {
         problem: "At what height above the Earth's surface would the acceleration due to gravity be 1/4th of its value at the surface?",
-        solution: "The acceleration due to gravity at a height h is g' = GM / (R+h)². At the surface, g = GM / R². We are given g' = g/4. So, GM / (R+h)² = (1/4) * (GM / R²). 1 / (R+h)² = 1 / (4R²). (R+h)² = 4R². Taking the square root, R+h = 2R. h = R. The height is equal to the radius of the Earth."
+        solution: "The acceleration due to gravity at a height h is g' = GM / (R+h)². At the surface, g = GM / R². We are given g' = g/4. So, GM / (R+h)² = (1/4) * (GM / R²). 1 / (R+h)² = 1 / (4R²). Taking the square root, R+h = 2R. h = R. The height is equal to the radius of the Earth."
     },
     {
         problem: "Two satellites A and B are revolving around the Earth in circular orbits of radii r_A and r_B respectively. If r_A = 4r_B, what is the ratio of their time periods (T_A / T_B)?",
@@ -195,171 +194,171 @@ export const gravitation: NeetModule = {
   ],
   assertionReasons: [
     {
-        "assertion": "The value of acceleration due to gravity is maximum at the poles.",
-        "reason": "The Earth is flattened at the poles and bulging at the equator.",
-        "answer": "A",
-        "explanation": "The reason is correct. Because the Earth is flattened, the polar radius is smaller than the equatorial radius. Since g ∝ 1/R², 'g' is maximum at the poles."
+        assertion: "The value of acceleration due to gravity is maximum at the poles.",
+        reason: "The Earth is flattened at the poles and bulging at the equator.",
+        answer: "A",
+        explanation: "The reason is correct. Because the Earth is flattened, the polar radius is smaller than the equatorial radius. Since g ∝ 1/R², 'g' is maximum at the poles."
     },
     {
-        "assertion": "A satellite in orbit is in a state of free fall.",
-        "reason": "The satellite and its contents experience weightlessness.",
-        "answer": "A",
-        "explanation": "The reason is a direct consequence of the state of free fall. The continuous falling motion around the Earth is what creates the sensation of weightlessness. The reason explains the assertion."
+        assertion: "A satellite in orbit is in a state of free fall.",
+        reason: "The satellite and its contents experience weightlessness.",
+        answer: "A",
+        explanation: "The reason is a direct consequence of the state of free fall. The continuous falling motion around the Earth is what creates the sensation of weightlessness. The reason explains the assertion."
     },
     {
-        "assertion": "The time period of a geostationary satellite is 24 hours.",
-        "reason": "A geostationary satellite must appear stationary from a point on Earth.",
-        "answer": "A",
-        "explanation": "To appear stationary, it must complete one orbit in the same time the Earth completes one rotation. The reason correctly explains why the time period must be 24 hours."
+        assertion: "The time period of a geostationary satellite is 24 hours.",
+        reason: "A geostationary satellite must appear stationary from a point on Earth.",
+        answer: "A",
+        explanation: "To appear stationary, it must complete one orbit in the same time the Earth completes one rotation. The reason correctly explains why the time period must be 24 hours."
     },
     {
-        "assertion": "The gravitational force between two bodies does not depend on the medium between them.",
-        "reason": "The universal gravitational constant G is independent of the medium.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Since G is a universal constant, the force F=G(m₁m₂)/r² is not affected by the intervening medium."
+        assertion: "The gravitational force between two bodies does not depend on the medium between them.",
+        reason: "The universal gravitational constant G is independent of the medium.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Since G is a universal constant, the force F=G(m₁m₂)/r² is not affected by the intervening medium."
     },
     {
-        "assertion": "The total energy of a bound satellite is negative.",
-        "reason": "The potential energy of a satellite is negative and greater in magnitude than its positive kinetic energy.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Total energy E = K.E. + P.E. = (GMm/2r) + (-GMm/r) = -GMm/2r, which is negative."
+        assertion: "The total energy of a bound satellite is negative.",
+        reason: "The potential energy of a satellite is negative and greater in magnitude than its positive kinetic energy.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Total energy E = K.E. + P.E. = (GMm/2r) + (-GMm/r) = -GMm/2r, which is negative."
     },
     {
-        "assertion": "A planet moves faster when it is closer to the Sun.",
-        "reason": "This is a consequence of the law of conservation of angular momentum.",
-        "answer": "A",
-        "explanation": "According to the conservation of angular momentum (L = mvr = constant), when the distance (r) from the Sun decreases, the velocity (v) must increase to keep L constant."
+        assertion: "A planet moves faster when it is closer to the Sun.",
+        reason: "This is a consequence of the law of conservation of angular momentum.",
+        answer: "A",
+        explanation: "According to the conservation of angular momentum (L = mvr = constant), when the distance (r) from the Sun decreases, the velocity (v) must increase to keep L constant."
     },
     {
-        "assertion": "The escape velocity is independent of the angle of projection.",
-        "reason": "Escape velocity is the minimum speed required to escape the Earth's gravitational field.",
-        "answer": "B",
-        "explanation": "Both statements are true. Escape velocity depends on energy conservation, not the direction of projection (as long as it is away from the Earth). The reason is a correct definition but does not explain why the angle doesn't matter."
+        assertion: "The escape velocity is independent of the angle of projection.",
+        reason: "Escape velocity is the minimum speed required to escape the Earth's gravitational field.",
+        answer: "B",
+        explanation: "Both statements are true. Escape velocity depends on energy conservation, not the direction of projection (as long as it is away from the Earth). The reason is a correct definition but does not explain why the angle doesn't matter."
     },
     {
-        "assertion": "The value of g decreases with an increase in altitude.",
-        "reason": "The acceleration due to gravity is inversely proportional to the square of the distance from the center of the Earth.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. As altitude increases, the distance 'r' from the center increases, and since g ∝ 1/r², 'g' decreases."
+        assertion: "The value of g decreases with an increase in altitude.",
+        reason: "The acceleration due to gravity is inversely proportional to the square of the distance from the center of the Earth.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. As altitude increases, the distance 'r' from the center increases, and since g ∝ 1/r², 'g' decreases."
     },
     {
-        "assertion": "A person feels weightless in an elevator moving downwards with an acceleration equal to g.",
-        "reason": "The apparent weight is given by N = m(g-a).",
-        "answer": "A",
-        "explanation": "The reason provides the correct formula. If a=g, then N = m(g-g) = 0. The apparent weight is zero, which is the condition for weightlessness."
+        assertion: "A person feels weightless in an elevator moving downwards with an acceleration equal to g.",
+        reason: "The apparent weight is given by N = m(g-a).",
+        answer: "A",
+        explanation: "The reason provides the correct formula. If a=g, then N = m(g-g) = 0. The apparent weight is zero, which is the condition for weightlessness."
     },
     {
-        "assertion": "The universal gravitational constant G is a vector quantity.",
-        "reason": "Gravitational force is a vector quantity.",
-        "answer": "D",
-        "explanation": "The assertion is false; G is a scalar constant. The reason is true; force is a vector."
+        assertion: "The universal gravitational constant G is a vector quantity.",
+        reason: "Gravitational force is a vector quantity.",
+        answer: "D",
+        explanation: "The assertion is false; G is a scalar constant. The reason is true; force is a vector."
     },
     {
-        "assertion": "The total mechanical energy of a satellite is conserved as it moves in its orbit.",
-        "reason": "The gravitational force is a conservative force.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Since the only force doing work is gravity (a conservative force), the total mechanical energy is conserved."
+        assertion: "The total mechanical energy of a satellite is conserved as it moves in its orbit.",
+        reason: "The gravitational force is a conservative force.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Since the only force doing work is gravity (a conservative force), the total mechanical energy is conserved."
     },
     {
-        "assertion": "Kepler's laws of planetary motion are applicable to satellites orbiting the Earth.",
-        "reason": "The gravitational force is the central force in both cases.",
-        "answer": "A",
-        "explanation": "Kepler's laws are a consequence of the inverse square law of gravitation. Since the same law governs both planetary motion and satellite motion, the laws are applicable in both cases."
+        assertion: "Kepler's laws of planetary motion are applicable to satellites orbiting the Earth.",
+        reason: "The gravitational force is the central force in both cases.",
+        answer: "A",
+        explanation: "Kepler's laws are a consequence of the inverse square law of gravitation. Since the same law governs both planetary motion and satellite motion, the laws are applicable in both cases."
     },
     {
-        "assertion": "An astronaut in an orbiting satellite cannot sip a drink with a straw.",
-        "reason": "The absence of gravity makes it difficult to suck liquids.",
-        "answer": "C",
-        "explanation": "Assertion is true. The reason is false. The astronaut cannot sip because the liquid would not stay at the bottom of the cup in a weightless environment. Sucking itself works fine regardless of gravity."
+        assertion: "An astronaut in an orbiting satellite cannot sip a drink with a straw.",
+        reason: "The absence of gravity makes it difficult to suck liquids.",
+        answer: "C",
+        explanation: "Assertion is true. The reason is false. The astronaut cannot sip because the liquid would not stay at the bottom of the cup in a weightless environment. Sucking itself works fine regardless of gravity."
     },
     {
-        "assertion": "The binding energy of a satellite is GMm/2r.",
-        "reason": "The total energy of a satellite is -GMm/2r.",
-        "answer": "A",
-        "explanation": "Binding energy is the energy required to remove the satellite from its orbit to infinity (i.e., to make its total energy zero). It is the negative of the total energy. The reason correctly explains the assertion."
+        assertion: "The binding energy of a satellite is GMm/2r.",
+        reason: "The total energy of a satellite is -GMm/2r.",
+        answer: "A",
+        explanation: "Binding energy is the energy required to remove the satellite from its orbit to infinity (i.e., to make its total energy zero). It is the negative of the total energy. The reason correctly explains the assertion."
     },
     {
-        "assertion": "The force of gravity is the weakest fundamental force.",
-        "reason": "The gravitational force between two protons is much smaller than the electrostatic force between them.",
-        "answer": "A",
-        "explanation": "The reason provides a valid comparison that demonstrates the weakness of the gravitational force relative to the electrostatic force, thus explaining the assertion."
+        assertion: "The force of gravity is the weakest fundamental force.",
+        reason: "The gravitational force between two protons is much smaller than the electrostatic force between them.",
+        answer: "A",
+        explanation: "The reason provides a valid comparison that demonstrates the weakness of the gravitational force relative to the electrostatic force, thus explaining the assertion."
     }
   ],
   matchTheColumns: [
     {
-        "column1": ["a) Kepler's First Law", "b) Kepler's Second Law", "c) Kepler's Third Law", "d) Newton's Law of Gravitation"],
-        "column2": ["i) T² ∝ r³", "ii) Law of orbits (elliptical)", "iii) F = Gm₁m₂/r²", "iv) Law of areas (conservation of L)"],
-        "answer": "a-ii, b-iv, c-i, d-iii"
+        column1: ["a) Kepler's First Law", "b) Kepler's Second Law", "c) Kepler's Third Law", "d) Newton's Law of Gravitation"],
+        column2: ["i) T² ∝ r³", "ii) Law of orbits (elliptical)", "iii) F = Gm₁m₂/r²", "iv) Law of areas (conservation of L)"],
+        answer: "a-ii, b-iv, c-i, d-iii"
     },
     {
-        "column1": ["a) Escape velocity (vₑ)", "b) Orbital velocity (vₒ)", "c) g at height h", "d) g at depth d"],
-        "column2": ["i) g(1-d/R)", "ii) √(2GM/R)", "iii) √(GM/r)", "iv) GM/(R+h)²"],
-        "answer": "a-ii, b-iii, c-iv, d-i"
+        column1: ["a) Escape velocity (vₑ)", "b) Orbital velocity (vₒ)", "c) g at height h", "d) g at depth d"],
+        column2: ["i) g(1-d/R)", "ii) √(2GM/R)", "iii) √(GM/r)", "iv) GM/(R+h)²"],
+        answer: "a-ii, b-iii, c-iv, d-i"
     },
     {
-        "column1": ["a) Gravitational Potential Energy", "b) Gravitational Potential", "c) Gravitational Force", "d) Gravitational Field Intensity"],
-        "column2": ["i) -GM/r", "ii) GMm/r²", "iii) F/m", "iv) -GMm/r"],
-        "answer": "a-iv, b-i, c-ii, d-iii"
+        column1: ["a) Gravitational Potential Energy", "b) Gravitational Potential", "c) Gravitational Force", "d) Gravitational Field Intensity"],
+        column2: ["i) -GM/r", "ii) GMm/r²", "iii) F/m", "iv) -GMm/r"],
+        answer: "a-iv, b-i, c-ii, d-iii"
     },
     {
-        "column1": ["a) Geostationary Satellite", "b) Polar Satellite", "c) Total Energy of Satellite", "d) Binding Energy of Satellite"],
-        "column2": ["i) Negative", "ii) Positive", "iii) Time period = 24 hours", "iv) Orbits over poles"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
+        column1: ["a) Geostationary Satellite", "b) Polar Satellite", "c) Total Energy of Satellite", "d) Binding Energy of Satellite"],
+        column2: ["i) Negative", "ii) Positive", "iii) Time period = 24 hours", "iv) Orbits over poles"],
+        answer: "a-iii, b-iv, c-i, d-ii"
     },
     {
-        "column1": ["a) vₑ and vₒ relation", "b) g and G relation", "c) Weight", "d) Universal Gravitational Constant"],
-        "column2": ["i) mg", "ii) vₑ = √2 vₒ", "iii) G", "iv) g = GM/R²"],
-        "answer": "a-ii, b-iv, c-i, d-iii"
+        column1: ["a) vₑ and vₒ relation", "b) g and G relation", "c) Weight", "d) Universal Gravitational Constant"],
+        column2: ["i) mg", "ii) vₑ = √2 vₒ", "iii) G", "iv) g = GM/R²"],
+        answer: "a-ii, b-iv, c-i, d-iii"
     },
     {
-        "column1": ["a) Law of periods", "b) Law of areas", "c) Law of orbits", "d) Law of force"],
-        "column2": ["i) Conservation of angular momentum", "ii) Inverse square law", "iii) T² ∝ a³", "iv) Elliptical path"],
-        "answer": "a-iii, b-i, c-iv, d-ii"
+        column1: ["a) Law of periods", "b) Law of areas", "c) Law of orbits", "d) Law of force"],
+        column2: ["i) Conservation of angular momentum", "ii) Inverse square law", "iii) T² ∝ a³", "iv) Elliptical path"],
+        answer: "a-iii, b-i, c-iv, d-ii"
     },
     {
-        "column1": ["a) g at equator", "b) g at poles", "c) g at center of Earth", "d) g at infinity"],
-        "column2": ["i) Zero", "ii) Zero", "iii) Maximum", "iv) Minimum (non-zero)"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
+        column1: ["a) g at equator", "b) g at poles", "c) g at center of Earth", "d) g at infinity"],
+        column2: ["i) Zero", "ii) Zero", "iii) Maximum", "iv) Minimum (non-zero)"],
+        answer: "a-iv, b-iii, c-i, d-ii"
     },
     {
-        "column1": ["a) Scalar quantity", "b) Vector quantity", "c) Dimensionless", "d) Constant"],
-        "column2": ["i) Gravitational field", "ii) Gravitational potential", "iii) G", "iv) Orbital velocity / Escape velocity"],
-        "answer": "a-ii, b-i, c-iv, d-iii"
+        column1: ["a) Scalar quantity", "b) Vector quantity", "c) Dimensionless", "d) Constant"],
+        column2: ["i) Gravitational field", "ii) Gravitational potential", "iii) G", "iv) Orbital velocity / Escape velocity"],
+        answer: "a-ii, b-i, c-iv, d-iii"
     },
     {
-        "column1": ["a) Cavendish", "b) Kepler", "c) Newton", "d) Galileo"],
-        "column2": ["i) Law of Inertia", "ii) Determined value of G", "iii) Laws of planetary motion", "iv) Law of universal gravitation"],
-        "answer": "a-ii, b-iii, c-iv, d-i"
+        column1: ["a) Cavendish", "b) Kepler", "c) Newton", "d) Galileo"],
+        column2: ["i) Law of Inertia", "ii) Determined value of G", "iii) Laws of planetary motion", "iv) Law of universal gravitation"],
+        answer: "a-ii, b-iii, c-iv, d-i"
     },
     {
-        "column1": ["a) Kinetic Energy of Satellite", "b) Potential Energy of Satellite", "c) Total Energy of Satellite", "d) Escape Energy"],
-        "column2": ["i) -GMm/2r", "ii) GMm/r", "iii) GMm/2r", "iv) -GMm/r"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
+        column1: ["a) Kinetic Energy of Satellite", "b) Potential Energy of Satellite", "c) Total Energy of Satellite", "d) Escape Energy"],
+        column2: ["i) -GMm/2r", "ii) GMm/r", "iii) GMm/2r", "iv) -GMm/r"],
+        answer: "a-iii, b-iv, c-i, d-ii"
     },
     {
-        "column1": ["a) Unit of G", "b) Unit of g", "c) Unit of V (potential)", "d) Unit of U (potential energy)"],
-        "column2": ["i) m/s²", "ii) J/kg", "iii) J", "iv) Nm²/kg²"],
-        "answer": "a-iv, b-i, c-ii, d-iii"
+        column1: ["a) Unit of G", "b) Unit of g", "c) Unit of V (potential)", "d) Unit of U (potential energy)"],
+        column2: ["i) m/s²", "ii) J/kg", "iii) J", "iv) Nm²/kg²"],
+        answer: "a-iv, b-i, c-ii, d-iii"
     },
     {
-        "column1": ["a) Time period of satellite", "b) Height of geostationary satellite", "c) Weightlessness", "d) Black hole"],
-        "column2": ["i) High escape velocity", "ii) State of freefall", "iii) ~36000 km", "iv) 2π√(r³/GM)"],
-        "answer": "a-iv, b-iii, c-ii, d-i"
+        column1: ["a) Time period of satellite", "b) Height of geostationary satellite", "c) Weightlessness", "d) Black hole"],
+        column2: ["i) High escape velocity", "ii) State of freefall", "iii) ~36000 km", "iv) 2π√(r³/GM)"],
+        answer: "a-iv, b-iii, c-ii, d-i"
     },
     {
-        "column1": ["a) When h << R, g' is", "b) At height h=R, g' is", "c) At depth d=R/2, g' is", "d) At center, d=R, g' is"],
-        "column2": ["i) g/2", "ii) 0", "iii) g/4", "iv) g(1-2h/R)"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
+        column1: ["a) When h << R, g' is", "b) At height h=R, g' is", "c) At depth d=R/2, g' is", "d) At center, d=R, g' is"],
+        column2: ["i) g/2", "ii) 0", "iii) g/4", "iv) g(1-2h/R)"],
+        answer: "a-iv, b-iii, c-i, d-ii"
     },
     {
-        "column1": ["a) Conservative force", "b) Central force", "c) Long-range force", "d) Weakest fundamental force"],
-        "column2": ["i) Gravitational force", "ii) Gravitational force", "iii) Gravitational force", "iv) Gravitational force"],
-        "answer": "a-i, b-ii, c-iii, d-iv"
+        column1: ["a) Conservative force", "b) Central force", "c) Long-range force", "d) Weakest fundamental force"],
+        column2: ["i) Gravitational force", "ii) Gravitational force", "iii) Gravitational force", "iv) Gravitational force"],
+        answer: "a-i, b-ii, c-iii, d-iv"
     },
     {
-        "column1": ["a) Areal velocity", "b) Angular momentum", "c) Linear velocity", "d) Angular velocity"],
-        "column2": ["i) Varies in elliptical orbit", "ii) Constant in elliptical orbit", "iii) Varies in elliptical orbit", "iv) Constant in elliptical orbit"],
-        "answer": "a-iv, b-ii, c-i, d-iii"
+        column1: ["a) Areal velocity", "b) Angular momentum", "c) Linear velocity", "d) Angular velocity"],
+        column2: ["i) Varies in elliptical orbit", "ii) Constant in elliptical orbit", "iii) Varies in elliptical orbit", "iv) Constant in elliptical orbit"],
+        answer: "a-iv, b-ii, c-i, d-iii"
     }
   ]
 }
