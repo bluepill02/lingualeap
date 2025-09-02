@@ -301,7 +301,7 @@ export const allMicroLessons: MicroLesson[] = [
             { word: 'পিঠা', romanization: 'Pitha', definition: 'A traditional rice cake', ipa: '/pitha/' },
             { word: 'বিহু', romanization: 'Bihu', definition: 'Assamese festival', ipa: '/bihu/' },
             { word: 'ধুনীয়া', romanization: 'Dhuniya', definition: 'Beautiful', ipa: '/dʱunia/' },
-            { word: 'धन्यवाद', romanization: 'Dhonyobad', definition: 'Thank you', ipa: '/dʱɔnːɔbad/' },
+            { word: 'ধন্যবাদ', romanization: 'Dhonyobad', definition: 'Thank you', ipa: '/dʱɔnːɔbad/' },
         ],
         dialogue: [
             { speaker: 'Customer', line: 'Nomoskar! Bihu’r hubhessa jonalu. Pitha khub dhuniya lagise.' },

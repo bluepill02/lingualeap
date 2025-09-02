@@ -48,7 +48,7 @@ export const neetPhysicsTamil: ExamModule = {
             romanization: 'Kolaga piralchi',
             definition: 'Spherical Aberration. This is an imperfection or defect in lenses where light rays hitting the edge of the lens focus at a slightly different point than rays hitting the center. This causes the image to be blurry. It is a limitation of using spherical surfaces for lenses.',
             partOfSpeech: 'Noun',
-            sentence: 'தரம் குறைந்த லென்சுகளில் கோளகப் பிறழ்ச்சி ஒரு பொதுவான সমস্যা ஆகும்.',
+            sentence: 'தரம் குறைந்த லென்சுகளில் கோளகப் பிறழ்ச்சி ஒரு பொதுவான பிரச்சனையாகும்.',
             sentenceRoman: 'Tharam kuraintha lensugalil kolaga piralchi oru pothuvaana pirachanai aagum.',
             sentenceTranslation: 'Spherical aberration is a common problem in low-quality lenses.'
         },
