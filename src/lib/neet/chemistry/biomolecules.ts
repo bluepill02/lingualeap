@@ -7,32 +7,48 @@ export const biomolecules: NeetModule = {
   chapter: 'Biomolecules',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Carbohydrates (கார்போஹைட்ரேட்டுகள்)
-*   Polyhydroxy aldehydes or ketones. Also called saccharides.
-*   **Monosaccharides:** Simple sugars that cannot be hydrolyzed further (e.g., glucose, fructose).
-*   **Disaccharides:** Yield two monosaccharide units on hydrolysis (e.g., sucrose → glucose + fructose). The bond linking them is called a **glycosidic linkage**.
-*   **Polysaccharides:** Polymers of monosaccharides (e.g., starch, cellulose, glycogen). They are not sweet.
+### 1. General Introduction and Importance
+*   Biomolecules are complex organic molecules that build up living organisms and are required for their growth, maintenance, and metabolic processes.
 
-### 2. Proteins (புரதங்கள்)
+### 2. Carbohydrates (கார்போஹைட்ரேட்டுகள்)
+*   **Classification:** Based on their behaviour on hydrolysis.
+    *   **Monosaccharides:** Simple sugars that cannot be hydrolyzed further (e.g., glucose, fructose). Classified as aldoses or ketoses.
+    *   **Oligosaccharides:** Yield 2 to 10 monosaccharide units on hydrolysis. Disaccharides are most common (e.g., sucrose, lactose, maltose).
+    *   **Polysaccharides:** Polymers of monosaccharides (e.g., starch, cellulose, glycogen). They are not sweet.
+*   **Monosaccharides (Glucose and Fructose):** Structure and basic properties.
+*   **Constituent monosaccharides of oligosaccharides:**
+    *   Sucrose → α-D-Glucose + β-D-Fructose
+    *   Lactose → β-D-Galactose + β-D-Glucose
+    *   Maltose → α-D-Glucose + α-D-Glucose
+
+### 3. Proteins (புரதங்கள்)
 *   Polymers of α-amino acids.
-*   **Amino Acids:** Have both an amino group (-NH₂) and a carboxyl group (-COOH). They exist as **Zwitterions** (a dipolar ion).
-*   **Peptide Bond (பெப்டைடு பிணைப்பு):** The amide bond (-CO-NH-) linking two amino acids.
-*   **Structure of Proteins:** Primary (sequence of amino acids), Secondary (α-helix, β-pleated sheet), Tertiary (overall 3D folding), and Quaternary structures.
-*   **Denaturation of Proteins (புரதங்களின் இயல்பு திரிதல்):** Loss of biological activity of a protein due to disruption of secondary and tertiary structures by heat or pH change. (வேகவைத்த முட்டை மீண்டும் பழைய நிலைக்குத் திரும்பாதது போல).
+*   **Elementary Idea of α-amino acids:** Have an amino group (-NH₂) and a carboxyl group (-COOH) attached to the same α-carbon.
+*   **Peptide Bond (பெப்டைடு பிணைப்பு):** The amide bond (-CO-NH-) linking two α-amino acids. A polypeptide is a chain of amino acids linked by peptide bonds.
+*   **Proteins:** Polypeptides with more than 100 amino acid residues and a molecular mass higher than 10,000u.
+*   **Structure of Proteins (Qualitative idea only):**
+    *   **Primary:** The specific sequence of amino acids.
+    *   **Secondary:** Local folding of the polypeptide chain (α-helix and β-pleated sheet).
+    *   **Tertiary:** Overall 3D folding of the polypeptide chain.
+    *   **Quaternary:** Arrangement of multiple polypeptide subunits.
+*   **Denaturation of Proteins (புரதங்களின் இயல்பு திரிதல்):** Loss of biological activity of a protein due to disruption of its secondary, tertiary, and quaternary structures.
 
-### 3. Enzymes (நொதிகள்)
-*   Biological catalysts. Almost all enzymes are globular proteins. They are highly specific in their action.
+### 4. Enzymes (நொதிகள்)
+*   Biological catalysts, typically globular proteins. Highly specific in their action.
 
-### 4. Vitamins (வைட்டமின்கள்)
-*   Organic compounds required in small amounts to perform specific biological functions.
-*   **Fat-soluble:** Vitamins A, D, E, K.
-*   **Water-soluble:** Vitamins B complex, C.
-*   Deficiency of vitamins causes specific diseases.
+### 5. Vitamins (வைட்டமின்கள்)
+*   **Classification and functions:** Organic compounds required in the diet in small amounts.
+    *   **Fat-soluble:** Vitamins A, D, E, K.
+    *   **Water-soluble:** Vitamins B complex, C.
 
-### 5. Nucleic Acids (நியூக்ளிக் அமிலங்கள்)
-*   Polymers of nucleotides. Also known as polynucleotides. They are the basis of heredity.
-*   **DNA (Deoxyribonucleic Acid):** Contains deoxyribose sugar, a phosphate group, and nitrogenous bases (Adenine, Guanine, Cytosine, Thymine). It has a double helix structure.
-*   **RNA (Ribonucleic Acid):** Contains ribose sugar, a phosphate group, and nitrogenous bases (A, G, C, Uracil). It is usually single-stranded.
+### 6. Nucleic Acids (நியூக்ளிக் அமிலங்கள்)
+*   **Chemical constitution of DNA and RNA:** They are polynucleotides. A nucleotide has three components: a pentose sugar, a nitrogenous base, and a phosphate group.
+    *   **DNA:** Sugar is Deoxyribose. Bases are A, G, C, T.
+    *   **RNA:** Sugar is Ribose. Bases are A, G, C, U.
+*   **Biological functions of nucleic acids:** DNA is the chemical basis of heredity (stores genetic information). RNA is involved in protein synthesis.
+
+### 7. Hormones (ஹார்மோன்கள்)
+*   **General introduction:** Molecules that act as intercellular messengers. They are produced by endocrine glands. (e.g., Insulin, Testosterone).
 `,
   workedExamples: [
     {
@@ -370,5 +386,3 @@ export const biomolecules: NeetModule = {
     }
   ]
 };
-
-  

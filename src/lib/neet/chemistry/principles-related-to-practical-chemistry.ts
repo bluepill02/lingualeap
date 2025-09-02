@@ -8,31 +8,33 @@ export const principlesRelatedToPracticalChemistry: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. Detection of Functional Groups (செயல்பாட்டு தொகுதிகளின் கண்டறிதல்)
-*   **Unsaturation (நிறைவுறாத் தன்மை):** Baeyer's test (decolorization of cold, dilute, alkaline KMnO₄ solution) or Bromine water test (decolorization of bromine water).
-*   **Alcohols (-OH):** Lucas test ( turbidity with Lucas reagent - conc. HCl + anhyd. ZnCl₂), Ceric ammonium nitrate test (red color).
-*   **Phenols:** Ferric chloride test (violet/blue/green coloration).
-*   **Aldehydes & Ketones (C=O):** 2,4-DNP test (yellow/orange precipitate).
-    *   **Aldehydes only:** Tollen's test (silver mirror), Fehling's test (red precipitate).
-*   **Carboxylic Acids (-COOH):** Litmus test (blue to red), Sodium bicarbonate test (brisk effervescence of CO₂).
+*   **Unsaturation:** Baeyer's test (cold, dilute KMnO₄), Bromine water test.
+*   **Alcoholic and Phenolic groups:** Ferric chloride test (for phenols), Lucas test (for alcohols).
+*   **Carbonyl groups (Aldehydes and Ketones):** 2,4-DNP test. Tollen's test and Fehling's test (to distinguish aldehydes).
+*   **Carboxyl groups:** Sodium bicarbonate effervescence test, Litmus test.
+*   **Amino groups:** Carbylamine test (for primary amines).
 
-### 2. Qualitative Analysis of Inorganic Salts (கனிம உப்புகளின் பண்பறி பகுப்பாய்வு)
-*   **Analysis of Anions (எதிர்மின் அயனி):**
-    *   **Dilute H₂SO₄ group:** CO₃²⁻, SO₃²⁻, S²⁻, NO₂⁻.
-    *   **Conc. H₂SO₄ group:** Cl⁻, Br⁻, I⁻, NO₃⁻, CH₃COO⁻.
-    *   **Independent group:** SO₄²⁻, PO₄³⁻.
-*   **Analysis of Cations (நேர்மின் அயனி):** Based on selective precipitation using group reagents.
-    *   Group I: Pb²⁺ (as chlorides).
-    *   Group II: Cu²⁺, As³⁺ (as sulfides in acidic medium).
-    *   Group III: Al³⁺, Fe³⁺ (as hydroxides).
-    *   Group IV: Zn²⁺, Mn²⁺ (as sulfides in basic medium).
-    *   Group V: Ba²⁺, Sr²⁺, Ca²⁺ (as carbonates).
-    *   Group VI: Mg²⁺.
+### 2. Chemistry Involved in Preparation of Compounds
+*   **Inorganic Compounds:** Mohr’s salt, Potash alum. (Understanding the reaction and stoichiometry).
+*   **Organic Compounds:** Acetanilide, p-nitroacetanilide, Aniline yellow, Iodoform. (Understanding the reaction mechanism and conditions).
 
-### 3. Volumetric Analysis (பருமன் பகுப்பாய்வு) / Titration (தரம் பார்த்தல்)
-*   Quantitative analysis to determine the concentration of a solution.
-*   **Equivalence Point:** The point at which the reaction between the two solutions is complete.
-*   **Indicator:** A substance that indicates the completion of the reaction by a color change.
-*   **Types:** Acid-base titration, Redox titration (e.g., KMnO₄ vs. Oxalic acid).
+### 3. Chemistry Involved in Titrimetric Exercises (தரம் பார்த்தல்)
+*   **Acid-Base Titrations:** Use of indicators like phenolphthalein and methyl orange.
+*   **Redox Titrations:**
+    *   **Oxalic acid vs KMnO₄:** Self-indicator (KMnO₄). Requires heating of oxalic acid.
+    *   **Mohr’s salt vs KMnO₄:** Redox titration not requiring heating.
+
+### 4. Chemical Principles in Qualitative Salt Analysis (கனிம உப்பு பகுப்பாய்வு)
+*   **Cations (நேர்மின் அயனிகள்):** Systematic analysis using group reagents to precipitate ions based on their solubility products.
+    *   Pb²⁺, Cu²⁺, Al³⁺, Fe³⁺, Zn²⁺, Ni²⁺, Ca²⁺, Ba²⁺, Mg²⁺, NH₄⁺.
+*   **Anions (எதிர்மின் அயனிகள்):** Preliminary tests and confirmatory tests.
+    *   CO₃²⁻, S²⁻, SO₃²⁻, NO₂⁻, NO₃⁻, Cl⁻, Br⁻, I⁻. (Insoluble salts excluded).
+
+### 5. Chemical Principles in Experiments
+*   **Enthalpy of solution of CuSO₄:** Measuring temperature change upon dissolution to calculate heat absorbed or released.
+*   **Enthalpy of neutralization of strong acid and strong base:** The heat released when 1 mole of H⁺ ions reacts with 1 mole of OH⁻ ions.
+*   **Preparation of lyophilic and lyophobic sols:** Understanding the difference in preparation and stability of colloids.
+*   **Kinetic study of the reaction of iodide ions with hydrogen peroxide:** Studying the effect of concentration or temperature on the rate of reaction.
 `,
   workedExamples: [
     {

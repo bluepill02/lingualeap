@@ -8,26 +8,32 @@ export const organicCompoundsContainingNitrogen: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. Amines (அமீன்கள்)
-*   Derivatives of ammonia (NH₃) where one or more hydrogen atoms are replaced by alkyl or aryl groups.
-*   **Classification:** Primary (R-NH₂), Secondary (R₂NH), Tertiary (R₃N).
-*   **Basicity of Amines (அமீன்களின் காரத்தன்மை):** Amines are basic due to the lone pair of electrons on the nitrogen atom.
-    *   In the gaseous phase, the order of basicity is: Tertiary > Secondary > Primary.
-    *   In an aqueous solution, the order is generally: Secondary > Primary > Tertiary for ethyl groups, due to a combination of inductive effect, solvation effect, and steric hindrance.
-*   **Aniline vs. Alkylamines:** Aniline is a much weaker base than alkylamines because the lone pair on nitrogen is delocalized into the benzene ring and is less available for donation.
+*   **Nomenclature, Classification, Structure:** Amines are derivatives of ammonia (NH₃). Classified as Primary (R-NH₂), Secondary (R₂NH), Tertiary (R₃N) based on the number of alkyl/aryl groups attached to Nitrogen. The N atom is sp³ hybridized with a pyramidal geometry.
+*   **General methods of preparation:**
+    *   Reduction of nitro compounds.
+    *   Ammonolysis of alkyl halides.
+    *   Reduction of nitriles.
+    *   Reduction of amides.
+    *   Gabriel phthalimide synthesis (for primary amines).
+    *   Hofmann bromamide degradation reaction (steps down the series).
+*   **Properties and Reactions:**
+    *   **Basic Character of Amines (அமீன்களின் காரத்தன்மை):** Amines are basic due to the lone pair of electrons on the nitrogen atom. Basicity is compared based on the stability of the conjugate acid and electronic effects.
+        *   Alkylamines are generally stronger bases than ammonia. In aqueous solution, the order for ethylamines is (C₂H₅)₂NH > C₂H₅NH₂ > (C₂H₅)₃N > NH₃.
+        *   Aniline is a much weaker base than ammonia.
+    *   **Identification of primary, secondary, and tertiary amines:**
+        *   **Hinsberg's Test:** Reaction with benzenesulphonyl chloride.
+        *   **Carbylamine Reaction (Isocyanide test):** A test for primary amines only.
 
-### 2. Preparation of Amines
-*   **Reduction of Nitro compounds (Hofmann's reduction):** R-NO₂ → R-NH₂.
-*   **Hofmann Bromamide Degradation Reaction:** R-CO-NH₂ + Br₂ + 4NaOH → R-NH₂ + Na₂CO₃ + 2NaBr + 2H₂O. This reaction is used to step down a series (the amine formed has one carbon less than the amide).
-
-### 3. Chemical Reactions of Amines
-*   **Carbylamine Reaction (கார்பைல்அமீன் வினை):** Primary amines react with chloroform and alcoholic KOH to form isocyanides (carbylamines), which have a very foul smell. This is a test for primary amines.
-*   **Hinsberg's Test:** Used to distinguish between primary, secondary, and tertiary amines using benzenesulphonyl chloride.
-
-### 4. Diazonium Salts (டையசோனியம் உப்புகள்)
-*   General formula: [RN₂]⁺X⁻. Prepared by treating a primary aromatic amine with nitrous acid (NaNO₂ + HCl) at low temperatures (0-5 °C). This reaction is called **diazotisation**.
-*   **Sandmeyer Reaction:** A method for synthesizing aryl halides from aryl diazonium salts using copper(I) salts as catalysts.
-*   **Gattermann Reaction:** Similar to Sandmeyer, but uses copper powder instead of copper salt.
-*   **Coupling Reactions:** Diazonium salts react with electron-rich aromatic compounds like phenol and aniline to form brightly colored azo compounds. This is the basis of azo dyes.
+### 2. Diazonium Salts (டையசோனியம் உப்புகள்)
+*   **General formula:** [ArN₂]⁺X⁻.
+*   **Preparation:** By treating a primary aromatic amine (like aniline) with nitrous acid (NaNO₂ + cold dilute HCl) at 0-5 °C. This reaction is called **diazotisation**.
+*   **Importance in Synthetic Organic Chemistry:** Diazonium salts are very versatile intermediates. The diazonium group is a very good leaving group and can be replaced by various nucleophiles.
+    *   **Sandmeyer Reaction:** Replacement by Cl⁻, Br⁻, CN⁻ using Cu(I) salt.
+    *   **Gattermann Reaction:** Replacement by Cl⁻, Br⁻ using copper powder.
+    *   Replacement by I⁻ (with KI).
+    *   Replacement by F⁻ (Balz-Schiemann reaction).
+    *   Replacement by H (hydrolysis) and OH (reduction).
+    *   **Coupling Reactions:** Reaction with electron-rich compounds like phenol and aniline to form colored azo dyes.
 `,
   workedExamples: [
     {
