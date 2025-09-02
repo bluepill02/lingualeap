@@ -50,6 +50,3 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
   assertionReasons: [],
   matchTheColumns: []
 };
-
-
-    

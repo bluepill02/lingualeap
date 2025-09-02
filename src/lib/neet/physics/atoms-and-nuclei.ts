@@ -114,7 +114,7 @@ export const atomsAndNuclei: NeetModule = {
     {
         question: "The angular momentum of an electron in the nth orbit of a hydrogen atom, according to Bohr's model, is:",
         options: ["nh", "nh/2π", "n²h/2π", "h/n"],
-        "answer": "nh/2π",
+        answer: "nh/2π",
         explanation: "Bohr's second postulate states that the angular momentum is an integral multiple of h/2π."
     },
     {
@@ -178,7 +178,7 @@ export const atomsAndNuclei: NeetModule = {
         explanation: "An alpha particle is a helium nucleus (⁴He₂), so its emission decreases the mass number by 4 and the atomic number by 2."
     },
     {
-        question: "Bohr's model of the atom:",
+        question": "Bohr's model of the atom:",
         options: ["Assumes that the angular momentum of electrons is quantized", "Uses Einstein's photoelectric equation", "Predicts the same emission spectra for all types of atoms", "Could explain the Zeeman effect"],
         answer: "Assumes that the angular momentum of electrons is quantized",
         explanation: "The quantization of angular momentum (L = nh/2π) is one of the fundamental postulates of Bohr's model."
@@ -303,56 +303,54 @@ export const atomsAndNuclei: NeetModule = {
         answer: "a-ii, b-iii, c-iv, d-i"
     },
     {
-        column1: ["a) Rutherford", "b) Bohr", "c) Pauli", "d) Fermi"],
-        column2: ["i) Controlled nuclear fission", "ii) Exclusion principle", "iii) Nuclear model of atom", "iv) Quantization of angular momentum"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Rutherford", "b) Bohr", "c) Pauli", "d) Fermi"],
+        "column2": ["i) Controlled nuclear fission", "ii) Exclusion principle", "iii) Nuclear model of atom", "iv) Quantization of angular momentum"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     },
     {
-        column1: ["a) Repulsive force", "b) Attractive force", "c) Nuclear radius", "d) Nuclear density"],
-        column2: ["i) Constant for all nuclei", "ii) R₀A¹/³", "iii) Electrostatic force between protons", "iv) Strong nuclear force"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Repulsive force", "b) Attractive force", "c) Nuclear radius", "d) Nuclear density"],
+        "column2": ["i) Constant for all nuclei", "ii) R₀A¹/³", "iii) Electrostatic force between protons", "iv) Strong nuclear force"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     },
     {
-        column1: ["a) 1 amu", "b) 1 Curie (Ci)", "c) 1 Becquerel (Bq)", "d) 1 MeV"],
-        column2: ["i) 1 decay/sec", "ii) 1.6 x 10⁻¹³ J", "iii) 3.7 x 10¹⁰ decays/sec", "iv) 931.5 MeV/c²"],
-        answer: "a-iv, b-iii, c-i, d-ii"
+        "column1": ["a) 1 amu", "b) 1 Curie (Ci)", "c) 1 Becquerel (Bq)", "d) 1 MeV"],
+        "column2": ["i) 1 decay/sec", "ii) 1.6 x 10⁻¹³ J", "iii) 3.7 x 10¹⁰ decays/sec", "iv) 931.5 MeV/c²"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) Moderator", "b) Control rods", "c) Coolant", "d) Shielding"],
-        column2: ["i) Absorbs neutrons (e.g., Cadmium)", "ii) Protects from radiation", "iii) Slows down neutrons (e.g., D₂O)", "iv) Removes heat from the core"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Moderator", "b) Control rods", "c) Coolant", "d) Shielding"],
+        "column2": ["i) Absorbs neutrons (e.g., Cadmium)", "ii) Protects from radiation", "iii) Slows down neutrons (e.g., D₂O)", "iv) Removes heat from the core"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Shortest wavelength in Lyman series", "b) Longest wavelength in Balmer series", "c) Shortest wavelength in Paschen series", "d) Longest wavelength in Pfund series"],
-        column2: ["i) n=6 to n=5", "ii) n=∞ to n=3", "iii) n=3 to n=2", "iv) n=∞ to n=1"],
-        answer: "a-iv, b-iii, c-ii, d-i"
+        "column1": ["a) Shortest wavelength in Lyman series", "b) Longest wavelength in Balmer series", "c) Shortest wavelength in Paschen series", "d) Longest wavelength in Pfund series"],
+        "column2": ["i) n=6 to n=5", "ii) n=∞ to n=3", "iii) n=3 to n=2", "iv) n=∞ to n=1"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
     },
     {
-        column1: ["a) ¹⁴C", "b) ⁶⁰Co", "c) ²³⁵U", "d) ³H"],
-        column2: ["i) Fissile material", "ii) Cancer therapy", "iii) Tritium", "iv) Radiocarbon dating"],
-        answer: "a-iv, b-ii, c-i, d-iii"
+        "column1": ["a) ¹⁴C", "b) ⁶⁰Co", "c) ²³⁵U", "d) ³H"],
+        "column2": ["i) Fissile material", "ii) Cancer therapy", "iii) Tritium", "iv) Radiocarbon dating"],
+        "answer": "a-iv, b-ii, c-i, d-iii"
     },
     {
-        column1: ["a) Mass number", "b) Atomic number", "c) Electron", "d) Neutron"],
-        column2: ["i) No charge", "ii) Number of protons", "iii) Negatively charged", "iv) Number of nucleons"],
-        answer: "a-iv, b-ii, c-iii, d-i"
+        "column1": ["a) Mass number", "b) Atomic number", "c) Electron", "d) Neutron"],
+        "column2": ["i) No charge", "ii) Number of protons", "iii) Negatively charged", "iv) Number of nucleons"],
+        "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
-        column1: ["a) Fusion requires high temperature", "b) Fission is initiated by neutrons", "c) Chain reaction", "d) Bohr's postulate"],
-        column2: ["i) E = E₁ - E₂", "ii) Self-propagating process", "iii) To overcome electrostatic repulsion", "iv) Thermal neutrons"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Fusion requires high temperature", "b) Fission is initiated by neutrons", "c) Chain reaction", "d) Bohr's postulate"],
+        "column2": ["i) E = E₁ - E₂", "ii) Self-propagating process", "iii) To overcome electrostatic repulsion", "iv) Thermal neutrons"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     },
     {
-        column1: ["a) Average life", "b) Activity", "c) Decay constant", "d) Half-life"],
-        column2: ["i) T₁/₂", "ii) R", "iii) λ", "iv) τ"],
-        answer: "a-iv, b-ii, c-iii, d-i"
+        "column1": ["a) Average life", "b) Activity", "c) Decay constant", "d) Half-life"],
+        "column2": ["i) T₁/₂", "ii) R", "iii) λ", "iv) τ"],
+        "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
-        column1: ["a) During α-decay", "b) During β⁻-decay", "c) During β⁺-decay", "d) During γ-decay"],
-        column2: ["i) Z → Z-1", "ii) Z → Z+1", "iii) Z → Z-2", "iv) Z remains same"],
-        answer: "a-iii, b-ii, c-i, d-iv"
+        "column1": ["a) During α-decay", "b) During β⁻-decay", "c) During β⁺-decay", "d) During γ-decay"],
+        "column2": ["i) Z → Z-1", "ii) Z → Z+1", "iii) Z → Z-2", "iv) Z remains same"],
+        "answer": "a-iii, b-ii, c-i, d-iv"
     }
   ]
 };
-
-    

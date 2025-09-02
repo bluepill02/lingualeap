@@ -108,7 +108,7 @@ export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
         explanation: "The magnetic force provides a constant centripetal force, causing the particle to move in a circular path."
     },
     {
-        question: "Two parallel wires carrying currents in the same direction will:",
+        question": "Two parallel wires carrying currents in the same direction will:",
         options: ["Repel each other", "Attract each other", "Have no effect on each other", "First attract then repel"],
         answer: "Attract each other",
         explanation: "Using the right-hand rule, the magnetic field produced by one wire exerts an attractive force on the other wire."
@@ -168,9 +168,9 @@ export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
         explanation: "The angle of dip is the angle the Earth's magnetic field makes with the horizontal. At the magnetic poles, the field lines are nearly vertical, so the angle of dip is 90°."
     },
     {
-        question: "A galvanometer can be converted into a voltmeter by connecting:",
+        question": "A galvanometer can be converted into a voltmeter by connecting:",
         options: ["A high resistance in series", "A low resistance in series", "A high resistance in parallel", "A low resistance in parallel"],
-        answer: "A high resistance in series",
+        answer": "A high resistance in series",
         explanation: "A high series resistance limits the current flowing through the galvanometer and allows it to measure a large potential difference across it."
     },
     {
@@ -274,7 +274,7 @@ export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
     {
         assertion: "Diamagnetism is a universal property of all materials.",
         reason: "All materials have electrons which will oppose an external magnetic field according to Lenz's law.",
-        answer: "A",
+        answer": "A",
         explanation: "The reason correctly explains the assertion. Diamagnetism is present in all substances, although it is often masked by stronger paramagnetic or ferromagnetic effects."
     },
     {
@@ -321,7 +321,7 @@ export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
         answer: "a-ii, b-iv, c-iii, d-i"
     },
     {
-        column1: ["a) Angle of Dip at poles", "b) Angle of Dip at equator", "c) Angle of declination", "d) Horizontal component of Earth's field"],
+        column1": ["a) Angle of Dip at poles", "b) Angle of Dip at equator", "c) Angle of declination", "d) Horizontal component of Earth's field"],
         column2: ["i) 90°", "ii) B_H = Bcosδ", "iii) Angle between magnetic and geographic meridian", "iv) 0°"],
         answer: "a-i, b-iv, c-iii, d-ii"
     },
@@ -362,5 +362,3 @@ export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
     }
   ]
 }
-
-    

@@ -110,7 +110,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         explanation: "This is the definition of threshold frequency in the context of the photoelectric effect."
     },
     {
-        question: "Heisenberg's Uncertainty Principle applies to:",
+        question": "Heisenberg's Uncertainty Principle applies to:",
         options: ["Macroscopic particles only", "Microscopic particles only", "Both", "Stationary particles only"],
         answer: "Microscopic particles only",
         explanation: "The uncertainty is significant only for microscopic particles like electrons and is negligible for large-scale objects."
@@ -155,7 +155,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         question: "Which of the following is not an evidence of the particle nature of light?",
         options: ["Photoelectric effect", "Compton effect", "Interference", "Blackbody radiation"],
         answer: "Interference",
-        explanation: "Interference is a phenomenon that can only be explained by the wave nature of light."
+        explanation": "Interference is a phenomenon that can only be explained by the wave nature of light."
     },
     {
         question: "If an electron and a proton have the same de Broglie wavelength, then:",
@@ -172,7 +172,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     {
         question: "An electron, an alpha particle, and a proton have the same kinetic energy. Which of these particles has the shortest de Broglie wavelength?",
         options: ["Electron", "Alpha particle", "Proton", "All have the same wavelength"],
-        answer: "Alpha particle",
+        answer": "Alpha particle",
         explanation: "λ = h/p = h/√(2mK.E.). For the same K.E., λ is inversely proportional to the square root of the mass. The alpha particle has the largest mass, so it has the shortest wavelength."
     },
     {
@@ -246,7 +246,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     {
         assertion: "X-rays have a shorter wavelength than radio waves.",
         reason: "X-rays are more energetic than radio waves.",
-        answer: "A",
+        answer": "A",
         explanation: "The energy of a photon is given by E = hc/λ. A higher energy (reason) corresponds to a shorter wavelength (assertion). The reason correctly explains the assertion."
     },
     {
@@ -298,32 +298,32 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     },
     {
         column1: ["a) Intensity", "b) Frequency", "c) Work Function", "d) Stopping Potential"],
-        column2: ["i) Depends on nature of metal", "ii) Depends on K.E._max", "iii) Affects photocurrent", "iv) Affects K.E._max"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        column2": ["i) Depends on nature of metal", "ii) Depends on K.E._max", "iii) Affects photocurrent", "iv) Affects K.E._max"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Electron", "b) Proton", "c) Neutron", "d) Photon"],
-        column2: ["i) No charge, has mass", "ii) Positive charge, has mass", "iii) Negative charge, has mass", "iv) No charge, no rest mass"],
-        answer: "a-iii, b-ii, c-i, d-iv"
+        "column1": ["a) Electron", "b) Proton", "c) Neutron", "d) Photon"],
+        "column2": ["i) No charge, has mass", "ii) Positive charge, has mass", "iii) Negative charge, has mass", "iv) No charge, no rest mass"],
+        "answer": "a-iii, b-ii, c-i, d-iv"
     },
     {
-        column1: ["a) Millikan's oil drop experiment", "b) Rutherford's scattering", "c) Thomson's experiment", "d) Davisson-Germer experiment"],
-        column2: ["i) Charge of electron", "ii) Discovery of nucleus", "iii) e/m ratio of electron", "iv) Wave nature of electron"],
-        answer: "a-i, b-ii, c-iii, d-iv"
+        "column1": ["a) Millikan's oil drop experiment", "b) Rutherford's scattering", "c) Thomson's experiment", "d) Davisson-Germer experiment"],
+        "column2": ["i) Charge of electron", "ii) Discovery of nucleus", "iii) e/m ratio of electron", "iv) Wave nature of electron"],
+        "answer": "a-i, b-ii, c-iii, d-iv"
     },
     {
-        column1: ["a) λ ∝ 1/√V", "b) K.E. ∝ ν", "c) I_photo ∝ Intensity", "d) V_s ∝ ν"],
-        column2: ["i) Electron wavelength", "ii) Not directly proportional, but linear", "iii) Photocurrent", "iv) Not directly proportional, but linear"],
-        answer: "a-i, b-ii, c-iii, d-iv"
+        "column1": ["a) λ ∝ 1/√V", "b) K.E. ∝ ν", "c) I_photo ∝ Intensity", "d) V_s ∝ ν"],
+        "column2": ["i) Electron wavelength", "ii) Not directly proportional, but linear", "iii) Photocurrent", "iv) Not directly proportional, but linear"],
+        "answer": "a-i, b-ii, c-iii, d-iv"
     },
     {
-        column1: ["a) Threshold frequency", "b) Threshold wavelength", "c) Stopping potential", "d) Saturation current"],
-        column2: ["i) Depends on intensity", "ii) Maximum wavelength for emission", "iii) Minimum frequency for emission", "iv) Depends on frequency"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Threshold frequency", "b) Threshold wavelength", "c) Stopping potential", "d) Saturation current"],
+        "column2": ["i) Depends on intensity", "ii) Maximum wavelength for emission", "iii) Minimum frequency for emission", "iv) Depends on frequency"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Ultraviolet Catastrophe", "b) Hertz's Observations", "c) Lenard's Observations", "d) Heisenberg"],
-        column2": ["i) K.E. depends on frequency, not intensity", "ii) Quantum Mechanics", "iii) Failure of classical wave theory", "iv) Sparking was enhanced by UV light"],
+        "column1": ["a) Ultraviolet Catastrophe", "b) Hertz's Observations", "c) Lenard's Observations", "d) Heisenberg"],
+        "column2": ["i) K.E. depends on frequency, not intensity", "ii) Quantum Mechanics", "iii) Failure of classical wave theory", "iv) Sparking was enhanced by UV light"],
         "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
