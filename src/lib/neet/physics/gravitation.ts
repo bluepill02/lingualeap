@@ -75,8 +75,8 @@ export const gravitation: NeetModule = {
     {
         question: "If the distance between two masses is doubled, the gravitational force between them becomes:",
         options: ["Double", "Half", "Four times", "One-fourth"],
-        "answer": "One-fourth",
-        "explanation": "Gravitational force F ∝ 1/r². If the distance r is doubled, the force becomes 1/(2r)² = 1/4r², i.e., one-fourth."
+        answer: "One-fourth",
+        explanation: "Gravitational force F ∝ 1/r². If the distance r is doubled, the force becomes 1/(2r)² = 1/4r², i.e., one-fourth."
     },
     {
         question: "The gravitational potential energy of a body at the surface of the Earth is:",
@@ -92,9 +92,9 @@ export const gravitation: NeetModule = {
     },
     {
         question: "The orbital velocity of a satellite very close to the Earth's surface is:",
-        "options": ["√(2gR)", "√(gR)", "√(3gR/2)", "gR"],
-        "answer": "√(gR)",
-        "explanation": "Orbital velocity vₒ = √(GM/R). Since g = GM/R², GM = gR². So, vₒ = √(gR²/R) = √(gR)."
+        options: ["√(2gR)", "√(gR)", "√(3gR/2)", "gR"],
+        answer: "√(gR)",
+        explanation: "Orbital velocity vₒ = √(GM/R). Since g = GM/R², GM = gR². So, vₒ = √(gR²/R) = √(gR)."
     },
     {
         question: "According to Kepler's third law, if a planet's orbital radius is increased by 4 times, its time period will increase by:",
@@ -142,7 +142,7 @@ export const gravitation: NeetModule = {
         question: "The tidal waves in the sea are primarily due to:",
         options: ["The gravitational effect of the Moon on the Earth", "The gravitational effect of the Sun on the Earth", "The gravitational effect of Venus on the Earth", "The rotation of the Earth"],
         answer: "The gravitational effect of the Moon on the Earth",
-        explanation": "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
+        explanation: "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
     },
     {
         question: "If the radius of the Earth were to shrink by 1% while its mass remains the same, the acceleration due to gravity on the Earth's surface would:",
@@ -176,9 +176,9 @@ export const gravitation: NeetModule = {
     },
     {
         question: "The period of a satellite in a circular orbit of radius R is T. The period of another satellite in a circular orbit of radius 4R is:",
-        "options": ["4T", "8T", "T/4", "T/8"],
-        "answer": "8T",
-        "explanation": "From Kepler's third law, T² ∝ R³. (T₂/T₁)² = (R₂/R₁)³. (T₂/T)² = (4R/R)³ = 64. T₂/T = √64 = 8. So T₂ = 8T."
+        options: ["4T", "8T", "T/4", "T/8"],
+        answer: "8T",
+        explanation: "From Kepler's third law, T² ∝ R³. (T₂/T₁)² = (R₂/R₁)³. (T₂/T)² = (4R/R)³ = 64. T₂/T = √64 = 8. So T₂ = 8T."
     },
     {
         question: "Which of the following is the evidence to show that there must be a force acting on Earth and directed towards the Sun?",
@@ -187,10 +187,10 @@ export const gravitation: NeetModule = {
         explanation": "For the Earth to follow a curved path (orbit) around the Sun, there must be a continuous centripetal force directed towards the Sun."
     },
     {
-        "question": "What is the work done in moving a satellite of mass m from one circular orbit of radius 2R to another of radius 3R around the Earth?",
-        "options": ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/12R"],
-        "answer": "GMm/12R",
-        "explanation": "Work done is the change in total energy. Total energy E = -GMm/(2r). W = E_f - E_i = (-GMm/(2*3R)) - (-GMm/(2*2R)) = -GMm/6R + GMm/4R = GMm(1/4R - 1/6R) = GMm((3-2)/12R) = GMm/12R."
+        question: "What is the work done in moving a satellite of mass m from one circular orbit of radius 2R to another of radius 3R around the Earth?",
+        options: ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/12R"],
+        answer: "GMm/12R",
+        explanation: "Work done is the change in total energy. Total energy E = -GMm/(2r). W = E_f - E_i = (-GMm/(2*3R)) - (-GMm/(2*2R)) = -GMm/6R + GMm/4R = GMm(1/4R - 1/6R) = GMm((3-2)/12R) = GMm/12R."
     }
   ],
   assertionReasons: [
@@ -210,7 +210,7 @@ export const gravitation: NeetModule = {
         assertion: "The time period of a geostationary satellite is 24 hours.",
         reason: "A geostationary satellite must appear stationary from a point on Earth.",
         answer: "A",
-        explanation: "The reason correctly explains why the time period must be 24 hours. To appear stationary, it must complete one orbit in the same time the Earth completes one rotation."
+        explanation: "To appear stationary, it must complete one orbit in the same time the Earth completes one rotation. The reason correctly explains why the time period must be 24 hours."
     },
     {
         assertion: "The gravitational force between two bodies does not depend on the medium between them.",
@@ -239,14 +239,14 @@ export const gravitation: NeetModule = {
     {
         assertion: "The value of g decreases with an increase in altitude.",
         reason: "The acceleration due to gravity is inversely proportional to the square of the distance from the center of the Earth.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. As altitude increases, the distance 'r' from the center increases, and since g ∝ 1/r², 'g' decreases."
+        answer": "A",
+        "explanation": "The reason correctly explains the assertion. As altitude increases, the distance 'r' from the center increases, and since g ∝ 1/r², 'g' decreases."
     },
     {
         assertion: "A person feels weightless in an elevator moving downwards with an acceleration equal to g.",
         reason: "The apparent weight is given by N = m(g-a).",
         answer: "A",
-        explanation: "The reason provides the correct formula. If a=g, then N = m(g-g) = 0. The apparent weight is zero, which is the condition for weightlessness."
+        explanation": "The reason provides the correct formula. If a=g, then N = m(g-g) = 0. The apparent weight is zero, which is the condition for weightlessness."
     },
     {
         assertion: "The universal gravitational constant G is a vector quantity.",
@@ -303,63 +303,63 @@ export const gravitation: NeetModule = {
     },
     {
         column1: ["a) Geostationary Satellite", "b) Polar Satellite", "c) Total Energy of Satellite", "d) Binding Energy of Satellite"],
-        column2": ["i) Negative", "ii) Positive", "iii) Time period = 24 hours", "iv) Orbits over poles"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
+        column2: ["i) Negative", "ii) Positive", "iii) Time period = 24 hours", "iv) Orbits over poles"],
+        answer: "a-iii, b-iv, c-i, d-ii"
     },
     {
-        "column1": ["a) vₑ and vₒ relation", "b) g and G relation", "c) Weight", "d) Universal Gravitational Constant"],
-        "column2": ["i) mg", "ii) vₑ = √2 vₒ", "iii) G", "iv) g = GM/R²"],
-        "answer": "a-ii, b-iv, c-i, d-iii"
+        column1: ["a) vₑ and vₒ relation", "b) g and G relation", "c) Weight", "d) Universal Gravitational Constant"],
+        column2: ["i) mg", "ii) vₑ = √2 vₒ", "iii) G", "iv) g = GM/R²"],
+        answer: "a-ii, b-iv, c-i, d-iii"
     },
     {
-        "column1": ["a) Law of periods", "b) Law of areas", "c) Law of orbits", "d) Law of force"],
-        "column2": ["i) Conservation of angular momentum", "ii) Inverse square law", "iii) T² ∝ a³", "iv) Elliptical path"],
-        "answer": "a-iii, b-i, c-iv, d-ii"
+        column1: ["a) Law of periods", "b) Law of areas", "c) Law of orbits", "d) Law of force"],
+        column2: ["i) Conservation of angular momentum", "ii) Inverse square law", "iii) T² ∝ a³", "iv) Elliptical path"],
+        answer: "a-iii, b-i, c-iv, d-ii"
     },
     {
-        "column1": ["a) g at equator", "b) g at poles", "c) g at center of Earth", "d) g at infinity"],
-        "column2": ["i) Zero", "ii) Zero", "iii) Maximum", "iv) Minimum (non-zero)"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
+        column1: ["a) g at equator", "b) g at poles", "c) g at center of Earth", "d) g at infinity"],
+        column2: ["i) Zero", "ii) Zero", "iii) Maximum", "iv) Minimum (non-zero)"],
+        answer: "a-iv, b-iii, c-i, d-ii"
     },
     {
-        "column1": ["a) Scalar quantity", "b) Vector quantity", "c) Dimensionless", "d) Constant"],
-        "column2": ["i) Gravitational field", "ii) Gravitational potential", "iii) G", "iv) Orbital velocity / Escape velocity"],
-        "answer": "a-ii, b-i, c-iv, d-iii"
+        column1: ["a) Scalar quantity", "b) Vector quantity", "c) Dimensionless", "d) Constant"],
+        column2: ["i) Gravitational field", "ii) Gravitational potential", "iii) G", "iv) Orbital velocity / Escape velocity"],
+        answer: "a-ii, b-i, c-iv, d-iii"
     },
     {
-        "column1": ["a) Cavendish", "b) Kepler", "c) Newton", "d) Galileo"],
-        "column2": ["i) Law of Inertia", "ii) Determined value of G", "iii) Laws of planetary motion", "iv) Law of universal gravitation"],
-        "answer": "a-ii, b-iii, c-iv, d-i"
+        column1: ["a) Cavendish", "b) Kepler", "c) Newton", "d) Galileo"],
+        column2: ["i) Law of Inertia", "ii) Determined value of G", "iii) Laws of planetary motion", "iv) Law of universal gravitation"],
+        answer: "a-ii, b-iii, c-iv, d-i"
     },
     {
-        "column1": ["a) Kinetic Energy of Satellite", "b) Potential Energy of Satellite", "c) Total Energy of Satellite", "d) Escape Energy"],
-        "column2": ["i) -GMm/2r", "ii) GMm/r", "iii) GMm/2r", "iv) -GMm/r"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
+        column1: ["a) Kinetic Energy of Satellite", "b) Potential Energy of Satellite", "c) Total Energy of Satellite", "d) Escape Energy"],
+        column2: ["i) -GMm/2r", "ii) GMm/r", "iii) GMm/2r", "iv) -GMm/r"],
+        answer: "a-iii, b-iv, c-i, d-ii"
     },
     {
-        "column1": ["a) Unit of G", "b) Unit of g", "c) Unit of V (potential)", "d) Unit of U (potential energy)"],
-        "column2": ["i) m/s²", "ii) J/kg", "iii) J", "iv) Nm²/kg²"],
-        "answer": "a-iv, b-i, c-ii, d-iii"
+        column1: ["a) Unit of G", "b) Unit of g", "c) Unit of V (potential)", "d) Unit of U (potential energy)"],
+        column2: ["i) m/s²", "ii) J/kg", "iii) J", "iv) Nm²/kg²"],
+        answer: "a-iv, b-i, c-ii, d-iii"
     },
     {
-        "column1": ["a) Time period of satellite", "b) Height of geostationary satellite", "c) Weightlessness", "d) Black hole"],
-        "column2": ["i) High escape velocity", "ii) State of freefall", "iii) ~36000 km", "iv) 2π√(r³/GM)"],
-        "answer": "a-iv, b-iii, c-ii, d-i"
+        column1: ["a) Time period of satellite", "b) Height of geostationary satellite", "c) Weightlessness", "d) Black hole"],
+        column2: ["i) High escape velocity", "ii) State of freefall", "iii) ~36000 km", "iv) 2π√(r³/GM)"],
+        answer: "a-iv, b-iii, c-ii, d-i"
     },
     {
-        "column1": ["a) When h << R, g' is", "b) At height h=R, g' is", "c) At depth d=R/2, g' is", "d) At center, d=R, g' is"],
-        "column2": ["i) g/2", "ii) 0", "iii) g/4", "iv) g(1-2h/R)"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
+        column1: ["a) When h << R, g' is", "b) At height h=R, g' is", "c) At depth d=R/2, g' is", "d) At center, d=R, g' is"],
+        column2: ["i) g/2", "ii) 0", "iii) g/4", "iv) g(1-2h/R)"],
+        answer: "a-iv, b-iii, c-i, d-ii"
     },
     {
-        "column1": ["a) Conservative force", "b) Central force", "c) Long-range force", "d) Weakest fundamental force"],
-        "column2": ["i) Gravitational force", "ii) Gravitational force", "iii) Gravitational force", "iv) Gravitational force"],
-        "answer": "a-i, b-ii, c-iii, d-iv"
+        column1: ["a) Conservative force", "b) Central force", "c) Long-range force", "d) Weakest fundamental force"],
+        column2: ["i) Gravitational force", "ii) Gravitational force", "iii) Gravitational force", "iv) Gravitational force"],
+        answer: "a-i, b-ii, c-iii, d-iv"
     },
     {
-        "column1": ["a) Areal velocity", "b) Angular momentum", "c) Linear velocity", "d) Angular velocity"],
-        "column2": ["i) Varies in elliptical orbit", "ii) Constant in elliptical orbit", "iii) Varies in elliptical orbit", "iv) Constant in elliptical orbit"],
-        "answer": "a-iv, b-ii, c-i, d-iii"
+        column1: ["a) Areal velocity", "b) Angular momentum", "c) Linear velocity", "d) Angular velocity"],
+        column2: ["i) Varies in elliptical orbit", "ii) Constant in elliptical orbit", "iii) Varies in elliptical orbit", "iv) Constant in elliptical orbit"],
+        answer": "a-iv, b-ii, c-i, d-iii"
     }
   ]
 }
