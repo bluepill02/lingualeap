@@ -1,4 +1,3 @@
-
 import type { NeetModule } from '@/lib/types';
 
 export const electromagneticWaves: NeetModule = {
@@ -51,7 +50,327 @@ export const electromagneticWaves: NeetModule = {
         solution: "The part of the electromagnetic spectrum suitable for radar systems is **microwaves**. Microwaves have wavelengths that are short enough to provide good resolution for detecting objects like aircraft, and they can penetrate haze, light rain, snow, clouds, and smoke."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "Which of the following has the maximum frequency?",
+        "options": ["Microwaves", "X-rays", "Gamma rays", "Radio waves"],
+        "answer": "Gamma rays",
+        "explanation": "In the electromagnetic spectrum, gamma rays have the highest frequency and highest energy."
+    },
+    {
+        "question": "Electromagnetic waves are produced by:",
+        "options": ["A stationary charge", "A charge moving with uniform velocity", "An accelerating charge", "A chargeless particle"],
+        "answer": "An accelerating charge",
+        "explanation": "An accelerating or oscillating charge is the source of electromagnetic waves."
+    },
+    {
+        "question": "The direction of propagation of an electromagnetic wave is given by:",
+        "options": ["E ⋅ B", "E × B", "B × E", "E"],
+        "answer": "E × B",
+        "explanation": "The direction of wave propagation is given by the direction of the Poynting vector, which is parallel to E × B."
+    },
+    {
+        "question": "The speed of electromagnetic waves in a vacuum is given by:",
+        "options": ["√(μ₀ε₀)", "1/√(μ₀ε₀)", "μ₀ε₀", "1/(μ₀ε₀)"],
+        "answer": "1/√(μ₀ε₀)",
+        "explanation": "This is a fundamental result from Maxwell's equations, where c = 1/√(μ₀ε₀)."
+    },
+    {
+        "question": "Which of the following is used to treat cancer?",
+        "options": ["Infrared rays", "Ultraviolet rays", "X-rays", "Gamma rays"],
+        "answer": "Gamma rays",
+        "explanation": "High-energy gamma rays are used in radiotherapy to destroy cancerous cells."
+    },
+    {
+        "question": "The concept of displacement current was introduced by:",
+        "options": ["Ampere", "Faraday", "Maxwell", "Hertz"],
+        "answer": "Maxwell",
+        "explanation": "James Clerk Maxwell introduced the concept of displacement current to make Ampere's law consistent for time-varying fields."
+    },
+    {
+        "question": "In an electromagnetic wave, the phase difference between the electric field and the magnetic field is:",
+        "options": ["0", "π/2", "π", "π/4"],
+        "answer": "0",
+        "explanation": "The electric and magnetic fields in an EM wave are in phase with each other; they reach their maxima and minima at the same time and place."
+    },
+    {
+        "question": "Which part of the electromagnetic spectrum is used in remote controls for televisions?",
+        "options": ["Microwaves", "Infrared", "Visible light", "Ultraviolet"],
+        "answer": "Infrared",
+        "explanation": "Infrared LEDs are commonly used in remote controls."
+    },
+    {
+        "question": "The ratio of the magnitude of the electric field to the magnetic field (E/B) in an electromagnetic wave is equal to:",
+        "options": ["The speed of light (c)", "The permittivity of free space (ε₀)", "The permeability of free space (μ₀)", "The frequency of the wave"],
+        "answer": "The speed of light (c)",
+        "explanation": "For an EM wave in a vacuum, the relationship between the magnitudes of the fields is E = cB, or E/B = c."
+    },
+    {
+        "question": "Ozone layer in the atmosphere absorbs which part of the electromagnetic spectrum?",
+        "options": ["Infrared", "Visible", "Ultraviolet", "X-rays"],
+        "answer": "Ultraviolet",
+        "explanation": "The ozone layer in the stratosphere is crucial for life on Earth as it absorbs most of the harmful ultraviolet radiation from the sun."
+    },
+    {
+        "question": "The source of displacement current is:",
+        "options": ["A changing magnetic field", "A changing electric field", "A constant electric field", "A constant magnetic field"],
+        "answer": "A changing electric field",
+        "explanation": "Displacement current, I_d = ε₀(dΦ_E/dt), is produced by a time-varying electric flux."
+    },
+    {
+        "question": "Which of the following electromagnetic waves has the longest wavelength?",
+        "options": ["X-rays", "Infrared", "Microwaves", "Radio waves"],
+        "answer": "Radio waves",
+        "explanation": "In the EM spectrum, radio waves have the longest wavelengths and lowest frequencies."
+    },
+    {
+        "question": "The energy of an electromagnetic wave is proportional to:",
+        "options": ["Its wavelength", "Its frequency", "Its speed", "Its amplitude squared"],
+        "answer": "Its amplitude squared",
+        "explanation": "The energy density of an EM wave is proportional to the square of the amplitude of the electric field (and magnetic field)."
+    },
+    {
+        "question": "Which phenomenon proves that light waves are transverse?",
+        "options": ["Interference", "Diffraction", "Polarisation", "Reflection"],
+        "answer": "Polarisation",
+        "explanation": "Only transverse waves can be polarized. Longitudinal waves, like sound, cannot be polarized."
+    },
+    {
+        "question": "The pressure exerted by an electromagnetic wave is called:",
+        "options": ["Atmospheric pressure", "Osmotic pressure", "Radiation pressure", "Vapour pressure"],
+        "answer": "Radiation pressure",
+        "explanation": "EM waves carry momentum and exert a pressure, known as radiation pressure, when they fall on a surface."
+    },
+    {
+        "question": "Maxwell's equations describe the fundamental laws of:",
+        "options": ["Gravitation", "Thermodynamics", "Electromagnetism", "Optics"],
+        "answer": "Electromagnetism",
+        "explanation": "Maxwell's four equations are the foundation of classical electricity and magnetism."
+    },
+    {
+        "question": "In which direction does the electric field oscillate in an EM wave propagating along the Z-axis, if the magnetic field oscillates along the Y-axis?",
+        "options": ["X-axis", "Y-axis", "Z-axis", "Any direction in the XY plane"],
+        "answer": "X-axis",
+        "explanation": "The three vectors E, B, and the direction of propagation (k) must be mutually perpendicular. If k is along Z and B is along Y, E must be along X for E × B to be in the Z direction."
+    },
+    {
+        "question": "What is the source of an electromagnetic wave?",
+        "options": ["A stationary charge", "A charge moving at constant velocity", "An accelerated charge", "A magnetic monopole"],
+        "answer": "An accelerated charge",
+        "explanation": "An accelerated charge radiates energy in the form of electromagnetic waves."
+    },
+    {
+        "question": "The phenomenon used in microwave ovens is:",
+        "options": ["Resonance", "Interference", "Diffraction", "Polarisation"],
+        "answer": "Resonance",
+        "explanation": "Microwave ovens work by using a frequency that matches the resonant frequency of water molecules in the food, causing them to vibrate and generate heat."
+    },
+    {
+        "question": "The dimensional formula for μ₀ε₀ is:",
+        "options": ["[L⁻²T²]", "[L²T⁻²]", "[LT⁻¹]", "[L⁻¹T]"],
+        "answer": "[L⁻²T²]",
+        "explanation": "We know that c = 1/√(μ₀ε₀), so c² = 1/(μ₀ε₀). Therefore, μ₀ε₀ = 1/c². The dimension of c is [LT⁻¹]. So, the dimension of μ₀ε₀ is 1/[L²T⁻²] = [L⁻²T²]."
+    },
+    {
+        "question": "Greenhouse effect is due to which rays in the EM spectrum?",
+        "options": ["Ultraviolet", "Visible", "Infrared", "X-rays"],
+        "answer": "Infrared",
+        "explanation": "Greenhouse gases like CO₂ absorb the long-wavelength infrared radiation re-radiated from the Earth's surface, trapping heat."
+    },
+    {
+        "question": "Electromagnetic waves transport:",
+        "options": ["Charge only", "Energy only", "Momentum only", "Energy and momentum"],
+        "answer": "Energy and momentum",
+        "explanation": "EM waves carry both energy and momentum, which they can transfer to objects they interact with."
+    },
+    {
+        "question": "In an EM wave, if the amplitude of the magnetic field is 3 x 10⁻¹⁰ T, the amplitude of the electric field is:",
+        "options": ["0.09 V/m", "9 V/m", "90 V/m", "900 V/m"],
+        "answer": "0.09 V/m",
+        "explanation": "E₀ = cB₀ = (3 x 10⁸ m/s) * (3 x 10⁻¹⁰ T) = 9 x 10⁻² V/m = 0.09 V/m."
+    },
+    {
+        "question": "Which of the following is not an electromagnetic wave?",
+        "options": ["Cosmic rays", "Gamma rays", "X-rays", "Beta rays"],
+        "answer": "Beta rays",
+        "explanation": "Beta rays are high-energy electrons or positrons, which are particles, not electromagnetic waves. Cosmic rays are high-energy particles, but the term is sometimes used to include secondary gamma rays."
+    },
+    {
+        "question": "The existence of electromagnetic waves was experimentally confirmed by:",
+        "options": ["Maxwell", "Hertz", "Faraday", "Marconi"],
+        "answer": "Hertz",
+        "explanation": "Heinrich Hertz was the first to experimentally generate and detect electromagnetic waves in 1887, confirming Maxwell's theory."
+    }
+  ],
+  assertionReasons: [
+    {
+        "assertion": "Electromagnetic waves are transverse in nature.",
+        "reason": "The electric and magnetic fields in an electromagnetic wave are perpendicular to each other and also to the direction of wave propagation.",
+        "answer": "A",
+        "explanation": "The reason correctly defines a transverse wave and accurately describes the orientation of fields in an EM wave, thus explaining the assertion."
+    },
+    {
+        "assertion": "A changing electric field produces a magnetic field.",
+        "reason": "This is a consequence of the Ampere-Maxwell law.",
+        "answer": "A",
+        "explanation": "Maxwell's modification to Ampere's law introduced the displacement current (related to a changing electric field) as a source of a magnetic field, explaining the assertion."
+    },
+    {
+        "assertion": "The speed of light in a vacuum is a universal constant.",
+        "reason": "The speed of light is given by c = 1/√(μ₀ε₀), where μ₀ and ε₀ are universal constants.",
+        "answer": "A",
+        "explanation": "The reason correctly states the formula for the speed of light in terms of fundamental constants of free space, which explains why 'c' itself is a universal constant."
+    },
+    {
+        "assertion": "Microwaves are used for cooking food in microwave ovens.",
+        "reason": "Microwaves have a frequency that matches the resonant frequency of water molecules.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the working principle of a microwave oven. The energy is efficiently transferred to water molecules via resonance, which then heats the food."
+    },
+    {
+        "assertion": "Gamma rays are more energetic than X-rays.",
+        "reason": "Gamma rays have a shorter wavelength than X-rays.",
+        "answer": "A",
+        "explanation": "Energy of a photon is E = hc/λ. A shorter wavelength (reason) implies higher energy (assertion). The reason correctly explains the assertion."
+    },
+    {
+        "assertion": "Electromagnetic waves can travel through a vacuum.",
+        "reason": "Electromagnetic waves do not require a material medium for their propagation.",
+        "answer": "A",
+        "explanation": "The reason is a correct statement that explains the assertion. Unlike mechanical waves, EM waves are self-propagating oscillations of electric and magnetic fields."
+    },
+    {
+        "assertion": "Radio waves are used for long-distance communication.",
+        "reason": "Radio waves can be reflected by the ionosphere.",
+        "answer": "A",
+        "explanation": "The reflection of certain radio waves (sky waves) from the ionosphere is the reason they can travel long distances around the curvature of the Earth."
+    },
+    {
+        "assertion": "Displacement current is different from conduction current.",
+        "reason": "Conduction current is due to the flow of charges, while displacement current is due to a time-varying electric field.",
+        "answer": "A",
+        "explanation": "The reason correctly states the fundamental difference in the origin of the two types of current, explaining the assertion."
+    },
+    {
+        "assertion": "The energy of an electromagnetic wave is equally distributed between the electric and magnetic fields.",
+        "reason": "The energy density of the electric field is u_E = ½ε₀E² and that of the magnetic field is u_B = B²/2μ₀.",
+        "answer": "B",
+        "explanation": "Both statements are true. In an EM wave, u_E = u_B. The reason provides the formulas for the energy densities but does not explicitly show why they are equal. (The proof requires using E=cB and c=1/√(μ₀ε₀))."
+    },
+    {
+        "assertion": "The Earth's ozone layer protects us from ultraviolet radiation.",
+        "reason": "Ozone (O₃) absorbs UV radiation, causing a photochemical reaction that converts it back to O₂ and O.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the chemical process by which ozone absorbs harmful UV radiation, thus explaining its protective role."
+    },
+    {
+        "assertion": "All electromagnetic waves have the same speed in a vacuum.",
+        "reason": "The speed of an electromagnetic wave depends on its frequency.",
+        "answer": "C",
+        "explanation": "The assertion is true. The reason is false; the speed of EM waves in a vacuum is constant (c) and independent of frequency or wavelength."
+    },
+    {
+        "assertion": "Electromagnetic waves exert pressure.",
+        "reason": "Electromagnetic waves carry momentum.",
+        "answer": "A",
+        "explanation": "Pressure is force per unit area, and force is the rate of change of momentum. Since EM waves carry momentum, they exert a force (and thus pressure) when they interact with a surface."
+    },
+    {
+        "assertion": "X-rays are used for studying crystal structures.",
+        "reason": "The wavelength of X-rays is of the same order as the interatomic spacing in crystals.",
+        "answer": "A",
+        "explanation": "The reason correctly explains why X-rays are suitable for diffraction by crystal lattices, which allows for the study of their structure."
+    },
+    {
+        "assertion": "A stationary charge is a source of an electromagnetic wave.",
+        "reason": "An accelerating charge produces an electromagnetic wave.",
+        "answer": "D",
+        "explanation": "The assertion is false; a stationary charge only produces a static electric field. The reason is a true statement."
+    },
+    {
+        "assertion": "Electromagnetic waves show the phenomenon of polarisation.",
+        "reason": "This proves that electromagnetic waves are transverse in nature.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the significance of the assertion. The ability to be polarized is a defining characteristic of transverse waves."
+    }
+  ],
+  matchTheColumns: [
+    {
+        "column1": ["a) Radio waves", "b) Microwaves", "c) Infrared", "d) Ultraviolet"],
+        "column2": ["i) Ozone layer absorption", "ii) Remote controls", "iii) Radar systems", "iv) Radio broadcast"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
+    },
+    {
+        "column1": ["a) Gamma rays", "b) X-rays", "c) Visible light", "d) Displacement current"],
+        "column2": ["i) Detect fractures in bones", "ii) Maxwell", "iii) Radiotherapy", "iv) Vision"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": ["a) Highest frequency", "b) Longest wavelength", "c) Transverse nature", "d) Speed in vacuum"],
+        "column2": ["i) Proved by polarisation", "ii) 1/√(μ₀ε₀)", "iii) Radio waves", "iv) Gamma rays"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Hertz", "b) Maxwell", "c) Marconi", "d) Röntgen"],
+        "column2": ["i) Long distance radio communication", "ii) Discovery of X-rays", "iii) Experimental production of EM waves", "iv) Theoretical prediction of EM waves"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) E/B", "b) 1/√(μ₀ε₀)", "c) μ₀ε₀", "d) E x B"],
+        "column2": ["i) 1/c²", "ii) Direction of propagation", "iii) c (speed of light)", "iv) c (speed of light)"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Greenhouse effect", "b) TV remote", "c) Water purification", "d) Checking forged documents"],
+        "column2": ["i) Ultraviolet", "ii) Infrared", "iii) Infrared", "iv) Ultraviolet"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) Ampere's Law", "b) Faraday's Law", "c) Gauss's Law for E-field", "d) Gauss's Law for B-field"],
+        "column2": ["i) ∮E⋅dA = Q/ε₀", "ii) ∮B⋅dl = μ₀I", "iii) ∮B⋅dA = 0", "iv) ε = -dΦ_B/dt"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
+    },
+    {
+        "column1": ["a) Photography", "b) Radar", "c) Sterilization", "d) Kill microbes"],
+        "column2": ["i) UV", "ii) Microwaves", "iii) Visible", "iv) UV"],
+        "answer": "a-iii, b-ii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) Energy of EM wave", "b) Momentum of EM wave", "c) Intensity of EM wave", "d) Speed of EM wave in medium"],
+        "column2": ["i) U/c", "ii) Energy per unit area per unit time", "iii) 1/√(με)", "iv) U"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
+    },
+    {
+        "column1": ["a) Source of EM wave", "b) Property of EM wave", "c) Detection of EM wave", "d) Application of EM wave"],
+        "column2": ["i) Photocell", "ii) Does not require medium", "iii) Radar", "iv) Accelerated charge"],
+        "answer": "a-iv, b-ii, c-i, d-iii"
+    },
+    {
+        "column1": ["a) Red light", "b) Blue light", "c) Infrared radiation", "d) Ultraviolet radiation"],
+        "column2": ["i) λ ≈ 400 nm", "ii) Wavelength > 700 nm", "iii) λ ≈ 650 nm", "iv) Wavelength < 400 nm"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
+    },
+    {
+        "column1": ["a) Electric field energy density", "b) Magnetic field energy density", "c) Total energy density", "d) Poynting vector"],
+        "column2": ["i) u_E + u_B", "ii) S = (1/μ₀)(E × B)", "iii) ½ε₀E²", "iv) B²/2μ₀"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Wavelength (λ)", "b) Frequency (ν)", "c) Wave number (k)", "d) Angular frequency (ω)"],
+        "column2": ["i) 2π/T", "ii) 2π/λ", "iii) 1/T", "iv) c/ν"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
+    },
+    {
+        "column1": ["a) Diagnostic tool in medicine", "b) In TV communication", "c) To look through haze and fog", "d) To study molecular structure"],
+        "column2": ["i) Infrared", "ii) X-rays", "iii) Radio waves", "iv) Infrared"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) μ₀", "b) ε₀", "c) c", "d) h"],
+        "column2": ["i) Permittivity of free space", "ii) Speed of light", "iii) Planck's constant", "iv) Permeability of free space"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
+    }
+  ]
 };
+
+    

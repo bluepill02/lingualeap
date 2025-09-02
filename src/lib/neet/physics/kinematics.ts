@@ -1,4 +1,3 @@
-
 import type { NeetModule } from '@/lib/types';
 
 export const kinematics: NeetModule = {
@@ -200,171 +199,171 @@ export const kinematics: NeetModule = {
   ],
   assertionReasons: [
     {
-        assertion: "The speed of a projectile is minimum at the highest point.",
-        reason: "At the highest point, the vertical component of velocity is zero.",
-        answer: "A",
-        explanation: "At the highest point, the velocity is only the horizontal component (v_x = ucosθ), as the vertical component (v_y) becomes zero. This is the minimum speed during the flight. The reason is correct and explains the assertion."
+        "assertion": "The speed of a projectile is minimum at the highest point.",
+        "reason": "At the highest point, the vertical component of velocity is zero.",
+        "answer": "A",
+        "explanation": "At the highest point, the velocity is only the horizontal component (v_x = ucosθ), as the vertical component (v_y) becomes zero. This is the minimum speed during the flight. The reason is correct and explains the assertion."
     },
     {
-        assertion: "A body can have acceleration even if its velocity is zero at a given instant.",
-        reason: "When a body is thrown vertically upwards, its velocity is zero at the highest point but acceleration is g.",
-        answer: "A",
-        explanation: "The reason provides a perfect example to prove the assertion. At the peak of its trajectory, a vertically thrown body momentarily stops (v=0) but is still being accelerated downwards by gravity."
+        "assertion": "A body can have acceleration even if its velocity is zero at a given instant.",
+        "reason": "When a body is thrown vertically upwards, its velocity is zero at the highest point but acceleration is g.",
+        "answer": "A",
+        "explanation": "The reason provides a perfect example to prove the assertion. At the peak of its trajectory, a vertically thrown body momentarily stops (v=0) but is still being accelerated downwards by gravity."
     },
     {
-        assertion: "The average velocity of a body over a closed loop path is zero.",
-        reason: "In a closed loop, the displacement of the body is zero.",
-        answer: "A",
-        explanation: "Average velocity is defined as total displacement divided by total time. Since the displacement for a closed loop is zero, the average velocity is also zero. The reason explains the assertion."
+        "assertion": "The average velocity of a body over a closed loop path is zero.",
+        "reason": "In a closed loop, the displacement of the body is zero.",
+        "answer": "A",
+        "explanation": "Average velocity is defined as total displacement divided by total time. Since the displacement for a closed loop is zero, the average velocity is also zero. The reason explains the assertion."
     },
     {
-        assertion: "The cross product of two vectors is a scalar quantity.",
-        reason: "The dot product of two vectors is a vector quantity.",
-        answer: "E",
-        explanation: "Both the assertion and the reason are false. The cross product results in a vector, and the dot product results in a scalar."
+        "assertion": "The cross product of two vectors is a scalar quantity.",
+        "reason": "The dot product of two vectors is a vector quantity.",
+        "answer": "E",
+        "explanation": "Both the assertion and the reason are false. The cross product results in a vector, and the dot product results in a scalar."
     },
     {
-        assertion: "An object in uniform circular motion has constant acceleration.",
-        reason: "The centripetal acceleration is constant in magnitude and direction.",
-        answer: "D",
-        explanation: "The assertion is false. While the magnitude of the centripetal acceleration (v²/r) is constant, its direction continuously changes, always pointing towards the center. Therefore, the acceleration vector is not constant."
+        "assertion": "An object in uniform circular motion has constant acceleration.",
+        "reason": "The centripetal acceleration is constant in magnitude and direction.",
+        "answer": "D",
+        "explanation": "The assertion is false. While the magnitude of the centripetal acceleration (v²/r) is constant, its direction continuously changes, always pointing towards the center. Therefore, the acceleration vector is not constant."
     },
     {
-        assertion: "The range of a projectile is maximum for an angle of projection of 45°.",
-        reason: "The range of a projectile is given by R = u²sin(2θ)/g.",
-        answer: "A",
+        "assertion": "The range of a projectile is maximum for an angle of projection of 45°.",
+        "reason": "The range of a projectile is given by R = u²sin(2θ)/g.",
+        "answer": "A",
         "explanation": "The reason provides the correct formula for the range. The value of sin(2θ) is maximum (1) when 2θ = 90°, which means θ = 45°. This correctly explains the assertion."
     },
     {
-        assertion: "The slope of the displacement-time graph gives the velocity.",
-        reason: "Velocity is the rate of change of displacement.",
-        answer: "A",
+        "assertion": "The slope of the displacement-time graph gives the velocity.",
+        "reason": "Velocity is the rate of change of displacement.",
+        "answer": "A",
         "explanation": "The reason correctly defines velocity, which corresponds to the slope (rate of change) of the s-t graph. The reason explains the assertion."
     },
     {
-        assertion: "Vector addition is commutative.",
-        reason: "A + B = B + A.",
-        answer: "A",
+        "assertion": "Vector addition is commutative.",
+        "reason": "A + B = B + A.",
+        "answer": "A",
         "explanation": "The reason is the mathematical statement of the commutative law for vector addition, which proves the assertion."
     },
     {
-        assertion: "A body cannot be in one-dimensional motion if its velocity is zero.",
-        reason: "A body in one-dimensional motion must have a constant velocity.",
-        answer: "E",
+        "assertion": "A body cannot be in one-dimensional motion if its velocity is zero.",
+        "reason": "A body in one-dimensional motion must have a constant velocity.",
+        "answer": "E",
         "explanation": "Both assertion and reason are false. A body can be momentarily at rest (zero velocity) in 1D motion (e.g., at the peak of a vertical throw). A body in 1D motion can have variable velocity (i.e., acceleration)."
     },
     {
-        assertion: "The dot product of a vector with itself is the square of its magnitude.",
-        reason: "A ⋅ A = A * A * cos(0°) = A².",
-        answer: "A",
+        "assertion": "The dot product of a vector with itself is the square of its magnitude.",
+        "reason": "A ⋅ A = A * A * cos(0°) = A².",
+        "answer": "A",
         "explanation": "The reason correctly applies the dot product formula, where the angle between a vector and itself is 0°, to prove the assertion."
     },
     {
-        assertion: "If a body is dropped from a moving train, its path as seen by an observer on the ground is a parabola.",
-        reason: "It has a horizontal velocity (of the train) and a vertical acceleration (due to gravity).",
-        answer: "A",
+        "assertion": "If a body is dropped from a moving train, its path as seen by an observer on the ground is a parabola.",
+        "reason": "It has a horizontal velocity (of the train) and a vertical acceleration (due to gravity).",
+        "answer": "A",
         "explanation": "The reason correctly identifies the components of motion, which are the defining characteristics of projectile motion, resulting in a parabolic path. The reason explains the assertion."
     },
     {
-        assertion: "The magnitude of a vector is always a scalar.",
-        reason: "A scalar quantity is one that has only magnitude and no direction.",
-        answer: "A",
+        "assertion": "The magnitude of a vector is always a scalar.",
+        "reason": "A scalar quantity is one that has only magnitude and no direction.",
+        "answer": "A",
         "explanation": "The reason provides the definition of a scalar, which correctly describes the magnitude of a vector."
     },
     {
-        assertion: "Distance is a scalar quantity, but displacement is a vector quantity.",
-        reason: "Distance has only magnitude, while displacement has both magnitude and direction.",
-        answer: "A",
+        "assertion": "Distance is a scalar quantity, but displacement is a vector quantity.",
+        "reason": "Distance has only magnitude, while displacement has both magnitude and direction.",
+        "answer": "A",
         "explanation": "The reason correctly states the difference between scalar and vector quantities as they apply to distance and displacement, explaining the assertion."
     },
     {
-        assertion: "A negative acceleration always means the body is slowing down.",
-        reason: "Acceleration is the rate of change of velocity.",
-        answer: "D",
+        "assertion": "A negative acceleration always means the body is slowing down.",
+        "reason": "Acceleration is the rate of change of velocity.",
+        "answer": "D",
         "explanation": "The assertion is false. Negative acceleration means the acceleration is in the negative direction. If the velocity is also in the negative direction, the body will speed up. The reason is a correct definition but doesn't support the false assertion."
     },
     {
-        assertion: "The sum of the magnitudes of two vectors is always greater than or equal to the magnitude of their resultant.",
-        reason: "The resultant of two vectors is given by the triangle law of vector addition.",
-        answer: "A",
+        "assertion": "The sum of the magnitudes of two vectors is always greater than or equal to the magnitude of their resultant.",
+        "reason": "The resultant of two vectors is given by the triangle law of vector addition.",
+        "answer": "A",
         "explanation": "This is the triangle inequality. The length of one side of a triangle (|A+B|) can never be greater than the sum of the lengths of the other two sides (|A| + |B|). The equality holds when the vectors are in the same direction."
     }
   ],
   matchTheColumns: [
     {
-        column1: ["a) Distance", "b) Displacement", "c) Speed", "d) Velocity"],
-        column2: ["i) Vector", "ii) Scalar", "iii) Scalar", "iv) Vector"],
-        answer: "a-ii, b-iv, c-iii, d-i"
+        "column1": ["a) Distance", "b) Displacement", "c) Speed", "d) Velocity"],
+        "column2": ["i) Vector", "ii) Scalar", "iii) Scalar", "iv) Vector"],
+        "answer": "a-ii, b-iv, c-iii, d-i"
     },
     {
-        column1: ["a) Centripetal acceleration", "b) Time of flight", "c) Maximum height", "d) Range"],
-        column2: ["i) u²sin²θ / 2g", "ii) v²/r", "iii) u²sin(2θ) / g", "iv) 2usinθ / g"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Centripetal acceleration", "b) Time of flight", "c) Maximum height", "d) Range"],
+        "column2": ["i) u²sin²θ / 2g", "ii) v²/r", "iii) u²sin(2θ) / g", "iv) 2usinθ / g"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) Dot Product", "b) Cross Product", "c) Unit Vector", "d) Null Vector"],
-        column2: ["i) Scalar quantity", "ii) Vector quantity", "iii) Vector with zero magnitude", "iv) Vector with unit magnitude"],
-        answer: "a-i, b-ii, c-iv, d-iii"
+        "column1": ["a) Dot Product", "b) Cross Product", "c) Unit Vector", "d) Null Vector"],
+        "column2": ["i) Scalar quantity", "ii) Vector quantity", "iii) Vector with zero magnitude", "iv) Vector with unit magnitude"],
+        "answer": "a-i, b-ii, c-iv, d-iii"
     },
     {
-        column1: ["a) v = u + at", "b) s = ut + ½at²", "c) v² = u² + 2as", "d) s_nth"],
-        column2: ["i) Displacement-time relation", "ii) Velocity-displacement relation", "iii) u + a/2(2n-1)", "iv) Velocity-time relation"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) v = u + at", "b) s = ut + ½at²", "c) v² = u² + 2as", "d) s_nth"],
+        "column2": ["i) Displacement-time relation", "ii) Velocity-displacement relation", "iii) u + a/2(2n-1)", "iv) Velocity-time relation"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Slope of s-t graph", "b) Slope of v-t graph", "c) Area under v-t graph", "d) Area under a-t graph"],
-        column2: ["i) Acceleration", "ii) Change in velocity", "iii) Velocity", "iv) Displacement"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Slope of s-t graph", "b) Slope of v-t graph", "c) Area under v-t graph", "d) Area under a-t graph"],
+        "column2": ["i) Acceleration", "ii) Change in velocity", "iii) Velocity", "iv) Displacement"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Range is maximum", "b) Height is maximum", "c) Range = 4 * Height", "d) A ⋅ B = 0"],
-        column2: ["i) θ = 90°", "ii) θ = 45°", "iii) Vectors are perpendicular", "iv) θ = 45°"],
-        answer: "a-ii, b-i, c-iv, d-iii"
+        "column1": ["a) Range is maximum", "b) Height is maximum", "c) Range = 4 * Height", "d) A ⋅ B = 0"],
+        "column2": ["i) θ = 90°", "ii) θ = 45°", "iii) Vectors are perpendicular", "iv) θ = 45°"],
+        "answer": "a-ii, b-i, c-iv, d-iii"
     },
     {
-        column1: ["a) Parallelogram Law", "b) Triangle Law", "c) Resolution of vector", "d) Relative velocity"],
-        column2: ["i) V_AB = V_A - V_B", "ii) A = A_x i + A_y j", "iii) Vector addition", "iv) Vector addition"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Parallelogram Law", "b) Triangle Law", "c) Resolution of vector", "d) Relative velocity"],
+        "column2": ["i) V_AB = V_A - V_B", "ii) A = A_x i + A_y j", "iii) Vector addition", "iv) Vector addition"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     },
     {
-        column1: ["a) Uniform motion", "b) Uniformly accelerated motion", "c) Non-uniform acceleration", "d) Uniform circular motion"],
-        column2: ["i) Acceleration is constant", "ii) Speed is constant, velocity changes", "iii) Acceleration is zero", "iv) Acceleration is variable"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Uniform motion", "b) Uniformly accelerated motion", "c) Non-uniform acceleration", "d) Uniform circular motion"],
+        "column2": ["i) Acceleration is constant", "ii) Speed is constant, velocity changes", "iii) Acceleration is zero", "iv) Acceleration is variable"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) |A + B|", "b) |A × B|", "c) A ⋅ B", "d) A / |A|"],
-        column2: ["i) ABsinθ", "ii) Unit vector in direction of A", "iii) ABcosθ", "iv) √(A² + B² + 2ABcosθ)"],
-        answer: "a-iv, b-i, c-iii, d-ii"
+        "column1": ["a) |A + B|", "b) |A × B|", "c) A ⋅ B", "d) A / |A|"],
+        "column2": ["i) ABsinθ", "ii) Unit vector in direction of A", "iii) ABcosθ", "iv) √(A² + B² + 2ABcosθ)"],
+        "answer": "a-iv, b-i, c-iii, d-ii"
     },
     {
-        column1: ["a) Body dropped from a height", "b) Body projected horizontally", "c) Body projected at an angle", "d) Body in circular motion"],
-        column2: ["i) Projectile motion", "ii) One dimensional motion", "iii) Uniform circular motion", "iv) Projectile motion"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Body dropped from a height", "b) Body projected horizontally", "c) Body projected at an angle", "d) Body in circular motion"],
+        "column2": ["i) Projectile motion", "ii) One dimensional motion", "iii) Uniform circular motion", "iv) Projectile motion"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) 1D motion", "b) 2D motion", "c) 3D motion", "d) Zero velocity"],
-        column2: ["i) Bird flying in the sky", "ii) A body at rest", "iii) Car moving on a straight road", "iv) A billiard ball moving over the table"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) 1D motion", "b) 2D motion", "c) 3D motion", "d) Zero velocity"],
+        "column2": ["i) Bird flying in the sky", "ii) A body at rest", "iii) Car moving on a straight road", "iv) A billiard ball moving over the table"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Angular velocity (ω)", "b) Angular acceleration (α)", "c) Time period (T)", "d) Frequency (ν)"],
-        column2: ["i) 1/T", "ii) dω/dt", "iii) 2π/ω", "iv) dθ/dt"],
-        answer: "a-iv, b-ii, c-iii, d-i"
+        "column1": ["a) Angular velocity (ω)", "b) Angular acceleration (α)", "c) Time period (T)", "d) Frequency (ν)"],
+        "column2": ["i) 1/T", "ii) dω/dt", "iii) 2π/ω", "iv) dθ/dt"],
+        "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
-        column1: ["a) v_avg > |v_avg|", "b) distance ≥ |displacement|", "c) a=0, v must be constant", "d) v=0, a must be 0"],
-        column2: ["i) Always true", "ii) True", "iii) Always false", "iv) May be true"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) v_avg > |v_avg|", "b) distance ≥ |displacement|", "c) a=0, v must be constant", "d) v=0, a must be 0"],
+        "column2": ["i) Always true", "ii) True", "iii) Always false", "iv) May be true"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) i ⋅ i", "b) i × i", "c) i ⋅ j", "d) i × j"],
-        column2: ["i) 0", "ii) 1", "iii) k", "iv) 0 (null vector)"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) i ⋅ i", "b) i × i", "c) i ⋅ j", "d) i × j"],
+        "column2": ["i) 0", "ii) 1", "iii) k", "iv) 0 (null vector)"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) Velocity vector", "b) Acceleration vector", "c) Displacement vector", "d) Position vector"],
-        column2: ["i) Points from origin to position", "ii) Joins initial to final position", "iii) Rate of change of position vector", "iv) Rate of change of velocity vector"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Velocity vector", "b) Acceleration vector", "c) Displacement vector", "d) Position vector"],
+        "column2": ["i) Points from origin to position", "ii) Joins initial to final position", "iii) Rate of change of position vector", "iv) Rate of change of velocity vector"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     }
   ]
 };
