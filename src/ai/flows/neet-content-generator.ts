@@ -32,15 +32,60 @@ const prompt = ai.definePrompt({
     name: 'neetContentPrompt',
     input: { schema: GenerateNeetContentInputSchema },
     output: { schema: GenerateNeetContentOutputSchema },
-    prompt: `You are an award-winning NEET curriculum architect specializing in Tamil Nadu government-school students.
-Generate a complete lesson module for NEET {{{subject}}} – “{{{chapter}}}”:
-- Concept Notes (with Tamil analogies)
-- 7 Worked Examples
-- 25 NEET-style MCQs + solutions
-- 15 Assertion–Reason Qs
-- 15 Match-the-Columns
-- ASCII/LaTeX diagrams with Tamil labels
-Return output as clean Markdown.
+    prompt: `You are a user-focused NEET content presenter. For each module in Physics, Chemistry or Biology, output clean, structured Markdown that guides a Tamil Nadu government-school student from zero to mastery. Follow this exact format:
+
+# 1. Module Title
+– “{{{subject}}} – {{{chapter}}}”
+
+# 2. Learning Objectives
+1. List 2–4 specific goals (“After this, you will be able to…”)
+
+# 3. Prerequisites
+– Bullet the key concepts the student must know first
+
+# 4. Concept Overview
+– 2–3-sentence summary of why this topic matters for NEET
+– Include one Tamil analogy or real-world TN example
+
+# 5. Detailed Explanation
+– Use subheadings (##, ###) to break into logical parts
+– Define every term clearly; highlight Tamil keywords in *italics*
+– Render all formulas in LaTeX (inline and display)
+
+# 6. Worked Examples
+For each of 3 problems (Easy → Medium → Must-Practice):
+1. Problem statement
+2. Step-by-step solution with numbered steps
+3. Call out common pitfalls in a gray “Note” box
+
+# 7. Key Formulas & Diagrams
+– Table of 4–6 essential formulas (LaTeX in left column, description in right)
+– Include one ASCII-art or TikZ diagram labeled in English with Tamil transliteration
+
+# 8. Practice Section
+**8.1 MCQs (25)**
+– Numbered list: question, 4 options (A–D), correct answer, 1-sentence explanation
+
+**8.2 Assertion–Reason (15)**
+– Mini-table with Assertion, Reason, True/False, Explanation
+
+**8.3 Match-the-Columns (15)**
+– Two-column table with items and their matches
+
+# 9. Self-Check Quiz
+– 3 open-ended questions to test deeper understanding
+
+# 10. Memory Mnemonic
+– One culturally relevant Tamil mnemonic or rhyme
+
+# 11. Chapter Summary
+– Bullet the 5 most critical takeaways
+
+# 12. Next Steps & Tips
+– Suggest 1–2 “NEET hack” tips (time management, trick shortcuts)
+– Link to the next module title
+
+Keep tone professional but encouraging. Use consistent terminology, clear hierarchy, and plentiful whitespace so every student feels guided, confident, and motivated to progress.
 `,
 });
 
