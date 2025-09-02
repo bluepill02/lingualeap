@@ -27,6 +27,7 @@ export const neetChemistryChapters = [
     { slug: 'd-and-f-block-elements', title: 'd- and f-Block Elements' },
     { slug: 'coordination-compounds', title: 'Coordination Compounds' },
     { slug: 'purification-and-characterisation-of-organic-compounds', title: 'Purification and Characterisation of Organic Compounds' },
+    { slug: 'some-basic-principles-of-organic-chemistry', title: 'Some Basic Principles of Organic Chemistry' },
     { slug: 'hydrocarbons', title: 'Hydrocarbons' },
     { slug: 'organic-compounds-containing-halogens', title: 'Organic Compounds Containing Halogens' },
     { slug: 'organic-compounds-containing-oxygen', title: 'Organic Compounds Containing Oxygen' },
@@ -57,3 +58,5 @@ export const neetPhysicsChapters = [
     { slug: 'electronic-devices', title: 'Electronic Devices' },
     { slug: 'experimental-skills', title: 'Experimental Skills' },
 ];
+
+    

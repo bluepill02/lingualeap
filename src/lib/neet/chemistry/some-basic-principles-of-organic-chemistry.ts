@@ -386,4 +386,4 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
 ]
 };
 
-  
+    

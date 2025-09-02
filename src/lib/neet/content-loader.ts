@@ -1,3 +1,4 @@
+
 import { biologyAndHumanWelfare } from './biology/biology-and-human-welfare';
 import { biotechnologyAndItsApplications } from './biology/biotechnology-and-its-applications';
 import { cellStructureAndFunction } from './biology/cell-structure-and-function';
@@ -74,7 +75,7 @@ const neetContent: Record<string, Record<string, NeetModule>> = {
         'chemical-kinetics': chemicalKinetics,
         'classification-of-elements-and-periodicity-in-properties': classificationOfElementsAndPeriodicityInProperties,
         'p-block-elements': pBlockElements,
-        'd--and-f-block-elements': dAndFBlockElements,
+        'd-and-f-block-elements': dAndFBlockElements,
         'coordination-compounds': coordinationCompounds,
         'purification-and-characterisation-of-organic-compounds': purificationAndCharacterisationOfOrganicCompounds,
         'some-basic-principles-of-organic-chemistry': someBasicPrinciplesOfOrganicChemistry,
@@ -118,3 +119,5 @@ export function getNeetChapterContent(subject: string, chapter: string): NeetMod
     }
     return null;
 }
+
+    

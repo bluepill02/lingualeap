@@ -300,82 +300,81 @@ export const workEnergyAndPower: NeetModule = {
   ],
   matchTheColumns: [
     {
-        column1: ["a) Kinetic Energy", "b) Potential Energy", "c) Work", "d) Power"],
-        column2: ["i) Fdcosθ", "ii) W/t", "iii) mgh", "iv) ½mv²"],
-        answer: "a-iv, b-iii, c-i, d-ii"
+        "column1": ["a) Kinetic Energy", "b) Potential Energy", "c) Work", "d) Power"],
+        "column2": ["i) Fdcosθ", "ii) W/t", "iii) mgh", "iv) ½mv²"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) Elastic Collision", "b) Inelastic Collision", "c) Perfectly Inelastic Collision", "d) Conservative Force"],
-        column2: ["i) Momentum conserved, KE not", "ii) e = 0", "iii) Work is path independent", "iv) e = 1"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Elastic Collision", "b) Inelastic Collision", "c) Perfectly Inelastic Collision", "d) Conservative Force"],
+        "column2": ["i) Momentum conserved, KE not", "ii) e = 0", "iii) Work is path independent", "iv) e = 1"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Work-Energy Theorem", "b) Conservation of Momentum", "c) Conservation of Energy", "d) Newton's Second Law"],
-        column2: ["i) If F_ext = 0, p = constant", "ii) If F_cons acts, E = constant", "iii) W_net = ΔK.E.", "iv) F = dp/dt"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) Work-Energy Theorem", "b) Conservation of Momentum", "c) Conservation of Energy", "d) Newton's Second Law"],
+        "column2": ["i) If F_ext = 0, p = constant", "ii) If F_cons acts, E = constant", "iii) W_net = ΔK.E.", "iv) F = dp/dt"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) Unit of Work", "b) Unit of Power", "c) Unit of Force", "d) Unit of Momentum"],
-        column2: ["i) Watt", "ii) Newton", "iii) Joule", "iv) kg⋅m/s"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) Unit of Work", "b) Unit of Power", "c) Unit of Force", "d) Unit of Momentum"],
+        "column2": ["i) Watt", "ii) Newton", "iii) Joule", "iv) kg⋅m/s"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) Positive Work", "b) Negative Work", "c) Zero Work", "d) Power"],
-        column2: ["i) Force opposes displacement", "ii) Force is perpendicular to displacement", "iii) Force supports displacement", "iv) Rate of doing work"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) Positive Work", "b) Negative Work", "c) Zero Work", "d) Power"],
+        "column2": ["i) Force opposes displacement", "ii) Force is perpendicular to displacement", "iii) Force supports displacement", "iv) Rate of doing work"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) Gravitational PE", "b) Elastic PE", "c) Relation K and p", "d) Horsepower"],
-        column2: ["i) ½kx²", "ii) p²/2m", "iii) 746 W", "iv) mgh"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Gravitational PE", "b) Elastic PE", "c) Relation K and p", "d) Horsepower"],
+        "column2": ["i) ½kx²", "ii) p²/2m", "iii) 746 W", "iv) mgh"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) F ⋅ v", "b) F ⋅ d", "c) FΔt", "d) ½mv²"],
-        column2: ["i) Work", "ii) Kinetic Energy", "iii) Impulse", "iv) Instantaneous Power"],
-        answer: "a-iv, b-i, c-iii, d-ii"
+        "column1": ["a) F ⋅ v", "b) F ⋅ d", "c) FΔt", "d) ½mv²"],
+        "column2": ["i) Work", "ii) Kinetic Energy", "iii) Impulse", "iv) Instantaneous Power"],
+        "answer": "a-iv, b-i, c-iii, d-ii"
     },
     {
-        column1: ["a) Collision of two billiard balls", "b) A bullet hitting a sandbag", "c) A man pushing a wall", "d) An object falling freely"],
-        column2: ["i) No work done", "ii) PE converts to KE", "iii) Nearly elastic collision", "iv) Perfectly inelastic collision"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Collision of two billiard balls", "b) A bullet hitting a sandbag", "c) A man pushing a wall", "d) An object falling freely"],
+        "column2": ["i) No work done", "ii) PE converts to KE", "iii) Nearly elastic collision", "iv) Perfectly inelastic collision"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Slope of K-t graph", "b) Area under F-x graph", "c) Slope of U-x graph", "d) Area under P-t graph"],
-        column2: ["i) -Force", "ii) Work done", "iii) Work done", "iv) Power"],
-        answer: "a-iv, b-iii, c-i, d-ii"
+        "column1": ["a) Slope of K-t graph", "b) Area under F-x graph", "c) Slope of U-x graph", "d) Area under P-t graph"],
+        "column2": ["i) -Force", "ii) Work done", "iii) Work done", "iv) Power"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) 1 kWh", "b) 1 eV", "c) 1 Joule", "d) 1 erg"],
-        column2: ["i) 10⁻⁷ J", "ii) 1.6 x 10⁻¹⁹ J", "iii) 3.6 x 10⁶ J", "iv) 1 N⋅m"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) 1 kWh", "b) 1 eV", "c) 1 Joule", "d) 1 erg"],
+        "column2": ["i) 10⁻⁷ J", "ii) 1.6 x 10⁻¹⁹ J", "iii) 3.6 x 10⁶ J", "iv) 1 N⋅m"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Work done by friction", "b) Work done by gravity (upward motion)", "c) Work done by spring force (stretching)", "d) Work done by centripetal force"],
-        column2: ["i) Negative", "ii) Negative", "iii) Negative", "iv) Zero"],
-        answer: "a-i, b-ii, c-iii, d-iv"
+        "column1": ["a) Work done by friction", "b) Work done by gravity (upward motion)", "c) Work done by spring force (stretching)", "d) Work done by centripetal force"],
+        "column2": ["i) Negative", "ii) Negative", "iii) Negative", "iv) Zero"],
+        "answer": "a-i, b-ii, c-iii, d-iv"
     },
     {
-        column1: ["a) P = constant", "b) v = constant", "c) p = constant", "d) K.E = constant"],
-        column2: ["i) F_net = 0", "ii) W_net = 0", "iii) W = P * t", "iv) F_net = 0, no friction"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) P = constant", "b) v = constant", "c) p = constant", "d) K.E = constant"],
+        "column2": ["i) F_net = 0", "ii) W_net = 0", "iii) W = P * t", "iv) F_net = 0, no friction"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Conservative Force", "b) Non-conservative Force", "c) External Force", "d) Internal Force"],
-        column2: ["i) Changes momentum of system", "ii) Work done is path independent", "iii) Work done is path dependent", "iv) Does not change momentum of system"],
-        answer: "a-ii, b-iii, c-i, d-iv"
+        "column1": ["a) Conservative Force", "b) Non-conservative Force", "c) External Force", "d) Internal Force"],
+        "column2": ["i) Changes momentum of system", "ii) Work done is path independent", "iii) Work done is path dependent", "iv) Does not change momentum of system"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
     },
     {
-        column1: ["a) K.E. increases by 44%", "b) K.E. doubles", "c) p increases by 50%", "d) p is constant"],
-        column2: ["i) v increases by ~22%", "ii) p increases by ~41%", "iii) K.E. increases by 125%", "iv) Elastic collision"],
-        answer: "a-i, b-ii, c-iii, d-iv"
+        "column1": ["a) K.E. increases by 44%", "b) K.E. doubles", "c) p increases by 50%", "d) p is constant"],
+        "column2": ["i) v increases by ~22%", "ii) p increases by ~41%", "iii) K.E. increases by 125%", "iv) Elastic collision"],
+        "answer": "a-i, b-ii, c-iii, d-iv"
     },
     {
-        column1: ["a) Elastic collision (m₁=m₂, v₂=0)", "b) Inelastic collision", "c) Oblique collision", "d) Head-on collision"],
-        column2: ["i) Momentum conserved in one dimension", "ii) Momentum conserved in two dimensions", "iii) Velocities are exchanged", "iv) K.E. is lost"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Elastic collision (m₁=m₂, v₂=0)", "b) Inelastic collision", "c) Oblique collision", "d) Head-on collision"],
+        "column2": ["i) Momentum conserved in one dimension", "ii) Momentum conserved in two dimensions", "iii) Velocities are exchanged", "iv) K.E. is lost"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     }
   ]
 };
 
-    
     
