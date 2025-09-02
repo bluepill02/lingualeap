@@ -1,4 +1,3 @@
-
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps, getApp } from "firebase/app";
 
@@ -12,12 +11,7 @@ const firebaseConfig = {
   appId: "1:210847925094:web:bac19a21f19c63aeef3ea7"
 };
 
-// Initialize Firebase for client-side
-let app;
-if (!getApps().length) {
-    app = initializeApp(firebaseConfig);
-} else {
-    app = getApp();
-}
+// Initialize Firebase
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
-export default app;
+export { app };
