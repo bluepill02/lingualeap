@@ -8,38 +8,18 @@ export const electronicDevices: NeetModule = {
   subject: 'Physics',
   conceptNotes: `
 ### 1. Semiconductors (குறைக்கடத்திகள்)
-*   Materials with conductivity between conductors and insulators (e.g., Silicon, Germanium).
-*   **Intrinsic Semiconductors:** Pure semiconductors.
-*   **Extrinsic Semiconductors:** Doped semiconductors.
-    *   **n-type:** Doped with pentavalent impurities (e.g., Phosphorus, Arsenic). Majority carriers are electrons.
-    *   **p-type:** Doped with trivalent impurities (e.g., Boron, Aluminium). Majority carriers are holes.
+*   **Semiconductors; semiconductor diode: I-V characteristics in forward and reverse bias; diode as a rectifier.**
+*   **Energy bands in conductors, semiconductors and insulators (qualitative ideas only).**
+*   **Intrinsic and extrinsic semiconductors:** Pure vs. doped semiconductors (p-type and n-type).
+*   **p-n junction:** Formation, depletion layer, and potential barrier.
 
-### 2. p-n Junction Diode (p-n சந்தி டையோடு)
-*   Formed when a p-type semiconductor is joined to an n-type semiconductor.
-*   A **depletion region (வெறுமைப் பகுதி)** is formed at the junction with no free charge carriers.
-*   **Forward Bias:** When the p-side is connected to the positive terminal and the n-side to the negative terminal. The depletion region narrows, and current flows.
-*   **Reverse Bias:** When the p-side is connected to the negative terminal and the n-side to the positive terminal. The depletion region widens, and almost no current flows.
-*   **Rectifier (திருத்தி):** A p-n junction diode can be used as a rectifier to convert AC to DC. (Half-wave and Full-wave rectifiers).
+### 2. Special Purpose Diodes (சிறப்பு வகை டையோடுகள்)
+*   **I-V characteristics of LED, the photodiode, solar cell, and Zener diode.**
+*   **Zener diode as a voltage regulator:** Operates in reverse breakdown to maintain a constant voltage.
 
-### 3. Special Purpose p-n Junction Diodes
-*   **Zener Diode (செனர் டையோடு):** Designed to operate under reverse bias in the breakdown region. Used as a voltage regulator.
-*   **Photodiode:** Used to detect optical signals.
-*   **Light Emitting Diode (LED):** Converts electrical energy into light.
-*   **Solar Cell:** Converts solar energy into electrical energy.
-
-### 4. Transistors (டிரான்சிஸ்டர்கள்)
-*   A semiconductor device used to amplify or switch electronic signals and electrical power.
-*   **Bipolar Junction Transistor (BJT):** n-p-n or p-n-p. Has three terminals: Emitter, Base, and Collector.
-*   **Transistor as an Amplifier:** A small change in the input signal results in a large change in the output signal. The common-emitter configuration is widely used.
-*   **Transistor as a Switch:** Can be operated in the cut-off region (OFF) or saturation region (ON).
-
-### 5. Logic Gates (தர்க்க வாயில்கள்)
-*   Digital circuits that perform a logical operation on one or more binary inputs to produce a single binary output.
-*   **Basic Gates:**
-    *   **NOT Gate:** Inverter.
-    *   **OR Gate:** Output is 1 if any input is 1.
-    *   **AND Gate:** Output is 1 only if all inputs are 1.
-*   **Universal Gates:** NAND and NOR gates, from which all other gates can be constructed.
+### 3. Logic Gates (தர்க்க வாயில்கள்)
+*   **Logic gates (OR, AND, NOT, NAND and NOR):** Basic building blocks of digital circuits that perform logical operations.
+*   **Universal gates:** NAND and NOR gates, from which any other logic gate can be constructed.
 `,
   workedExamples: [
     {
@@ -301,78 +281,78 @@ export const electronicDevices: NeetModule = {
   ],
   matchTheColumns: [
     {
-        column1: ["a) n-type semiconductor", "b) p-type semiconductor", "c) Intrinsic semiconductor", "d) Insulator"],
-        column2: ["i) Trivalent impurity", "ii) Large energy gap", "iii) Pentavalent impurity", "iv) n_e = n_h"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) n-type semiconductor", "b) p-type semiconductor", "c) Intrinsic semiconductor", "d) Insulator"],
+        "column2": ["i) Trivalent impurity", "ii) Large energy gap", "iii) Pentavalent impurity", "iv) n_e = n_h"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Rectifier", "b) Amplifier", "c) Oscillator", "d) Voltage Regulator"],
-        column2: ["i) Zener diode", "ii) Transistor", "iii) p-n junction diode", "iv) Transistor (with feedback)"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Rectifier", "b) Amplifier", "c) Oscillator", "d) Voltage Regulator"],
+        "column2": ["i) Zener diode", "ii) Transistor", "iii) p-n junction diode", "iv) Transistor (with feedback)"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) AND Gate", "b) OR Gate", "c) NOT Gate", "d) NAND Gate"],
-        column2: ["i) Y = A'", "ii) Y = (A.B)'", "iii) Y = A + B", "iv) Y = A.B"],
-        answer: "a-iv, b-iii, c-i, d-ii"
-    },
-    {
-        column1: ["a) Forward Bias", "b) Reverse Bias", "c) Zener Breakdown", "d) No Bias"],
-        column2: ["i) Depletion region widens", "ii) Potential barrier forms", "iii) Heavy doping", "iv) Depletion region narrows"],
-        answer: "a-iv, b-i, c-iii, d-ii"
-    },
-    {
-        column1: ["a) Transistor", "b) LED", "c) Solar Cell", "d) Photodiode"],
-        column2: ["i) Converts light to electricity", "ii) Detects light signals", "iii) Amplifies signals", "iv) Converts electricity to light"],
-        answer: "a-iii, b-iv, c-i, d-ii"
-    },
-    {
-        column1: ["a) Common Emitter gain (β)", "b) Common Base gain (α)", "c) Emitter current (I_e)", "d) Transconductance (g_m)"],
-        column2: ["i) I_b + I_c", "ii) ΔI_c / ΔV_be", "iii) I_c / I_e", "iv) I_c / I_b"],
-        answer: "a-iv, b-iii, c-i, d-ii"
-    },
-    {
-        column1: ["a) Depletion region", "b) Valence band", "c) Conduction band", "d) Forbidden gap"],
-        column2: ["i) Contains free electrons", "ii) No charge carriers", "iii) Energy difference", "iv) Contains valence electrons"],
-        answer: "a-ii, b-iv, c-i, d-iii"
-    },
-    {
-        column1: ["a) Hole", "b) Electron", "c) Donor ion", "d) Acceptor ion"],
-        column2: ["i) Negative charge", "ii) Positive charge (vacancy)", "iii) Negative immobile ion", "iv) Positive immobile ion"],
-        answer: "a-ii, b-i, c-iv, d-iii"
-    },
-    {
-        column1: ["a) Universal Gate", "b) Basic Gate", "c) Inverter", "d) Buffer"],
-        column2: ["i) AND", "ii) Y = A", "iii) NOT", "iv) NOR"],
-        answer: "a-iv, b-i, c-iii, d-ii"
-    },
-    {
-        column1: ["a) Half-wave rectifier efficiency", "b) Full-wave rectifier efficiency", "c) Ripple factor (Half-wave)", "d) Ripple factor (Full-wave)"],
-        column2: ["i) 81.2%", "ii) 0.48", "iii) 40.6%", "iv) 1.21"],
-        answer: "a-iii, b-i, c-iv, d-ii"
-    },
-    {
-        column1: ["a) Emitter", "b) Base", "c) Collector", "d) Depletion Layer"],
-        column2: ["i) Largest area, moderate doping", "ii) Very thin, lightly doped", "iii) Heavily doped", "iv) Potential barrier"],
-        answer: "a-iii, b-ii, c-i, d-iv"
-    },
-    {
-        column1: ["a) Silicon (Si)", "b) Germanium (Ge)", "c) Copper (Cu)", "d) Glass"],
-        column2: ["i) Conductor", "ii) Insulator", "iii) E_g ≈ 1.1 eV", "iv) E_g ≈ 0.7 eV"],
-        answer: "a-iii, b-iv, c-i, d-ii"
-    },
-    {
-        column1: ["a) A + A'", "b) A ⋅ A'", "c) A + 1", "d) A ⋅ 1"],
-        column2: ["i) 1", "ii) A", "iii) 0", "iv) 1"],
+        "column1": ["a) AND Gate", "b) OR Gate", "c) NOT Gate", "d) NAND Gate"],
+        "column2": ["i) Y = A'", "ii) Y = (A.B)'", "iii) Y = A + B", "iv) Y = A.B"],
         "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) De Morgan's First Law", "b) De Morgan's Second Law", "c) Associative Law", "d) Distributive Law"],
-        column2: ["i) A(B+C) = AB + AC", "ii) (A.B)' = A' + B'", "iii) A+(B+C) = (A+B)+C", "iv) (A+B)' = A'.B'"],
+        "column1": ["a) Forward Bias", "b) Reverse Bias", "c) Zener Breakdown", "d) No Bias"],
+        "column2": ["i) Depletion region widens", "ii) Potential barrier forms", "iii) Heavy doping", "iv) Depletion region narrows"],
+        "answer": "a-iv, b-i, c-iii, d-ii"
+    },
+    {
+        "column1": ["a) Transistor", "b) LED", "c) Solar Cell", "d) Photodiode"],
+        "column2": ["i) Converts light to electricity", "ii) Detects light signals", "iii) Amplifies signals", "iv) Converts electricity to light"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Common Emitter gain (β)", "b) Common Base gain (α)", "c) Emitter current (I_e)", "d) Transconductance (g_m)"],
+        "column2": ["i) I_b + I_c", "ii) ΔI_c / ΔV_be", "iii) I_c / I_e", "iv) I_c / I_b"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Depletion region", "b) Valence band", "c) Conduction band", "d) Forbidden gap"],
+        "column2": ["i) Contains free electrons", "ii) No charge carriers", "iii) Energy difference", "iv) Contains valence electrons"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
+    },
+    {
+        "column1": ["a) Hole", "b) Electron", "c) Donor ion", "d) Acceptor ion"],
+        "column2": ["i) Negative charge", "ii) Positive charge (vacancy)", "iii) Negative immobile ion", "iv) Positive immobile ion"],
+        "answer": "a-ii, b-i, c-iv, d-iii"
+    },
+    {
+        "column1": ["a) Universal Gate", "b) Basic Gate", "c) Inverter", "d) Buffer"],
+        "column2": ["i) AND", "ii) Y = A", "iii) NOT", "iv) NOR"],
+        "answer": "a-iv, b-i, c-iii, d-ii"
+    },
+    {
+        "column1": ["a) Half-wave rectifier efficiency", "b) Full-wave rectifier efficiency", "c) Ripple factor (Half-wave)", "d) Ripple factor (Full-wave)"],
+        "column2": ["i) 81.2%", "ii) 0.48", "iii) 40.6%", "iv) 1.21"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": ["a) Emitter", "b) Base", "c) Collector", "d) Depletion Layer"],
+        "column2": ["i) Largest area, moderate doping", "ii) Very thin, lightly doped", "iii) Heavily doped", "iv) Potential barrier"],
+        "answer": "a-iii, b-ii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) Silicon (Si)", "b) Germanium (Ge)", "c) Copper (Cu)", "d) Glass"],
+        "column2": ["i) Conductor", "ii) Insulator", "iii) E_g ≈ 1.1 eV", "iv) E_g ≈ 0.7 eV"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) A + A'", "b) A ⋅ A'", "c) A + 1", "d) A ⋅ 1"],
+        "column2": ["i) 1", "ii) A", "iii) 0", "iv) 1"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": ["a) De Morgan's First Law", "b) De Morgan's Second Law", "c) Associative Law", "d) Distributive Law"],
+        "column2": ["i) A(B+C) = AB + AC", "ii) (A.B)' = A' + B'", "iii) A+(B+C) = (A+B)+C", "iv) (A+B)' = A'.B'"],
         "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
-        column1: ["a) Active region", "b) Saturation region", "c) Cut-off region", "d) Breakdown region"],
-        column2: ["i) Transistor acts as closed switch", "ii) For amplification", "iii) Zener diode operation", "iv) Transistor acts as open switch"],
+        "column1": ["a) Active region", "b) Saturation region", "c) Cut-off region", "d) Breakdown region"],
+        "column2": ["i) Transistor acts as closed switch", "ii) For amplification", "iii) Zener diode operation", "iv) Transistor acts as open switch"],
         "answer": "a-ii, b-i, c-iv, d-iii"
     }
   ]

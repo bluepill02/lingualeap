@@ -8,27 +8,18 @@ export const optics: NeetModule = {
   subject: 'Physics',
   conceptNotes: `
 ### 1. Ray Optics and Optical Instruments (கதிர் ஒளியியல் மற்றும் ஒளியியல் கருவிகள்)
-*   **Reflection (எதிரொளிப்பு):** Bouncing back of light.
-    *   **Laws of Reflection:** Angle of incidence = Angle of reflection.
-    *   **Spherical Mirrors (கோளக ஆடிகள்):** Concave and Convex. Mirror formula: 1/f = 1/v + 1/u. Magnification m = -v/u.
-*   **Refraction (ஒளிவிலகல்):** Bending of light when it passes from one medium to another.
-    *   **Snell's Law:** n₁sin(i) = n₂sin(r).
-    *   **Total Internal Reflection (முழு அக எதிரொளிப்பு):** When light travels from a denser to a rarer medium, if the angle of incidence is greater than the critical angle, it is totally reflected back. Applications: optical fibres, mirages.
-    *   **Lenses (லென்சுகள்):** Convex and Concave. Lens maker's formula: 1/f = (n-1)(1/R₁ - 1/R₂). Lens formula: 1/f = 1/v - 1/u.
-*   **Dispersion (நிறப்பிரிகை):** Splitting of white light into its constituent colors by a prism.
-*   **Optical Instruments:** Simple microscope, Compound microscope, Telescope.
+*   **Reflection of light, spherical mirrors, mirror formula:** Reflection at plane and spherical surfaces. The mirror formula 1/f = 1/v + 1/u relates focal length, image distance, and object distance.
+*   **Refraction of light at plane and spherical surfaces, thin lens formula and lens maker formula:** Refraction of light, total internal reflection and its applications, optical fibres. Lens Formula: 1/f = 1/v - 1/u. Lens Maker's Formula: 1/f = (n-1)(1/R₁ - 1/R₂).
+*   **Magnification. Power of a Lens. Combination of thin lenses in contact:** Magnification m = v/u for lenses. Power P = 1/f. For lenses in contact, P = P₁ + P₂.
+*   **Refraction of light through a prism.**
+*   **Microscope and Astronomical Telescope (reflecting and refracting) and their magnifying powers.**
 
 ### 2. Wave Optics (அலை ஒளியியல்)
-*   **Huygens' Principle (ஹைгенஸ் தத்துவம்):** Every point on a wavefront is a source of secondary wavelets.
-*   **Interference (குறுக்கீட்டு விளைவு):** The modification in the distribution of light energy due to the superposition of two or more waves.
-    *   **Young's Double-Slit Experiment (YDSE):** Demonstrates the interference of light.
-    *   **Condition for Constructive Interference (Maxima):** Path difference = nλ.
-    *   **Condition for Destructive Interference (Minima):** Path difference = (n + ½)λ.
-    *   **Fringe Width (பட்டையகலம்):** β = λD/d.
-*   **Diffraction (விளிம்பு விளைவு):** The bending of light waves around the corners of an obstacle.
-    *   **Single-Slit Diffraction:** A central bright maximum with secondary maxima and minima on either side.
-*   **Polarisation (தள விளைவு):** Restricting the vibrations of a transverse wave to a single direction. Light can be polarized by reflection (Brewster's Law) or by passing through a polaroid.
-    *   **Brewster's Law:** When light is incident at the polarizing angle (i_p), the reflected light is completely polarized. tan(i_p) = n.
+*   **Wavefront and Huygens' principle:** Every point on a wavefront is a source of secondary wavelets.
+*   **Laws of reflection and refraction using Huygens principle.**
+*   **Interference, Young's double-slit experiment and expression for fringe width (β = λD/d), coherent sources, and sustained interference of light.**
+*   **Diffraction due to a single slit, width of central maximum.**
+*   **Polarisation, plane-polarized light: Brewster's law, uses of plane-polarized light and Polaroid.**
 `,
   workedExamples: [
     {
@@ -48,152 +39,152 @@ export const optics: NeetModule = {
     {
         question: "The phenomenon of light bending around the corners of an obstacle is called:",
         options: ["Reflection", "Refraction", "Interference", "Diffraction"],
-        "answer": "Diffraction",
-        "explanation": "Diffraction is the bending of waves as they pass around an obstacle or through an aperture."
+        answer: "Diffraction",
+        explanation: "Diffraction is the bending of waves as they pass around an obstacle or through an aperture."
     },
     {
-        "question": "In Young's double-slit experiment, the condition for constructive interference is that the path difference should be:",
-        "options": ["nλ", "(n+1/2)λ", "nλ/2", "(2n+1)λ"],
-        "answer": "nλ",
-        "explanation": "For constructive interference (bright fringes), the path difference must be an integral multiple of the wavelength."
+        question: "In Young's double-slit experiment, the condition for constructive interference is that the path difference should be:",
+        options: ["nλ", "(n+1/2)λ", "nλ/2", "(2n+1)λ"],
+        answer: "nλ",
+        explanation: "For constructive interference (bright fringes), the path difference must be an integral multiple of the wavelength."
     },
     {
-        "question": "A convex lens is used to correct which vision defect?",
-        "options": ["Myopia", "Hypermetropia", "Astigmatism", "Presbyopia"],
-        "answer": "Hypermetropia",
-        "explanation": "Hypermetropia (farsightedness) is corrected using a convex lens to converge light rays onto the retina."
+        question: "A convex lens is used to correct which vision defect?",
+        options: ["Myopia", "Hypermetropia", "Astigmatism", "Presbyopia"],
+        answer: "Hypermetropia",
+        explanation: "Hypermetropia (farsightedness) is corrected using a convex lens to converge light rays onto the retina."
     },
     {
-        "question": "Total internal reflection occurs when light travels from:",
-        "options": ["A rarer to a denser medium", "A denser to a rarer medium", "The same medium", "Any medium to another"],
-        "answer": "A denser to a rarer medium",
-        "explanation": "TIR can only occur when light goes from a denser medium to a rarer medium and the angle of incidence is greater than the critical angle."
+        question: "Total internal reflection occurs when light travels from:",
+        options: ["A rarer to a denser medium", "A denser to a rarer medium", "The same medium", "Any medium to another"],
+        answer: "A denser to a rarer medium",
+        explanation: "TIR can only occur when light goes from a denser medium to a rarer medium and the angle of incidence is greater than the critical angle."
     },
     {
-        "question": "The splitting of white light into its constituent colors is known as:",
-        "options": ["Dispersion", "Scattering", "Interference", "Polarisation"],
-        "answer": "Dispersion",
-        "explanation": "Dispersion is caused by the refractive index of the medium being different for different wavelengths of light."
+        question: "The splitting of white light into its constituent colors is known as:",
+        options: ["Dispersion", "Scattering", "Interference", "Polarisation"],
+        answer: "Dispersion",
+        explanation: "Dispersion is caused by the refractive index of the medium being different for different wavelengths of light."
     },
     {
-        "question": "The power of a lens is +2.5 D. Its focal length is:",
-        "options": ["+40 cm", "+2.5 m", "-40 cm", "-2.5 m"],
-        "answer": "+40 cm",
-        "explanation": "Focal length f = 1/Power. f = 1/2.5 m = 0.4 m = 40 cm. Since the power is positive, it's a convex lens."
+        question: "The power of a lens is +2.5 D. Its focal length is:",
+        options: ["+40 cm", "+2.5 m", "-40 cm", "-2.5 m"],
+        answer: "+40 cm",
+        explanation: "Focal length f = 1/Power. f = 1/2.5 m = 0.4 m = 40 cm. Since the power is positive, it's a convex lens."
     },
     {
-        "question": "The mirror formula is:",
-        "options": ["1/f = 1/v - 1/u", "1/f = 1/v + 1/u", "n = c/v", "m = -v/u"],
-        "answer": "1/f = 1/v + 1/u",
-        "explanation": "This is the standard mirror equation relating object distance (u), image distance (v), and focal length (f)."
+        question: "The mirror formula is:",
+        options: ["1/f = 1/v - 1/u", "1/f = 1/v + 1/u", "n = c/v", "m = -v/u"],
+        answer: "1/f = 1/v + 1/u",
+        explanation: "This is the standard mirror equation relating object distance (u), image distance (v), and focal length (f)."
     },
     {
-        "question": "Which phenomenon proves that light waves are transverse?",
-        "options": ["Interference", "Diffraction", "Reflection", "Polarisation"],
-        "answer": "Polarisation",
-        "explanation": "Only transverse waves can be polarized, as polarization involves restricting the direction of oscillation."
+        question: "Which phenomenon proves that light waves are transverse?",
+        options: ["Interference", "Diffraction", "Reflection", "Polarisation"],
+        answer: "Polarisation",
+        explanation: "Only transverse waves can be polarized, as polarization involves restricting the direction of oscillation."
     },
     {
-        "question": "The width of the fringes in a Young's double-slit experiment depends on:",
-        "options": ["Wavelength of light", "Distance between slits", "Distance to the screen", "All of the above"],
-        "answer": "All of the above",
-        "explanation": "The fringe width β = λD/d, so it depends on wavelength (λ), screen distance (D), and slit separation (d)."
+        question: "The width of the fringes in a Young's double-slit experiment depends on:",
+        options: ["Wavelength of light", "Distance between slits", "Distance to the screen", "All of the above"],
+        answer: "All of the above",
+        explanation: "The fringe width β = λD/d, so it depends on wavelength (λ), screen distance (D), and slit separation (d)."
     },
     {
-        "question": "A mirage is a phenomenon due to:",
-        "options": ["Reflection of light", "Refraction and total internal reflection of light", "Dispersion of light", "Diffraction of light"],
-        "answer": "Refraction and total internal reflection of light",
-        "explanation": "Mirages are caused by the bending (refraction) of light rays in air layers of different densities, leading to total internal reflection."
+        question: "A mirage is a phenomenon due to:",
+        options: ["Reflection of light", "Refraction and total internal reflection of light", "Dispersion of light", "Diffraction of light"],
+        answer: "Refraction and total internal reflection of light",
+        explanation: "Mirages are caused by the bending (refraction) of light rays in air layers of different densities, leading to total internal reflection."
     },
     {
-        "question": "The resolving power of a microscope can be increased by:",
-        "options": ["Increasing the wavelength of light", "Decreasing the diameter of the objective lens", "Increasing the refractive index of the medium", "Decreasing the focal length of the eyepiece"],
-        "answer": "Increasing the refractive index of the medium",
-        "explanation": "Resolving power is proportional to 2n sinθ / λ. It can be increased by increasing the refractive index (n) (e.g., using oil immersion) or by decreasing the wavelength (λ)."
+        question: "The resolving power of a microscope can be increased by:",
+        options: ["Increasing the wavelength of light", "Decreasing the diameter of the objective lens", "Increasing the refractive index of the medium", "Decreasing the focal length of the eyepiece"],
+        answer: "Increasing the refractive index of the medium",
+        explanation: "Resolving power is proportional to 2n sinθ / λ. It can be increased by increasing the refractive index (n) (e.g., using oil immersion) or by decreasing the wavelength (λ)."
     },
     {
-        "question": "According to Huygens' principle, each point on a wavefront acts as a:",
-        "options": ["Source of secondary wavelets", "Point of destructive interference", "Point of constructive interference", "Center of reflection"],
-        "answer": "Source of secondary wavelets",
-        "explanation": "This is the fundamental statement of Huygens' principle."
+        question: "According to Huygens' principle, each point on a wavefront acts as a:",
+        options: ["Source of secondary wavelets", "Point of destructive interference", "Point of constructive interference", "Center of reflection"],
+        answer: "Source of secondary wavelets",
+        explanation: "This is the fundamental statement of Huygens' principle."
     },
     {
-        "question": "Brewster's law is related to:",
-        "options": ["Interference", "Diffraction", "Dispersion", "Polarisation"],
-        "answer": "Polarisation",
-        "explanation": "Brewster's law (tan i_p = n) gives the polarizing angle at which light reflected from a surface is completely plane-polarized."
+        question: "Brewster's law is related to:",
+        options: ["Interference", "Diffraction", "Dispersion", "Polarisation"],
+        answer: "Polarisation",
+        explanation: "Brewster's law (tan i_p = n) gives the polarizing angle at which light reflected from a surface is completely plane-polarized."
     },
     {
-        "question": "The magnifying power of a simple microscope is given by:",
-        "options": ["1 + D/f", "1 - D/f", "D/f", "f/D"],
-        "answer": "1 + D/f",
-        "explanation": "This is the formula for the magnifying power when the final image is formed at the near point (D)."
+        question: "The magnifying power of a simple microscope is given by:",
+        options: ["1 + D/f", "1 - D/f", "D/f", "f/D"],
+        answer: "1 + D/f",
+        explanation: "This is the formula for the magnifying power when the final image is formed at the near point (D)."
     },
     {
-        "question": "The blue color of the sky is due to:",
-        "options": ["Reflection", "Refraction", "Dispersion", "Scattering"],
-        "answer": "Scattering",
-        "explanation": "The blue color of the sky is due to the scattering of sunlight by the molecules of the air (Rayleigh scattering), which scatters blue light more effectively than red light."
+        question: "The blue color of the sky is due to:",
+        options: ["Reflection", "Refraction", "Dispersion", "Scattering"],
+        answer: "Scattering",
+        explanation: "The blue color of the sky is due to the scattering of sunlight by the molecules of the air (Rayleigh scattering), which scatters blue light more effectively than red light."
     },
     {
-        "question": "The focal length of a plane mirror is:",
-        "options": ["Zero", "Infinite", "Positive", "Negative"],
-        "answer": "Infinite",
-        "explanation": "A plane mirror can be considered as a spherical mirror with an infinite radius of curvature, and hence an infinite focal length."
+        question: "The focal length of a plane mirror is:",
+        options: ["Zero", "Infinite", "Positive", "Negative"],
+        answer: "Infinite",
+        explanation: "A plane mirror can be considered as a spherical mirror with an infinite radius of curvature, and hence an infinite focal length."
     },
     {
-        "question": "For a real, inverted image of the same size as the object, the object should be placed in front of a convex lens at:",
-        "options": ["F", "2F", "Between F and 2F", "Infinity"],
-        "answer": "2F",
-        "explanation": "When an object is placed at 2F, a real, inverted image of the same size is formed at 2F on the other side of the lens."
+        question: "For a real, inverted image of the same size as the object, the object should be placed in front of a convex lens at:",
+        options: ["F", "2F", "Between F and 2F", "Infinity"],
+        answer: "2F",
+        explanation: "When an object is placed at 2F, a real, inverted image of the same size is formed at 2F on the other side of the lens."
     },
     {
-        "question": "The critical angle for a material is C. The refractive index of the material is:",
-        "options": ["sin(C)", "1/sin(C)", "tan(C)", "cos(C)"],
-        "answer": "1/sin(C)",
-        "explanation": "By Snell's law at the critical angle, n sin(C) = 1 * sin(90°). So, n = 1/sin(C)."
+        question: "The critical angle for a material is C. The refractive index of the material is:",
+        options: ["sin(C)", "1/sin(C)", "tan(C)", "cos(C)"],
+        answer: "1/sin(C)",
+        explanation: "By Snell's law at the critical angle, n sin(C) = 1 * sin(90°). So, n = 1/sin(C)."
     },
     {
-        "question": "In a compound microscope, the final image formed is:",
-        "options": ["Real and inverted", "Virtual and inverted", "Real and erect", "Virtual and erect"],
-        "answer": "Virtual and inverted",
-        "explanation": "The objective lens forms a real, inverted, and magnified image. The eyepiece acts as a simple microscope and forms a final virtual, inverted, and further magnified image."
+        question: "In a compound microscope, the final image formed is:",
+        options: ["Real and inverted", "Virtual and inverted", "Real and erect", "Virtual and erect"],
+        answer: "Virtual and inverted",
+        explanation: "The objective lens forms a real, inverted, and magnified image. The eyepiece acts as a simple microscope and forms a final virtual, inverted, and further magnified image."
     },
     {
-        "question": "The condition for the first minimum in the diffraction pattern due to a single slit of width 'a' is:",
-        "options": ["a sinθ = nλ", "a sinθ = (n+1/2)λ", "d sinθ = nλ", "a sinθ = λ"],
-        "answer": "a sinθ = λ",
-        "explanation": "The general condition for minima in single-slit diffraction is a sinθ = nλ, where n = 1, 2, 3, ... For the first minimum, n=1, so a sinθ = λ."
+        question: "The condition for the first minimum in the diffraction pattern due to a single slit of width 'a' is:",
+        options: ["a sinθ = nλ", "a sinθ = (n+1/2)λ", "d sinθ = nλ", "a sinθ = λ"],
+        answer: "a sinθ = λ",
+        explanation: "The general condition for minima in single-slit diffraction is a sinθ = nλ, where n = 1, 2, 3, ... For the first minimum, n=1, so a sinθ = λ."
     },
     {
-        "question": "The power of two lenses +2D and -4D are placed in contact. The power of the combination is:",
-        "options": ["+2 D", "-2 D", "+6 D", "-6 D"],
-        "answer": "-2 D",
-        "explanation": "The power of lenses in contact adds algebraically. P = P₁ + P₂ = +2 + (-4) = -2 D."
+        question: "The power of two lenses +2D and -4D are placed in contact. The power of the combination is:",
+        options: ["+2 D", "-2 D", "+6 D", "-6 D"],
+        answer: "-2 D",
+        explanation: "The power of lenses in contact adds algebraically. P = P₁ + P₂ = +2 + (-4) = -2 D."
     },
     {
-        "question": "Which color of light undergoes the maximum deviation when passing through a prism?",
-        "options": ["Red", "Yellow", "Green", "Violet"],
-        "answer": "Violet",
-        "explanation": "The refractive index is highest for violet light, so it bends the most and has the maximum deviation."
+        question: "Which color of light undergoes the maximum deviation when passing through a prism?",
+        options: ["Red", "Yellow", "Green", "Violet"],
+        answer: "Violet",
+        explanation: "The refractive index is highest for violet light, so it bends the most and has the maximum deviation."
     },
     {
-        "question": "Two coherent monochromatic light beams of intensities I and 4I are superimposed. The maximum and minimum possible intensities in the resulting beam are:",
-        "options": ["5I and I", "5I and 3I", "9I and I", "9I and 3I"],
-        "answer": "9I and I",
-        "explanation": "I_max = (√I₁ + √I₂)² = (√I + √4I)² = (√I + 2√I)² = (3√I)² = 9I. I_min = (√I₁ - √I₂)² = (√I - 2√I)² = (-√I)² = I."
+        question: "Two coherent monochromatic light beams of intensities I and 4I are superimposed. The maximum and minimum possible intensities in the resulting beam are:",
+        options: ["5I and I", "5I and 3I", "9I and I", "9I and 3I"],
+        answer: "9I and I",
+        explanation: "I_max = (√I₁ + √I₂)² = (√I + √4I)² = (√I + 2√I)² = (3√I)² = 9I. I_min = (√I₁ - √I₂)² = (√I - 2√I)² = (-√I)² = I."
     },
     {
-        "question": "An optical fiber works on the principle of:",
-        "options": ["Scattering", "Interference", "Total internal reflection", "Diffraction"],
-        "answer": "Total internal reflection",
-        "explanation": "Light is guided through the core of an optical fiber by undergoing repeated total internal reflection at the core-cladding interface."
+        question: "An optical fiber works on the principle of:",
+        options: ["Scattering", "Interference", "Total internal reflection", "Diffraction"],
+        answer: "Total internal reflection",
+        explanation: "Light is guided through the core of an optical fiber by undergoing repeated total internal reflection at the core-cladding interface."
     },
     {
-        "question": "The ratio of the resolving powers of an optical microscope for two wavelengths λ₁ = 4000 Å and λ₂ = 6000 Å is:",
-        "options": ["3:2", "16:81", "8:27", "2:3"],
-        "answer": "3:2",
-        "explanation": "Resolving power is inversely proportional to wavelength (RP ∝ 1/λ). So, RP₁/RP₂ = λ₂/λ₁ = 6000/4000 = 3/2."
+        question: "The ratio of the resolving powers of an optical microscope for two wavelengths λ₁ = 4000 Å and λ₂ = 6000 Å is:",
+        options: ["3:2", "16:81", "8:27", "2:3"],
+        answer: "3:2",
+        explanation: "Resolving power is inversely proportional to wavelength (RP ∝ 1/λ). So, RP₁/RP₂ = λ₂/λ₁ = 6000/4000 = 3/2."
     }
   ],
   assertionReasons: [

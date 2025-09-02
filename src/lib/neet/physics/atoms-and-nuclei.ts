@@ -1,3 +1,4 @@
+
 import type { NeetModule } from '@/lib/types';
 
 export const atomsAndNuclei: NeetModule = {
@@ -6,37 +7,16 @@ export const atomsAndNuclei: NeetModule = {
   chapter: 'Atoms and Nuclei',
   subject: 'Physics',
   conceptNotes: `
-### 1. Atomic Models (அணு மாதிரிகள்)
-*   **Rutherford's Model:** Based on the α-particle scattering experiment, proposed a nuclear model of the atom.
-*   **Bohr's Model for Hydrogen Atom:**
-    1.  Electrons revolve in stable, circular orbits.
-    2.  Angular momentum is quantized: L = mvr = n(h/2π).
-    3.  An electron emits radiation when it jumps from a higher to a lower energy orbit.
+### 1. Atoms (அணுக்கள்)
+*   **Alpha-particle scattering experiment; Rutherford's model of atom:** Based on the scattering experiment, proposed a nuclear model of the atom with a dense, positive nucleus and orbiting electrons.
+*   **Bohr model, energy levels, hydrogen spectrum:** A model for the hydrogen atom where electrons revolve in stable orbits with quantized angular momentum. It successfully explains the hydrogen spectrum, including series like Lyman, Balmer, etc.
 
-### 2. Atomic Spectra (அணு நிறமாலை)
-*   **Emission Spectra:** When an electron jumps from a higher energy level (n₂) to a lower level (n₁), a photon of frequency ν is emitted. hν = Eₙ₂ - Eₙ₁.
-*   **Spectral Series of Hydrogen:**
-    *   **Lyman Series:** Jumps to n=1 (UV region).
-    *   **Balmer Series:** Jumps to n=2 (Visible region).
-    *   **Paschen, Brackett, Pfund Series:** Jumps to n=3, 4, 5 respectively (Infrared region).
-
-### 3. Nucleus (அணுக்கரு)
-*   **Composition:** Protons and neutrons (collectively called nucleons).
-*   **Atomic Number (Z):** Number of protons.
-*   **Mass Number (A):** Total number of protons and neutrons (A = Z + N).
-*   **Nuclear Size:** The radius of a nucleus is R = R₀A¹/³, where R₀ is a constant. This implies that the density of the nucleus is constant and independent of the mass number. (ஒரு பெரிய குடும்பத்தில் ஆட்கள் அதிகமாக இருந்தாலும், வீட்டின் அடர்த்தி மாறாமல் இருப்பது போல).
-*   **Mass-Energy Equivalence:** E = mc².
-*   **Binding Energy (பிணைப்பு ஆற்றல்):** The energy required to break a nucleus into its constituent nucleons. The binding energy per nucleon curve shows that nuclei with intermediate mass numbers (like Iron, Fe-56) are the most stable.
-
-### 4. Radioactivity (கதிரியக்கம்)
-*   The spontaneous disintegration of a nucleus.
-*   **Law of Radioactive Decay:** The rate of decay is proportional to the number of undecayed nuclei present at that instant. N(t) = N₀e⁻ˡᵗ, where λ is the decay constant.
-*   **Half-life (T₁/₂):** The time in which half of the radioactive nuclei decay. T₁/₂ = 0.693 / λ.
-*   **Types of Decay:** Alpha (α) decay, Beta (β) decay (β⁻ and β⁺), and Gamma (γ) decay.
-
-### 5. Nuclear Energy (அணுக்கரு ஆற்றல்)
-*   **Nuclear Fission (அணுக்கரு பிளவு):** A heavy nucleus splits into two or more lighter nuclei, releasing a large amount of energy. Used in nuclear reactors.
-*   **Nuclear Fusion (அணுக்கரு இணைவு):** Two or more light nuclei fuse to form a heavier nucleus, releasing immense energy. This is the process that powers the Sun.
+### 2. Nuclei (அணுக்கருக்கள்)
+*   **Composition and size of nucleus:** Composed of protons and neutrons. The radius is given by R = R₀A¹/³.
+*   **Atomic masses, isotopes, isobars; isotones.**
+*   **Mass-energy relation, mass defect:** E = mc². The mass defect is the difference between the mass of a nucleus and the sum of the masses of its constituent nucleons.
+*   **Binding energy per nucleon and its variation with mass number:** A curve showing the stability of nuclei. Nuclei with intermediate mass numbers are most stable.
+*   **Nuclear fission and fusion:** Fission is the splitting of a heavy nucleus, and fusion is the combining of light nuclei. Both processes release enormous amounts of energy.
 `,
   workedExamples: [
     {
@@ -206,94 +186,94 @@ export const atomsAndNuclei: NeetModule = {
   ],
   assertionReasons: [
     {
-      "assertion": "The density of a nucleus is independent of its mass number.",
-      "reason": "The radius of a nucleus is proportional to the cube root of its mass number (R ∝ A¹/³).",
-      "answer": "A",
-      "explanation": "Density ρ = Mass/Volume ∝ A / R³ ∝ A / (A¹/³ )³ ∝ A/A = constant. The reason correctly explains why the density is constant."
+        "assertion": "The density of a nucleus is independent of its mass number.",
+        "reason": "The radius of a nucleus is proportional to the cube root of its mass number (R ∝ A¹/³).",
+        "answer": "A",
+        "explanation": "Density ρ = Mass/Volume ∝ A / R³ ∝ A / (A¹/³ )³ ∝ A/A = constant. The reason correctly explains why the density is constant."
     },
     {
-      "assertion": "Nuclear fusion is the source of energy in stars.",
-      "reason": "In fusion, lighter nuclei combine to form a heavier nucleus, releasing a large amount of energy.",
-      "answer": "A",
-      "explanation": "The reason correctly describes the process of nuclear fusion, which explains why it is the energy source of stars."
+        "assertion": "Nuclear fusion is the source of energy in stars.",
+        "reason": "In fusion, lighter nuclei combine to form a heavier nucleus, releasing a large amount of energy.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the process of nuclear fusion, which explains why it is the energy source of stars."
     },
     {
-      "assertion": "The force holding the nucleons together inside a nucleus is the strong nuclear force.",
-      "reason": "The strong nuclear force is a short-range, charge-independent force.",
-      "answer": "B",
-      "explanation": "Both statements are true descriptions of the strong nuclear force. However, the reason describes its properties rather than explaining why it is the binding force."
+        "assertion": "The force holding the nucleons together inside a nucleus is the strong nuclear force.",
+        "reason": "The strong nuclear force is a short-range, charge-independent force.",
+        "answer": "B",
+        "explanation": "Both statements are true descriptions of the strong nuclear force. However, the reason describes its properties rather than explaining why it is the binding force."
     },
     {
-      "assertion": "Gamma rays are high-energy photons.",
-      "reason": "Gamma decay occurs when an excited nucleus transitions to a lower energy state.",
-      "answer": "A",
-      "explanation": "The energy difference between the nuclear energy levels is released in the form of a high-energy photon, which is a gamma ray. The reason explains the assertion."
+        "assertion": "Gamma rays are high-energy photons.",
+        "reason": "Gamma decay occurs when an excited nucleus transitions to a lower energy state.",
+        "answer": "A",
+        "explanation": "The energy difference between the nuclear energy levels is released in the form of a high-energy photon, which is a gamma ray. The reason explains the assertion."
     },
     {
-      "assertion": "The half-life of a radioactive substance is constant.",
-      "reason": "The rate of decay of a radioactive substance depends on the number of undecayed nuclei.",
-      "answer": "B",
-      "explanation": "Both statements are true. The half-life is a constant characteristic of a given isotope. The rate of decay does depend on the number of nuclei present. However, the second statement doesn't explain why the half-life is constant."
+        "assertion": "The half-life of a radioactive substance is constant.",
+        "reason": "The rate of decay of a radioactive substance depends on the number of undecayed nuclei.",
+        "answer": "B",
+        "explanation": "Both statements are true. The half-life is a constant characteristic of a given isotope. The rate of decay does depend on the number of nuclei present. However, the second statement doesn't explain why the half-life is constant."
     },
     {
-      "assertion": "It is not possible for a hydrogen atom to emit an alpha particle.",
-      "reason": "A hydrogen atom contains only one proton and one electron.",
-      "answer": "A",
-      "explanation": "An alpha particle consists of two protons and two neutrons. Since a hydrogen atom does not contain these particles, it cannot emit one. The reason correctly explains the assertion."
+        "assertion": "It is not possible for a hydrogen atom to emit an alpha particle.",
+        "reason": "A hydrogen atom contains only one proton and one electron.",
+        "answer": "A",
+        "explanation": "An alpha particle consists of two protons and two neutrons. Since a hydrogen atom does not contain these particles, it cannot emit one. The reason correctly explains the assertion."
     },
     {
-      "assertion": "Bohr's model violates Heisenberg's Uncertainty Principle.",
-      "reason": "Bohr's model assumes that both the position and momentum of an electron in an atom are known with certainty.",
-      "answer": "A",
-      "explanation": "The reason correctly explains the assertion. By defining fixed orbits (position) and a fixed velocity/momentum in that orbit, Bohr's model contradicts the uncertainty principle."
+        "assertion": "Bohr's model violates Heisenberg's Uncertainty Principle.",
+        "reason": "Bohr's model assumes that both the position and momentum of an electron in an atom are known with certainty.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. By defining fixed orbits (position) and a fixed velocity/momentum in that orbit, Bohr's model contradicts the uncertainty principle."
     },
     {
-      "assertion": "The binding energy per nucleon is lower for both light and heavy nuclei.",
-      "reason": "This is why both fusion of light nuclei and fission of heavy nuclei release energy.",
-      "answer": "A",
-      "explanation": "The reason correctly explains the consequence of the binding energy curve mentioned in the assertion. Reactions that move towards the peak of the binding energy curve (more stable nuclei) will release energy."
+        "assertion": "The binding energy per nucleon is lower for both light and heavy nuclei.",
+        "reason": "This is why both fusion of light nuclei and fission of heavy nuclei release energy.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the consequence of the binding energy curve mentioned in the assertion. Reactions that move towards the peak of the binding energy curve (more stable nuclei) will release energy."
     },
     {
-      "assertion": "The law of radioactive decay is an exponential law.",
-      "reason": "The number of undecayed nuclei decreases exponentially with time.",
-      "answer": "A",
-      "explanation": "The reason is a statement of the result of the decay law (N = N₀e⁻ˡᵗ), which is the definition of an exponential decay process."
+        "assertion": "The law of radioactive decay is an exponential law.",
+        "reason": "The number of undecayed nuclei decreases exponentially with time.",
+        "answer": "A",
+        "explanation": "The reason is a statement of the result of the decay law (N = N₀e⁻ˡᵗ), which is the definition of an exponential decay process."
     },
     {
-      "assertion": "During β⁻ decay, a neutron is converted into a proton.",
-      "reason": "This results in an increase in the atomic number by one.",
-      "answer": "A",
-      "explanation": "The reason is a direct consequence of the process described in the assertion (n → p⁺ + e⁻ + ν̅). The number of protons (atomic number) increases by one."
+        "assertion": "During β⁻ decay, a neutron is converted into a proton.",
+        "reason": "This results in an increase in the atomic number by one.",
+        "answer": "A",
+        "explanation": "The reason is a direct consequence of the process described in the assertion (n → p⁺ + e⁻ + ν̅). The number of protons (atomic number) increases by one."
     },
     {
-      "assertion": "Isotopes are atoms of the same element with different mass numbers.",
-      "reason": "Isotopes have the same number of protons but a different number of neutrons.",
-      "answer": "A",
-      "explanation": "The reason correctly explains the assertion. Same number of protons means it's the same element, while a different number of neutrons leads to a different mass number."
+        "assertion": "Isotopes are atoms of the same element with different mass numbers.",
+        "reason": "Isotopes have the same number of protons but a different number of neutrons.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Same number of protons means it's the same element, while a different number of neutrons leads to a different mass number."
     },
     {
-      "assertion": "The Paschen series of the hydrogen spectrum lies in the infrared region.",
-      "reason": "The Paschen series corresponds to electron transitions to the n=3 energy level.",
-      "answer": "A",
-      "explanation": "The reason correctly describes the Paschen series. The energy differences for transitions to n=3 are small enough that the emitted photons fall in the infrared region."
+        "assertion": "The Paschen series of the hydrogen spectrum lies in the infrared region.",
+        "reason": "The Paschen series corresponds to electron transitions to the n=3 energy level.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the Paschen series. The energy differences for transitions to n=3 are small enough that the emitted photons fall in the infrared region."
     },
     {
-      "assertion": "A free neutron is unstable.",
-      "reason": "A free neutron decays into a proton, an electron, and an antineutrino.",
-      "answer": "A",
-      "explanation": "The reason describes the decay process that is the evidence of the instability mentioned in the assertion."
+        "assertion": "A free neutron is unstable.",
+        "reason": "A free neutron decays into a proton, an electron, and an antineutrino.",
+        "answer": "A",
+        "explanation": "The reason describes the decay process that is the evidence of the instability mentioned in the assertion."
     },
     {
-      "assertion": "Nuclear forces are charge-independent.",
-      "reason": "The nuclear force between a proton-proton, a neutron-neutron, and a proton-neutron is approximately the same.",
-      "answer": "A",
-      "explanation": "The reason provides the experimental evidence for the charge-independent nature of nuclear forces stated in the assertion."
+        "assertion": "Nuclear forces are charge-independent.",
+        "reason": "The nuclear force between a proton-proton, a neutron-neutron, and a proton-neutron is approximately the same.",
+        "answer": "A",
+        "explanation": "The reason provides the experimental evidence for the charge-independent nature of nuclear forces stated in the assertion."
     },
     {
-      "assertion": "The mass of a nucleus is always less than the sum of the masses of its constituent nucleons.",
-      "reason": "The difference in mass is converted into binding energy.",
-      "answer": "A",
-      "explanation": "The reason correctly explains the concept of mass defect, which is the physical basis for the assertion."
+        "assertion": "The mass of a nucleus is always less than the sum of the masses of its constituent nucleons.",
+        "reason": "The difference in mass is converted into binding energy.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the concept of mass defect, which is the physical basis for the assertion."
     }
   ],
   matchTheColumns: [
@@ -374,5 +354,3 @@ export const atomsAndNuclei: NeetModule = {
     }
   ]
 };
-
-    

@@ -1,3 +1,4 @@
+
 import type { NeetModule } from '@/lib/types';
 
 export const experimentalSkills: NeetModule = {
@@ -6,39 +7,28 @@ export const experimentalSkills: NeetModule = {
   chapter: 'Experimental Skills',
   subject: 'Physics',
   conceptNotes: `
-### 1. Vernier Calipers (வெர்னியர் அளவி)
-*   Used to measure length accurately up to 0.1 mm or 0.01 cm.
-*   **Least Count (மீச்சிற்றளவு):** L.C. = (Value of one main scale division) / (Total number of vernier scale divisions).
-*   **Zero Error and Correction:** If the zero of the vernier scale does not coincide with the zero of the main scale, there is a zero error. It can be positive or negative.
+### 1. Familiarity with Basic Experiments (அடிப்படை சோதனைகள்)
+*   This unit focuses on the practical application and understanding of experiments learned throughout the syllabus. The key is to understand the underlying principle, the formula used, the sources of error, and the interpretation of the results.
 
-### 2. Screw Gauge (திருகு அளவி)
-*   Used to measure dimensions accurately up to 0.01 mm or 0.001 cm (e.g., diameter of a wire).
-*   **Least Count:** L.C. = (Pitch) / (Total number of divisions on the circular scale).
-*   **Pitch (புரியிடை):** The distance moved by the screw for one complete rotation of the head scale.
-
-### 3. Simple Pendulum (தனி ஊசல்)
-*   Used to determine the acceleration due to gravity (g).
-*   The period of a simple pendulum is T = 2π√(L/g), where L is the effective length.
-*   A graph of L vs T² is a straight line passing through the origin. The slope can be used to find g.
-
-### 4. Metre Scale (மீட்டர் அளவுகோல்)
-*   Used for measuring length. Least count is typically 1 mm.
-*   Error of parallax should be avoided while taking readings.
-
-### 5. Ohm's Law Experiment (ஓம் விதி சோதனை)
-*   To determine the resistance of a given wire.
-*   Requires a voltmeter, ammeter, rheostat, and a key.
-*   A graph of V vs I is a straight line, and its slope gives the resistance (R = V/I).
-
-### 6. P-N Junction Diode Characteristics
-*   **Forward Bias:** The graph of I vs V is not linear initially and then rises sharply.
-*   **Reverse Bias:** The current is very small (in μA) and almost constant until the breakdown voltage is reached.
-
-### 7. Other Key Experiments
-*   **Sonometer:** To study the relationship between frequency, length, and tension of a string.
-*   **Resonance Column:** To determine the speed of sound in air.
-*   **Potentiometer:** To compare the e.m.f. of two cells or find the internal resistance of a cell.
-*   **Convex/Concave Mirrors and Lenses:** Finding the focal length using the u-v method (1/f = 1/v - 1/u for lenses, 1/f = 1/v + 1/u for mirrors).
+### 2. Key Experiments and Activities:
+1.  **Vernier Calipers:** Use to measure internal and external diameter and depth of a vessel. Understand least count and zero error.
+2.  **Screw Gauge:** Use to determine thickness/diameter of a thin sheet/wire. Understand pitch and least count.
+3.  **Simple Pendulum:** Dissipation of energy by plotting a graph between the square of amplitude and time. Also, determining 'g'.
+4.  **Metre Scale:** Mass of a given object by the principle of moments.
+5.  **Young's Modulus:** Of the material of a metallic wire.
+6.  **Surface Tension:** Of water by capillary rise and the effect of detergents.
+7.  **Coefficient of Viscosity:** Of a given viscous liquid by measuring the terminal velocity of a given spherical body.
+8.  **Speed of Sound:** In air at room temperature using a resonance tube.
+9.  **Specific Heat Capacity:** Of a given (i) solid and (ii) liquid by the method of mixtures.
+10. **Resistivity:** Of the material of a given wire using a metre bridge.
+11. **Resistance:** Of a given wire using Ohm's law.
+12. **Resistance and Figure of Merit of a Galvanometer:** By half deflection method.
+13. **Focal Length:** Of a (i) Convex mirror, (ii) Concave mirror, and (iii) Convex lens, using the parallax method.
+14. **Angle of Deviation vs Angle of Incidence:** For a triangular prism.
+15. **Refractive Index:** Of a glass slab using a travelling microscope.
+16. **P-N Junction Diode:** Characteristic curves in forward and reverse bias.
+17. **Zener Diode:** Characteristic curves and finding reverse breakdown voltage.
+18. **Identification of Components:** Diode, LED, Resistor, Capacitor from a mixed collection.
 `,
   workedExamples: [
     {
@@ -88,7 +78,7 @@ export const experimentalSkills: NeetModule = {
     {
         "question": "A student measures the diameter of a small steel ball using a screw gauge of least count 0.001 cm. The main scale reading is 5 mm and the 25th division of the circular scale coincides with the baseline. If the screw gauge has a zero error of -0.004 cm, the correct diameter of the ball is:",
         "options": ["0.529 cm", "0.525 cm", "0.521 cm", "0.533 cm"],
-        "answer": "0.533 cm",
+        "answer": "0.529 cm",
         "explanation": "Observed reading = MSR + (CSD × LC) = 0.5 cm + (25 × 0.001 cm) = 0.525 cm. Correct reading = Observed reading - Zero Error = 0.525 - (-0.004) = 0.529 cm."
     },
     {
@@ -376,5 +366,3 @@ export const experimentalSkills: NeetModule = {
     }
   ]
 };
-
-    
