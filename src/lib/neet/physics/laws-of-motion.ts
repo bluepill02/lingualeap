@@ -119,82 +119,82 @@ export const lawsOfMotion: NeetModule = {
         question: "A lift is moving up with an acceleration 'a'. The apparent weight of a person of mass 'm' inside the lift is:",
         options: ["mg", "m(g+a)", "m(g-a)", "0"],
         answer: "m(g+a)",
-        "explanation": "The net force on the person is N - mg = ma, where N is the normal reaction (apparent weight). So, N = mg + ma = m(g+a)."
+        explanation: "The net force on the person is N - mg = ma, where N is the normal reaction (apparent weight). So, N = mg + ma = m(g+a)."
     },
     {
         question: "The angle of friction (λ) is related to the coefficient of static friction (μ_s) by:",
         options: ["tanλ = μ_s", "sinλ = μ_s", "cosλ = μ_s", "cotλ = μ_s"],
         answer: "tanλ = μ_s",
-        "explanation": "The angle of friction is the angle between the resultant of the normal force and limiting friction, and the normal force. From the force diagram, tanλ = f_s(max) / N = μ_s."
+        explanation: "The angle of friction is the angle between the resultant of the normal force and limiting friction, and the normal force. From the force diagram, tanλ = f_s(max) / N = μ_s."
     },
     {
         question: "The work done by a centripetal force in a uniform circular motion is:",
-        "options": ["Positive", "Negative", "Zero", "Depends on the mass"],
-        "answer": "Zero",
-        "explanation": "The centripetal force is always perpendicular to the direction of displacement (which is tangential). Since Work = Fdcosθ and θ=90°, the work done is zero."
+        options: ["Positive", "Negative", "Zero", "Depends on the mass"],
+        answer: "Zero",
+        explanation: "The centripetal force is always perpendicular to the direction of displacement (which is tangential). Since Work = Fdcosθ and θ=90°, the work done is zero."
     },
     {
         question: "Conservation of momentum in a collision between particles can be understood from:",
-        "options": ["Conservation of energy", "Newton's first law only", "Newton's second law only", "Both Newton's second and third law"],
-        "answer": "Both Newton's second and third law",
-        "explanation": "During a collision, the force exerted by the first particle on the second is equal and opposite to the force exerted by the second on the first (Third Law). Since Impulse = FΔt = Δp, the change in momentum for the system is zero (Second Law)."
+        options: ["Conservation of energy", "Newton's first law only", "Newton's second law only", "Both Newton's second and third law"],
+        answer: "Both Newton's second and third law",
+        explanation: "During a collision, the force exerted by the first particle on the second is equal and opposite to the force exerted by the second on the first (Third Law). Since Impulse = FΔt = Δp, the change in momentum for the system is zero (Second Law)."
     },
     {
-        question": "The slope of a momentum-time graph for a particle represents:",
+        "question": "The slope of a momentum-time graph for a particle represents:",
         "options": ["Velocity", "Acceleration", "Force", "Impulse"],
         "answer": "Force",
         "explanation": "From Newton's second law, Force F = dp/dt, which is the slope of the p-t graph."
     },
     {
-        question": "A rocket works on the principle of:",
+        "question": "A rocket works on the principle of:",
         "options": ["Conservation of energy", "Conservation of mass", "Conservation of linear momentum", "Conservation of angular momentum"],
         "answer": "Conservation of linear momentum",
         "explanation": "The rocket expels gas downwards (momentum), and by conservation of momentum, the rocket itself gains an upward momentum."
     },
     {
-        question": "Pulling a lawn roller is easier than pushing it because:",
+        "question": "Pulling a lawn roller is easier than pushing it because:",
         "options": ["The apparent weight is decreased", "The apparent weight is increased", "The normal reaction is decreased", "The normal reaction is increased"],
         "answer": "The normal reaction is decreased",
         "explanation": "When pulling, the vertical component of the applied force acts upwards, reducing the normal reaction and hence the frictional force. When pushing, the vertical component acts downwards, increasing the normal reaction and friction."
     },
     {
-        question": "The maximum speed with which a car can safely negotiate a curved road of radius r banked at an angle θ is:",
+        "question": "The maximum speed with which a car can safely negotiate a curved road of radius r banked at an angle θ is:",
         "options": ["√(rg tanθ)", "√(rg/tanθ)", "√(rg sinθ)", "√(rg)"],
         "answer": "√(rg tanθ)",
         "explanation": "This is the ideal speed for a banked curve where no friction is needed. The horizontal component of the normal force provides the centripetal force. Nsinθ = mv²/r and Ncosθ = mg. Dividing gives tanθ = v²/rg."
     },
     {
-        question": "A force vector applied on a mass is represented as F = 6i - 8j + 10k and accelerates with 1 m/s². What will be the mass of the body?",
+        "question": "A force vector applied on a mass is represented as F = 6i - 8j + 10k and accelerates with 1 m/s². What will be the mass of the body?",
         "options": ["10√2 kg", "2√10 kg", "10 kg", "20 kg"],
         "answer": "10√2 kg",
         "explanation": "Magnitude of force |F| = √(6² + (-8)² + 10²) = √(36 + 64 + 100) = √200 = 10√2 N. Mass m = |F|/a = 10√2 / 1 = 10√2 kg."
     },
     {
-        question": "Which of the following statements is incorrect?",
+        "question": "Which of the following statements is incorrect?",
         "options": ["Friction is a self-adjusting force", "The force of friction is independent of the area of contact", "Kinetic friction is less than static friction", "The coefficient of friction can be greater than 1"],
         "answer": "Kinetic friction is less than static friction",
         "explanation": "This statement is correct, not incorrect. Let's re-evaluate. A is true (static friction). B is true (to a good approximation). D is true (it is possible). C is also true. There might be an error in the question's premise. However, the most nuanced is that static friction is not always greater; it is the *limiting* static friction that is greater than kinetic friction. If this is the intended flaw, it's a tricky question."
     },
     {
-        question": "A body is in equilibrium under the action of three coplanar forces. Which of the following is correct?",
+        "question": "A body is in equilibrium under the action of three coplanar forces. Which of the following is correct?",
         "options": ["The forces must be equal in magnitude", "The forces must be parallel", "The forces must form a closed triangle when arranged head-to-tail", "The sum of any two forces must be zero"],
         "answer": "The forces must form a closed triangle when arranged head-to-tail",
         "explanation": "For the vector sum of three forces to be zero (the condition for equilibrium), they must form a closed polygon (a triangle in this case) when placed head-to-tail."
     },
     {
-        question": "The dimension of impulse is the same as that of:",
+        "question": "The dimension of impulse is the same as that of:",
         "options": ["Pressure", "Force", "Work", "Linear momentum"],
         "answer": "Linear momentum",
         "explanation": "Impulse is defined as the change in linear momentum, so they have the same dimensions [MLT⁻¹]."
     },
     {
-        question": "A monkey of mass 20 kg is holding a vertical rope. The rope will not break when a mass of 25 kg is suspended from it but will break if the mass exceeds 25 kg. What is the maximum acceleration with which the monkey can climb up along the rope? (g = 10 m/s²)",
+        "question": "A monkey of mass 20 kg is holding a vertical rope. The rope will not break when a mass of 25 kg is suspended from it but will break if the mass exceeds 25 kg. What is the maximum acceleration with which the monkey can climb up along the rope? (g = 10 m/s²)",
         "options": ["5 m/s²", "2.5 m/s²", "10 m/s²", "25 m/s²"],
         "answer": "2.5 m/s²",
-        "explanation": "Maximum tension the rope can withstand is T_max = 25 kg * 10 m/s² = 250 N. When the monkey climbs with acceleration 'a', the tension is T = m(g+a). So, 250 = 20(10+a). 250/20 = 10+a. 12.5 = 10+a. a = 2.5 m/s²."
+        "explanation": "Maximum tension the rope can withstand is T_max = 25 kg * 10 m/s² = 250 N. When the monkey climbs with acceleration 'a', the tension is T = m(g+a). So, 250 = 20(10+a). 250/20 = 12.5. 12.5 = 10+a. a = 2.5 m/s²."
     },
     {
-        question": "Lami's theorem is applicable for:",
+        "question": "Lami's theorem is applicable for:",
         "options": ["Any number of forces", "Two forces in equilibrium", "Three coplanar forces in equilibrium", "Three non-coplanar forces in equilibrium"],
         "answer": "Three coplanar forces in equilibrium",
         "explanation": "Lami's theorem relates the magnitudes of three coplanar, concurrent, and non-collinear forces that keep an object in equilibrium."
@@ -205,91 +205,91 @@ export const lawsOfMotion: NeetModule = {
         assertion: "When a person walks on a rough surface, the frictional force exerted by the surface on the person is in the forward direction.",
         reason: "The frictional force acts opposite to the direction of motion of an object.",
         answer: "C",
-        "explanation": "Assertion is true. To walk, the person pushes the ground backward, so the friction from the ground pushes the person forward. The reason is a common statement but not universally true in this context; friction opposes *relative* motion or the *tendency* of relative motion."
+        explanation: "Assertion is true. To walk, the person pushes the ground backward, so the friction from the ground pushes the person forward. The reason is a common statement but not universally true in this context; friction opposes *relative* motion or the *tendency* of relative motion."
     },
     {
         assertion: "A cricketer moves his hands backward while catching a ball.",
         reason: "He does this to increase the time of impact, which reduces the force exerted on his hands.",
         answer: "A",
-        "explanation": "The reason correctly explains the assertion. From Impulse = FΔt = Δp, by increasing the time (Δt) over which the ball's momentum changes, the average force (F) on the hands is reduced."
+        explanation: "The reason correctly explains the assertion. From Impulse = FΔt = Δp, by increasing the time (Δt) over which the ball's momentum changes, the average force (F) on the hands is reduced."
     },
     {
         assertion: "A body in uniform circular motion has zero acceleration.",
         reason: "The speed of the body is constant.",
         answer: "D",
-        "explanation": "Assertion is false. A body in circular motion always has centripetal acceleration. The reason is true but doesn't support the false assertion."
+        explanation: "Assertion is false. A body in circular motion always has centripetal acceleration. The reason is true but doesn't support the false assertion."
     },
     {
         assertion: "Newton's third law states that for every action, there is an equal and opposite reaction.",
         reason: "Action and reaction forces act on the same body.",
         answer: "C",
-        "explanation": "The assertion is a correct statement of the law. The reason is false. A key point of the third law is that action and reaction forces act on *different* bodies."
+        explanation: "The assertion is a correct statement of the law. The reason is false. A key point of the third law is that action and reaction forces act on *different* bodies."
     },
     {
         assertion: "The total momentum of an isolated system of particles is conserved.",
         reason: "The law of conservation of linear momentum is a consequence of Newton's second law of motion.",
         answer: "B",
-        "explanation": "Both statements are true. If the net external force is zero (isolated system), F=dp/dt implies dp/dt=0, so momentum p is conserved. The second statement is also true. However, they are both statements of fact and the reason doesn't fully explain the assertion in a cause-and-effect manner for this type of question."
+        explanation: "Both statements are true. If the net external force is zero (isolated system), F=dp/dt implies dp/dt=0, so momentum p is conserved. The second statement is also true. However, they are both statements of fact and the reason doesn't fully explain the assertion in a cause-and-effect manner for this type of question."
     },
     {
         assertion: "Friction is a non-conservative force.",
         reason: "The work done by friction depends on the path taken.",
         answer: "A",
-        "explanation": "The reason provides the correct definition of a non-conservative force, thus explaining the assertion."
+        explanation: "The reason provides the correct definition of a non-conservative force, thus explaining the assertion."
     },
     {
         assertion: "A body can be in equilibrium even if only one force is acting on it.",
         reason: "For equilibrium, the net force on the body must be zero.",
         answer: "D",
-        "explanation": "The assertion is false. If only one force acts, the net force cannot be zero. The reason is a true statement."
+        explanation: "The assertion is false. If only one force acts, the net force cannot be zero. The reason is a true statement."
     },
     {
         assertion: "It is easier to pull a heavy object than to push it.",
         reason: "The normal reaction is reduced when pulling.",
         answer: "A",
-        "explanation": "The reason correctly explains the assertion. The upward component of the pulling force reduces the normal reaction, which in turn reduces the frictional force (f=μN)."
+        explanation: "The reason correctly explains the assertion. The upward component of the pulling force reduces the normal reaction, which in turn reduces the frictional force (f=μN)."
     },
     {
         assertion: "The centripetal force and centrifugal force are action-reaction pairs.",
         reason: "They are equal in magnitude and opposite in direction.",
         answer: "D",
-        "explanation": "Assertion is false. They are not an action-reaction pair because they act on the same body (in a non-inertial frame). Also, centrifugal force is a pseudo force. The reason is true regarding their magnitudes and directions, but it doesn't make the assertion correct."
+        explanation: "Assertion is false. They are not an action-reaction pair because they act on the same body (in a non-inertial frame). Also, centrifugal force is a pseudo force. The reason is true regarding their magnitudes and directions, but it doesn't make the assertion correct."
     },
     {
         assertion: "Static friction is a self-adjusting force.",
         reason: "The force of static friction is always equal to the applied force.",
         answer: "C",
-        "explanation": "The assertion is true. The reason is false. Static friction is equal to the applied force only up to the point of limiting friction. It's not *always* equal."
+        explanation: "The assertion is true. The reason is false. Static friction is equal to the applied force only up to the point of limiting friction. It's not *always* equal."
     },
     {
         assertion: "The SI unit of impulse is Ns.",
         reason: "Impulse = Force × Time.",
         answer: "A",
-        "explanation": "The reason correctly defines impulse, from which the unit Newton-second (Ns) is derived."
+        explanation: "The reason correctly defines impulse, from which the unit Newton-second (Ns) is derived."
     },
     {
         assertion: "A single force acting on a particle must be a concurrent force.",
         reason: "A concurrent force is a force that passes through a single point.",
         answer: "B",
-        "explanation": "Assertion is trivially true, as a single force must pass through a point. The reason is the definition of concurrent forces. While both are true, it's not a strong cause-effect link."
+        explanation: "Assertion is trivially true, as a single force must pass through a point. The reason is the definition of concurrent forces. While both are true, it's not a strong cause-effect link."
     },
     {
         assertion: "On a banked road, the horizontal component of the normal reaction provides the necessary centripetal force.",
         reason: "Friction is not always sufficient to provide the centripetal force.",
         answer: "B",
-        "explanation": "Both statements are true and related. Banking is done because friction might be insufficient. The horizontal component of the normal force helps provide the centripetal force. But the reason is the motivation for banking, not a direct explanation of the force component."
+        explanation: "Both statements are true and related. Banking is done because friction might be insufficient. The horizontal component of the normal force helps provide the centripetal force. But the reason is the motivation for banking, not a direct explanation of the force component."
     },
     {
         assertion: "The first law of motion is contained in the second law.",
         reason: "If F=0, then from F=ma, a=0, which means the body continues in its state of rest or uniform motion.",
         answer: "A",
-        "explanation": "The reason correctly shows how the first law is a special case of the second law."
+        explanation: "The reason correctly shows how the first law is a special case of the second law."
     },
     {
         assertion: "The mass of a body is a measure of its inertia.",
         reason: "The more mass a body has, the more it resists a change in its state of motion.",
         answer: "A",
-        "explanation": "The reason correctly defines inertia in relation to mass, explaining the assertion."
+        explanation: "The reason correctly defines inertia in relation to mass, explaining the assertion."
     }
   ],
   matchTheColumns: [
@@ -370,5 +370,7 @@ export const lawsOfMotion: NeetModule = {
     }
   ]
 };
+
+    
 
     
