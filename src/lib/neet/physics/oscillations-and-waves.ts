@@ -42,157 +42,157 @@ export const oscillationsAndWaves: NeetModule = {
   ],
   mcqs: [
     {
-        question: "In Simple Harmonic Motion, the acceleration of the particle is directly proportional to the:",
-        options: ["Velocity", "Time period", "Displacement from the mean position", "Frequency"],
-        answer: "Displacement from the mean position",
-        explanation: "The defining condition for SHM is that the restoring force (and thus acceleration) is directly proportional to the displacement and directed opposite to it (a ∝ -x)."
+        "question": "In Simple Harmonic Motion, the acceleration of the particle is directly proportional to the:",
+        "options": ["Velocity", "Time period", "Displacement from the mean position", "Frequency"],
+        "answer": "Displacement from the mean position",
+        "explanation": "The defining condition for SHM is that the restoring force (and thus acceleration) is directly proportional to the displacement and directed opposite to it (a ∝ -x)."
     },
     {
-        question: "The time period of a simple pendulum depends on:",
-        options: ["Its mass", "Its length", "The amplitude of oscillation", "The material of the bob"],
-        answer: "Its length",
-        explanation: "The formula T = 2π√(L/g) shows that the time period depends on the length (L) and acceleration due to gravity (g), but not on the mass or amplitude (for small oscillations)."
+        "question": "The time period of a simple pendulum depends on:",
+        "options": ["Its mass", "Its length", "The amplitude of oscillation", "The material of the bob"],
+        "answer": "Its length",
+        "explanation": "The formula T = 2π√(L/g) shows that the time period depends on the length (L) and acceleration due to gravity (g), but not on the mass or amplitude (for small oscillations)."
     },
     {
-        question: "Sound waves in air are:",
-        options: ["Transverse", "Longitudinal", "Electromagnetic", "Polarized"],
-        answer: "Longitudinal",
-        explanation: "Sound waves are longitudinal, meaning the particles of the medium (air) vibrate parallel to the direction of wave propagation."
+        "question": "Sound waves in air are:",
+        "options": ["Transverse", "Longitudinal", "Electromagnetic", "Polarized"],
+        "answer": "Longitudinal",
+        "explanation": "Sound waves are longitudinal, meaning the particles of the medium (air) vibrate parallel to the direction of wave propagation."
     },
     {
-        question: "The phenomenon of beats is produced by the superposition of two waves with:",
-        options: ["Slightly different amplitudes", "Slightly different frequencies", "A phase difference of π", "The same frequency"],
-        answer: "Slightly different frequencies",
-        explanation: "Beats are the periodic variation in intensity at a given point due to the superposition of two sound waves having slightly different frequencies."
+        "question": "The phenomenon of beats is produced by the superposition of two waves with:",
+        "options": ["Slightly different amplitudes", "Slightly different frequencies", "A phase difference of π", "The same frequency"],
+        "answer": "Slightly different frequencies",
+        "explanation": "Beats are the periodic variation in intensity at a given point due to the superposition of two sound waves having slightly different frequencies."
     },
     {
-        question: "In a standing wave, the points of maximum displacement are called:",
-        options: ["Nodes", "Antinodes", "Crests", "Troughs"],
-        answer: "Antinodes",
-        explanation: "Antinodes are the points where the amplitude of oscillation is maximum."
+        "question": "In a standing wave, the points of maximum displacement are called:",
+        "options": ["Nodes", "Antinodes", "Crests", "Troughs"],
+        "answer": "Antinodes",
+        "explanation": "Antinodes are the points where the amplitude of oscillation is maximum."
     },
     {
-        question: "A closed organ pipe produces:",
-        options: ["Only odd harmonics", "Only even harmonics", "All harmonics", "No harmonics"],
-        answer: "Only odd harmonics",
-        explanation: "Due to the boundary conditions (node at the closed end, antinode at the open end), only odd multiples of the fundamental frequency are possible."
+        "question": "A closed organ pipe produces:",
+        "options": ["Only odd harmonics", "Only even harmonics", "All harmonics", "No harmonics"],
+        "answer": "Only odd harmonics",
+        "explanation": "Due to the boundary conditions (node at the closed end, antinode at the open end), only odd multiples of the fundamental frequency are possible."
     },
     {
-        question: "The Doppler effect is applicable for:",
-        options: ["Sound waves only", "Light waves only", "Both sound and light waves", "Neither sound nor light waves"],
-        answer: "Both sound and light waves",
-        explanation: "The Doppler effect is a general phenomenon observed for all types of waves when there is relative motion between the source and the observer."
+        "question": "The Doppler effect is applicable for:",
+        "options": ["Sound waves only", "Light waves only", "Both sound and light waves", "Neither sound nor light waves"],
+        "answer": "Both sound and light waves",
+        "explanation": "The Doppler effect is a general phenomenon observed for all types of waves when there is relative motion between the source and the observer."
     },
     {
-        question: "The total energy of a particle executing SHM is proportional to:",
-        options: ["The amplitude", "The square of the amplitude", "The frequency", "The velocity"],
-        answer: "The square of the amplitude",
-        explanation: "The total energy in SHM is E = ½kA², so it is proportional to the square of the amplitude."
+        "question": "The total energy of a particle executing SHM is proportional to:",
+        "options": ["The amplitude", "The square of the amplitude", "The frequency", "The velocity"],
+        "answer": "The square of the amplitude",
+        "explanation": "The total energy in SHM is E = ½kA², so it is proportional to the square of the amplitude."
     },
     {
-        question: "The relation between wave velocity (v), frequency (ν), and wavelength (λ) is:",
-        options: ["v = ν/λ", "v = λ/ν", "v = νλ", "v = ν²λ"],
-        answer: "v = νλ",
-        explanation: "Wave velocity is the product of its frequency and wavelength."
+        "question": "The relation between wave velocity (v), frequency (ν), and wavelength (λ) is:",
+        "options": ["v = ν/λ", "v = λ/ν", "v = νλ", "v = ν²λ"],
+        "answer": "v = νλ",
+        "explanation": "Wave velocity is the product of its frequency and wavelength."
     },
     {
-        question: "When a wave is reflected from a rigid boundary, the phase change is:",
-        options: ["0", "π/4", "π/2", "π"],
-        answer: "π",
-        explanation: "On reflection from a denser (rigid) medium, a wave undergoes a phase reversal of π radians (180°)."
+        "question": "When a wave is reflected from a rigid boundary, the phase change is:",
+        "options": ["0", "π/4", "π/2", "π"],
+        "answer": "π",
+        "explanation": "On reflection from a denser (rigid) medium, a wave undergoes a phase reversal of π radians (180°)."
     },
     {
-        question: "The equation of a simple harmonic motion is given by y = 10 sin(20t + π/3). The initial phase is:",
-        options: ["20t", "π/3", "10", "20"],
-        answer: "π/3",
-        explanation: "The general equation is y = A sin(ωt + φ), where φ is the initial phase. Comparing, φ = π/3."
+        "question": "The equation of a simple harmonic motion is given by y = 10 sin(20t + π/3). The initial phase is:",
+        "options": ["20t", "π/3", "10", "20"],
+        "answer": "π/3",
+        "explanation": "The general equation is y = A sin(ωt + φ), where φ is the initial phase. Comparing, φ = π/3."
     },
     {
-        question: "Two tuning forks produce 5 beats per second. If the frequency of one is 256 Hz, the frequency of the other could be:",
-        options: ["251 Hz", "266 Hz", "250 Hz", "260 Hz"],
-        answer: "251 Hz",
-        explanation: "Beat frequency = |ν₁ - ν₂|. So, 5 = |256 - ν₂|. This gives two possibilities: ν₂ = 256 - 5 = 251 Hz or ν₂ = 256 + 5 = 261 Hz. Of the options, 251 Hz is present."
+        "question": "Two tuning forks produce 5 beats per second. If the frequency of one is 256 Hz, the frequency of the other could be:",
+        "options": ["251 Hz", "266 Hz", "250 Hz", "260 Hz"],
+        "answer": "251 Hz",
+        "explanation": "Beat frequency = |ν₁ - ν₂|. So, 5 = |256 - ν₂|. This gives two possibilities: ν₂ = 256 - 5 = 251 Hz or ν₂ = 256 + 5 = 261 Hz. Of the options, 251 Hz is present."
     },
     {
-        question: "A simple pendulum is taken to the moon. Its time period will:",
-        options: ["Decrease", "Increase", "Remain the same", "Become zero"],
-        answer: "Increase",
-        explanation: "The acceleration due to gravity on the moon is less than on Earth. Since T = 2π√(L/g), a smaller g results in a larger time period T."
+        "question": "A simple pendulum is taken to the moon. Its time period will:",
+        "options": ["Decrease", "Increase", "Remain the same", "Become zero"],
+        "answer": "Increase",
+        "explanation": "The acceleration due to gravity on the moon is less than on Earth. Since T = 2π√(L/g), a smaller g results in a larger time period T."
     },
     {
-        question: "The distance between a node and the next antinode in a standing wave is:",
-        options: ["λ", "λ/2", "λ/4", "2λ"],
-        answer: "λ/4",
-        explanation: "The distance between two consecutive nodes (or antinodes) is λ/2. The distance between a node and an adjacent antinode is half of that, i.e., λ/4."
+        "question": "The distance between a node and the next antinode in a standing wave is:",
+        "options": ["λ", "λ/2", "λ/4", "2λ"],
+        "answer": "λ/4",
+        "explanation": "The distance between two consecutive nodes (or antinodes) is λ/2. The distance between a node and an adjacent antinode is half of that, i.e., λ/4."
     },
     {
-        question: "The speed of sound is maximum in:",
-        options: ["Gases", "Liquids", "Solids", "Vacuum"],
-        answer: "Solids",
-        explanation: "The speed of sound depends on the elasticity and density of the medium. It is generally fastest in solids, slower in liquids, and slowest in gases."
+        "question": "The speed of sound is maximum in:",
+        "options": ["Gases", "Liquids", "Solids", "Vacuum"],
+        "answer": "Solids",
+        "explanation": "The speed of sound depends on the elasticity and density of the medium. It is generally fastest in solids, slower in liquids, and slowest in gases."
     },
     {
-        question: "Which of the following is not an example of SHM?",
-        options: ["Oscillations of a simple pendulum", "Motion of the Earth around the Sun", "Oscillations of a loaded spring", "Vibrations of a tuning fork"],
-        answer: "Motion of the Earth around the Sun",
-        explanation: "The motion of the Earth is periodic, but it is not oscillatory (to and fro about a mean position)."
+        "question": "Which of the following is not an example of SHM?",
+        "options": ["Oscillations of a simple pendulum", "Motion of the Earth around the Sun", "Oscillations of a loaded spring", "Vibrations of a tuning fork"],
+        "answer": "Motion of the Earth around the Sun",
+        "explanation": "The motion of the Earth is periodic, but it is not oscillatory (to and fro about a mean position)."
     },
     {
-        question: "The phase difference between displacement and velocity in SHM is:",
-        options: ["0", "π/2", "π", "π/4"],
-        answer: "π/2",
-        explanation: "If displacement y = Asin(ωt), then velocity v = dy/dt = Aωcos(ωt) = Aωsin(ωt + π/2). The phase difference is π/2, with velocity leading the displacement."
+        "question": "The phase difference between displacement and velocity in SHM is:",
+        "options": ["0", "π/2", "π", "π/4"],
+        "answer": "π/2",
+        "explanation": "If displacement y = Asin(ωt), then velocity v = dy/dt = Aωcos(ωt) = Aωsin(ωt + π/2). The phase difference is π/2, with velocity leading the displacement."
     },
     {
-        question: "The pitch of a sound depends on its:",
-        options: ["Amplitude", "Frequency", "Wavelength", "Speed"],
-        answer: "Frequency",
-        explanation: "Pitch is the subjective perception of frequency. A higher frequency corresponds to a higher pitch."
+        "question": "The pitch of a sound depends on its:",
+        "options": ["Amplitude", "Frequency", "Wavelength", "Speed"],
+        "answer": "Frequency",
+        "explanation": "Pitch is the subjective perception of frequency. A higher frequency corresponds to a higher pitch."
     },
     {
-        question: "An open organ pipe has a fundamental frequency ν. The fundamental frequency of a closed organ pipe of the same length will be:",
-        options: ["ν/2", "ν", "2ν", "ν/4"],
-        answer: "ν/2",
-        explanation: "For an open pipe, ν_open = v/2L. For a closed pipe, ν_closed = v/4L. Therefore, ν_closed = (1/2) * (v/2L) = ν_open / 2."
+        "question": "An open organ pipe has a fundamental frequency ν. The fundamental frequency of a closed organ pipe of the same length will be:",
+        "options": ["ν/2", "ν", "2ν", "ν/4"],
+        "answer": "ν/2",
+        "explanation": "For an open pipe, ν_open = v/2L. For a closed pipe, ν_closed = v/4L. Therefore, ν_closed = (1/2) * (v/2L) = ν_open / 2."
     },
     {
-        question: "The source of a sound wave moves towards a stationary listener. The apparent frequency will:",
-        options: ["Increase", "Decrease", "Remain the same", "Become zero"],
-        answer: "Increase",
-        explanation: "This is a direct application of the Doppler effect. When the source moves towards the listener, the waves are compressed, leading to a higher perceived frequency."
+        "question": "The source of a sound wave moves towards a stationary listener. The apparent frequency will:",
+        "options": ["Increase", "Decrease", "Remain the same", "Become zero"],
+        "answer": "Increase",
+        "explanation": "This is a direct application of the Doppler effect. When the source moves towards the listener, the waves are compressed, leading to a higher perceived frequency."
     },
     {
-        question: "The energy of a particle in SHM is maximum at:",
-        options: ["Mean position", "Extreme position", "Midway between mean and extreme", "All positions"],
-        answer: "All positions",
-        explanation: "The total mechanical energy of a particle in SHM is conserved and remains constant at all points, although the ratio of kinetic to potential energy changes."
+        "question": "The energy of a particle in SHM is maximum at:",
+        "options": ["Mean position", "Extreme position", "Midway between mean and extreme", "All positions"],
+        "answer": "All positions",
+        "explanation": "The total mechanical energy of a particle in SHM is conserved and remains constant at all points, although the ratio of kinetic to potential energy changes."
     },
     {
-        question: "What happens to the time period of a simple pendulum if its length is made four times?",
-        options: ["Becomes half", "Doubles", "Becomes four times", "Remains same"],
-        answer: "Doubles",
-        explanation: "T = 2π√(L/g). If L becomes 4L, the new period T' = 2π√(4L/g) = 2 * (2π√(L/g)) = 2T. It doubles."
+        "question": "What happens to the time period of a simple pendulum if its length is made four times?",
+        "options": ["Becomes half", "Doubles", "Becomes four times", "Remains same"],
+        "answer": "Doubles",
+        "explanation": "T = 2π√(L/g). If L becomes 4L, the new period T' = 2π√(4L/g) = 2 * (2π√(L/g)) = 2T. It doubles."
     },
     {
-        question: "The intensity of a wave is proportional to:",
-        options: ["The frequency", "The wavelength", "The square of the amplitude", "The speed"],
-        answer: "The square of the amplitude",
-        explanation: "The intensity (energy per unit area per unit time) of a wave is proportional to the square of its amplitude (I ∝ A²)."
+        "question": "The intensity of a wave is proportional to:",
+        "options": ["The frequency", "The wavelength", "The square of the amplitude", "The speed"],
+        "answer": "The square of the amplitude",
+        "explanation": "The intensity (energy per unit area per unit time) of a wave is proportional to the square of its amplitude (I ∝ A²)."
     },
     {
-        question: "The phenomenon that cannot be explained by the wave nature of sound is:",
-        options: ["Reflection", "Refraction", "Interference", "Photoelectric effect"],
-        answer: "Photoelectric effect",
-        explanation: "The photoelectric effect is a quantum phenomenon related to the particle nature of light, not sound."
+        "question": "The phenomenon that cannot be explained by the wave nature of sound is:",
+        "options": ["Reflection", "Refraction", "Interference", "Photoelectric effect"],
+        "answer": "Photoelectric effect",
+        "explanation": "The photoelectric effect is a quantum phenomenon related to the particle nature of light, not sound."
     },
     {
-        question: "In a damped oscillation, which of the following decreases?",
-        options: ["Time period", "Frequency", "Amplitude", "Wavelength"],
-        answer: "Amplitude",
-        explanation: "Damping is the loss of energy from an oscillating system, which results in a gradual decrease in the amplitude of the oscillations."
+        "question": "In a damped oscillation, which of the following decreases?",
+        "options": ["Time period", "Frequency", "Amplitude", "Wavelength"],
+        "answer": "Amplitude",
+        "explanation": "Damping is the loss of energy from an oscillating system, which results in a gradual decrease in the amplitude of the oscillations."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The time period of a simple pendulum depends on the mass of the bob.",
         "reason": "The restoring force on the bob is proportional to its mass.",
@@ -284,7 +284,7 @@ export const oscillationsAndWaves: NeetModule = {
         "explanation": "The reason correctly states the relationship ν ∝ √T, which explains the assertion."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) SHM", "b) Damped Oscillation", "c) Forced Oscillation", "d) Resonance"],
         "column2": ["i) Amplitude decreases with time", "ii) External periodic force", "iii) F = -kx", "iv) Frequency matching"],

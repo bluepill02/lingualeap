@@ -240,7 +240,7 @@ export const equilibrium: NeetModule = {
         "explanation": "The Henderson-Hasselbalch equation, pH = pKa + log([Salt]/[Acid]), is used to calculate the pH of a buffer solution."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "A catalyst does not affect the position of equilibrium.",
         "reason": "A catalyst increases the rate of the forward and reverse reactions to the same extent.",
@@ -332,7 +332,7 @@ export const equilibrium: NeetModule = {
         "explanation": "The Henderson-Hasselbalch equation is pH = pKa + log([Salt]/[Acid]). Upon dilution, both [Salt] and [Acid] decrease by the same factor, so their ratio remains constant, and the pH does not change. The reason explains the assertion."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": [ "a) Arrhenius Acid", "b) Brønsted-Lowry Base", "c) Lewis Acid", "d) Conjugate Acid" ],
         "column2": [ "i) Proton acceptor", "ii) H⁺ donor", "iii) Electron pair acceptor", "iv) Gives H⁺ in water" ],
@@ -411,7 +411,3 @@ export const equilibrium: NeetModule = {
 ]
 
 };
-
-
-
-    

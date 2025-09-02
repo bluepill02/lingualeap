@@ -200,7 +200,7 @@ export const lawsOfMotion: NeetModule = {
         "explanation": "Lami's theorem relates the magnitudes of three coplanar, concurrent, and non-collinear forces that keep an object in equilibrium."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "When a person walks on a rough surface, the frictional force exerted by the surface on the person is in the forward direction.",
         "reason": "The frictional force acts opposite to the direction of motion of an object.",

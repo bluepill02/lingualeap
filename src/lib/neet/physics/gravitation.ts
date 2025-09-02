@@ -48,151 +48,151 @@ export const gravitation: NeetModule = {
   ],
   mcqs: [
     {
-        question: "Kepler's second law regarding constancy of areal velocity of a planet is a consequence of the law of conservation of:",
-        options: ["Energy", "Angular momentum", "Linear momentum", "Mass"],
-        answer: "Angular momentum",
-        explanation: "The law of areas is equivalent to the statement that the angular momentum of the planet about the Sun is constant."
+        "question": "Kepler's second law regarding constancy of areal velocity of a planet is a consequence of the law of conservation of:",
+        "options": ["Energy", "Angular momentum", "Linear momentum", "Mass"],
+        "answer": "Angular momentum",
+        "explanation": "The law of areas is equivalent to the statement that the angular momentum of the planet about the Sun is constant."
     },
     {
-        question: "The value of acceleration due to gravity 'g' is maximum at the:",
-        options: ["Equator", "Poles", "Center of the Earth", "Tropic of Capricorn"],
-        answer: "Poles",
-        explanation: "The Earth is slightly flattened at the poles, so the polar radius is less than the equatorial radius. Since g ∝ 1/R², 'g' is maximum at the poles."
+        "question": "The value of acceleration due to gravity 'g' is maximum at the:",
+        "options": ["Equator", "Poles", "Center of the Earth", "Tropic of Capricorn"],
+        "answer": "Poles",
+        "explanation": "The Earth is slightly flattened at the poles, so the polar radius is less than the equatorial radius. Since g ∝ 1/R², 'g' is maximum at the poles."
     },
     {
-        question: "The escape velocity from the Earth's surface is approximately:",
-        options: ["7 km/s", "11.2 km/s", "9.8 km/s", "1.12 km/s"],
-        answer: "11.2 km/s",
-        explanation: "The escape velocity from the Earth is calculated to be approximately 11.2 km/s."
+        "question": "The escape velocity from the Earth's surface is approximately:",
+        "options": ["7 km/s", "11.2 km/s", "9.8 km/s", "1.12 km/s"],
+        "answer": "11.2 km/s",
+        "explanation": "The escape velocity from the Earth is calculated to be approximately 11.2 km/s."
     },
     {
-        question: "A geostationary satellite revolves around the Earth in an orbit that is:",
-        options: ["Polar", "Equatorial", "Inclined at 45°", "Any orbit"],
-        answer: "Equatorial",
-        explanation: "A geostationary satellite must be in an equatorial orbit to remain stationary above a single point on Earth."
+        "question": "A geostationary satellite revolves around the Earth in an orbit that is:",
+        "options": ["Polar", "Equatorial", "Inclined at 45°", "Any orbit"],
+        "answer": "Equatorial",
+        "explanation": "A geostationary satellite must be in an equatorial orbit to remain stationary above a single point on Earth."
     },
     {
-        question: "If the distance between two masses is doubled, the gravitational force between them becomes:",
-        options: ["Double", "Half", "Four times", "One-fourth"],
-        answer: "One-fourth",
-        explanation: "Gravitational force F ∝ 1/r². If the distance r is doubled, the force becomes 1/(2r)² = 1/4r², i.e., one-fourth."
+        "question": "If the distance between two masses is doubled, the gravitational force between them becomes:",
+        "options": ["Double", "Half", "Four times", "One-fourth"],
+        "answer": "One-fourth",
+        "explanation": "Gravitational force F ∝ 1/r². If the distance r is doubled, the force becomes 1/(2r)² = 1/4r², i.e., one-fourth."
     },
     {
-        question: "The gravitational potential energy of a body at the surface of the Earth is:",
-        options: ["Zero", "Positive", "Negative", "Infinite"],
-        answer: "Negative",
-        explanation: "The gravitational potential energy is taken to be zero at infinity. Since gravity is an attractive force, work is done by the field to bring a mass from infinity, so the potential energy is negative."
+        "question": "The gravitational potential energy of a body at the surface of the Earth is:",
+        "options": ["Zero", "Positive", "Negative", "Infinite"],
+        "answer": "Negative",
+        "explanation": "The gravitational potential energy is taken to be zero at infinity. Since gravity is an attractive force, work is done by the field to bring a mass from infinity, so the potential energy is negative."
     },
     {
-        question: "The time period of a simple pendulum inside a satellite orbiting the Earth is:",
-        options: ["Zero", "Infinite", "Same as on Earth", "Less than on Earth"],
-        answer: "Infinite",
-        explanation: "Inside an orbiting satellite, the effective gravity is zero (state of weightlessness). Since T = 2π√(L/g), if g=0, T becomes infinite."
+        "question": "The time period of a simple pendulum inside a satellite orbiting the Earth is:",
+        "options": ["Zero", "Infinite", "Same as on Earth", "Less than on Earth"],
+        "answer": "Infinite",
+        "explanation": "Inside an orbiting satellite, the effective gravity is zero (state of weightlessness). Since T = 2π√(L/g), if g=0, T becomes infinite."
     },
     {
-        question: "The orbital velocity of a satellite very close to the Earth's surface is:",
-        options: ["√(2gR)", "√(gR)", "√(3gR/2)", "gR"],
-        answer: "√(gR)",
-        explanation: "Orbital velocity vₒ = √(GM/R). Since g = GM/R², GM = gR². So, vₒ = √(gR²/R) = √(gR)."
+        "question": "The orbital velocity of a satellite very close to the Earth's surface is:",
+        "options": ["√(2gR)", "√(gR)", "√(3gR/2)", "gR"],
+        "answer": "√(gR)",
+        "explanation": "Orbital velocity vₒ = √(GM/R). Since g = GM/R², GM = gR². So, vₒ = √(gR²/R) = √(gR)."
     },
     {
-        question: "According to Kepler's third law, if a planet's orbital radius is increased by 4 times, its time period will increase by:",
-        options: ["4 times", "8 times", "16 times", "2 times"],
-        answer: "8 times",
-        explanation: "T² ∝ R³. So T ∝ R³/². If R becomes 4R, T' ∝ (4R)³/² = 4³/² * R³/² = 8 * R³/². The time period increases by 8 times."
+        "question": "According to Kepler's third law, if a planet's orbital radius is increased by 4 times, its time period will increase by:",
+        "options": ["4 times", "8 times", "16 times", "2 times"],
+        "answer": "8 times",
+        "explanation": "T² ∝ R³. So T ∝ R³/². If R becomes 4R, T' ∝ (4R)³/² = 4³/² * R³/² = 8 * R³/². The time period increases by 8 times."
     },
     {
-        question: "The value of 'g' at the center of the Earth is:",
-        options: ["Maximum", "Minimum", "Zero", "Same as at the surface"],
-        answer: "Zero",
-        explanation: "The value of g at a depth d is g' = g(1 - d/R). At the center, d=R, so g' = g(1 - R/R) = 0."
+        "question": "The value of 'g' at the center of the Earth is:",
+        "options": ["Maximum", "Minimum", "Zero", "Same as at the surface"],
+        "answer": "Zero",
+        "explanation": "The value of g at a depth d is g' = g(1 - d/R). At the center, d=R, so g' = g(1 - R/R) = 0."
     },
     {
-        question: "Which of the following statements about the gravitational constant G is true?",
-        options: ["It has no units", "It has no dimensions", "It depends on the medium between the masses", "It is a universal constant"],
-        answer: "It is a universal constant",
-        explanation: "G is called the universal gravitational constant because its value is the same throughout the universe and is independent of the medium."
+        "question": "Which of the following statements about the gravitational constant G is true?",
+        "options": ["It has no units", "It has no dimensions", "It depends on the medium between the masses", "It is a universal constant"],
+        "answer": "It is a universal constant",
+        "explanation": "G is called the universal gravitational constant because its value is the same throughout the universe and is independent of the medium."
     },
     {
-        question: "If the Earth stops rotating, the value of 'g' at the equator will:",
-        options: ["Increase", "Decrease", "Remain the same", "Become zero"],
-        answer: "Increase",
-        explanation: "The rotation of the Earth reduces the effective value of 'g' at the equator (g' = g - Rω²). If rotation stops (ω=0), this reduction term becomes zero, and the value of 'g' increases."
+        "question": "If the Earth stops rotating, the value of 'g' at the equator will:",
+        "options": ["Increase", "Decrease", "Remain the same", "Become zero"],
+        "answer": "Increase",
+        "explanation": "The rotation of the Earth reduces the effective value of 'g' at the equator (g' = g - Rω²). If rotation stops (ω=0), this reduction term becomes zero, and the value of 'g' increases."
     },
     {
-        question: "The escape velocity of a body depends on its mass as:",
-        options: ["m⁰", "m¹", "m²", "m⁻¹"],
-        answer: "m⁰",
-        explanation: "The formula for escape velocity is vₑ = √(2GM/R). It depends on the mass (M) and radius (R) of the planet, but not on the mass (m) of the body being projected."
+        "question": "The escape velocity of a body depends on its mass as:",
+        "options": ["m⁰", "m¹", "m²", "m⁻¹"],
+        "answer": "m⁰",
+        "explanation": "The formula for escape velocity is vₑ = √(2GM/R). It depends on the mass (M) and radius (R) of the planet, but not on the mass (m) of the body being projected."
     },
     {
-        question: "Weightlessness experienced while orbiting the Earth in a spaceship is the result of:",
-        options: ["Zero gravity", "Zero acceleration", "Free fall", "High speed"],
-        answer: "Free fall",
-        explanation: "The spaceship and everything inside it are in a constant state of free fall around the Earth, which creates the sensation of weightlessness."
+        "question": "Weightlessness experienced while orbiting the Earth in a spaceship is the result of:",
+        "options": ["Zero gravity", "Zero acceleration", "Free fall", "High speed"],
+        "answer": "Free fall",
+        "explanation": "The spaceship and everything inside it are in a constant state of free fall around the Earth, which creates the sensation of weightlessness."
     },
     {
-        question: "Two spheres of masses m and M are situated in air and the gravitational force between them is F. The space around the masses is now filled with a liquid of specific gravity 3. The gravitational force will now be:",
-        options: ["F", "3F", "F/3", "F/9"],
-        answer: "F",
-        explanation: "The gravitational force does not depend on the medium between the masses."
+        "question": "Two spheres of masses m and M are situated in air and the gravitational force between them is F. The space around the masses is now filled with a liquid of specific gravity 3. The gravitational force will now be:",
+        "options": ["F", "3F", "F/3", "F/9"],
+        "answer": "F",
+        "explanation": "The gravitational force does not depend on the medium between the masses."
     },
     {
-        question: "The tidal waves in the sea are primarily due to:",
-        options: ["The gravitational effect of the Moon on the Earth", "The gravitational effect of the Sun on the Earth", "The gravitational effect of Venus on the Earth", "The rotation of the Earth"],
-        answer: "The gravitational effect of the Moon on the Earth",
-        explanation: "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
+        "question": "The tidal waves in the sea are primarily due to:",
+        "options": ["The gravitational effect of the Moon on the Earth", "The gravitational effect of the Sun on the Earth", "The gravitational effect of Venus on the Earth", "The rotation of the Earth"],
+        "answer": "The gravitational effect of the Moon on the Earth",
+        "explanation": "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
     },
     {
-        question: "If the radius of the Earth were to shrink by 1% while its mass remains the same, the acceleration due to gravity on the Earth's surface would:",
-        options: ["Decrease by 2%", "Increase by 2%", "Decrease by 1%", "Increase by 1%"],
-        answer: "Increase by 2%",
-        explanation: "g = GM/R². Taking logs and differentiating, Δg/g = -2(ΔR/R). So, % change in g = -2 * (% change in R) = -2 * (-1%) = +2%."
+        "question": "If the radius of the Earth were to shrink by 1% while its mass remains the same, the acceleration due to gravity on the Earth's surface would:",
+        "options": ["Decrease by 2%", "Increase by 2%", "Decrease by 1%", "Increase by 1%"],
+        "answer": "Increase by 2%",
+        "explanation": "g = GM/R². Taking logs and differentiating, Δg/g = -2(ΔR/R). So, % change in g = -2 * (% change in R) = -2 * (-1%) = +2%."
     },
     {
-        question: "The potential energy of a satellite of mass m and revolving at a height h above the surface of the earth is:",
-        options: ["-GMm/(R+h)", "-GMm/R", "GMm/(R+h)", "GMm/R"],
-        answer: "-GMm/(R+h)",
-        explanation: "The gravitational potential energy U = -GMm/r, where r is the distance from the center of the Earth, which is R+h."
+        "question": "The potential energy of a satellite of mass m and revolving at a height h above the surface of the earth is:",
+        "options": ["-GMm/(R+h)", "-GMm/R", "GMm/(R+h)", "GMm/R"],
+        "answer": "-GMm/(R+h)",
+        "explanation": "The gravitational potential energy U = -GMm/r, where r is the distance from the center of the Earth, which is R+h."
     },
     {
-        question: "The total energy of a satellite in orbit is:",
-        options: ["Positive", "Zero", "Negative", "Infinite"],
-        answer: "Negative",
-        explanation: "A negative total energy indicates a bound system, meaning the satellite is gravitationally bound to the Earth and cannot escape."
+        "question": "The total energy of a satellite in orbit is:",
+        "options": ["Positive", "Zero", "Negative", "Infinite"],
+        "answer": "Negative",
+        "explanation": "A negative total energy indicates a bound system, meaning the satellite is gravitationally bound to the Earth and cannot escape."
     },
     {
-        question: "The dimensional formula for the universal gravitational constant G is:",
-        options: ["[M⁻¹L³T⁻²]", "[MLT⁻²]", "[ML²T⁻²]", "[M⁻¹L²T⁻¹]"],
-        answer: "[M⁻¹L³T⁻²]",
-        explanation: "From F = Gm₁m₂/r², G = Fr²/m₁m₂. Dimensions = [MLT⁻²][L²]/[M²] = [M⁻¹L³T⁻²]."
+        "question": "The dimensional formula for the universal gravitational constant G is:",
+        "options": ["[M⁻¹L³T⁻²]", "[MLT⁻²]", "[ML²T⁻²]", "[M⁻¹L²T⁻¹]"],
+        "answer": "[M⁻¹L³T⁻²]",
+        "explanation": "From F = Gm₁m₂/r², G = Fr²/m₁m₂. Dimensions = [MLT⁻²][L²]/[M²] = [M⁻¹L³T⁻²]."
     },
     {
-        question: "A body weighs 72 N on the surface of the Earth. What is the gravitational force on it at a height equal to half the radius of the Earth?",
-        options: ["32 N", "36 N", "48 N", "72 N"],
-        answer: "32 N",
-        explanation: "Weight on surface w = mg = 72 N. At height h, g' = GM/(R+h)². Here h=R/2, so r = R+R/2 = 3R/2. g' = GM/(3R/2)² = (4/9)GM/R² = (4/9)g. New weight w' = mg' = m(4/9)g = (4/9)*72 = 32 N."
+        "question": "A body weighs 72 N on the surface of the Earth. What is the gravitational force on it at a height equal to half the radius of the Earth?",
+        "options": ["32 N", "36 N", "48 N", "72 N"],
+        "answer": "32 N",
+        "explanation": "Weight on surface w = mg = 72 N. At height h, g' = GM/(R+h)². Here h=R/2, so r = R+R/2 = 3R/2. g' = GM/(3R/2)² = (4/9)GM/R² = (4/9)g. New weight w' = mg' = m(4/9)g = (4/9)*72 = 32 N."
     },
     {
-        question: "The period of a satellite in a circular orbit of radius R is T. The period of another satellite in a circular orbit of radius 4R is:",
-        options: ["4T", "8T", "T/4", "T/8"],
-        answer: "8T",
-        explanation: "From Kepler's third law, T² ∝ R³. (T₂/T₁)² = (R₂/R₁)³. (T₂/T)² = (4R/R)³ = 64. T₂/T = √64 = 8. So T₂ = 8T."
+        "question": "The period of a satellite in a circular orbit of radius R is T. The period of another satellite in a circular orbit of radius 4R is:",
+        "options": ["4T", "8T", "T/4", "T/8"],
+        "answer": "8T",
+        "explanation": "From Kepler's third law, T² ∝ R³. (T₂/T₁)² = (R₂/R₁)³. (T₂/T)² = (4R/R)³ = 64. T₂/T = √64 = 8. So T₂ = 8T."
     },
     {
-        question: "Which of the following is the evidence to show that there must be a force acting on Earth and directed towards the Sun?",
-        options: ["Deviation of the falling bodies towards east", "Revolution of the Earth around the Sun", "Phenomenon of day and night", "Apparent motion of Sun around the Earth"],
-        answer: "Revolution of the Earth around the Sun",
-        explanation: "For the Earth to follow a curved path (orbit) around the Sun, there must be a continuous centripetal force directed towards the Sun."
+        "question": "Which of the following is the evidence to show that there must be a force acting on Earth and directed towards the Sun?",
+        "options": ["Deviation of the falling bodies towards east", "Revolution of the Earth around the Sun", "Phenomenon of day and night", "Apparent motion of Sun around the Earth"],
+        "answer": "Revolution of the Earth around the Sun",
+        "explanation": "For the Earth to follow a curved path (orbit) around the Sun, there must be a continuous centripetal force directed towards the Sun."
     },
     {
-        question: "What is the work done in moving a satellite of mass m from one circular orbit of radius 2R to another of radius 3R around the Earth?",
-        options: ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/12R"],
-        answer": "GMm/12R",
+        "question": "What is the work done in moving a satellite of mass m from one circular orbit of radius 2R to another of radius 3R around the Earth?",
+        "options": ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/12R"],
+        "answer": "GMm/12R",
         "explanation": "Work done is the change in total energy. Total energy E = -GMm/(2r). W = E_f - E_i = (-GMm/(2*3R)) - (-GMm/(2*2R)) = -GMm/6R + GMm/4R = GMm(1/4R - 1/6R) = GMm((3-2)/12R) = GMm/12R."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The value of acceleration due to gravity is maximum at the poles.",
         "reason": "The Earth is flattened at the poles and bulging at the equator.",
@@ -284,7 +284,7 @@ export const gravitation: NeetModule = {
         "explanation": "The reason provides a valid comparison that demonstrates the weakness of the gravitational force relative to the electrostatic force, thus explaining the assertion."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) Kepler's First Law", "b) Kepler's Second Law", "c) Kepler's Third Law", "d) Newton's Law of Gravitation"],
         "column2": ["i) T² ∝ r³", "ii) Law of orbits (elliptical)", "iii) F = Gm₁m₂/r²", "iv) Law of areas (conservation of L)"],

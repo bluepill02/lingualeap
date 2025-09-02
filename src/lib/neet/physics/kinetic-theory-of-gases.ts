@@ -55,75 +55,75 @@ export const kineticTheoryOfGases: NeetModule = {
   ],
   mcqs: [
     {
-        question: "According to the kinetic theory of gases, the pressure exerted by a gas is proportional to:",
-        options: ["The average speed of the molecules", "The root mean square speed of the molecules", "The square of the root mean square speed of the molecules", "The average kinetic energy of the molecules"],
-        answer: "The square of the root mean square speed of the molecules",
-        explanation: "The pressure P = (1/3)ρv_rms², so it is proportional to the square of the RMS speed."
+        "question": "According to the kinetic theory of gases, the pressure exerted by a gas is proportional to:",
+        "options": ["The average speed of the molecules", "The root mean square speed of the molecules", "The square of the root mean square speed of the molecules", "The average kinetic energy of the molecules"],
+        "answer": "The square of the root mean square speed of the molecules",
+        "explanation": "The pressure P = (1/3)ρv_rms², so it is proportional to the square of the RMS speed."
     },
     {
-        question: "The absolute temperature of an ideal gas is directly proportional to:",
-        options: ["The potential energy of the molecules", "The total energy of the molecules", "The average kinetic energy of the molecules", "The rms speed of the molecules"],
-        answer: "The average kinetic energy of the molecules",
-        explanation: "The fundamental result of kinetic theory is that the average kinetic energy per molecule is (3/2)kT."
+        "question": "The absolute temperature of an ideal gas is directly proportional to:",
+        "options": ["The potential energy of the molecules", "The total energy of the molecules", "The average kinetic energy of the molecules", "The rms speed of the molecules"],
+        "answer": "The average kinetic energy of the molecules",
+        "explanation": "The fundamental result of kinetic theory is that the average kinetic energy per molecule is (3/2)kT."
     },
     {
-        question: "The value of the universal gas constant (R) is:",
-        options: ["8.314 J/mol·K", "1.38 x 10⁻²³ J/K", "6.022 x 10²³ /mol", "9.8 m/s²"],
-        answer: "8.314 J/mol·K",
-        explanation: "R is the universal gas constant, approximately 8.314 J/mol·K. k is the Boltzmann constant."
+        "question": "The value of the universal gas constant (R) is:",
+        "options": ["8.314 J/mol·K", "1.38 x 10⁻²³ J/K", "6.022 x 10²³ /mol", "9.8 m/s²"],
+        "answer": "8.314 J/mol·K",
+        "explanation": "R is the universal gas constant, approximately 8.314 J/mol·K. k is the Boltzmann constant."
     },
     {
-        question: "A diatomic gas like oxygen has how many degrees of freedom at moderate temperatures?",
-        options: ["3", "5", "6", "7"],
-        answer: "5",
-        explanation: "A diatomic molecule has 3 translational and 2 rotational degrees of freedom at moderate temperatures."
+        "question": "A diatomic gas like oxygen has how many degrees of freedom at moderate temperatures?",
+        "options": ["3", "5", "6", "7"],
+        "answer": "5",
+        "explanation": "A diatomic molecule has 3 translational and 2 rotational degrees of freedom at moderate temperatures."
     },
     {
-        question: "The ratio of specific heats (γ) for a monatomic gas is:",
-        options: ["1.67 (5/3)", "1.4 (7/5)", "1.33 (4/3)", "1.5"],
-        answer: "1.67 (5/3)",
-        explanation: "For a monatomic gas, f=3. γ = 1 + 2/f = 1 + 2/3 = 5/3 ≈ 1.67."
+        "question": "The ratio of specific heats (γ) for a monatomic gas is:",
+        "options": ["1.67 (5/3)", "1.4 (7/5)", "1.33 (4/3)", "1.5"],
+        "answer": "1.67 (5/3)",
+        "explanation": "For a monatomic gas, f=3. γ = 1 + 2/f = 1 + 2/3 = 5/3 ≈ 1.67."
     },
     {
-        question: "The root mean square speed of gas molecules is given by:",
-        options: ["√(2RT/M)", "√(3RT/M)", "√(RT/M)", "√(8RT/πM)"],
-        answer: "√(3RT/M)",
-        explanation: "This is the standard formula for RMS speed."
+        "question": "The root mean square speed of gas molecules is given by:",
+        "options": ["√(2RT/M)", "√(3RT/M)", "√(RT/M)", "√(8RT/πM)"],
+        "answer": "√(3RT/M)",
+        "explanation": "This is the standard formula for RMS speed."
     },
     {
-        question: "According to the law of equipartition of energy, the energy associated with each degree of freedom per molecule is:",
-        options: ["kT", "½kT", "3/2 kT", "RT"],
-        answer: "½kT",
-        explanation: "This is the fundamental statement of the law of equipartition of energy."
+        "question": "According to the law of equipartition of energy, the energy associated with each degree of freedom per molecule is:",
+        "options": ["kT", "½kT", "3/2 kT", "RT"],
+        "answer": "½kT",
+        "explanation": "This is the fundamental statement of the law of equipartition of energy."
     },
     {
-        question: "If the temperature of a gas is doubled, its RMS speed becomes:",
-        options: ["Doubled", "Halved", "√2 times", "1/√2 times"],
-        answer: "√2 times",
-        explanation: "v_rms ∝ √T. If T is doubled, v_rms will increase by a factor of √2."
+        "question": "If the temperature of a gas is doubled, its RMS speed becomes:",
+        "options": ["Doubled", "Halved", "√2 times", "1/√2 times"],
+        "answer": "√2 times",
+        "explanation": "v_rms ∝ √T. If T is doubled, v_rms will increase by a factor of √2."
     },
     {
-        question: "The ideal gas equation is:",
-        options: ["P/V = nRT", "PV = nRT", "PT = nRV", "V/T = nRP"],
-        answer: "PV = nRT",
-        explanation: "The ideal gas law combines Boyle's, Charles's, and Avogadro's laws into the equation PV = nRT."
+        "question": "The ideal gas equation is:",
+        "options": ["P/V = nRT", "PV = nRT", "PT = nRV", "V/T = nRP"],
+        "answer": "PV = nRT",
+        "explanation": "The ideal gas law combines Boyle's, Charles's, and Avogadro's laws into the equation PV = nRT."
     },
     {
-        question: "Which of the following is an assumption of the kinetic theory of gases?",
-        options: ["Molecules have considerable volume", "There are strong intermolecular forces", "Collisions are inelastic", "Collisions with the walls are perfectly elastic"],
-        answer: "Collisions with the walls are perfectly elastic",
-        explanation: "The kinetic theory assumes that there is no loss of kinetic energy during collisions."
+        "question": "Which of the following is an assumption of the kinetic theory of gases?",
+        "options": ["Molecules have considerable volume", "There are strong intermolecular forces", "Collisions are inelastic", "Collisions with the walls are perfectly elastic"],
+        "answer": "Collisions with the walls are perfectly elastic",
+        "explanation": "The kinetic theory assumes that there is no loss of kinetic energy during collisions."
     },
     {
-        question: "The internal energy of n moles of an ideal gas is given by:",
-        options: ["U = (3/2)nRT", "U = (5/2)nRT", "U = (f/2)nRT", "U = nRT"],
-        answer: "U = (f/2)nRT",
-        explanation: "The total internal energy depends on the number of degrees of freedom (f) of the gas molecules."
+        "question": "The internal energy of n moles of an ideal gas is given by:",
+        "options": ["U = (3/2)nRT", "U = (5/2)nRT", "U = (f/2)nRT", "U = nRT"],
+        "answer": "U = (f/2)nRT",
+        "explanation": "The total internal energy depends on the number of degrees of freedom (f) of the gas molecules."
     },
     {
-        question: "The relationship between molar specific heats is given by:",
-        options: ["C_p - C_v = R", "C_v - C_p = R", "C_p * C_v = R", "C_p / C_v = R"],
-        answer": "C_p - C_v = R",
+        "question": "The relationship between molar specific heats is given by:",
+        "options": ["C_p - C_v = R", "C_v - C_p = R", "C_p * C_v = R", "C_p / C_v = R"],
+        "answer": "C_p - C_v = R",
         "explanation": "This is known as Mayer's relation for an ideal gas."
     },
     {
@@ -205,7 +205,7 @@ export const kineticTheoryOfGases: NeetModule = {
         "explanation": "According to Charles's Law (V ∝ T in Kelvin), V = k(t+273.15) where t is in Celsius. This is a straight line that, when extrapolated, gives V=0 at t = -273.15°C."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The average kinetic energy of gas molecules is directly proportional to the absolute temperature.",
         "reason": "Temperature is a measure of the average kinetic energy of the molecules of the substance.",
@@ -297,7 +297,7 @@ export const kineticTheoryOfGases: NeetModule = {
         "explanation": "The reason correctly explains the assertion. R is called the universal gas constant because it is independent of the nature of the gas."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": [ "a) RMS speed", "b) Average speed", "c) Most probable speed", "d) Internal Energy" ],
         "column2": [ "i) √(2RT/M)", "ii) (f/2)nRT", "iii) √(3RT/M)", "iv) √(8RT/πM)" ],

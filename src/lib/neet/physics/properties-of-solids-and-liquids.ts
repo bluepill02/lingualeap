@@ -47,109 +47,109 @@ export const propertiesOfSolidsAndLiquids: NeetModule = {
   ],
   mcqs: [
     {
-        question: "According to Hooke's law of elasticity, within the elastic limit, stress is proportional to:",
-        options: ["Strain", "1/Strain", "Strain²", "1/Strain²"],
-        answer: "Strain",
-        explanation: "Hooke's Law states that stress ∝ strain."
+        "question": "According to Hooke's law of elasticity, within the elastic limit, stress is proportional to:",
+        "options": ["Strain", "1/Strain", "Strain²", "1/Strain²"],
+        "answer": "Strain",
+        "explanation": "Hooke's Law states that stress ∝ strain."
     },
     {
-        question: "The property of a fluid to oppose the relative motion between its layers is called:",
-        options: ["Surface tension", "Viscosity", "Elasticity", "Cohesion"],
-        answer: "Viscosity",
-        explanation: "Viscosity is the internal friction of a fluid."
+        "question": "The property of a fluid to oppose the relative motion between its layers is called:",
+        "options": ["Surface tension", "Viscosity", "Elasticity", "Cohesion"],
+        "answer": "Viscosity",
+        "explanation": "Viscosity is the internal friction of a fluid."
     },
     {
-        question: "Bernoulli's principle is based on the conservation of:",
-        options: ["Mass", "Momentum", "Energy", "Charge"],
-        answer: "Energy",
-        explanation: "Bernoulli's principle relates pressure, velocity, and height and is a statement of the conservation of energy for a flowing fluid."
+        "question": "Bernoulli's principle is based on the conservation of:",
+        "options": ["Mass", "Momentum", "Energy", "Charge"],
+        "answer": "Energy",
+        "explanation": "Bernoulli's principle relates pressure, velocity, and height and is a statement of the conservation of energy for a flowing fluid."
     },
     {
-        question: "The rise of liquid in a capillary tube is due to:",
-        options: ["Viscosity", "Gravity", "Surface tension", "Pressure"],
-        answer: "Surface tension",
-        explanation: "Capillarity is a phenomenon driven by surface tension and the forces of cohesion and adhesion."
+        "question": "The rise of liquid in a capillary tube is due to:",
+        "options": ["Viscosity", "Gravity", "Surface tension", "Pressure"],
+        "answer": "Surface tension",
+        "explanation": "Capillarity is a phenomenon driven by surface tension and the forces of cohesion and adhesion."
     },
     {
-        question: "Which of the following is the most elastic material?",
-        options: ["Rubber", "Glass", "Steel", "Plastic"],
-        answer: "Steel",
-        explanation: "Elasticity is the ability to resist deformation. Steel has a very high Young's modulus, meaning a large stress is required for a small strain, making it more elastic than rubber."
+        "question": "Which of the following is the most elastic material?",
+        "options": ["Rubber", "Glass", "Steel", "Plastic"],
+        "answer": "Steel",
+        "explanation": "Elasticity is the ability to resist deformation. Steel has a very high Young's modulus, meaning a large stress is required for a small strain, making it more elastic than rubber."
     },
     {
-        question: "The pressure at the bottom of a liquid tank does not depend on:",
-        options: ["The acceleration due to gravity", "The density of the liquid", "The height of the liquid", "The area of the bottom of the tank"],
-        answer: "The area of the bottom of the tank",
-        explanation: "The pressure at a depth h is given by P = P₀ + ρgh, which is independent of the area of the tank."
+        "question": "The pressure at the bottom of a liquid tank does not depend on:",
+        "options": ["The acceleration due to gravity", "The density of the liquid", "The height of the liquid", "The area of the bottom of the tank"],
+        "answer": "The area of the bottom of the tank",
+        "explanation": "The pressure at a depth h is given by P = P₀ + ρgh, which is independent of the area of the tank."
     },
     {
-        question: "When the temperature increases, the viscosity of liquids:",
-        options: ["Increases", "Decreases", "Remains the same", "First increases then decreases"],
-        answer: "Decreases",
-        explanation: "For liquids, viscosity decreases as temperature increases because the intermolecular cohesive forces weaken."
+        "question": "When the temperature increases, the viscosity of liquids:",
+        "options": ["Increases", "Decreases", "Remains the same", "First increases then decreases"],
+        "answer": "Decreases",
+        "explanation": "For liquids, viscosity decreases as temperature increases because the intermolecular cohesive forces weaken."
     },
     {
-        question: "The working of a hydraulic lift is based on:",
-        options: ["Hooke's Law", "Bernoulli's Principle", "Stokes' Law", "Pascal's Law"],
-        answer: "Pascal's Law",
-        explanation: "Hydraulic systems work on Pascal's principle that pressure applied to an enclosed fluid is transmitted undiminished."
+        "question": "The working of a hydraulic lift is based on:",
+        "options": ["Hooke's Law", "Bernoulli's Principle", "Stokes' Law", "Pascal's Law"],
+        "answer": "Pascal's Law",
+        "explanation": "Hydraulic systems work on Pascal's principle that pressure applied to an enclosed fluid is transmitted undiminished."
     },
     {
-        question: "The SI unit of stress is the same as that of:",
-        options: ["Force", "Pressure", "Work", "Strain"],
-        answer: "Pressure",
-        explanation: "Both stress and pressure are defined as force per unit area, and their SI unit is Pascal (N/m²)."
+        "question": "The SI unit of stress is the same as that of:",
+        "options": ["Force", "Pressure", "Work", "Strain"],
+        "answer": "Pressure",
+        "explanation": "Both stress and pressure are defined as force per unit area, and their SI unit is Pascal (N/m²)."
     },
     {
-        question: "A small drop of liquid is spherical due to:",
-        options: ["Viscosity", "Surface tension", "Low pressure inside", "High pressure inside"],
-        answer: "Surface tension",
-        explanation: "Surface tension causes the liquid to minimize its surface area, and for a given volume, a sphere has the minimum surface area."
+        "question": "A small drop of liquid is spherical due to:",
+        "options": ["Viscosity", "Surface tension", "Low pressure inside", "High pressure inside"],
+        "answer": "Surface tension",
+        "explanation": "Surface tension causes the liquid to minimize its surface area, and for a given volume, a sphere has the minimum surface area."
     },
     {
-        question: "The rate of cooling of a body is proportional to the temperature difference between the body and the surroundings. This is:",
-        options: ["Newton's Law of Cooling", "Stefan's Law", "Wien's Law", "Kirchhoff's Law"],
-        answer: "Newton's Law of Cooling",
-        explanation: "This is the statement of Newton's Law of Cooling, applicable for small temperature differences."
+        "question": "The rate of cooling of a body is proportional to the temperature difference between the body and the surroundings. This is:",
+        "options": ["Newton's Law of Cooling", "Stefan's Law", "Wien's Law", "Kirchhoff's Law"],
+        "answer": "Newton's Law of Cooling",
+        "explanation": "This is the statement of Newton's Law of Cooling, applicable for small temperature differences."
     },
     {
-        question: "The work done in blowing a soap bubble of radius R is proportional to:",
-        options: ["R", "R²", "R³", "1/R"],
-        answer": "R²",
-        explanation: "Work done = Surface tension × Change in area. A soap bubble has two surfaces. The area is 2 × (4πR²). So, work done is proportional to R²."
+        "question": "The work done in blowing a soap bubble of radius R is proportional to:",
+        "options": ["R", "R²", "R³", "1/R"],
+        "answer": "R²",
+        "explanation": "Work done = Surface tension × Change in area. A soap bubble has two surfaces. The area is 2 × (4πR²). So, work done is proportional to R²."
     },
     {
-        question: "What is the dimensional formula for Young's Modulus?",
-        options: ["[ML⁻¹T⁻²]", "[MLT⁻²]", "[ML²T⁻²]", "[ML⁻¹T⁻¹]"],
-        answer: "[ML⁻¹T⁻²]",
-        explanation: "Young's modulus = Stress/Strain. Strain is dimensionless. Stress = Force/Area. So, dimensions are [MLT⁻²]/[L²] = [ML⁻¹T⁻²]."
+        "question": "What is the dimensional formula for Young's Modulus?",
+        "options": ["[ML⁻¹T⁻²]", "[MLT⁻²]", "[ML²T⁻²]", "[ML⁻¹T⁻¹]"],
+        "answer": "[ML⁻¹T⁻²]",
+        "explanation": "Young's modulus = Stress/Strain. Strain is dimensionless. Stress = Force/Area. So, dimensions are [MLT⁻²]/[L²] = [ML⁻¹T⁻²]."
     },
     {
-        question: "When impurities are added to water, its surface tension generally:",
-        options: ["Increases", "Decreases", "Remains unchanged", "Becomes zero"],
-        answer: "Decreases",
-        explanation: "Soluble impurities like soap and detergent decrease the surface tension of water."
+        "question": "When impurities are added to water, its surface tension generally:",
+        "options": ["Increases", "Decreases", "Remains unchanged", "Becomes zero"],
+        "answer": "Decreases",
+        "explanation": "Soluble impurities like soap and detergent decrease the surface tension of water."
     },
     {
-        question: "The terminal velocity of a body falling in a viscous fluid depends on:",
-        options: ["The radius of the body", "The density of the body", "The density of the fluid", "All of the above"],
-        answer: "All of the above",
-        explanation: "The formula v_t = [2r²(ρ - σ)g] / 9η shows that it depends on radius, densities of body and fluid, and viscosity."
+        "question": "The terminal velocity of a body falling in a viscous fluid depends on:",
+        "options": ["The radius of the body", "The density of the body", "The density of the fluid", "All of the above"],
+        "answer": "All of the above",
+        "explanation": "The formula v_t = [2r²(ρ - σ)g] / 9η shows that it depends on radius, densities of body and fluid, and viscosity."
     },
     {
-        question: "The fastest mode of heat transfer is:",
-        options: ["Conduction", "Convection", "Radiation", "All are equally fast"],
-        answer: "Radiation",
-        explanation: "Heat transfer by radiation occurs at the speed of light."
+        "question": "The fastest mode of heat transfer is:",
+        "options": ["Conduction", "Convection", "Radiation", "All are equally fast"],
+        "answer": "Radiation",
+        "explanation": "Heat transfer by radiation occurs at the speed of light."
     },
     {
-        question: "Strain is a:",
-        options: ["Scalar quantity", "Vector quantity", "Dimensionless quantity", "Fundamental quantity"],
-        answer: "Dimensionless quantity",
-        explanation: "Strain is the ratio of change in dimension to the original dimension, so it has no units or dimensions."
+        "question": "Strain is a:",
+        "options": ["Scalar quantity", "Vector quantity", "Dimensionless quantity", "Fundamental quantity"],
+        "answer": "Dimensionless quantity",
+        "explanation": "Strain is the ratio of change in dimension to the original dimension, so it has no units or dimensions."
     },
     {
-        question": "The wings of an aeroplane are designed based on:",
+        "question": "The wings of an aeroplane are designed based on:",
         "options": ["Pascal's Law", "Hooke's Law", "Bernoulli's Principle", "Stokes' Law"],
         "answer": "Bernoulli's Principle",
         "explanation": "The airfoil shape creates a pressure difference between the top and bottom surfaces, generating lift, which is an application of Bernoulli's principle."
@@ -197,7 +197,7 @@ export const propertiesOfSolidsAndLiquids: NeetModule = {
         "explanation": "A low Reynold's number indicates laminar (streamline) flow, while a high Reynold's number indicates turbulent flow."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "It is easier to spray water with soap dissolved in it.",
         "reason": "Soap reduces the surface tension of water.",

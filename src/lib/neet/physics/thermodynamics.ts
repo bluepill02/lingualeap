@@ -202,7 +202,7 @@ export const thermodynamics: NeetModule = {
         "explanation": "Internal energy is a state function, meaning its value depends only on the current state of the system, not on how it got there. Work and heat are path functions."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The efficiency of a heat engine can never be 100%.",
         "reason": "According to the second law of thermodynamics, some heat must always be rejected to a sink at a lower temperature.",
@@ -294,7 +294,7 @@ export const thermodynamics: NeetModule = {
         "explanation": "The reason correctly explains why more heat is required at constant pressure than at constant volume for the same temperature rise, thus explaining why C_p > C_v."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) Isothermal process", "b) Adiabatic process", "c) Isochoric process", "d) Isobaric process"],
         "column2": ["i) ΔQ = 0", "ii) ΔV = 0", "iii) ΔT = 0", "iv) ΔP = 0"],

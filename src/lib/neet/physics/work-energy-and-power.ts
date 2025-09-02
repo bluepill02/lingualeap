@@ -202,7 +202,7 @@ export const workEnergyAndPower: NeetModule = {
         "explanation": "This is the definition of a perfectly inelastic collision."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The work done by the centripetal force is always zero.",
         "reason": "The centripetal force is always perpendicular to the direction of motion.",
@@ -294,7 +294,7 @@ export const workEnergyAndPower: NeetModule = {
         "explanation": "The reason correctly states the physical relationship between work and energy, which is why they share the same unit (Joule)."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) Kinetic Energy", "b) Potential Energy", "c) Work", "d) Power"],
         "column2": ["i) Fdcosθ", "ii) W/t", "iii) mgh", "iv) ½mv²"],
