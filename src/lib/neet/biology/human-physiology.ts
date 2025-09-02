@@ -7,75 +7,58 @@ export const humanPhysiology: NeetModule = {
   chapter: 'Human Physiology',
   subject: 'Biology',
   conceptNotes: `
-### 1. Digestion and Absorption (செரிமானம் மற்றும் உறிஞ்சுதல்)
+### 1. Breathing and Respiration (சுவாசம் மற்றும் வாயுப் பரிமாற்றம்)
 
-*   **Alimentary Canal (உணவுப் பாதை):** The path food takes from mouth to anus, including the esophagus, stomach, small intestine, and large intestine.
-*   **Digestive Glands (செரிமான சுரப்பிகள்):** Salivary glands, liver (produces bile), pancreas (produces pancreatic juice).
-*   **Process of Digestion:** Mechanical (chewing) and chemical (enzymes) breakdown of complex food into simple absorbable forms.
-    *   **Carbohydrates -> Monosaccharides** (e.g., glucose)
-    *   **Proteins -> Amino acids**
-    *   **Fats -> Fatty acids and glycerol**
-*   **Absorption (உறிஞ்சுதல்):** Digested products are absorbed in the small intestine, primarily in the jejunum and ileum, through villi.
+*   **Respiratory Organs in animals (recall only):** Mechanisms of breathing in different animals.
+*   **Respiratory System in Humans:** The pathway from nostrils to alveoli.
+*   **Mechanism of breathing and its regulation in humans:** Inspiration and Expiration; role of diaphragm and intercostal muscles. Regulation by the respiratory rhythm centre in the medulla.
+*   **Exchange of gases, transport of gases and regulation of respiration:** Diffusion of O₂ and CO₂ across the alveolar membrane. Transport of O₂ as oxyhaemoglobin and CO₂ as bicarbonate.
+*   **Respiratory Volumes:** Tidal Volume (TV), Inspiratory Reserve Volume (IRV), Expiratory Reserve Volume (ERV), Residual Volume (RV), and capacities.
+*   **Disorders related to respiration:** Asthma, Emphysema, Occupational respiratory disorders.
 
-### 2. Breathing and Exchange of Gases (சுவாசம் மற்றும் வாயுப் பரிமாற்றம்)
+### 2. Body Fluids and Circulation (உடல் திரவங்கள் மற்றும் சுழற்சி)
 
-*   **Respiratory Organs (சுவாச உறுப்புகள்):** Lungs are the main respiratory organs. The pathway includes nostrils, pharynx, larynx, trachea, bronchi, and bronchioles.
-*   **Mechanism of Breathing:** Inspiration (உட்சுவாசம்) is an active process involving the contraction of the diaphragm and external intercostal muscles. Expiration (வெளிச்சுவாசம்) is a passive process.
-*   **Transport of Gases:**
-    *   **Oxygen:** ~97% transported by haemoglobin in RBCs as oxyhaemoglobin. ~3% dissolved in plasma.
-    *   **Carbon Dioxide:** ~70% as bicarbonate, ~20-25% by haemoglobin as carbamino-haemoglobin, ~7% dissolved in plasma.
-*   **Regulation of Respiration:** Respiratory rhythm centre in the medulla oblongata.
+*   **Composition of blood, blood groups, coagulation of blood:** Plasma, formed elements (RBC, WBC, platelets). ABO and Rh grouping. Mechanism of blood clotting.
+*   **Composition of lymph and its function:** Lymph as a middleman.
+*   **Human circulatory system:** Structure of human heart and blood vessels (arteries, veins, capillaries).
+*   **Cardiac cycle, cardiac output, ECG, Double circulation:** Sequence of events in a heartbeat. Stroke volume and cardiac output. Basics of ECG (P, QRS, T waves). Pulmonary and systemic circulation.
+*   **Regulation of cardiac activity:** Neural and hormonal regulation.
+*   **Disorders of circulatory system:** Hypertension, Coronary Artery Disease (CAD), Angina Pectoris, Heart Failure.
 
-### 3. Body Fluids and Circulation (உடல் திரவங்கள் மற்றும் சுழற்சி)
+### 3. Excretory Products and their Elimination (கழிவுப் பொருட்கள் மற்றும் அவற்றை வெளியேற்றுதல்)
 
-*   **Blood (இரத்தம்):** A connective tissue consisting of plasma, RBCs, WBCs, and platelets.
-*   **Blood Groups:** ABO and Rh systems.
-*   **Human Heart (மனித இதயம்):** A four-chambered organ. The right side handles deoxygenated blood, and the left side handles oxygenated blood (double circulation).
-*   **Cardiac Cycle (இதய சுழற்சி):** The sequence of events in one heartbeat (0.8 seconds). Includes systole (contraction) and diastole (relaxation).
-*   **ECG (Electrocardiogram):** Graphical representation of the electrical activity of the heart.
+*   **Modes of excretion:** Ammonotelism, ureotelism, uricotelism.
+*   **Human excretory system:** Structure and function of kidneys, ureters, bladder, urethra.
+*   **Urine formation, Osmoregulation:** Glomerular filtration, reabsorption, and secretion in the nephron.
+*   **Regulation of kidney function:** Role of Renin-Angiotensin system, Atrial Natriuretic Factor (ANF), and ADH.
+*   **Role of other organs in excretion:** Lungs, liver, skin.
+*   **Disorders:** Uraemia, Renal failure, Renal calculi, Nephritis. Dialysis and artificial kidney.
 
-### 4. Excretory Products and their Elimination (கழிவுப் பொருட்கள் மற்றும் அவற்றை வெளியேற்றுதல்)
+### 4. Locomotion and Movement (இயக்கம் மற்றும் இடப்பெயர்ச்சி)
 
-*   **Human Excretory System (மனிதக் கழிவுநீக்க மண்டலம்):** Consists of a pair of kidneys, ureters, urinary bladder, and urethra.
-*   **Nephron (நெஃப்ரான்):** The functional unit of the kidney. Consists of the glomerulus and the renal tubule.
-*   **Urine Formation (சிறுநீர் உருவாக்கம்):** Involves three main processes:
-    1.  **Glomerular Filtration (கிளாமருலர் வடிகட்டுதல்)**
-    2.  **Reabsorption (மீண்டும் உறிஞ்சுதல்)**
-    3.  **Secretion (சுரத்தல்)**
-*   **Regulation of Kidney Function:** Hormonal feedback mechanisms involving ADH, RAAS (Renin-Angiotensin system), and ANF.
+*   **Types of movement:** Ciliary, flagellar, muscular.
+*   **Skeletal muscle:** Contractile proteins (actin and myosin) and muscle contraction (Sliding filament theory).
+*   **Skeletal system and its functions:** Axial and appendicular skeleton.
+*   **Joints:** Fibrous, cartilaginous, and synovial joints.
+*   **Disorders of muscular and skeletal system:** Myasthenia gravis, Tetany, Muscular dystrophy, Arthritis, Osteoporosis, Gout.
 
-### 5. Locomotion and Movement (இயக்கம் மற்றும் இடப்பெயர்ச்சி)
+### 5. Neural Control and Coordination (நரம்புக் கட்டுப்பாடு மற்றும் ஒருங்கிணைப்பு)
 
-*   **Types of Movement:** Amoeboid, ciliary, muscular.
-*   **Muscles (தசைகள்):** Skeletal, visceral, and cardiac muscles.
-*   **Structure of a Skeletal Muscle:** Made of muscle bundles (fascicles), held together by fascia. Each muscle fibre has myofibrils with light (I-band) and dark (A-band) bands.
-*   **Sliding Filament Theory:** Explains muscle contraction. The thin actin filaments slide over the thick myosin filaments.
-*   **Skeletal System (எலும்பு மண்டலம்):** Framework of bones (206 in adults) and cartilages. Axial skeleton (skull, vertebral column, ribs, sternum) and Appendicular skeleton (limbs and girdles).
-*   **Joints (மூட்டுகள்):** Fibrous, cartilaginous, and synovial joints.
+*   **Neuron and nerves:** Structure of a neuron, types of nerves.
+*   **Nervous system in humans:** Central Nervous System (CNS - brain and spinal cord), Peripheral Nervous System (PNS), and Visceral Nervous System.
+*   **Generation and conduction of nerve impulse:** Resting potential, action potential, and propagation of the impulse across a synapse.
 
-### 6. Neural Control and Coordination (நரம்புக் கட்டுப்பாடு மற்றும் ஒருங்கிணைப்பு)
+### 6. Chemical Coordination and regulation (வேதிய ஒருங்கிணைப்பு)
 
-*   **Nervous System:** Divided into Central Nervous System (CNS - brain and spinal cord) and Peripheral Nervous System (PNS).
-*   **Neuron (நரம்பு செல்):** Structural and functional unit of the nervous system.
-*   **Generation and Conduction of Nerve Impulse:** Involves changes in membrane potential (resting potential, action potential) due to the movement of ions (Na+, K+).
-*   **Synapse (நரம்பு சந்தி):** The junction between two neurons. Transmission can be electrical or chemical (via neurotransmitters).
-*   **Human Brain (மனித மூளை):** Major parts are the forebrain (cerebrum, thalamus, hypothalamus), midbrain, and hindbrain (pons, cerebellum, medulla).
-
-### 7. Chemical Coordination and Integration (வேதிய ஒருங்கிணைப்பு)
-
-*   **Endocrine Glands (நாளமில்லாச் சுரப்பிகள்):** Ductless glands that secrete hormones directly into the bloodstream.
-*   **Major Endocrine Glands and Hormones:**
-    *   **Hypothalamus:** Releasing and inhibiting hormones.
-    *   **Pituitary (Anterior & Posterior):** GH, TSH, ACTH, LH, FSH, ADH, Oxytocin.
-    *   **Thyroid:** Thyroxine (T4), Triiodothyronine (T3).
-    *   **Pancreas (Islets of Langerhans):** Insulin, Glucagon.
-    *   **Adrenal (Cortex & Medulla):** Cortisol, Aldosterone, Adrenaline, Noradrenaline.
-    *   **Testis:** Testosterone.
-    *   **Ovary:** Estrogen, Progesterone.
+*   **Endocrine glands and hormones:** Definition and properties.
+*   **Human endocrine system:** Hypothalamus, Pituitary, Pineal, Thyroid, Parathyroid, Adrenal, Pancreas, Gonads (Testis and Ovary).
+*   **Mechanism of hormone action (Elementary Idea):** Basic concept of hormone receptors.
+*   **Role of hormones as messengers and regulators.**
+*   **Hypo-and hyperactivity and related disorders:** Dwarfism, Acromegaly, Cretinism, Goiter, Exophthalmic goiter, Diabetes, Addison’s disease.
   `,
   workedExamples: [
     {
-        problem: 'A person has a cardiac output of 5040 ml/minute and a heart rate of 72 beats/minute. What is their stroke volume?',
+        problem: "A person has a cardiac output of 5040 ml/minute and a heart rate of 72 beats/minute. What is their stroke volume?",
         solution: '**Formula:** Cardiac Output (CO) = Stroke Volume (SV) × Heart Rate (HR) \n**Rearranging for Stroke Volume:** SV = CO / HR \n**Given:**\n- CO = 5040 ml/min\n- HR = 72 beats/min \n**Calculation:**\nSV = 5040 ml/min / 72 beats/min = 70 ml/beat. \n**Answer:** The person\'s stroke volume is 70 ml. (இதய வெளியீடு = பக்கவாதம் அளவு × இதய துடிப்பு. பக்கவாதம் அளவு = 5040/72 = 70 மிலி.)'
     },
     {
