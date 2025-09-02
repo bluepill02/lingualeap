@@ -93,7 +93,7 @@ Purposeful manipulation of plant species to create desired plant types. (சி�
 *   **Biofortification (உயிரி ஊட்டச்சத்து மேம்பாடு):** Breeding crops with higher levels of vitamins, minerals, protein, and healthier fats. (உயர்ந்த ஊட்டச்சத்துக்கள் கொண்ட பயிர்களை உருவாக்குதல்)
     *   e.g., Vitamin A enriched carrots, iron-fortified rice.
 *   **Tissue Culture (திசு வளர்ப்பு):** Growing plant cells, tissues, or organs in a sterile nutrient medium. (ஒரு சிறிய தாவரப் பகுதியிலிருந்து பல தாவரங்களை உருவாக்குதல்)
-    *   **Micropropagation (குறுக்கு-பெருக்கம்):** Producing large numbers of plants in a short duration (e.g., orchids, ornamentals).
+    *   **Micropropagation (நுண்-பெருக்கம்):** Producing large numbers of plants in a short duration (e.g., orchids, ornamentals).
     *   **Somaclones (சோமாக்ளோன்கள்):** Plants genetically identical to the original plant.
 
 #### Single Cell Protein (SCP) (ஒற்றை செல் புரதம்)
@@ -159,12 +159,12 @@ Organisms that enrich the nutrient quality of soil. (மண்ணின் ஊ�
 **Example 1: Disease Transmission (நோய் பரவுதல்)**
 A village experiences a sudden outbreak of a disease characterized by high fever, chills, and enlarged spleen, occurring in cycles. What is the likely disease and its mode of transmission?
 **Solution (தீர்வு):**
-The symptoms (high fever, chills, enlarged spleen, cyclical occurrence) are characteristic of **Malaria**. The mode of transmission is through the bite of an infected female **_Anopheles_ mosquito**. (மலாரியா நோயின் அறிகுறிகள் - பெண் அனோபிலஸ் கொசுவால் பரவுகிறது.)
+The symptoms (high fever, chills, enlarged spleen, cyclical occurrence) are characteristic of **Malaria**. The mode of transmission is through the bite of an infected female **_Anopheles_ mosquito**. (மலேரியா நோயின் அறிகுறிகள் - பெண் அனோபிலஸ் கொசுவால் பரவுகிறது.)
 
 **Example 2: Antibiotic Resistance (நுண்ணுயிர் கொல்லி எதிர்ப்பு)**
 Penicillin was the first antibiotic discovered. However, its effectiveness has decreased over time against some bacterial strains. Explain why.
 **Solution (தீர்வு):**
-Bacteria can develop **antibiotic resistance** through natural selection. When an antibiotic is used, susceptible bacteria are killed, but resistant mutants survive and multiply, passing on their resistance genes. Over time, the resistant strains become predominant, making the antibiotic less effective. (நுண்ணுயிரிகள், காலப்போக்கில் நுண்ணுயிர் கொல்லிகளுக்கு எதிராக நோய் எதிர்ப்பு சக்தியை உருவாக்குகின்றன. இது இயற்கை தேர்வு காரணமாக நிகழ்கிறது.)
+Bacteria can develop **antibiotic resistance** through natural selection. When an antibiotic is used, susceptible bacteria are killed, but resistant mutants survive and multiply, passing on their resistance genes. Over time, the resistant strains become predominant, making the antibiotic less effective. (நுண்ணுயிரிகள், காலப்போக்கில் நுண்ணுயிர் கொல்லிகளுக்கு எதிராக எதிர்ப்பு சக்தியை உருவாக்குகின்றன. இது இயற்கை தேர்வு காரணமாக நிகழ்கிறது.)
 
 **Example 3: Biofortification (உயிரி ஊட்டச்சத்து மேம்பாடு)**
 Explain how "Golden Rice" is an example of biofortification and its significance.
@@ -332,7 +332,7 @@ Name a microbe used for producing citric acid and one for producing an immunosup
     B) Plant breeding
     C) Fisheries
     D) Sericulture
-    **Solution:** B) Plant breeding (குறுக்கு-பெருக்கம் பயன்படுத்தப்படும் முறை)
+    **Solution:** B) Plant breeding (நுண்-பெருக்கம் பயன்படுத்தப்படும் முறை)
 
 20. Which of the following is a common symptom of Amoebiasis?
     A) Recurrent high fever with chills
@@ -404,7 +404,7 @@ E) Both A and R are false.
 
 5.  **Assertion (A):** Cancer cells are more dangerous than normal cells.
     **Reason (R):** Cancer cells show contact inhibition and undergo apoptosis.
-    **Solution:** C) (புற்றுநோய் செல்கள் சாதாரன செல்களை விட ஆபத்தானவை. ஆனால் காரணம் தவறானது. புற்றுநோய் செல்கள் contact inhibition-ஐ காட்டுவதில்லை, apoptosis-யும் மேற்கொள்வதில்லை.)
+    **Solution:** C) (புற்றுநோய் செல்கள் சாதாரண செல்களை விட ஆபத்தானவை. ஆனால் காரணம் தவறானது. புற்றுநோய் செல்கள் contact inhibition-ஐ காட்டுவதில்லை, apoptosis-யும் மேற்கொள்வதில்லை.)
 
 6.  **Assertion (A):** *Bacillus thuringiensis* is used as a biological control agent.
     **Reason (R):** *Bacillus thuringiensis* produces a toxin that kills insect larvae.
@@ -432,7 +432,7 @@ E) Both A and R are false.
 
 12. **Assertion (A):** Somatic hybridization is a technique where protoplasts from two different plant species are fused.
     **Reason (R):** This technique allows the combination of desirable traits from two different plants that cannot be sexually hybridized.
-    **Solution:** A) (சோம்மாட்டிக் கலப்பினமாக்கம் என்பது இரண்டு வெவ்வேறு தாவர இனங்களின் புரோட்டோபிளாஸ்ட்களை இணைக்கும் ஒரு நுட்பம், ஏனெனில் இது பாலியல் ரீதியாக கலப்பினப்படுத்த முடியாத இரண்டு தாவரங்களின் விரும்பிய பண்புகளை இணைக்க அனுமதிக்கிறது.)
+    **Solution:** A) (சோமாட்டிக் கலப்பினமாக்கம் என்பது இரண்டு வெவ்வேறு தாவர இனங்களின் புரோட்டோபிளாஸ்ட்களை இணைக்கும் ஒரு நுட்பம், ஏனெனில் இது பாலியல் ரீதியாக கலப்பினப்படுத்த முடியாத இரண்டு தாவரங்களின் விரும்பிய பண்புகளை இணைக்க அனுமதிக்கிறது.)
 
 13. **Assertion (A):** The enzyme 'Streptokinase' is called a 'clot buster'.
     **Reason (R):** It is used to remove blood clots from the blood vessels of patients suffering from myocardial infarction.
