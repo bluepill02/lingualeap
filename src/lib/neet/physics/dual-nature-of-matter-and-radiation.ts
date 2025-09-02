@@ -143,7 +143,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         question: "What is the de Broglie wavelength of a ball of mass 0.1 kg moving with a speed of 60 m/s?",
         options: ["1.1 x 10⁻³⁴ m", "1.1 x 10⁻³² m", "2.2 x 10⁻³⁴ m", "2.2 x 10⁻³² m"],
         answer: "1.1 x 10⁻³⁴ m",
-        explanation: "λ = h/mv = (6.6 x 10⁻³⁴) / (0.1 * 60) = 6.6 x 10⁻³⁴ / 6 = 1.1 x 10⁻³⁴ m."
+        explanation": "λ = h/mv = (6.6 x 10⁻³⁴) / (0.1 * 60) = 6.6 x 10⁻³⁴ / 6 = 1.1 x 10⁻³⁴ m."
     },
     {
         question: "Stopping potential is a measure of:",
@@ -264,13 +264,13 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     {
         assertion: "The de Broglie wavelength of a moving cricket ball is very large.",
         reason: "The mass of the cricket ball is very large.",
-        answer: "D",
-        explanation: "The assertion is false; the wavelength is extremely small. The reason is true and is the cause for the wavelength being so small (λ ∝ 1/m)."
+        answer": "D",
+        "explanation": "The assertion is false; the wavelength is extremely small. The reason is true and is the cause for the wavelength being so small (λ ∝ 1/m)."
     },
     {
-        assertion: "In the photoelectric effect, the photocurrent increases with increasing intensity of light.",
-        reason: "A higher intensity means more photons are striking the surface per second, leading to more electrons being ejected per second.",
-        answer": "A",
+        "assertion": "In the photoelectric effect, the photocurrent increases with increasing intensity of light.",
+        "reason": "A higher intensity means more photons are striking the surface per second, leading to more electrons being ejected per second.",
+        "answer": "A",
         "explanation": "The reason correctly explains the assertion. Photocurrent is the rate of flow of photoelectrons."
     },
     {
@@ -328,7 +328,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     },
     {
         column1: ["a) Wave property", "b) Particle property", "c) Dual nature", "d) Quantization"],
-        column2: ["i) Momentum", "ii) Interference", "iii) Energy levels in an atom", "iv) Compton effect"],
+        column2": ["i) Momentum", "ii) Interference", "iii) Energy levels in an atom", "iv) Compton effect"],
         answer: "a-ii, b-iv, c-i, d-iii"
     },
     {
@@ -347,9 +347,9 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         "answer": "a-i, b-iv, c-ii, d-iii"
     },
     {
-        "column1": ["a) Red light", "b) Blue light", "c) X-ray", "d) Radio wave"],
-        "column2": ["i) Highest frequency", "ii) Longest wavelength", "iii) Lowest frequency", "iv) Higher frequency than red"],
-        "answer": "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Red light", "b) Blue light", "c) Infrared radiation", "d) Ultraviolet radiation"],
+        "column2": ["i) λ ≈ 400 nm", "ii) Wavelength > 700 nm", "iii) λ ≈ 650 nm", "iv) Wavelength < 400 nm"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
         "column1": ["a) Compton Wavelength", "b) Bohr radius", "c) Rydberg constant", "d) Fine-structure constant"],
