@@ -194,171 +194,171 @@ export const oscillationsAndWaves: NeetModule = {
   ],
   assertionReasons: [
     {
-        assertion: "The time period of a simple pendulum depends on the mass of the bob.",
-        reason: "The restoring force on the bob is proportional to its mass.",
-        answer: "D",
-        explanation: "Assertion is false. T = 2π√(L/g) is independent of mass. Reason is true (Restoring force = -mgsinθ), but it doesn't make the assertion correct because the 'm' cancels out when calculating acceleration."
+        "assertion": "The time period of a simple pendulum depends on the mass of the bob.",
+        "reason": "The restoring force on the bob is proportional to its mass.",
+        "answer": "D",
+        "explanation": "Assertion is false. T = 2π√(L/g) is independent of mass. Reason is true (Restoring force = -mgsinθ), but it doesn't make the assertion correct because the 'm' cancels out when calculating acceleration."
     },
     {
-        assertion: "Sound waves cannot be polarized.",
-        reason: "Sound waves are longitudinal waves.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Only transverse waves, which have oscillations perpendicular to the direction of propagation, can be polarized."
+        "assertion": "Sound waves cannot be polarized.",
+        "reason": "Sound waves are longitudinal waves.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Only transverse waves, which have oscillations perpendicular to the direction of propagation, can be polarized."
     },
     {
-        assertion: "In a standing wave, energy is not transported from one point to another.",
-        reason: "The energy at any point in a standing wave is constant.",
-        answer: "C",
-        explanation: "Assertion is true. Energy is confined between the nodes. Reason is false; the energy at any point oscillates between kinetic and potential, it is not constant, but the total energy in a segment between nodes is."
+        "assertion": "In a standing wave, energy is not transported from one point to another.",
+        "reason": "The energy at any point in a standing wave is constant.",
+        "answer": "C",
+        "explanation": "Assertion is true. Energy is confined between the nodes. Reason is false; the energy at any point oscillates between kinetic and potential, it is not constant, but the total energy in a segment between nodes is."
     },
     {
-        assertion: "An open organ pipe is preferred over a closed organ pipe for producing musical sounds.",
-        reason: "An open organ pipe produces all harmonics, which results in a richer sound quality.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. The presence of all harmonics (both odd and even) in an open pipe gives it a richer timbre compared to a closed pipe which only has odd harmonics."
+        "assertion": "An open organ pipe is preferred over a closed organ pipe for producing musical sounds.",
+        "reason": "An open organ pipe produces all harmonics, which results in a richer sound quality.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The presence of all harmonics (both odd and even) in an open pipe gives it a richer timbre compared to a closed pipe which only has odd harmonics."
     },
     {
-        assertion: "The Doppler effect in sound is symmetric.",
-        reason: "The apparent frequency depends on the relative motion between the source and the observer.",
-        answer: "D",
-        explanation: "Assertion is false. The Doppler effect in sound is asymmetric, meaning the frequency shift is different when the source moves towards a stationary observer versus when the observer moves towards a stationary source with the same speed. The reason is a true statement."
+        "assertion": "The Doppler effect in sound is symmetric.",
+        "reason": "The apparent frequency depends on the relative motion between the source and the observer.",
+        "answer": "D",
+        "explanation": "Assertion is false. The Doppler effect in sound is asymmetric, meaning the frequency shift is different when the source moves towards a stationary observer versus when the observer moves towards a stationary source with the same speed. The reason is a true statement."
     },
     {
-        assertion: "All periodic motions are oscillatory.",
-        reason: "Oscillatory motion is the to and fro motion about a mean position.",
-        answer: "D",
-        explanation: "Assertion is false. For example, uniform circular motion is periodic but not oscillatory. The reason is a true definition of oscillatory motion."
+        "assertion": "All periodic motions are oscillatory.",
+        "reason": "Oscillatory motion is the to and fro motion about a mean position.",
+        "answer": "D",
+        "explanation": "Assertion is false. For example, uniform circular motion is periodic but not oscillatory. The reason is a true definition of oscillatory motion."
     },
     {
-        assertion: "The velocity of a particle in SHM is maximum at the mean position.",
-        reason: "At the mean position, the potential energy is minimum and the kinetic energy is maximum.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. By conservation of energy, when potential energy is minimum (at the mean position), kinetic energy, and thus velocity, must be maximum."
+        "assertion": "The velocity of a particle in SHM is maximum at the mean position.",
+        "reason": "At the mean position, the potential energy is minimum and the kinetic energy is maximum.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. By conservation of energy, when potential energy is minimum (at the mean position), kinetic energy, and thus velocity, must be maximum."
     },
     {
-        assertion: "When a wave travels from a rarer to a denser medium, its speed decreases.",
-        reason: "The wavelength of the wave decreases, but the frequency remains constant.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Frequency is a property of the source and does not change. From v = νλ, if v decreases and ν is constant, then wavelength λ must also decrease."
+        "assertion": "When a wave travels from a rarer to a denser medium, its speed decreases.",
+        "reason": "The wavelength of the wave decreases, but the frequency remains constant.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Frequency is a property of the source and does not change. From v = νλ, if v decreases and ν is constant, then wavelength λ must also decrease."
     },
     {
-        assertion: "Beats can be heard when the difference in frequencies of two sound sources is more than 10 Hz.",
-        reason: "The persistence of hearing for the human ear is about 0.1 seconds.",
-        answer: "D",
-        explanation: "Assertion is false. If the beat frequency is more than about 10 Hz, the ear cannot distinguish the separate beats. The reason is true and explains why beats cannot be heard above this frequency."
+        "assertion": "Beats can be heard when the difference in frequencies of two sound sources is more than 10 Hz.",
+        "reason": "The persistence of hearing for the human ear is about 0.1 seconds.",
+        "answer": "D",
+        "explanation": "Assertion is false. If the beat frequency is more than about 10 Hz, the ear cannot distinguish the separate beats. The reason is true and explains why beats cannot be heard above this frequency."
     },
     {
-        assertion: "The equation y = A sin(kx - ωt) represents a transverse wave.",
-        reason: "The displacement y is a function of both position x and time t.",
-        answer: "B",
-        explanation: "Both are true. The equation does represent a wave. It represents a transverse wave because the displacement y is perpendicular to the direction of propagation x. The reason is a necessary condition for any wave but doesn't explain why it is transverse."
+        "assertion": "The equation y = A sin(kx - ωt) represents a transverse wave.",
+        "reason": "The displacement y is a function of both position x and time t.",
+        "answer": "B",
+        "explanation": "Both are true. The equation does represent a wave. It represents a transverse wave because the displacement y is perpendicular to the direction of propagation x. The reason is a necessary condition for any wave but doesn't explain why it is transverse."
     },
     {
-        assertion: "The total energy of a particle in SHM is constant.",
-        reason: "The restoring force in SHM is a conservative force.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. For a conservative force, the total mechanical energy of the system is conserved."
+        "assertion": "The total energy of a particle in SHM is constant.",
+        "reason": "The restoring force in SHM is a conservative force.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. For a conservative force, the total mechanical energy of the system is conserved."
     },
     {
-        assertion: "A wooden ball and an iron ball of the same size, suspended from the same point by identical strings, will have the same time period.",
-        reason: "The time period of a simple pendulum is independent of its mass.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. T = 2π√(L/g) does not depend on the mass or material of the bob."
+        "assertion": "A wooden ball and an iron ball of the same size, suspended from the same point by identical strings, will have the same time period.",
+        "reason": "The time period of a simple pendulum is independent of its mass.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. T = 2π√(L/g) does not depend on the mass or material of the bob."
     },
     {
-        assertion: "The speed of sound in a gas is independent of pressure.",
-        reason: "The ratio of pressure to density (P/ρ) for a gas at constant temperature is constant.",
-        answer: "A",
-        explanation: "The speed of sound in a gas is v = √(γP/ρ). Since P/ρ is constant at a given temperature, the speed is independent of pressure."
+        "assertion": "The speed of sound in a gas is independent of pressure.",
+        "reason": "The ratio of pressure to density (P/ρ) for a gas at constant temperature is constant.",
+        "answer": "A",
+        "explanation": "The speed of sound in a gas is v = √(γP/ρ). Since P/ρ is constant at a given temperature, the speed is independent of pressure."
     },
     {
-        assertion: "Superposition of two identical waves moving in opposite directions results in a standing wave.",
-        reason: "In a standing wave, there is no net transfer of energy.",
-        answer: "B",
-        explanation: "Both statements are true and are key properties of standing waves, but the second statement is a consequence of the first, not its explanation."
+        "assertion": "Superposition of two identical waves moving in opposite directions results in a standing wave.",
+        "reason": "In a standing wave, there is no net transfer of energy.",
+        "answer": "B",
+        "explanation": "Both statements are true and are key properties of standing waves, but the second statement is a consequence of the first, not its explanation."
     },
     {
-        assertion: "The fundamental frequency of a sonometer wire increases if the tension is increased.",
-        reason: "Frequency is directly proportional to the square root of the tension.",
-        answer: "A",
-        explanation: "The reason correctly states the relationship ν ∝ √T, which explains the assertion."
+        "assertion": "The fundamental frequency of a sonometer wire increases if the tension is increased.",
+        "reason": "Frequency is directly proportional to the square root of the tension.",
+        "answer": "A",
+        "explanation": "The reason correctly states the relationship ν ∝ √T, which explains the assertion."
     }
   ],
   matchTheColumns: [
     {
-        column1: ["a) SHM", "b) Damped Oscillation", "c) Forced Oscillation", "d) Resonance"],
-        column2: ["i) Amplitude decreases with time", "ii) External periodic force", "iii) F = -kx", "iv) Frequency matching"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) SHM", "b) Damped Oscillation", "c) Forced Oscillation", "d) Resonance"],
+        "column2": ["i) Amplitude decreases with time", "ii) External periodic force", "iii) F = -kx", "iv) Frequency matching"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) Amplitude", "b) Frequency", "c) Wavelength", "d) Speed"],
-        column2: ["i) meters", "ii) m/s", "iii) meters", "iv) Hertz"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Amplitude", "b) Frequency", "c) Wavelength", "d) Speed"],
+        "column2": ["i) meters", "ii) m/s", "iii) meters", "iv) Hertz"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Transverse wave", "b) Longitudinal wave", "c) Standing wave", "d) Beats"],
-        column2: ["i) Compressions and rarefactions", "ii) Nodes and antinodes", "iii) Varying intensity", "iv) Crests and troughs"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Transverse wave", "b) Longitudinal wave", "c) Standing wave", "d) Beats"],
+        "column2": ["i) Compressions and rarefactions", "ii) Nodes and antinodes", "iii) Varying intensity", "iv) Crests and troughs"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Open organ pipe", "b) Closed organ pipe", "c) Stretched string", "d) Simple pendulum"],
-        column2: ["i) T = 2π√(L/g)", "ii) Only odd harmonics", "iii) All harmonics", "iv) All harmonics"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Open organ pipe", "b) Closed organ pipe", "c) Stretched string", "d) Simple pendulum"],
+        "column2": ["i) T = 2π√(L/g)", "ii) Only odd harmonics", "iii) All harmonics", "iv) All harmonics"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Doppler Effect", "b) Superposition", "c) Reflection", "d) Refraction"],
-        column2: ["i) Bouncing back of wave", "ii) Change in wave direction at a boundary", "iii) Apparent change in frequency", "iv) Two waves meeting"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Doppler Effect", "b) Superposition", "c) Reflection", "d) Refraction"],
+        "column2": ["i) Bouncing back of wave", "ii) Change in wave direction at a boundary", "iii) Apparent change in frequency", "iv) Two waves meeting"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) y = A sin(ωt)", "b) v = Aω cos(ωt)", "c) a = -Aω² sin(ωt)", "d) K.E. = ½mω²(A²-y²)"],
-        column2: ["i) Acceleration in SHM", "ii) Kinetic energy in SHM", "iii) Displacement in SHM", "iv) Velocity in SHM"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) y = A sin(ωt)", "b) v = Aω cos(ωt)", "c) a = -Aω² sin(ωt)", "d) K.E. = ½mω²(A²-y²)"],
+        "column2": ["i) Acceleration in SHM", "ii) Kinetic energy in SHM", "iii) Displacement in SHM", "iv) Velocity in SHM"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Angular frequency (ω)", "b) Time period (T)", "c) Frequency (ν)", "d) Phase constant (φ)"],
-        column2: ["i) 1/T", "ii) Initial state of motion", "iii) 2π/T", "iv) Time for one oscillation"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Angular frequency (ω)", "b) Time period (T)", "c) Frequency (ν)", "d) Phase constant (φ)"],
+        "column2": ["i) 1/T", "ii) Initial state of motion", "iii) 2π/T", "iv) Time for one oscillation"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) At mean position (y=0)", "b) At extreme position (y=A)", "c) Total energy in SHM", "d) Restoring force"],
-        column2: ["i) Velocity is zero, acceleration is max", "ii) Proportional to displacement", "iii) Velocity is max, acceleration is zero", "iv) ½kA²"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) At mean position (y=0)", "b) At extreme position (y=A)", "c) Total energy in SHM", "d) Restoring force"],
+        "column2": ["i) Velocity is zero, acceleration is max", "ii) Proportional to displacement", "iii) Velocity is max, acceleration is zero", "iv) ½kA²"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Sound", "b) Light", "c) X-rays", "d) Water waves"],
-        column2: ["i) Can be both transverse and longitudinal", "ii) Electromagnetic", "iii) Longitudinal", "iv) Electromagnetic"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Sound", "b) Light", "c) X-rays", "d) Water waves"],
+        "column2": ["i) Can be both transverse and longitudinal", "ii) Electromagnetic", "iii) Longitudinal", "iv) Electromagnetic"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Pitch", "b) Loudness", "c) Quality (Timbre)", "d) Intensity"],
-        column2: ["i) Amplitude", "ii) Waveform (harmonics)", "iii) Power per unit area", "iv) Frequency"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Pitch", "b) Loudness", "c) Quality (Timbre)", "d) Intensity"],
+        "column2": ["i) Amplitude", "ii) Waveform (harmonics)", "iii) Power per unit area", "iv) Frequency"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) v = √(γP/ρ)", "b) v = √(T/μ)", "c) v = νλ", "d) ν_beat = |ν₁ - ν₂|"],
-        column2: ["i) Beat frequency", "ii) Speed of sound in gas", "iii) Speed of transverse wave on string", "iv) General wave speed relation"],
-        answer: "a-ii, b-iii, c-iv, d-i"
+        "column1": ["a) v = √(γP/ρ)", "b) v = √(T/μ)", "c) v = νλ", "d) ν_beat = |ν₁ - ν₂|"],
+        "column2": ["i) Beat frequency", "ii) Speed of sound in gas", "iii) Speed of transverse wave on string", "iv) General wave speed relation"],
+        "answer": "a-ii, b-iii, c-iv, d-i"
     },
     {
-        column1: ["a) Node", "b) Antinode", "c) Crest", "d) Trough"],
-        column2: ["i) Point of maximum positive displacement", "ii) Point of zero displacement", "iii) Point of maximum negative displacement", "iv) Point of maximum displacement"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Node", "b) Antinode", "c) Crest", "d) Trough"],
+        "column2": ["i) Point of maximum positive displacement", "ii) Point of zero displacement", "iii) Point of maximum negative displacement", "iv) Point of maximum displacement"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) Lissajous figures", "b) Echo", "c) Reverberation", "d) Resonance"],
-        column2: ["i) Persistence of sound", "ii) Superposition of perpendicular SHMs", "iii) Frequency matching", "iv) Reflection of sound"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Lissajous figures", "b) Echo", "c) Reverberation", "d) Resonance"],
+        "column2": ["i) Persistence of sound", "ii) Superposition of perpendicular SHMs", "iii) Frequency matching", "iv) Reflection of sound"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) Source moving towards stationary observer", "b) Observer moving towards stationary source", "c) Source moving away from stationary observer", "d) Observer moving away from stationary source"],
-        column2: ["i) ν' = ν(v-v₀)/v", "ii) ν' = νv/(v-vₛ)", "iii) ν' = ν(v+v₀)/v", "iv) ν' = νv/(v+vₛ)"],
-        answer: "a-ii, b-iii, c-iv, d-i"
+        "column1": ["a) Source moving towards stationary observer", "b) Observer moving towards stationary source", "c) Source moving away from stationary observer", "d) Observer moving away from stationary source"],
+        "column2": ["i) ν' = ν(v-v₀)/v", "ii) ν' = νv/(v-vₛ)", "iii) ν' = ν(v+v₀)/v", "iv) ν' = νv/(v+vₛ)"],
+        "answer": "a-ii, b-iii, c-iv, d-i"
     },
     {
-        column1: ["a) Spring-mass system", "b) Torsional pendulum", "c) Physical pendulum", "d) LC circuit"],
-        column2: ["i) T = 2π√(I/mgd)", "ii) T = 2π√(I/C)", "iii) T = 2π√(m/k)", "iv) T = 2π√(L/C)"],
-        answer: "a-iii, b-ii, c-i, d-iv"
+        "column1": ["a) Spring-mass system", "b) Torsional pendulum", "c) Physical pendulum", "d) LC circuit"],
+        "column2": ["i) T = 2π√(I/mgd)", "ii) T = 2π√(I/C)", "iii) T = 2π√(m/k)", "iv) T = 2π√(L/C)"],
+        "answer": "a-iii, b-ii, c-i, d-iv"
     }
   ]
 };

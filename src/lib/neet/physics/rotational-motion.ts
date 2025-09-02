@@ -157,213 +157,213 @@ export const rotationalMotion: NeetModule = {
     {
         question: "The unit of moment of inertia is:",
         options: ["kg/m²", "kg m", "kg m²", "kg/m"],
-        answer: "kg m²",
-        explanation: "From I = Σmr², the SI unit is kg⋅m²."
+        answer": "kg m²",
+        "explanation": "From I = Σmr², the SI unit is kg⋅m²."
     },
     {
-        question: "For a body in pure rotational motion, all its particles move in:",
-        options: ["Straight lines", "Parabolas", "Circles", "Ellipses"],
-        answer: "Circles",
-        explanation: "In pure rotation, every particle of the rigid body moves in a circle, with the center of the circle lying on the axis of rotation."
+        "question": "For a body in pure rotational motion, all its particles move in:",
+        "options": ["Straight lines", "Parabolas", "Circles", "Ellipses"],
+        "answer": "Circles",
+        "explanation": "In pure rotation, every particle of the rigid body moves in a circle, with the center of the circle lying on the axis of rotation."
     },
     {
-        question: "The product of the moment of inertia and angular velocity is:",
-        options: ["Force", "Torque", "Angular momentum", "Work"],
-        answer: "Angular momentum",
-        explanation: "L = Iω is the definition of angular momentum for a rigid body."
+        "question": "The product of the moment of inertia and angular velocity is:",
+        "options": ["Force", "Torque", "Angular momentum", "Work"],
+        "answer": "Angular momentum",
+        "explanation": "L = Iω is the definition of angular momentum for a rigid body."
     },
     {
-        question: "The condition for a body to be in rotational equilibrium is that:",
-        options: ["The net force is zero", "The net torque is zero", "The angular velocity is zero", "The angular acceleration is constant"],
-        answer: "The net torque is zero",
-        explanation: "Rotational equilibrium means the angular acceleration is zero, which implies the net external torque is zero."
+        "question": "The condition for a body to be in rotational equilibrium is that:",
+        "options": ["The net force is zero", "The net torque is zero", "The angular velocity is zero", "The angular acceleration is constant"],
+        "answer": "The net torque is zero",
+        "explanation": "Rotational equilibrium means the angular acceleration is zero, which implies the net external torque is zero."
     },
     {
-        question: "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is doubled and its kinetic energy is halved, then the new angular momentum is:",
-        options: ["L/2", "L/4", "2L", "4L"],
-        answer: "L/4",
-        explanation: "K.E. = ½Iω². L = Iω. So, K.E. = ½(L/ω)ω² = ½Lω. L = 2K.E./ω. New K' = K/2, new ω' = 2ω. L' = 2K'/ω' = 2(K/2)/(2ω) = K/(2ω) = (½Lω)/(2ω) = L/4."
+        "question": "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is doubled and its kinetic energy is halved, then the new angular momentum is:",
+        "options": ["L/2", "L/4", "2L", "4L"],
+        "answer": "L/4",
+        "explanation": "K.E. = ½Iω². L = Iω. So, K.E. = ½(L/ω)ω² = ½Lω. L = 2K.E./ω. New K' = K/2, new ω' = 2ω. L' = 2K'/ω' = 2(K/2)/(2ω) = K/(2ω) = (½Lω)/(2ω) = L/4."
     },
     {
-        question: "A rope is wound around a hollow cylinder of mass 3 kg and radius 40 cm. What is the angular acceleration of the cylinder if the rope is pulled with a force of 30 N?",
-        options: ["25 rad/s²", "0.25 rad/s²", "25 m/s²", "5 m/s²"],
-        answer: "25 rad/s²",
-        explanation: "Torque τ = Iα. Also τ = F × R. For a hollow cylinder, I = MR². So, FR = MR²α. F = MRα. α = F/(MR) = 30 / (3 * 0.4) = 30 / 1.2 = 25 rad/s²."
+        "question": "A rope is wound around a hollow cylinder of mass 3 kg and radius 40 cm. What is the angular acceleration of the cylinder if the rope is pulled with a force of 30 N?",
+        "options": ["25 rad/s²", "0.25 rad/s²", "25 m/s²", "5 m/s²"],
+        "answer": "25 rad/s²",
+        "explanation": "Torque τ = Iα. Also τ = F × R. For a hollow cylinder, I = MR². So, FR = MR²α. F = MRα. α = F/(MR) = 30 / (3 * 0.4) = 30 / 1.2 = 25 rad/s²."
     },
     {
-        question: "The center of mass of a uniform semi-circular disc of radius R lies at a distance of ____ from the center.",
-        options: ["4R/3π", "3R/4π", "2R/π", "R/2"],
-        answer: "4R/3π",
-        explanation: "This is a standard result for the center of mass of a semi-circular lamina, along the axis of symmetry."
+        "question": "The center of mass of a uniform semi-circular disc of radius R lies at a distance of ____ from the center.",
+        "options": ["4R/3π", "3R/4π", "2R/π", "R/2"],
+        "answer": "4R/3π",
+        "explanation": "This is a standard result for the center of mass of a semi-circular lamina, along the axis of symmetry."
     }
   ],
   assertionReasons: [
     {
-        assertion: "The center of mass of a rigid body may lie outside the body.",
-        reason: "The center of mass of a uniform ring is at its center, which is outside the material of the body.",
-        answer: "A",
-        explanation: "The reason provides a perfect example (a ring or a boomerang) to prove the assertion."
+        "assertion": "The center of mass of a rigid body may lie outside the body.",
+        "reason": "The center of mass of a uniform ring is at its center, which is outside the material of the body.",
+        "answer": "A",
+        "explanation": "The reason provides a perfect example (a ring or a boomerang) to prove the assertion."
     },
     {
-        assertion: "If a body is in rotational equilibrium, it must also be in translational equilibrium.",
-        reason: "For rotational equilibrium, the net torque must be zero.",
-        answer: "D",
-        explanation: "Assertion is false. A body can be in rotational equilibrium (Στ=0) but not translational equilibrium (ΣF≠0), e.g., a wheel spinning down while falling. The reason is a true statement."
+        "assertion": "If a body is in rotational equilibrium, it must also be in translational equilibrium.",
+        "reason": "For rotational equilibrium, the net torque must be zero.",
+        "answer": "D",
+        "explanation": "Assertion is false. A body can be in rotational equilibrium (Στ=0) but not translational equilibrium (ΣF≠0), e.g., a wheel spinning down while falling. The reason is a true statement."
     },
     {
-        assertion: "Torque is the rotational analogue of force.",
-        reason: "Torque is given by the cross product of the position vector and the force vector.",
-        answer: "B",
-        explanation: "Both statements are true. The first is a conceptual analogy, and the second is the mathematical definition. The definition doesn't fully 'explain' the analogy, but they are both correct and related statements."
+        "assertion": "Torque is the rotational analogue of force.",
+        "reason": "Torque is given by the cross product of the position vector and the force vector.",
+        "answer": "B",
+        "explanation": "Both statements are true. The first is a conceptual analogy, and the second is the mathematical definition. The definition doesn't fully 'explain' the analogy, but they are both correct and related statements."
     },
     {
-        assertion: "A ballet dancer can increase her angular speed by folding her arms.",
-        reason: "This is due to the conservation of angular momentum.",
-        answer: "A",
-        explanation: "By folding her arms, she decreases her moment of inertia (I). Since angular momentum (L=Iω) is conserved, her angular speed (ω) must increase. The reason explains the assertion."
+        "assertion": "A ballet dancer can increase her angular speed by folding her arms.",
+        "reason": "This is due to the conservation of angular momentum.",
+        "answer": "A",
+        "explanation": "By folding her arms, she decreases her moment of inertia (I). Since angular momentum (L=Iω) is conserved, her angular speed (ω) must increase. The reason explains the assertion."
     },
     {
-        assertion: "The moment of inertia of a body depends on the axis of rotation.",
-        reason: "Moment of inertia is the sum of the product of the mass of each particle and the square of its distance from the axis of rotation.",
-        answer: "A",
-        explanation: "The reason correctly defines the moment of inertia (I = Σmr²), which clearly shows its dependence on the distance (r) from the axis of rotation."
+        "assertion": "The moment of inertia of a body depends on the axis of rotation.",
+        "reason": "Moment of inertia is the sum of the product of the mass of each particle and the square of its distance from the axis of rotation.",
+        "answer": "A",
+        "explanation": "The reason correctly defines the moment of inertia (I = Σmr²), which clearly shows its dependence on the distance (r) from the axis of rotation."
     },
     {
-        assertion: "The kinetic energy of a body in pure rolling motion is the sum of its translational and rotational kinetic energies.",
-        reason: "The condition for pure rolling is v_cm = Rω.",
-        answer: "B",
-        explanation: "Both statements are true. The first defines the total kinetic energy in rolling. The second gives the condition for pure rolling. They are both correct statements about rolling but the reason doesn't explain the assertion."
+        "assertion": "The kinetic energy of a body in pure rolling motion is the sum of its translational and rotational kinetic energies.",
+        "reason": "The condition for pure rolling is v_cm = Rω.",
+        "answer": "B",
+        "explanation": "Both statements are true. The first defines the total kinetic energy in rolling. The second gives the condition for pure rolling. They are both correct statements about rolling but the reason doesn't explain the assertion."
     },
     {
-        assertion: "The parallel axis theorem is applicable to any rigid body.",
-        reason: "It states that I = I_cm + Md².",
-        answer: "B",
-        explanation: "The assertion is true, and the reason gives the correct formula. However, the formula is the statement of the theorem, not the reason why it's applicable. It's applicable because of the mathematical derivation based on the definition of moment of inertia."
+        "assertion": "The parallel axis theorem is applicable to any rigid body.",
+        "reason": "It states that I = I_cm + Md².",
+        "answer": "B",
+        "explanation": "The assertion is true, and the reason gives the correct formula. However, the formula is the statement of the theorem, not the reason why it's applicable. It's applicable because of the mathematical derivation based on the definition of moment of inertia."
     },
     {
-        assertion: "If angular momentum is conserved, then the net external torque is zero.",
-        reason: "Torque is equal to the rate of change of angular momentum.",
-        answer: "A",
-        explanation: "The reason (τ = dL/dt) correctly explains the assertion. If L is conserved (constant), then dL/dt must be zero, meaning the net torque is zero."
+        "assertion": "If angular momentum is conserved, then the net external torque is zero.",
+        "reason": "Torque is equal to the rate of change of angular momentum.",
+        "answer": "A",
+        "explanation": "The reason (τ = dL/dt) correctly explains the assertion. If L is conserved (constant), then dL/dt must be zero, meaning the net torque is zero."
     },
     {
-        assertion: "A solid sphere and a hollow sphere of the same mass and radius are allowed to roll down an incline. The solid sphere will reach the bottom first.",
-        reason: "The solid sphere has a smaller moment of inertia than the hollow sphere.",
-        answer: "A",
-        explanation: "Acceleration down an incline is a = gsinθ / (1 + I/MR²). A smaller moment of inertia (I) leads to a larger acceleration. The reason correctly states that the solid sphere has a smaller I, which explains why it reaches the bottom first."
+        "assertion": "A solid sphere and a hollow sphere of the same mass and radius are allowed to roll down an incline. The solid sphere will reach the bottom first.",
+        "reason": "The solid sphere has a smaller moment of inertia than the hollow sphere.",
+        "answer": "A",
+        "explanation": "Acceleration down an incline is a = gsinθ / (1 + I/MR²). A smaller moment of inertia (I) leads to a larger acceleration. The reason correctly states that the solid sphere has a smaller I, which explains why it reaches the bottom first."
     },
     {
-        assertion: "The angular velocity of a particle in uniform circular motion is constant.",
-        reason: "The speed of the particle is constant.",
-        answer: "D",
-        explanation: "Assertion is false. The angular velocity *vector* is constant in direction (along the axis) but can change if the rotation speeds up or slows down. In *uniform* circular motion, its magnitude is constant, but the vector nature is key. A better way to state this: Assertion is true, the angular velocity vector is constant. Reason is true, speed is constant. BUT this is not a full explanation. The vector is constant because direction and magnitude are constant. Let's rephrase. Assertion: The *magnitude* of angular velocity is constant. Reason is true, and they are directly related by v=ωr."
+        "assertion": "The angular velocity of a particle in uniform circular motion is constant.",
+        "reason": "The speed of the particle is constant.",
+        "answer": "D",
+        "explanation": "Assertion is false. The angular velocity *vector* is constant in direction (along the axis) but can change if the rotation speeds up or slows down. In *uniform* circular motion, its magnitude is constant, but the vector nature is key. A better way to state this: Assertion is true, the angular velocity vector is constant. Reason is true, and they are directly related by v=ωr."
     },
     {
-        assertion: "The center of mass of a two-particle system lies on the line joining the two particles.",
-        reason: "The center of mass is a weighted average of the positions of the particles.",
-        answer: "A",
-        explanation: "The reason correctly defines the center of mass, which mathematically ensures it must lie on the line connecting the particles."
+        "assertion": "The center of mass of a two-particle system lies on the line joining the two particles.",
+        "reason": "The center of mass is a weighted average of the positions of the particles.",
+        "answer": "A",
+        "explanation": "The reason correctly defines the center of mass, which mathematically ensures it must lie on the line connecting the particles."
     },
     {
-        assertion: "The perpendicular axis theorem states I_z = I_x + I_y.",
-        reason: "It is applicable only for three-dimensional bodies.",
-        answer: "C",
-        explanation: "The assertion is a correct statement of the theorem. The reason is false; it is applicable only for planar (2D) bodies."
+        "assertion": "The perpendicular axis theorem states I_z = I_x + I_y.",
+        "reason": "It is applicable only for three-dimensional bodies.",
+        "answer": "C",
+        "explanation": "The assertion is a correct statement of the theorem. The reason is false; it is applicable only for planar (2D) bodies."
     },
     {
-        assertion: "Torque has the same dimensions as work.",
-        reason: "Torque and work are both measured in Joules.",
-        answer: "C",
-        explanation: "Assertion is true. Both have dimensions [ML²T⁻²]. Reason is false. The SI unit of work is Joule, but the unit of torque is Newton-meter (N·m), which is dimensionally equivalent but kept distinct to represent its vector nature."
+        "assertion": "Torque has the same dimensions as work.",
+        "reason": "Torque and work are both measured in Joules.",
+        "answer": "C",
+        "explanation": "Assertion is true. Both have dimensions [ML²T⁻²]. Reason is false. The SI unit of work is Joule, but the unit of torque is Newton-meter (N·m), which is dimensionally equivalent but kept distinct to represent its vector nature."
     },
     {
-        assertion: "When a rigid body rotates, all its particles have the same angular velocity.",
-        reason: "All particles of the body rotate through the same angle in the same time interval.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Since angular velocity ω = dθ/dt, if all particles have the same dθ in the same dt, their ω must be the same."
+        "assertion": "When a rigid body rotates, all its particles have the same angular velocity.",
+        "reason": "All particles of the body rotate through the same angle in the same time interval.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since angular velocity ω = dθ/dt, if all particles have the same dθ in the same dt, their ω must be the same."
     },
     {
-        assertion: "A body can be in translational equilibrium without being in rotational equilibrium.",
-        reason: "For translational equilibrium, the net force must be zero.",
-        answer: "B",
-        explanation: "Both statements are true. A couple (two equal and opposite forces) results in zero net force (translational equilibrium) but a non-zero net torque (no rotational equilibrium). The reason is a correct definition but does not explain the assertion."
+        "assertion": "A body can be in translational equilibrium without being in rotational equilibrium.",
+        "reason": "For translational equilibrium, the net force must be zero.",
+        "answer": "B",
+        "explanation": "Both statements are true. A couple (two equal and opposite forces) results in zero net force (translational equilibrium) but a non-zero net torque (no rotational equilibrium). The reason is a correct definition but does not explain the assertion."
     }
   ],
   matchTheColumns: [
     {
-        column1: ["a) Moment of Inertia", "b) Torque", "c) Angular Momentum", "d) Angular Velocity"],
-        column2: ["i) rad/s", "ii) N⋅m", "iii) kg⋅m²", "iv) kg⋅m²/s"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Moment of Inertia", "b) Torque", "c) Angular Momentum", "d) Angular Velocity"],
+        "column2": ["i) rad/s", "ii) N⋅m", "iii) kg⋅m²", "iv) kg⋅m²/s"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Ring (about axis)", "b) Disc (about axis)", "c) Solid Sphere (about diameter)", "d) Hollow Sphere (about diameter)"],
-        column2: ["i) (2/5)MR²", "ii) MR²", "iii) (2/3)MR²", "iv) (1/2)MR²"],
-        answer: "a-ii, b-iv, c-i, d-iii"
+        "column1": ["a) Ring (about axis)", "b) Disc (about axis)", "c) Solid Sphere (about diameter)", "d) Hollow Sphere (about diameter)"],
+        "column2": ["i) (2/5)MR²", "ii) MR²", "iii) (2/3)MR²", "iv) (1/2)MR²"],
+        "answer": "a-ii, b-iv, c-i, d-iii"
     },
     {
-        column1: ["a) L = Iω", "b) τ = Iα", "c) K_rot = ½Iω²", "d) P = τω"],
-        column2: ["i) Rotational Kinetic Energy", "ii) Rotational Power", "iii) Angular Momentum", "iv) Torque (Newton's 2nd law for rotation)"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) L = Iω", "b) τ = Iα", "c) K_rot = ½Iω²", "d) P = τω"],
+        "column2": ["i) Rotational Kinetic Energy", "ii) Rotational Power", "iii) Angular Momentum", "iv) Torque (Newton's 2nd law for rotation)"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Parallel Axis Theorem", "b) Perpendicular Axis Theorem", "c) Conservation of L", "d) Rolling without slipping"],
-        column2: ["i) I_z = I_x + I_y", "ii) v = Rω", "iii) I = I_cm + Md²", "iv) If τ_ext = 0"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Parallel Axis Theorem", "b) Perpendicular Axis Theorem", "c) Conservation of L", "d) Rolling without slipping"],
+        "column2": ["i) I_z = I_x + I_y", "ii) v = Rω", "iii) I = I_cm + Md²", "iv) If τ_ext = 0"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Rotational analogue of Force", "b) Rotational analogue of Mass", "c) Rotational analogue of Momentum", "d) Rotational analogue of Velocity"],
-        column2: ["i) Moment of Inertia", "ii) Angular Momentum", "iii) Angular Velocity", "iv) Torque"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Rotational analogue of Force", "b) Rotational analogue of Mass", "c) Rotational analogue of Momentum", "d) Rotational analogue of Velocity"],
+        "column2": ["i) Moment of Inertia", "ii) Angular Momentum", "iii) Angular Velocity", "iv) Torque"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Center of mass of uniform rod", "b) Center of mass of uniform ring", "c) Center of mass of uniform disc", "d) Center of mass of solid hemisphere"],
-        column2: ["i) Center", "ii) Center", "iii) Midpoint", "iv) 3R/8 from base"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) Center of mass of uniform rod", "b) Center of mass of uniform ring", "c) Center of mass of uniform disc", "d) Center of mass of solid hemisphere"],
+        "column2": ["i) Center", "ii) Center", "iii) Midpoint", "iv) 3R/8 from base"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) dL/dt", "b) dθ/dt", "c) dω/dt", "d) dK/dt"],
-        column2: ["i) Angular acceleration (α)", "ii) Power (P)", "iii) Torque (τ)", "iv) Angular velocity (ω)"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) dL/dt", "b) dθ/dt", "c) dω/dt", "d) dK/dt"],
+        "column2": ["i) Angular acceleration (α)", "ii) Power (P)", "iii) Torque (τ)", "iv) Angular velocity (ω)"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Linear Motion", "b) Rotational Motion", "c) Linear Variable", "d) Rotational Variable"],
-        column2: ["i) Force (F)", "ii) Mass (m)", "iii) Torque (τ)", "iv) Moment of Inertia (I)"],
-        answer: "a-i, b-iii, c-ii, d-iv"
+        "column1": ["a) Linear Motion", "b) Rotational Motion", "c) Linear Variable", "d) Rotational Variable"],
+        "column2": ["i) Force (F)", "ii) Mass (m)", "iii) Torque (τ)", "iv) Moment of Inertia (I)"],
+        "answer": "a-i, b-iii, c-ii, d-iv"
     },
     {
-        column1: ["a) Rolling KE of Disc", "b) Rolling KE of Sphere", "c) Rolling KE of Ring", "d) Translational KE"],
-        column2: ["i) ½mv²", "ii) mv²", "iii) ¾mv²", "iv) 7/10 mv²"],
-        answer: "a-iii, b-iv, c-ii, d-i"
+        "column1": ["a) Rolling KE of Disc", "b) Rolling KE of Sphere", "c) Rolling KE of Ring", "d) Translational KE"],
+        "column2": ["i) ½mv²", "ii) mv²", "iii) ¾mv²", "iv) 7/10 mv²"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
     },
     {
-        column1: ["a) Body speeds up", "b) Body slows down", "c) Constant angular velocity", "d) Reverses direction"],
-        column2: ["i) α is opposite to ω", "ii) α = 0", "iii) α is in same direction as ω", "iv) ω becomes negative"],
-        answer: "a-iii, b-i, c-ii, d-iv"
+        "column1": ["a) Body speeds up", "b) Body slows down", "c) Constant angular velocity", "d) Reverses direction"],
+        "column2": ["i) α is opposite to ω", "ii) α = 0", "iii) α is in same direction as ω", "iv) ω becomes negative"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
     },
     {
-        column1: ["a) r × F", "b) r × p", "c) ω × r", "d) F × d"],
-        column2: ["i) Angular Momentum (L)", "ii) Linear Velocity (v)", "iii) Work (Scalar)", "iv) Torque (τ)"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) r × F", "b) r × p", "c) ω × r", "d) F × d"],
+        "column2": ["i) Angular Momentum (L)", "ii) Linear Velocity (v)", "iii) Work (Scalar)", "iv) Torque (τ)"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Radius of gyration (K)", "b) Angular Impulse", "c) Rotational Equilibrium", "d) Translational Equilibrium"],
-        column2: ["i) ΣF_ext = 0", "ii) ΔL", "iii) Στ_ext = 0", "iv) √(I/M)"],
-        answer: "a-iv, b-ii, c-iii, d-i"
+        "column1": ["a) Radius of gyration (K)", "b) Angular Impulse", "c) Rotational Equilibrium", "d) Translational Equilibrium"],
+        "column2": ["i) ΣF_ext = 0", "ii) ΔL", "iii) Στ_ext = 0", "iv) √(I/M)"],
+        "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
-        column1: ["a) Speed at bottom of incline (Ring)", "b) Speed at bottom of incline (Disc)", "c) Speed at bottom of incline (Sphere)", "d) Body sliding without friction"],
-        column2: ["i) √(10gh/7)", "ii) √(4gh/3)", "iii) √(2gh)", "iv) √(gh)"],
-        answer: "a-iv, b-ii, c-i, d-iii"
+        "column1": ["a) Speed at bottom of incline (Ring)", "b) Speed at bottom of incline (Disc)", "c) Speed at bottom of incline (Sphere)", "d) Body sliding without friction"],
+        "column2": ["i) √(10gh/7)", "ii) √(4gh/3)", "iii) √(2gh)", "iv) √(gh)"],
+        "answer": "a-iv, b-ii, c-i, d-iii"
     },
     {
-        column1: ["a) I_z for a disc", "b) I_tangent for a disc", "c) I_diameter for a disc", "d) I_tangent for a ring"],
-        column2: ["i) ¾ MR²", "ii) MR²/2", "iii) MR²/4", "iv) 3/2 MR²"],
-        answer: "a-ii, b-i, c-iii, d-iv"
+        "column1": ["a) I_z for a disc", "b) I_tangent for a disc", "c) I_diameter for a disc", "d) I_tangent for a ring"],
+        "column2": ["i) ¾ MR²", "ii) MR²/2", "iii) MR²/4", "iv) 3/2 MR²"],
+        "answer": "a-ii, b-i, c-iii, d-iv"
     },
     {
-        column1: ["a) Vector", "b) Scalar", "c) Axial Vector", "d) Tensor"],
-        column2: ["i) Moment of Inertia", "ii) Angular Velocity", "iii) Rotational Kinetic Energy", "iv) Work"],
-        answer: "a-ii, b-iii, c-i, d-iv"
+        "column1": ["a) Vector", "b) Scalar", "c) Axial Vector", "d) Tensor"],
+        "column2": ["i) Moment of Inertia", "ii) Angular Velocity", "iii) Rotational Kinetic Energy", "iv) Work"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
     }
   ]
 };

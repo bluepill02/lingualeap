@@ -123,133 +123,133 @@ export const kineticTheoryOfGases: NeetModule = {
     {
         question: "The relationship between molar specific heats is given by:",
         options: ["C_p - C_v = R", "C_v - C_p = R", "C_p * C_v = R", "C_p / C_v = R"],
-        answer: "C_p - C_v = R",
-        explanation: "This is known as Mayer's relation for an ideal gas."
+        answer": "C_p - C_v = R",
+        "explanation": "This is known as Mayer's relation for an ideal gas."
     },
     {
-        question: "What is the average kinetic energy of 1 mole of a monatomic gas at 300 K?",
-        options: ["(3/2)R * 300", "(5/2)R * 300", "(1/2)R * 300", "R * 300"],
-        answer: "(3/2)R * 300",
-        explanation: "Average K.E. per molecule = (3/2)kT. For 1 mole (Nₐ molecules), Total K.E. = Nₐ * (3/2)kT = (3/2)(Nₐk)T = (3/2)RT."
+        "question": "What is the average kinetic energy of 1 mole of a monatomic gas at 300 K?",
+        "options": ["(3/2)R * 300", "(5/2)R * 300", "(1/2)R * 300", "R * 300"],
+        "answer": "(3/2)R * 300",
+        "explanation": "Average K.E. per molecule = (3/2)kT. For 1 mole (Nₐ molecules), Total K.E. = Nₐ * (3/2)kT = (3/2)(Nₐk)T = (3/2)RT."
     },
     {
-        question: "The pressure of an ideal gas is doubled while keeping the temperature constant. The volume of the gas will be:",
-        options: ["Doubled", "Halved", "Remain the same", "Four times"],
-        answer: "Halved",
-        explanation: "According to Boyle's Law (P₁V₁ = P₂V₂), if pressure is doubled, volume must be halved to keep the product constant."
+        "question": "The pressure of an ideal gas is doubled while keeping the temperature constant. The volume of the gas will be:",
+        "options": ["Doubled", "Halved", "Remain the same", "Four times"],
+        "answer": "Halved",
+        "explanation": "According to Boyle's Law (P₁V₁ = P₂V₂), if pressure is doubled, volume must be halved to keep the product constant."
     },
     {
-        question: "Which of the following gases will have the highest RMS speed at the same temperature?",
-        options: ["O₂", "N₂", "H₂", "CO₂"],
-        answer: "H₂",
-        explanation: "v_rms = √(3RT/M). At the same temperature, the gas with the lowest molar mass (M) will have the highest RMS speed. H₂ has the lowest molar mass (2 g/mol)."
+        "question": "Which of the following gases will have the highest RMS speed at the same temperature?",
+        "options": ["O₂", "N₂", "H₂", "CO₂"],
+        "answer": "H₂",
+        "explanation": "v_rms = √(3RT/M). At the same temperature, the gas with the lowest molar mass (M) will have the highest RMS speed. H₂ has the lowest molar mass (2 g/mol)."
     },
     {
-        question: "The degrees of freedom for a water molecule (H₂O), which is non-linear, are:",
-        options: ["3", "5", "6", "7"],
-        answer: "6",
-        explanation: "A non-linear triatomic molecule has 3 translational and 3 rotational degrees of freedom, totaling 6."
+        "question": "The degrees of freedom for a water molecule (H₂O), which is non-linear, are:",
+        "options": ["3", "5", "6", "7"],
+        "answer": "6",
+        "explanation": "A non-linear triatomic molecule has 3 translational and 3 rotational degrees of freedom, totaling 6."
     },
     {
-        question: "The Boltzmann constant (k) is the ratio of:",
-        options: ["R/Nₐ", "Nₐ/R", "R*Nₐ", "R*T"],
-        answer: "R/Nₐ",
-        explanation: "The Boltzmann constant is the gas constant per molecule (k = R/Nₐ)."
+        "question": "The Boltzmann constant (k) is the ratio of:",
+        "options": ["R/Nₐ", "Nₐ/R", "R*Nₐ", "R*T"],
+        "answer": "R/Nₐ",
+        "explanation": "The Boltzmann constant is the gas constant per molecule (k = R/Nₐ)."
     },
     {
-        question: "At absolute zero temperature, the kinetic energy of gas molecules is:",
-        options: ["Infinite", "Maximum", "Zero", "Depends on the gas"],
-        answer: "Zero",
-        explanation: "Since average K.E. is proportional to absolute temperature (T), at T=0 K, the kinetic energy is zero."
+        "question": "At absolute zero temperature, the kinetic energy of gas molecules is:",
+        "options": ["Infinite", "Maximum", "Zero", "Depends on the gas"],
+        "answer": "Zero",
+        "explanation": "Since average K.E. is proportional to absolute temperature (T), at T=0 K, the kinetic energy is zero."
     },
     {
-        question: "The most probable speed (v_p), average speed (v_avg), and root mean square speed (v_rms) are related as:",
-        options: ["v_p > v_avg > v_rms", "v_rms > v_avg > v_p", "v_avg > v_rms > v_p", "v_rms > v_p > v_avg"],
-        answer: "v_rms > v_avg > v_p",
-        explanation: "The ratio is approximately v_rms : v_avg : v_p ≈ 1.732 : 1.60 : 1.414."
+        "question": "The most probable speed (v_p), average speed (v_avg), and root mean square speed (v_rms) are related as:",
+        "options": ["v_p > v_avg > v_rms", "v_rms > v_avg > v_p", "v_avg > v_rms > v_p", "v_rms > v_p > v_avg"],
+        "answer": "v_rms > v_avg > v_p",
+        "explanation": "The ratio is approximately v_rms : v_avg : v_p ≈ 1.732 : 1.60 : 1.414."
     },
     {
-        question: "The phenomenon of Brownian motion provides evidence for:",
-        options: ["The wave nature of matter", "The law of gravitation", "The atomic/molecular nature of matter", "The conservation of energy"],
-        answer: "The atomic/molecular nature of matter",
-        explanation: "The random, zigzag motion of suspended particles (Brownian motion) is due to the constant, random collisions by the invisible molecules of the fluid, providing direct evidence for the kinetic theory."
+        "question": "The phenomenon of Brownian motion provides evidence for:",
+        "options": ["The wave nature of matter", "The law of gravitation", "The atomic/molecular nature of matter", "The conservation of energy"],
+        "answer": "The atomic/molecular nature of matter",
+        "explanation": "The random, zigzag motion of suspended particles (Brownian motion) is due to the constant, random collisions by the invisible molecules of the fluid, providing direct evidence for the kinetic theory."
     },
     {
-        question: "The internal energy of an ideal diatomic gas is given by:",
-        options: ["(3/2)nRT", "(5/2)nRT", "nRT", "(7/2)nRT"],
-        answer: "(5/2)nRT",
-        explanation: "For a diatomic gas, f=5. So, U = (f/2)nRT = (5/2)nRT."
+        "question": "The internal energy of an ideal diatomic gas is given by:",
+        "options": ["(3/2)nRT", "(5/2)nRT", "nRT", "(7/2)nRT"],
+        "answer": "(5/2)nRT",
+        "explanation": "For a diatomic gas, f=5. So, U = (f/2)nRT = (5/2)nRT."
     },
     {
-        question: "According to Charles's law, if the temperature of a gas is increased from 0°C to 273°C at constant pressure, its volume will be:",
-        options: ["Halved", "Doubled", "Unchanged", "Four times"],
-        answer: "Doubled",
-        explanation: "V ∝ T (in Kelvin). T₁ = 0°C = 273 K. T₂ = 273°C = 546 K. Since T₂ = 2T₁, the volume V₂ = 2V₁."
+        "question": "According to Charles's law, if the temperature of a gas is increased from 0°C to 273°C at constant pressure, its volume will be:",
+        "options": ["Halved", "Doubled", "Unchanged", "Four times"],
+        "answer": "Doubled",
+        "explanation": "V ∝ T (in Kelvin). T₁ = 0°C = 273 K. T₂ = 273°C = 546 K. Since T₂ = 2T₁, the volume V₂ = 2V₁."
     },
     {
-        question: "The perfect gas equation can be written as:",
-        options: ["P = kNT", "PV = NkT", "V = kNT", "P = NVT"],
-        answer: "PV = NkT",
-        explanation": "PV = nRT. Since n = N/Nₐ and R = Nₐk, we have PV = (N/Nₐ)(Nₐk)T = NkT, where N is the total number of molecules."
+        "question": "The perfect gas equation can be written as:",
+        "options": ["P = kNT", "PV = NkT", "V = kNT", "P = NVT"],
+        "answer": "PV = NkT",
+        "explanation": "PV = nRT. Since n = N/Nₐ and R = Nₐk, we have PV = (N/Nₐ)(Nₐk)T = NkT, where N is the total number of molecules."
     },
     {
-        question: "The value of γ for a polyatomic gas with 'f' degrees of freedom is:",
-        options": ["1 + f/2", "1 - 2/f", "1 + 2/f", "f/2"],
-        answer: "1 + 2/f",
-        explanation: "γ = C_p/C_v = ((f/2+1)R) / ((f/2)R) = 1 + 2/f."
+        "question": "The value of γ for a polyatomic gas with 'f' degrees of freedom is:",
+        "options": ["1 + f/2", "1 - 2/f", "1 + 2/f", "f/2"],
+        "answer": "1 + 2/f",
+        "explanation": "γ = C_p/C_v = ((f/2+1)R) / ((f/2)R) = 1 + 2/f."
     },
     {
-        question: "If the pressure of a gas is constant, the graph between V and T (in °C) is a straight line that:",
-        options: ["Passes through the origin", "Intercepts the V-axis", "Intercepts the T-axis at -273.15 °C", "Is parallel to the T-axis"],
-        answer: "Intercepts the T-axis at -273.15 °C",
-        explanation: "According to Charles's Law (V ∝ T in Kelvin), V = k(t+273.15) where t is in Celsius. This is a straight line that, when extrapolated, gives V=0 at t = -273.15°C."
+        "question": "If the pressure of a gas is constant, the graph between V and T (in °C) is a straight line that:",
+        "options": ["Passes through the origin", "Intercepts the V-axis", "Intercepts the T-axis at -273.15 °C", "Is parallel to the T-axis"],
+        "answer": "Intercepts the T-axis at -273.15 °C",
+        "explanation": "According to Charles's Law (V ∝ T in Kelvin), V = k(t+273.15) where t is in Celsius. This is a straight line that, when extrapolated, gives V=0 at t = -273.15°C."
     }
   ],
   assertionReasons: [
     {
-        assertion: "The average kinetic energy of gas molecules is directly proportional to the absolute temperature.",
-        reason: "Temperature is a measure of the average kinetic energy of the molecules of the substance.",
-        answer: "A",
-        explanation: "The reason correctly provides the physical interpretation of temperature according to the kinetic theory, which explains the assertion."
+        "assertion": "The average kinetic energy of gas molecules is directly proportional to the absolute temperature.",
+        "reason": "Temperature is a measure of the average kinetic energy of the molecules of the substance.",
+        "answer": "A",
+        "explanation": "The reason correctly provides the physical interpretation of temperature according to the kinetic theory, which explains the assertion."
     },
     {
-        assertion: "At the same temperature, hydrogen gas has a higher RMS speed than oxygen gas.",
-        reason: "The molar mass of hydrogen is less than that of oxygen.",
-        answer: "A",
-        explanation: "v_rms = √(3RT/M). The reason correctly states that hydrogen has a lower molar mass, which, according to the formula, leads to a higher RMS speed at the same temperature."
+        "assertion": "At the same temperature, hydrogen gas has a higher RMS speed than oxygen gas.",
+        "reason": "The molar mass of hydrogen is less than that of oxygen.",
+        "answer": "A",
+        "explanation": "v_rms = √(3RT/M). The reason correctly states that hydrogen has a lower molar mass, which, according to the formula, leads to a higher RMS speed at the same temperature."
     },
     {
-        assertion: "The ratio of specific heats (γ) is always greater than 1.",
-        reason: "C_p is always greater than C_v.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Since C_p = C_v + R, C_p is always greater than C_v, making their ratio γ always greater than 1."
+        "assertion": "The ratio of specific heats (γ) is always greater than 1.",
+        "reason": "C_p is always greater than C_v.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since C_p = C_v + R, C_p is always greater than C_v, making their ratio γ always greater than 1."
     },
     {
-        assertion: "An ideal gas cannot be liquefied.",
-        reason: "The kinetic theory of gases assumes that there are no intermolecular forces of attraction between the gas molecules.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Liquefaction requires attractive forces to hold the molecules together in a liquid state. Since ideal gases are assumed to have no such forces, they cannot be liquefied."
+        "assertion": "An ideal gas cannot be liquefied.",
+        "reason": "The kinetic theory of gases assumes that there are no intermolecular forces of attraction between the gas molecules.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Liquefaction requires attractive forces to hold the molecules together in a liquid state. Since ideal gases are assumed to have no such forces, they cannot be liquefied."
     },
     {
-        assertion: "The internal energy of an ideal gas depends only on its temperature.",
-        reason: "For an ideal gas, there are no intermolecular forces, so there is no potential energy associated with these forces.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Since there are no intermolecular forces, the internal energy is purely the kinetic energy of the molecules, which is a function of temperature."
+        "assertion": "The internal energy of an ideal gas depends only on its temperature.",
+        "reason": "For an ideal gas, there are no intermolecular forces, so there is no potential energy associated with these forces.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since there are no intermolecular forces, the internal energy is purely the kinetic energy of the molecules, which is a function of temperature."
     },
     {
-        assertion: "The pressure of a gas is due to the collisions of its molecules with the walls of the container.",
-        reason: "The collisions of the molecules with the walls are perfectly elastic.",
-        answer: "B",
-        explanation: "Both statements are true postulates of the kinetic theory. However, the elastic nature of collisions (reason) ensures that kinetic energy is conserved, it doesn't, by itself, explain why these collisions cause pressure. The pressure is due to the change in momentum during the collisions."
+        "assertion": "The pressure of a gas is due to the collisions of its molecules with the walls of the container.",
+        "reason": "The collisions of the molecules with the walls are perfectly elastic.",
+        "answer": "B",
+        "explanation": "Both statements are true postulates of the kinetic theory. However, the elastic nature of collisions (reason) ensures that kinetic energy is conserved, it doesn't, by itself, explain why these collisions cause pressure. The pressure is due to the change in momentum during the collisions."
     },
     {
-        assertion: "The number of degrees of freedom for a monatomic gas is 3.",
-        reason: "Monatomic gas molecules can only have translational motion.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. A point-like monatomic gas molecule can move independently along the x, y, and z axes, giving it 3 translational degrees of freedom."
+        "assertion": "The number of degrees of freedom for a monatomic gas is 3.",
+        "reason": "Monatomic gas molecules can only have translational motion.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. A point-like monatomic gas molecule can move independently along the x, y, and z axes, giving it 3 translational degrees of freedom."
     },
     {
-        assertion": "The ideal gas equation is not applicable at very high pressures and low temperatures.",
+        "assertion": "The ideal gas equation is not applicable at very high pressures and low temperatures.",
         "reason": "At high pressures and low temperatures, the intermolecular forces and the volume of the molecules become significant.",
         "answer": "A",
         "explanation": "The reason correctly states the conditions under which the two main assumptions of the kinetic theory (negligible volume and no intermolecular forces) break down, thus explaining why the ideal gas law fails."
@@ -295,6 +295,83 @@ export const kineticTheoryOfGases: NeetModule = {
         "reason": "R is a universal constant.",
         "answer": "A",
         "explanation": "The reason correctly explains the assertion. R is called the universal gas constant because it is independent of the nature of the gas."
+    }
+  ],
+  matchTheColumns: [
+    {
+        "column1": [ "a) RMS speed", "b) Average speed", "c) Most probable speed", "d) Internal Energy" ],
+        "column2": [ "i) √(2RT/M)", "ii) (f/2)nRT", "iii) √(3RT/M)", "iv) √(8RT/πM)" ],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": [ "a) Monatomic gas (γ)", "b) Diatomic gas (γ)", "c) Triatomic linear (γ)", "d) Triatomic non-linear (γ)" ],
+        "column2": [ "i) 1.4", "ii) 1.33", "iii) 1.67", "iv) 1.28" ],
+        "answer": "a-iii, b-i, c-ii, d-iv"
+    },
+    {
+        "column1": [ "a) Boyle's Law", "b) Charles's Law", "c) Gay-Lussac's Law", "d) Avogadro's Law" ],
+        "column2": [ "i) V ∝ n", "ii) V ∝ T", "iii) P ∝ T", "iv) P ∝ 1/V" ],
+        "answer": "a-iv, b-ii, c-iii, d-i"
+    },
+    {
+        "column1": [ "a) Degrees of freedom (monatomic)", "b) Degrees of freedom (diatomic)", "c) Degrees of freedom (non-linear polyatomic)", "d) Vibrational degrees of freedom" ],
+        "column2": [ "i) 5", "ii) 6", "iii) Active at high temperatures", "iv) 3" ],
+        "answer": "a-iv, b-i, c-ii, d-iii"
+    },
+    {
+        "column1": [ "a) C_v for monatomic", "b) C_p for monatomic", "c) C_v for diatomic", "d) C_p for diatomic" ],
+        "column2": [ "i) (5/2)R", "ii) (7/2)R", "iii) (3/2)R", "iv) (5/2)R" ],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": [ "a) Ideal Gas Equation", "b) Real Gas Equation", "c) Dalton's Law", "d) Graham's Law" ],
+        "column2": [ "i) P_total = P₁ + P₂ + ...", "ii) r ∝ 1/√M", "iii) (P + a/V²)(V-b) = RT", "iv) PV = nRT" ],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": [ "a) Boltzmann constant (k)", "b) Universal gas constant (R)", "c) Avogadro's number (Nₐ)", "d) Mean free path (λ)" ],
+        "column2": [ "i) Average distance between collisions", "ii) R / Nₐ", "iii) Gas constant per mole", "iv) Number of molecules per mole" ],
+        "answer": "a-ii, b-iii, c-iv, d-i"
+    },
+    {
+        "column1": [ "a) Assumptions of Kinetic Theory", "b) Result of Kinetic Theory", "c) Law of Thermodynamics", "d) Gas Law" ],
+        "column2": [ "i) Boyle's Law", "ii) P = (1/3)ρv_rms²", "iii) Molecules are point masses", "iv) C_p - C_v = R" ],
+        "answer": "a-iii, b-ii, c-iv, d-i"
+    },
+    {
+        "column1": [ "a) Pressure", "b) Temperature", "c) Volume", "d) Density" ],
+        "column2": [ "i) m³", "ii) kg/m³", "iii) Kelvin", "iv) Pascal (N/m²)" ],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": [ "a) No intermolecular forces", "b) Elastic collisions", "c) Negligible molecular volume", "d) Constant random motion" ],
+        "column2": [ "i) Kinetic energy is conserved", "ii) Causes pressure", "iii) Ideal gas assumption", "iv) Ideal gas assumption" ],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": [ "a) Brownian Motion", "b) Diffusion", "c) Effusion", "d) Viscosity" ],
+        "column2": [ "i) Gas escape through a small hole", "ii) Random motion of suspended particles", "iii) Internal friction", "iv) Intermixing of gases" ],
+        "answer": "a-ii, b-iv, c-i, d-iii"
+    },
+    {
+        "column1": [ "a) T = constant", "b) P = constant", "c) V = constant", "d) Q = 0" ],
+        "column2": [ "i) Isochoric", "ii) Isobaric", "iii) Isothermal", "iv) Adiabatic" ],
+        "answer": "a-iii, b-ii, c-i, d-iv"
+    },
+    {
+        "column1": [ "a) C_v = (f/2)R", "b) C_p = (f/2 + 1)R", "c) γ = 1 + 2/f", "d) U = (f/2)nRT" ],
+        "column2": [ "i) Internal energy", "ii) Ratio of specific heats", "iii) Molar specific heat at constant volume", "iv) Molar specific heat at constant pressure" ],
+        "answer": "a-iii, b-iv, c-ii, d-i"
+    },
+    {
+        "column1": [ "a) Real Gas", "b) Ideal Gas", "c) Vapour", "d) Plasma" ],
+        "column2": [ "i) Gas below critical temperature", "ii) Obeys gas laws at all conditions", "iii) Obeys van der Waals equation", "iv) Ionized gas" ],
+        "answer": "a-iii, b-ii, c-i, d-iv"
+    },
+    {
+        "column1": [ "a) v_rms / v_avg", "b) v_avg / v_p", "c) v_rms", "d) v_p" ],
+        "column2": ["i) √(2RT/M)", "ii) √(3RT/M)", "iii) 1.128", "iv) 1.085"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
     }
   ]
 };

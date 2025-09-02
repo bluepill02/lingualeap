@@ -52,198 +52,198 @@ export const thermodynamics: NeetModule = {
   ],
   mcqs: [
     {
-        question: "The first law of thermodynamics is a statement of:",
-        options: ["Conservation of heat", "Conservation of work", "Conservation of energy", "Conservation of momentum"],
-        answer: "Conservation of energy",
-        explanation: "The first law (ΔQ = ΔU + ΔW) states that energy can neither be created nor destroyed, only transformed from one form to another."
+        "question": "The first law of thermodynamics is a statement of:",
+        "options": ["Conservation of heat", "Conservation of work", "Conservation of energy", "Conservation of momentum"],
+        "answer": "Conservation of energy",
+        "explanation": "The first law (ΔQ = ΔU + ΔW) states that energy can neither be created nor destroyed, only transformed from one form to another."
     },
     {
-        question: "In an isothermal process, which of the following remains constant?",
-        options: ["Pressure", "Volume", "Temperature", "Heat"],
-        answer: "Temperature",
-        explanation: "An isothermal process is defined as a process that occurs at a constant temperature (ΔT = 0)."
+        "question": "In an isothermal process, which of the following remains constant?",
+        "options": ["Pressure", "Volume", "Temperature", "Heat"],
+        "answer": "Temperature",
+        "explanation": "An isothermal process is defined as a process that occurs at a constant temperature (ΔT = 0)."
     },
     {
-        question: "For an adiabatic process, which of the following is true?",
-        options: ["ΔQ = 0", "ΔW = 0", "ΔU = 0", "ΔT = 0"],
-        answer: "ΔQ = 0",
-        explanation: "An adiabatic process is one in which no heat is transferred into or out of the system (ΔQ = 0)."
+        "question": "For an adiabatic process, which of the following is true?",
+        "options": ["ΔQ = 0", "ΔW = 0", "ΔU = 0", "ΔT = 0"],
+        "answer": "ΔQ = 0",
+        "explanation": "An adiabatic process is one in which no heat is transferred into or out of the system (ΔQ = 0)."
     },
     {
-        question: "The efficiency of a Carnot engine depends on:",
-        options: ["The working substance", "The temperatures of the source and sink", "The design of the engine", "The pressure of the gas"],
-        answer: "The temperatures of the source and sink",
-        explanation: "The efficiency of an ideal Carnot engine is given by η = 1 - T₂/T₁, which depends only on the absolute temperatures of the hot source (T₁) and the cold sink (T₂)."
+        "question": "The efficiency of a Carnot engine depends on:",
+        "options": ["The working substance", "The temperatures of the source and sink", "The design of the engine", "The pressure of the gas"],
+        "answer": "The temperatures of the source and sink",
+        "explanation": "The efficiency of an ideal Carnot engine is given by η = 1 - T₂/T₁, which depends only on the absolute temperatures of the hot source (T₁) and the cold sink (T₂)."
     },
     {
-        question: "Which of the following is an example of an irreversible process?",
-        options: ["Slow isothermal expansion of a gas", "Free expansion of a gas", "Slow adiabatic compression of a gas", "Melting of ice at its melting point"],
-        answer: "Free expansion of a gas",
-        explanation: "Free expansion is a spontaneous and irreversible process where a gas expands into a vacuum. The system cannot be returned to its initial state without external work."
+        "question": "Which of the following is an example of an irreversible process?",
+        "options": ["Slow isothermal expansion of a gas", "Free expansion of a gas", "Slow adiabatic compression of a gas", "Melting of ice at its melting point"],
+        "answer": "Free expansion of a gas",
+        "explanation": "Free expansion is a spontaneous and irreversible process where a gas expands into a vacuum. The system cannot be returned to its initial state without external work."
     },
     {
-        question: "The second law of thermodynamics introduces the concept of:",
-        options: ["Internal energy", "Enthalpy", "Work", "Entropy"],
-        answer: "Entropy",
-        explanation: "The second law is often stated in terms of entropy, stating that the total entropy of an isolated system always increases for any spontaneous process."
+        "question": "The second law of thermodynamics introduces the concept of:",
+        "options": ["Internal energy", "Enthalpy", "Work", "Entropy"],
+        "answer": "Entropy",
+        "explanation": "The second law is often stated in terms of entropy, stating that the total entropy of an isolated system always increases for any spontaneous process."
     },
     {
-        question: "In an isochoric process, the work done by the system is:",
-        options: ["Positive", "Negative", "Zero", "Infinite"],
-        answer: "Zero",
-        explanation: "An isochoric process occurs at constant volume (ΔV = 0). Since work done W = PΔV, the work done is zero."
+        "question": "In an isochoric process, the work done by the system is:",
+        "options": ["Positive", "Negative", "Zero", "Infinite"],
+        "answer": "Zero",
+        "explanation": "An isochoric process occurs at constant volume (ΔV = 0). Since work done W = PΔV, the work done is zero."
     },
     {
-        question: "The coefficient of performance (COP) of a refrigerator is given by:",
-        options: ["T₁/T₂ - 1", "T₂/(T₁ - T₂)", "T₁/(T₁ - T₂)", "1 - T₂/T₁"],
-        answer: "T₂/(T₁ - T₂)",
-        explanation: "For an ideal refrigerator (reverse Carnot engine), COP = Q₂/W = T₂/(T₁-T₂), where T₂ is the temperature of the cold reservoir."
+        "question": "The coefficient of performance (COP) of a refrigerator is given by:",
+        "options": ["T₁/T₂ - 1", "T₂/(T₁ - T₂)", "T₁/(T₁ - T₂)", "1 - T₂/T₁"],
+        "answer": "T₂/(T₁ - T₂)",
+        "explanation": "For an ideal refrigerator (reverse Carnot engine), COP = Q₂/W = T₂/(T₁-T₂), where T₂ is the temperature of the cold reservoir."
     },
     {
-        question: "Which law of thermodynamics states that 'heat cannot by itself flow from a body at a lower temperature to a body at a higher temperature'?",
-        options: ["Zeroth Law", "First Law", "Second Law (Clausius Statement)", "Third Law"],
-        answer: "Second Law (Clausius Statement)",
-        explanation: "This is the Clausius statement of the second law of thermodynamics."
+        "question": "Which law of thermodynamics states that 'heat cannot by itself flow from a body at a lower temperature to a body at a higher temperature'?",
+        "options": ["Zeroth Law", "First Law", "Second Law (Clausius Statement)", "Third Law"],
+        "answer": "Second Law (Clausius Statement)",
+        "explanation": "This is the Clausius statement of the second law of thermodynamics."
     },
     {
-        question: "For a cyclic process, the change in internal energy (ΔU) is:",
-        options: ["Positive", "Negative", "Zero", "Depends on the path"],
-        answer: "Zero",
-        explanation: "Internal energy is a state function. In a cyclic process, the initial and final states are the same, so the change in internal energy is zero."
+        "question": "For a cyclic process, the change in internal energy (ΔU) is:",
+        "options": ["Positive", "Negative", "Zero", "Depends on the path"],
+        "answer": "Zero",
+        "explanation": "Internal energy is a state function. In a cyclic process, the initial and final states are the same, so the change in internal energy is zero."
     },
     {
-        question: "A gas expands from volume V₁ to V₂. The work done by the gas is maximum in which process?",
-        options: ["Isobaric", "Isothermal", "Adiabatic", "Isochoric"],
-        answer: "Isobaric",
-        explanation: "The work done is the area under the P-V graph. For the same volume expansion, the area is largest for the isobaric process (constant pressure)."
+        "question": "A gas expands from volume V₁ to V₂. The work done by the gas is maximum in which process?",
+        "options": ["Isobaric", "Isothermal", "Adiabatic", "Isochoric"],
+        "answer": "Isobaric",
+        "explanation": "The work done is the area under the P-V graph. For the same volume expansion, the area is largest for the isobaric process (constant pressure)."
     },
     {
-        question: "The efficiency of a heat engine can never be:",
-        options: ["0.5", "0.9", "1.0", "0.2"],
-        answer: "1.0",
-        explanation: "According to the Kelvin-Planck statement of the second law, no heat engine can have 100% efficiency (η=1), as some heat must be rejected to a cold sink."
+        "question": "The efficiency of a heat engine can never be:",
+        "options": ["0.5", "0.9", "1.0", "0.2"],
+        "answer": "1.0",
+        "explanation": "According to the Kelvin-Planck statement of the second law, no heat engine can have 100% efficiency (η=1), as some heat must be rejected to a cold sink."
     },
     {
-        question: "Which of the following is a state function?",
-        options: ["Work", "Heat", "Internal Energy", "Both heat and work"],
-        answer: "Internal Energy",
-        explanation: "Internal energy depends only on the state of the system, not on the path taken to reach that state. Work and heat are path functions."
+        "question": "Which of the following is a state function?",
+        "options": ["Work", "Heat", "Internal Energy", "Both heat and work"],
+        "answer": "Internal Energy",
+        "explanation": "Internal energy depends only on the state of the system, not on the path taken to reach that state. Work and heat are path functions."
     },
     {
-        question: "The relation for an adiabatic process is:",
-        options: ["PV = constant", "P/T = constant", "PV^γ = constant", "V/T = constant"],
-        answer: "PV^γ = constant",
-        explanation: "This is the standard equation that relates pressure and volume for a reversible adiabatic process."
+        "question": "The relation for an adiabatic process is:",
+        "options": ["PV = constant", "P/T = constant", "PV^γ = constant", "V/T = constant"],
+        "answer": "PV^γ = constant",
+        "explanation": "This is the standard equation that relates pressure and volume for a reversible adiabatic process."
     },
     {
-        question: "The internal energy of an ideal gas depends on:",
-        options: ["Pressure only", "Volume only", "Temperature only", "Both pressure and volume"],
-        answer: "Temperature only",
-        explanation: "For an ideal gas, there are no intermolecular forces, so the internal energy is purely the kinetic energy of the molecules, which depends only on temperature."
+        "question": "The internal energy of an ideal gas depends on:",
+        "options": ["Pressure only", "Volume only", "Temperature only", "Both pressure and volume"],
+        "answer": "Temperature only",
+        "explanation": "For an ideal gas, there are no intermolecular forces, so the internal energy is purely the kinetic energy of the molecules, which depends only on temperature."
     },
     {
-        question: "A heat engine takes 1000 J of heat from a source at 500 K and rejects 600 J to a sink. The temperature of the sink is:",
-        options: ["300 K", "400 K", "200 K", "250 K"],
-        answer: "300 K",
-        explanation: "For a Carnot engine (maximum efficiency), Q₁/T₁ = Q₂/T₂. 1000/500 = 600/T₂. 2 = 600/T₂. T₂ = 300 K."
+        "question": "A heat engine takes 1000 J of heat from a source at 500 K and rejects 600 J to a sink. The temperature of the sink is:",
+        "options": ["300 K", "400 K", "200 K", "250 K"],
+        "answer": "300 K",
+        "explanation": "For a Carnot engine (maximum efficiency), Q₁/T₁ = Q₂/T₂. 1000/500 = 600/T₂. 2 = 600/T₂. T₂ = 300 K."
     },
     {
-        question: "Which of the following processes is the fastest?",
-        options: ["Isothermal", "Isobaric", "Isochoric", "Adiabatic"],
-        answer: "Adiabatic",
-        explanation: "An adiabatic process occurs very rapidly so that there is no time for heat exchange with the surroundings."
+        "question": "Which of the following processes is the fastest?",
+        "options": ["Isothermal", "Isobaric", "Isochoric", "Adiabatic"],
+        "answer": "Adiabatic",
+        "explanation": "An adiabatic process occurs very rapidly so that there is no time for heat exchange with the surroundings."
     },
     {
-        question: "The Zeroth Law of Thermodynamics leads to the concept of:",
-        options: ["Heat", "Work", "Internal Energy", "Temperature"],
-        answer: "Temperature",
-        explanation: "The Zeroth Law defines thermal equilibrium and allows for the definition of temperature as a fundamental property."
+        "question": "The Zeroth Law of Thermodynamics leads to the concept of:",
+        "options": ["Heat", "Work", "Internal Energy", "Temperature"],
+        "answer": "Temperature",
+        "explanation": "The Zeroth Law defines thermal equilibrium and allows for the definition of temperature as a fundamental property."
     },
     {
-        question: "In an isothermal expansion of an ideal gas, the change in internal energy is:",
-        options: ["Positive", "Negative", "Zero", "Depends on the gas"],
-        answer: "Zero",
-        explanation: "The internal energy of an ideal gas depends only on temperature. In an isothermal process, ΔT=0, so ΔU=0."
+        "question": "In an isothermal expansion of an ideal gas, the change in internal energy is:",
+        "options": ["Positive", "Negative", "Zero", "Depends on the gas"],
+        "answer": "Zero",
+        "explanation": "The internal energy of an ideal gas depends only on temperature. In an isothermal process, ΔT=0, so ΔU=0."
     },
     {
-        question: "A refrigerator works between 4°C and 30°C. The coefficient of performance is:",
-        options: ["10.65", "1.065", "11.65", "9.65"],
-        answer: "10.65",
-        explanation: "T₂ = 4°C = 277 K. T₁ = 30°C = 303 K. COP = T₂/(T₁-T₂) = 277/(303-277) = 277/26 ≈ 10.65."
+        "question": "A refrigerator works between 4°C and 30°C. The coefficient of performance is:",
+        "options": ["10.65", "1.065", "11.65", "9.65"],
+        "answer": "10.65",
+        "explanation": "T₂ = 4°C = 277 K. T₁ = 30°C = 303 K. COP = T₂/(T₁-T₂) = 277/(303-277) = 277/26 ≈ 10.65."
     },
     {
-        question: "When a gas is compressed adiabatically, its temperature:",
-        options: ["Decreases", "Increases", "Remains constant", "Becomes zero"],
-        answer: "Increases",
-        explanation: "In adiabatic compression, work is done on the gas (ΔW is negative). Since ΔQ=0, from the first law ΔU = -ΔW. Since ΔW is negative, ΔU is positive, which means the internal energy and thus the temperature increases."
+        "question": "When a gas is compressed adiabatically, its temperature:",
+        "options": ["Decreases", "Increases", "Remains constant", "Becomes zero"],
+        "answer": "Increases",
+        "explanation": "In adiabatic compression, work is done on the gas (ΔW is negative). Since ΔQ=0, from the first law ΔU = -ΔW. Since ΔW is negative, ΔU is positive, which means the internal energy and thus the temperature increases."
     },
     {
-        question: "A process in which the pressure remains constant is called:",
-        options: ["Isothermal", "Adiabatic", "Isochoric", "Isobaric"],
-        answer: "Isobaric",
-        explanation: "This is the definition of an isobaric process."
+        "question": "A process in which the pressure remains constant is called:",
+        "options": ["Isothermal", "Adiabatic", "Isochoric", "Isobaric"],
+        "answer": "Isobaric",
+        "explanation": "This is the definition of an isobaric process."
     },
     {
-        question: "The measure of the degree of disorder or randomness in a system is called:",
-        options: ["Enthalpy", "Entropy", "Internal Energy", "Gibbs Free Energy"],
-        answer: "Entropy",
-        explanation: "Entropy (S) is the thermodynamic quantity that represents the unavailability of a system's thermal energy for conversion into mechanical work, often interpreted as the degree of disorder or randomness."
+        "question": "The measure of the degree of disorder or randomness in a system is called:",
+        "options": ["Enthalpy", "Entropy", "Internal Energy", "Gibbs Free Energy"],
+        "answer": "Entropy",
+        "explanation": "Entropy (S) is the thermodynamic quantity that represents the unavailability of a system's thermal energy for conversion into mechanical work, often interpreted as the degree of disorder or randomness."
     },
     {
-        question: "The slope of an adiabatic curve is γ times the slope of an isothermal curve. What is γ?",
-        options: ["The ratio of specific heats", "The gas constant", "The coefficient of performance", "The efficiency"],
-        answer: "The ratio of specific heats",
-        explanation: "The slope of the P-V graph for an isothermal process is -P/V, while for an adiabatic process it is -γP/V. Thus, the adiabatic curve is steeper by a factor of γ = C_p/C_v."
+        "question": "The slope of an adiabatic curve is γ times the slope of an isothermal curve. What is γ?",
+        "options": ["The ratio of specific heats", "The gas constant", "The coefficient of performance", "The efficiency"],
+        "answer": "The ratio of specific heats",
+        "explanation": "The slope of the P-V graph for an isothermal process is -P/V, while for an adiabatic process it is -γP/V. Thus, the adiabatic curve is steeper by a factor of γ = C_p/C_v."
     },
     {
-        question: "Which of the following is not a path function?",
-        options: ["Work (W)", "Heat (Q)", "Internal Energy (U)", "None of the above"],
-        answer: "Internal Energy (U)",
-        explanation: "Internal energy is a state function, meaning its value depends only on the current state of the system, not on how it got there. Work and heat are path functions."
+        "question": "Which of the following is not a path function?",
+        "options": ["Work (W)", "Heat (Q)", "Internal Energy (U)", "None of the above"],
+        "answer": "Internal Energy (U)",
+        "explanation": "Internal energy is a state function, meaning its value depends only on the current state of the system, not on how it got there. Work and heat are path functions."
     }
   ],
   assertionReasons: [
     {
-        assertion: "The efficiency of a heat engine can never be 100%.",
-        reason: "According to the second law of thermodynamics, some heat must always be rejected to a sink at a lower temperature.",
-        answer: "A",
-        explanation: "The reason (Kelvin-Planck statement) correctly explains the assertion. A heat engine must operate between two temperatures, and it's impossible to convert all the heat from the source into work."
+        "assertion": "The efficiency of a heat engine can never be 100%.",
+        "reason": "According to the second law of thermodynamics, some heat must always be rejected to a sink at a lower temperature.",
+        "answer": "A",
+        "explanation": "The reason (Kelvin-Planck statement) correctly explains the assertion. A heat engine must operate between two temperatures, and it's impossible to convert all the heat from the source into work."
     },
     {
-        assertion: "In an adiabatic compression, the temperature of a gas increases.",
-        reason: "In an adiabatic process, there is no heat exchange with the surroundings.",
-        answer: "B",
-        explanation: "Both statements are true. During adiabatic compression, work is done on the gas, which increases its internal energy and temperature. The reason is the definition of an adiabatic process but doesn't explain *why* the temperature increases (which is due to the work done)."
+        "assertion": "In an adiabatic compression, the temperature of a gas increases.",
+        "reason": "In an adiabatic process, there is no heat exchange with the surroundings.",
+        "answer": "B",
+        "explanation": "Both statements are true. During adiabatic compression, work is done on the gas, which increases its internal energy and temperature. The reason is the definition of an adiabatic process but doesn't explain *why* the temperature increases (which is due to the work done)."
     },
     {
-        assertion: "The first law of thermodynamics is based on the conservation of energy.",
-        reason: "Energy can be converted from one form to another, but it cannot be created or destroyed.",
-        answer: "A",
-        explanation: "The reason is a statement of the law of conservation of energy, which is the fundamental principle behind the first law of thermodynamics."
+        "assertion": "The first law of thermodynamics is based on the conservation of energy.",
+        "reason": "Energy can be converted from one form to another, but it cannot be created or destroyed.",
+        "answer": "A",
+        "explanation": "The reason is a statement of the law of conservation of energy, which is the fundamental principle behind the first law of thermodynamics."
     },
     {
-        assertion: "Work done in an isochoric process is zero.",
-        reason: "In an isochoric process, the volume remains constant.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Since work done by a gas is W = ∫P dV, if the volume is constant (dV=0), then the work done is zero."
+        "assertion": "Work done in an isochoric process is zero.",
+        "reason": "In an isochoric process, the volume remains constant.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since work done by a gas is W = ∫P dV, if the volume is constant (dV=0), then the work done is zero."
     },
     {
-        assertion: "A refrigerator transfers heat from a cold body to a hot body.",
-        reason: "This is a natural process that occurs spontaneously.",
-        answer: "C",
-        explanation: "The assertion is true. The reason is false. This process is non-spontaneous and requires external work to be done on the system, as stated by the Clausius statement of the second law."
+        "assertion": "A refrigerator transfers heat from a cold body to a hot body.",
+        "reason": "This is a natural process that occurs spontaneously.",
+        "answer": "C",
+        "explanation": "The assertion is true. The reason is false. This process is non-spontaneous and requires external work to be done on the system, as stated by the Clausius statement of the second law."
     },
     {
-        assertion: "The internal energy of an ideal gas is a function of temperature only.",
-        reason: "For an ideal gas, the intermolecular potential energy is zero.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Since there are no intermolecular forces, the internal energy consists only of the kinetic energy of the molecules, which is a function of temperature."
+        "assertion": "The internal energy of an ideal gas is a function of temperature only.",
+        "reason": "For an ideal gas, the intermolecular potential energy is zero.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since there are no intermolecular forces, the internal energy is purely the kinetic energy of the molecules, which is a function of temperature."
     },
     {
-        assertion: "The slope of an adiabatic P-V curve is steeper than that of an isothermal curve.",
-        reason: "The ratio of specific heats, γ, is always greater than 1.",
-        answer: "A",
-        explanation": "The slope of an adiabatic curve is -γ(P/V) and for an isothermal curve is -(P/V). Since γ > 1, the adiabatic curve is steeper. The reason explains the assertion."
+        "assertion": "The slope of an adiabatic P-V curve is steeper than that of an isothermal curve.",
+        "reason": "The ratio of specific heats, γ, is always greater than 1.",
+        "answer": "A",
+        "explanation": "The slope of an adiabatic curve is -γ(P/V) and for an isothermal curve is -(P/V). Since γ > 1, the adiabatic curve is steeper. The reason explains the assertion."
     },
     {
         "assertion": "It is not possible to design a heat engine that is 100% efficient.",
@@ -368,7 +368,7 @@ export const thermodynamics: NeetModule = {
     {
         "column1": ["a) Pumping a bicycle tyre", "b) Bursting of a tyre", "c) Boiling of water", "d) Freezing of water"],
         "column2": ["i) Isobaric & Isothermal", "ii) Nearly Adiabatic", "iii) Nearly Adiabatic", "iv) Nearly Isothermal"],
-        "answer": "a-ii, b-iii, c-i, d-i"
+        "answer": "a-ii, b-iii, c-i, d-iv"
     }
   ]
 };

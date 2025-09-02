@@ -178,7 +178,7 @@ export const atomsAndNuclei: NeetModule = {
         explanation: "An alpha particle is a helium nucleus (⁴He₂), so its emission decreases the mass number by 4 and the atomic number by 2."
     },
     {
-        "question": "Bohr's model of the atom:",
+        question: "Bohr's model of the atom:",
         options: ["Assumes that the angular momentum of electrons is quantized", "Uses Einstein's photoelectric equation", "Predicts the same emission spectra for all types of atoms", "Could explain the Zeeman effect"],
         answer: "Assumes that the angular momentum of electrons is quantized",
         explanation: "The quantization of angular momentum (L = nh/2π) is one of the fundamental postulates of Bohr's model."
@@ -186,94 +186,94 @@ export const atomsAndNuclei: NeetModule = {
   ],
   assertionReasons: [
     {
-        assertion: "The density of a nucleus is independent of its mass number.",
-        reason: "The radius of a nucleus is proportional to the cube root of its mass number (R ∝ A¹/³).",
-        answer: "A",
-        explanation: "Density ρ = Mass/Volume ∝ A / R³ ∝ A / (A¹/³ )³ ∝ A/A = constant. The reason correctly explains why the density is constant."
+        "assertion": "The density of a nucleus is independent of its mass number.",
+        "reason": "The radius of a nucleus is proportional to the cube root of its mass number (R ∝ A¹/³).",
+        "answer": "A",
+        "explanation": "Density ρ = Mass/Volume ∝ A / R³ ∝ A / (A¹/³ )³ ∝ A/A = constant. The reason correctly explains why the density is constant."
     },
     {
-        assertion: "Nuclear fusion is the source of energy in stars.",
-        reason: "In fusion, lighter nuclei combine to form a heavier nucleus, releasing a large amount of energy.",
-        answer: "A",
-        explanation: "The reason correctly describes the process of nuclear fusion, which explains why it is the energy source of stars."
+        "assertion": "Nuclear fusion is the source of energy in stars.",
+        "reason": "In fusion, lighter nuclei combine to form a heavier nucleus, releasing a large amount of energy.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the process of nuclear fusion, which explains why it is the energy source of stars."
     },
     {
-        assertion: "The force holding the nucleons together inside a nucleus is the strong nuclear force.",
-        reason: "The strong nuclear force is a short-range, charge-independent force.",
-        answer: "B",
-        explanation: "Both statements are true descriptions of the strong nuclear force. However, the reason describes its properties rather than explaining why it is the binding force."
+        "assertion": "The force holding the nucleons together inside a nucleus is the strong nuclear force.",
+        "reason": "The strong nuclear force is a short-range, charge-independent force.",
+        "answer": "B",
+        "explanation": "Both statements are true descriptions of the strong nuclear force. However, the reason describes its properties rather than explaining why it is the binding force."
     },
     {
-        assertion: "Gamma rays are high-energy photons.",
-        reason: "Gamma decay occurs when an excited nucleus transitions to a lower energy state.",
-        answer: "A",
-        explanation: "The energy difference between the nuclear energy levels is released in the form of a high-energy photon, which is a gamma ray. The reason explains the assertion."
+        "assertion": "Gamma rays are high-energy photons.",
+        "reason": "Gamma decay occurs when an excited nucleus transitions to a lower energy state.",
+        "answer": "A",
+        "explanation": "The energy difference between the nuclear energy levels is released in the form of a high-energy photon, which is a gamma ray. The reason explains the assertion."
     },
     {
-        assertion: "The half-life of a radioactive substance is constant.",
-        reason: "The rate of decay of a radioactive substance depends on the number of undecayed nuclei.",
-        answer: "B",
-        explanation: "Both statements are true. The half-life is a constant characteristic of a given isotope. The rate of decay does depend on the number of nuclei present. However, the second statement doesn't explain why the half-life is constant."
+        "assertion": "The half-life of a radioactive substance is constant.",
+        "reason": "The rate of decay of a radioactive substance depends on the number of undecayed nuclei.",
+        "answer": "B",
+        "explanation": "Both statements are true. The half-life is a constant characteristic of a given isotope. The rate of decay does depend on the number of nuclei present. However, the second statement doesn't explain why the half-life is constant."
     },
     {
-        assertion: "It is not possible for a hydrogen atom to emit an alpha particle.",
-        reason: "A hydrogen atom contains only one proton and one electron.",
-        answer: "A",
-        explanation: "An alpha particle consists of two protons and two neutrons. Since a hydrogen atom does not contain these particles, it cannot emit one. The reason correctly explains the assertion."
+        "assertion": "It is not possible for a hydrogen atom to emit an alpha particle.",
+        "reason": "A hydrogen atom contains only one proton and one electron.",
+        "answer": "A",
+        "explanation": "An alpha particle consists of two protons and two neutrons. Since a hydrogen atom does not contain these particles, it cannot emit one. The reason correctly explains the assertion."
     },
     {
-        assertion: "Bohr's model violates Heisenberg's Uncertainty Principle.",
-        reason: "Bohr's model assumes that both the position and momentum of an electron in an atom are known with certainty.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. By defining fixed orbits (position) and a fixed velocity/momentum in that orbit, Bohr's model contradicts the uncertainty principle."
+        "assertion": "Bohr's model violates Heisenberg's Uncertainty Principle.",
+        "reason": "Bohr's model assumes that both the position and momentum of an electron in an atom are known with certainty.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. By defining fixed orbits (position) and a fixed velocity/momentum in that orbit, Bohr's model contradicts the uncertainty principle."
     },
     {
-        assertion: "The binding energy per nucleon is lower for both light and heavy nuclei.",
-        reason: "This is why both fusion of light nuclei and fission of heavy nuclei release energy.",
-        answer: "A",
-        explanation: "The reason correctly explains the consequence of the binding energy curve mentioned in the assertion. Reactions that move towards the peak of the binding energy curve (more stable nuclei) will release energy."
+        "assertion": "The binding energy per nucleon is lower for both light and heavy nuclei.",
+        "reason": "This is why both fusion of light nuclei and fission of heavy nuclei release energy.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the consequence of the binding energy curve mentioned in the assertion. Reactions that move towards the peak of the binding energy curve (more stable nuclei) will release energy."
     },
     {
-        assertion: "The law of radioactive decay is an exponential law.",
-        reason: "The number of undecayed nuclei decreases exponentially with time.",
-        answer: "A",
-        explanation: "The reason is a statement of the result of the decay law (N = N₀e⁻ˡᵗ), which is the definition of an exponential decay process."
+        "assertion": "The law of radioactive decay is an exponential law.",
+        "reason": "The number of undecayed nuclei decreases exponentially with time.",
+        "answer": "A",
+        "explanation": "The reason is a statement of the result of the decay law (N = N₀e⁻ˡᵗ), which is the definition of an exponential decay process."
     },
     {
-        assertion: "During β⁻ decay, a neutron is converted into a proton.",
-        reason: "This results in an increase in the atomic number by one.",
-        answer: "A",
-        explanation: "The reason is a direct consequence of the process described in the assertion (n → p⁺ + e⁻ + ν̅). The number of protons (atomic number) increases by one."
+        "assertion": "During β⁻ decay, a neutron is converted into a proton.",
+        "reason": "This results in an increase in the atomic number by one.",
+        "answer": "A",
+        "explanation": "The reason is a direct consequence of the process described in the assertion (n → p⁺ + e⁻ + ν̅). The number of protons (atomic number) increases by one."
     },
     {
-        assertion: "Isotopes are atoms of the same element with different mass numbers.",
-        reason: "Isotopes have the same number of protons but a different number of neutrons.",
-        answer: "A",
-        explanation: "The reason correctly explains the assertion. Same number of protons means it's the same element, while a different number of neutrons leads to a different mass number."
+        "assertion": "Isotopes are atoms of the same element with different mass numbers.",
+        "reason": "Isotopes have the same number of protons but a different number of neutrons.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Same number of protons means it's the same element, while a different number of neutrons leads to a different mass number."
     },
     {
-        assertion: "The Paschen series of the hydrogen spectrum lies in the infrared region.",
-        reason: "The Paschen series corresponds to electron transitions to the n=3 energy level.",
-        answer: "A",
-        explanation: "The reason correctly describes the Paschen series. The energy differences for transitions to n=3 are small enough that the emitted photons fall in the infrared region."
+        "assertion": "The Paschen series of the hydrogen spectrum lies in the infrared region.",
+        "reason": "The Paschen series corresponds to electron transitions to the n=3 energy level.",
+        "answer": "A",
+        "explanation": "The reason correctly describes the Paschen series. The energy differences for transitions to n=3 are small enough that the emitted photons fall in the infrared region."
     },
     {
-        assertion: "A free neutron is unstable.",
-        reason: "A free neutron decays into a proton, an electron, and an antineutrino.",
-        answer: "A",
-        explanation: "The reason describes the decay process that is the evidence of the instability mentioned in the assertion."
+        "assertion": "A free neutron is unstable.",
+        "reason": "A free neutron decays into a proton, an electron, and an antineutrino.",
+        "answer": "A",
+        "explanation": "The reason describes the decay process that is the evidence of the instability mentioned in the assertion."
     },
     {
-        assertion: "Nuclear forces are charge-independent.",
-        reason: "The nuclear force between a proton-proton, a neutron-neutron, and a proton-neutron is approximately the same.",
-        answer: "A",
-        explanation: "The reason provides the experimental evidence for the charge-independent nature of nuclear forces stated in the assertion."
+        "assertion": "Nuclear forces are charge-independent.",
+        "reason": "The nuclear force between a proton-proton, a neutron-neutron, and a proton-neutron is approximately the same.",
+        "answer": "A",
+        "explanation": "The reason provides the experimental evidence for the charge-independent nature of nuclear forces stated in the assertion."
     },
     {
-        assertion: "The mass of a nucleus is always less than the sum of the masses of its constituent nucleons.",
-        reason: "The difference in mass is converted into binding energy.",
-        answer: "A",
-        explanation: "The reason correctly explains the concept of mass defect, which is the physical basis for the assertion."
+        "assertion": "The mass of a nucleus is always less than the sum of the masses of its constituent nucleons.",
+        "reason": "The difference in mass is converted into binding energy.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the concept of mass defect, which is the physical basis for the assertion."
     }
   ],
   matchTheColumns: [
@@ -353,4 +353,4 @@ export const atomsAndNuclei: NeetModule = {
         "answer": "a-iii, b-ii, c-i, d-iv"
     }
   ]
-}
+};
