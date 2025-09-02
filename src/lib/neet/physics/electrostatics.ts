@@ -7,24 +7,35 @@ export const electrostatics: NeetModule = {
   chapter: 'Electrostatics',
   subject: 'Physics',
   conceptNotes: `
-### 1. Electric Charges (மின்னூட்டங்கள்)
-*   **Conservation of charge:** The total charge of an isolated system is constant.
+### 1. Electric Charges and Fields (மின்னூட்டங்கள் மற்றும் மின்புலங்கள்)
+*   **Electric Charges; Conservation of charge:** The total charge of an isolated system is constant.
 *   **Coulomb's law:** The force between two point charges. F = k |q₁q₂| / r².
-*   **Forces between multiple charges; superposition principle and continuous charge distribution:** The net force on a charge is the vector sum of the forces due to all other charges.
-
-### 2. Electric Field (மின்புலம்)
-*   **Electric field:** The space around a charge where its influence can be felt. E = F/q.
+*   **Forces between multiple charges; superposition principle and continuous charge distribution.**
+*   **Electric field (மின்புலம்):** The space around a charge where its influence can be felt. E = F/q.
 *   **Electric field due to a point charge:** E = kq / r².
 *   **Electric field lines:** Imaginary lines used to represent an electric field.
 *   **Electric dipole:** A pair of equal and opposite charges separated by a small distance.
 *   **Electric field due to a dipole:** Field on the axial line and equatorial line.
 *   **Torque on a dipole in a uniform electric field:** τ = p × E.
+*   **Electric Flux (மின்பாயம்):** The total number of electric field lines passing through a surface. Φ_E = E ⋅ A.
+*   **Gauss's law and its applications:** The total electric flux through a closed surface is 1/ε₀ times the net charge enclosed. Φ_E = q_enclosed / ε₀.
+    *   Application to find field due to infinitely long uniformly charged straight wire.
+    *   Application to find field due to uniformly charged infinite plane sheet.
+    *   Application to find field due to uniformly charged thin spherical shell (field inside and outside).
 
-### 3. Electric Flux and Gauss's Law (மின்பாயம் மற்றும் காஸ் விதி)
-*   **Electric Flux (Φ_E):** The total number of electric field lines passing through a surface. Φ_E = E ⋅ A.
-*   **Gauss's Law:** The total electric flux through a closed surface is 1/ε₀ times the net charge enclosed. Φ_E = q_enclosed / ε₀.
-
-(Note: Other topics like Electric Potential and Capacitance are covered in the "Current Electricity" or a dedicated "Electrostatic Potential and Capacitance" chapter as per syllabus splitting, but the fundamentals are listed here.)
+### 2. Electrostatic Potential and Capacitance (நிலைமின்னியல் மற்றும் மின்தேக்கம்)
+*   **Electric potential (நிலைமின்னழுத்தம்) and potential difference:** Work done per unit charge. V = W/q.
+*   **Electric potential due to a point charge, an electric dipole and system of charges.**
+*   **Equipotential surfaces:** Surfaces with the same electric potential at every point.
+*   **Electrical potential energy** of a system of two point charges and of an electric dipole in an electrostatic field.
+*   **Conductors and insulators:** Materials that allow or do not allow the flow of charge.
+*   **Dielectrics and electric polarization:** Insulating materials that get polarized in an external electric field.
+*   **Capacitors and capacitance (மின்தேக்கிகள் மற்றும் மின்தேக்குத்திறன்):** A device used to store electric charge and energy. C = Q/V.
+*   **Capacitance of a parallel plate capacitor** with and without dielectric medium between the plates. C = Kε₀A/d.
+*   **Combination of capacitors in series and parallel:**
+    *   Series: 1/C_eq = 1/C₁ + 1/C₂ + ...
+    *   Parallel: C_eq = C₁ + C₂ + ...
+*   **Energy stored in a capacitor:** U = ½CV² = ½Q²/C.
 `,
   workedExamples: [
     {
@@ -116,8 +127,8 @@ export const electrostatics: NeetModule = {
     {
         question: "What is the angle between an electric field line and an equipotential surface?",
         options: ["0°", "45°", "90°", "180°"],
-        answer: "90°",
-        explanation: "Electric field lines are always perpendicular to equipotential surfaces."
+        answer": "90°",
+        explanation": "Electric field lines are always perpendicular to equipotential surfaces."
     },
     {
         question: "When a dielectric is introduced into a capacitor while the battery is still connected, the:",
@@ -171,7 +182,7 @@ export const electrostatics: NeetModule = {
         question: "What happens to the force between two charges if the distance between them is halved?",
         options: ["Becomes half", "Becomes double", "Becomes one-fourth", "Becomes four times"],
         answer: "Becomes four times",
-        explanation: "F ∝ 1/r². If r becomes r/2, F ∝ 1/(r/2)² = 4/r². The force becomes four times larger."
+        explanation": "F ∝ 1/r². If r becomes r/2, F ∝ 1/(r/2)² = 4/r². The force becomes four times larger."
     },
     {
         question: "The dielectric constant of a metal is:",
@@ -363,5 +374,4 @@ export const electrostatics: NeetModule = {
   ]
 };
 
-    
     
