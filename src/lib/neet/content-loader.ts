@@ -34,5 +34,6 @@ const neetContent: Record<string, Record<string, NeetModule>> = {
 };
 
 export function getNeetChapterContent(subject: string, chapter: string): NeetModule | null {
-    return neetContent[subject]?.[chapter] || null;
+    const slug = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
+    return neetContent[subject]?.[slug] || null;
 }
