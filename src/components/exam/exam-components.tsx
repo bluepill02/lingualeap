@@ -18,7 +18,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SyllabusMapping, WorkedExample } from '@/lib/types';
+import type { SyllabusMapping, WorkedExample } from '@/lib/types';
 
 
 export function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | undefined }) {
@@ -83,11 +83,11 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] | u
                                    <p className="font-semibold text-sm">Final Answer:</p>
                                    <p className="text-sm font-bold">{example.answer}</p>
                                </div>
-                               <Alert className="mt-4 border-accent bg-accent/5">
+                               {example.tip && <Alert className="mt-4 border-accent bg-accent/5">
                                     <Lightbulb className="h-4 w-4 text-accent" />
                                     <AlertTitle>Expert Tip</AlertTitle>
                                     <AlertDescription>{example.tip}</AlertDescription>
-                                </Alert>
+                                </Alert>}
                             </AccordionContent>
                         </AccordionItem>
                     ))}
