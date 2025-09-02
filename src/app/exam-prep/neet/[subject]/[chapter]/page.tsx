@@ -5,7 +5,7 @@ import { getNeetChapterContent } from '@/lib/neet/content-loader';
 import { NeetChapterClientPage } from './client-page';
 import { neetBiologyChapters, neetChemistryChapters, neetPhysicsChapters } from '@/lib/neet/chapter-data';
 
-export default function NeetChapterPage({ params }: { params: { subject: string; chapter: string } }) {
+export default async function NeetChapterPage({ params }: { params: { subject: string; chapter: string } }) {
   const { subject, chapter } = params;
   
   const content = getNeetChapterContent(subject, chapter);
