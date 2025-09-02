@@ -1,3 +1,4 @@
+
 import type { NeetModule } from '@/lib/types';
 
 export const kinematics: NeetModule = {
@@ -6,30 +7,38 @@ export const kinematics: NeetModule = {
   chapter: 'Kinematics',
   subject: 'Physics',
   conceptNotes: `
-### 1. Motion in a Straight Line (நேர்கோட்டு இயக்கம்)
-*   **Distance vs. Displacement:** Distance is the total path length (scalar). Displacement is the change in position (vector).
-*   **Speed vs. Velocity:** Speed is the rate of change of distance (scalar). Velocity is the rate of change of displacement (vector).
-*   **Acceleration (முடுக்கம்):** The rate of change of velocity.
-*   **Equations of Motion (for constant acceleration):**
-    1.  v = u + at
-    2.  s = ut + ½at²
-    3.  v² = u² + 2as
-*   **Motion under Gravity:** Same as above, but a = -g (for upward motion) or a = +g (for downward motion).
+### 1. Kinematics Overview (இயங்கியல்)
+*   **Frame of reference:** A coordinate system with respect to which position and motion of an object are described.
+*   **Motion in a straight line:**
+    *   **Position-time graph:** The slope gives velocity.
+    *   **Speed and velocity:** Speed is the rate of travel, a scalar. Velocity is the rate of displacement, a vector.
+    *   **Uniform and non-uniform motion:** Constant velocity vs. changing velocity.
+    *   **Average speed and instantaneous velocity:** Total distance/total time vs. velocity at a specific instant.
+*   **Uniformly accelerated motion:**
+    *   **Velocity-time graph:** The slope gives acceleration, and the area under the graph gives displacement.
+    *   **Relations for uniformly accelerated motion (Equations of Motion):**
+        1.  v = u + at
+        2.  s = ut + ½at²
+        3.  v² = u² + 2as
 
-### 2. Motion in a Plane (தளத்தில் இயக்கம்)
-*   **Vectors (வெக்டர்கள்):** Quantities with both magnitude and direction.
-    *   **Vector Addition:** Triangle law, Parallelogram law.
-    *   **Resolution of Vectors:** Splitting a vector into perpendicular components.
-    *   **Dot Product (புள்ளிப் பெருக்கல்):** A ⋅ B = ABcosθ (results in a scalar).
-    *   **Cross Product (குறுக்குப் பெருக்கல்):** A × B = ABsinθ n̂ (results in a vector).
-*   **Projectile Motion (எறியிய இயக்கம்):** Motion of an object thrown into the air. It's a combination of horizontal motion (constant velocity) and vertical motion (constant acceleration, g).
-    *   **Time of Flight (T):** T = 2usinθ / g
-    *   **Maximum Height (H):** H = u²sin²θ / 2g
-    *   **Range (R):** R = u²sin(2θ) / g. The range is maximum when θ = 45°.
+### 2. Vectors (வெக்டர்கள்)
+*   **Scalars and Vectors:** Scalars have only magnitude (e.g., mass, speed). Vectors have both magnitude and direction (e.g., force, velocity).
+*   **Vector Addition and Subtraction:** Can be done using the Triangle Law or Parallelogram Law.
+*   **Scalar and Vector Products:**
+    *   **Dot Product (Scalar Product):** A ⋅ B = ABcosθ. Results in a scalar.
+    *   **Cross Product (Vector Product):** A × B = ABsinθ n̂. Results in a vector perpendicular to the plane of A and B.
+*   **Unit Vector (அலகு வெக்டர்):** A vector with a magnitude of one. Used to specify a direction.
+*   **Resolution of a Vector:** Breaking a vector into its perpendicular components (e.g., A = Aₓî + Aᵧĵ).
+
+### 3. Motion in a Plane (தளத்தில் இயக்கம்)
+*   Motion in two dimensions. Can be treated as two simultaneous one-dimensional motions with constant acceleration.
+*   **Relative Velocity:** The velocity of one object with respect to another. V_AB = V_A - V_B.
+*   **Projectile Motion (எறியிய இயக்கம்):** Motion of an object under the effect of gravity alone. The path is a parabola.
+    *   Time of Flight (T) = 2usinθ / g
+    *   Maximum Height (H) = u²sin²θ / 2g
+    *   Horizontal Range (R) = u²sin(2θ) / g
 *   **Uniform Circular Motion (சீரான வட்ட இயக்கம்):** Motion in a circle at a constant speed.
-    *   The velocity is always changing (direction changes), so there is an acceleration.
-    *   **Centripetal Acceleration (மையநோக்கு முடுக்கம்):** a_c = v²/r. It is always directed towards the center of the circle.
-    *   **Centripetal Force:** The force required to maintain circular motion, F_c = mv²/r.
+    *   **Centripetal acceleration (a_c):** Directed towards the center. a_c = v²/r = ω²r.
 `,
   workedExamples: [
     {
@@ -367,5 +376,3 @@ export const kinematics: NeetModule = {
     }
   ]
 };
-
-    

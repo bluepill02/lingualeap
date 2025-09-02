@@ -7,37 +7,29 @@ export const rotationalMotion: NeetModule = {
   chapter: 'Rotational Motion',
   subject: 'Physics',
   conceptNotes: `
-### 1. Rotational Variables (சுழற்சி மாறிகள்)
-*   **Angular Position (θ):** Angle of rotation.
-*   **Angular Velocity (ω):** Rate of change of angular position. ω = dθ/dt.
-*   **Angular Acceleration (α):** Rate of change of angular velocity. α = dω/dt.
-*   **Equations of Rotational Motion (for constant α):**
+### 1. Centre of Mass and Rotational Motion Basics (நிறை மையம் மற்றும் சுழற்சி இயக்க அடிப்படைகள்)
+*   **Centre of the mass of a two-particle system:** The point that moves as though all of the system's mass were concentrated there. R_cm = (m₁r₁ + m₂r₂)/(m₁ + m₂).
+*   **Centre of the mass of a rigid body:** The point where the entire mass of the body is assumed to be concentrated for describing its translational motion.
+*   **Basic concepts of rotational motion:** Angular position (θ), angular velocity (ω), and angular acceleration (α).
+
+### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
+*   **Moment of a force (Torque):** The turning effect of a force. It is the rotational analogue of force. **τ = r × F**.
+*   **Angular momentum (L):** The rotational analogue of linear momentum. **L = r × p** for a point particle, and **L = Iω** for a rigid body.
+*   **Conservation of angular momentum and its applications:** If the net external torque on a system is zero, its total angular momentum remains constant. (τ_ext = 0 ⇒ L = constant). This is seen in spinning ice skaters and planets orbiting the Sun.
+
+### 3. Moment of Inertia and Rotational Dynamics (நிலைமத் திருப்புத்திறன் மற்றும் சுழற்சி இயக்கவியல்)
+*   **Moment of inertia (I):** A measure of an object's resistance to changes in its rotational motion. It is the rotational analogue of mass. I = Σmᵢrᵢ².
+*   **Radius of gyration (k):** The distance from the axis of rotation to a point where the total mass of the body is supposed to be concentrated. I = Mk².
+*   **Values of moments of inertia for simple geometrical objects:** (e.g., ring, disc, rod, solid sphere, hollow sphere - memorizing these is crucial).
+*   **Parallel and perpendicular axes theorems and their applications:**
+    *   **Perpendicular Axis Theorem (for planar bodies):** I_z = I_x + I_y.
+    *   **Parallel Axis Theorem:** I = I_cm + Md².
+*   **Equilibrium of rigid bodies:** For translational equilibrium, ΣF_ext = 0. For rotational equilibrium, Στ_ext = 0.
+*   **Rigid body rotation and equations of rotational motion (for constant α):**
     *   ω = ω₀ + αt
     *   θ = ω₀t + ½αt²
     *   ω² = ω₀² + 2αθ
-
-### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
-*   **Torque (τ) (திருப்புவிசை):** The rotational analogue of force. It is the turning effect of a force. τ = r × F = rFsinθ.
-*   **Angular Momentum (L) (கோண உந்தம்):** The rotational analogue of linear momentum. L = r × p = Iω.
-*   **Relation between Torque and Angular Momentum:** τ = dL/dt. This is the rotational analogue of Newton's second law.
-
-### 3. Moment of Inertia (I) (நிலைமத் திருப்புத்திறன்)
-*   The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion.
-*   For a point mass: I = mr².
-*   For a rigid body: I = Σmᵢrᵢ².
-*   **Theorems of Moment of Inertia:**
-    *   **Parallel Axis Theorem:** I = I_cm + Md².
-    *   **Perpendicular Axis Theorem (for planar bodies):** I_z = I_x + I_y.
-
-### 4. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
-*   If the net external torque on a system is zero, its total angular momentum remains constant.
-*   If τ_ext = 0, then L = Iω = constant.
-*   Example: A ballet dancer spinning faster by pulling her arms in (I decreases, so ω increases). (ஒரு நடனக் கலைஞர் கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுழல்வது போல).
-
-### 5. Rolling Motion (உருளுதல் இயக்கம்)
-*   A combination of translational and rotational motion.
-*   **Kinetic Energy of Rolling:** K = K_trans + K_rot = ½mv² + ½Iω².
-*   For pure rolling without slipping, v = Rω.
+*   **Comparison of linear and rotational motions:** Analogies between linear variables (x, v, a, m, F, p) and rotational variables (θ, ω, α, I, τ, L).
 `,
   workedExamples: [
     {
@@ -375,5 +367,3 @@ export const rotationalMotion: NeetModule = {
     }
   ]
 };
-
-    

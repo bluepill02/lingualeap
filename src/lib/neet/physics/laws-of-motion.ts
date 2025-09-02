@@ -7,32 +7,32 @@ export const lawsOfMotion: NeetModule = {
   chapter: 'Laws of Motion',
   subject: 'Physics',
   conceptNotes: `
-### 1. Newton's Laws of Motion (நியூட்டனின் இயக்க விதிகள்)
-*   **First Law (நிலைம விதி):** An object remains at rest or in uniform motion in a straight line unless acted upon by a net external force. This is the law of inertia.
-*   **Second Law (விசைக்கான விதி):** The rate of change of momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts. F = dp/dt = ma.
-*   **Third Law (வினை மற்றும் எதிர்வினை விதி):** For every action, there is an equal and opposite reaction.
+### 1. Force and Inertia (விசை மற்றும் நிலைமம்)
+*   **Force:** A push or pull which changes or tends to change the state of rest or of uniform motion of an object.
+*   **Inertia (நிலைமம்):** The inability of a body to change its state of rest or uniform motion by itself. It's a measure of mass.
+*   **Newton's First Law of motion:** An object remains at rest or in uniform motion in a straight line unless acted upon by a net external force. Defines force and inertia.
 
-### 2. Inertia and Momentum (நிலைமம் மற்றும் உந்தம்)
-*   **Inertia (நிலைமம்):** The inability of a body to change its state of rest or uniform motion by itself.
+### 2. Momentum and Newton's Second Law (உந்தம் மற்றும் நியூட்டனின் இரண்டாம் விதி)
 *   **Momentum (p) (உந்தம்):** The product of mass and velocity. p = mv. It's a vector quantity.
-*   **Impulse (கணத்தாக்கு):** The change in momentum. Impulse = FΔt = Δp.
+*   **Newton's Second Law of motion:** The rate of change of momentum of a body is directly proportional to the applied force and takes place in the direction in which the force acts. **F = dp/dt = ma**. This is the fundamental law of motion.
+*   **Impulse (கணத்தாக்கு):** The change in momentum. Impulse = Force × time duration = Δp.
 
-### 3. Friction (உராய்வு)
-*   A force that opposes relative motion between surfaces in contact.
-*   **Static Friction (நிலை உராய்வு):** Opposes impending motion. It is self-adjusting.
-*   **Kinetic Friction (இயக்க உராய்வு):** Opposes actual motion. It is less than the limiting static friction.
-*   **Coefficient of Friction (μ):** f = μN, where N is the normal reaction.
+### 3. Newton's Third Law (நியூட்டனின் மூன்றாம் விதி)
+*   **Newton's Third Law of motion:** For every action, there is an equal and opposite reaction. (ஒவ்வொரு வினைக்கும் சமமான எதிர் வினை உண்டு). Action and reaction forces act on different bodies.
+*   **Law of conservation of linear momentum:** If the net external force on a system is zero, the total linear momentum of the system remains constant. This is a consequence of the 2nd and 3rd laws. Applications include recoil of a gun and rocket propulsion.
 
-### 4. Circular Motion Dynamics (வட்ட இயக்க விசையியல்)
-*   **Centripetal Force (மையநோக்கு விசை):** The force required to keep an object in circular motion. F_c = mv²/r. It acts towards the center. (This is not a new force, but a net force provided by other forces like tension, gravity, or friction).
-*   **Banking of Roads:** The outer edge of a road is raised to provide the necessary centripetal force from the components of normal reaction and friction, allowing vehicles to take a turn safely.
+### 4. Equilibrium and Friction (சமநிலை மற்றும் உராய்வு)
+*   **Equilibrium of concurrent forces:** A particle is in equilibrium when the net external force on it is zero (ΣF = 0).
+*   **Friction (உராய்வு):** A force that opposes relative motion between surfaces in contact.
+    *   **Static Friction (நிலை உராய்வு):** Opposes impending motion. It is a self-adjusting force up to a maximum limit (limiting friction). f_s ≤ μ_sN.
+    *   **Kinetic Friction (இயக்க உராய்வு):** Opposes actual motion. It is roughly constant. f_k = μ_kN.
+    *   **Rolling friction (உருளும் உராய்வு):** Friction for rolling bodies, typically much smaller than kinetic friction.
 
-### 5. Conservation of Linear Momentum (நேர்க்கோட்டு உந்த அழிவின்மை விதி)
-*   If the net external force on a system is zero, the total linear momentum of the system remains constant.
-*   This principle is applied in cases of collisions, explosions, and recoil of a gun. (ஒரு துப்பாக்கி சுடும்போது, தோட்டா முன்னோக்கிச் செல்ல, துப்பாக்கி பின்னோக்கி நகர்வது போல).
-
-### 6. Equilibrium of a Particle (ஒரு துகளின் சமநிலை)
-*   A particle is in equilibrium when the net external force on it is zero. ΣF = 0.
+### 5. Dynamics of Uniform Circular Motion (சீரான வட்ட இயக்கத்தின் இயக்கவியல்)
+*   **Centripetal force (மையநோக்கு விசை):** The net force required to keep an object in uniform circular motion, directed towards the center. F_c = mv²/r = mω²r.
+*   **Applications:**
+    *   **Vehicle on a level circular road:** The centripetal force is provided by the force of friction.
+    *   **Vehicle on a banked road:** The centripetal force is provided by the horizontal component of the normal reaction and the force of friction. Banking reduces the reliance on friction.
 `,
   workedExamples: [
     {
@@ -235,7 +235,7 @@ export const lawsOfMotion: NeetModule = {
         assertion: "Friction is a non-conservative force.",
         reason: "The work done by friction depends on the path taken.",
         answer: "A",
-        explanation: "The reason provides the correct definition of a non-conservative force, thus explaining the assertion."
+        explanation: "The reason provides the correct definition of a non-conservative force, which friction is an example of."
     },
     {
         assertion: "A body can be in equilibrium even if only one force is acting on it.",
@@ -370,7 +370,3 @@ export const lawsOfMotion: NeetModule = {
     }
   ]
 };
-
-    
-
-    

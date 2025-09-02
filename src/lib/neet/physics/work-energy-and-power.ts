@@ -8,37 +8,33 @@ export const workEnergyAndPower: NeetModule = {
   subject: 'Physics',
   conceptNotes: `
 ### 1. Work (வேலை)
-*   Work is said to be done when a force applied to an object causes a displacement.
-*   **Work done by a constant force:** W = F ⋅ d = Fdcosθ.
-*   Work is a scalar quantity. Its SI unit is the Joule (J).
-*   Work can be positive, negative, or zero.
+*   **Work done by a constant force:** Defined as the product of the component of the force in the direction of the displacement and the magnitude of this displacement. W = F ⋅ d = Fdcosθ. It is a scalar quantity.
+*   **Work done by a variable force:** Calculated by the area under the force-displacement graph. W = ∫ F dx.
 
 ### 2. Energy (ஆற்றல்)
-*   The capacity to do work. It is a scalar quantity.
-*   **Kinetic Energy (K.E.) (இயக்க ஆற்றல்):** The energy possessed by a body by virtue of its motion. K.E. = ½mv².
-*   **Potential Energy (P.E.) (நிலை ஆற்றல்):** The energy possessed by a body by virtue of its position or configuration.
+*   The capacity to do work.
+*   **Kinetic Energy (இயக்க ஆற்றல்):** Energy possessed by a body by virtue of its motion. K.E. = ½mv².
+*   **Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்):** The work done by the net force on a body is equal to the change in its kinetic energy. W_net = ΔK.E.
+*   **Potential Energy (நிலை ஆற்றல்):** Energy stored in a body by virtue of its position or configuration.
     *   **Gravitational Potential Energy:** U = mgh.
-    *   **Elastic Potential Energy (in a spring):** U = ½kx².
-*   **Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்):** The work done by the net force on an object is equal to the change in its kinetic energy. W_net = ΔK.E. = ½mv² - ½mu².
+    *   **The potential energy of spring:** U = ½kx², where k is the spring constant.
 
 ### 3. Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை)
-*   The total mechanical energy (sum of kinetic and potential energy) of a system is conserved if the forces doing work on it are conservative.
-*   If only conservative forces (like gravity, spring force) are acting, K.E. + P.E. = constant.
-*   Friction is a non-conservative force. Work done by friction is dissipated as heat.
+*   **Conservative forces:** Forces for which the work done is independent of the path taken (e.g., gravity, spring force).
+*   **Non-conservative forces:** Forces for which the work done depends on the path (e.g., friction, air resistance).
+*   **Conservation of Mechanical Energy:** The total mechanical energy (K.E. + P.E.) of a system is conserved if the forces doing work on it are conservative.
 
 ### 4. Power (திறன்)
 *   The rate at which work is done or energy is transferred.
 *   **Average Power:** P_avg = Work / Time = W/t.
 *   **Instantaneous Power:** P = dW/dt = F ⋅ v.
-*   The SI unit of power is the Watt (W). 1 horsepower (hp) ≈ 746 W.
+*   The SI unit of power is the Watt (W).
 
 ### 5. Collisions (மோதல்கள்)
-*   **Elastic Collision (மீட்சி மோதல்):** Both momentum and kinetic energy are conserved.
-*   **Inelastic Collision (மீட்சியற்ற மோதல்):** Momentum is conserved, but kinetic energy is not.
-    *   **Perfectly Inelastic Collision:** The objects stick together after the collision. Maximum loss of kinetic energy occurs.
-*   **Coefficient of Restitution (e):** e = (Relative velocity of separation) / (Relative velocity of approach).
-    *   For a perfectly elastic collision, e = 1.
-    *   For a perfectly inelastic collision, e = 0.
+*   **Elastic Collisions:** Both linear momentum and kinetic energy are conserved. For a one-dimensional elastic collision, the relative velocity of separation after collision is equal to the relative velocity of approach before collision.
+*   **Inelastic Collisions:** Linear momentum is conserved, but kinetic energy is not. Some kinetic energy is converted into other forms like heat or sound.
+    *   **Perfectly inelastic collision:** The bodies stick together after the collision.
+*   **Collisions in one and two dimensions:** Principles of conservation of momentum are applied along each axis.
 `,
   workedExamples: [
     {
