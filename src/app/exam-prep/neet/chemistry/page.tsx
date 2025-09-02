@@ -1,27 +1,12 @@
 
-import fs from 'fs';
-import path from 'path';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Book } from 'lucide-react';
 import Link from 'next/link';
-
-// Function to get chapter files from the content directory
-const getChapters = (subject: string) => {
-  const contentDir = path.join(process.cwd(), 'content', 'neet', subject);
-  const filenames = fs.readdirSync(contentDir);
-  return filenames.map(filename => {
-    const name = path.basename(filename, '.md');
-    const title = name.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    return {
-      slug: name,
-      title: title,
-    };
-  });
-};
+import { neetChemistryChapters } from '@/lib/neet/chapter-data';
 
 export default function NeetChemistryPage() {
-  const chapters = getChapters('chemistry');
+  const chapters = neetChemistryChapters;
 
   return (
     <div className="space-y-8">
