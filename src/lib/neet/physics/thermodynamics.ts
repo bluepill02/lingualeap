@@ -130,76 +130,76 @@ export const thermodynamics: NeetModule = {
         explanation: "Internal energy depends only on the state of the system, not on the path taken to reach that state. Work and heat are path functions."
     },
     {
-        question": "The relation for an adiabatic process is:",
-        "options": ["PV = constant", "P/T = constant", "PV^γ = constant", "V/T = constant"],
-        "answer": "PV^γ = constant",
-        "explanation": "This is the standard equation that relates pressure and volume for a reversible adiabatic process."
+        question: "The relation for an adiabatic process is:",
+        options: ["PV = constant", "P/T = constant", "PV^γ = constant", "V/T = constant"],
+        answer: "PV^γ = constant",
+        explanation: "This is the standard equation that relates pressure and volume for a reversible adiabatic process."
     },
     {
-        "question": "The internal energy of an ideal gas depends on:",
-        "options": ["Pressure only", "Volume only", "Temperature only", "Both pressure and volume"],
-        "answer": "Temperature only",
-        "explanation": "For an ideal gas, there are no intermolecular forces, so the internal energy is purely the kinetic energy of the molecules, which depends only on temperature."
+        question: "The internal energy of an ideal gas depends on:",
+        options: ["Pressure only", "Volume only", "Temperature only", "Both pressure and volume"],
+        answer: "Temperature only",
+        explanation: "For an ideal gas, there are no intermolecular forces, so the internal energy is purely the kinetic energy of the molecules, which depends only on temperature."
     },
     {
-        "question": "A heat engine takes 1000 J of heat from a source at 500 K and rejects 600 J to a sink. The temperature of the sink is:",
-        "options": ["300 K", "400 K", "200 K", "250 K"],
-        "answer": "300 K",
-        "explanation": "For a Carnot engine (maximum efficiency), Q₁/T₁ = Q₂/T₂. 1000/500 = 600/T₂. 2 = 600/T₂. T₂ = 300 K."
+        question: "A heat engine takes 1000 J of heat from a source at 500 K and rejects 600 J to a sink. The temperature of the sink is:",
+        options: ["300 K", "400 K", "200 K", "250 K"],
+        answer: "300 K",
+        explanation: "For a Carnot engine (maximum efficiency), Q₁/T₁ = Q₂/T₂. 1000/500 = 600/T₂. 2 = 600/T₂. T₂ = 300 K."
     },
     {
-        "question": "Which of the following processes is the fastest?",
-        "options": ["Isothermal", "Isobaric", "Isochoric", "Adiabatic"],
-        "answer": "Adiabatic",
-        "explanation": "An adiabatic process occurs very rapidly so that there is no time for heat exchange with the surroundings."
+        question: "Which of the following processes is the fastest?",
+        options: ["Isothermal", "Isobaric", "Isochoric", "Adiabatic"],
+        answer: "Adiabatic",
+        explanation: "An adiabatic process occurs very rapidly so that there is no time for heat exchange with the surroundings."
     },
     {
-        "question": "The Zeroth Law of Thermodynamics leads to the concept of:",
-        "options": ["Heat", "Work", "Internal Energy", "Temperature"],
-        "answer": "Temperature",
-        "explanation": "The Zeroth Law defines thermal equilibrium and allows for the definition of temperature as a fundamental property."
+        question: "The Zeroth Law of Thermodynamics leads to the concept of:",
+        options: ["Heat", "Work", "Internal Energy", "Temperature"],
+        answer: "Temperature",
+        explanation: "The Zeroth Law defines thermal equilibrium and allows for the definition of temperature as a fundamental property."
     },
     {
-        "question": "In an isothermal expansion of an ideal gas, the change in internal energy is:",
-        "options": ["Positive", "Negative", "Zero", "Depends on the gas"],
-        "answer": "Zero",
-        "explanation": "The internal energy of an ideal gas depends only on temperature. In an isothermal process, ΔT=0, so ΔU=0."
+        question: "In an isothermal expansion of an ideal gas, the change in internal energy is:",
+        options: ["Positive", "Negative", "Zero", "Depends on the gas"],
+        answer: "Zero",
+        explanation: "The internal energy of an ideal gas depends only on temperature. In an isothermal process, ΔT=0, so ΔU=0."
     },
     {
-        "question": "A refrigerator works between 4°C and 30°C. The coefficient of performance is:",
-        "options": ["10.65", "1.065", "11.65", "9.65"],
-        "answer": "10.65",
-        "explanation": "T₂ = 4°C = 277 K. T₁ = 30°C = 303 K. COP = T₂/(T₁-T₂) = 277/(303-277) = 277/26 ≈ 10.65."
+        question: "A refrigerator works between 4°C and 30°C. The coefficient of performance is:",
+        options: ["10.65", "1.065", "11.65", "9.65"],
+        answer: "10.65",
+        explanation: "T₂ = 4°C = 277 K. T₁ = 30°C = 303 K. COP = T₂/(T₁-T₂) = 277/(303-277) = 277/26 ≈ 10.65."
     },
     {
-        "question": "When a gas is compressed adiabatically, its temperature:",
-        "options": ["Decreases", "Increases", "Remains constant", "Becomes zero"],
-        "answer": "Increases",
-        "explanation": "In adiabatic compression, work is done on the gas (ΔW is negative). Since ΔQ=0, from the first law ΔU = -ΔW. Since ΔW is negative, ΔU is positive, which means the internal energy and thus the temperature increases."
+        question: "When a gas is compressed adiabatically, its temperature:",
+        options: ["Decreases", "Increases", "Remains constant", "Becomes zero"],
+        answer: "Increases",
+        explanation: "In adiabatic compression, work is done on the gas (ΔW is negative). Since ΔQ=0, from the first law ΔU = -ΔW. Since ΔW is negative, ΔU is positive, which means the internal energy and thus the temperature increases."
     },
     {
-        "question": "A process in which the pressure remains constant is called:",
-        "options": ["Isothermal", "Adiabatic", "Isochoric", "Isobaric"],
-        "answer": "Isobaric",
-        "explanation": "This is the definition of an isobaric process."
+        question: "A process in which the pressure remains constant is called:",
+        options: ["Isothermal", "Adiabatic", "Isochoric", "Isobaric"],
+        answer: "Isobaric",
+        explanation: "This is the definition of an isobaric process."
     },
     {
-        "question": "The measure of the degree of disorder or randomness in a system is called:",
-        "options": ["Enthalpy", "Entropy", "Internal Energy", "Gibbs Free Energy"],
-        "answer": "Entropy",
-        "explanation": "Entropy (S) is the thermodynamic quantity that represents the unavailability of a system's thermal energy for conversion into mechanical work, often interpreted as the degree of disorder or randomness."
+        question: "The measure of the degree of disorder or randomness in a system is called:",
+        options: ["Enthalpy", "Entropy", "Internal Energy", "Gibbs Free Energy"],
+        answer: "Entropy",
+        explanation: "Entropy (S) is the thermodynamic quantity that represents the unavailability of a system's thermal energy for conversion into mechanical work, often interpreted as the degree of disorder or randomness."
     },
     {
-        "question": "The slope of an adiabatic curve is γ times the slope of an isothermal curve. What is γ?",
-        "options": ["The ratio of specific heats", "The gas constant", "The coefficient of performance", "The efficiency"],
-        "answer": "The ratio of specific heats",
-        "explanation": "The slope of the P-V graph for an isothermal process is -P/V, while for an adiabatic process it is -γP/V. Thus, the adiabatic curve is steeper by a factor of γ = C_p/C_v."
+        question: "The slope of an adiabatic curve is γ times the slope of an isothermal curve. What is γ?",
+        options: ["The ratio of specific heats", "The gas constant", "The coefficient of performance", "The efficiency"],
+        answer: "The ratio of specific heats",
+        explanation: "The slope of the P-V graph for an isothermal process is -P/V, while for an adiabatic process it is -γP/V. Thus, the adiabatic curve is steeper by a factor of γ = C_p/C_v."
     },
     {
-        "question": "Which of the following is not a path function?",
-        "options": ["Work (W)", "Heat (Q)", "Internal Energy (U)", "None of the above"],
-        "answer": "Internal Energy (U)",
-        "explanation": "Internal energy is a state function, meaning its value depends only on the current state of the system, not on how it got there. Work and heat are path functions."
+        question: "Which of the following is not a path function?",
+        options: ["Work (W)", "Heat (Q)", "Internal Energy (U)", "None of the above"],
+        answer: "Internal Energy (U)",
+        explanation: "Internal energy is a state function, meaning its value depends only on the current state of the system, not on how it got there. Work and heat are path functions."
     }
   ],
   assertionReasons: [
@@ -261,7 +261,7 @@ export const thermodynamics: NeetModule = {
         "assertion": "In a cyclic process, the net work done is equal to the net heat supplied.",
         "reason": "In a cyclic process, the change in internal energy is zero.",
         "answer": "A",
-        "explanation": "The reason correctly explains the assertion. From the first law, ΔQ = ΔU + ΔW. For a cyclic process, ΔU = 0, so ΔQ = ΔW."
+        "explanation": "From the first law, ΔQ = ΔU + ΔW. For a cyclic process, ΔU = 0, so ΔQ = ΔW."
     },
     {
         "assertion": "The coefficient of performance of a refrigerator can be greater than 1.",

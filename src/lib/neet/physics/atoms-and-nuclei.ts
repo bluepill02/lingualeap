@@ -120,8 +120,8 @@ export const atomsAndNuclei: NeetModule = {
     {
         question: "What happens to the atomic number and mass number of a nucleus when it emits a gamma ray?",
         options: ["Atomic number decreases by 1, mass number is unchanged", "Atomic number increases by 1, mass number is unchanged", "Both remain unchanged", "Both decrease by 4 and 2 respectively"],
-        "answer": "Both remain unchanged",
-        "explanation": "Gamma decay involves the emission of a high-energy photon from an excited nucleus to a lower energy state. It does not change the number of protons or neutrons."
+        answer: "Both remain unchanged",
+        explanation: "Gamma decay involves the emission of a high-energy photon from an excited nucleus to a lower energy state. It does not change the number of protons or neutrons."
     },
     {
         question: "One atomic mass unit (amu) is equivalent to:",
@@ -253,7 +253,7 @@ export const atomsAndNuclei: NeetModule = {
     },
     {
         assertion: "The Paschen series of the hydrogen spectrum lies in the infrared region.",
-        reason: "The Paschen series corresponds to electron transitions to the n=3 energy level.",
+        reason": "The Paschen series corresponds to electron transitions to the n=3 energy level.",
         answer: "A",
         explanation: "The reason correctly describes the Paschen series. The energy differences for transitions to n=3 are small enough that the emitted photons fall in the infrared region."
     },

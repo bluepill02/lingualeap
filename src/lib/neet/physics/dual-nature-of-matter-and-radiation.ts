@@ -143,7 +143,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         question: "What is the de Broglie wavelength of a ball of mass 0.1 kg moving with a speed of 60 m/s?",
         options: ["1.1 x 10⁻³⁴ m", "1.1 x 10⁻³² m", "2.2 x 10⁻³⁴ m", "2.2 x 10⁻³² m"],
         answer: "1.1 x 10⁻³⁴ m",
-        explanation": "λ = h/mv = (6.6 x 10⁻³⁴) / (0.1 * 60) = 6.6 x 10⁻³⁴ / 6 = 1.1 x 10⁻³⁴ m."
+        explanation: "λ = h/mv = (6.6 x 10⁻³⁴) / (0.1 * 60) = 6.6 x 10⁻³⁴ / 6 = 1.1 x 10⁻³⁴ m."
     },
     {
         question: "Stopping potential is a measure of:",
@@ -264,20 +264,20 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
     {
         assertion: "The de Broglie wavelength of a moving cricket ball is very large.",
         reason: "The mass of the cricket ball is very large.",
-        answer": "D",
-        "explanation": "The assertion is false; the wavelength is extremely small. The reason is true and is the cause for the wavelength being so small (λ ∝ 1/m)."
+        answer: "D",
+        explanation": "The assertion is false; the wavelength is extremely small. The reason is true and is the cause for the wavelength being so small (λ ∝ 1/m)."
     },
     {
-        "assertion": "In the photoelectric effect, the photocurrent increases with increasing intensity of light.",
-        "reason": "A higher intensity means more photons are striking the surface per second, leading to more electrons being ejected per second.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Photocurrent is the rate of flow of photoelectrons."
+        assertion: "In the photoelectric effect, the photocurrent increases with increasing intensity of light.",
+        reason: "A higher intensity means more photons are striking the surface per second, leading to more electrons being ejected per second.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Photocurrent is the rate of flow of photoelectrons."
     },
     {
-        "assertion": "Matter waves are electromagnetic waves.",
-        "reason": "Matter waves are associated with moving particles.",
-        "answer": "D",
-        "explanation": "The assertion is false. Matter waves are not electromagnetic. The reason is true."
+        assertion: "Matter waves are electromagnetic waves.",
+        reason: "Matter waves are associated with moving particles.",
+        answer: "D",
+        explanation: "The assertion is false. Matter waves are not electromagnetic. The reason is true."
     }
   ],
   matchTheColumns: [
