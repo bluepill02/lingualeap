@@ -7,36 +7,36 @@ export const solutions: NeetModule = {
   chapter: 'Solutions',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Types of Solutions (கரைசல்களின் வகைகள்)
-*   A solution is a homogeneous mixture of two or more substances.
-*   **Solute (கரைபொருள்):** The component present in a smaller amount.
-*   **Solvent (கரைப்பான்):** The component present in a larger amount.
+### 1. Types and Concentration of Solutions (கரைசல்களின் வகைகள் மற்றும் செறிவு)
+*   **Solution:** A homogeneous mixture of two or more substances.
+*   **Methods for expressing concentration:**
+    *   **Molarity (M):** Moles of solute per litre of solution. (Temperature dependent).
+    *   **Molality (m):** Moles of solute per kilogram of solvent. (Temperature independent).
+    *   **Mole Fraction (x):** Ratio of moles of a component to the total moles of all components.
+    *   **Percentage:** By mass (w/w) and by volume (v/v).
 
-### 2. Expressing Concentration of Solutions (கரைசல்களின் செறிவை வெளிப்படுத்துதல்)
-*   **Molarity (M):** Moles of solute per litre of solution.
-*   **Molality (m):** Moles of solute per kilogram of solvent. (Molality is temperature-independent).
-*   **Mole Fraction (x):** Ratio of moles of a component to the total moles of all components.
-
-### 3. Solubility (கரைதிறன்)
-*   The maximum amount of a substance that will dissolve in a given amount of solvent at a specific temperature.
-*   **Henry's Law (ஹென்றி விதி):** The partial pressure of a gas in the vapour phase (p) is proportional to the mole fraction of the gas (x) in the solution. p = Kₕx, where Kₕ is Henry's law constant.
-
-### 4. Vapour Pressure of Liquid Solutions (திரவக் கரைசல்களின் ஆவி அழுத்தம்)
-*   **Raoult's Law (ரவுல்ட் விதி):** For a solution of volatile liquids, the partial vapour pressure of each component in the solution is directly proportional to its mole fraction.
-*   **Ideal Solutions:** Solutions that obey Raoult's law over the entire range of concentration.
-*   **Non-ideal Solutions:**
-    *   **Positive Deviation:** Show higher vapour pressure than predicted by Raoult's law (e.g., ethanol and acetone).
-    *   **Negative Deviation:** Show lower vapour pressure than predicted by Raoult's law (e.g., chloroform and acetone).
+### 2. Vapour Pressure and Raoult's Law (ஆவி அழுத்தம் மற்றும் ரவுல்ட் விதி)
+*   **Vapour Pressure:** The pressure exerted by the vapour of a liquid when it is in equilibrium with the liquid.
+*   **Raoult's Law:** For a solution of volatile liquids, the partial vapour pressure of each component in the solution is directly proportional to its mole fraction. Pₐ = Pₐ° xₐ.
+*   **Ideal Solutions:** Solutions that obey Raoult's law over the entire range of concentration (ΔH_mix = 0, ΔV_mix = 0). The interactions are similar to pure components. (எ.கா., பென்சீன் மற்றும் டோலுயீன்).
+*   **Non-ideal Solutions:** Solutions that do not obey Raoult's law.
+    *   **Positive Deviation (நேர் விலகல்):** Vapour pressure is higher than predicted. A-B interactions are weaker than A-A and B-B interactions. (ΔH_mix > 0, ΔV_mix > 0). Forms minimum boiling azeotrope. (எ.கா., எத்தனால் மற்றும் அசிட்டோன்).
+    *   **Negative Deviation (எதிர் விலகல்):** Vapour pressure is lower than predicted. A-B interactions are stronger than A-A and B-B interactions. (ΔH_mix < 0, ΔV_mix < 0). Forms maximum boiling azeotrope. (எ.கா., குளோரோஃபார்ம் மற்றும் அசிட்டோன்).
 *   **Azeotropes (கொதிநிலை மாறா கலவைகள்):** Binary mixtures having the same composition in liquid and vapour phase and boil at a constant temperature.
 
-### 5. Colligative Properties (தொகைசார் பண்புகள்)
-*   Properties of solutions that depend on the number of solute particles, not on their nature.
-    *   **Relative Lowering of Vapour Pressure:** (P₁° - P₁)/P₁° = x₂.
-    *   **Elevation in Boiling Point:** ΔTₑ = Kₑm.
-    *   **Depression in Freezing Point:** ΔT_f = K_f m.
-    *   **Osmotic Pressure (π):** π = CRT.
-*   **van't Hoff Factor (i) (வான்ட் ஹாஃப் காரணி):** Used for electrolytes to account for dissociation or association. i = (Normal molar mass) / (Abnormal molar mass).
+### 3. Colligative Properties (தொகைசார் பண்புகள்)
+*   Properties of dilute solutions that depend only on the number of solute particles, not on their nature.
+    *   **Relative Lowering of Vapour Pressure (RLVP):** (P₁° - P₁)/P₁° = x₂.
+    *   **Elevation in Boiling Point (கொதிநிலை ஏற்றம்)::** ΔTₑ = Kₑm, where Kₑ is the Ebullioscopic constant.
+    *   **Depression in Freezing Point (உறைநிலைத் தாழ்வு)::** ΔT_f = K_f m, where K_f is the Cryoscopic constant.
+    *   **Osmotic Pressure (π) (சவ்வூடுபரவல் அழுத்தம்):** The excess pressure that must be applied to a solution to prevent osmosis. π = CRT.
 
+### 4. Abnormal Molar Mass (இயல்பற்ற மோலார் நிறை)
+*   When the molar mass determined by a colligative property is different from the theoretical value. This happens when the solute undergoes association or dissociation in the solution.
+*   **van't Hoff Factor (i) (வான்ட் ஹாஃப் காரணி):** A factor to account for this deviation.
+    *   i = (Normal molar mass) / (Abnormal molar mass)
+    *   i = (Observed colligative property) / (Calculated colligative property)
+    *   For association, i < 1. For dissociation, i > 1. For non-electrolytes, i = 1.
 `,
   workedExamples: [
     {
@@ -416,3 +416,6 @@ export const solutions: NeetModule = {
 
 };
 
+
+
+    

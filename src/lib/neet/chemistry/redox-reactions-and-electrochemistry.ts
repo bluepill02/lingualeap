@@ -8,36 +8,29 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. Redox Reactions (ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள்)
-*   Reactions involving both oxidation (loss of electrons, increase in oxidation state) and reduction (gain of electrons, decrease in oxidation state).
-*   **Oxidizing Agent:** A substance that oxidizes another substance and gets reduced itself.
-*   **Reducing Agent:** A substance that reduces another substance and gets oxidized itself.
-*   **Balancing Redox Reactions:** Ion-electron method (half-reaction method) and oxidation number method.
+*   **Electronic concepts of oxidation and reduction:** Oxidation is the loss of electrons, and reduction is the gain of electrons (OIL RIG - Oxidation Is Loss, Reduction Is Gain).
+*   **Oxidation Number (ஆக்ஸிஜனேற்ற எண்):** A number assigned to an element in a compound that represents the number of electrons lost or gained. There are specific rules for assigning oxidation numbers.
+*   **Balancing Redox Reactions:** Two methods are used:
+    *   **Ion-Electron Method (Half-Reaction Method):** The overall reaction is split into two half-reactions (oxidation and reduction), which are balanced separately and then added.
+    *   **Oxidation Number Method:** The change in oxidation numbers is used to balance the number of electrons lost and gained.
 
-### 2. Electrochemical Cells (மின்வேதியியல் கலன்கள்)
-*   Devices that convert chemical energy into electrical energy or vice versa.
-*   **Galvanic Cell (கால்வானிக் கலம்) / Voltaic Cell:** Converts chemical energy into electrical energy through a spontaneous redox reaction (e.g., Daniell cell).
-    *   **Anode:** Oxidation occurs (negative electrode).
-    *   **Cathode:** Reduction occurs (positive electrode).
-    *   **Salt Bridge:** Maintains electrical neutrality.
-*   **Electrolytic Cell (மின்னார் பகுப்புக் கலம்):** Uses electrical energy to drive a non-spontaneous redox reaction.
-
-### 3. Standard Electrode Potential (திட்ட மின்முனை அழுத்தம்)
-*   The potential difference developed between the metal electrode and the electrolyte of unit concentration (1M) at 298 K.
-*   **Standard Hydrogen Electrode (SHE):** Reference electrode with a standard potential of 0.00 V.
-*   **Electrochemical Series:** Arrangement of electrodes in order of their increasing standard reduction potentials.
-
-### 4. Nernst Equation (நெர்ன்ஸ்ட் சமன்பாடு)
-*   Relates the electrode potential to the concentration of the species. E = E° - (RT/nF)lnQ.
-*   At 298 K, E = E° - (0.0591/n)logQ.
-
-### 5. Conductance in Electrolytic Solutions (மின்பகுளிக் கரைசல்களில் கடத்துத்திறன்)
-*   **Conductivity (κ):** The conductance of a solution of 1 cm length with an area of cross-section of 1 cm².
-*   **Molar Conductivity (Λm):** The conductivity of a solution containing one mole of electrolyte. Λm = κ / C.
-*   **Kohlrausch's Law:** The limiting molar conductivity of an electrolyte can be represented as the sum of the individual contributions of the anion and cation of the electrolyte.
-
-### 6. Batteries and Corrosion (மின்கலன்கள் மற்றும் அரித்தல்)
-*   **Batteries:** Primary (non-rechargeable, e.g., Leclanche cell) and Secondary (rechargeable, e.g., Lead storage battery).
-*   **Corrosion (அரித்தல்):** The process of deterioration of metals as a result of their reaction with air or water (e.g., rusting of iron).
+### 2. Electrochemistry (மின்வேதியியல்)
+*   **Electrolytic and metallic conduction:** Conduction of electricity by the movement of ions (electrolytic) or electrons (metallic).
+*   **Conductance in electrolytic solutions:**
+    *   **Molar Conductivity (Λm):** The conductivity of a solution containing one mole of electrolyte. Λm = κ / C. It increases with dilution.
+    *   **Kohlrausch's Law (கோல்ராஷ் விதி):** The limiting molar conductivity of an electrolyte (at infinite dilution) can be represented as the sum of the individual contributions of the anion and cation of the electrolyte. Λ°m = ν⁺λ°⁺ + ν⁻λ°⁻.
+*   **Electrochemical Cells:** Devices that convert chemical energy into electrical energy or vice versa.
+    *   **Galvanic Cell (கால்வானிக் கலம்) / Voltaic Cell:** Converts chemical energy from a spontaneous redox reaction into electrical energy (e.g., Daniell cell). Anode is negative, Cathode is positive.
+    *   **Electrolytic Cell (மின்னார் பகுப்புக் கலம்):** Uses electrical energy to drive a non-spontaneous redox reaction. Anode is positive, Cathode is negative.
+*   **Electrode Potentials:**
+    *   **Standard Electrode Potential (E°):** The potential of an electrode determined relative to the Standard Hydrogen Electrode (SHE) under standard conditions (1 M concentration, 1 atm pressure, 298 K).
+    *   **EMF of a Galvanic Cell:** E°cell = E°(cathode) - E°(anode).
+*   **Nernst Equation (நெர்ன்ஸ்ட் சமன்பாடு):** Relates the electrode potential to the concentration of the species and temperature. E = E° - (RT/nF)lnQ.
+*   **Relationship between Cell Potential and Gibbs Energy:** ΔG° = -nFE°cell.
+*   **Batteries:**
+    *   **Dry Cell:** A primary (non-rechargeable) cell.
+    *   **Lead Accumulator:** A secondary (rechargeable) cell used in automobiles.
+*   **Fuel Cells (எரிபொருள் கலன்கள்):** Galvanic cells that convert the energy of combustion of fuels like hydrogen directly into electrical energy.
 `,
   workedExamples: [
     {
@@ -57,3 +50,6 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
   assertionReasons: [],
   matchTheColumns: []
 };
+
+
+    

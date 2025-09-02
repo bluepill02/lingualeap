@@ -8,27 +8,36 @@ export const chemicalKinetics: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. Rate of a Chemical Reaction (வேதிவினையின் வேகம்)
-*   The change in concentration of a reactant or product per unit time.
+*   The change in concentration of a reactant or product per unit time. Can be expressed as average rate or instantaneous rate.
 *   Units: mol L⁻¹ s⁻¹.
 
 ### 2. Factors Influencing Rate of a Reaction (வினை வேகத்தைப் பாதிக்கும் காரணிகள்)
-*   Concentration of reactants, temperature, presence of a catalyst, surface area of reactants.
+*   **Concentration:** Rate generally increases with the concentration of reactants.
+*   **Temperature:** Rate usually increases with temperature. A 10°C rise in temperature roughly doubles the reaction rate.
+*   **Pressure:** For gaseous reactions, an increase in pressure increases the rate.
+*   **Catalyst (வினையூக்கி):** A substance that increases the rate of a reaction without being consumed itself by providing an alternative pathway with lower activation energy.
+*   **Surface Area:** For reactions involving solids, a larger surface area increases the rate.
 
-### 3. Rate Law and Order of a Reaction (வினை வேக விதி மற்றும் வினை வகை)
+### 3. Rate Law, Order, and Molecularity (வினை வேக விதி, வினை வகை மற்றும் மூலக்கூறு எண்)
 *   **Rate Law:** An expression relating the rate of a reaction to the concentration of the reactants. For a reaction aA + bB → Products, Rate = k[A]ˣ[B]ʸ.
-*   **Order of Reaction:** The sum of powers of the concentration of the reactants in the rate law expression (x + y). It is an experimental quantity and can be zero, fractional, or an integer.
+*   **Order of Reaction (வினை வகை):** The sum of powers of the concentration of the reactants in the rate law expression (x + y). It is an experimental quantity and can be zero, fractional, or an integer.
+*   **Molecularity (மூலக்கூறு எண்):** The number of reacting species taking part in an elementary reaction. It is a theoretical concept and can only be a whole number. It is not defined for complex reactions.
+*   **Elementary vs. Complex Reactions:** Elementary reactions occur in a single step. Complex reactions occur in multiple steps.
 
 ### 4. Integrated Rate Equations (தொகைப்படுத்தப்பட்ட வேக சமன்பாடுகள்)
-*   **Zero Order Reaction:** Rate is independent of concentration. k = ([R]₀ - [R])/t. Half-life, t₁/₂ = [R]₀ / 2k.
-*   **First Order Reaction:** Rate is proportional to the first power of the concentration. k = (2.303/t) log([R]₀/[R]). Half-life, t₁/₂ = 0.693 / k. The half-life is independent of the initial concentration. (ஒரு ஓட்டப்பந்தயத்தில், முதல் இடத்தை அடைபவர் மற்றவர்களைச் சார்ந்து இருக்க மாட்டார் என்பது போல).
+*   **Zero Order Reaction:** Rate is independent of concentration. k = ([R]₀ - [R])/t. The plot of [R] vs. t is a straight line.
+    *   **Half-life (t₁/₂):** Time taken for the concentration to become half of its initial value. t₁/₂ = [R]₀ / 2k.
+*   **First Order Reaction:** Rate is proportional to the first power of the concentration. k = (2.303/t) log([R]₀/[R]). The plot of ln[R] vs. t is a straight line.
+    *   **Half-life (t₁/₂):** t₁/₂ = 0.693 / k. The half-life is independent of the initial concentration.
 
-### 5. Temperature Dependence of the Rate of a Reaction
-*   The rate of reaction increases with an increase in temperature.
-*   **Arrhenius Equation (ஆர்ரீனியஸ் சமன்பாடு):** k = Ae⁻ᴱᵃ/ᴿᵀ, where Eₐ is the activation energy.
-*   **Activation Energy (கிளர்வுறு ஆற்றல்):** The minimum extra energy that reactant molecules must possess to form the activated complex and convert into products.
-
-### 6. Collision Theory of Chemical Reactions (வேதி வினைகளின் மோதல் கொள்கை)
-*   For a reaction to occur, reactant molecules must collide with sufficient energy (threshold energy) and proper orientation.
+### 5. Temperature Dependence and Collision Theory
+*   **Activation Energy (Eₐ) (கிளர்வுறு ஆற்றல்):** The minimum extra energy that reactant molecules must possess to form the activated complex and convert into products. It's the energy barrier for a reaction.
+*   **Arrhenius Equation (ஆர்ரீனியஸ் சமன்பாடு):** Relates the rate constant (k) to temperature (T) and activation energy (Eₐ). **k = Ae⁻ᴱᵃ/ᴿᵀ**.
+    *   A is the Arrhenius factor or frequency factor.
+*   **Collision Theory of Bimolecular Gaseous Reactions:** For a reaction to occur, reactant molecules must collide with:
+    1.  **Sufficient energy** (greater than the threshold energy).
+    2.  **Proper orientation**.
+    *   Rate = P Zₐₑ e⁻ᴱᵃ/ᴿᵀ, where Zₐₑ is the collision frequency and P is the steric factor.
 `,
   workedExamples: [
     {
@@ -48,3 +57,6 @@ export const chemicalKinetics: NeetModule = {
   assertionReasons: [],
   matchTheColumns: []
 };
+
+
+    

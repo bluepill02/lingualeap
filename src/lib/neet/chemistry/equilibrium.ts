@@ -8,31 +8,36 @@ export const equilibrium: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. Physical and Chemical Equilibrium (இயற் மற்றும் வேதிச் சமநிலை)
-*   **Equilibrium:** A state in a process when observable properties like concentration, pressure, and temperature do not show any change with time.
+*   **Equilibrium:** A state in a process when observable properties like concentration, pressure, and temperature do not show any change with time. It is a dynamic equilibrium, meaning forward and reverse processes occur at the same rate.
+*   **Physical Equilibria:** Solid-liquid (melting), liquid-gas (boiling), solid-gas (sublimation).
 *   **Chemical Equilibrium:** The state in a reversible reaction where the rate of the forward reaction equals the rate of the reverse reaction.
 
-### 2. Law of Mass Action and Equilibrium Constant (நிறை தாக்க விதி மற்றும் சமநிலை மாறிலி)
-*   For a reversible reaction aA + bB ⇌ cC + dD, the equilibrium constant Kc = [C]ᶜ[D]ᵈ / [A]ᵃ[B]ᵇ.
-*   Kp = Kc(RT)Δⁿ, where Δn = (moles of gaseous products) - (moles of gaseous reactants).
+### 2. Law of Chemical Equilibrium and Equilibrium Constant (வேதிச் சமநிலை விதி மற்றும் சமநிலை மாறிலி)
+*   **Law of Mass Action:** The rate of a chemical reaction is proportional to the product of the active masses of the reactants.
+*   For a reversible reaction aA + bB ⇌ cC + dD, the equilibrium constant **Kc = [C]ᶜ[D]ᵈ / [A]ᵃ[B]ᵇ**.
+*   For gaseous reactions, the equilibrium constant in terms of partial pressures is **Kp**.
+*   **Relationship between Kp and Kc:** Kp = Kc(RT)Δⁿ, where Δn = (moles of gaseous products) - (moles of gaseous reactants).
+*   **Significance of ΔG and ΔG°:** The relationship ΔG = ΔG° + RT lnQ relates free energy change to the reaction quotient. At equilibrium, ΔG = 0, so **ΔG° = -RT lnK**.
 
 ### 3. Le Chatelier's Principle (லீ சாட்லியர் கொள்கை)
 *   If a change of concentration, pressure, or temperature is applied to a system in equilibrium, the system will shift in a direction that counteracts the change. (ஒரு சமநிலை அமைப்பில் மாற்றம் ஏற்பட்டால், அந்த மாற்றத்தின் விளைவைக் குறைக்க அமைப்பு முயற்சிக்கும்).
-    *   **Concentration:** Increasing reactant concentration shifts equilibrium to the right.
+    *   **Concentration:** Increasing reactant concentration shifts equilibrium to the right (products).
     *   **Pressure:** Increasing pressure shifts equilibrium to the side with fewer moles of gas.
-    *   **Temperature:** Increasing temperature favors the endothermic reaction.
+    *   **Temperature:** Increasing temperature favors the endothermic reaction (where ΔH is positive).
     *   **Catalyst:** A catalyst increases the rate of both forward and reverse reactions equally, so it does not affect the position of equilibrium. It only helps to attain equilibrium faster.
 
 ### 4. Ionic Equilibrium (அயனிச் சமநிலை)
-*   **Acids and Bases:**
+*   **Electrolytes:** Weak and strong electrolytes based on their degree of ionization.
+*   **Acids and Bases Concepts:**
     *   **Arrhenius:** Acids give H⁺ ions, bases give OH⁻ ions in water.
     *   **Brønsted-Lowry:** Acids are proton donors, bases are proton acceptors.
     *   **Lewis:** Acids are electron-pair acceptors, bases are electron-pair donors.
-*   **pH Scale:** pH = -log[H⁺].
+*   **Ionization of Acids and Bases:** Dissociation constants (Ka and Kb), multistage ionization.
+*   **Ionization of Water and pH Scale:** Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 298K. The **pH scale** (pH = -log[H⁺]) is used to express acidity.
+*   **Common Ion Effect (பொது அயனி விளைவு):** The suppression of the dissociation of a weak electrolyte by the addition of a strong electrolyte containing a common ion.
+*   **Hydrolysis of Salts and pH of their solutions:** The reaction of the anion or cation of a salt with water to produce an acidic or basic solution.
 *   **Buffer Solutions (தாங்கல் கரைசல்கள்):** Solutions that resist a change in pH on the addition of a small amount of acid or base. (e.g., a mixture of a weak acid and its salt, CH₃COOH + CH₃COONa).
-*   **Solubility Product (Ksp) (கரைதிறன் பெருக்கம்):** The equilibrium constant for a solid substance dissolving in an aqueous solution. For AxBy ⇌ xAʸ⁺ + yBˣ⁻, Ksp = [Aʸ⁺]ˣ[Bˣ⁻]ʸ.
-
-### 5. Common Ion Effect (பொது அயனி விளைவு)
-*   The suppression of the dissociation of a weak electrolyte by the addition of a strong electrolyte containing a common ion.
+*   **Solubility Product (Ksp) (கரைதிறன் பெருக்கம்):** The equilibrium constant for a sparingly soluble salt dissolving in a solution. For AxBy ⇌ xAʸ⁺ + yBˣ⁻, Ksp = [Aʸ⁺]ˣ[Bˣ⁻]ʸ.
 `,
   workedExamples: [
     {
@@ -355,7 +360,7 @@ export const equilibrium: NeetModule = {
     },
     {
         "column1": [ "a) H₂O", "b) BF₃", "c) NH₃", "d) Ag⁺" ],
-        "column2": [ "i) Lewis Acid", "ii) Lewis Base", "iii) Lewis Acid", "iv) Amphoteric (Lewis acid & base)" ],
+        "column2": [ "i) Lewis Acid", "ii) Lewis Base", "iii) Lewis Acid", "iv) Amphoteric (Lewis acid &amp; base)" ],
         "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
@@ -399,7 +404,7 @@ export const equilibrium: NeetModule = {
         "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        "column1": [ "a) pKa", "b) pKb", "c) pH", "d) pKw" ],
+        "column1": [ "a) pKa", "b) pKb", "c) pH", "d) pOH" ],
         "column2": [ "i) -log[OH⁻]", "ii) -log[H⁺]", "iii) -log(Ka)", "iv) -log(Kb)" ],
         "answer": "a-iii, b-iv, c-ii, d-i (Assuming pOH is not an option for 'i')"
     }
@@ -407,3 +412,6 @@ export const equilibrium: NeetModule = {
 
 };
 
+
+
+    
