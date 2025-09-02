@@ -91,7 +91,7 @@ export const gravitation: NeetModule = {
         explanation: "Inside an orbiting satellite, the effective gravity is zero (state of weightlessness). Since T = 2π√(L/g), if g=0, T becomes infinite."
     },
     {
-        "question": "The orbital velocity of a satellite very close to the Earth's surface is:",
+        question: "The orbital velocity of a satellite very close to the Earth's surface is:",
         "options": ["√(2gR)", "√(gR)", "√(3gR/2)", "gR"],
         "answer": "√(gR)",
         "explanation": "Orbital velocity vₒ = √(GM/R). Since g = GM/R², GM = gR². So, vₒ = √(gR²/R) = √(gR)."
@@ -142,7 +142,7 @@ export const gravitation: NeetModule = {
         question: "The tidal waves in the sea are primarily due to:",
         options: ["The gravitational effect of the Moon on the Earth", "The gravitational effect of the Sun on the Earth", "The gravitational effect of Venus on the Earth", "The rotation of the Earth"],
         answer: "The gravitational effect of the Moon on the Earth",
-        explanation: "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
+        explanation": "Tides are caused by the differential gravitational forces exerted by the Moon (and to a lesser extent, the Sun) on different parts of the Earth."
     },
     {
         question: "If the radius of the Earth were to shrink by 1% while its mass remains the same, the acceleration due to gravity on the Earth's surface would:",
@@ -176,8 +176,8 @@ export const gravitation: NeetModule = {
     },
     {
         question: "The period of a satellite in a circular orbit of radius R is T. The period of another satellite in a circular orbit of radius 4R is:",
-        options: ["4T", "8T", "T/4", "T/8"],
-        answer": "8T",
+        "options": ["4T", "8T", "T/4", "T/8"],
+        "answer": "8T",
         "explanation": "From Kepler's third law, T² ∝ R³. (T₂/T₁)² = (R₂/R₁)³. (T₂/T)² = (4R/R)³ = 64. T₂/T = √64 = 8. So T₂ = 8T."
     },
     {
@@ -188,7 +188,7 @@ export const gravitation: NeetModule = {
     },
     {
         "question": "What is the work done in moving a satellite of mass m from one circular orbit of radius 2R to another of radius 3R around the Earth?",
-        "options": ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/R"],
+        "options": ["GMm/6R", "GMm/3R", "GMm/2R", "GMm/12R"],
         "answer": "GMm/12R",
         "explanation": "Work done is the change in total energy. Total energy E = -GMm/(2r). W = E_f - E_i = (-GMm/(2*3R)) - (-GMm/(2*2R)) = -GMm/6R + GMm/4R = GMm(1/4R - 1/6R) = GMm((3-2)/12R) = GMm/12R."
     }
@@ -267,10 +267,10 @@ export const gravitation: NeetModule = {
         explanation: "Kepler's laws are a consequence of the inverse square law of gravitation. Since the same law governs both planetary motion and satellite motion, the laws are applicable in both cases."
     },
     {
-        assertion: "An astronaut in an orbiting satellite cannot sip a drink with a straw.",
-        reason: "The absence of gravity makes it difficult to suck liquids.",
-        answer: "C",
-        explanation: "Assertion is true. The reason is false. The astronaut cannot sip because the liquid would not stay at the bottom of the cup in a weightless environment. Sucking itself works fine regardless of gravity."
+        assertion": "An astronaut in an orbiting satellite cannot sip a drink with a straw.",
+        "reason": "The absence of gravity makes it difficult to suck liquids.",
+        "answer": "C",
+        "explanation": "Assertion is true. The reason is false. The astronaut cannot sip because the liquid would not stay at the bottom of the cup in a weightless environment. Sucking itself works fine regardless of gravity."
     },
     {
         assertion: "The binding energy of a satellite is GMm/2r.",
@@ -304,7 +304,7 @@ export const gravitation: NeetModule = {
     {
         column1: ["a) Geostationary Satellite", "b) Polar Satellite", "c) Total Energy of Satellite", "d) Binding Energy of Satellite"],
         column2": ["i) Negative", "ii) Positive", "iii) Time period = 24 hours", "iv) Orbits over poles"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
         "column1": ["a) vₑ and vₒ relation", "b) g and G relation", "c) Weight", "d) Universal Gravitational Constant"],
