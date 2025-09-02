@@ -12,34 +12,10 @@ const examModules = [
     isNew: true,
   },
   {
-    title: 'NEET: Physics (Optics)',
-    description: 'Essential Physics concepts in Tamil for medical entrance exams.',
-    href: '/exam-prep/neet'
-  },
-  {
-    title: 'NEET: Physics (Electrostatics)',
-    description: 'Master Coulomb\'s law, electric fields, and potential with this dedicated module.',
-    href: '/exam-prep/neet-electrostatics'
-  },
-  {
-    title: 'NEET: Chemistry (Chemical Bonding)',
-    description: 'Essential Chemistry concepts in Tamil for medical entrance exams.',
-    href: '/exam-prep/neet-chemistry'
-  },
-  {
-    title: 'NEET: Chemistry (Thermodynamics)',
-    description: 'Master the laws of energy and spontaneity with tailored notes for NEET.',
-    href: '/exam-prep/neet-thermodynamics'
-  },
-  {
-    title: 'NEET: Chemistry (Equilibrium)',
-    description: 'Understand chemical equilibrium and Le Chatelier\'s principle with expert notes.',
-    href: '/exam-prep/neet-equilibrium'
-  },
-  {
-    title: 'NEET: Biology (Genetics)',
-    description: 'Essential Biology concepts in Tamil for medical entrance exams.',
-    href: '/exam-prep/neet-biology'
+    title: 'NEET Preparation',
+    description: 'Comprehensive study modules for Physics, Chemistry, and Biology in Tamil for medical entrance exams.',
+    href: '/exam-prep/neet',
+    isNew: true,
   },
   {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
@@ -120,8 +96,8 @@ export default function ExamPrepLandingPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {examModules.sort((a,b) => {
-            if (a.isNew) return -1;
-            if (b.isNew) return 1;
+            if (a.isNew && !b.isNew) return -1;
+            if (!a.isNew && b.isNew) return 1;
             return a.title.localeCompare(b.title);
         }).map((module) => (
           <Card key={module.title} className={`flex flex-col ${module.isNew ? 'border-primary ring-2 ring-primary' : ''}`}>
