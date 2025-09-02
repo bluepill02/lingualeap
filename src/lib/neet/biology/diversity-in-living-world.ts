@@ -8,44 +8,61 @@ export const diversityInLivingWorld: NeetModule = {
   subject: 'Biology',
   conceptNotes: `
 ### 1. The Living World (உயிரி உலகம்)
+*   **What is living?:** Definitive characteristics include metabolism, cellular organization, and consciousness. Non-definitive characteristics include growth and reproduction.
+*   **Biodiversity:** The variety of life forms on Earth.
+*   **Need for classification:** To organize the vast number of species for easier study.
+*   **Taxonomy & Systematics:** Taxonomy is the science of classification. Systematics includes evolutionary relationships.
+*   **Concept of species and taxonomical hierarchy:** A hierarchical classification: Kingdom (பேரரசு) → Phylum (தொகுதி) → Class (வகுப்பு) → Order (வரிசை) → Family (குடும்பம்) → Genus (பேரினம்) → Species (சிற்றினம்).
+*   **Binomial Nomenclature:** System of naming organisms with two components: a generic name and a specific epithet. Proposed by Carolus Linnaeus. (e.g., *Homo sapiens* - மனிதன்).
 
-*   **Characteristics of Living Organisms (உயிரினங்களின் பண்புகள்):** Growth (வளர்ச்சி), Reproduction (இனப்பெருக்கம்), Metabolism (வளர்சிதை மாற்றம்), Cellular organization (செல் அமைப்பு), Consciousness (உணர்வு).
-*   **Taxonomy & Systematics (வகைப்பாட்டியல் மற்றும் சிற்றினவியல்):** Taxonomy is the science of classification. Systematics includes evolutionary relationships. (வகைப்பாட்டியல் என்பது உயிரினங்களை வகைப்படுத்தும் அறிவியல். சிற்றினவியல் என்பது பரிணாம உறவுகளை உள்ளடக்கியது).
-*   **Binomial Nomenclature (இருசொற் பெயரிடல்):** System of naming organisms with two components: a generic name and a specific epithet. Proposed by Carolus Linnaeus. (எ.கா., *Homo sapiens* - மனிதன்).
-*   **Taxonomic Categories (வகைப்பாட்டுப் படிகள்):** A hierarchical classification: Kingdom (பேரரசு) → Phylum (தொகுதி) → Class (வகுப்பு) → Order (வரிசை) → Family (குடும்பம்) → Genus (பேரினம்) → Species (சிற்றினம்).
-
-### 2. Biological Classification (உயிரியல் வகைப்பாடு)
-
-*   **Five Kingdom Classification (ஐந்து உலக வகைப்பாடு):** Proposed by R.H. Whittaker. The kingdoms are Monera, Protista, Fungi, Plantae, and Animalia.
-    *   **Kingdom Monera (மொனிரா உலகம்):** Includes all prokaryotes (Bacteria, Archaebacteria, Cyanobacteria). They have a cell wall made of peptidoglycan.
-    *   **Kingdom Protista (புரோட்டிஸ்டா உலகம்):** Unicellular eukaryotes. Includes Chrysophytes, Dinoflagellates, Euglenoids, Slime moulds, and Protozoans. (ஒரு செல் யூகேரியோட்டுகள்).
-    *   **Kingdom Fungi (பூஞ்சைகள் உலகம்):** Heterotrophic, eukaryotic organisms. Cell wall made of chitin. e.g., Yeast, Mold, Mushroom. (சாறுண்ணி யூகேரியோட்டுகள்).
-    *   **Kingdom Plantae (தாவர உலகம்):** Eukaryotic, chlorophyll-containing organisms. Cell wall made of cellulose.
-    *   **Kingdom Animalia (விலங்கு உலகம்):** Heterotrophic, eukaryotic, multicellular organisms lacking a cell wall.
-*   **Viruses, Viroids, and Lichens:** These are not included in the five-kingdom classification. Viruses are non-cellular organisms that are obligate intracellular parasites. Viroids are infectious RNA particles. Lichens are a symbiotic association between algae and fungi.
+### 2. Five Kingdom Classification
+*   Proposed by R.H. Whittaker. The kingdoms are Monera, Protista, Fungi, Plantae, and Animalia.
+*   **Kingdom Monera:** Includes all prokaryotes.
+    *   *Salient features:* Unicellular, prokaryotic, cell wall made of peptidoglycan, naked DNA.
+    *   *Examples:* Bacteria (*E. coli*), Cyanobacteria (*Nostoc*).
+*   **Kingdom Protista:** Unicellular eukaryotes.
+    *   *Salient features:* Unicellular, eukaryotic, can be autotrophic or heterotrophic, have cilia or flagella for locomotion.
+    *   *Examples:* Amoeba, Paramecium, Diatoms.
+*   **Kingdom Fungi:** Heterotrophic, eukaryotic organisms.
+    *   *Salient features:* Multicellular (except yeast), eukaryotic, saprophytic/parasitic, cell wall made of chitin.
+    *   *Examples:* Yeast, Mushroom, *Rhizopus*.
+*   **Lichens, Viruses and Viroids:**
+    *   **Lichens:** Symbiotic association between algae and fungi.
+    *   **Viruses:** Non-cellular, obligate intracellular parasites with a protein coat (capsid) and genetic material (DNA or RNA).
+    *   **Viroids:** Infectious agents smaller than viruses, consisting of free RNA without a protein coat.
 
 ### 3. Plant Kingdom (தாவர உலகம்)
-
-*   **Algae (பாசிகள்):** Simple, thalloid, autotrophic, and largely aquatic organisms. e.g., *Chlamydomonas*, *Volvox*, *Spirogyra*.
-*   **Bryophytes (பிரையோஃபைட்டுகள்):** "Amphibians of the plant kingdom." They lack true roots, stems, and leaves. e.g., Mosses, Liverworts.
-*   **Pteridophytes (டெரிடோஃபைட்டுகள்):** First terrestrial plants to possess vascular tissues (xylem and phloem). e.g., Ferns, Horsetails.
-*   **Gymnosperms (ஜிம்னோஸ்பெர்ம்கள்):** Plants in which the ovules are not enclosed by any ovary wall ("naked seeds"). e.g., *Pinus*, *Cycas*.
-*   **Angiosperms (ஆஞ்சியோஸ்பெர்ம்கள்):** Flowering plants where seeds are enclosed within a fruit. Divided into Monocots and Dicots.
+*   **Algae:** Simple, thalloid, autotrophic, and aquatic.
+    *   *Salient features:* Lack true roots/stems/leaves, chlorophyll-containing, cell wall of cellulose.
+    *   *Examples:* *Spirogyra*, *Chlamydomonas*.
+*   **Bryophytes:** "Amphibians of the plant kingdom."
+    *   *Salient features:* Live in moist areas, dependent on water for reproduction, main plant body is haploid (gametophyte).
+    *   *Examples:* Mosses (*Funaria*), Liverworts (*Marchantia*).
+*   **Pteridophytes:** First terrestrial plants with vascular tissues.
+    *   *Salient features:* Have true roots, stem, and leaves; possess xylem and phloem; main plant body is diploid (sporophyte).
+    *   *Examples:* Ferns (*Dryopteris*), Horsetails (*Equisetum*).
+*   **Gymnosperms:** Plants with "naked seeds."
+    *   *Salient features:* Ovules are not enclosed by an ovary wall, seeds are exposed.
+    *   *Examples:* *Pinus*, *Cycas*.
 
 ### 4. Animal Kingdom (விலங்கு உலகம்)
-
-*   **Basis of Classification:** Levels of organization, symmetry (radial, bilateral), coelom (body cavity), segmentation, notochord.
-*   **Major Phyla:**
-    *   **Porifera:** Sponges. Cellular level of organization.
-    *   **Coelenterata (Cnidaria):** Jellyfish, Corals. Tissue level, radial symmetry.
-    *   **Platyhelminthes:** Flatworms. Organ level, bilaterally symmetrical, acoelomates.
-    *   **Aschelminthes:** Roundworms. Organ-system level, pseudocoelomates.
-    *   **Annelida:** Earthworms, Leeches. True coelomates with segmentation.
-    *   **Arthropoda:** Insects, Spiders, Crabs. Largest phylum. Jointed appendages, chitinous exoskeleton.
-    *   **Mollusca:** Snails, Octopus. Second largest phylum. Soft-bodied, usually with a shell.
-    *   **Echinodermata:** Starfish. Spiny-skinned, exclusively marine, radial symmetry in adults.
-    *   **Hemichordata:** Acorn worms. Worm-like marine animals.
-    *   **Chordata:** Have a notochord. Includes Protochordata and Vertebrata (fishes, amphibians, reptiles, birds, mammals).
+*   **Non-chordate up to phyla level:**
+    *   **Phylum Porifera:** Sponges. Cellular level of organization, water canal system. *Examples:* *Sycon*, *Spongilla*.
+    *   **Phylum Coelenterata (Cnidaria):** Jellyfish, Corals. Tissue level, radial symmetry, cnidoblasts present. *Examples:* *Hydra*, *Aurelia*.
+    *   **Phylum Platyhelminthes:** Flatworms. Dorso-ventrally flattened body, bilaterally symmetrical, acoelomates. *Examples:* *Taenia* (Tapeworm), *Fasciola* (Liver fluke).
+    *   **Phylum Aschelminthes:** Roundworms. Organ-system level, pseudocoelomates, complete alimentary canal. *Examples:* *Ascaris*, *Wuchereria*.
+    *   **Phylum Annelida:** Earthworms, Leeches. Metamerically segmented body, true coelomates. *Examples:* *Pheretima*, *Hirudinaria*.
+    *   **Phylum Arthropoda:** Insects, Spiders, Crabs. Largest phylum. Jointed appendages, chitinous exoskeleton. *Examples:* *Apis* (Honey bee), *Anopheles* (Mosquito).
+    *   **Phylum Mollusca:** Snails, Octopus. Second largest phylum. Soft-bodied, usually with a calcareous shell. *Examples:* *Pila*, *Octopus*.
+    *   **Phylum Echinodermata:** Starfish, Sea urchins. Spiny-skinned, exclusively marine, water vascular system. *Examples:* *Asterias* (Starfish), *Echinus*.
+*   **Chordate up to classes level:**
+    *   **Class Cyclostomata:** Jawless vertebrates. Sucking and circular mouth. *Examples:* *Petromyzon* (Lamprey), *Myxine* (Hagfish).
+    *   **Class Chondrichthyes:** Cartilaginous fishes. Ventral mouth, placoid scales. *Examples:* *Scoliodon* (Shark), *Pristis* (Sawfish).
+    *   **Class Osteichthyes:** Bony fishes. Terminal mouth, cycloid/ctenoid scales, operculum present. *Examples:* *Labeo* (Rohu), *Exocoetus* (Flying fish).
+    *   **Class Amphibia:** Can live on land and in water. Moist skin, two pairs of limbs. *Examples:* *Rana* (Frog), *Salamandra*.
+    *   **Class Reptilia:** Crawling mode of locomotion. Body covered by dry, cornified skin (scales or scutes). *Examples:* *Chelone* (Turtle), *Naja* (Cobra).
+    *   **Class Aves:** Birds. Presence of feathers and beak, forelimbs modified into wings. *Examples:* *Corvus* (Crow), *Pavo* (Peacock).
+    *   **Class Mammalia:** Most unique character is the presence of mammary glands. Body covered by hair, external ears (pinnae). *Examples:* *Homo sapiens* (Man), *Panthera leo* (Lion).
   `,
   workedExamples: [
     {

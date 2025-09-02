@@ -7,55 +7,40 @@ export const plantPhysiology: NeetModule = {
   chapter: 'Plant Physiology',
   subject: 'Biology',
   conceptNotes: `
-### 1. Transport in Plants (தாவரங்களில் கடத்துதல்)
+### 1. Photosynthesis (ஒளிச்சேர்க்கை)
+*   **Photosynthesis as a means of Autotrophic nutrition:** The process by which green plants create their own food using light energy.
+*   **Site of photosynthesis:** The chloroplasts, primarily in the mesophyll cells of leaves.
+*   **Pigments involved in Photosynthesis (Elementary idea):** Chlorophyll a (chief pigment), Chlorophyll b, Xanthophylls, and Carotenoids (accessory pigments).
+*   **Photochemical and biosynthetic phases:**
+    *   **Light-Dependent Reactions (Photochemical phase):** Occur in the grana. Involve light absorption, water splitting, oxygen release, and formation of ATP and NADPH. Includes Cyclic and Non-cyclic photophosphorylation.
+    *   **Biosynthetic phase (Dark Reactions):** Occurs in the stroma. The **Calvin Cycle (C3 pathway)** uses ATP and NADPH to fix CO₂ into carbohydrates.
+*   **Chemiosmotic hypothesis:** Explains how ATP is synthesized in the chloroplast.
+*   **Photorespiration:** A wasteful process that occurs in C3 plants in high light and temperature conditions.
+*   **C4 pathway:** An adaptation for plants in dry tropical regions (e.g., maize, sugarcane) to minimize photorespiration.
+*   **Factors affecting photosynthesis:** Light, carbon dioxide concentration, temperature, and water.
 
-*   **Means of Transport (கடத்துதல் முறைகள்):**
-    *   **Diffusion (பரவல்):** Movement of substances from high to low concentration. A slow, passive process.
-    *   **Facilitated Diffusion (வசதி செய்யப்பட்ட பரவல்):** Diffusion aided by membrane proteins (channels/carriers). No energy required.
-    *   **Active Transport (செயல்மிகு கடத்துதல்):** Movement against a concentration gradient, requiring energy (ATP) and membrane proteins (pumps). (குறைந்த இடத்திலிருந்து அதிக இடத்திற்குப் பொருளைத் தள்ளுவது போல, ஆற்றல் தேவை).
-*   **Water Potential (நீர் ஆற்றல் - Ψw):** The potential energy of water. Pure water has the highest water potential (zero). Adding solutes lowers it (negative value). Ψw = Ψs + Ψp (Solute potential + Pressure potential).
-*   **Osmosis (சவ்வூடுபரவல்):** Movement of water across a semipermeable membrane from high water potential to low water potential.
-*   **Plasmolysis (பிளாஸ்மோசிஸ்):** Shrinkage of protoplasm from the cell wall when a cell is placed in a hypertonic solution.
-*   **Ascent of Sap (சாறு ஏறுதல்):** Upward movement of water from roots to leaves. Best explained by the **Cohesion-Tension-Transpiration Pull Model**. Water forms a continuous column due to cohesion (attraction between water molecules) and adhesion (attraction to xylem walls), and is pulled up by the tension created by transpiration.
+### 2. Respiration (சுவாசம்)
+*   **Exchange of gases:** Gaseous exchange occurs through stomata and lenticels.
+*   **Cellular respiration:** The breakdown of glucose to release energy (ATP).
+    *   **Glycolysis (கிளைகாஸிஸ்):** Common pathway in both aerobic and anaerobic respiration. Occurs in the cytoplasm, breaking one glucose into two pyruvic acid molecules.
+    *   **Fermentation (anaerobic):** Incomplete breakdown of glucose in the absence of oxygen.
+    *   **TCA cycle (Krebs Cycle) and electron transport system (aerobic):** Complete oxidation of pyruvic acid in the mitochondria to produce a large amount of ATP.
+*   **Energy relations:** Number of ATP molecules generated.
+*   **Amphibolic pathways:** Respiratory pathways are involved in both breakdown (catabolism) and synthesis (anabolism).
+*   **Respiratory quotient (RQ):** The ratio of the volume of CO₂ evolved to the volume of O₂ consumed in respiration. RQ = CO₂/O₂.
 
-### 2. Mineral Nutrition (கனிம ஊட்டச்சத்து)
-
-*   **Essential Mineral Elements (அத்தியாவசிய கனிமத் தனிமங்கள்):** Macronutrients (C, H, O, N, P, K, Ca, Mg, S) and Micronutrients (Fe, Mn, Cu, Mo, Zn, B, Cl, Ni).
-*   **Role and Deficiency Symptoms:** Each element has specific roles. Deficiency of any essential element leads to specific symptoms (e.g., Chlorosis - yellowing of leaves due to lack of N, K, Mg, S, Fe, Mn, Zn, Mo).
-*   **Nitrogen Cycle (நைட்ரஜன் சுழற்சி):** The process of converting atmospheric nitrogen into a usable form for plants. Key steps: Nitrogen fixation (by bacteria like *Rhizobium*), Ammonification, Nitrification, and Denitrification.
-
-### 3. Photosynthesis in Higher Plants (உயர்தரத் தாவரங்களில் ஒளிச்சேர்க்கை)
-
-*   **Site of Photosynthesis:** Chloroplasts in the mesophyll cells of leaves.
-*   **Photosynthetic Pigments:** Chlorophyll a (chief pigment), Chlorophyll b, Xanthophylls, Carotenoids.
-*   **Two Phases of Photosynthesis:**
-    *   **Light-Dependent Reactions (ஒளி சார்ந்த வினைகள்):** Occur in the grana. Involve light absorption, water splitting (photolysis), oxygen release, and formation of ATP and NADPH. Includes two photosystems: PS I and PS II.
-    *   **Light-Independent Reactions (ஒளி சாரா வினைகள்) / Calvin Cycle (கால்வின் சுழற்சி):** Occur in the stroma. Uses ATP and NADPH from light reactions to fix CO₂ into carbohydrates (sugar). The first step is **carbon fixation** catalyzed by the enzyme RuBisCO.
-*   **C4 Pathway (C4 பாதை):** An adaptation for plants in dry tropical regions (e.g., maize, sugarcane). They have Kranz anatomy. The first CO₂ fixation product is a 4-carbon compound (oxaloacetic acid). They are more efficient at photosynthesis in high temperatures and light.
-
-### 4. Respiration in Plants (தாவரங்களில் சுவாசம்)
-
-*   **Cellular Respiration:** The breakdown of glucose to release energy (ATP).
-*   **Glycolysis (கிளைகாஸிஸ்):** The initial breakdown of glucose into two molecules of pyruvic acid. Occurs in the cytoplasm. Common to both aerobic and anaerobic respiration.
-*   **Aerobic Respiration (காற்றுள்ள சுவாசம்):** Occurs in the presence of oxygen.
-    *   **Krebs Cycle (கிரெப்ஸ் சுழற்சி) / Citric Acid Cycle:** Occurs in the mitochondrial matrix. Pyruvic acid is completely oxidized.
-    *   **Electron Transport System (ETS) & Oxidative Phosphorylation:** Occurs on the inner mitochondrial membrane. Electrons are passed down a chain of carriers, releasing energy to synthesize ATP. Oxygen is the final electron acceptor.
-*   **Anaerobic Respiration / Fermentation (காற்றில்லா சுவாசம் / நொதித்தல்):** Occurs in the absence of oxygen. Incomplete oxidation of glucose. e.g., Alcoholic fermentation (in yeast), Lactic acid fermentation.
-
-### 5. Plant Growth and Development (தாவர வளர்ச்சி மற்றும் விருத்தி)
-
-*   **Growth (வளர்ச்சி):** Irreversible permanent increase in size.
-*   **Phases of Growth:** Meristematic, Elongation, Maturation.
-*   **Plant Growth Regulators (தாவர வளர்ச்சி சீராக்கிகள்) / Phytohormones:**
-    *   **Growth Promoters:**
-        *   **Auxins:** Cell elongation, apical dominance, rooting in stem cuttings.
-        *   **Gibberellins:** Stem elongation, break seed dormancy.
-        *   **Cytokinins:** Promote cell division, overcome apical dominance.
-    *   **Growth Inhibitors:**
-        *   **Abscisic Acid (ABA):** Stress hormone, promotes dormancy and abscission (உதிர்தல்).
-        *   **Ethylene:** Gaseous hormone, promotes fruit ripening.
-*   **Photoperiodism (ஒளிக்காலத்துவம்):** The response of plants to periods of day/night. Categorized as Long-Day Plants, Short-Day Plants, and Day-Neutral Plants.
-*   **Vernalisation (வசந்தமயமாக்கல்):** Promotion of flowering by a period of low temperature.
+### 3. Plant Growth and Development (தாவர வளர்ச்சி மற்றும் விருத்தி)
+*   **Seed germination:** The process by which a seed develops into a seedling.
+*   **Phases of Plant growth and plant growth rate:** Growth is measured by increase in size/weight. It has three phases: meristematic, elongation, and maturation.
+*   **Conditions of growth:** Water, oxygen, nutrients, temperature.
+*   **Differentiation, dedifferentiation, and redifferentiation:** Processes of cell specialization, reverting to a meristematic state, and re-specializing.
+*   **Sequence of developmental process in a plant cell.**
+*   **Growth regulators:**
+    *   **Auxin:** Promotes cell elongation, apical dominance.
+    *   **Gibberellin:** Promotes stem elongation (bolting), seed germination.
+    *   **Cytokinin:** Promotes cell division.
+    *   **Ethylene:** Gaseous hormone, promotes fruit ripening.
+    *   **Abscisic Acid (ABA):** Stress hormone, promotes dormancy.
   `,
   workedExamples: [
     {
@@ -221,5 +206,5 @@ export const plantPhysiology: NeetModule = {
       column2: ["i) Attraction to polar surfaces", "ii) Attraction among water molecules", "iii) Due to root pressure", "iv) More attraction in liquid phase than gas phase"],
       answer: "a-ii, b-i, c-iv, d-iii"
     }
-  ],
+  ]
 };

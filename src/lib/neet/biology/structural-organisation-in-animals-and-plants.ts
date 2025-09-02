@@ -7,45 +7,33 @@ export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
   chapter: 'Structural Organisation in Animals and Plants',
   subject: 'Biology',
   conceptNotes: `
-### 1. Plant Tissues (தாவர திசுக்கள்)
+### 1. Plant Morphology and Tissues (தாவர புறஅமைப்பியல் மற்றும் திசுக்கள்)
+*   **Morphology and modifications:** Modifications of Root, Stem, and Leaf.
+*   **Inflorescence:** Cymose and Racemose types.
+*   **Flower, Fruit, and Seed:** Basic structure and function.
+*   **Plant Families:** Malvaceae, Cruciferae, Leguminosae, Compositae, Graminae (description to be dealt with relevant practicals).
+*   **Tissues:**
+    *   **Meristematic Tissue (ஆக்குத் திசு):** Apical, Intercalary, and Lateral meristems responsible for growth.
+    *   **Permanent Tissue (நிலையான திசு):**
+        *   **Simple:** Parenchyma, Collenchyma, Sclerenchyma.
+        *   **Complex:** Xylem and Phloem.
 
-*   **Meristematic Tissue (ஆக்குத் திசு):** Actively dividing cells responsible for plant growth.
-    *   **Apical Meristem (நுனி ஆக்குத் திசு):** Found at the tips of roots and shoots, responsible for primary growth (length).
-    *   **Intercalary Meristem (இடை ஆக்குத் திசு):** Found between mature tissues, common in grasses.
-    *   **Lateral Meristem (பக்க ஆக்குத் திசு):** Responsible for secondary growth (girth), e.g., vascular cambium, cork cambium.
-*   **Permanent Tissue (நிலையான திசு):** Cells that have lost the ability to divide.
-    *   **Simple Tissue (எளிய திசு):** Made of one type of cell.
-        *   **Parenchyma (பாரங்கைமா):** Living cells, perform functions like photosynthesis, storage, secretion.
-        *   **Collenchyma (கோலங்கைமா):** Living mechanical tissue, provides support to young stems and petioles.
-        *   **Sclerenchyma (ஸ்கிலிரங்கைமா):** Dead mechanical tissue, provides strength. Two types: fibres and sclereids.
-    *   **Complex Tissue (கூட்டுத் திசு):** Made of more than one type of cell.
-        *   **Xylem (சைலம்):** Conducts water and minerals. Composed of tracheids, vessels, xylem parenchyma, and xylem fibres.
-        *   **Phloem (ஃபுளோயம்):** Conducts food materials. Composed of sieve tube elements, companion cells, phloem parenchyma, and phloem fibres.
-
-### 2. Anatomy of Flowering Plants (பூக்கும் தாவரங்களின் உள்ளமைப்பு)
-
-*   **The Tissue System (திசு அமைப்பு):**
-    *   **Epidermal Tissue System (புறத்தோல் திசு அமைப்பு):** Outermost covering. Includes epidermis, stomata (இலைத்துளை), and epidermal appendages (trichomes, root hairs).
-    *   **Ground Tissue System (தளத் திசு அமைப்பு):** All tissues except epidermis and vascular bundles.
-    *   **Vascular Tissue System (வாஸ்குலார் திசு அமைப்பு):** Xylem and Phloem.
-*   **Anatomy of Dicot and Monocot Plants:** Focus on the differences in root, stem, and leaf structures (e.g., arrangement of vascular bundles, presence of cambium, type of stomata).
+### 2. Plant Anatomy (தாவர உள்ளமைப்பியல்)
+*   **Anatomy and functions of different parts of flowering plants:** Root, stem, and leaf anatomy of dicots and monocots.
 
 ### 3. Animal Tissues (விலங்கு திசுக்கள்)
+*   **Epithelial Tissue (எபிதீலியல் திசு):** Covering and protective tissue (simple and compound).
+*   **Connective Tissue (இணைப்புத் திசு):** Links and supports other tissues (loose, dense, and specialized - cartilage, bone, blood).
+*   **Muscular Tissue (தசைத் திசு):** Responsible for movement (Skeletal, Smooth, Cardiac).
+*   **Neural Tissue (நரம்புத் திசு):** Controls the body's responsiveness (neurons and neuroglia).
 
-*   **Epithelial Tissue (எபிதீலியல் திசு):** Covering and protective tissue. Types: simple (squamous, cuboidal, columnar) and compound.
-*   **Connective Tissue (இணைப்புத் திசு):** Most abundant and widely distributed. Links and supports other tissues.
-    *   **Loose Connective Tissue:** Areolar, Adipose.
-    *   **Dense Connective Tissue:** Tendons (muscle to bone), Ligaments (bone to bone).
-    *   **Specialized Connective Tissue:** Cartilage, Bone, Blood.
-*   **Muscular Tissue (தசைத் திசு):** Responsible for movement. Types: Skeletal (எலும்புத் தசை), Smooth (மென் தசை), Cardiac (இதயத் தசை).
-*   **Neural Tissue (நரம்புத் திசு):** Controls the body's responsiveness. Composed of neurons and neuroglia.
-
-### 4. Organ and Organ System in Animals (விலங்குகளில் உறுப்பு மற்றும் உறுப்பு மண்டலம்)
-
-*   Detailed study of the morphology and anatomy of three organisms:
-    *   **Earthworm (மண்புழு):** Phylum Annelida. Represents segmentation. Closed circulatory system.
-    *   **Cockroach (கரப்பான்பூச்சி):** Phylum Arthropoda. Chitinous exoskeleton, jointed appendages. Open circulatory system.
-    *   **Frog (தவளை):** Phylum Chordata, Class Amphibia. Represents vertebrates.
+### 4. Morphology, Anatomy and Functions of an Animal (Brief Account Only)
+*   Study of morphology, anatomy, and functions of different systems of an **insect (Frog is given as an example of an animal to study, though it is an amphibian, not an insect. This section will cover the Frog as per syllabus trends).**
+    *   **Digestive System:** Alimentary canal and digestive glands.
+    *   **Circulatory System:** Heart, blood vessels, and blood.
+    *   **Respiratory System:** Skin and lungs.
+    *   **Nervous System:** Central, peripheral, and autonomic systems.
+    *   **Reproductive System:** Male and female reproductive organs.
   `,
   workedExamples: [
     {
@@ -57,8 +45,8 @@ export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
         solution: 'The damaged tissue is a **Tendon**. Tendons are a type of **dense regular connective tissue** primarily composed of collagen fibres. Their specific function is to attach skeletal muscles to bones. (தசையை எலும்புடன் இணைக்கும் இணைப்புத் திசு டெண்டான் ஆகும்.)'
     },
     {
-        problem: 'Why is the blood of a cockroach colorless, unlike human blood?',
-        solution: 'The blood (called hemolymph) of a cockroach is colorless because it **lacks haemoglobin**, the red-colored respiratory pigment found in human red blood cells. In cockroaches, the circulatory system is "open" and does not transport respiratory gases. Gas exchange occurs through a separate network of tubes called the tracheal system. Therefore, their blood does not need a respiratory pigment to carry oxygen. (கரப்பான்பூச்சியின் இரத்தத்தில் ஹீமோகுளோபின் என்ற சுவாச நிறமி இல்லாததால், அது நிறமற்றதாக உள்ளது. வாயுப் பரிமாற்றம் மூச்சுக்குழல் அமைப்பு மூலம் நடைபெறுகிறது.)'
+        problem: 'How does the circulatory system of a frog differ from that of a human?',
+        solution: 'The main difference is in the heart structure and the type of circulation. \n**Frog:** Has a **three-chambered heart** (two atria, one ventricle). It exhibits **incomplete double circulation**, where oxygenated blood from the lungs and deoxygenated blood from the body get mixed in the single ventricle before being pumped out. \n**Human:** Has a **four-chambered heart** (two atria, two ventricles). It exhibits **complete double circulation**, where oxygenated and deoxygenated blood are kept completely separate.'
     }
   ],
   mcqs: [
@@ -87,10 +75,10 @@ export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
       explanation: 'Adipose tissue is a type of loose connective tissue that is specialized for the storage of fat.'
     },
     {
-      question: 'The functional unit of the nervous system is the:',
-      options: ['Nephron', 'Sarcomere', 'Neuron', 'Osteon'],
-      answer: 'Neuron',
-      explanation: 'The neuron, or nerve cell, is the structural and functional unit of the neural tissue.'
+      question: 'The heart of a frog has:',
+      options: ['Two chambers', 'Three chambers', 'Four chambers', 'One chamber'],
+      answer: 'Three chambers',
+      explanation: 'Frogs, being amphibians, have a three-chambered heart with two atria and one ventricle.'
     },
     {
         question: 'Which of the following is a simple permanent tissue?',

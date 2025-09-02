@@ -3,73 +3,45 @@ import type { NeetModule } from '@/lib/types';
 
 export const cellStructureAndFunction: NeetModule = {
   id: 'biology-cell-structure-and-function',
-  title: 'Cell: The Unit of Life',
+  title: 'Cell Structure and Function',
   chapter: 'Cell Structure and Function',
   subject: 'Biology',
   conceptNotes: `
-### 1. What is a Cell? (செல் என்றால் என்ன?)
-
-*   A cell is the fundamental, structural, and functional unit of all living organisms. (அனைத்து உயிரினங்களின் அடிப்படை அமைப்பு மற்றும் செயல்பாட்டு அலகு).
-*   **Cell Theory (செல் கோட்பாடு):** Proposed by Schleiden and Schwann, and later modified by Rudolf Virchow.
+### 1. Cell Theory and Cell as the Basic Unit of Life (செல் கோட்பாடு மற்றும் செல் வாழ்வின் அடிப்படை அலகு)
+*   **Cell Theory:** Proposed by Schleiden and Schwann, and later modified by Rudolf Virchow. Its main tenets are:
     1.  All living organisms are composed of cells and products of cells.
     2.  All cells arise from pre-existing cells (*Omnis cellula-e cellula*).
+*   **Structure of Prokaryotic and Eukaryotic Cells:** A key distinction in biology. Prokaryotes lack a true nucleus and membrane-bound organelles, while Eukaryotes have them.
+*   **Plant Cell and Animal Cell:** Key differences include the presence of a cell wall, large central vacuole, and plastids in plant cells, which are absent in animal cells. Animal cells have centrioles, which are absent in higher plant cells.
 
-### 2. Prokaryotic vs. Eukaryotic Cells (புரோகேரியோட்டிக் மற்றும் யூகேரியோட்டிக் செல்கள்)
+### 2. Cell Organelles: Structure and Function (செல் உறுப்புகள்: அமைப்பு மற்றும் செயல்பாடு)
+*   **Cell Envelope, Cell Membrane, Cell Wall:** The outer layers of the cell. The cell membrane is a semi-permeable lipid bilayer (Fluid Mosaic Model). The cell wall provides structural support.
+*   **Endomembrane System:** A group of membranes and organelles that work together.
+    *   **Endoplasmic Reticulum (ER):** Network of membranes. Rough ER (RER) has ribosomes for protein synthesis; Smooth ER (SER) for lipid synthesis.
+    *   **Golgi bodies (Golgi apparatus):** Modifies, sorts, and packages proteins and lipids.
+    *   **Lysosomes:** "Suicidal bags" containing digestive enzymes.
+    *   **Vacuoles:** Storage sacs, large and central in plant cells.
+*   **Mitochondria:** The "powerhouse" of the cell, site of aerobic respiration and ATP synthesis.
+*   **Ribosomes:** "Protein factories," site of protein synthesis. No membrane.
+*   **Plastids:** Found in plant cells (e.g., Chloroplasts for photosynthesis).
+*   **Microbodies:** Membrane-bound vesicles (e.g., peroxisomes).
+*   **Cytoskeleton, cilia, flagella, centrioles:** Involved in cell shape, motility, and cell division.
+*   **Nucleus:** Contains the cell's genetic material (DNA). Enclosed by a nuclear membrane and contains chromatin and a nucleolus (site of ribosome synthesis).
 
-A key distinction in biology. It's like comparing a small village hut (prokaryote) to a large, compartmentalized city building (eukaryote). (ஒரு சிறிய கிராமத்துக் குடிசைக்கும், பல அறைகள் கொண்ட நகரத்துக் கட்டிடத்திற்கும் உள்ள வேறுபாடு போல).
+### 3. Chemical Constituents of Living Cells (உயிருள்ள செல்களின் வேதியல் கூறுகள்)
+*   **Biomolecules:** Organic molecules essential for life.
+    *   **Proteins:** Polymers of amino acids, performing various functions (structural, enzymes, transport).
+    *   **Carbohydrates:** Main energy source (e.g., glucose, starch).
+    *   **Lipids:** Fats and oils, used for energy storage and membrane structure.
+    *   **Nucleic Acids:** DNA and RNA, which store and transmit genetic information.
+*   **Enzymes:** Biological catalysts, typically proteins.
+    *   **Types, properties, enzyme action:** Highly specific, work by lowering activation energy.
+    *   **Classification and nomenclature of enzymes:** Named based on the reaction they catalyze (e.g., oxidoreductases, transferases).
 
-| Feature | Prokaryotic Cell | Eukaryotic Cell |
-| :--- | :--- | :--- |
-| Nucleus | No true nucleus (Nucleoid) | True, membrane-bound nucleus |
-| Organelles | No membrane-bound organelles | Membrane-bound organelles present |
-| Ribosomes | 70S type | 80S type (in cytoplasm) & 70S (in organelles) |
-| Cell Size | Generally smaller (1-10 µm) | Generally larger (10-100 µm) |
-| Example | Bacteria, Blue-green algae | Plants, Animals, Fungi, Protists |
-
-### 3. Eukaryotic Cell Organelles (யூகேரியோட்டிக் செல் உறுப்புகள்)
-
-#### a) Cell Membrane (பிளாஸ்மா சவ்வு)
-*   **Fluid Mosaic Model:** Proposed by Singer and Nicolson. The membrane is a quasi-fluid lipid bilayer with proteins embedded in it. (இது ஒரு நீச்சல் குளத்தில் (கொழுப்பு அடுக்கு) பந்துகள் (புரதங்கள்) மிதப்பது போன்றது).
-*   It is selectively permeable, controlling the passage of substances.
-
-#### b) Cell Wall (செல் சுவர்)
-*   A rigid outer layer found in plants (cellulose), fungi (chitin), and some protists. Absent in animal cells.
-*   Provides structural support and protection.
-
-#### c) The Nucleus (உட்கரு)
-*   The "control center" of the cell. Contains the genetic material (DNA).
-*   Enclosed by a double membrane called the nuclear envelope.
-
-#### d) Mitochondria (மைட்டோகாண்ட்ரியா)
-*   The "powerhouse" of the cell. (செல்லின் ஆற்றல் நிலையம்).
-*   Site of cellular respiration and ATP synthesis.
-*   Has its own DNA and 70S ribosomes.
-
-#### e) Plastids (கணிகங்கள்)
-*   Found in plant cells and euglenoids.
-    *   **Chloroplasts (பசுங்கணிகம்):** Site of photosynthesis. Contains chlorophyll. Also has its own DNA and 70S ribosomes.
-    *   **Chromoplasts (வண்ணக்கணிகம்):** Impart color to flowers and fruits.
-    *   **Leucoplasts (வெளிர்க்கணிகம்):** Store nutrients.
-
-#### f) Endoplasmic Reticulum (ER) (எண்டோபிளாச வலை)
-*   A network of membranes.
-    *   **Rough ER (RER):** With ribosomes; involved in protein synthesis and secretion.
-    *   **Smooth ER (SER):** Without ribosomes; site of lipid synthesis.
-
-#### g) Golgi Apparatus (கோல்கை உறுப்புகள்)
-*   The "post office" of the cell. (செல்லின் தபால் நிலையம்).
-*   Involved in modifying, sorting, and packaging proteins and lipids for secretion or delivery to other organelles.
-
-#### h) Lysosomes (லைசோசோம்கள்)
-*   "Suicidal bags" of the cell. (செல்லின் தற்கொலைப் பைகள்).
-*   Contain hydrolytic enzymes to digest waste materials and cellular debris.
-
-#### i) Ribosomes (ரிபோசோம்கள்)
-*   "Protein factories" of the cell. Site of protein synthesis.
-*   Composed of rRNA and proteins. No membrane.
-
-#### j) Cytoskeleton (சைட்டோஸ்கெλεటన్)
-*   A network of protein filaments (microtubules, microfilaments) providing mechanical support, motility, and maintaining the shape of the cell.
+### 4. Cell Division (செல் பிரிவு)
+*   **Cell Cycle:** The sequence of events by which a cell duplicates its genome, synthesizes other constituents, and divides into two daughter cells. Phases: Interphase (G₁, S, G₂) and M phase.
+*   **Mitosis:** Equational division where a parent cell divides into two genetically identical daughter cells. Used for growth and repair. Stages: Prophase, Metaphase, Anaphase, Telophase.
+*   **Meiosis:** Reductional division that produces four genetically different haploid cells (gametes) from a single diploid cell. Occurs in two stages: Meiosis I and Meiosis II. It is essential for sexual reproduction and introducing genetic variation.
   `,
   workedExamples: [
     {
@@ -81,8 +53,8 @@ A key distinction in biology. It's like comparing a small village hut (prokaryot
         solution: 'Mitochondria are called the "powerhouses" because they are the primary sites of **aerobic cellular respiration**. This process breaks down glucose and other fuel molecules in the presence of oxygen to produce a large amount of **ATP (Adenosine Triphosphate)**. ATP is the main energy currency of the cell, providing the energy required for almost all cellular activities like muscle contraction, nerve impulse transmission, and synthesis of molecules. Without mitochondria, the cell would not be able to produce enough energy to survive. (மைட்டோகாண்ட்ரியா செல்லுலார் சுவாசம் மூலம் ATPயை உருவாக்குகிறது, இது செல்லின் அனைத்து செயல்பாடுகளுக்கும் ஆற்றலை வழங்குகிறது.)'
     },
     {
-        problem: 'A plant cell is placed in a hypotonic solution (a solution with lower solute concentration). What prevents it from bursting, unlike an animal cell?',
-        solution: 'The **cell wall** prevents the plant cell from bursting. When placed in a hypotonic solution, water enters the cell via osmosis, causing the cell to swell. In an animal cell, this swelling would continue until the cell membrane ruptures (lysis). However, in a plant cell, the rigid cell wall exerts an opposing pressure, called **turgor pressure**, on the swelling cell. This pressure prevents further water from entering once the cell is turgid, thus protecting it from bursting. (தாவர செல்லில் உள்ள உறுதியான செல் சுவர், அதிகப்படியான நீர் நுழைவதைத் தடுத்து, செல் வெடிப்பதைத் தடுக்கிறது.)'
+        problem: 'Describe the key events of the Anaphase stage of mitosis.',
+        solution: 'During Anaphase of mitosis, the following key events occur:\n1.  **Centromeres Split:** The centromere of each chromosome splits longitudinally.\n2.  **Sister Chromatids Separate:** The sister chromatids of each chromosome separate and are now referred to as individual chromosomes.\n3.  **Chromosomes Move to Opposite Poles:** The separated chromosomes are pulled towards opposite poles of the cell by the shortening of the spindle fibers attached to their kinetochores.'
     }
   ],
   mcqs: [
@@ -405,5 +377,5 @@ A key distinction in biology. It's like comparing a small village hut (prokaryot
         column2: ['i) Spindle formation', 'ii) Receptor proteins', 'iii) Cytoskeleton', 'iv) Cilia/Flagella'],
         answer: 'a-iii, b-iv, c-i, d-ii'
     }
-  ],
+  ]
 };
