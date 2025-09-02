@@ -363,17 +363,17 @@ export const electronicDevices: NeetModule = {
     {
         column1: ["a) A + A'", "b) A ⋅ A'", "c) A + 1", "d) A ⋅ 1"],
         column2: ["i) 1", "ii) A", "iii) 0", "iv) 1"],
-        answer": "a-iv, b-iii, c-i, d-ii"
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
         column1: ["a) De Morgan's First Law", "b) De Morgan's Second Law", "c) Associative Law", "d) Distributive Law"],
         column2: ["i) A(B+C) = AB + AC", "ii) (A.B)' = A' + B'", "iii) A+(B+C) = (A+B)+C", "iv) (A+B)' = A'.B'"],
-        answer": "a-iv, b-ii, c-iii, d-i"
+        "answer": "a-iv, b-ii, c-iii, d-i"
     },
     {
         column1: ["a) Active region", "b) Saturation region", "c) Cut-off region", "d) Breakdown region"],
         column2: ["i) Transistor acts as closed switch", "ii) For amplification", "iii) Zener diode operation", "iv) Transistor acts as open switch"],
-        answer": "a-ii, b-i, c-iv, d-iii"
+        "answer": "a-ii, b-i, c-iv, d-iii"
     }
   ]
 }
