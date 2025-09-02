@@ -145,46 +145,46 @@ export const optics: NeetModule = {
         explanation: "By Snell's law at the critical angle, n sin(C) = 1 * sin(90°). So, n = 1/sin(C)."
     },
     {
-        question: "In a compound microscope, the final image formed is:",
-        options: ["Real and inverted", "Virtual and inverted", "Real and erect", "Virtual and erect"],
-        answer: "Virtual and inverted",
-        explanation: "The objective lens forms a real, inverted, and magnified image. The eyepiece acts as a simple microscope and forms a final virtual, inverted, and further magnified image."
+        question": "In a compound microscope, the final image formed is:",
+        "options": ["Real and inverted", "Virtual and inverted", "Real and erect", "Virtual and erect"],
+        "answer": "Virtual and inverted",
+        "explanation": "The objective lens forms a real, inverted, and magnified image. The eyepiece acts as a simple microscope and forms a final virtual, inverted, and further magnified image."
     },
     {
-        question: "The condition for the first minimum in the diffraction pattern due to a single slit of width 'a' is:",
-        options: ["a sinθ = nλ", "a sinθ = (n+1/2)λ", "d sinθ = nλ", "a sinθ = λ"],
-        answer: "a sinθ = λ",
-        explanation: "The general condition for minima in single-slit diffraction is a sinθ = nλ, where n = 1, 2, 3, ... For the first minimum, n=1, so a sinθ = λ."
+        "question": "The condition for the first minimum in the diffraction pattern due to a single slit of width 'a' is:",
+        "options": ["a sinθ = nλ", "a sinθ = (n+1/2)λ", "d sinθ = nλ", "a sinθ = λ"],
+        "answer": "a sinθ = λ",
+        "explanation": "The general condition for minima in single-slit diffraction is a sinθ = nλ, where n = 1, 2, 3, ... For the first minimum, n=1, so a sinθ = λ."
     },
     {
-        question: "The power of two lenses +2D and -4D are placed in contact. The power of the combination is:",
-        options: ["+2 D", "-2 D", "+6 D", "-6 D"],
-        answer: "-2 D",
-        explanation: "The power of lenses in contact adds algebraically. P = P₁ + P₂ = +2 + (-4) = -2 D."
+        "question": "The power of two lenses +2D and -4D are placed in contact. The power of the combination is:",
+        "options": ["+2 D", "-2 D", "+6 D", "-6 D"],
+        "answer": "-2 D",
+        "explanation": "The power of lenses in contact adds algebraically. P = P₁ + P₂ = +2 + (-4) = -2 D."
     },
     {
-        question: "Which color of light undergoes the maximum deviation when passing through a prism?",
-        options: ["Red", "Yellow", "Green", "Violet"],
-        answer: "Violet",
-        explanation: "The refractive index is highest for violet light, so it bends the most and has the maximum deviation."
+        "question": "Which color of light undergoes the maximum deviation when passing through a prism?",
+        "options": ["Red", "Yellow", "Green", "Violet"],
+        "answer": "Violet",
+        "explanation": "The refractive index is highest for violet light, so it bends the most and has the maximum deviation."
     },
     {
-        question: "Two coherent monochromatic light beams of intensities I and 4I are superimposed. The maximum and minimum possible intensities in the resulting beam are:",
-        options: ["5I and I", "5I and 3I", "9I and I", "9I and 3I"],
-        answer: "9I and I",
-        explanation: "I_max = (√I₁ + √I₂)² = (√I + √4I)² = (√I + 2√I)² = (3√I)² = 9I. I_min = (√I₁ - √I₂)² = (√I - 2√I)² = (-√I)² = I."
+        "question": "Two coherent monochromatic light beams of intensities I and 4I are superimposed. The maximum and minimum possible intensities in the resulting beam are:",
+        "options": ["5I and I", "5I and 3I", "9I and I", "9I and 3I"],
+        "answer": "9I and I",
+        "explanation": "I_max = (√I₁ + √I₂)² = (√I + √4I)² = (√I + 2√I)² = (3√I)² = 9I. I_min = (√I₁ - √I₂)² = (√I - 2√I)² = (-√I)² = I."
     },
     {
-        question: "An optical fiber works on the principle of:",
-        options: ["Scattering", "Interference", "Total internal reflection", "Diffraction"],
-        answer: "Total internal reflection",
-        explanation: "Light is guided through the core of an optical fiber by undergoing repeated total internal reflection at the core-cladding interface."
+        "question": "An optical fiber works on the principle of:",
+        "options": ["Scattering", "Interference", "Total internal reflection", "Diffraction"],
+        "answer": "Total internal reflection",
+        "explanation": "Light is guided through the core of an optical fiber by undergoing repeated total internal reflection at the core-cladding interface."
     },
     {
-        question: "The ratio of the resolving powers of an optical microscope for two wavelengths λ₁ = 4000 Å and λ₂ = 6000 Å is:",
-        options: ["3:2", "16:81", "8:27", "2:3"],
-        answer: "3:2",
-        explanation: "Resolving power is inversely proportional to wavelength (RP ∝ 1/λ). So, RP₁/RP₂ = λ₂/λ₁ = 6000/4000 = 3/2."
+        "question": "The ratio of the resolving powers of an optical microscope for two wavelengths λ₁ = 4000 Å and λ₂ = 6000 Å is:",
+        "options": ["3:2", "16:81", "8:27", "2:3"],
+        "answer": "3:2",
+        "explanation": "Resolving power is inversely proportional to wavelength (RP ∝ 1/λ). So, RP₁/RP₂ = λ₂/λ₁ = 6000/4000 = 3/2."
     }
   ],
   assertionReasons: [
@@ -297,61 +297,61 @@ export const optics: NeetModule = {
     },
     {
         column1: ["a) Young's Experiment", "b) Brewster's Law", "c) Snell's Law", "d) Huygens' Principle"],
-        column2: ["i) Refraction", "ii) Wavefronts", "iii) Interference", "iv) Polarisation"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        column2": ["i) Refraction", "ii) Wavefronts", "iii) Interference", "iv) Polarisation"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Concave Mirror", "b) Convex Mirror", "c) Concave Lens", "d) Convex Lens"],
-        column2: ["i) Converging lens", "ii) Diverging mirror", "iii) Converging mirror", "iv) Diverging lens"],
-        answer: "a-iii, b-ii, c-iv, d-i"
+        "column1": ["a) Concave Mirror", "b) Convex Mirror", "c) Concave Lens", "d) Convex Lens"],
+        "column2": ["i) Converging lens", "ii) Diverging mirror", "iii) Converging mirror", "iv) Diverging lens"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
     },
     {
-        column1: ["a) Fringe Width (β)", "b) Magnifying Power (M)", "c) Refractive Index (n)", "d) Power of Lens (P)"],
-        column2: ["i) 1/f", "ii) λD/d", "iii) c/v", "iv) 1 + D/f"],
-        answer: "a-ii, b-iv, c-iii, d-i"
+        "column1": ["a) Fringe Width (β)", "b) Magnifying Power (M)", "c) Refractive Index (n)", "d) Power of Lens (P)"],
+        "column2": ["i) 1/f", "ii) λD/d", "iii) c/v", "iv) 1 + D/f"],
+        "answer": "a-ii, b-iv, c-iii, d-i"
     },
     {
-        column1: ["a) Total Internal Reflection", "b) Scattering", "c) Dispersion", "d) Refraction"],
-        column2: ["i) Rainbow", "ii) Twinkling of stars", "iii) Blue color of sky", "iv) Optical fiber"],
-        answer: "a-iv, b-iii, c-i, d-ii"
+        "column1": ["a) Total Internal Reflection", "b) Scattering", "c) Dispersion", "d) Refraction"],
+        "column2": ["i) Rainbow", "ii) Twinkling of stars", "iii) Blue color of sky", "iv) Optical fiber"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) Real Image", "b) Virtual Image", "c) Magnification > 1", "d) Magnification < 1"],
-        column2: ["i) Cannot be taken on screen", "ii) Can be taken on screen", "iii) Diminished", "iv) Enlarged"],
-        answer: "a-ii, b-i, c-iv, d-iii"
+        "column1": ["a) Real Image", "b) Virtual Image", "c) Magnification > 1", "d) Magnification < 1"],
+        "column2": ["i) Cannot be taken on screen", "ii) Can be taken on screen", "iii) Diminished", "iv) Enlarged"],
+        "answer": "a-ii, b-i, c-iv, d-iii"
     },
     {
-        column1: ["a) Mirror Formula", "b) Lens Formula", "c) Lens Maker's Formula", "d) Magnification (Lens)"],
-        column2: ["i) 1/f = (n-1)(1/R₁ - 1/R₂)", "ii) m = v/u", "iii) 1/f = 1/v - 1/u", "iv) 1/f = 1/v + 1/u"],
-        answer: "a-iv, b-iii, c-i, d-ii"
+        "column1": ["a) Mirror Formula", "b) Lens Formula", "c) Lens Maker's Formula", "d) Magnification (Lens)"],
+        "column2": ["i) 1/f = (n-1)(1/R₁ - 1/R₂)", "ii) m = v/u", "iii) 1/f = 1/v - 1/u", "iv) 1/f = 1/v + 1/u"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
     },
     {
-        column1: ["a) Constructive Interference", "b) Destructive Interference", "c) First Diffraction Minimum", "d) Polarising Angle"],
-        column2: ["i) Path difference = (n+1/2)λ", "ii) tan(i_p) = n", "iii) Path difference = nλ", "iv) a sinθ = λ"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Constructive Interference", "b) Destructive Interference", "c) First Diffraction Minimum", "d) Polarising Angle"],
+        "column2": ["i) Path difference = (n+1/2)λ", "ii) tan(i_p) = n", "iii) Path difference = nλ", "iv) a sinθ = λ"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Red light", "b) Violet light", "c) White light", "d) Coherent light"],
-        column2: ["i) Constant phase difference", "ii) Minimum deviation in prism", "iii) Maximum deviation in prism", "iv) Combination of VIBGYOR"],
-        answer: "a-ii, b-iii, c-iv, d-i"
+        "column1": ["a) Red light", "b) Violet light", "c) White light", "d) Coherent light"],
+        "column2": ["i) Constant phase difference", "ii) Minimum deviation in prism", "iii) Maximum deviation in prism", "iv) Combination of VIBGYOR"],
+        "answer": "a-ii, b-iii, c-iv, d-i"
     },
     {
-        column1: ["a) Polaroid", "b) Prism", "c) Grating", "d) Biprism"],
+        "column1": ["a) Polaroid", "b) Prism", "c) Grating", "d) Biprism"],
         "column2": ["i) Produces interference", "ii) Produces diffraction", "iii) Produces dispersion", "iv) Produces polarized light"],
         "answer": "a-iv, b-iii, c-ii, d-i"
     },
     {
-        column1: ["a) Resolving Power of Telescope", "b) Resolving Power of Microscope", "c) Magnifying Power of Telescope", "d) Magnifying Power of Microscope"],
+        "column1": ["a) Resolving Power of Telescope", "b) Resolving Power of Microscope", "c) Magnifying Power of Telescope", "d) Magnifying Power of Microscope"],
         "column2": ["i) D/1.22λ", "ii) 2nsinθ/λ", "iii) D/f", "iv) f₀/fₑ"],
         "answer": "a-i, b-ii, c-iv, d-iii"
     },
     {
-        column1: ["a) Coherent sources", "b) Incoherent sources", "c) Monochromatic source", "d) Point source"],
+        "column1": ["a) Coherent sources", "b) Incoherent sources", "c) Monochromatic source", "d) Point source"],
         "column2": ["i) Single wavelength", "ii) Spherical wavefront", "iii) Constant phase difference", "iv) Random phase difference"],
         "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Chromatic aberration", "b) Spherical aberration", "c) Astigmatism", "d) Coma"],
+        "column1": ["a) Chromatic aberration", "b) Spherical aberration", "c) Astigmatism", "d) Coma"],
         "column2": ["i) Different focal lengths for different corneal curvatures", "ii) Variation of focal length with wavelength", "iii) Off-axis aberration", "iv) Rays from different zones focus at different points"],
         "answer": "a-ii, b-iv, c-i, d-iii"
     }
