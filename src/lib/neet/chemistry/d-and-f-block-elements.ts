@@ -7,29 +7,34 @@ export const dAndFBlockElements: NeetModule = {
   chapter: 'd- and f-Block Elements',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. d-Block Elements (Transition Elements) (d-தொகுதி தனிமங்கள்)
-*   Elements having partially filled d orbitals in their ground state or any one of their oxidation states.
-*   General electronic configuration: (n-1)d¹⁻¹⁰ ns¹⁻².
-*   **Properties:**
-    *   Form coloured ions due to d-d transition.
-    *   Show variable oxidation states.
-    *   Form complex compounds.
-    *   Act as good catalysts (e.g., Fe in Haber's process).
-    *   Form alloys.
-*   **Lanthanoid Contraction (லாந்தனைடு சுருக்கம்):** The steady decrease in the size of lanthanoid ions with an increase in atomic number. This is due to the poor shielding effect of 4f electrons. (ஒரு வகுப்பில் மாணவர்கள் அதிகமாகும்போது, கடைசி மாணவனுக்கு ஆசிரியரின் கவனம் குறைவாகக் கிடைப்பது போல). Its consequences are the similar radii of 2nd and 3rd transition series elements (e.g., Zr and Hf).
+### 1. Transition Elements (d-Block)
+*   **General Introduction:** Elements having partially filled d orbitals in their ground state or any one of their common oxidation states. They are placed between s-block and p-block elements.
+*   **Electronic Configuration:** General configuration is (n-1)d¹⁻¹⁰ ns¹⁻².
+*   **Occurrence and Characteristics:** Found in nature, mostly as minerals. They are typically hard, malleable, ductile metals with high melting and boiling points.
+*   **General trends in properties of the first-row transition elements:**
+    *   **Physical Properties:** High density, high melting/boiling points, high enthalpy of atomization.
+    *   **Ionization Enthalpy:** Generally increases across a series, but not very regularly.
+    *   **Oxidation States:** Show variable oxidation states due to the small energy difference between (n-1)d and ns orbitals.
+    *   **Atomic Radii:** Decrease initially and then become almost constant towards the end of the series.
+    *   **Colour:** Most transition metal compounds are coloured due to d-d electronic transitions.
+    *   **Catalytic Behaviour:** Act as good catalysts due to their ability to show variable oxidation states and form intermediate complexes.
+    *   **Magnetic Properties:** Most are paramagnetic due to the presence of unpaired d-electrons.
+    *   **Complex Formation:** Strong tendency to form coordination complexes due to their small size, high ionic charge, and availability of d-orbitals.
+    *   **Interstitial Compounds:** Formed by trapping small atoms like H, C, or N in the crystal lattices.
+    *   **Alloy Formation:** Form alloys due to their similar atomic sizes.
 
-### 2. Important Compounds of d-Block Elements
-*   **Potassium Dichromate (K₂Cr₂O₇):** A strong oxidizing agent. In acidic medium, Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O.
-*   **Potassium Permanganate (KMnO₄):** A very strong oxidizing agent. Its behavior depends on the pH of the solution (acidic, neutral, or alkaline).
+### 2. Preparation, Properties, and Uses of K₂Cr₂O₇ and KMnO₄
+*   **Potassium Dichromate (K₂Cr₂O₇):** A strong oxidizing agent, especially in acidic medium. Used in volumetric analysis.
+*   **Potassium Permanganate (KMnO₄):** A very strong oxidizing agent. Its behavior depends on the pH of the solution (acidic, neutral, or alkaline). Used as a disinfectant and in titrations.
 
-### 3. f-Block Elements (Inner Transition Elements) (f-தொகுதி தனிமங்கள்)
-*   The last electron enters the (n-2)f orbital.
-*   **Lanthanoids (லாந்தனைடுகள்):** The 14 elements following Lanthanum (La). Electronic configuration: [Xe] 4f¹⁻¹⁴ 5d⁰⁻¹ 6s². Most common oxidation state is +3.
-*   **Actinoids (ஆக்டினைடுகள்):** The 14 elements following Actinium (Ac). Electronic configuration: [Rn] 5f¹⁻¹⁴ 6d⁰⁻¹ 7s². They are all radioactive. They show a greater range of oxidation states than lanthanoids.
-
-### 4. Comparison of Lanthanoids and Actinoids
-*   Actinoid contraction is greater than lanthanoid contraction.
-*   Actinoids are more reactive and have more complex magnetic properties than lanthanoids.
+### 3. Inner Transition Elements (f-Block)
+*   **Lanthanoids:**
+    *   **Electronic Configuration:** [Xe] 4f¹⁻¹⁴ 5d⁰⁻¹ 6s².
+    *   **Oxidation States:** The most common and stable oxidation state is +3.
+    *   **Lanthanoid Contraction:** The steady decrease in atomic and ionic radii with increasing atomic number due to the poor shielding effect of 4f electrons.
+*   **Actinoids:**
+    *   **Electronic Configuration:** [Rn] 5f¹⁻¹⁴ 6d⁰⁻¹ 7s².
+    *   **Oxidation States:** Show a much larger range of oxidation states than lanthanoids due to the comparable energies of 5f, 6d, and 7s orbitals. All actinoids are radioactive.
 `,
   workedExamples: [
     {
@@ -136,7 +141,7 @@ export const dAndFBlockElements: NeetModule = {
         "answer": "Yb²⁺",
         "explanation": "Yb (Z=70) is [Xe] 4f¹⁴ 6s². Yb²⁺ is [Xe] 4f¹⁴, which has a completely filled f-orbital and no unpaired electrons, making it diamagnetic. Ce⁴⁺ is 4f⁰, also diamagnetic, but Yb²⁺ is a more common example of a filled shell."
     }
-],
+  ],
   assertionReasons: [
     {
         "assertion": "Transition metals show variable oxidation states.",
@@ -307,7 +312,3 @@ export const dAndFBlockElements: NeetModule = {
     }
   ]
 };
-
-    
-
-    

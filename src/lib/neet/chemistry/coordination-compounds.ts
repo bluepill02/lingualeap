@@ -7,36 +7,38 @@ export const coordinationCompounds: NeetModule = {
   chapter: 'Coordination Compounds',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Basic Terminology (அடிப்படைச் சொற்கள்)
-*   **Coordination Entity:** A central metal atom or ion bonded to a fixed number of ions or molecules (ligands). e.g., [Co(NH₃)₆]³⁺.
-*   **Central Atom/Ion:** The metal atom/ion to which ligands are attached.
-*   **Ligands (ஈனிகள்):** Ions or molecules that donate a pair of electrons to the central metal atom. Can be unidentate, bidentate, polydentate.
-*   **Coordination Number (அணைவு எண்):** The number of ligand donor atoms to which the metal is directly bonded.
-*   **Coordination Sphere:** The central atom and the ligands attached to it, enclosed in square brackets.
+### 1. Introduction to Coordination Compounds
+*   **Werner's Theory:** Postulated primary (ionisable) and secondary (non-ionisable) valencies. Secondary valencies are directed in space and determine the geometry.
+*   **Basic Terminology:**
+    *   **Coordination Entity:** A central metal atom or ion bonded to a fixed number of ions or molecules (ligands). e.g., [Co(NH₃)₆]³⁺.
+    *   **Central Atom/Ion:** The metal atom/ion to which ligands are attached.
+    *   **Ligands:** Ions or molecules that donate a pair of electrons to the central metal atom. Can be **unidentate, bidentate, polydentate**. **Chelation** is the formation of a ring structure by a bidentate or polydentate ligand.
+    *   **Coordination Number:** The number of ligand donor atoms to which the metal is directly bonded.
+    *   **Coordination Sphere:** The central atom and the ligands attached to it, enclosed in square brackets.
 
-### 2. Nomenclature of Coordination Compounds (அணைவுச் சேர்மங்களின் பெயரிடுதல்)
-*   Cation is named first.
-*   Ligands are named in alphabetical order before the metal.
-*   Anionic ligands end in -o, neutral ligands are named as the molecule.
-*   The oxidation state of the metal is written in Roman numerals in parentheses.
-*   If the complex ion is an anion, the name of the metal ends with the suffix -ate.
+### 2. IUPAC Nomenclature of Mononuclear Coordination Compounds
+*   Cation is named first, then the anion.
+*   Ligands are named alphabetically. Anionic ligands end in '-o'.
+*   Metal's oxidation state is in Roman numerals in parentheses.
+*   If the complex is an anion, the metal name ends in '-ate'.
 
-### 3. Isomerism in Coordination Compounds (அணைவுச் சேர்மங்களில் மாற்றியம்)
+### 3. Isomerism
 *   **Structural Isomerism:** Linkage, Coordination, Ionization, Solvate isomerism.
 *   **Stereoisomerism:**
-    *   **Geometrical Isomerism:** cis-trans isomerism.
-    *   **Optical Isomerism:** Non-superimposable mirror images (enantiomers).
+    *   **Geometrical Isomerism:** cis-trans isomerism in square planar ([MA₂B₂]) and octahedral ([MA₄B₂]) complexes.
+    *   **Optical Isomerism:** Non-superimposable mirror images (enantiomers) in octahedral complexes like [M(en)₃].
 
-### 4. Bonding in Coordination Compounds (அணைவுச் சேர்மங்களில் பிணைப்பு)
-*   **Werner's Theory:** Postulated primary (ionisable) and secondary (non-ionisable) valencies.
-*   **Valence Bond Theory (VBT):** Explains bonding in terms of hybridization (e.g., d²sp³, sp³d²) and predicts the geometry and magnetic properties.
-*   **Crystal Field Theory (CFT) (படிக புலக் கொள்கை):** Describes the splitting of d-orbitals of the central metal ion in the electric field of the ligands. The magnitude of splitting (Δ) depends on the ligand strength (spectrochemical series).
-    *   **Spectrochemical Series:** I⁻ < Br⁻ < ... < H₂O < ... < NH₃ < en < CN⁻ < CO.
-    *   Strong field ligands cause large splitting (low spin complexes), weak field ligands cause small splitting (high spin complexes).
+### 4. Bonding in Coordination Compounds
+*   **Valence Bond Theory (VBT):** Explains bonding, geometry, and magnetic properties using hybridization (sp³, dsp², sp³d², d²sp³).
+*   **Crystal Field Theory (CFT):** An electrostatic model. It describes the splitting of the d-orbitals of the central metal ion in the electric field of the ligands.
+    *   **Octahedral field:** d-orbitals split into two sets: t₂g (lower energy) and e_g (higher energy).
+    *   **Tetrahedral field:** Splitting is inverted and smaller than in octahedral fields.
+    *   The magnitude of splitting (Δ) depends on the ligand strength, given by the **spectrochemical series**.
+    *   Strong field ligands cause large splitting (low spin complexes, pairing occurs). Weak field ligands cause small splitting (high spin complexes).
+*   **Colour and Magnetic Properties:** Colour is due to d-d electronic transitions. Magnetic properties depend on the number of unpaired electrons.
 
 ### 5. Importance of Coordination Compounds
-*   In biological systems (e.g., chlorophyll, haemoglobin).
-*   In analytical chemistry, metallurgy, and medicine.
+*   In qualitative analysis, extraction of metals (e.g., cyanidation process for Au, Ag), and in biological systems (e.g., chlorophyll, haemoglobin, vitamin B₁₂).
 `,
   workedExamples: [
     {

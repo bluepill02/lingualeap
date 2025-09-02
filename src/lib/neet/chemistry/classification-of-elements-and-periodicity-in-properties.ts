@@ -7,33 +7,31 @@ export const classificationOfElementsAndPeriodicityInProperties: NeetModule = {
   chapter: 'Classification of Elements and Periodicity in Properties',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Need for Classification (வகைப்பாட்டின் தேவை)
-*   To systematically study the properties of a large number of elements.
+### 1. Need for Classification & Historical Development
+*   **Why Classify?** To systematically study the properties of a large number of elements.
+*   **Modem periodic law and present form of the periodic table:** The physical and chemical properties of the elements are periodic functions of their atomic numbers. The modern periodic table consists of 7 periods (horizontal rows) and 18 groups (vertical columns).
 
-### 2. Historical Development (வரலாற்று வளர்ச்சி)
-*   **Dobereiner's Triads:** Groups of three elements where the atomic weight of the middle element is the average of the other two.
-*   **Newlands' Law of Octaves:** When elements are arranged by increasing atomic weight, every eighth element has properties similar to the first.
-*   **Mendeleev's Periodic Law:** The properties of elements are a periodic function of their atomic masses. He left gaps for undiscovered elements.
-*   **Modern Periodic Law (நவீன ஆவர்த்தன விதி):** The physical and chemical properties of the elements are periodic functions of their atomic numbers.
+### 2. s, p, d and f block elements
+*   Elements are classified into four blocks based on the type of atomic orbital into which the last differentiating electron enters.
+    *   **s-Block:** Last electron enters the s-orbital. Groups 1 and 2.
+    *   **p-Block:** Last electron enters the p-orbital. Groups 13 to 18.
+    *   **d-Block (Transition Elements):** Last electron enters the d-orbital. Groups 3 to 12.
+    *   **f-Block (Inner Transition Elements):** Last electron enters the f-orbital. Lanthanoids and Actinoids.
 
-### 3. Modern Periodic Table (நவீன ஆவர்த்தன அட்டவணை)
-*   **Periods (தொடர்கள்):** 7 horizontal rows.
-*   **Groups (தொகுதிகள்):** 18 vertical columns.
-*   **Blocks (தொகுதிகள்):** s, p, d, f blocks based on the orbital into which the last electron enters.
-
-### 4. Periodic Trends in Properties (பண்புகளில் ஆவர்த்தனப் போக்கு)
-*   **Atomic Radius (அணு ஆரம்):**
-    *   Decreases across a period (left to right) due to an increase in effective nuclear charge.
-    *   Increases down a group due to the addition of new shells.
-*   **Ionic Radius (அயனி ஆரம்):** Cations are smaller and anions are larger than their parent atoms.
-*   **Ionization Enthalpy (அயனியாக்கும் ஆற்றல்):** The energy required to remove an electron from an isolated gaseous atom.
+### 3. Periodic trends in properties of elements
+*   **Atomic and Ionic Radii:**
+    *   **Atomic Radius:** Decreases across a period (due to increased effective nuclear charge) and increases down a group (due to addition of new shells).
+    *   **Ionic Radius:** A cation is smaller than its parent atom, while an anion is larger. For isoelectronic species, radius decreases as nuclear charge increases.
+*   **Ionization Enthalpy (IE):** Energy required to remove an electron from an isolated gaseous atom.
     *   Increases across a period.
     *   Decreases down a group.
-*   **Electron Gain Enthalpy (எலக்ட்ரான் நாட்டம்):** The enthalpy change when an electron is added to an isolated gaseous atom.
-    *   Generally becomes more negative across a period. Halogens have the most negative values.
-*   **Electronegativity (எலக்ட்ரான் கவர்தன்மை):** The ability of an atom in a chemical compound to attract a shared pair of electrons.
-    *   Increases across a period.
-    *   Decreases down a group.
+    *   Note exceptions due to stable half-filled and fully-filled electronic configurations.
+*   **Electron Gain Enthalpy (ΔegH):** Enthalpy change when an electron is added to an isolated gaseous atom.
+    *   Generally becomes more negative across a period.
+    *   Generally becomes less negative down a group.
+    *   Halogens have the most negative values. Noble gases have large positive values.
+*   **Valence and Oxidation States:** Valence is the combining capacity of an element. Oxidation state is the charge an atom would have if all bonds were 100% ionic.
+*   **Chemical Reactivity:** Trends in reactivity can be predicted based on the periodic trends in ionization enthalpy and electronegativity. For example, reactivity of metals increases down a group, while for non-metals it generally decreases.
 `,
   workedExamples: [
     {

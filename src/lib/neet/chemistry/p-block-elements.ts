@@ -7,270 +7,59 @@ export const pBlockElements: NeetModule = {
   chapter: 'p-Block Elements',
   subject: 'Chemistry',
   conceptNotes: `
-# தொகுதி p தனிமங்கள் (p-Block Elements)
+### 1. General Introduction to p-Block Elements (Groups 13 to 18)
 
-### அறிமுகம் (Introduction)
+*   **Definition:** Elements in which the last electron enters the outermost p orbital. They include metals, non-metals, and metalloids.
+*   **General Electronic Configuration:** ns² np¹⁻⁶.
+*   **General Trends:**
+    *   **Across a Period (Left to Right):** Atomic size decreases, ionization enthalpy and electronegativity increase.
+    *   **Down a Group:** Atomic size increases, ionization enthalpy and electronegativity decrease.
+*   **Unique Behaviour of the First Element:** The first element of each group (B, C, N, O, F) shows anomalous properties due to its small size, high electronegativity, high ionization enthalpy, and absence of d-orbitals.
 
-தனிம அட்டவணையில், கடைசி எலக்ட்ரான் p-ஆர்பிட்டாலில் நுழையும் தனிமங்கள் p-தொகுதி தனிமங்கள் என அழைக்கப்படுகின்றன. இவை தொகுதி 13 முதல் 18 வரை அமைந்துள்ளன. இந்த தனிமங்கள் உலோகம், அலோகம் மற்றும் உலோகப்போலிகள் என மூன்று வகைகளிலும் காணப்படுகின்றன.
+### 2. Group 13: The Boron Family
+*   **Configuration:** ns² np¹
+*   **Properties:** Boron is a non-metal, others are metals. Show +3 and +1 oxidation states. Stability of +1 state increases down the group (**Inert Pair Effect**). Boron compounds are electron-deficient (Lewis acids).
 
-*   **தொகுதி 13:** போரான் குடும்பம் (Boron Family)
-*   **தொகுதி 14:** கார்பன் குடும்பம் (Carbon Family)
-*   **தொகுதி 15:** நைட்ரஜன் குடும்பம் (Nitrogen Family)
-*   **தொகுதி 16:** ஆக்ஸிஜன் குடும்பம் (Oxygen Family) அல்லது சால்கோஜன்கள் (Chalcogens)
-*   **தொகுதி 17:** ஹாலஜன் குடும்பம் (Halogen Family)
-*   **தொகுதி 18:** மந்த வாயுக்கள் (Noble Gases) அல்லது ஏரோஜன்கள் (Aerogens)
+### 3. Group 14: The Carbon Family
+*   **Configuration:** ns² np²
+*   **Properties:** Carbon is a non-metal, Si & Ge are metalloids, Sn & Pb are metals. Show +4 and +2 oxidation states. Stability of +2 state increases down the group. **Catenation** (self-linking) is maximum for carbon. Carbon shows allotropy (diamond, graphite, fullerenes).
 
-**பொது எலக்ட்ரான் அமைப்பு (General Electronic Configuration):** ns² np¹⁻⁶
+### 4. Group 15: The Nitrogen Family
+*   **Configuration:** ns² np³
+*   **Properties:** N & P are non-metals, As & Sb are metalloids, Bi is a metal. Show a wide range of oxidation states from -3 to +5. N₂ is a diatomic gas with a triple bond, making it inert. Phosphorus shows allotropy (white, red, black).
 
-### பொதுப் பண்புகள் (General Characteristics)
+### 5. Group 16: The Oxygen Family (Chalcogens)
+*   **Configuration:** ns² np⁴
+*   **Properties:** O, S, Se are non-metals, Te is a metalloid, Po is a radioactive metal. Show -2, +2, +4, +6 oxidation states. Oxygen is a diatomic gas (O₂), others are solids. Ozone (O₃) is an important allotrope of oxygen.
 
-1.  **எலக்ட்ரான் அமைப்பு (Electronic Configuration):** அணுவின் வெளிக்கூட்டில் ns² np¹ முதல் ns² np⁶ வரை எலக்ட்ரான்கள் இருக்கும்.
-2.  **அயனியாக்கும் ஆற்றல் (Ionisation Enthalpy):** ஒரு தொகுதியில் மேல் இருந்து கீழ் வர, அயனியாக்கும் ஆற்றல் குறையும். (எடுத்துக்காட்டு: படிக்கட்டுகளில் இருந்து கீழே இறங்குவது போல ஆற்றல் குறையும்). ஆனால், சில இடங்களில் (குறிப்பாக தொகுதி 13 மற்றும் 14), ns எலக்ட்ரான்களின் ஊடுருவல் திறன் மற்றும் உள்வரும் d மற்றும் f எலக்ட்ரான்களின் மந்தமான திரைமறைப்பு விளைவு காரணமாக சில ஒழுங்கற்ற போக்குகள் காணப்படுகின்றன.
-3.  **எலக்ட்ரான் கவர் தன்மை (Electronegativity):** ஒரு தொகுதியில் மேல் இருந்து கீழ் வர எலக்ட்ரான் கவர் தன்மை குறையும்.
-4.  **ஆக்ஸிஜனேற்ற நிலைகள் (Oxidation States):** p-தொகுதி தனிமங்கள் பல ஆக்ஸிஜனேற்ற நிலைகளைக் காட்டுகின்றன. ஒரு தொகுதியில் மேல் இருந்து கீழ் வர, +2 மற்றும் +4 போன்ற குறைந்த ஆக்ஸிஜனேற்ற நிலைகளின் நிலைத்தன்மை அதிகரிக்கிறது. இது **மந்த இணை விளைவு (Inert Pair Effect)** எனப்படும். (எடுத்துக்காட்டு: வகுப்பில் கடைசி பெஞ்சில் இருப்பவர்கள் வகுப்பில் குறைவாகப் பங்களிப்பது போல, வெளிக்கூட்டு s எலக்ட்ரான்கள் பிணைப்பில் ஈடுபடாமல் மந்தமாக இருப்பது).
-5.  **அணு ஆரம் (Atomic Radius):** ஒரு தொகுதியில் மேல் இருந்து கீழ் வர அணு ஆரம் அதிகரிக்கும்.
+### 6. Group 17: The Halogen Family
+*   **Configuration:** ns² np⁵
+*   **Properties:** Highly reactive non-metals. They have high electronegativity and high negative electron gain enthalpy. Show -1, +1, +3, +5, +7 oxidation states (except F, which shows only -1).
 
---- 
-
-### தொகுதி 13: போரான் குடும்பம் (Boron Family)
-
-**தனிமங்கள்:** B, Al, Ga, In, Tl
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np¹
-**ஆக்ஸிஜனேற்ற நிலை:** +3 (பொதுவாக), +1 (கீழே உள்ள தனிமங்களுக்கு மந்த இணை விளைவால்)
-
-**முக்கியப் பண்புகள்:**
-*   போரான் (B) அலோகம்; அலுமினியம் (Al) உலோகம்; காலியம் (Ga), இண்டியம் (In), தாலியம் (Tl) உலோகங்கள்.
-*   போரான் மிகச் சிறிய அளவிலான தனிமம், அதிக அயனியாக்கும் ஆற்றல் மற்றும் எலக்ட்ரான் கவர் தன்மை கொண்டது.
-*   **மந்த இணை விளைவு (Inert Pair Effect):** TlCl3 ஐ விட TlCl அதிக நிலைப்புத்தன்மை கொண்டது.
-
-**முக்கிய சேர்மங்கள் (Important Compounds):**
-
-1.  **போராக்ஸ் (Borax - Na₂B₄O₇·10H₂O):**
-    *   \`B₂O₃ + Na₂CO₃ --உருக--> Na₂B₄O₇\`
-    *   வெப்பப்படுத்தும் போது, நீர் இழந்து வீங்கி, பின்னர் ஒளிபுகும் படிகமாக (போராக்ஸ் மணிகள்) மாறும். (\`Na₂B₄O₇ --வெப்பம்--> 2NaBO₂ (சோடியம் மெட்டாபோரேட்) + B₂O₃ (போரிக் நீரிலி)\`)
-    *   போராக்ஸ் மணி சோதனை: சில உலோக அயனிகளுடன் வண்ண மணிகளைத் தரும்.
-
-2.  **போரிக் அமிலம் (Boric Acid - H₃BO₃):**
-    *   \`B₂O₃ + 3H₂O → 2H₃BO₃\`
-    *   இது ஒரு லூயிஸ் அமிலம் (புரோட்டான்களை வழங்காது, ஆனால் OH⁻ அயனிகளைப் பெற்றுக்கொள்ளும்).
-    *   \`H₃BO₃ + H₂O ⇌ [B(OH)₄]⁻ + H⁺\`
-    *   மென் ஆண்டிசெப்டிக்காகப் பயன்படுகிறது.
-
-3.  **டைபோரேன் (Diborane - B₂H₆):**
-    *   **அமைப்பு:** இரண்டு முக்கோண மையங்கள் (3c-2e) கொண்ட \`B-H-B\` பாலப் பிணைப்புகளைக் கொண்டுள்ளது. (வாழைப்பழப் பிணைப்பு – **Banana bond** என்றும் அழைக்கப்படுகிறது). இரண்டு போரான் அணுக்களும் நான்கு இறுதி \`B-H\` பிணைப்புகளும் ஒரே தளத்தில் உள்ளன. இரண்டு \`B-H-B\` பாலப் பிணைப்புகள் இந்த தளத்திற்கு மேலும் கீழும் அமைந்துள்ளன.
-    *   ASCII வரைபடம்:
-        \`\`\`
-        H    H
-         \\  /
-          B----B
-         /  \\  /
-        H    H
-         \\  /
-          H
-        \`\`\`
-        (இங்கு, B-H-B என்பது பாலப் பிணைப்பைக் குறிக்கிறது)
-
-**அலுமினியம் (Aluminium):** ஆம்போடெரிக் தன்மை கொண்டது (அமிலங்கள் மற்றும் காரங்கள் இரண்டோடும் வினைபுரியும்).
-\`2Al + 6HCl → 2AlCl₃ + 3H₂\`
-\`2Al + 2NaOH + 6H₂O → 2Na[Al(OH)₄] + 3H₂\`
-
---- 
-
-### தொகுதி 14: கார்பன் குடும்பம் (Carbon Family)
-
-**தனிமங்கள்:** C, Si, Ge, Sn, Pb
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np²
-**ஆக்ஸிஜனேற்ற நிலை:** +4, +2
-
-**முக்கியப் பண்புகள்:**
-*   கார்பன் அலோகம்; சிலிக்கான், ஜெர்மானியம் உலோகப்போலிகள்; டின், காரீயம் உலோகங்கள்.
-*   **சங்கிலித் தொடராக்கம் (Catenation):** கார்பன் தனிமம் அதிக சங்கிலித் தொடராக்கப் பண்பைக் கொண்டது (தன்னைத்தானே நீண்ட சங்கிலியாகப் பிணைத்துக் கொள்ளும் பண்பு – **மனிதச் சங்கிலி** போல).
-*   **புறவேற்றுமை வடிவங்கள் (Allotropes of Carbon):** கிராஃபைட் (Graphite), வைரம் (Diamond), ஃபுல்லரீன் (Fullerene).
-
-    *   **வைரம்:** sp³ கலப்பினம், நான்முகி அமைப்பு, மிகக் கடினமானது, மின்சாரம் கடத்தாது.
-    *   **கிராஃபைட்:** sp² கலப்பினம், அடுக்கு அமைப்பு, மின்சாரம் கடத்தும் (எலக்ட்ரான்கள் சுதந்திரமாக நகர்வதால்).
-    *   **ஃபுல்லரீன்:** கூண்டு போன்ற அமைப்பு (C₆₀ – பக்மிஸ்டர் ஃபுல்லரீன்).
-
-*   **மந்த இணை விளைவு:** PbCl₂ ஐ விட PbCl₄ அதிக நிலைப்புத்தன்மை கொண்டது. (Pb²⁺ நிலைப்புத்தன்மை > Pb⁴⁺ நிலைப்புத்தன்மை).
-
-**முக்கிய சேர்மங்கள் (Important Compounds):**
-
-1.  **கார்பன் மோனாக்சைடு (CO):** நிறமற்ற, மணமற்ற, அதிக நச்சுத்தன்மை கொண்ட வாயு.
-    *   \`2C + O₂ → 2CO\` (குறைந்த ஆக்ஸிஜன்)
-    *   ரத்தம் வழியாக ஆக்ஸிஜன் எடுத்துச் செல்லும் திறனைக் குறைக்கும்.
-
-2.  **கார்பன் டை ஆக்சைடு (CO₂):** நிறமற்ற, மணமற்ற வாயு.
-    *   \`C + O₂ → CO₂\` (அதிக ஆக்ஸிஜன்)
-    *   உலர் பனிக்கட்டி (Dry ice) என்பது திட CO₂.
-
-3.  **சிலிக்கோன்கள் (Silicones):** \`(R₂SiO)n\` என்ற பொது வாய்ப்பாட்டைக் கொண்ட ஆர்கனோசிலிக்கன் பலபடிகள்.
-    *   நீர்விரும்பாத தன்மை கொண்டவை, உயவுப் பொருள்களாகப் பயன்படுகின்றன.
-
-4.  **சிலிக்கேட்டுகள் (Silicates):** [SiO₄]⁴⁻ என்ற அடிப்படை அலகைக் கொண்டுள்ளன (எடுத்துக்காட்டு: கண்ணாடி, சிமெண்ட்).
-
---- 
-
-### தொகுதி 15: நைட்ரஜன் குடும்பம் (Nitrogen Family)
-
-**தனிமங்கள்:** N, P, As, Sb, Bi
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np³
-**ஆக்ஸிஜனேற்ற நிலை:** -3, +3, +5 (நைட்ரஜனுக்கு -3 முதல் +5 வரை)
-
-**முக்கியப் பண்புகள்:**
-*   நைட்ரஜன், பாஸ்பரஸ் அலோகங்கள்; ஆர்சனிக், ஆண்டிமனி உலோகப்போலிகள்; பிஸ்மத் உலோகம்.
-*   நைட்ரஜன் இரட்டை அணு மூலக்கூறாக (N₂) உள்ளது, மூன்று பிணைப்புகள் (N≡N) இருப்பதால் அதிக நிலைப்புத்தன்மை கொண்டது. (வலுவான குடும்பப் பிணைப்பு போல).
-*   **புறவேற்றுமை வடிவங்கள் (Allotropes of Phosphorus):** வெள்ளை பாஸ்பரஸ் (White P), சிவப்பு பாஸ்பரஸ் (Red P), கருப்பு பாஸ்பரஸ் (Black P).
-    *   **வெள்ளை பாஸ்பரஸ் (P₄):** நான்முகி அமைப்பு, மிக வினைத்திறன் கொண்டது, இருட்டில் ஒளிரும் (கெமி லுமினெசென்ஸ்), நீரில் கரையாது, CS₂ இல் கரையும்.
-    *   **சிவப்பு பாஸ்பரஸ்:** வெள்ளை பாஸ்பரஸை வெப்பப்படுத்துவதன் மூலம் பெறப்படுகிறது, குறைவான வினைத்திறன் கொண்டது.
-
-**முக்கிய சேர்மங்கள் (Important Compounds):**
-
-1.  **அம்மோனியா (Ammonia - NH₃):**
-    *   ஹேபர் முறை (Haber process): \`N₂ + 3H₂ ⇌ 2NH₃\` (Fe வினையூக்கி, Mo ஊக்குவிப்பான், உயர் அழுத்தம், மிதமான வெப்பநிலை).
-    *   பிரமிடு வடிவம், லூயிஸ் காரம் (எலக்ட்ரான் இணையை வழங்கும்).
-    *   உலோக உப்பு கரைசல்களுடன் வினைபுரிந்து ஹைட்ராக்சைடு வீழ்படிவுகளை உருவாக்கும் (எ.கா: \`FeCl₃ + 3NH₄OH → Fe(OH)₃↓ + 3NH₄Cl\`).
-
-2.  **நைட்ரிக் அமிலம் (Nitric Acid - HNO₃):**
-    *   ஆஸ்ட்வால்ட் முறை (Ostwald process): \`4NH₃ + 5O₂ → 4NO + 6H₂O\`, \`2NO + O₂ → 2NO₂\`, \`3NO₂ + H₂O → 2HNO₃ + NO\`
-    *   வலுவான ஆக்ஸிஜனேற்றி.
-    *   அலுமினியம், இரும்பு, குரோமியம் போன்ற உலோகங்களுடன் வினைபுரியும்போது, அவற்றின் மேற்பரப்பில் ஒரு செயலற்ற ஆக்சைடு அடுக்கை உருவாக்குவதால், அவை அமிலத்தால் பாதிக்கப்படுவதில்லை (பள்ளிப் பாடப்புத்தக அட்டை போல).
-
-3.  **பாஸ்பீன் (Phosphine - PH₃):**
-    *   \`Ca₃P₂ + 6HCl → 3CaCl₂ + 2PH₃\`
-    *   அம்மோனியாவை விட குறைவான காரத்தன்மை கொண்டது.
-
-4.  **பாஸ்பரஸ் ஹாலைடுகள் (Phosphorus Halides):**
-    *   **PCl₃:** பிரமிடு வடிவம்.
-    *   **PCl₅:** வாயு நிலையில் முக்கோண இருபிரமிடு வடிவம். திட நிலையில் அயனி அமைப்பாக \`[PCl₄]⁺[PCl₆]⁻\` இருக்கும்.
-
-5.  **பாஸ்பரஸின் ஆக்ஸோ அமிலங்கள் (Oxoacids of Phosphorus):**
-    *   H₃PO₂ (ஹைப்போபாஸ்பரஸ் அமிலம் - ஒரு காரத்துவம்), H₃PO₃ (ஆர்த்தோபாஸ்பரஸ் அமிலம் - இரு காரத்துவம்), H₃PO₄ (ஆர்த்தோபாஸ்பரிக் அமிலம் - முக்காரத்துவம்).
-    *   P-H பிணைப்புகள் ஒடுக்கும் பண்பைக் கொடுக்கின்றன, P-OH பிணைப்புகள் காரத்துவத்தைக் கொடுக்கின்றன. (உதாரணம்: H₃PO₂ – ஒரு P-OH, இரு P-H பிணைப்புகள்).
-
---- 
-
-### தொகுதி 16: ஆக்ஸிஜன் குடும்பம் (Oxygen Family) - சால்கோஜன்கள் (Chalcogens)
-
-**தனிமங்கள்:** O, S, Se, Te, Po
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np⁴
-**ஆக்ஸிஜனேற்ற நிலை:** -2, +2, +4, +6
-
-**முக்கியப் பண்புகள்:**
-*   ஆக்ஸிஜன், சல்பர், செலினியம் அலோகங்கள்; டெலூரியம் உலோகப்போலி; பொலோனியம் உலோகம் (கதிரியக்கத்தன்மை கொண்டது).
-*   ஆக்ஸிஜன் (O₂) வாயு, சல்பர் (S₈) திண்மம்.
-*   **புறவேற்றுமை வடிவங்கள் (Allotropes of Sulphur):** சாய் சதுர சல்பர் (Rhombic S - α-சல்பர்), ஒற்றைச் சாய்வு சல்பர் (Monoclinic S - β-சல்பர்).
-    *   Rhombic S நிலையானது, S₈ வளைய அமைப்பு (கிரீடம் வடிவம் - **Crown shape**).
-
-**முக்கிய சேர்மங்கள் (Important Compounds):**
-
-1.  **ஓசோன் (Ozone - O₃):**
-    *   \`3O₂ ⇌ 2O₃\` (மின்னிறக்கம் மூலம்)
-    *   வளைந்த வடிவம், நீல நிற வாயு, வலுவான ஆக்ஸிஜனேற்றி.
-    *   \`O₃ + 2KI + H₂O → 2KOH + I₂ + O₂\` (ஓசோன் அளவை அளக்கப் பயன்படுகிறது).
-    *   புற ஊதா கதிர்வீச்சிலிருந்து பூமியைப் பாதுகாக்கிறது.
-
-2.  **சல்பர் டை ஆக்சைடு (Sulphur Dioxide - SO₂):**
-    *   \`S + O₂ → SO₂\`
-    *   சூழல் மாசுபடுத்துகிறது, அமில மழைக்குக் காரணம்.
-    *   ஆக்ஸிஜனேற்ற மற்றும் ஒடுக்கும் பண்புகளைக் கொண்டது (மீன் மார்க்கெட்டில் மீன்களைப் பாதுகாக்கப் பயன்படும் வேதிப்பொருள் போல, ஆக்ஸிஜனேற்றியாகவும் ஒடுக்கியாகவும் செயல்படும்).
-
-3.  **சல்பூரிக் அமிலம் (Sulphuric Acid - H₂SO₄):**
-    *   தொடு முறை (Contact process): \`S + O₂ → SO₂\`, \`2SO₂ + O₂ ⇌ 2SO₃\` (V₂O₅ வினையூக்கி), \`SO₃ + H₂SO₄ (concentrated) → H₂S₂O₇ (ஓலியம்)\`, \`H₂S₂O₇ + H₂O → 2H₂SO₄\`
-    *   'வேதிப்பொருட்களின் ராஜா' (King of Chemicals).
-    *   வலுவான அமிலம், நீர்ப்பெருக்கி, ஆக்ஸிஜனேற்றி.
-
---- 
-
-### தொகுதி 17: ஹாலஜன் குடும்பம் (Halogen Family)
-
-**தனிமங்கள்:** F, Cl, Br, I, At
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np⁵
-**ஆக்ஸிஜனேற்ற நிலை:** -1 (பொதுவாக), +1, +3, +5, +7 (Cl, Br, I)
-
-**முக்கியப் பண்புகள்:**
-*   மிகவும் வினைத்திறன் மிக்க அலோகங்கள். (குடும்பத்தில் மிகவும் சுறுசுறுப்பான குழந்தைகள் போல).
-*   \`F₂\` (மஞ்சள் வாயு), \`Cl₂\` (பச்சை மஞ்சள் வாயு), \`Br₂\` (சிவப்பு பழுப்பு திரவம்), \`I₂\` (ஊதா கருப்பு திண்மம்).
-*   **வினைத்திறன்:** \`F₂ > Cl₂ > Br₂ > I₂\`.
-*   **பிணைப்புப் பிளவு ஆற்றல் (Bond Dissociation Enthalpy):** \`Cl₂ > Br₂ > F₂ > I₂\` (F-F பிணைப்பு சிறிய அளவின் காரணமாக எலக்ட்ரான் விலகல் அதிகம், எனவே பிளவு ஆற்றல் குறைவு).
-*   **ஆக்ஸிஜனேற்றும் திறன் (Oxidising Power):** \`F₂ > Cl₂ > Br₂ > I₂\`.
-    *   மேலே உள்ள ஹாலஜன், கீழே உள்ள ஹாலஜன் அயனிகளை ஆக்ஸிஜனேற்றம் செய்யும் (உதாரணம்: \`Cl₂ + 2KBr → 2KCl + Br₂\`).
-
-**முக்கிய சேர்மங்கள் (Important Compounds):**
-
-1.  **ஹைட்ரஜன் ஹாலைடுகள் (Hydrogen Halides - HX):** \`HF, HCl, HBr, HI\`
-    *   **அமில வலிமை:** \`HF < HCl < HBr < HI\` (H-X பிணைப்பின் வலிமை குறைவதால்).
-    *   \`HF\` மட்டும் ஹைட்ரஜன் பிணைப்பால் திரவ நிலையில் இருக்கும்.
-
-2.  **குளோரின் (Chlorine - Cl₂):**
-    *   டெக்கான் முறை: \`4HCl + O₂ → 2Cl₂ + 2H₂O\` (CuCl₂ வினையூக்கி).
-    *   உங்களுக்குத் தெரியுமா? நீர் சிகிச்சை மற்றும் கிருமிநாசினியாகப் பயன்படுகிறது (கிணற்று நீரில் குளோரின் கலப்பது போல).
-
-3.  **ஹாலஜன்களின் ஆக்ஸோ அமிலங்கள் (Oxoacids of Halogens):**
-    *   பெரும்பாலும் ஒற்றைக் காரத்துவ அமிலங்கள். (எ.கா: HClO, HClO₂, HClO₃, HClO₄)
-    *   ஆக்ஸிஜனேற்ற நிலை அதிகரிக்கும் போது அமில வலிமை அதிகரிக்கும் (HClO₄ > HClO₃ > HClO₂ > HClO).
-
-4.  **இடை ஹாலஜன் சேர்மங்கள் (Interhalogen Compounds):** \`XX', XX'₃, XX'₅, XX'₇\` (X = பெரிய ஹாலஜன், X' = சிறிய ஹாலஜன்).
-    *   \`ClF, BrF₃, IF₅, IF₇\`.
-    *   \`IF₇\` – பெண்டகோனல் இருபிரமிடு வடிவம்.
-    *   \`BrF₅\` – சதுரப் பிரமிடு வடிவம்.
-    *   இவை ஹாலஜன்களை விட அதிக வினைத்திறன் கொண்டவை (தனி ஹாலஜன்களை விட கலவை ஹாலஜன்கள் அதிக சண்டை போடுவது போல).
-
---- 
-
-### தொகுதி 18: மந்த வாயுக்கள் (Noble Gases)
-
-**தனிமங்கள்:** He, Ne, Ar, Kr, Xe, Rn
-**பொது எலக்ட்ரான் அமைப்பு:** ns² np⁶ (He தவிர - 1s²)
-**ஆக்ஸிஜனேற்ற நிலை:** 0 (பொதுவாக)
-
-**முக்கியப் பண்புகள்:**
-*   மிகவும் குறைவான வினைத்திறன் கொண்டவை (வீட்டிலேயே சும்மா இருக்கும் குழந்தைகள் போல).
-*   அனைத்தும் ஒற்றை அணு வாயுக்கள்.
-*   அதிக அயனியாக்கும் ஆற்றல், மிகக் குறைவான எலக்ட்ரான் கவர் தன்மை.
-*   வரலாற்று ரீதியாக 'மந்த வாயுக்கள்' என்று அழைக்கப்பட்டாலும், ஃப்ளோரின் மற்றும் ஆக்ஸிஜன் போன்ற அதிக எலக்ட்ரான் கவர் தன்மை கொண்ட தனிமங்களுடன் சேர்மங்களை உருவாக்குகின்றன, குறிப்பாக ஜெனான் (Xe).
-
-**முக்கிய சேர்மங்கள் (Important Compounds of Xenon):**
-
-1.  **XeF₂:** நேரியல் வடிவம் (Linear).
-2.  **XeF₄:** சதுரத் தளம் (Square planar).
-3.  **XeF₆:** சிதைந்த எண்முகி (Distorted octahedral).
-4.  **XeO₃:** பிரமிடு வடிவம் (Pyramidal).
-5.  **XeOF₄:** சதுரப் பிரமிடு வடிவம் (Square pyramidal).
-
-**பயன்கள் (Uses):**
-*   **He:** பலூன்கள், காற்றழுத்தமானிகளில், ஆக்சிஜன்-ஹீலியம் கலவை மூழ்கிக் குளிப்பவர்களுக்கு.
-*   **Ne:** நியான் விளம்பர பலகைகளில்.
-*   **Ar:** மின்சார பல்புகளில், மந்த வளிமண்டலத்தை உருவாக்க.
-*   **Kr, Xe:** சிறப்பு ஒளி பல்புகளில்.
+### 7. Group 18: The Noble Gases
+*   **Configuration:** ns² np⁶ (except He: 1s²)
+*   **Properties:** Have completely filled valence shells, making them very stable and unreactive. They have very high ionization enthalpies and large positive electron gain enthalpies. Heavier noble gases (Kr, Xe) can form compounds with highly electronegative elements like F and O.
   `,
   workedExamples: [
     {
-        problem: '`PCl₅` திண்ம நிலையில் எவ்வாறு உள்ளது என்பதை விவரி. அதன் வடிவமைப்பை வரைக.',
-        solution: 'திண்ம நிலையில் `PCl₅` அயனி சேர்மமாக `[PCl₄]⁺[PCl₆]⁻` என்ற வடிவில் உள்ளது.\n\n*   `[PCl₄]⁺` நேர்மின் அயனி நான்முகி வடிவத்தைக் கொண்டுள்ளது.\n*   `[PCl₆]⁻` எதிர்மின் அயனி எண்முகி வடிவத்தைக் கொண்டுள்ளது.'
+        problem: '`PCl₅` is known, but `NCl₅` is not. Why?',
+        solution: 'Nitrogen (N) is in the second period and has only s and p orbitals in its valence shell. It does not have vacant d-orbitals to expand its octet. Therefore, it can only form a maximum of four covalent bonds. Phosphorus (P) is in the third period and has vacant 3d-orbitals. It can promote one of its 3s electrons to a 3d orbital, making five unpaired electrons available for bonding, thus forming `PCl₅`.'
     },
     {
-        problem: 'போரிக் அமிலம் ஒரு புரோட்டானிய அமிலம் அல்ல. ஆனால், அது ஒரு லூயிஸ் அமிலம் என நிரூபிக்கவும்.',
-        solution: 'போரிக் அமிலம் (H₃BO₃) நீரில் `H⁺` அயனிகளை நேரடியாக விடுவிப்பதில்லை. மாறாக, இது நீரிலிருந்து `OH⁻` அயனிகளைப் பெற்றுக்கொண்டு, `H⁺` அயனியை விடுவிக்கிறது. இது லூயிஸ் அமிலத்தின் வரையறைக்கு உட்பட்டது (எலக்ட்ரான் இணையை ஏற்கும்).\n\n`B(OH)₃ + H₂O ⇌ [B(OH)₄]⁻ + H⁺`'
+        problem: 'Why is `Bi(V)` a stronger oxidizing agent than `Sb(V)`?',
+        solution: 'This is due to the **Inert Pair Effect**. For heavier p-block elements, the ns² electrons are more reluctant to participate in bonding. Therefore, the +3 oxidation state is more stable than the +5 state for Bi. As a result, `Bi(V)` has a strong tendency to get reduced to the more stable `Bi(III)` state, making it a strong oxidizing agent.'
     },
     {
-        problem: 'ஃப்ளோரின் (F₂) குளோரினை (Cl₂) விட அதிக ஆக்ஸிஜனேற்றும் திறன் கொண்டது, ஆனால் Cl₂ இன் பிணைப்புப் பிளவு ஆற்றல் F₂ ஐ விட அதிகம். இந்த முரண்பாட்டை விளக்குக.',
-        solution: 'ஃப்ளோரின் ஏன் அதிக ஆக்ஸிஜனேற்றும் திறன் கொண்டது என்பதற்கு மூன்று காரணங்கள் உள்ளன:\n1.  **F-F பிணைப்புப் பிளவு ஆற்றல் குறைவு:** F₂ மூலக்கூறின் பிணைப்புப் பிளவு ஆற்றல் Cl₂ ஐ விடக் குறைவு. இது அதன் சிறிய அணு அளவு மற்றும் எலக்ட்ரான்-எலக்ட்ரான் விலகல் காரணமாகும். இதனால் F-F பிணைப்பை உடைப்பது எளிது.\n2.  **அதிக நீரேற்ற ஆற்றல் (Hydration enthalpy):** F⁻ அயனியின் நீரேற்ற ஆற்றல் Cl⁻ அயனியை விட மிக அதிகம். (சின்ன பாட்டில் தண்ணீர் அதிகமாகப் பிடிப்பது போல).\n3.  **அதிக எலக்ட்ரான் ஏற்பு திறன் (Electron gain enthalpy):** ஃப்ளோரின் எலக்ட்ரான்களை ஏற்கும் திறன் அதிகம், ஆனால் குளோரின் எலக்ட்ரான் ஏற்பு தன்மை சற்று அதிகம் (ஏனென்றால் ஃப்ளோரின் சிறியது, எலக்ட்ரான் விலகல்).\n\nஇந்த மூன்று காரணிகளின் கூட்டு விளைவு, ஃப்ளோரின் ஒரு சிறந்த ஆக்ஸிஜனேற்றியாக செயல்படுகிறது.'
+        problem: 'Explain why the bond angle in `NH₃` (107.8°) is greater than in `H₂O` (104.5°).',
+        solution: 'Both N in `NH₃` and O in `H₂O` are sp³ hybridized. According to VSEPR theory, the geometry is determined by the total number of electron pairs. `NH₃` has 3 bond pairs and 1 lone pair. `H₂O` has 2 bond pairs and 2 lone pairs. The repulsion order is: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair. Since `H₂O` has two lone pairs, the lp-lp repulsion is stronger, pushing the bonds closer together and reducing the bond angle more significantly than the single lone pair in `NH₃`.'
     },
     {
-        problem: 'சல்பூரிக் அமிலத்தின் மூன்று முக்கிய பண்புகளை விளக்குக.',
-        solution: 'சல்பூரிக் அமிலத்தின் மூன்று முக்கிய பண்புகள்:\n1.  **வலுவான அமிலம் (Strong Acid):** இது ஒரு இரு காரத்துவ அமிலம், நீரில் கிட்டத்தட்ட முழுமையாக அயனியாக்கம் அடையும்.\n    `H₂SO₄ + H₂O → H₃O⁺ + HSO₄⁻`\n    `HSO₄⁻ + H₂O ⇌ H₃O⁺ + SO₄²⁻`\n2.  **நீர்ப்பெருக்கி (Dehydrating Agent):** இது கரிம சேர்மங்களிலிருந்து (சர்க்கரை, செல்லுலோஸ் போன்றவை) தண்ணீரைப் பிரித்தெடுக்கும். (உதாரணம்: சர்க்கரையை கரித்துண்டாக மாற்றும் – `C₁₂H₂₂O₁₁ --H₂SO₄--> 12C + 11H₂O`).\n3.  **ஆக்ஸிஜனேற்றி (Oxidising Agent):** சூடான, அடர் சல்பூரிக் அமிலம் அலோகங்கள் மற்றும் சில உலோகங்களை ஆக்ஸிஜனேற்றம் செய்யும்.\n    `C + 2H₂SO₄ (conc.) → CO₂ + 2SO₂ + 2H₂O`\n    `Cu + 2H₂SO₄ (conc.) → CuSO₄ + SO₂ + 2H₂O`'
+        problem: 'Why is `HF` a liquid, while `HCl` is a gas at room temperature?',
+        solution: 'Fluorine is the most electronegative element. This results in strong intermolecular **hydrogen bonding** between `HF` molecules. A large amount of energy is required to break these bonds, so `HF` exists as a liquid. In `HCl`, chlorine is less electronegative, and there is no hydrogen bonding. The only forces are weak van der Waals forces, so `HCl` is a gas.'
     },
     {
-        problem: 'ஜெனான் ஃப்ளோரைடுகளின் வடிவம் மற்றும் அவற்றின் sp³ கலப்பின வகைகளை விவரி.',
-        solution: '| சேர்மம் | கலப்பினம் | வடிவம் (VSEPR கோட்பாட்டின்படி) |\n| :------ | :-------- | :------------------------------ |\n| XeF₂    | sp³d      | நேரியல் (Linear)                |\n| XeF₄    | sp³d²     | சதுரத் தளம் (Square Planar)    |\n| XeF₆    | sp³d³     | சிதைந்த எண்முகி (Distorted Octahedral) |'
-    },
-    {
-        problem: 'நைட்ரிக் அமிலத்தின் (HNO₃) அடர்த்தி மற்றும் நீர்த்த கரைசல்களின் வெவ்வேறு உலோகங்களுடன் வினைபுரியும் முறையை விளக்குக.',
-        solution: 'நைட்ரிக் அமிலம், உலோகம் மற்றும் அமிலத்தின் அடர்த்தியைப் பொறுத்து வெவ்வேறு தயாரிப்புகளை உருவாக்குகிறது.\n\n*   **அடர் HNO₃ உடன் வினை:** பெரும்பாலான உலோகங்கள் பாசிவேஷன் (passivation) அடையும் (எ.கா: Al, Fe, Cr).\n    *   காப்பர் (Copper): `Cu + 4HNO₃ (conc.) → Cu(NO₃)₂ + 2NO₂ + 2H₂O`\n\n*   **நீர்த்த HNO₃ உடன் வினை:**\n    *   காப்பர்: `3Cu + 8HNO₃ (dilute) → 3Cu(NO₃)₂ + 2NO + 4H₂O`\n    *   துத்தநாகம் (Zinc) (மிகவும் நீர்த்த): `4Zn + 10HNO₃ (very dilute) → 4Zn(NO₃)₂ + N₂O + 5H₂O`\n    *   துத்தநாகம் (நீர்த்த): `3Zn + 8HNO₃ (dilute) → 3Zn(NO₃)₂ + 2NO + 4H₂O`'
-    },
-    {
-        problem: 'பாஸ்பரஸின் ஆக்ஸோ அமிலங்களில், P-H பிணைப்புகள் மற்றும் P-OH பிணைப்புகளின் முக்கியத்துவத்தை விளக்குக.',
-        solution: 'பாஸ்பரஸின் ஆக்ஸோ அமிலங்களில், P-H பிணைப்புகள் மற்றும் P-OH பிணைப்புகள் இரண்டும் வெவ்வேறு பண்புகளைக் கொடுக்கின்றன.\n\n*   **P-H பிணைப்புகள்:** இவை அமிலத்திற்கு ஒடுக்கும் பண்பைக் (reducing property) கொடுக்கின்றன. P-H பிணைப்புகளின் எண்ணிக்கை அதிகமாக இருக்கும் போது, ஒடுக்கும் பண்பு அதிகமாக இருக்கும். (உதாரணம்: H₃PO₂ (ஹைப்போபாஸ்பரஸ் அமிலம்) ஒரு வலுவான ஒடுக்கி, ஏனெனில் அதில் இரண்டு P-H பிணைப்புகள் உள்ளன).\n*   **P-OH பிணைப்புகள்:** இவை அமிலத்தின் காரத்துவத்தை (basicity) தீர்மானிக்கின்றன. ஒரு அமிலத்தில் உள்ள P-OH பிணைப்புகளின் எண்ணிக்கை, அந்த அமிலத்தின் காரத்துவத்திற்கு சமம். (உதாரணம்: H₃PO₄ (ஆர்த்தோபாஸ்பரிக் அமிலம்) மூன்று P-OH பிணைப்புகளைக் கொண்டிருப்பதால் ஒரு முக்காரத்துவ அமிலமாகும்).'
+        problem: 'Describe the structure of Diborane (`B₂H₆`).',
+        solution: 'Diborane has a unique structure containing two **3-center-2-electron (3c-2e) bonds**, also known as "banana bonds". There are two boron atoms and four terminal hydrogen atoms lying in one plane. Two hydrogen atoms act as bridges between the boron atoms, with one H above the plane and one below. These `B-H-B` bridge bonds are the 3c-2e bonds, where two electrons are shared among three atoms.'
     }
   ],
   mcqs: [
