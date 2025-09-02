@@ -177,22 +177,22 @@ export const plantPhysiology: NeetModule = {
       explanation: 'The reason is the correct explanation for the assertion. The C4 pathway effectively pumps CO₂ into the bundle sheath cells, ensuring that RuBisCO has a high concentration of CO₂ and a low concentration of O₂, thus preventing photorespiration.'
     },
     {
-        "assertion": "The deficiency of molybdenum causes "whiptail" disease in cauliflower.",
-        "reason": "Molybdenum is a component of the enzyme nitrate reductase.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Nitrate reductase is essential for nitrogen metabolism. Its deficiency, caused by a lack of molybdenum, leads to the characteristic symptoms of whiptail disease."
+        assertion: "The deficiency of molybdenum causes 'whiptail' disease in cauliflower.",
+        reason: "Molybdenum is a component of the enzyme nitrate reductase.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Nitrate reductase is essential for nitrogen metabolism. Its deficiency, caused by a lack of molybdenum, leads to the characteristic symptoms of whiptail disease."
     },
     {
-        "assertion": "In the electron transport system, oxygen is the ultimate electron acceptor.",
-        "reason": "The ETS is located in the outer mitochondrial membrane.",
-        "answer": "C",
-        "explanation": "The assertion is true. The reason is false; the electron transport system is located on the inner mitochondrial membrane."
+        assertion: "In the electron transport system, oxygen is the ultimate electron acceptor.",
+        reason: "The ETS is located in the outer mitochondrial membrane.",
+        answer: "C",
+        explanation: "The assertion is true. The reason is false; the electron transport system is located on the inner mitochondrial membrane."
     },
     {
-        "assertion": "Spraying sugarcane crops with gibberellins increases the yield.",
-        "reason": "Gibberellins increase the length of the stem.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Since sugar is stored in the stem of sugarcane, increasing the stem length with gibberellins leads to a higher yield."
+        assertion: "Spraying sugarcane crops with gibberellins increases the yield.",
+        reason: "Gibberellins increase the length of the stem.",
+        answer: "A",
+        explanation: "The reason correctly explains the assertion. Since sugar is stored in the stem of sugarcane, increasing the stem length with gibberellins leads to a higher yield."
     }
   ],
   matchTheColumns: [
@@ -207,19 +207,19 @@ export const plantPhysiology: NeetModule = {
       answer: 'a-iv, b-iii, c-i, d-ii'
     },
     {
-      "column1": ["a) Photolysis of water", "b) C₃ cycle", "c) C₄ pathway", "d) Photoperiodism"],
-      "column2": ["i) Kranz anatomy", "ii) Phytochrome", "iii) Mn and Cl ions", "iv) RuBisCO enzyme"],
-      "answer": "a-iii, b-iv, c-i, d-ii"
+      column1: ["a) Photolysis of water", "b) C₃ cycle", "c) C₄ pathway", "d) Photoperiodism"],
+      column2: ["i) Kranz anatomy", "ii) Phytochrome", "iii) Mn and Cl ions", "iv) RuBisCO enzyme"],
+      answer: "a-iii, b-iv, c-i, d-ii"
     },
     {
-      "column1": ["a) Nitrogen", "b) Phosphorus", "c) Potassium", "d) Boron"],
-      "column2": ["i) Required for pollen germination", "ii) Component of chlorophyll", "iii) Component of nucleic acids (ATP)", "iv) Opening and closing of stomata"],
-      "answer": "a-ii, b-iii, c-iv, d-i"
+      column1: ["a) Nitrogen", "b) Phosphorus", "c) Potassium", "d) Boron"],
+      column2: ["i) Required for pollen germination", "ii) Component of chlorophyll", "iii) Component of nucleic acids (ATP)", "iv) Opening and closing of stomata"],
+      answer: "a-ii, b-iii, c-iv, d-i"
     },
     {
-      "column1": ["a) Cohesion", "b) Adhesion", "c) Surface Tension", "d) Guttation"],
-      "column2": ["i) Attraction to polar surfaces", "ii) Attraction among water molecules", "iii) Due to root pressure", "iv) More attraction in liquid phase than gas phase"],
-      "answer": "a-ii, b-i, c-iv, d-iii"
+      column1: ["a) Cohesion", "b) Adhesion", "c) Surface Tension", "d) Guttation"],
+      column2: ["i) Attraction to polar surfaces", "ii) Attraction among water molecules", "iii) Due to root pressure", "iv) More attraction in liquid phase than gas phase"],
+      answer: "a-ii, b-i, c-iv, d-iii"
     }
   ],
 };
