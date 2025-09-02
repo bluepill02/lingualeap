@@ -31,8 +31,8 @@ export default function NeetPhysicsPage() {
             <CardContent className="flex-grow" />
             <div className="p-6 pt-0">
               <Link href={`/exam-prep/neet/physics/${chapter.slug}`}>
-                <Button className="w-full" disabled>
-                  Coming Soon
+                <Button className="w-full">
+                  Start Learning <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
