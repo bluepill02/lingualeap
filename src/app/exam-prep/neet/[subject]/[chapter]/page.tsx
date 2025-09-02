@@ -5,63 +5,77 @@ import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import React from 'react';
+import { SyllabusMappingCard, WorkedExamplesCard } from '@/components/exam/exam-components';
 
-// Simplified and more robust markdown-to-React element renderer
+// A more robust function to parse and render markdown content
 function renderMarkdownToReact(markdown: string) {
     if (!markdown) {
         return null;
     }
 
-    const sections = markdown.split(/^(?=##\s)/m); // Split by ## headings
+    const elements = [];
+    const lines = markdown.split('\n');
+    let inCodeBlock = false;
+    let codeBlockContent = '';
 
-    return sections.map((section, index) => {
-        if (section.trim() === '') return null;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
 
-        const lines = section.trim().split('\n');
-        const titleLine = lines[0];
-        const contentLines = lines.slice(1);
+        if (line.startsWith('```')) {
+            if (inCodeBlock) {
+                // End of a code block
+                elements.push(
+                    <pre key={`code-${i}`} className="bg-muted p-4 rounded-md text-sm whitespace-pre font-mono my-2 overflow-x-auto">
+                        {codeBlockContent}
+                    </pre>
+                );
+                codeBlockContent = '';
+                inCodeBlock = false;
+            } else {
+                // Start of a new code block
+                inCodeBlock = true;
+            }
+            continue;
+        }
 
-        const title = titleLine.replace(/^##\s*/, '').trim();
+        if (inCodeBlock) {
+            codeBlockContent += line + '\n';
+            continue;
+        }
 
-        const content = contentLines.join('\n');
+        if (line.startsWith('## ')) {
+            elements.push(<h2 key={i} className="text-2xl font-bold mt-6 mb-4">{line.substring(3)}</h2>);
+        } else if (line.startsWith('### ')) {
+            elements.push(<h3 key={i} className="text-xl font-semibold mt-4 mb-2">{line.substring(4)}</h3>);
+        } else if (line.startsWith('# ')) {
+             elements.push(<h1 key={i} className="text-3xl font-bold mt-8 mb-6 border-b pb-2">{line.substring(2)}</h1>);
+        } else if (line.match(/^\s{0,3}- /)) {
+            elements.push(<li key={i} className="ml-5 list-disc">{line.substring(line.indexOf('- ') + 2)}</li>);
+        } else if (line.match(/^\s{0,3}\* /)) {
+            elements.push(<li key={i} className="ml-5 list-disc font-semibold">{line.substring(line.indexOf('* ') + 2)}</li>);
+        } else if (line.match(/^\d+\./)) {
+            elements.push(<p key={i} className="my-2">{line}</p>);
+        } else if (line.match(/^[A-Z]\)/i)) {
+            elements.push(<p key={i} className="ml-4 my-1 text-muted-foreground">{line}</p>);
+        } else if (line.toLowerCase().startsWith('**solution:**') || line.toLowerCase().startsWith('**விடை:**')) {
+            elements.push(<p key={i} className="mt-2 text-primary font-semibold">{line}</p>);
+        } else if (line.trim() === '') {
+            elements.push(<br key={i} />);
+        } else {
+            elements.push(<p key={i} className="my-2">{line}</p>);
+        }
+    }
 
-        return (
-            <Card key={index} className="mb-8">
-                <CardHeader>
-                    <CardTitle>{title}</CardTitle>
-                </CardHeader>
-                <CardContent className="prose dark:prose-invert max-w-none">
-                    {content.split('\n').map((line, lineIndex) => {
-                        if (line.startsWith('```')) {
-                            // This is a simple way to handle code blocks, more complex parsing can be added.
-                            return <pre key={lineIndex} className="bg-muted p-4 rounded-md text-sm whitespace-pre-wrap font-mono my-2">{line.replace(/`/g, '')}</pre>;
-                        }
-                        if (line.match(/^\s{0,3}- /)) {
-                             return <li key={lineIndex} className="ml-4 list-disc">{line.substring(line.indexOf('- ') + 2)}</li>;
-                        }
-                        if (line.match(/^\s{0,3}\*/)) {
-                            return <li key={lineIndex} className="ml-4 list-disc font-semibold">{line.substring(line.indexOf('*') + 1)}</li>;
-                        }
-                        if (line.match(/^\d+\./)) {
-                            return <p key={lineIndex} className="my-2">{line}</p>;
-                        }
-                        if (line.match(/^[A-Z]\)/i)) {
-                            return <p key={lineIndex} className="ml-4 my-1 text-muted-foreground">{line}</p>;
-                        }
-                         if (line.toLowerCase().startsWith('**solution:**') || line.toLowerCase().startsWith('**விடை:**')) {
-                            return <p key={lineIndex} className="mt-2 text-primary font-semibold">{line}</p>;
-                        }
-                        if (line.trim() === '') {
-                            return <br key={lineIndex} />;
-                        }
-                        return <p key={lineIndex} className="my-2">{line}</p>;
-                    })}
-                </CardContent>
-            </Card>
+     if (inCodeBlock) {
+        elements.push(
+            <pre key="code-end" className="bg-muted p-4 rounded-md text-sm whitespace-pre font-mono my-2 overflow-x-auto">
+                {codeBlockContent}
+            </pre>
         );
-    });
-}
+    }
 
+    return elements;
+}
 
 export default function NeetChapterPage({ params }: { params: { subject: string; chapter: string } }) {
   const { subject, chapter } = params;
@@ -85,7 +99,7 @@ export default function NeetChapterPage({ params }: { params: { subject: string;
         </p>
       </header>
       
-      <div>
+      <div className="prose dark:prose-invert max-w-none">
         {renderMarkdownToReact(fileContent)}
       </div>
 
