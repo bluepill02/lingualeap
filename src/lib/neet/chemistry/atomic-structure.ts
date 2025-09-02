@@ -7,31 +7,39 @@ export const atomicStructure: NeetModule = {
   chapter: 'Atomic Structure',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Subatomic Particles (துணை அணுத் துகள்கள்)
-*   Atoms are made of protons, neutrons, and electrons.
-*   **Protons (p⁺):** Positively charged, in the nucleus.
-*   **Neutrons (n⁰):** No charge, in the nucleus.
-*   **Electrons (e⁻):** Negatively charged, orbit the nucleus.
+### 1. Introduction to Atomic Structure
+*   **Nature of electromagnetic radiation, photoelectric effect:** Light has a dual nature (wave and particle). The photoelectric effect (ejection of electrons from a metal surface by light) demonstrates the particle nature of light (photons).
+*   **Spectrum of the hydrogen atom:** The emission spectrum of hydrogen consists of distinct lines, grouped into series (Lyman, Balmer, Paschen, etc.), suggesting that electrons have quantized energy levels.
 
-### 2. Atomic Models (அணு மாதிரிகள்)
-*   **Thomson's Model (தாம்சன் மாதிரி):** Plum pudding model. Atom is a sphere of positive charge with electrons embedded. (ஒரு தர்பூசணி பழத்தில் விதைகள் போல).
-*   **Rutherford's Model (ரூதர்போர்டு மாதிரி):** Nuclear model based on the alpha-particle scattering experiment. Proposed a dense, positive nucleus with electrons orbiting it.
-*   **Bohr's Model (போர் மாதிரி):** Electrons revolve in fixed circular paths called orbits or shells. Energy is quantized.
-*   **Quantum Mechanical Model (குவாண்டம் இயக்கவியல் மாதிரி):** Describes electrons in terms of orbitals (3D space with high probability of finding an electron), defined by quantum numbers.
+### 2. Bohr Model of a Hydrogen Atom
+*   **Postulates:**
+    1. Electrons revolve around the nucleus in fixed circular paths called orbits.
+    2. The energy of an electron in an orbit is quantized.
+    3. An electron might jump from one orbit to another by absorbing or emitting energy.
+    4. The angular momentum of an electron is quantized: mvr = nh/2π.
+*   **Derivations:** Formulas for the energy of the electron (Eₙ = -13.6 Z²/n² eV) and radii of the orbits (rₙ = 0.529 n²/Z Å).
+*   **Limitations:** Could not explain the spectra of multi-electron atoms, the Zeeman effect, or the Stark effect. Failed to explain the dual nature of matter.
 
-### 3. Quantum Numbers (குவாண்டம் எண்கள்)
-*   **Principal Quantum Number (n):** Main energy level or shell. (n=1, 2, 3...).
-*   **Azimuthal Quantum Number (l):** Subshell or shape of orbital (s, p, d, f). (l=0 to n-1).
-*   **Magnetic Quantum Number (mₗ):** Orientation of orbital in space. (mₗ = -l to +l).
-*   **Spin Quantum Number (mₛ):** Electron spin (+1/2 or -1/2).
+### 3. Quantum Mechanical Model of the Atom
+*   **Dual nature of matter, de Broglie's relationship (λ = h/mv):** All moving particles have an associated wavelength.
+*   **Heisenberg uncertainty principle (Δx ⋅ Δp ≥ h/4π):** It is impossible to determine simultaneously the exact position and exact momentum of an electron.
+*   **Quantum Mechanics:** Describes the behavior of microscopic particles in terms of wave functions (Ψ). The square of the wave function (Ψ²) represents the probability density of finding an electron.
+*   **Concept of atomic orbitals:** A three-dimensional space around the nucleus where the probability of finding an electron is maximum.
+*   **Variation of Ψ and Ψ² with r for 1s and 2s orbitals:** Understanding the radial probability distribution and nodes.
 
-### 4. Rules for Filling Orbitals
-*   **Aufbau Principle:** Electrons fill lower energy orbitals first.
-*   **Pauli Exclusion Principle:** No two electrons in an atom can have the same set of four quantum numbers.
-*   **Hund's Rule of Maximum Multiplicity:** Pairing of electrons in orbitals of the same subshell does not occur until each orbital is singly occupied.
+### 4. Quantum Numbers and Orbitals
+*   **Principal Quantum Number (n):** Determines the main energy level or shell (n=1, 2, 3...).
+*   **Azimuthal Quantum Number (l):** Determines the subshell and the shape of the orbital (s, p, d, f). l ranges from 0 to n-1.
+*   **Magnetic Quantum Number (mₗ):** Determines the orientation of the orbital in space (mₗ = -l to +l).
+*   **Electron Spin and Spin Quantum Number (mₛ):** Describes the intrinsic angular momentum of an electron (+1/2 or -1/2).
+*   **Shapes of s, p, and d - orbitals.**
 
-### 5. Electronic Configuration (எலக்ட்ரான் அமைப்பு)
-*   The distribution of electrons into orbitals of an atom. (e.g., Nitrogen (Z=7): 1s² 2s² 2p³).
+### 5. Rules for Filling Electrons in Orbitals
+*   **Aufbau Principle:** Orbitals are filled in order of their increasing energies.
+*   **Pauli's Exclusion Principle:** No two electrons in an atom can have the same set of all four quantum numbers.
+*   **Hund's Rule of Maximum Multiplicity:** Pairing of electrons in the orbitals belonging to the same subshell does not take place until each orbital is singly occupied.
+*   **Electronic configuration of elements:** The distribution of electrons into orbitals.
+*   **Extra stability of half-filled and completely filled orbitals:** Due to symmetry and exchange energy.
 `,
   workedExamples: [
     {
@@ -395,4 +403,3 @@ export const atomicStructure: NeetModule = {
 ]
 
 };
-

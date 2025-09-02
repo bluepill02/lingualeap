@@ -7,8 +7,18 @@ export const someBasicConceptsInChemistry: NeetModule = {
   chapter: 'Some Basic Concepts in Chemistry',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Importance of Chemistry (வேதியியலின் முக்கியத்துவம்)
-*   Chemistry deals with the composition, structure, properties, and interaction of matter. It plays a central role in science and is often intertwined with other branches of science.
+### 1. Matter and its nature (பருப்பொருள் மற்றும் அதன் தன்மை)
+*   Chemistry deals with the composition, structure, properties, and interaction of matter. Matter is anything that has mass and occupies space.
+*   **Dalton's atomic theory:** Proposed that matter consists of indivisible atoms. Key postulates include:
+    *   All matter is made of atoms.
+    *   Atoms of a given element are identical in mass and properties.
+    *   Compounds are formed by a combination of two or more different kinds of atoms.
+    *   A chemical reaction is a rearrangement of atoms.
+*   **Concept of atom, molecule, element, and compound:**
+    *   **Atom (அணு):** The smallest particle of an element.
+    *   **Molecule (மூலக்கூறு):** The smallest particle of a substance that can exist independently.
+    *   **Element (தனிமம்):** A pure substance containing only one kind of atom.
+    *   **Compound (சேர்மம்):** A substance formed when two or more elements are chemically combined.
 
 ### 2. Laws of Chemical Combinations (வேதிச் சேர்க்கை விதிகள்)
 *   **Law of Conservation of Mass (நிறை அழிவின்மை விதி):** Mass can neither be created nor destroyed in a chemical reaction.
@@ -17,17 +27,23 @@ export const someBasicConceptsInChemistry: NeetModule = {
 *   **Gay Lussac's Law of Gaseous Volumes:** When gases combine or are produced in a chemical reaction they do so in a simple ratio by volume provided all gases are at the same temperature and pressure.
 *   **Avogadro's Law (அவகாட்ரோ விதி):** Equal volumes of all gases at the same temperature and pressure should contain an equal number of molecules.
 
-### 3. Mole Concept and Molar Masses (மோல் கருத்து மற்றும் மோலார் நிறைகள்)
+### 3. Atomic and Molecular Masses (அணு மற்றும் மூலக்கூறு நிறைகள்)
+*   **Atomic Mass:** The mass of an atom, usually expressed in atomic mass units (amu).
+*   **Molecular Mass:** The sum of the atomic masses of the elements present in a molecule.
+
+### 4. Mole Concept and Molar Masses (மோல் கருத்து மற்றும் மோலார் நிறைகள்)
 *   **Mole (மோல்):** The amount of a substance that contains as many particles or entities as there are atoms in exactly 12 g of the C-12 isotope.
 *   **Avogadro's Number (Nₐ):** 6.022 x 10²³ particles/mol.
 *   **Molar Mass:** The mass of one mole of a substance in grams.
 
-### 4. Stoichiometry and Stoichiometric Calculations (வினைக்கூறு விகிதம்)
-*   Stoichiometry deals with the calculation of masses (or sometimes volumes) of the reactants and the products involved in a chemical reaction.
-*   **Limiting Reagent (வரையறுக்கும் காரணி):** The reactant which gets consumed first in a reaction and limits the amount of product formed. (ஒரு பிரியாணி செய்யும்போது, முதலில் தீர்ந்து போகும் பொருள் எதுவோ, அது பிரியாணியின் அளவைத் தீர்மானிப்பது போல).
+### 5. Percentage Composition, Empirical and Molecular Formulae
+*   **Percentage Composition:** The percentage by mass of each element in a compound.
+*   **Empirical Formula:** Represents the simplest whole-number ratio of various atoms present in a compound.
+*   **Molecular Formula:** Shows the exact number of different types of atoms present in a molecule of a compound. (Molecular Formula = n × Empirical Formula).
 
-### 5. Concentration Terms (செறிவு அலகுகள்)
-*   Mass percent, Mole fraction, Molarity, and Molality.
+### 6. Chemical Equations and Stoichiometry (வேதிச் சமன்பாடுகள் மற்றும் வினைக்கூறு விகிதம்)
+*   **Stoichiometry:** Deals with the calculation of masses (or sometimes volumes) of the reactants and the products involved in a chemical reaction.
+*   **Limiting Reagent (வரையறுக்கும் காரணி):** The reactant which gets consumed first in a reaction and limits the amount of product formed. (ஒரு பிரியாணி செய்யும்போது, முதலில் தீர்ந்து போகும் பொருள் எதுவோ, அது பிரியாணியின் அளவைத் தீர்மானிப்பது போல).
 `,
   workedExamples: [
     {
@@ -491,4 +507,3 @@ export const someBasicConceptsInChemistry: NeetModule = {
 ]
 
 };
-
