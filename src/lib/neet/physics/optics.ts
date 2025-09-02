@@ -33,7 +33,7 @@ export const optics: NeetModule = {
   workedExamples: [
     {
         problem: "In a Young's double-slit experiment, the slits are separated by 0.28 mm and the screen is placed 1.4 m away. The distance between the central bright fringe and the fourth bright fringe is measured to be 1.2 cm. Determine the wavelength of light used.",
-        solution: "The distance of the nth bright fringe from the center is y_n = nλD/d. For the 4th bright fringe, n=4. So, y₄ = 4λD/d. We are given y₄ = 1.2 cm = 0.012 m, d = 0.28 mm = 0.28 x 10⁻³ m, D = 1.4 m. λ = y₄d / (4D) = (0.012 * 0.28 x 10⁻³) / (4 * 1.4) = (0.00336 x 10⁻³) / 5.6 = 0.0006 x 10⁻³ m = 0.6 x 10⁻⁶ m = 600 nm."
+        solution: "The distance of the nth bright fringe from the center is y_n = nλD/d. For the 4th bright fringe, n=4. So, y₄ = 4λD/d. We are given y₄ = 1.2 cm = 0.012 m, d = 0.28 mm = 0.28 x 10⁻³ m, D = 1.4 m. λ = y₄d / (4D) = (0.012 * 0.28 x 10⁻³) / (4 * 1.4) = (0.00336 x 10⁻³) / 5.6 = 0.0006 x 10⁻⁶ m = 600 nm."
     },
     {
         problem: "A concave mirror produces three times magnified real image of an object placed at 10 cm in front of it. Where is the image located?",
