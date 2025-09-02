@@ -226,7 +226,7 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
         "assertion": "Benzene undergoes electrophilic substitution reactions.",
         "reason": "Benzene has a high electron density due to the delocalized π-electron cloud.",
         "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The electron-rich nature of the benzene ring makes it susceptible to attack by electron-deficient electrophiles."
+        "explanation": "The electron-rich nature of the benzene ring makes it susceptible to attack by electron-deficient electrophiles. The reason correctly explains the assertion."
     },
     {
         "assertion": "All isomers have the same molecular formula.",
@@ -384,5 +384,6 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
         "answer": "a-iv, b-iii, c-ii, d-i"
     }
 ]
-
 };
+
+  
