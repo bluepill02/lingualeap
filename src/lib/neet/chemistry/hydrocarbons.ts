@@ -7,30 +7,41 @@ export const hydrocarbons: NeetModule = {
   chapter: 'Hydrocarbons',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Alkanes (ஆல்கேன்கள்)
-*   Saturated hydrocarbons with the general formula CₙH₂ₙ₊₂.
-*   Undergo substitution reactions (e.g., halogenation).
-*   **Conformations:** Different spatial arrangements of atoms that can be converted into one another by rotation around C-C single bonds (e.g., staggered and eclipsed conformations of ethane).
+### 1. Classification, Isomerism, and Nomenclature
+*   **Classification:** Alkanes, Alkenes, Alkynes, Aromatic hydrocarbons.
+*   **Isomerism:** Structural and geometrical isomerism.
+*   **IUPAC Nomenclature:** Systematic naming of hydrocarbons.
 
-### 2. Alkenes (ஆல்கீன்கள்)
-*   Unsaturated hydrocarbons with at least one C=C double bond. General formula CₙH₂ₙ.
-*   The double bond is a source of electrons, making them more reactive than alkanes.
-*   Undergo addition reactions (e.g., addition of H₂, halogens, H₂O, HX).
-*   **Markovnikov's Rule:** In the addition of H-X to an unsymmetrical alkene, the negative part of the addendum (X⁻) gets attached to the carbon atom which possesses a lesser number of hydrogen atoms. (பணக்காரன் மேலும் பணக்காரன் ஆவது போல - The rich get richer).
-*   **Ozonolysis (ஓசோனேற்றம்):** Reaction with ozone followed by hydrolysis, which cleaves the double bond and forms carbonyl compounds.
+### 2. Alkanes (ஆல்கேன்கள்)
+*   **Preparation:** From unsaturated hydrocarbons (hydrogenation), from alkyl halides (Wurtz reaction), from carboxylic acids (decarboxylation).
+*   **Properties and Reactions:**
+    *   **Conformations:** Sawhorse and Newman projections of ethane. Staggered and eclipsed conformations.
+    *   **Mechanism of Halogenation:** Free radical mechanism (initiation, propagation, termination).
 
-### 3. Alkynes (ஆல்கைன்கள்)
-*   Unsaturated hydrocarbons with at least one C≡C triple bond. General formula CₙH₂ₙ₋₂.
-*   Undergo addition reactions similar to alkenes.
-*   **Acidity of Alkynes:** Terminal alkynes (with H attached to a triply bonded carbon) are acidic due to the high s-character of the sp-hybridized carbon.
+### 3. Alkenes (ஆல்கீன்கள்)
+*   **Geometrical Isomerism:** cis-trans isomerism due to restricted rotation around the C=C double bond.
+*   **Preparation:** From alkynes, alkyl halides (dehydrohalogenation).
+*   **Properties and Reactions:**
+    *   **Mechanism of Electrophilic Addition:** Addition of hydrogen, halogens, water (hydration), hydrogen halides (Markownikoff's rule and peroxide effect/anti-Markownikoff).
+    *   **Ozonolysis (ஓசோனேற்றம்):** Cleavage of the double bond to form carbonyl compounds.
+    *   **Polymerization:** Formation of polymers like polyethene.
 
-### 4. Aromatic Hydrocarbons (அரோமாட்டிக் ஹைட்ரோகார்பன்கள்)
-*   Cyclic, planar, conjugated systems that obey **Hückel's Rule** (possess (4n+2)π electrons).
-*   **Benzene (பென்சீன், C₆H₆):** The parent aromatic hydrocarbon.
-*   Undergo electrophilic substitution reactions (e.g., nitration, halogenation, Friedel-Crafts alkylation and acylation).
-*   **Directing Influence of Functional Groups:**
-    *   **Activating groups (o, p-directing):** -OH, -NH₂, -OR, -CH₃.
-    *   **Deactivating groups (m-directing):** -NO₂, -CN, -COOH, -CHO.
+### 4. Alkynes (ஆல்கைன்கள்)
+*   **Acidic Character:** Terminal alkynes are acidic due to the sp-hybridized carbon.
+*   **Preparation:** From calcium carbide, from vicinal dihalides.
+*   **Properties and Reactions:**
+    *   **Addition Reactions:** Addition of hydrogen, halogens, water, and hydrogen halides.
+    *   **Polymerization:** Linear and cyclic polymerization (e.g., formation of benzene from ethyne).
+
+### 5. Aromatic Hydrocarbons (அரோமாட்டிக் ஹைட்ரோகார்பன்கள்)
+*   **Nomenclature and Isomerism.**
+*   **Benzene (பென்சீன்):** Structure and Aromaticity (Hückel's rule).
+*   **Mechanism of Electrophilic Substitution:**
+    *   **Halogenation:** Reaction with halogens in the presence of a Lewis acid.
+    *   **Nitration:** Reaction with conc. HNO₃ and conc. H₂SO₄.
+    *   **Sulphonation:** Reaction with fuming H₂SO₄.
+    *   **Friedel-Crafts Alkylation and Acylation:** Reaction with alkyl/acyl halide and a Lewis acid.
+*   **Directive influence of functional group in mono-substituted benzene:** Activating (o,p-directing) and deactivating (m-directing) groups.
 `,
   workedExamples: [
     {

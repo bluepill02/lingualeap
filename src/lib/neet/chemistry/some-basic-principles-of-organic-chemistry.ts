@@ -8,35 +8,31 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
   subject: 'Chemistry',
   conceptNotes: `
 ### 1. General Introduction (பொது அறிமுகம்)
-*   **Tetravalency of Carbon (கார்பனின் நான்கு இணைதிறன்):** Carbon can form four covalent bonds, allowing it to form long chains and rings.
-*   **Shapes of Organic Compounds:** Based on hybridization. sp³ (tetrahedral), sp² (trigonal planar), sp (linear).
-*   **Structural Representations:** Complete (விரிந்த), condensed (சுருங்கிய), and bond-line (பிணைப்புக் கோடு) formulas are used to represent organic molecules.
+*   **Tetravalency of Carbon (கார்பனின் நான்கு இணைதிறன்):** Carbon can form four covalent bonds.
+*   **Shapes of simple molecules - hybridization (s and p):** sp³ (tetrahedral), sp² (trigonal planar), sp (linear).
+*   **Classification of organic compounds based on functional groups:** and those containing halogens, oxygen, nitrogen, and sulphur.
+*   **Homologous series:** A series of compounds with the same functional group and similar chemical properties.
+*   **Isomerism (மாற்றியம்):** Structural and stereoisomerism.
 
-### 2. Nomenclature (IUPAC) (பெயரிடுதல்)
-*   A systematic method of naming organic compounds developed by the International Union of Pure and Applied Chemistry.
-*   Components: Root word (மூல வார்த்தை - indicates number of C atoms), Primary Suffix (முதன்மை பின்னொட்டு - indicates saturation), Secondary Suffix (இரண்டாம் பின்னொட்டு - indicates functional group), Prefix (முன்னொட்டு - indicates substituents).
+### 2. Nomenclature (பெயரிடுதல்)
+*   **Trivial (common) and IUPAC nomenclature:** Systematic method of naming organic compounds.
 
-### 3. Isomerism (மாற்றியம்)
-*   Compounds having the same molecular formula but different structures or spatial arrangements. (ஒரே மூலக்கூறு வாய்ப்பாடு, ஆனால் வெவ்வேறு பண்புகள் - ஒரே மாதிரி தோற்றமளிக்கும் இரட்டையர்கள் ஆனால் வேறு வேறு குணங்கள் இருப்பது போல).
-*   **Structural Isomerism (அமைப்பு மாற்றியம்):** Chain, Position, Functional, Metamerism.
-*   **Stereoisomerism (வெளிப்புற மாற்றியம்):** Geometrical (cis-trans), Optical isomerism (enantiomers).
+### 3. Covalent Bond Fission (சகப் பிணைப்பு பிளவு)
+*   **Homolytic Fission:** Leads to the formation of free radicals (தனி உறுப்புகள்).
+*   **Heterolytic Fission:** Leads to the formation of carbocations (கார்பன் நேர் அயனிகள்) and carbanions (கார்பன் எதிர் அயனிகள்).
+*   **Stability of carbocations and free radicals:** 3° > 2° > 1°.
+*   **Electrophiles and Nucleophiles:** Electron-seeking and nucleus-seeking species.
 
-### 4. Electronic Displacements in Covalent Bonds (சகப் பிணைப்புகளில் எலக்ட்ரான் இடப்பெயர்ச்சி)
-*   **Inductive Effect (தூண்டல் விளைவு):** Permanent displacement of sigma (σ) electrons along a carbon chain due to an electronegativity difference. It's a weak effect that diminishes with distance.
-*   **Resonance Effect (உடனிசைவு விளைவு):** Delocalization (பரவுதல்) of pi (π) electrons in conjugated systems. Leads to resonance structures.
-*   **Electromeric Effect:** Complete transfer of a shared pair of π-electrons to one of the atoms in the presence of an attacking reagent. It's a temporary effect.
-*   **Hyperconjugation (மிகையான உடனிணைப்பு):** Delocalization of sigma (σ) electrons of a C-H bond of an alkyl group attached to an atom of an unsaturated system or to an atom with an unshared p-orbital. Also known as no-bond resonance.
+### 4. Electronic Displacement in a Covalent Bond (சகப் பிணைப்புகளில் எலக்ட்ரான் இடப்பெயர்ச்சி)
+*   **Inductive Effect (தூண்டல் விளைவு):** Permanent displacement of sigma (σ) electrons.
+*   **Electromeric Effect:** Temporary, complete transfer of a shared pair of π-electrons in the presence of an attacking reagent.
+*   **Resonance (உடனிசைவு விளைவு):** Delocalization (பரவுதல்) of pi (π) electrons.
+*   **Hyperconjugation (மிகையான உடனிணைப்பு):** Delocalization of sigma (σ) electrons of a C-H bond.
 
-### 5. Reaction Intermediates (வினை இடைநிலைகள்)
-*   Highly reactive, short-lived species formed during a reaction.
-*   **Carbocations (கார்பன் நேர் அயனிகள்):** Positively charged carbon (sp² hybridized). Stability: 3° > 2° > 1°.
-*   **Carbanions (கார்பன் எதிர் அயனிகள்):** Negatively charged carbon (sp³ hybridized). Stability: 1° > 2° > 3°.
-*   **Free Radicals (தனி உறுப்புகள்):** Neutral species with an unpaired electron.
-
-### 6. Types of Organic Reactions (கரிம வினைகளின் வகைகள்)
-*   **Substitution (பதிலீட்டு வினை):** An atom or group is replaced by another atom or group.
+### 5. Common Types of Organic Reactions (கரிம வினைகளின் வகைகள்)
+*   **Substitution (பதிலீட்டு வினை):** An atom or group is replaced by another.
 *   **Addition (சேர்க்கை வினை):** Atoms are added across a double or triple bond.
-*   **Elimination (நீக்க வினை):** Atoms are removed from adjacent carbons to form a double or triple bond.
+*   **Elimination (நீக்க வினை):** Atoms are removed to form a double or triple bond.
 *   **Rearrangement (மறுசீரமைப்பு வினை):** Migration of an atom or group within a molecule.
 `,
   workedExamples: [

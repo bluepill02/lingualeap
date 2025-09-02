@@ -7,27 +7,28 @@ export const organicCompoundsContainingHalogens: NeetModule = {
   chapter: 'Organic Compounds Containing Halogens',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Haloalkanes and Haloarenes (ஹாலோஆல்கேன்கள் மற்றும் ஹாலோஅரீன்கள்)
-*   **Haloalkanes:** Halogen atom is attached to an sp³-hybridized carbon atom of an alkyl group.
-*   **Haloarenes:** Halogen atom is attached to an sp²-hybridized carbon atom of an aryl group.
+### 1. General Methods of Preparation, Properties, and Reactions
+*   **Haloalkanes:**
+    *   **Preparation:** From alcohols, from hydrocarbons (free-radical halogenation), from alkenes (addition of HX).
+    *   **Properties:** Physical properties like boiling point, solubility.
+    *   **Reactions:** Nucleophilic substitution, elimination reactions.
+*   **Haloarenes:**
+    *   **Preparation:** From hydrocarbons by electrophilic substitution, from diazonium salts (Sandmeyer reaction).
+    *   **Properties:** Physical properties.
+    *   **Reactions:** Nucleophilic substitution (less reactive), electrophilic substitution (halogen is o,p-directing but deactivating).
 
-### 2. Reactions of Haloalkanes
-*   **Nucleophilic Substitution Reactions (கருக்கவர் பதிலீட்டு வினைகள்):** The halogen atom is replaced by a nucleophile.
-    *   **SN1 Reaction:** Two-step mechanism, formation of a carbocation intermediate, rate depends only on the concentration of the alkyl halide. Favored by tertiary halides.
-    *   **SN2 Reaction:** Single-step mechanism, backside attack of the nucleophile, inversion of configuration (Walden inversion). Rate depends on both alkyl halide and nucleophile concentration. Favored by primary halides.
-*   **Elimination Reactions (நீக்க வினைகள்):** Formation of an alkene by the removal of a halogen and a hydrogen atom from adjacent carbons.
-    *   **Saytzeff's Rule (சேட்செஃப் விதி):** In dehydrohalogenation reactions, the preferred product is that alkene which has the greater number of alkyl groups attached to the doubly bonded carbon atoms (more substituted alkene is more stable).
+### 2. Nature of C-X bond (C-X பிணைப்பின் தன்மை)
+*   The carbon-halogen bond is polar due to the higher electronegativity of the halogen atom. The carbon atom bears a partial positive charge, and the halogen atom bears a partial negative charge.
 
-### 3. Reactions of Haloarenes
-*   Haloarenes are much less reactive towards nucleophilic substitution reactions than haloalkanes due to resonance (C-Cl bond acquires partial double bond character).
-*   They undergo electrophilic substitution reactions (halogenation, nitration, etc.). The halogen atom is deactivating but o, p-directing.
+### 3. Mechanisms of Substitution Reactions (பதிலீட்டு வினைகளின் வினைவழிமுறை)
+*   **SN1 Reaction:** Two-step mechanism, formation of a carbocation intermediate. Favored by tertiary halides. Racemization occurs.
+*   **SN2 Reaction:** Single-step mechanism, backside attack of the nucleophile, inversion of configuration (Walden inversion). Favored by primary halides.
 
-### 4. Important Polyhalogen Compounds
-*   **Dichloromethane (CH₂Cl₂):** Used as a solvent.
-*   **Chloroform (CHCl₃):** Used as an anesthetic, but now replaced by safer alternatives.
-*   **Carbon Tetrachloride (CCl₄):** Used as a fire extinguisher under the name Pyrene.
-*   **DDT (Dichlorodiphenyltrichloroethane):** An effective insecticide but is non-biodegradable and causes environmental problems.
-*   **Freons:** Chlorofluorocarbon compounds used as refrigerants, cause ozone layer depletion.
+### 4. Uses and Environmental Effects (பயன்கள் மற்றும் சுற்றுச்சூழல் விளைவுகள்)
+*   **Chloroform (குளோரோஃபார்ம் - CHCl₃):** Formerly used as an anesthetic.
+*   **Iodoform (ஐயோடோஃபார்ம் - CHI₃):** Used as an antiseptic.
+*   **Freons (ஃபிரீயான்கள்):** Chlorofluorocarbons used as refrigerants and propellants. Cause ozone layer depletion.
+*   **DDT (Dichlorodiphenyltrichloroethane):** A powerful insecticide, but it is non-biodegradable and accumulates in the food chain.
 `,
   workedExamples: [
     {

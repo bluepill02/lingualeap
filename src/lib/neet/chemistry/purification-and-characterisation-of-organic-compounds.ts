@@ -11,21 +11,28 @@ export const purificationAndCharacterisationOfOrganicCompounds: NeetModule = {
 *   **Crystallisation (படிகமாக்கல்):** Based on the difference in the solubilities of the compound and the impurities in a suitable solvent.
 *   **Sublimation (பதங்கமாதல்):** For solids that sublime (pass directly from solid to gas), to separate them from non-volatile impurities.
 *   **Distillation (காய்ச்சி வடித்தல்):** To separate volatile liquids from non-volatile impurities, or liquids having a sufficient difference in boiling points.
-*   **Chromatography (நாற்கூறு பிரிகை முறை):** A powerful technique used to separate mixtures. Based on the differential adsorption of components of a mixture on an adsorbent.
+*   **Differential Extraction:** Separating an organic compound from an aqueous solution by shaking with an organic solvent in which it is more soluble.
+*   **Chromatography (நாற்கூறு பிரிகை முறை):** A powerful technique used to separate mixtures. Based on the differential adsorption or partitioning of components of a mixture on a stationary phase over which a mobile phase is passed. Principles and their applications.
 
 ### 2. Qualitative Analysis (பண்பறிப் பகுப்பாய்வு)
 *   **Detection of Carbon and Hydrogen:** Heating the compound with copper(II) oxide. Carbon is oxidized to CO₂ (turns lime water milky), and hydrogen to H₂O (turns anhydrous copper sulphate blue).
-*   **Lassaigne's Test for Nitrogen, Sulphur, and Halogens:** The organic compound is fused with sodium metal to convert these elements into ionic forms (NaCN, Na₂S, NaX).
-    *   **Nitrogen:** Treated with FeSO₄, forms Prussian blue color (ferric ferrocyanide).
-    *   **Sulphur:** With sodium nitroprusside gives a violet color.
-    *   **Halogens:** Acidified with HNO₃ and treated with AgNO₃. White ppt (AgCl), pale yellow ppt (AgBr), yellow ppt (AgI).
+*   **Detection of Nitrogen, Sulphur, and Halogens:**
+    *   **Lassaigne's Test:** The organic compound is fused with sodium metal to convert these elements into ionic forms (NaCN, Na₂S, NaX).
+        *   **Nitrogen:** Treated with FeSO₄, forms Prussian blue color (ferric ferrocyanide).
+        *   **Sulphur:** With sodium nitroprusside gives a violet color.
+        *   **Halogens:** Acidified with HNO₃ and treated with AgNO₃. White ppt (AgCl), pale yellow ppt (AgBr), yellow ppt (AgI).
+*   **Detection of Phosphorus:** The organic compound is heated with an oxidizing agent (sodium peroxide). The phosphorus is converted into phosphate, which is then tested with ammonium molybdate to give a yellow precipitate.
 
 ### 3. Quantitative Analysis (அளவறிப் பகுப்பாய்வு)
-*   **Carbon and Hydrogen (Liebig's Method):** The compound is burnt in excess oxygen and the amounts of CO₂ and H₂O produced are measured.
-*   **Nitrogen (Dumas Method & Kjeldahl's Method):**
+*   Basic principles only.
+*   **Estimation of Carbon and Hydrogen (Liebig's Method):** The compound is burnt in excess oxygen and the amounts of CO₂ and H₂O produced are measured.
+*   **Estimation of Nitrogen (Dumas Method & Kjeldahl's Method):**
     *   **Dumas Method:** The nitrogen-containing compound is heated with copper oxide, and the volume of N₂ gas evolved is measured.
     *   **Kjeldahl's Method:** The compound is heated with concentrated H₂SO₄. The nitrogen is converted to (NH₄)₂SO₄, which is then treated with excess alkali to liberate ammonia. The ammonia is then titrated.
-*   **Halogens (Carius Method):** The compound is heated with fuming HNO₃ and AgNO₃. The halogen is precipitated as silver halide (AgX), which is then weighed.
+*   **Estimation of Halogens (Carius Method):** The compound is heated with fuming HNO₃ and AgNO₃. The halogen is precipitated as silver halide (AgX), which is then weighed.
+*   **Estimation of Sulphur (Carius Method):** The compound is heated with fuming HNO₃. Sulphur is converted to H₂SO₄, which is then precipitated as BaSO₄ by adding BaCl₂ solution.
+*   **Estimation of Phosphorus:** Phosphorus in the compound is oxidized to phosphoric acid, which is precipitated as ammonium phosphomolybdate.
+*   **Calculations of empirical formulae and molecular formulae:** Numerical problems in organic quantitative analysis.
 `,
   workedExamples: [
     {
@@ -393,4 +400,5 @@ export const purificationAndCharacterisationOfOrganicCompounds: NeetModule = {
     }
   ]
 };
+
 

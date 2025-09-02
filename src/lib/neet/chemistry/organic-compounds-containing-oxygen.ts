@@ -7,31 +7,38 @@ export const organicCompoundsContainingOxygen: NeetModule = {
   chapter: 'Organic Compounds Containing Oxygen',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Alcohols, Phenols and Ethers (ஆல்கஹால்கள், பீனால்கள் மற்றும் ஈதர்கள்)
-*   **Alcohols (ஆல்கஹால்கள்):** -OH group attached to an sp³-hybridized carbon.
-*   **Phenols (பீனால்கள்):** -OH group attached directly to an sp²-hybridized carbon of an aromatic ring. Phenols are more acidic than alcohols due to the resonance stabilization of the phenoxide ion.
-*   **Ethers (ஈதர்கள்):** R-O-R'.
-*   **Key Reactions:**
-    *   **Lucas Test:** To distinguish between primary, secondary, and tertiary alcohols using conc. HCl and anhydrous ZnCl₂. (Tertiary > Secondary > Primary reactivity).
-    *   **Williamson Synthesis:** To prepare ethers. R-X + R'-ONa → R-O-R' + NaX.
-    *   **Reimer-Tiemann Reaction:** Conversion of phenol to salicylaldehyde.
-    *   **Kolbe's Reaction:** Conversion of phenol to salicylic acid.
+### 1. Alcohols, Phenols, and Ethers (ஆல்கஹால்கள், பீனால்கள் மற்றும் ஈதர்கள்)
+*   **General methods of preparation, properties, reactions, and uses.**
+*   **Alcohols (ஆல்கஹால்கள்):**
+    *   **Identification of primary, secondary, and tertiary alcohols:** Lucas Test is a key method.
+    *   **Mechanism of dehydration:** Formation of alkenes from alcohols.
+*   **Phenols (பீனால்கள்):**
+    *   **Acidic nature:** Phenols are acidic due to the stability of the phenoxide ion.
+    *   **Electrophilic substitution reactions:** Halogenation, nitration, and sulphonation.
+    *   **Reimer-Tiemann reaction:** A key named reaction for ortho-formylation of phenols.
+*   **Ethers (ஈதர்கள்):** Structure and basic properties.
 
-### 2. Aldehydes, Ketones, and Carboxylic Acids (ஆல்டிஹைடுகள், கீட்டோன்கள் மற்றும் கார்பாக்சிலிக் அமிலங்கள்)
-*   Contain the carbonyl group (C=O).
-*   **Preparation:** Ozonolysis of alkenes, Friedel-Crafts acylation (for ketones), oxidation of alcohols.
-*   **Key Reactions:**
-    *   **Nucleophilic Addition:** Characteristic reaction of aldehydes and ketones.
-    *   **Cannizzaro Reaction:** Aldehydes which do not have an α-hydrogen atom undergo self-oxidation and reduction (disproportionation) on treatment with concentrated alkali.
-    *   **Aldol Condensation:** Aldehydes and ketones having at least one α-hydrogen undergo a reaction in the presence of dilute alkali to form β-hydroxy aldehydes (aldol) or β-hydroxy ketones (ketol).
-    *   **Tests to distinguish Aldehydes from Ketones:** Tollen's test (silver mirror), Fehling's test (red-brown precipitate). Ketones do not give these tests.
-*   **Carboxylic Acids (கார்பாக்சிலிக் அமிலங்கள்):** Contain the carboxyl group (-COOH). They are acidic due to resonance stabilization of the carboxylate ion.
-    *   **Hell-Volhard-Zelinsky (HVZ) Reaction:** Halogenation of carboxylic acids at the α-carbon.
+### 2. Aldehydes and Ketones (ஆல்டிஹைடுகள் மற்றும் கீட்டோன்கள்)
+*   **Nature of carbonyl group (>C=O):** Polar nature.
+*   **Nucleophilic addition to >C=O group:** The characteristic reaction.
+*   **Relative reactivities of aldehydes and ketones:** Aldehydes are generally more reactive than ketones towards nucleophilic addition.
+*   **Important reactions:**
+    *   Nucleophilic addition reactions (addition of HCN, NH₃ and its derivatives), Grignard reagent.
+    *   **Oxidation:** Aldehydes are easily oxidized.
+    *   **Reduction:** Reduction to alcohols (e.g., using NaBH₄) and to hydrocarbons (**Wolf Kishner and Clemmensen** reductions).
+    *   **Acidity of α-hydrogen:** The α-hydrogen is acidic.
+    *   **Aldol condensation:** A key reaction for aldehydes/ketones with α-hydrogen.
+    *   **Cannizzaro reaction:** A key reaction for aldehydes without α-hydrogen.
+    *   **Haloform reaction:** A test for methyl ketones.
+*   **Chemical tests to distinguish between aldehydes and Ketones:** Tollen's test, Fehling's test.
+
+### 3. Carboxylic Acids (கார்பாக்சிலிக் அமிலங்கள்)
+*   **Acidic strength and factors affecting it:** The presence of electron-withdrawing groups increases acidity, while electron-donating groups decrease it.
 `,
   workedExamples: [
     {
-        problem: "An organic compound with the formula C₃H₈O gives a positive Lucas test immediately. Identify the compound.",
-        solution: "A positive Lucas test immediately indicates the presence of a tertiary alcohol. The only tertiary alcohol with the formula C₃H₈O is not possible. Let's assume the formula is C₄H₁₀O. The tertiary alcohol would be 2-Methylpropan-2-ol, (CH₃)₃COH."
+        problem: "An organic compound with the formula C₄H₁₀O gives a positive Lucas test immediately. Identify the compound.",
+        solution: "A positive Lucas test immediately indicates the presence of a tertiary alcohol. The only tertiary alcohol with the formula C₄H₁₀O is **2-Methylpropan-2-ol**, (CH₃)₃COH."
     },
     {
         problem: "How would you distinguish between propanal (CH₃CH₂CHO) and propanone (CH₃COCH₃)?",
