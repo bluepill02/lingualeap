@@ -30,7 +30,7 @@ export const oscillationsAndWaves: NeetModule = {
     studyTips: [
       {
         tip: "All SHM problems can be solved by considering either the force (F=-kx) or energy (E = ½kA² = constant). Choose the method that is simpler for the given problem.",
-        NEET_Hack": "For a simple pendulum, the time period \\(T = 2\\pi\\sqrt{L/g}\\) is independent of the mass and amplitude (for small angles). Many NEET questions try to trick you by changing the mass of the bob; remember that it has no effect on the time period."
+        NEET_Hack: "For a simple pendulum, the time period \\(T = 2\\pi\\sqrt{L/g}\\) is independent of the mass and amplitude (for small angles). Many NEET questions try to trick you by changing the mass of the bob; remember that it has no effect on the time period."
       },
       {
         tip: "Memorize the conditions for nodes and antinodes in standing waves for both strings and pipes (open and closed). Draw the first few harmonics to visualize them.",
@@ -152,4 +152,4 @@ The solid line shows the wave at one instant, and the faint lines show its oscil
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** If a child on a swing wants to go higher, they "pump" their legs. From a physics perspective, how does this add energy to the oscillating system? Discuss this on our forum.
 `
-  
+};
