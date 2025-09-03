@@ -156,4 +156,4 @@ Slope_adiabatic = γ * Slope_isothermal.
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** Can the temperature of a gas be increased without supplying any heat to it? If yes, how? Discuss this application of the First Law on our forum.
 `
-  
+};
