@@ -2,43 +2,11 @@
 import type { NeetModule } from '@/lib/types';
 
 export const atomsAndNuclei: NeetModule = {
-  metadata: {
-    id: 'physics-atoms-and-nuclei',
-    title: 'Atoms and Nuclei (அணுக்களும் அணுக்கருக்களும்)',
-    chapter: 'Unit 18: Atoms and Nuclei',
-    subject: 'Physics',
-    glossary: [
-      { English: 'Bohr Model', தமிழ்: 'போர் மாதிரி' },
-      { English: 'Binding Energy', தமிழ்: 'பிணைப்பு ஆற்றல்' },
-      { English: 'Mass Defect', தமிழ்: 'நிறை வழு' },
-      { English: 'Nuclear Fission', தமிழ்: 'அணுக்கரு பிளவு' },
-      { English: 'Nuclear Fusion', தமிழ்: 'அணுக்கரு இணைவு' }
-    ],
-    learningObjectives: [
-      "Describe Rutherford's alpha-scattering experiment and the conclusions drawn from it.",
-      "Apply Bohr's model postulates to calculate the radius and energy levels of the hydrogen atom.",
-      "Explain the concepts of mass defect and binding energy and their relation to nuclear stability.",
-      "Differentiate between nuclear fission and fusion and their applications."
-    ],
-    prerequisites: [
-      "Understanding of electrostatic force (Coulomb's Law).",
-      "Concepts of energy and momentum conservation.",
-      "Knowledge of the dual nature of matter and radiation."
-    ],
-    conceptOverview: "From the smallest particle of gold in a Thirumangalyam (திருமாங்கல்யம்) to the vastness of the universe, everything is made of atoms. But what is inside an atom? This chapter, **Atoms and Nuclei** (அணுக்களும் அணுக்கருக்களும்), takes us on a journey into the heart of matter. We will explore models of the atom, from Rutherford's discovery of the nucleus to Bohr's explanation of atomic spectra. Then, we will dive deeper into the nucleus itself, uncovering the immense energy that binds it together (binding energy) and the processes that can release this energy: fission and fusion, the power behind nuclear reactors and the stars.",
-    tnBoardMapping: "This unit corresponds to the Tamil Nadu State Board Class 12 Physics Volume 2, Chapter 9 ('Atomic and Nuclear Physics'). This is a very important chapter for NEET, with a high chance of questions from Bohr's model, radioactivity, and binding energy curve.",
-    studyTips: [
-      {
-        tip: "The energy level diagram for the hydrogen atom is crucial. Memorize the energy values for the first few levels (n=1 is -13.6 eV, n=2 is -3.4 eV, etc.). This will help you quickly calculate the energy of photons emitted or absorbed during transitions.",
-        NEET_Hack: "Radioactivity problems almost always involve half-life. Remember that after 'n' half-lives, the amount of substance remaining is N = N₀ / 2ⁿ. This is much faster than using the exponential decay formula N = N₀e⁻ˡᵗ for many problems."
-      },
-      {
-        tip: "The binding energy per nucleon curve is key to understanding nuclear stability. Iron (Fe) is at the peak, making it the most stable. Fission (splitting heavy nuclei) and fusion (joining light nuclei) both release energy because they move towards this peak of stability.",
-        NEET_Hack: "In nuclear reactions, always check for the conservation of mass number (A) and atomic number (Z). The sum of A on the left side must equal the sum of A on the right side, and the same for Z. This is the fastest way to identify the unknown particle in a reaction."
-      }
-    ]
-  },
-  content: `
+  id: 'physics-atoms-and-nuclei',
+  title: 'Atoms and Nuclei (அணுக்களும் அணுக்கருக்களும்)',
+  chapter: 'Unit 18: Atoms and Nuclei',
+  subject: 'Physics',
+  conceptNotes: `
 # 1. Module Title
 – Physics – Atoms and Nuclei (இயற்பியல் - அணுக்களும் அணுக்கருக்களும்)
 
@@ -111,50 +79,9 @@ This unit corresponds to the **Tamil Nadu State Board Class 12 Physics Volume 2,
 | \\( R = R_0A^{1/3} \\) | Nuclear Radius (அணுக்கரு ஆரம்) |
 | \\( E_b = \\Delta m c^2 \\) | Binding Energy (பிணைப்பு ஆற்றல்) |
 | \\( N = N_0e^{-\\lambda t} \\) | Law of Radioactive Decay (கதிரியக்கச் சிதைவு விதி) |
-
-<br>
-
-<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-    <rect width="300" height="200" style="fill:white;stroke-width:1;stroke:black" />
-    <text x="150" y="20" font-family="Verdana" font-size="14" text-anchor="middle" fill="black">Binding Energy Curve</text>
-    <text x="150" y="35" font-family="Verdana" font-size="10" text-anchor="middle" fill="gray">(பிணைப்பு ஆற்றல் வளைகோடு)</text>
-    <path d="M 10 170 Q 30 140, 60 80 T 130 50 T 200 80 Q 250 100, 280 120" stroke="blue" stroke-width="2" fill="none"/>
-    <line x1="10" y1="180" x2="290" y2="180" stroke="black" marker-end="url(#arrow)"/>
-    <text x="280" y="195">A (Mass No.)</text>
-    <line x1="10" y1="180" x2="10" y2="30" stroke="black" marker-end="url(#arrow)"/>
-    <text x="0" y="40" font-size="10">B.E./A (MeV)</text>
-    <circle cx="130" cy="50" r="3" fill="red"/>
-    <text x="130" y="45" font-size="10" text-anchor="middle">Fe (Peak Stability)</text>
-</svg>
-
-\`\`\`
-DIAGRAM: Binding Energy Curve (பிணைப்பு ஆற்றல் வளைகோடு)
-Shows the binding energy per nucleon (B.E./A) plotted against the mass number (A).
-The curve rises sharply, peaks around Iron (Fe), and then slowly decreases for heavier nuclei.
-This peak represents the most stable nuclei.
-\`\`\`
-
-# 8. Downloadable Summary & Mnemonics
-> **Tamil Mnemonic:** ஹைட்ரஜன் நிறமாலை வரிசைகள் (Hydrogen spectral series): **L**yman **B**almer **P**aschen **B**rackett **P**fund. মনে রাখতে: "**L**ovely **B**eautiful **P**rincess **B**rings **P**eace." (Lyman=UV, Balmer=Visible, others=Infrared).
-
-> **NEET Hack:** During radioactive decay, remember what is emitted to quickly find the new nucleus:
-> *   α-decay: Z decreases by 2, A decreases by 4.
-> *   β⁻-decay: Z increases by 1, A is unchanged.
-> *   β⁺-decay: Z decreases by 1, A is unchanged.
-
-[Download PDF Summary of Atoms and Nuclei](/downloads/atoms-nuclei-summary.pdf)
-
-# 9. Quiz Yourself
-1.  What was the main shortcoming of Rutherford's atomic model, and how did Bohr's model address it?
-2.  If the binding energy per nucleon of nucleus X is higher than that of nucleus Y, which nucleus is more stable?
-3.  Why is a very high temperature required for nuclear fusion to occur, but not for nuclear fission?
-
-> **Student Tip (மாணவர் கருத்து):** அணுக்கரு பிணைப்பு ஆற்றல் (binding energy) மற்றும் நிறை வழு (mass defect) கணக்குகளில் உங்களுக்கு குழப்பம் உள்ளதா? இந்த இரண்டு கருத்துக்களுக்கும் உள்ள தொடர்பை உங்கள் நண்பர்களுடன் விவாதிக்கவும்.
-
-# 10. Next Steps & Community Discussion
-– **Next Module:** Electronic Devices (மின்னணு சாதனங்கள்). We will see how our understanding of atoms and energy bands leads to the creation of semiconductors, diodes, and transistors - the building blocks of all modern electronics.
-
-– **உறுதிப்பெற பறவை! (Discuss & Soar!):** Nuclear fusion releases more energy per nucleon than fission. Why then are all current nuclear power plants based on fission and not fusion? Discuss the practical challenges on our forum.
-`
-  
-}
+`,
+  workedExamples: [],
+  mcqs: [],
+  assertionReasons: [],
+  matchTheColumns: []
+};

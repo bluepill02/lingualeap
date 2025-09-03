@@ -6,36 +6,6 @@ const physicsAndMeasurement: NeetModule = {
   title: 'Physics and Measurement (இயற்பியல் மற்றும் அளவீட்டியல்)',
   chapter: 'Unit 1: Physics and Measurement',
   subject: 'Physics',
-  conceptNotes: `
-### Units of Measurements (அலகுகள் மற்றும் அளவீடுகள்)
-Physics is built on measurement. To measure a physical quantity, we compare it with a standard amount of that quantity, which is called a **unit** (அலகு). A good unit should be well-defined, accessible, and not change with time or physical conditions.
-
-### System of Units (அலகு முறைகள்)
-A complete set of both fundamental and derived units is called a system of units. The **SI system** (Système International) is the modern, internationally accepted system. It is a decimal system, making conversions easy. There are seven **fundamental units** (அடிப்படை அலகுகள்) from which all other **derived units** (வழியலகுகள்) are obtained.
-
-### Errors in Measurement (அளவீட்டுப் பிழைகள்)
-The difference between the true value and the measured value of a quantity is called an **error** (பிழை). Errors can be systematic (due to faulty instruments or procedures) or random (due to unpredictable fluctuations). Accuracy is the closeness to the true value, while precision is the limit to which the quantity is measured. The smallest value that can be measured by an instrument is its **least count** (மீச்சிற்றளவு). The combination of errors in calculations (addition, subtraction, multiplication, division, powers) is a very important topic for NEET.
-
-### Significant Figures (முக்கிய எண்ணுருக்கள்)
-**Significant figures** (முக்கிய எண்ணுருக்கள்) are the reliable digits in a measurement which are known with certainty plus one uncertain digit. They indicate the precision of a measurement. There are specific rules for counting them and for using them in calculations to ensure the result is not more precise than the original measurements.
-
-### Dimensions and Dimensional Analysis (பரிமாணங்கள் மற்றும் பரிமாணப் பகுப்பாய்வு)
-The **dimensions** of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. For example, velocity = distance/time, so its dimension is [L]/[T] or [LT⁻¹]. **Dimensional analysis** (பரிமாணப் பகுப்பாய்வு) is used to check the correctness of an equation (**Principle of Homogeneity**) and to derive relationships between physical quantities.
-  `,
-  workedExamples: [
-    {
-        problem: "Check the dimensional correctness of the equation \\(v = u + at\\).",
-        solution: "Dimension of \\(v\\) (final velocity) = [LT⁻¹]. Dimension of \\(u\\) (initial velocity) = [LT⁻¹]. Dimension of \\(at\\) (acceleration × time) = [LT⁻²] × [T] = [LT⁻¹]. Since all terms have the same dimension [LT⁻¹], the equation is dimensionally correct."
-    },
-    {
-        problem: "A physical quantity P is related to four observables a, b, c, and d as follows: \\(P = \\frac{a^3b^2}{\\sqrt{c} d}\\). The percentage errors of measurement in a, b, c, and d are 1%, 3%, 4%, and 2%, respectively. What is the percentage error in the quantity P?",
-        solution: "The relative error in P is given by the formula: \\(\\frac{\\Delta P}{P} = 3\\frac{\\Delta a}{a} + 2\\frac{\\Delta b}{b} + \\frac{1}{2}\\frac{\\Delta c}{c} + \\frac{\\Delta d}{d}\\). The percentage error is 100 times the relative error. % Error in P = \\(3(1\\%) + 2(3\\%) + \\frac{1}{2}(4\\%) + 1(2\\%)\\) = \\(3\\% + 6\\% + 2\\% + 2\\% = 13\\%\\)."
-    },
-    {
-        problem: "The period of oscillation of a simple pendulum is \\(T = 2\\pi\\sqrt{\\frac{L}{g}}\\). The measured value of L is 20.0 cm known to 1 mm accuracy and time for 100 oscillations is found to be 90 s using a wrist watch of 1 s resolution. What is the accuracy in the determination of g?",
-        solution: "1. Express \\(g\\) in terms of T and L: \\(g = \\frac{4\\pi^2L}{T^2}\\). 2. The relative error in \\(g\\) is \\(\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T}\\). 3. Given: \\(L = 20.0 \\text{ cm}\\), \\(\\Delta L = 1 \\text{ mm} = 0.1 \\text{ cm}\\). So, \\(\\frac{\\Delta L}{L} = \\frac{0.1}{20.0} = 0.005\\). 4. The time period \\(T = \\frac{\\text{total time}}{\\text{number of oscillations}} = \\frac{90s}{100} = 0.9 \\text{ s}\\). 5. The error in total time \\(\\Delta t = 1 \\text{ s}\\). The error in the period \\(\\Delta T = \\frac{\\Delta t}{100} = \\frac{1s}{100} = 0.01 \\text{ s}\\). 6. So, \\(\\frac{\\Delta T}{T} = \\frac{0.01}{0.9} \\approx 0.011\\). 7. Substitute into the error formula: \\(\\frac{\\Delta g}{g} = 0.005 + 2(0.011) = 0.005 + 0.022 = 0.027\\). 8. The percentage error is \\(0.027 \\times 100 = 2.7\\%\\)."
-    }
-  ],
   mcqs: [
         {
             "question": "Which of the following is not a fundamental quantity?",
