@@ -401,5 +401,6 @@ export const atomicStructure: NeetModule = {
         "answer": "a-iv, b-i, c-ii, d-iii"
     }
 ]
-
 };
+
+    

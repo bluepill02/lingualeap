@@ -56,3 +56,5 @@ export const chemicalThermodynamics: NeetModule = {
   assertionReasons: [],
   matchTheColumns: []
 };
+
+    
