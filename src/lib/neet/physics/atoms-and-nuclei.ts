@@ -34,157 +34,157 @@ export const atomsAndNuclei: NeetModule = {
   ],
   mcqs: [
     {
-        question: "The spectral series of hydrogen atom that lies in the visible region is:",
-        options: ["Lyman series", "Balmer series", "Paschen series", "Brackett series"],
-        answer: "Balmer series",
-        explanation: "The Balmer series corresponds to electron transitions ending at n=2, and its spectral lines fall within the visible part of the spectrum."
+        "question": "The spectral series of hydrogen atom that lies in the visible region is:",
+        "options": ["Lyman series", "Balmer series", "Paschen series", "Brackett series"],
+        "answer": "Balmer series",
+        "explanation": "The Balmer series corresponds to electron transitions ending at n=2, and its spectral lines fall within the visible part of the spectrum."
     },
     {
-        question: "The radius of a nucleus is related to its mass number A by:",
-        options: ["R ∝ A²", "R ∝ A", "R ∝ A¹/³", "R ∝ A¹/²"],
-        answer: "R ∝ A¹/³",
-        explanation: "The nuclear radius is experimentally found to be R = R₀A¹/³, where R₀ is a constant."
+        "question": "The radius of a nucleus is related to its mass number A by:",
+        "options": ["R ∝ A²", "R ∝ A", "R ∝ A¹/³", "R ∝ A¹/²"],
+        "answer": "R ∝ A¹/³",
+        "explanation": "The nuclear radius is experimentally found to be R = R₀A¹/³, where R₀ is a constant."
     },
     {
-        question: "In a nuclear reactor, the purpose of a moderator is to:",
-        options: ["Absorb neutrons", "Speed up neutrons", "Slow down fast neutrons", "Produce neutrons"],
-        answer: "Slow down fast neutrons",
-        explanation: "Moderators like heavy water or graphite are used to slow down the fast neutrons produced during fission to thermal energies, which are more effective in causing further fission."
+        "question": "In a nuclear reactor, the purpose of a moderator is to:",
+        "options": ["Absorb neutrons", "Speed up neutrons", "Slow down fast neutrons", "Produce neutrons"],
+        "answer": "Slow down fast neutrons",
+        "explanation": "Moderators like heavy water or graphite are used to slow down the fast neutrons produced during fission to thermal energies, which are more effective in causing further fission."
     },
     {
-        question: "The half-life of a radioactive substance is 10 days. The time taken for 7/8th of its original mass to disintegrate is:",
-        options: ["10 days", "20 days", "30 days", "40 days"],
-        answer: "30 days",
-        explanation: "Disintegration of 7/8 means 1/8 remains. N₀ → N₀/2 (1 half-life) → N₀/4 (2 half-lives) → N₀/8 (3 half-lives). So, time taken = 3 * T₁/₂ = 3 * 10 = 30 days."
+        "question": "The half-life of a radioactive substance is 10 days. The time taken for 7/8th of its original mass to disintegrate is:",
+        "options": ["10 days", "20 days", "30 days", "40 days"],
+        "answer": "30 days",
+        "explanation": "Disintegration of 7/8 means 1/8 remains. N₀ → N₀/2 (1 half-life) → N₀/4 (2 half-lives) → N₀/8 (3 half-lives). So, time taken = 3 * T₁/₂ = 3 * 10 = 30 days."
     },
     {
-        question: "Which of the following is used as a moderator in a nuclear reactor?",
-        options: ["Uranium", "Cadmium", "Heavy water", "Plutonium"],
-        answer: "Heavy water",
-        explanation: "Heavy water (D₂O) and graphite are common moderators used in nuclear reactors."
+        "question": "Which of the following is used as a moderator in a nuclear reactor?",
+        "options": ["Uranium", "Cadmium", "Heavy water", "Plutonium"],
+        "answer": "Heavy water",
+        "explanation": "Heavy water (D₂O) and graphite are common moderators used in nuclear reactors."
     },
     {
-        question: "The energy source of the Sun is:",
-        options: ["Nuclear fission", "Chemical reaction", "Nuclear fusion", "Gravitational contraction"],
-        answer: "Nuclear fusion",
-        explanation: "The Sun's energy is produced by the fusion of light nuclei (hydrogen) into heavier nuclei (helium)."
+        "question": "The energy source of the Sun is:",
+        "options": ["Nuclear fission", "Chemical reaction", "Nuclear fusion", "Gravitational contraction"],
+        "answer": "Nuclear fusion",
+        "explanation": "The Sun's energy is produced by the fusion of light nuclei (hydrogen) into heavier nuclei (helium)."
     },
     {
-        question: "Which of the following particles is emitted during β⁻ decay?",
-        options: ["Electron", "Positron", "Proton", "Neutron"],
-        answer: "Electron",
-        explanation: "In β⁻ decay, a neutron inside the nucleus converts into a proton, an electron, and an antineutrino. The electron is emitted from the nucleus."
+        "question": "Which of the following particles is emitted during β⁻ decay?",
+        "options": ["Electron", "Positron", "Proton", "Neutron"],
+        "answer": "Electron",
+        "explanation": "In β⁻ decay, a neutron inside the nucleus converts into a proton, an electron, and an antineutrino. The electron is emitted from the nucleus."
     },
     {
-        question: "The binding energy per nucleon is maximum for:",
-        options: ["Helium", "Iron", "Uranium", "Hydrogen"],
-        answer: "Iron",
-        explanation: "The binding energy per nucleon curve peaks at iron (Fe-56), making it one of the most stable nuclei."
+        "question": "The binding energy per nucleon is maximum for:",
+        "options": ["Helium", "Iron", "Uranium", "Hydrogen"],
+        "answer": "Iron",
+        "explanation": "The binding energy per nucleon curve peaks at iron (Fe-56), making it one of the most stable nuclei."
     },
     {
-        question: "The rate of radioactive decay is proportional to:",
-        options: ["The time elapsed", "The temperature", "The number of undecayed nuclei", "The pressure"],
-        answer: "The number of undecayed nuclei",
-        explanation: "The law of radioactive decay states that dN/dt = -λN."
+        "question": "The rate of radioactive decay is proportional to:",
+        "options": ["The time elapsed", "The temperature", "The number of undecayed nuclei", "The pressure"],
+        "answer": "The number of undecayed nuclei",
+        "explanation": "The law of radioactive decay states that dN/dt = -λN."
     },
     {
-        question: "The relation between half-life (T₁/₂) and decay constant (λ) is:",
-        options: ["T₁/₂ = λ", "T₁/₂ = 1/λ", "T₁/₂ = 0.693/λ", "T₁/₂ = 0.693 * λ"],
-        answer: "T₁/₂ = 0.693/λ",
-        explanation: "This is the standard formula relating half-life and the decay constant."
+        "question": "The relation between half-life (T₁/₂) and decay constant (λ) is:",
+        "options": ["T₁/₂ = λ", "T₁/₂ = 1/λ", "T₁/₂ = 0.693/λ", "T₁/₂ = 0.693 * λ"],
+        "answer": "T₁/₂ = 0.693/λ",
+        "explanation": "This is the standard formula relating half-life and the decay constant."
     },
     {
-        question: "Rutherford's alpha-particle scattering experiment was responsible for the discovery of:",
-        options: ["Electron", "Proton", "Atomic Nucleus", "Neutron"],
-        answer: "Atomic Nucleus",
-        explanation: "The scattering of alpha particles indicated the presence of a small, dense, positively charged nucleus at the center of the atom."
+        "question": "Rutherford's alpha-particle scattering experiment was responsible for the discovery of:",
+        "options": ["Electron", "Proton", "Atomic Nucleus", "Neutron"],
+        "answer": "Atomic Nucleus",
+        "explanation": "The scattering of alpha particles indicated the presence of a small, dense, positively charged nucleus at the center of the atom."
     },
     {
-        question: "The ratio of the size of the nucleus to the size of the atom is of the order of:",
-        options: ["10⁻¹", "10⁻⁵", "10⁻¹⁰", "10⁻¹⁵"],
-        answer: "10⁻⁵",
-        explanation: "The nucleus radius is of the order of 10⁻¹⁵ m and the atomic radius is of the order of 10⁻¹⁰ m. The ratio is 10⁻¹⁵/10⁻¹⁰ = 10⁻⁵."
+        "question": "The ratio of the size of the nucleus to the size of the atom is of the order of:",
+        "options": ["10⁻¹", "10⁻⁵", "10⁻¹⁰", "10⁻¹⁵"],
+        "answer": "10⁻⁵",
+        "explanation": "The nucleus radius is of the order of 10⁻¹⁵ m and the atomic radius is of the order of 10⁻¹⁰ m. The ratio is 10⁻¹⁵/10⁻¹⁰ = 10⁻⁵."
     },
     {
-        question: "Isobars are nuclei with the same number of:",
-        options: ["Protons", "Neutrons", "Electrons", "Nucleons"],
-        answer: "Nucleons",
-        explanation: "Isobars are atoms of different elements having the same mass number (A), which is the total number of nucleons (protons + neutrons)."
+        "question": "Isobars are nuclei with the same number of:",
+        "options": ["Protons", "Neutrons", "Electrons", "Nucleons"],
+        "answer": "Nucleons",
+        "explanation": "Isobars are atoms of different elements having the same mass number (A), which is the total number of nucleons (protons + neutrons)."
     },
     {
-        question: "The angular momentum of an electron in the nth orbit of a hydrogen atom, according to Bohr's model, is:",
-        options: ["nh", "nh/2π", "n²h/2π", "h/n"],
-        answer: "nh/2π",
-        explanation: "Bohr's second postulate states that the angular momentum is an integral multiple of h/2π."
+        "question": "The angular momentum of an electron in the nth orbit of a hydrogen atom, according to Bohr's model, is:",
+        "options": ["nh", "nh/2π", "n²h/2π", "h/n"],
+        "answer": "nh/2π",
+        "explanation": "Bohr's second postulate states that the angular momentum is an integral multiple of h/2π."
     },
     {
-        question: "What happens to the atomic number and mass number of a nucleus when it emits a gamma ray?",
-        options: ["Atomic number decreases by 1, mass number is unchanged", "Atomic number increases by 1, mass number is unchanged", "Both remain unchanged", "Both decrease by 4 and 2 respectively"],
-        answer: "Both remain unchanged",
-        explanation: "Gamma decay involves the emission of a high-energy photon from an excited nucleus to a lower energy state. It does not change the number of protons or neutrons."
+        "question": "What happens to the atomic number and mass number of a nucleus when it emits a gamma ray?",
+        "options": ["Atomic number decreases by 1, mass number is unchanged", "Atomic number increases by 1, mass number is unchanged", "Both remain unchanged", "Both decrease by 4 and 2 respectively"],
+        "answer": "Both remain unchanged",
+        "explanation": "Gamma decay involves the emission of a high-energy photon from an excited nucleus to a lower energy state. It does not change the number of protons or neutrons."
     },
     {
-        question: "One atomic mass unit (amu) is equivalent to:",
-        options: ["931.5 MeV", "1.6 x 10⁻¹⁹ J", "1 MeV", "9.1 x 10⁻³¹ kg"],
-        answer: "931.5 MeV",
-        explanation: "From E=mc², the energy equivalent of 1 amu is approximately 931.5 MeV."
+        "question": "One atomic mass unit (amu) is equivalent to:",
+        "options": ["931.5 MeV", "1.6 x 10⁻¹⁹ J", "1 MeV", "9.1 x 10⁻³¹ kg"],
+        "answer": "931.5 MeV",
+        "explanation": "From E=mc², the energy equivalent of 1 amu is approximately 931.5 MeV."
     },
     {
-        question: "In the reaction ¹⁴N + ⁴He → ¹⁷O + X, the particle X is:",
-        options: ["An electron", "A proton", "A neutron", "A positron"],
-        answer: "A proton",
-        explanation: "To balance the mass number: 14+4 = 17+A, so A=1. To balance the atomic number: 7+2 = 8+Z, so Z=1. A particle with A=1 and Z=1 is a proton (¹H)."
+        "question": "In the reaction ¹⁴N + ⁴He → ¹⁷O + X, the particle X is:",
+        "options": ["An electron", "A proton", "A neutron", "A positron"],
+        "answer": "A proton",
+        "explanation": "To balance the mass number: 14+4 = 17+A, so A=1. To balance the atomic number: 7+2 = 8+Z, so Z=1. A particle with A=1 and Z=1 is a proton (¹H)."
     },
     {
-        question: "The process in which a heavy nucleus splits into two lighter nuclei is called:",
-        options: ["Fusion", "Fission", "Alpha decay", "Beta decay"],
-        answer: "Fission",
-        explanation: "Nuclear fission is the splitting of a heavy, unstable nucleus into two lighter nuclei."
+        "question": "The process in which a heavy nucleus splits into two lighter nuclei is called:",
+        "options": ["Fusion", "Fission", "Alpha decay", "Beta decay"],
+        "answer": "Fission",
+        "explanation": "Nuclear fission is the splitting of a heavy, unstable nucleus into two lighter nuclei."
     },
     {
-        question: "The shortest wavelength in the Balmer series corresponds to a transition from:",
-        options: ["n=3 to n=2", "n=∞ to n=2", "n=2 to n=1", "n=∞ to n=1"],
-        answer: "n=∞ to n=2",
-        explanation: "The shortest wavelength corresponds to the highest energy transition. For the Balmer series (transitions to n=2), the highest energy transition is from n=∞."
+        "question": "The shortest wavelength in the Balmer series corresponds to a transition from:",
+        "options": ["n=3 to n=2", "n=∞ to n=2", "n=2 to n=1", "n=∞ to n=1"],
+        "answer": "n=∞ to n=2",
+        "explanation": "The shortest wavelength corresponds to the highest energy transition. For the Balmer series (transitions to n=2), the highest energy transition is from n=∞."
     },
     {
-        question: "The activity of a radioactive sample is measured in:",
-        options: ["Joule", "Becquerel", "Tesla", "Weber"],
-        answer: "Becquerel",
-        explanation: "The SI unit of radioactivity is the Becquerel (Bq), where 1 Bq = 1 decay per second. Another common unit is the Curie (Ci)."
+        "question": "The activity of a radioactive sample is measured in:",
+        "options": ["Joule", "Becquerel", "Tesla", "Weber"],
+        "answer": "Becquerel",
+        "explanation": "The SI unit of radioactivity is the Becquerel (Bq), where 1 Bq = 1 decay per second. Another common unit is the Curie (Ci)."
     },
     {
-        question: "Which of the following is not conserved in a nuclear reaction?",
-        options: ["Charge", "Momentum", "Mass", "Energy"],
-        answer: "Mass",
-        explanation: "In nuclear reactions, a small amount of mass is converted into a large amount of energy (or vice versa) according to E=mc². Thus, mass is not conserved, but mass-energy is."
+        "question": "Which of the following is not conserved in a nuclear reaction?",
+        "options": ["Charge", "Momentum", "Mass", "Energy"],
+        "answer": "Mass",
+        "explanation": "In nuclear reactions, a small amount of mass is converted into a large amount of energy (or vice versa) according to E=mc². Thus, mass is not conserved, but mass-energy is."
     },
     {
-        question: "The force that binds the nucleons together in a nucleus is the:",
-        options: ["Gravitational force", "Electrostatic force", "Strong nuclear force", "Weak nuclear force"],
-        answer: "Strong nuclear force",
-        explanation: "The strong nuclear force is the fundamental force that holds protons and neutrons together in the nucleus, overcoming the electrostatic repulsion between protons."
+        "question": "The force that binds the nucleons together in a nucleus is the:",
+        "options": ["Gravitational force", "Electrostatic force", "Strong nuclear force", "Weak nuclear force"],
+        "answer": "Strong nuclear force",
+        "explanation": "The strong nuclear force is the fundamental force that holds protons and neutrons together in the nucleus, overcoming the electrostatic repulsion between protons."
     },
     {
-        question: "The average life (τ) of a radioactive substance is related to its half-life (T₁/₂) by:",
-        options: ["τ = T₁/₂", "τ = 0.693 * T₁/₂", "τ = T₁/₂ / 0.693", "τ = 2 * T₁/₂"],
-        answer: "τ = T₁/₂ / 0.693",
-        explanation: "The average life τ = 1/λ and the half-life T₁/₂ = ln(2)/λ = 0.693/λ. Therefore, τ = T₁/₂ / 0.693."
+        "question": "The average life (τ) of a radioactive substance is related to its half-life (T₁/₂) by:",
+        "options": ["τ = T₁/₂", "τ = 0.693 * T₁/₂", "τ = T₁/₂ / 0.693", "τ = 2 * T₁/₂"],
+        "answer": "τ = T₁/₂ / 0.693",
+        "explanation": "The average life τ = 1/λ and the half-life T₁/₂ = ln(2)/λ = 0.693/λ. Therefore, τ = T₁/₂ / 0.693."
     },
     {
-        question: "During alpha decay, the mass number of the nucleus:",
-        options: ["Decreases by 2", "Decreases by 4", "Increases by 2", "Remains unchanged"],
-        answer: "Decreases by 4",
-        explanation: "An alpha particle is a helium nucleus (⁴He₂), so its emission decreases the mass number by 4 and the atomic number by 2."
+        "question": "During alpha decay, the mass number of the nucleus:",
+        "options": ["Decreases by 2", "Decreases by 4", "Increases by 2", "Remains unchanged"],
+        "answer": "Decreases by 4",
+        "explanation": "An alpha particle is a helium nucleus (⁴He₂), so its emission decreases the mass number by 4 and the atomic number by 2."
     },
     {
-        question: "Bohr's model of the atom:",
-        options: ["Assumes that the angular momentum of electrons is quantized", "Uses Einstein's photoelectric equation", "Predicts the same emission spectra for all types of atoms", "Could explain the Zeeman effect"],
-        answer: "Assumes that the angular momentum of electrons is quantized",
-        explanation: "The quantization of angular momentum (L = nh/2π) is one of the fundamental postulates of Bohr's model."
+        "question": "Bohr's model of the atom:",
+        "options": ["Assumes that the angular momentum of electrons is quantized", "Uses Einstein's photoelectric equation", "Predicts the same emission spectra for all types of atoms", "Could explain the Zeeman effect"],
+        "answer": "Assumes that the angular momentum of electrons is quantized",
+        "explanation": "The quantization of angular momentum (L = nh/2π) is one of the fundamental postulates of Bohr's model."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The density of a nucleus is independent of its mass number.",
         "reason": "The radius of a nucleus is proportional to the cube root of its mass number (R ∝ A¹/³).",
@@ -276,31 +276,31 @@ export const atomsAndNuclei: NeetModule = {
         "explanation": "The reason correctly explains the concept of mass defect, which is the physical basis for the assertion."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
-        column1: ["a) Alpha decay", "b) Beta (β⁻) decay", "c) Gamma decay", "d) Fission"],
-        column2: ["i) Z increases by 1", "ii) No change in Z or A", "iii) Heavy nucleus splits", "iv) A decreases by 4"],
-        answer: "a-iv, b-i, c-ii, d-iii"
+        "column1": ["a) Alpha decay", "b) Beta (β⁻) decay", "c) Gamma decay", "d) Fission"],
+        "column2": ["i) Z increases by 1", "ii) No change in Z or A", "iii) Heavy nucleus splits", "iv) A decreases by 4"],
+        "answer": "a-iv, b-i, c-ii, d-iii"
     },
     {
-        column1: ["a) Lyman series", "b) Balmer series", "c) Paschen series", "d) Pfund series"],
-        column2: ["i) Visible region", "ii) Infrared region (n₁=5)", "iii) UV region", "iv) Infrared region (n₁=3)"],
-        answer: "a-iii, b-i, c-iv, d-ii"
+        "column1": ["a) Lyman series", "b) Balmer series", "c) Paschen series", "d) Pfund series"],
+        "column2": ["i) Visible region", "ii) Infrared region (n₁=5)", "iii) UV region", "iv) Infrared region (n₁=3)"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
     },
     {
-        column1: ["a) Half-life", "b) Activity", "c) Mass defect", "d) Binding energy"],
-        column2: ["i) Δm = [Zm_p + (A-Z)m_n] - M_nuc", "ii) E_b = Δmc²", "iii) T₁/₂ = 0.693/λ", "iv) R = λN"],
-        answer: "a-iii, b-iv, c-i, d-ii"
+        "column1": ["a) Half-life", "b) Activity", "c) Mass defect", "d) Binding energy"],
+        "column2": ["i) Δm = [Zm_p + (A-Z)m_n] - M_nuc", "ii) E_b = Δmc²", "iii) T₁/₂ = 0.693/λ", "iv) R = λN"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
     },
     {
-        column1: ["a) Isotopes", "b) Isobars", "c) Isotones", "d) Isomers"],
-        column2: ["i) Same A, different Z", "ii) Same Z, same A, different energy state", "iii) Same number of neutrons", "iv) Same Z, different A"],
-        answer: "a-iv, b-i, c-iii, d-ii"
+        "column1": ["a) Isotopes", "b) Isobars", "c) Isotones", "d) Isomers"],
+        "column2": ["i) Same A, different Z", "ii) Same Z, same A, different energy state", "iii) Same number of neutrons", "iv) Same Z, different A"],
+        "answer": "a-iv, b-i, c-iii, d-ii"
     },
     {
-        column1: ["a) Nuclear Reactor", "b) Sun", "c) Atomic Bomb", "d) Hydrogen Bomb"],
-        column2: ["i) Uncontrolled fusion", "ii) Controlled fission", "iii) Controlled fusion", "iv) Uncontrolled fission"],
-        answer: "a-ii, b-iii, c-iv, d-i"
+        "column1": ["a) Nuclear Reactor", "b) Sun", "c) Atomic Bomb", "d) Hydrogen Bomb"],
+        "column2": ["i) Uncontrolled fusion", "ii) Controlled fission", "iii) Controlled fusion", "iv) Uncontrolled fission"],
+        "answer": "a-ii, b-iii, c-iv, d-i"
     },
     {
         "column1": ["a) Rutherford", "b) Bohr", "c) Pauli", "d) Fermi"],

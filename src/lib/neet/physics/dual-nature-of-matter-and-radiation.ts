@@ -188,7 +188,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         "explanation": "Stopping potential depends on the maximum kinetic energy of photoelectrons, which in turn depends on the frequency of the light, not its intensity."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "The photoelectric effect demonstrates the particle nature of light.",
         "reason": "In the photoelectric effect, there is no time lag between the incidence of light and the emission of electrons.",
@@ -280,7 +280,7 @@ export const dualNatureOfMatterAndRadiation: NeetModule = {
         "explanation": "The assertion is false. Matter waves are not electromagnetic. The reason is true."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) Photoelectric effect", "b) de Broglie wavelength", "c) Work function", "d) Stopping potential"],
         "column2": ["i) h/p", "ii) hν = Φ + K.E._max", "iii) Measure of K.E._max", "iv) Minimum energy to eject e⁻"],

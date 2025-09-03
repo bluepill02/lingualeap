@@ -292,7 +292,7 @@ export const lawsOfMotion: NeetModule = {
         "explanation": "The reason correctly defines inertia in relation to mass, explaining the assertion."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": ["a) Newton's First Law", "b) Newton's Second Law", "c) Newton's Third Law", "d) Conservation of Momentum"],
         "column2": ["i) F = ma", "ii) Law of Inertia", "iii) No external force", "iv) Action-Reaction"],
@@ -369,4 +369,4 @@ export const lawsOfMotion: NeetModule = {
         "answer": "a-iv, b-iii, c-ii, d-i"
     }
   ]
-};
+}

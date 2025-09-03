@@ -54,187 +54,187 @@ export const solutions: NeetModule = {
   ],
   mcqs: [
     {
-        "question": "Which of the following is a colligative property?",
-        "options": [ "Boiling point", "Vapour pressure", "Osmotic pressure", "Freezing point" ],
-        "answer": "Osmotic pressure",
-        "explanation": "Colligative properties depend on the number of solute particles. Osmotic pressure, elevation in boiling point, depression in freezing point, and relative lowering of vapour pressure are the four colligative properties."
+        question: "Which of the following is a colligative property?",
+        options: [ "Boiling point", "Vapour pressure", "Osmotic pressure", "Freezing point" ],
+        answer: "Osmotic pressure",
+        explanation: "Colligative properties depend on the number of solute particles. Osmotic pressure, elevation in boiling point, depression in freezing point, and relative lowering of vapour pressure are the four colligative properties."
     },
     {
-        "question": "The van't Hoff factor (i) for a solute that associates in a solvent is:",
-        "options": [ "Greater than 1", "Less than 1", "Equal to 1", "Equal to 0" ],
-        "answer": "Less than 1",
-        "explanation": "Association means multiple solute particles combine to form a single larger particle, reducing the total number of particles in the solution. Therefore, i < 1."
+        question: "The van't Hoff factor (i) for a solute that associates in a solvent is:",
+        options: [ "Greater than 1", "Less than 1", "Equal to 1", "Equal to 0" ],
+        answer: "Less than 1",
+        explanation: "Association means multiple solute particles combine to form a single larger particle, reducing the total number of particles in the solution. Therefore, i < 1."
     },
     {
-        "question": "According to Raoult's law, the relative lowering of vapour pressure is equal to the:",
-        "options": [ "Mole fraction of solvent", "Mole fraction of solute", "Molality of the solution", "Molarity of the solution" ],
-        "answer": "Mole fraction of solute",
-        "explanation": "Raoult's law for non-volatile solutes states that (P₁° - P₁)/P₁° = x₂, where x₂ is the mole fraction of the solute."
+        question: "According to Raoult's law, the relative lowering of vapour pressure is equal to the:",
+        options: [ "Mole fraction of solvent", "Mole fraction of solute", "Molality of the solution", "Molarity of the solution" ],
+        answer: "Mole fraction of solute",
+        explanation: "Raoult's law for non-volatile solutes states that (P₁° - P₁)/P₁° = x₂, where x₂ is the mole fraction of the solute."
     },
     {
-        "question": "An ideal solution is formed when its components:",
-        "options": [
+        question: "An ideal solution is formed when its components:",
+        options: [
             "Have no interaction with each other",
             "Have strong interactions",
             "Have similar structures and polarities",
             "Have different structures and polarities"
         ],
-        "answer": "Have similar structures and polarities",
-        "explanation": "Ideal solutions form when the intermolecular forces between solute-solute, solvent-solvent, and solute-solvent are nearly identical. This is often true for components with similar structures."
+        answer: "Have similar structures and polarities",
+        explanation: "Ideal solutions form when the intermolecular forces between solute-solute, solvent-solvent, and solute-solvent are nearly identical. This is often true for components with similar structures."
     },
     {
-        "question": "What is the molality of a solution prepared by dissolving 4 g of NaOH in 250 g of water?",
-        "options": [ "0.1 m", "0.2 m", "0.4 m", "0.8 m" ],
-        "answer": "0.4 m",
-        "explanation": "Molar mass of NaOH = 40 g/mol. Moles of NaOH = 4g / 40 g/mol = 0.1 mol. Molality = Moles of solute / Mass of solvent (kg) = 0.1 mol / 0.250 kg = 0.4 m."
+        question: "What is the molality of a solution prepared by dissolving 4 g of NaOH in 250 g of water?",
+        options: [ "0.1 m", "0.2 m", "0.4 m", "0.8 m" ],
+        answer: "0.4 m",
+        explanation: "Molar mass of NaOH = 40 g/mol. Moles of NaOH = 4g / 40 g/mol = 0.1 mol. Molality = Moles of solute / Mass of solvent (kg) = 0.1 mol / 0.250 kg = 0.4 m."
     },
     {
-        "question": "Henry's law constant (Kₕ) value for a gas:",
-        "options": [
+        question: "Henry's law constant (Kₕ) value for a gas:",
+        options: [
             "Increases with increase in temperature",
             "Decreases with increase in temperature",
             "Remains constant with temperature",
             "Is independent of the nature of the gas"
         ],
-        "answer": "Increases with increase in temperature",
-        "explanation": "The solubility of gases in liquids decreases with an increase in temperature. Since p = Kₕx, for a given pressure, if solubility (x) decreases, Kₕ must increase."
+        answer: "Increases with increase in temperature",
+        explanation: "The solubility of gases in liquids decreases with an increase in temperature. Since p = Kₕx, for a given pressure, if solubility (x) decreases, Kₕ must increase."
     },
     {
-        "question": "A solution that shows a positive deviation from Raoult's law is one in which:",
-        "options": [
+        question: "A solution that shows a positive deviation from Raoult's law is one in which:",
+        options": [
             "Solute-solvent interactions are stronger than solute-solute and solvent-solvent interactions",
             "Solute-solvent interactions are weaker than solute-solute and solvent-solvent interactions",
             "Volume of solution is less than the sum of volumes of components",
             "Enthalpy of mixing is negative"
         ],
-        "answer": "Solute-solvent interactions are weaker than solute-solute and solvent-solvent interactions",
-        "explanation": "Weaker solute-solvent interactions make it easier for molecules to escape into the vapour phase, resulting in a higher vapour pressure than predicted (positive deviation)."
+        answer: "Solute-solvent interactions are weaker than solute-solute and solvent-solvent interactions",
+        explanation: "Weaker solute-solvent interactions make it easier for molecules to escape into the vapour phase, resulting in a higher vapour pressure than predicted (positive deviation)."
     },
     {
-        "question": "Which of the following aqueous solutions will have the highest boiling point?",
-        "options": [ "0.1 M glucose", "0.1 M NaCl", "0.1 M BaCl₂", "0.1 M sucrose" ],
-        "answer": "0.1 M BaCl₂",
-        "explanation": "Boiling point elevation is a colligative property. BaCl₂ dissociates into three ions (Ba²⁺ and 2Cl⁻), giving the highest number of particles (highest van't Hoff factor, i=3) for the same molar concentration."
+        question: "Which of the following aqueous solutions will have the highest boiling point?",
+        options: [ "0.1 M glucose", "0.1 M NaCl", "0.1 M BaCl₂", "0.1 M sucrose" ],
+        answer: "0.1 M BaCl₂",
+        explanation: "Boiling point elevation is a colligative property. BaCl₂ dissociates into three ions (Ba²⁺ and 2Cl⁻), giving the highest number of particles (highest van't Hoff factor, i=3) for the same molar concentration."
     },
     {
-        "question": "The process of a solvent moving through a semipermeable membrane from a dilute solution to a concentrated solution is called:",
-        "options": [ "Diffusion", "Osmosis", "Plasmolysis", "Dialysis" ],
-        "answer": "Osmosis",
-        "explanation": "This is the definition of osmosis, driven by the difference in solvent concentration (or water potential)."
+        question: "The process of a solvent moving through a semipermeable membrane from a dilute solution to a concentrated solution is called:",
+        options: [ "Diffusion", "Osmosis", "Plasmolysis", "Dialysis" ],
+        answer: "Osmosis",
+        explanation: "This is the definition of osmosis, driven by the difference in solvent concentration (or water potential)."
     },
     {
-        "question": "Two solutions having the same osmotic pressure at a given temperature are called:",
-        "options": [ "Hypertonic", "Hypotonic", "Isotonic", "Ideal" ],
-        "answer": "Isotonic",
-        "explanation": "Isotonic solutions have the same solute concentration and hence the same osmotic pressure."
+        question: "Two solutions having the same osmotic pressure at a given temperature are called:",
+        options: [ "Hypertonic", "Hypotonic", "Isotonic", "Ideal" ],
+        answer: "Isotonic",
+        explanation: "Isotonic solutions have the same solute concentration and hence the same osmotic pressure."
     },
     {
-        "question": "The cryoscopic constant (K_f) depends on:",
-        "options": [
+        question: "The cryoscopic constant (K_f) depends on:",
+        options: [
             "The nature of the solute",
             "The nature of the solvent",
             "The concentration of the solution",
             "The temperature of the solution"
         ],
-        "answer": "The nature of the solvent",
-        "explanation": "The molal freezing point depression constant (cryoscopic constant) is a property of the solvent only."
+        answer: "The nature of the solvent",
+        explanation: "The molal freezing point depression constant (cryoscopic constant) is a property of the solvent only."
     },
     {
-        "question": "An azeotropic mixture of two liquids boils at a lower temperature than either of them when it shows:",
-        "options": [
+        question: "An azeotropic mixture of two liquids boils at a lower temperature than either of them when it shows:",
+        options: [
             "No deviation from Raoult's law",
             "Positive deviation from Raoult's law",
             "Negative deviation from Raoult's law",
             "Insolubility"
         ],
-        "answer": "Positive deviation from Raoult's law",
-        "explanation": "A positive deviation means a higher vapour pressure, which corresponds to a lower boiling point. This forms a minimum-boiling azeotrope."
+        answer: "Positive deviation from Raoult's law",
+        explanation: "A positive deviation means a higher vapour pressure, which corresponds to a lower boiling point. This forms a minimum-boiling azeotrope."
     },
     {
-        "question": "The mole fraction of water in a solution containing 1 mole of solute in 180 g of water is:",
-        "options": [ "0.1", "0.9", "0.5", "0.909" ],
-        "answer": "0.909",
-        "explanation": "Moles of solute = 1 mol. Moles of water = 180g / 18 g/mol = 10 mol. Total moles = 1 + 10 = 11 mol. Mole fraction of water = 10 / 11 ≈ 0.909."
+        question: "The mole fraction of water in a solution containing 1 mole of solute in 180 g of water is:",
+        options: [ "0.1", "0.9", "0.5", "0.909" ],
+        answer: "0.909",
+        explanation: "Moles of solute = 1 mol. Moles of water = 180g / 18 g/mol = 10 mol. Total moles = 1 + 10 = 11 mol. Mole fraction of water = 10 / 11 ≈ 0.909."
     },
     {
-        "question": "For which of the following solutes is the van't Hoff factor not equal to 1?",
-        "options": [ "Glucose", "Urea", "Sucrose", "KCl" ],
-        "answer": "KCl",
-        "explanation": "KCl is an electrolyte that dissociates into K⁺ and Cl⁻ ions in solution, so its van't Hoff factor (i) is approximately 2. The others are non-electrolytes (i=1)."
+        question: "For which of the following solutes is the van't Hoff factor not equal to 1?",
+        options: [ "Glucose", "Urea", "Sucrose", "KCl" ],
+        answer": "KCl",
+        explanation: "KCl is an electrolyte that dissociates into K⁺ and Cl⁻ ions in solution, so its van't Hoff factor (i) is approximately 2. The others are non-electrolytes (i=1)."
     },
     {
-        "question": "The reverse of osmosis is called:",
-        "options": [ "Diffusion", "Active transport", "Reverse osmosis", "Dialysis" ],
-        "answer": "Reverse osmosis",
-        "explanation": "Reverse osmosis occurs when a pressure greater than the osmotic pressure is applied to the solution side, forcing the solvent to move from the concentrated to the dilute side."
+        question: "The reverse of osmosis is called:",
+        options: [ "Diffusion", "Active transport", "Reverse osmosis", "Dialysis" ],
+        answer": "Reverse osmosis",
+        explanation: "Reverse osmosis occurs when a pressure greater than the osmotic pressure is applied to the solution side, forcing the solvent to move from the concentrated to the dilute side."
     },
     {
-        "question": "Which concentration unit is most convenient for relating a colligative property to the concentration of a solution?",
-        "options": [ "Molarity", "Molality", "Mole fraction", "Mass percent" ],
-        "answer": "Molality",
-        "explanation": "Molality is used for boiling point elevation and freezing point depression because it is based on the mass of the solvent and is independent of temperature changes."
+        question: "Which concentration unit is most convenient for relating a colligative property to the concentration of a solution?",
+        options: [ "Molarity", "Molality", "Mole fraction", "Mass percent" ],
+        answer": "Molality",
+        explanation: "Molality is used for boiling point elevation and freezing point depression because it is based on the mass of the solvent and is independent of temperature changes."
     },
     {
-        "question": "When a non-volatile solute is added to a solvent, its vapour pressure:",
-        "options": [ "Increases", "Decreases", "Remains the same", "May increase or decrease" ],
-        "answer": "Decreases",
-        "explanation": "The solute particles occupy some of the surface area of the solvent, reducing the rate of evaporation and thus lowering the vapour pressure."
+        question: "When a non-volatile solute is added to a solvent, its vapour pressure:",
+        options: [ "Increases", "Decreases", "Remains the same", "May increase or decrease" ],
+        answer: "Decreases",
+        explanation: "The solute particles occupy some of the surface area of the solvent, reducing the rate of evaporation and thus lowering the vapour pressure."
     },
     {
-        "question": "The unit of the ebullioscopic constant (Kₑ) is:",
-        "options": [ "K kg mol⁻¹", "K mol kg⁻¹", "kg mol⁻¹ K⁻¹", "K mol⁻¹" ],
-        "answer": "K kg mol⁻¹",
-        "explanation": "From the formula ΔTₑ = Kₑm, Kₑ = ΔTₑ / m. The units are Kelvin / (mol/kg), which simplifies to K kg mol⁻¹."
+        question: "The unit of the ebullioscopic constant (Kₑ) is:",
+        options: [ "K kg mol⁻¹", "K mol kg⁻¹", "kg mol⁻¹ K⁻¹", "K mol⁻¹" ],
+        answer": "K kg mol⁻¹",
+        explanation: "From the formula ΔTₑ = Kₑm, Kₑ = ΔTₑ / m. The units are Kelvin / (mol/kg), which simplifies to K kg mol⁻¹."
     },
     {
-        "question": "A liquid mixture that can be separated by fractional distillation must be:",
-        "options": [ "Azeotropic", "Ideal", "Non-ideal", "A solution of non-volatile solute" ],
-        "answer": "Ideal",
-        "explanation": "Ideal or near-ideal solutions with different boiling points can be separated by fractional distillation. Azeotropes cannot be separated by this method."
+        question: "A liquid mixture that can be separated by fractional distillation must be:",
+        options: [ "Azeotropic", "Ideal", "Non-ideal", "A solution of non-volatile solute" ],
+        answer": "Ideal",
+        explanation: "Ideal or near-ideal solutions with different boiling points can be separated by fractional distillation. Azeotropes cannot be separated by this method."
     },
     {
-        "question": "At high altitudes, people suffer from a condition called anoxia. This is due to:",
-        "options": [
+        question: "At high altitudes, people suffer from a condition called anoxia. This is due to:",
+        options: [
             "Low temperature",
             "High atmospheric pressure",
             "Low atmospheric pressure",
             "High temperature"
         ],
-        "answer": "Low atmospheric pressure",
-        "explanation": "At high altitudes, the partial pressure of oxygen is low. According to Henry's law, this leads to a lower concentration of dissolved oxygen in the blood, causing anoxia."
+        answer": "Low atmospheric pressure",
+        explanation: "At high altitudes, the partial pressure of oxygen is low. According to Henry's law, this leads to a lower concentration of dissolved oxygen in the blood, causing anoxia."
     },
     {
-        "question": "The freezing point of a solution is ____ the freezing point of the pure solvent.",
-        "options": [ "Higher than", "Lower than", "Equal to", "Unrelated to" ],
-        "answer": "Lower than",
-        "explanation": "The presence of a solute disrupts the formation of the solvent's crystal lattice, requiring a lower temperature to freeze. This is known as depression in freezing point."
+        question: "The freezing point of a solution is ____ the freezing point of the pure solvent.",
+        options": [ "Higher than", "Lower than", "Equal to", "Unrelated to" ],
+        answer": "Lower than",
+        explanation: "The presence of a solute disrupts the formation of the solvent's crystal lattice, requiring a lower temperature to freeze. This is known as depression in freezing point."
     },
     {
-        "question": "Which of the following will form an ideal solution?",
-        "options": [
+        question: "Which of the following will form an ideal solution?",
+        options": [
             "Ethanol and water",
             "Nitric acid and water",
             "Benzene and toluene",
             "Chloroform and acetone"
         ],
-        "answer": "Benzene and toluene",
-        "explanation": "Benzene and toluene have very similar structures and intermolecular forces, so they form a nearly ideal solution."
+        answer": "Benzene and toluene",
+        explanation: "Benzene and toluene have very similar structures and intermolecular forces, so they form a nearly ideal solution."
     },
     {
-        "question": "The value of the van't Hoff factor for ethanoic acid in benzene is:",
-        "options": [ "Greater than 1", "Less than 1", "Equal to 1", "Equal to 0" ],
-        "answer": "Less than 1",
-        "explanation": "Ethanoic acid (acetic acid) dimerizes (associates) in benzene through hydrogen bonding, reducing the effective number of particles. Thus, i < 1."
+        question": "The value of the van't Hoff factor for ethanoic acid in benzene is:",
+        options: [ "Greater than 1", "Less than 1", "Equal to 1", "Equal to 0" ],
+        answer": "Less than 1",
+        explanation": "Ethanoic acid (acetic acid) dimerizes (associates) in benzene through hydrogen bonding, reducing the effective number of particles. Thus, i < 1."
     },
     {
-        "question": "The unit of osmotic pressure is:",
-        "options": [ "atm", "mol/L", "K", "Joule" ],
-        "answer": "atm",
-        "explanation": "Osmotic pressure is a pressure and is typically measured in atmospheres (atm), pascals (Pa), or bar."
+        question": "The unit of osmotic pressure is:",
+        options: [ "atm", "mol/L", "K", "Joule" ],
+        answer": "atm",
+        explanation": "Osmotic pressure is a pressure and is typically measured in atmospheres (atm), pascals (Pa), or bar."
     },
     {
-        "question": "Which colligative property is preferred for the determination of molar masses of macromolecules like proteins?",
-        "options": [
+        question": "Which colligative property is preferred for the determination of molar masses of macromolecules like proteins?",
+        options": [
             "Elevation in boiling point",
             "Depression in freezing point",
             "Osmotic pressure",
@@ -244,7 +244,7 @@ export const solutions: NeetModule = {
         "explanation": "Osmotic pressure measurement is preferred because the magnitude of the pressure change is large even for dilute solutions, and the measurement is done at room temperature, which prevents denaturation of macromolecules."
     }
   ],
-  assertionReasons: [
+  "assertionReasons": [
     {
         "assertion": "Osmotic pressure is a colligative property.",
         "reason": "Osmotic pressure depends on the number of solute particles and not on their nature.",
@@ -336,7 +336,7 @@ export const solutions: NeetModule = {
         "explanation": "The assertion is false; adding a solute *decreases* the freezing point (depression in freezing point). The reason is true and explains why the freezing point is depressed."
     }
   ],
-  matchTheColumns: [
+  "matchTheColumns": [
     {
         "column1": [ "a) Raoult's Law", "b) Henry's Law", "c) Osmotic Pressure", "d) van't Hoff factor" ],
         "column2": [ "i) p = Kₕx", "ii) π = CRT", "iii) Abnormal molar mass", "iv) Vapour pressure of solution" ],
@@ -412,5 +412,5 @@ export const solutions: NeetModule = {
         "column2": [ "i) Pressure exerted by vapour in equilibrium with liquid", "ii) Temperature at which solid and liquid are in equilibrium", "iii) Caused by association or dissociation of solute", "iv) Temperature at which vapour pressure equals external pressure" ],
         "answer": "a-iii, b-i, c-iv, d-ii"
     }
-]
-};
+  ]
+}
