@@ -160,4 +160,4 @@ The Sun is not at the center of the ellipse, but at one of the two foci.
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** If you could drill a tunnel through the center of the Earth and drop a stone into it, how would it move? Discuss the type of motion it would execute on our forum.
 `
-  
+};
