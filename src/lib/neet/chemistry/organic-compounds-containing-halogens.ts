@@ -7,28 +7,76 @@ export const organicCompoundsContainingHalogens: NeetModule = {
   chapter: 'Organic Compounds Containing Halogens',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. General Methods of Preparation, Properties, and Reactions
-*   **Haloalkanes:**
-    *   **Preparation:** From alcohols, from hydrocarbons (free-radical halogenation), from alkenes (addition of HX).
-    *   **Properties:** Physical properties like boiling point, solubility.
-    *   **Reactions:** Nucleophilic substitution, elimination reactions.
-*   **Haloarenes:**
-    *   **Preparation:** From hydrocarbons by electrophilic substitution, from diazonium salts (Sandmeyer reaction).
-    *   **Properties:** Physical properties.
-    *   **Reactions:** Nucleophilic substitution (less reactive), electrophilic substitution (halogen is o,p-directing but deactivating).
+# 1. Module Title
+– Chemistry – Organic Compounds Containing Halogens (வேதியியல் - ஹாலோஜன் கொண்ட கரிமச் சேர்மங்கள்)
 
-### 2. Nature of C-X bond (C-X பிணைப்பின் தன்மை)
-*   The carbon-halogen bond is polar due to the higher electronegativity of the halogen atom. The carbon atom bears a partial positive charge, and the halogen atom bears a partial negative charge.
+# 2. Learning Objectives
+1.  After this, you will be able to classify haloalkanes and haloarenes.
+2.  After this, you will be able to describe the general methods of preparation for haloalkanes and haloarenes.
+3.  After this, you will be able to explain the mechanisms of SN1 and SN2 nucleophilic substitution reactions.
+4.  After this, you will be able to describe the uses and environmental effects of compounds like Chloroform, DDT, and Freons.
 
-### 3. Mechanisms of Substitution Reactions (பதிலீட்டு வினைகளின் வினைவழிமுறை)
-*   **SN1 Reaction:** Two-step mechanism, formation of a carbocation intermediate. Favored by tertiary halides. Racemization occurs.
-*   **SN2 Reaction:** Single-step mechanism, backside attack of the nucleophile, inversion of configuration (Walden inversion). Favored by primary halides.
+# 3. Prerequisites
+– Understanding of hydrocarbons and IUPAC nomenclature.
+– Knowledge of reaction intermediates (carbocations) and electronic effects (inductive effect, resonance).
 
-### 4. Uses and Environmental Effects (பயன்கள் மற்றும் சுற்றுச்சூழல் விளைவுகள்)
-*   **Chloroform (குளோரோஃபார்ம் - CHCl₃):** Formerly used as an anesthetic.
-*   **Iodoform (ஐயோடோஃபார்ம் - CHI₃):** Used as an antiseptic.
-*   **Freons (ஃபிரீயான்கள்):** Chlorofluorocarbons used as refrigerants and propellants. Cause ozone layer depletion.
-*   **DDT (Dichlorodiphenyltrichloroethane):** A powerful insecticide, but it is non-biodegradable and accumulates in the food chain.
+# 4. Concept Overview
+Imagine you have a simple string of jasmine flowers (மல்லிகைப் பூ) and you replace one of the flowers with a colourful hibiscus. You have just changed the property of the entire string. Similarly, when we replace a hydrogen atom in a hydrocarbon with a halogen atom (F, Cl, Br, I), we create a **haloalkane** or **haloarene**. These compounds are incredibly useful as solvents, refrigerants, and starting materials for making other organic compounds. This chapter focuses on their preparation and, most importantly, on a fundamental type of reaction in organic chemistry: **nucleophilic substitution (கருக்கவர் பதிலீட்டு வினை)**, where one group is kicked out and replaced by another.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 2, Chapter 10**. For NEET, the most important topics are the SN1 and SN2 mechanisms, their stereochemistry, and the difference in reactivity between haloalkanes and haloarenes.
+
+### 5.1 Classification and Nomenclature
+*   **Haloalkanes (R-X) & Haloarenes (Ar-X):** Classified as primary (1°), secondary (2°), or tertiary (3°) based on the carbon atom bonded to the halogen.
+
+### 5.2 Preparation
+*   **Haloalkanes:** From alcohols (using HX, PCl₅, SOCl₂), from hydrocarbons (free-radical halogenation).
+*   **Haloarenes:** From aromatic hydrocarbons (electrophilic substitution), from diazonium salts (**Sandmeyer reaction**).
+
+### 5.3 Nature of C-X Bond
+*   The C-X bond is polar, with a partial positive charge on carbon and a partial negative charge on the halogen.
+
+### 5.4 Nucleophilic Substitution Reactions (கருக்கவர் பதிலீட்டு வினைகள்)
+*   **Mechanism:**
+    *   **SN1 (Substitution Nucleophilic Unimolecular):** A two-step reaction involving the formation of a carbocation intermediate. The rate depends only on the haloalkane concentration. Favored by 3° halides. Results in **racemization**.
+    *   **SN2 (Substitution Nucleophilic Bimolecular):** A single-step reaction involving a backside attack by the nucleophile. The rate depends on both haloalkane and nucleophile concentrations. Favored by 1° halides. Results in **inversion of configuration** (Walden inversion).
+*   **Elimination Reactions:** Often compete with substitution, leading to the formation of alkenes (Saytzeff's rule).
+
+### 5.5 Polyhalogen Compounds
+*   **Chloroform (CHCl₃), Iodoform (CHI₃), Freons, DDT:** Their uses and significant environmental impacts (e.g., ozone layer depletion by Freons, bio-accumulation of DDT).
+
+# 6. Worked Examples
+
+**1. Easy:** Which compound in the pair CH₃CH₂CH₂Cl and CH₃CH(Cl)CH₃ will react faster in an SN2 reaction with OH⁻?
+*   **Solution:** The rate of an SN2 reaction is inversely proportional to steric hindrance.
+    *   CH₃CH₂CH₂Cl (1-chloropropane) is a primary (1°) halide.
+    *   CH₃CH(Cl)CH₃ (2-chloropropane) is a secondary (2°) halide.
+    *   Primary halides have less steric hindrance than secondary halides.
+    *   Therefore, **CH₃CH₂CH₂Cl will react faster**.
+
+**2. Medium:** Predict the major product of the dehydrohalogenation of 2-bromopentane.
+*   **Solution:**
+    *   Dehydrohalogenation is an elimination reaction that forms an alkene.
+    *   Removing HBr from 2-bromopentane can form two possible products by removing a hydrogen from either C1 or C3.
+    *   **Saytzeff's Rule:** In elimination reactions, the more substituted (more stable) alkene is the major product.
+    *   Removing H from C1 gives Pent-1-ene.
+    *   Removing H from C3 gives Pent-2-ene.
+    *   Pent-2-ene is more substituted than Pent-1-ene.
+    *   Therefore, the major product is **Pent-2-ene**.
+
+**3. Must-Practice:** Why is chlorobenzene extremely less reactive than cyclohexyl chloride towards nucleophilic substitution?
+*   **Solution:**
+    1.  **Resonance:** The lone pair on the chlorine atom in chlorobenzene delocalizes into the benzene ring. This gives the C-Cl bond a partial double bond character, making it stronger and harder to break.
+    2.  **Hybridization:** The carbon atom attached to Cl in chlorobenzene is sp² hybridized (more electronegative) compared to the sp³ hybridized carbon in cyclohexyl chloride. The sp² carbon holds the Cl more tightly.
+    3.  **Instability of Phenyl Cation:** An SN1 reaction is not possible as the resulting phenyl cation is highly unstable.
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Key Information |
+| :--- | :--- |
+| Reactivity (SN2) | 1° > 2° > 3° (due to steric hindrance) |
+| Reactivity (SN1) | 3° > 2° > 1° (due to carbocation stability) |
+| Saytzeff's Rule | More substituted alkene is the major product in elimination. |
 `,
   workedExamples: [
     {
@@ -41,7 +89,7 @@ export const organicCompoundsContainingHalogens: NeetModule = {
     },
     {
         problem: "Why is chlorobenzene less reactive than cyclohexyl chloride towards nucleophilic substitution?",
-        solution: "Chlorobenzene is less reactive due to several factors: 1. **Resonance:** The lone pair on the chlorine atom delocalizes into the benzene ring, giving the C-Cl bond a partial double bond character, which is stronger and harder to break. 2. **Hybridization:** The carbon atom attached to the chlorine in chlorobenzene is sp² hybridized, which is more electronegative and holds the chlorine atom more tightly than the sp³ hybridized carbon in cyclohexyl chloride. 3. **Instability of phenyl cation:** The phenyl cation formed during an SN1 reaction would be highly unstable."
+        solution: "Chlorobenzene is less reactive due to several factors: 1. **Resonance:** The lone pair on the chlorine atom in chlorobenzene delocalizes into the benzene ring, giving the C-Cl bond a partial double bond character, which is stronger and harder to break. 2. **Hybridization:** The carbon atom attached to the chlorine in chlorobenzene is sp² hybridized, which is more electronegative and holds the chlorine atom more tightly than the sp³ hybridized carbon in cyclohexyl chloride. 3. **Instability of phenyl cation:** The phenyl cation formed during an SN1 reaction would be highly unstable."
     }
   ],
   mcqs: [
@@ -136,3 +184,4 @@ export const organicCompoundsContainingHalogens: NeetModule = {
     }
   ]
 };
+

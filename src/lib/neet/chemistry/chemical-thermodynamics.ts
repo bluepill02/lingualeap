@@ -7,36 +7,86 @@ export const chemicalThermodynamics: NeetModule = {
   chapter: 'Chemical Thermodynamics',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Fundamentals of Thermodynamics (வெப்ப இயக்கவியலின் அடிப்படைகள்)
-*   **System and Surroundings:** The system is the part of the universe under study, and the surroundings are everything else.
-*   **Extensive and Intensive Properties:** Extensive properties depend on the amount of matter (e.g., mass, volume). Intensive properties do not (e.g., temperature, density).
-*   **State Functions:** Properties whose values depend only on the initial and final states of the system, not on the path taken (e.g., Pressure, Volume, Temperature, Internal Energy, Enthalpy, Entropy, Gibbs Free Energy).
-*   **Types of Processes:** Isothermal (constant T), Isobaric (constant P), Isochoric (constant V), Adiabatic (no heat exchange).
+# 1. Module Title
+– Chemistry – Chemical Thermodynamics (வேதியியல் - வேதி வெப்ப இயக்கவியல்)
 
-### 2. The First Law of Thermodynamics (வெப்ப இயக்கவியலின் முதல் விதி)
-*   This is the law of conservation of energy.
-*   **Equation:** ΔU = q + w, where ΔU is the change in internal energy, q is heat absorbed by the system, and w is work done on the system.
-*   **Concept of work, heat, internal energy (U) and enthalpy (H):**
-    *   **Internal Energy (U):** The total energy of a system.
-    *   **Enthalpy (H):** A measure of total heat content, H = U + PV.
-*   **Heat capacity (C) and Molar heat capacity (Cₘ):** The amount of heat required to raise the temperature of a substance by 1°C or 1K.
-*   **Hess’s Law of Constant Heat Summation:** The total enthalpy change for a reaction is the same, whether it occurs in one step or in several steps.
-*   **Enthalpies of:** bond dissociation, combustion, formation, atomization, sublimation, phase transition, hydration, ionization, and solution.
+# 2. Learning Objectives
+1.  After this, you will be able to differentiate between system, surroundings, and various types of thermodynamic processes.
+2.  After this, you will be able to state and apply the First Law of Thermodynamics to calculate changes in internal energy.
+3.  After this, you will be able to apply Hess's Law to calculate enthalpy changes for various reactions.
+4.  After this, you will be able to use the Gibbs free energy equation (ΔG = ΔH - TΔS) to predict the spontaneity of a reaction.
 
-### 3. The Second Law of Thermodynamics (வெப்ப இயக்கவியலின் இரண்டாம் விதி)
-*   This law defines the direction of spontaneous processes.
-*   **Spontaneity of processes:** A process that occurs on its own without any external aid.
-*   **Entropy (S) (என்ட்ரோபி):** A measure of the randomness or disorder of a system. For a spontaneous process, the entropy of the universe increases (ΔS_universe > 0). (ஒரு வகுப்பறை, ஆசிரியர் இல்லாதபோது தானாகவே ஒழுங்கற்ற நிலைக்குச் செல்வது போல).
-*   **Gibbs Free Energy (G) (கிப்ஸ் கட்டிலா ஆற்றல்):** A thermodynamic potential that is a measure of the "useful" or process-initiating work obtainable from a system.
-    *   **Gibbs Equation:** ΔG = ΔH - TΔS.
-    *   **Criteria for Spontaneity:**
-        *   If ΔG < 0, the process is spontaneous.
-        *   If ΔG > 0, the process is non-spontaneous.
-        *   If ΔG = 0, the system is at equilibrium.
-*   **Standard Gibbs energy change (ΔG°) and equilibrium constant (K):** ΔG° = -RT ln(K).
+# 3. Prerequisites
+– Understanding of basic algebraic manipulation.
+– Knowledge of the mole concept and balancing chemical equations.
+– Familiarity with the concepts of energy and heat.
 
-### 4. Third Law of Thermodynamics (வெப்ப இயக்கவியலின் மூன்றாம் விதி)
-*   The entropy of a perfect crystal at absolute zero (0 Kelvin) is zero. This provides a baseline for entropy calculations.
+# 4. Concept Overview
+Imagine making a hot cup of filter coffee (ஃபில்டர் காபி) in Chennai. The coffee is your 'system', and everything else is the 'surroundings'. Heat flows from the hot coffee to the cooler air. Why does this happen naturally? **Thermodynamics** is the branch of science that answers this question. It deals with energy, heat, work, and the direction of change. In this chapter, we will learn the fundamental laws that govern all energy transformations, from a cup of coffee cooling down to every chemical reaction in the universe. We'll learn to predict whether a reaction will happen on its own (spontaneous) using a key concept called Gibbs free energy.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 2, Chapter 7**. This is a crucial chapter for NEET, with a focus on numerical problems involving the First Law, Hess's Law, and the Gibbs equation.
+
+### 5.1 Fundamentals of Thermodynamics (வெப்ப இயக்கவியலின் அடிப்படைகள்)
+*   **System and Surroundings:** System is the part under study; surroundings is the rest.
+*   **State Functions:** Properties depending only on the state, not the path (e.g., P, V, T, U, H, S, G).
+*   **Processes:** Isothermal (constant T), Isobaric (constant P), Isochoric (constant V), Adiabatic (q=0).
+
+### 5.2 First Law of Thermodynamics (முதல் விதி)
+*   Based on conservation of energy.
+*   **Equation:** \\( \\Delta U = q + w \\), where ΔU is change in internal energy, q is heat absorbed, w is work done *on* the system.
+*   **Enthalpy (H):** Heat content of a system, H = U + PV. For a process at constant pressure, \\( \\Delta H = q_p \\).
+*   **Hess’s Law:** The total enthalpy change for a reaction is constant, regardless of the path taken. This allows us to calculate enthalpy changes that are difficult to measure directly.
+*   **Enthalpies of Reactions:** Enthalpy of formation (\\(\\Delta H_f\\)), combustion (\\(\\Delta H_c\\)), bond dissociation, etc.
+
+### 5.3 Second Law of Thermodynamics (இரண்டாம் விதி)
+*   Defines the direction of spontaneous processes.
+*   **Entropy (S) (என்ட்ரோபி):** A measure of disorder or randomness. For a spontaneous process, the entropy of the universe increases (\\(\\Delta S_{universe} > 0\\)).
+*   **Gibbs Free Energy (G) (கிப்ஸ் கட்டிலா ஆற்றல்):** Determines the spontaneity of a process.
+    *   **Gibbs Equation:** \\( \\Delta G = \\Delta H - T\\Delta S \\)
+    *   **Spontaneity Criteria:**
+        *   \\( \\Delta G < 0 \\): Spontaneous (தன்னிச்சையானது)
+        *   \\( \\Delta G > 0 \\): Non-spontaneous
+        *   \\( \\Delta G = 0 \\): Equilibrium (சமநிலை)
+*   **Relation with Equilibrium Constant (K):** \\( \\Delta G^\\circ = -RT \\ln K \\).
+
+### 5.4 Third Law of Thermodynamics
+*   The entropy of a perfect crystal at absolute zero (0 K) is zero.
+
+# 6. Worked Examples
+
+**1. Easy:** Calculate the work done when 2 moles of an ideal gas expand isothermally and reversibly from a volume of 1 L to 10 L at 300 K.
+*   **Solution:**
+    *   Work done in reversible isothermal expansion: \\( W = -nRT \\ln(\\frac{V_2}{V_1}) \\).
+    *   W = -2 mol × 8.314 J/mol·K × 300 K × ln(10/1)
+    *   W = -2 × 8.314 × 300 × 2.303 = **-11488 J** or **-11.49 kJ**. (The negative sign indicates work done *by* the system).
+
+**2. Medium:** Calculate the standard enthalpy of formation of CH₄(g) if the standard enthalpies of combustion of C(s), H₂(g) and CH₄(g) are -393.5, -285.8 and -890.3 kJ mol⁻¹ respectively.
+*   **Solution:**
+    1.  Target equation: C(s) + 2H₂(g) → CH₄(g).
+    2.  Use Hess's Law: \\(\\Delta H_{rxn} = \\sum \\Delta H_{f(products)} - \\sum \\Delta H_{f(reactants)}\\) is not useful here. Instead, manipulate the combustion reactions.
+    3.  C(s) + O₂(g) → CO₂(g); ΔH = -393.5 kJ
+    4.  2H₂(g) + O₂(g) → 2H₂O(l); ΔH = 2(-285.8) = -571.6 kJ
+    5.  CO₂(g) + 2H₂O(l) → CH₄(g) + 2O₂(g); ΔH = +890.3 kJ (Reversed reaction)
+    6.  Adding these three gives the target equation.
+    7.  ΔH_f(CH₄) = -393.5 - 571.6 + 890.3 = **-74.8 kJ/mol**.
+
+**3. Must-Practice:** For a reaction, ΔH = 400 kJ mol⁻¹ and ΔS = 0.2 kJ K⁻¹ mol⁻¹. At what temperature will the reaction become spontaneous?
+*   **Solution:**
+    *   For a reaction to be spontaneous, ΔG must be negative (ΔG < 0).
+    *   Using \\( \\Delta G = \\Delta H - T\\Delta S \\), we need \\( \\Delta H - T\\Delta S < 0 \\).
+    *   This means \\( T\\Delta S > \\Delta H \\).
+    *   \\( T > \\frac{\\Delta H}{\\Delta S} = \\frac{400 \\text{ kJ mol⁻¹}}{0.2 \\text{ kJ K⁻¹ mol⁻¹}} = 2000 \\text{ K} \\).
+    *   The reaction will be spontaneous at temperatures **above 2000 K**.
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\( \\Delta U = q + w \\) | First Law of Thermodynamics (முதல் விதி) |
+| \\( \\Delta H = \\Delta U + P\\Delta V \\) | Enthalpy Change (என்தால்பி மாற்றம்) |
+| \\( \\Delta G = \\Delta H - T\\Delta S \\) | Gibbs Free Energy Change (கிப்ஸ் ஆற்றல் மாற்றம்) |
+| \\( \\Delta G^\\circ = -RT \\ln K \\) | Relation with Equilibrium Constant (சமநிலை மாறிலியுடன் தொடர்பு) |
 `,
   workedExamples: [
     {
@@ -144,3 +194,4 @@ export const chemicalThermodynamics: NeetModule = {
     }
   ]
 };
+

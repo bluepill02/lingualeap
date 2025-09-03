@@ -7,34 +7,70 @@ export const dAndFBlockElements: NeetModule = {
   chapter: 'd- and f-Block Elements',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Transition Elements (d-Block)
-*   **General Introduction:** Elements having partially filled d orbitals in their ground state or any one of their common oxidation states. They are placed between s-block and p-block elements.
-*   **Electronic Configuration:** General configuration is (n-1)d¹⁻¹⁰ ns¹⁻².
-*   **Occurrence and Characteristics:** Found in nature, mostly as minerals. They are typically hard, malleable, ductile metals with high melting and boiling points.
-*   **General trends in properties of the first-row transition elements:**
-    *   **Physical Properties:** High density, high melting/boiling points, high enthalpy of atomization.
-    *   **Ionization Enthalpy:** Generally increases across a series, but not very regularly.
-    *   **Oxidation States:** Show variable oxidation states due to the small energy difference between (n-1)d and ns orbitals.
-    *   **Atomic Radii:** Decrease initially and then become almost constant towards the end of the series.
-    *   **Colour:** Most transition metal compounds are coloured due to d-d electronic transitions.
-    *   **Catalytic Behaviour:** Act as good catalysts due to their ability to show variable oxidation states and form intermediate complexes.
-    *   **Magnetic Properties:** Most are paramagnetic due to the presence of unpaired d-electrons.
-    *   **Complex Formation:** Strong tendency to form coordination complexes due to their small size, high ionic charge, and availability of d-orbitals.
-    *   **Interstitial Compounds:** Formed by trapping small atoms like H, C, or N in the crystal lattices.
-    *   **Alloy Formation:** Form alloys due to their similar atomic sizes.
+# 1. Module Title
+– Chemistry – d- and f-Block Elements (வேதியியல் - d மற்றும் f-தொகுதி தனிமங்கள்)
 
-### 2. Preparation, Properties, and Uses of K₂Cr₂O₇ and KMnO₄
-*   **Potassium Dichromate (K₂Cr₂O₇):** A strong oxidizing agent, especially in acidic medium. Used in volumetric analysis.
-*   **Potassium Permanganate (KMnO₄):** A very strong oxidizing agent. Its behavior depends on the pH of the solution (acidic, neutral, or alkaline). Used as a disinfectant and in titrations.
+# 2. Learning Objectives
+1.  After this, you will be able to write the electronic configuration of d-block elements and explain their general properties.
+2.  After this, you will be able to explain why transition metals show variable oxidation states, form colored ions, and act as catalysts.
+3.  After this, you will be able to describe the preparation and properties of KMnO₄ and K₂Cr₂O₇.
+4.  After this, you will be able to explain the concept of lanthanoid contraction and its consequences.
 
-### 3. Inner Transition Elements (f-Block)
-*   **Lanthanoids:**
+# 3. Prerequisites
+– Good understanding of the periodic table and electronic configurations.
+– Knowledge of atomic properties like atomic radius and ionization enthalpy.
+
+# 4. Concept Overview
+The d-block elements, or **transition metals (இடைநிலைத் தனிமங்கள்)**, are like the versatile character actors of the periodic table. They are the metals we see and use every day, like iron, copper, and silver. They are known for forming the colorful compounds seen in temple paintings (கோயில் ஓவியங்கள்) and gems. This chapter explores why these elements are so special. We will learn about their unique properties, such as having multiple oxidation states and forming colored ions. We will also peek into the f-block elements, the **lanthanoids and actinoids**, and discover a curious phenomenon called lanthanoid contraction that has far-reaching effects.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 1, Chapter 4**. For NEET, focus on the trends in properties, reasons for anomalous behavior, lanthanoid contraction, and the properties of KMnO₄ and K₂Cr₂O₇.
+
+### 5.1 d-Block (Transition Elements)
+*   **Definition:** Elements with partially filled d-orbitals in their ground state or common oxidation state.
+*   **General Properties:**
+    *   **Variable Oxidation States:** Due to the small energy difference between (n-1)d and ns orbitals.
+    *   **Coloured Ions:** Due to d-d electronic transitions, which absorb light from the visible spectrum.
+    *   **Magnetic Properties:** Mostly paramagnetic due to unpaired d-electrons.
+    *   **Catalytic Activity:** Due to variable oxidation states and the ability to form complexes.
+    *   **Complex Formation:** Strong tendency to form coordination compounds.
+*   **Important Compounds:**
+    *   **Potassium Dichromate (K₂Cr₂O₇):** A strong oxidizing agent.
+    *   **Potassium Permanganate (KMnO₄):** A very strong oxidizing agent.
+
+### 5.2 f-Block (Inner Transition Elements)
+*   **Lanthanoids:** The 4f series.
     *   **Electronic Configuration:** [Xe] 4f¹⁻¹⁴ 5d⁰⁻¹ 6s².
-    *   **Oxidation States:** The most common and stable oxidation state is +3.
-    *   **Lanthanoid Contraction:** The steady decrease in atomic and ionic radii with increasing atomic number due to the poor shielding effect of 4f electrons.
-*   **Actinoids:**
-    *   **Electronic Configuration:** [Rn] 5f¹⁻¹⁴ 6d⁰⁻¹ 7s².
-    *   **Oxidation States:** Show a much larger range of oxidation states than lanthanoids due to the comparable energies of 5f, 6d, and 7s orbitals. All actinoids are radioactive.
+    *   **Lanthanoid Contraction (லாந்தனைடு குறுக்கம்):** The steady decrease in atomic and ionic radii across the series. This is due to the poor shielding effect of 4f electrons.
+    *   **Consequences:** The radii of 5d series elements (like Hf) are very similar to the 4d series elements (like Zr), making their separation difficult.
+*   **Actinoids:** The 5f series.
+    *   All are radioactive.
+    *   Show a wider range of oxidation states than lanthanoids.
+
+# 6. Worked Examples
+
+**1. Easy:** Why do transition metals show variable oxidation states?
+*   **Solution:** Transition metals have incompletely filled d-orbitals. The energy difference between the (n-1)d and ns orbitals is very small. Therefore, electrons from both orbitals can participate in bonding, leading to variable oxidation states. For example, Mn (3d⁵ 4s²) can show oxidation states from +2 to +7.
+
+**2. Medium:** Explain why Zr (Z=40) and Hf (Z=72) have almost identical atomic radii.
+*   **Solution:** This is due to the **lanthanoid contraction**. The 14 electrons added to the 4f subshell before Hf provide very poor shielding. This poor shielding cannot compensate for the increasing nuclear charge. As a result, the effective nuclear charge increases significantly, pulling the electron shells closer and causing the radius of Hf to be almost the same as Zr.
+
+**3. Must-Practice:** Calculate the 'spin-only' magnetic moment of a divalent ion (in aqueous solution) with atomic number 25.
+*   **Solution:**
+    1.  The element is Manganese (Mn). Configuration: [Ar] 3d⁵ 4s².
+    2.  The divalent ion is Mn²⁺. Configuration: [Ar] 3d⁵ (4s electrons are lost first).
+    3.  Number of unpaired electrons (n) = 5.
+    4.  Spin-only magnetic moment \\( \\mu = \\sqrt{n(n+2)} \\) Bohr Magnetons (BM).
+    5.  \\( \\mu = \\sqrt{5(5+2)} = \\sqrt{35} \\approx 5.92 \\text{ BM} \\).
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Key Information |
+| :--- | :--- |
+| Variable Oxidation States | Due to small energy gap between (n-1)d and ns orbitals. |
+| Coloured Ions | Due to d-d transitions of unpaired electrons. |
+| Magnetic Moment (μ) | \\( \\mu = \\sqrt{n(n+2)} \\) BM, where n is no. of unpaired e⁻. |
+| Lanthanoid Contraction | Poor shielding by 4f electrons leads to size decrease. |
 `,
   workedExamples: [
     {
@@ -142,3 +178,4 @@ export const dAndFBlockElements: NeetModule = {
     }
   ]
 };
+

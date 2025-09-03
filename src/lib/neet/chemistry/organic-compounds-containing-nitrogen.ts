@@ -7,33 +7,70 @@ export const organicCompoundsContainingNitrogen: NeetModule = {
   chapter: 'Organic Compounds Containing Nitrogen',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Amines (அமீன்கள்)
-*   **Nomenclature, Classification, Structure:** Amines are derivatives of ammonia (NH₃). Classified as Primary (R-NH₂), Secondary (R₂NH), Tertiary (R₃N) based on the number of alkyl/aryl groups attached to Nitrogen. The N atom is sp³ hybridized with a pyramidal geometry.
-*   **General methods of preparation:**
-    *   Reduction of nitro compounds.
-    *   Ammonolysis of alkyl halides.
-    *   Reduction of nitriles.
-    *   Reduction of amides.
-    *   Gabriel phthalimide synthesis (for primary amines).
-    *   Hofmann bromamide degradation reaction (steps down the series).
-*   **Properties and Reactions:**
-    *   **Basic Character of Amines (அமீன்களின் காரத்தன்மை):** Amines are basic due to the lone pair of electrons on the nitrogen atom. Basicity is compared based on the stability of the conjugate acid and electronic effects.
-        *   Alkylamines are generally stronger bases than ammonia. In aqueous solution, the order for ethylamines is (C₂H₅)₂NH > C₂H₅NH₂ > (C₂H₅)₃N > NH₃.
-        *   Aniline is a much weaker base than ammonia.
-    *   **Identification of primary, secondary, and tertiary amines:**
-        *   **Hinsberg's Test:** Reaction with benzenesulphonyl chloride.
-        *   **Carbylamine Reaction (Isocyanide test):** A test for primary amines only.
+# 1. Module Title
+– Chemistry – Organic Compounds Containing Nitrogen (வேதியியல் - நைட்ரஜனைக் கொண்ட கரிமச் சேர்மங்கள்)
 
-### 2. Diazonium Salts (டையசோனியம் உப்புகள்)
-*   **General formula:** [ArN₂]⁺X⁻.
-*   **Preparation:** By treating a primary aromatic amine (like aniline) with nitrous acid (NaNO₂ + cold dilute HCl) at 0-5 °C. This reaction is called **diazotisation**.
-*   **Importance in Synthetic Organic Chemistry:** Diazonium salts are very versatile intermediates. The diazonium group is a very good leaving group and can be replaced by various nucleophiles.
-    *   **Sandmeyer Reaction:** Replacement by Cl⁻, Br⁻, CN⁻ using Cu(I) salt.
-    *   **Gattermann Reaction:** Replacement by Cl⁻, Br⁻ using copper powder.
-    *   Replacement by I⁻ (with KI).
-    *   Replacement by F⁻ (Balz-Schiemann reaction).
-    *   Replacement by H (hydrolysis) and OH (reduction).
-    *   **Coupling Reactions:** Reaction with electron-rich compounds like phenol and aniline to form colored azo dyes.
+# 2. Learning Objectives
+1.  After this, you will be able to classify amines and write their IUPAC names.
+2.  After this, you will be able to compare the basic strength of different amines.
+3.  After this, you will be able to describe the preparation of diazonium salts.
+4.  After this, you will be able to explain the importance of diazonium salts in synthesis, especially the Sandmeyer reaction.
+
+# 3. Prerequisites
+– Knowledge of organic nomenclature and functional groups.
+– Understanding of basicity and electronic effects (inductive, resonance).
+
+# 4. Concept Overview
+Nitrogen is a vital element, a key component of the proteins that make up our bodies. This chapter deals with organic compounds containing nitrogen, focusing mainly on **Amines (அமீன்கள்)** and **Diazonium Salts (டையசோனியம் உப்புகள்)**. Amines are the organic 'bases' of chemistry, much like how Tulsi (துளசி) is a fundamental base in traditional Tamil medicine. We'll explore why they are basic and what makes some amines stronger bases than others. We'll then look at diazonium salts, which are incredibly versatile 'building blocks' in organic synthesis, allowing chemists to create a huge variety of other compounds.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 2, Chapter 13**. This is a very important chapter. Key areas for NEET are the basicity order of amines, the carbylamine test, and the various synthetic reactions of diazonium salts.
+
+### 5.1 Amines (அமீன்கள்)
+*   **Classification:** Primary (1°), Secondary (2°), Tertiary (3°).
+*   **Preparation:** Reduction of nitro compounds, ammonolysis, reduction of nitriles, Hofmann bromamide degradation.
+*   **Basicity of Amines (அமீன்களின் காரத்தன்மை):** Amines are basic due to the lone pair on the nitrogen atom.
+    *   **Aliphatic amines vs. Ammonia:** Alkylamines are generally stronger bases than ammonia due to the +I effect of alkyl groups.
+    *   **Aromatic amines vs. Ammonia:** Arylamines (like aniline) are much weaker bases than ammonia because the lone pair is delocalized into the benzene ring by resonance.
+*   **Identification Tests:**
+    *   **Hinsberg's Test:** To distinguish between 1°, 2°, and 3° amines.
+    *   **Carbylamine Reaction:** A test for 1° amines only, which produce a foul-smelling isocyanide.
+
+### 5.2 Diazonium Salts (டையசோனியம் உப்புகள்)
+*   **Preparation (Diazotisation):** Formed by treating a primary aromatic amine with nitrous acid (NaNO₂ + cold HCl) at 0-5 °C.
+*   **Synthetic Importance:** The diazonium group (-N₂⁺) is an excellent leaving group and can be easily replaced by other groups.
+    *   **Sandmeyer Reaction:** Replacement by -Cl, -Br, -CN using a cuprous salt.
+    *   **Gattermann Reaction:** Replacement by -Cl, -Br using copper powder.
+    *   **Replacement by -I, -F, -H, -OH.**
+    *   **Coupling Reactions:** Reaction with phenols or anilines to form brightly colored **azo dyes**.
+
+# 6. Worked Examples
+
+**1. Easy:** Arrange the following in increasing order of their basic strength in the gaseous phase: `NH₃`, `CH₃NH₂`, `(CH₃)₂NH`, `(CH₃)₃N`.
+*   **Solution:**
+    *   In the gaseous phase, only the inductive effect (+I effect) matters. More alkyl groups mean a stronger +I effect, which increases electron density on the nitrogen, making it more basic.
+    *   Therefore, the order is: **`NH₃ < CH₃NH₂ < (CH₃)₂NH < (CH₃)₃N`**.
+
+**2. Medium:** How will you distinguish between aniline and N-methylaniline?
+*   **Solution:** Use the **Carbylamine Test**.
+    *   **Aniline (C₆H₅NH₂)** is a primary amine. When heated with chloroform (CHCl₃) and alcoholic KOH, it will produce a foul-smelling phenyl isocyanide.
+    *   **N-methylaniline (C₆H₅NHCH₃)** is a secondary amine. It will not give this test.
+
+**3. Must-Practice:** How will you convert aniline to chlorobenzene?
+*   **Solution:** This is a two-step process:
+    1.  **Diazotisation:** React aniline with NaNO₂ and dilute HCl at 0-5°C. This forms benzenediazonium chloride ([C₆H₅N₂]⁺Cl⁻).
+        \\[ C_6H_5NH_2 + NaNO_2 + 2HCl \\xrightarrow{0-5^\\circ C} [C_6H_5N_2]^+Cl^- + NaCl + 2H_2O \\]
+    2.  **Sandmeyer Reaction:** Treat the resulting diazonium salt with cuprous chloride (CuCl) dissolved in HCl. The diazonium group is replaced by -Cl.
+        \\[ [C_6H_5N_2]^+Cl^- \\xrightarrow{CuCl/HCl} C_6H_5Cl + N_2 \\]
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Key Information |
+| :--- | :--- |
+| Basicity Order (Aqueous) | (C₂H₅)₂NH > C₂H₅NH₂ > (C₂H₅)₃N > NH₃ |
+| Basicity Order (Gas) | 3° > 2° > 1° > NH₃ |
+| Carbylamine Test | 1° Amine + CHCl₃ + KOH → Foul smell (Isocyanide) |
+| Sandmeyer Reaction | ArN₂⁺X⁻ + CuY → ArY + N₂ (Y=Cl, Br, CN) |
 `,
   workedExamples: [
     {
@@ -141,3 +178,4 @@ export const organicCompoundsContainingNitrogen: NeetModule = {
     }
   ]
 };
+

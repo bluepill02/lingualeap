@@ -7,30 +7,75 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
   chapter: 'Redox Reactions and Electrochemistry',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Redox Reactions (ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள்)
-*   **Electronic concepts of oxidation and reduction:** Oxidation is the loss of electrons, and reduction is the gain of electrons (OIL RIG - Oxidation Is Loss, Reduction Is Gain).
-*   **Oxidation Number (ஆக்ஸிஜனேற்ற எண்):** A number assigned to an element in a compound that represents the number of electrons lost or gained. There are specific rules for assigning oxidation numbers.
-*   **Balancing Redox Reactions:** Two methods are used:
-    *   **Ion-Electron Method (Half-Reaction Method):** The overall reaction is split into two half-reactions (oxidation and reduction), which are balanced separately and then added.
-    *   **Oxidation Number Method:** The change in oxidation numbers is used to balance the number of electrons lost and gained.
+# 1. Module Title
+– Chemistry – Redox Reactions and Electrochemistry (வேதியியல் - ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள் மற்றும் மின்வேதியியல்)
 
-### 2. Electrochemistry (மின்வேதியியல்)
-*   **Electrolytic and metallic conduction:** Conduction of electricity by the movement of ions (electrolytic) or electrons (metallic).
-*   **Conductance in electrolytic solutions:**
-    *   **Molar Conductivity (Λm):** The conductivity of a solution containing one mole of electrolyte. Λm = κ / C. It increases with dilution.
-    *   **Kohlrausch's Law (கோல்ராஷ் விதி):** The limiting molar conductivity of an electrolyte (at infinite dilution) can be represented as the sum of the individual contributions of the anion and cation of the electrolyte. Λ°m = ν⁺λ°⁺ + ν⁻λ°⁻.
-*   **Electrochemical Cells:** Devices that convert chemical energy into electrical energy or vice versa.
-    *   **Galvanic Cell (கால்வானிக் கலம்) / Voltaic Cell:** Converts chemical energy from a spontaneous redox reaction into electrical energy (e.g., Daniell cell). Anode is negative, Cathode is positive.
-    *   **Electrolytic Cell (மின்னார் பகுப்புக் கலம்):** Uses electrical energy to drive a non-spontaneous redox reaction. Anode is positive, Cathode is negative.
-*   **Electrode Potentials:**
-    *   **Standard Electrode Potential (E°):** The potential of an electrode determined relative to the Standard Hydrogen Electrode (SHE) under standard conditions (1 M concentration, 1 atm pressure, 298 K).
-    *   **EMF of a Galvanic Cell:** E°cell = E°(cathode) - E°(anode).
-*   **Nernst Equation (நெர்ன்ஸ்ட் சமன்பாடு):** Relates the electrode potential to the concentration of the species and temperature. E = E° - (RT/nF)lnQ.
-*   **Relationship between Cell Potential and Gibbs Energy:** ΔG° = -nFE°cell.
-*   **Batteries:**
-    *   **Dry Cell:** A primary (non-rechargeable) cell.
-    *   **Lead Accumulator:** A secondary (rechargeable) cell used in automobiles.
-*   **Fuel Cells (எரிபொருள் கலன்கள்):** Galvanic cells that convert the energy of combustion of fuels like hydrogen directly into electrical energy.
+# 2. Learning Objectives
+1.  After this, you will be able to determine the oxidation number of elements in compounds.
+2.  After this, you will be able to balance redox reactions using the ion-electron method and the oxidation number method.
+3.  After this, you will be able to explain the functioning of galvanic and electrolytic cells.
+4.  After this, you will be able to apply the Nernst equation and Kohlrausch's law to solve problems.
+
+# 3. Prerequisites
+– Understanding of the mole concept and balancing equations.
+– Basic knowledge of chemical equilibrium and thermodynamics.
+
+# 4. Concept Overview
+From the battery in your TV remote to the process of rusting, many crucial chemical phenomena involve the transfer of electrons. This chapter covers two related topics: **Redox Reactions**, which describe the loss and gain of electrons, and **Electrochemistry**, which is the study of how this electron transfer can produce electricity (like in a battery) or how electricity can be used to drive chemical reactions (like in electroplating). It's like a two-way street connecting chemical energy and electrical energy.
+
+# 5. Detailed Explanation
+This unit combines topics from **Tamil Nadu State Board Class 11 Chemistry Chapter 9 ('Redox Reactions')** and **Class 12 Chemistry Chapter 9 ('Electrochemistry')**. NEET questions often integrate concepts from both parts, especially in balancing and cell potential calculations.
+
+### 5.1 Redox Reactions (ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள்)
+*   **Oxidation and Reduction:** Oxidation is Loss of electrons (OIL), Reduction is Gain of electrons (RIG).
+*   **Oxidation Number (ஆக்ஸிஜனேற்ற எண்):** A number assigned to an element representing its degree of oxidation.
+*   **Balancing Redox Reactions:**
+    *   **Ion-Electron Method:** Split into oxidation and reduction half-reactions and balance them separately.
+    *   **Oxidation Number Method:** Balance the increase and decrease in oxidation numbers.
+
+### 5.2 Electrochemistry (மின்வேதியியல்)
+*   **Electrochemical Cells:**
+    *   **Galvanic Cell (கால்வானிக் கலம்):** A device that converts the chemical energy of a spontaneous redox reaction into electrical energy (e.g., Daniell cell). Anode is negative; Cathode is positive.
+    *   **Electrolytic Cell (மின்னார் பகுப்புக் கலம்):** A device that uses electrical energy to cause a non-spontaneous reaction. Anode is positive; Cathode is negative.
+*   **Electrode Potential and EMF:**
+    *   **Standard Electrode Potential (E°):** The potential of an electrode relative to the Standard Hydrogen Electrode (SHE).
+    *   **EMF of a Cell:** \\(E°_{cell} = E°_{cathode} - E°_{anode}\\).
+*   **Nernst Equation (நெர்ன்ஸ்ட் சமன்பாடு):** Relates cell potential to concentration. \\(E_{cell} = E°_{cell} - \\frac{RT}{nF} \\ln Q\\).
+*   **Conductance in Electrolytic Solutions:**
+    *   **Molar Conductivity (Λm):** Increases with dilution.
+    *   **Kohlrausch's Law (கோல்ராஷ் விதி):** The limiting molar conductivity of an electrolyte is the sum of the individual contributions of its ions.
+*   **Batteries and Fuel Cells:** Practical applications of electrochemical cells.
+
+# 6. Worked Examples
+
+**1. Easy:** What is the oxidation number of Cr in K₂Cr₂O₇?
+*   **Solution:**
+    *   Let the oxidation number of Cr be x. K is +1, O is -2.
+    *   2(+1) + 2(x) + 7(-2) = 0
+    *   2 + 2x - 14 = 0
+    *   2x = 12, so **x = +6**.
+
+**2. Medium:** Calculate the standard cell potential (E°cell) for the Daniell cell: Zn(s) | Zn²⁺(aq) || Cu²⁺(aq) | Cu(s). Given E°(Zn²⁺/Zn) = -0.76 V and E°(Cu²⁺/Cu) = +0.34 V.
+*   **Solution:**
+    *   \\(E°_{cell} = E°_{cathode} - E°_{anode}\\).
+    *   Cathode (Reduction): Cu²⁺ + 2e⁻ → Cu. Anode (Oxidation): Zn → Zn²⁺ + 2e⁻.
+    *   \\(E°_{cell} = (+0.34 V) - (-0.76 V) = 0.34 + 0.76 = 1.10 V\\).
+
+**3. Must-Practice:** A solution of CuSO₄ is electrolyzed for 10 minutes with a current of 1.5 amperes. What is the mass of copper deposited at the cathode? (Molar mass of Cu = 63.5 g/mol, F = 96500 C/mol).
+*   **Solution:**
+    1.  Calculate total charge passed: Q = I × t = 1.5 A × (10 × 60 s) = 900 C.
+    2.  The cathode reaction is Cu²⁺ + 2e⁻ → Cu. This shows n = 2 moles of electrons are needed per mole of Cu.
+    3.  According to Faraday's law, mass deposited \\(m = \\frac{M \\times Q}{n \\times F}\\).
+    4.  \\(m = \\frac{63.5 \\times 900}{2 \\times 96500} = \\frac{57150}{193000} \\approx 0.296 \\text{ g}\\).
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\(E°_{cell} = E°_{cathode} - E°_{anode}\\) | Standard EMF of Cell (கலத்தின் திட்ட மின்னியக்கு விசை) |
+| \\(\\Delta G° = -nFE°_{cell}\\) | Gibbs Energy and Cell Potential (கிப்ஸ் ஆற்றல் மற்றும் மின்னழுத்தம்) |
+| \\(E_{cell} = E°_{cell} - \\frac{0.0591}{n} \\log Q\\) | Nernst Equation at 298K (நெர்ன்ஸ்ட் சமன்பாடு) |
+| \\(\\Lambda_m^\\circ = \\nu_+ \\lambda_+^\\circ + \\nu_- \\lambda_-^\\circ\\) | Kohlrausch's Law (கோல்ராஷ் விதி) |
 `,
   workedExamples: [
     {
@@ -39,7 +84,7 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
     },
     {
         problem: "What is the oxidation number of Cr in K₂Cr₂O₇?",
-        solution: "Let the oxidation number of Cr be x. The oxidation number of K is +1 and O is -2. The overall charge of the compound is 0. So, 2(+1) + 2(x) + 7(-2) = 0. 2 + 2x - 14 = 0. 2x - 12 = 0. 2x = 12. x = +6. The oxidation number of Cr is +6."
+        solution: "Let the oxidation number of Cr be x. The oxidation number of K is +1 and O is -2. The overall charge of the compound is 0. So, 2(+1) + 2(x) + 7(-2) = 0. 2 + 2x - 14 = 0. 2x - 12 = 0. 2x = +6. The oxidation number of Cr is +6."
     },
     {
         problem: "A solution of CuSO₄ is electrolyzed for 10 minutes with a current of 1.5 amperes. What is the mass of copper deposited at the cathode? (Atomic mass of Cu = 63.5 g/mol)",
@@ -138,3 +183,4 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
     }
   ]
 };
+

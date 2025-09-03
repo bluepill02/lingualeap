@@ -7,35 +7,87 @@ export const chemicalBondingAndMolecularStructure: NeetModule = {
   chapter: 'Chemical Bonding and Molecular Structure',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Introduction to Chemical Bonding (வேதிப் பிணைப்பு அறிமுகம்)
-*   **Kossel-Lewis approach:** Atoms combine to complete their respective octets to attain stable noble gas configuration.
-*   **Ionic Bond (அயனிப் பிணைப்பு):** Formed by the complete transfer of electrons from a metal to a non-metal, leading to electrostatic attraction between oppositely charged ions (e.g., NaCl).
-    *   **Factors affecting formation:** Low ionization enthalpy of the metal, high electron gain enthalpy of the non-metal, and high lattice enthalpy of the compound.
-    *   **Lattice Enthalpy:** The energy required to completely separate one mole of a solid ionic compound into its gaseous constituent ions.
-*   **Covalent Bond (சகப் பிணைப்பு):** Formed by the sharing of electrons between atoms.
+# 1. Module Title
+– Chemistry – Chemical Bonding and Molecular Structure (வேதியியல் - வேதிப் பிணைப்பு மற்றும் மூலக்கூறு அமைப்பு)
 
-### 2. Covalent Bonding: Parameters and Theories
-*   **Concept of electronegativity:** The tendency of an atom to attract a shared pair of electrons.
-*   **Fajan’s rule:** Predicts the degree of covalent character in an ionic bond. Covalent character is favored by: small cation, large anion, and high charge on ions.
-*   **Dipole moment (இருமுனைத் திருப்புத்திறன்):** A measure of the polarity of a chemical bond.
-*   **Valence Shell Electron Pair Repulsion (VSEPR) Theory:** Predicts the geometry of molecules based on minimizing repulsion between electron pairs in the valence shell. Repulsion order: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair.
-*   **Valence Bond Theory (VBT):** A covalent bond forms from the overlap of atomic orbitals.
-    *   **Hybridization (கலப்பினமாதல்):** Mixing of atomic orbitals to form new hybrid orbitals. Key types: sp (linear), sp² (trigonal planar), sp³ (tetrahedral), sp³d (trigonal bipyramidal), sp³d² (octahedral).
-    *   **Resonance (உடனிசைவு):** The concept that a molecule's actual structure is a hybrid of several contributing Lewis structures.
+# 2. Learning Objectives
+1.  After this, you will be able to explain the formation of ionic and covalent bonds.
+2.  After this, you will be able to apply VSEPR theory to predict the shapes of simple molecules.
+3.  After this, you will be able to describe hybridization and its role in determining molecular geometry.
+4.  After this, you will be able to use Molecular Orbital Theory to determine the bond order and magnetic properties of simple diatomic molecules.
 
-### 3. Molecular Orbital Theory (MOT) (மூலக்கூறு ஆர்பிட்டால் கொள்கை)
-*   Atomic orbitals combine to form molecular orbitals (MOs).
-*   **Types of MOs:** Bonding Molecular Orbitals (BMOs - lower energy, stabilizing) and Antibonding Molecular Orbitals (ABMOs - higher energy, destabilizing).
-*   **Sigma (σ) and pi (π) bonds.**
-*   **Molecular orbital electronic configurations:** Filling electrons into MOs according to energy levels.
-*   **Bond Order:** A measure of the number of bonds between two atoms. Bond Order = ½ (No. of electrons in BMOs - No. of electrons in ABMOs).
-    *   A positive bond order indicates a stable molecule.
-    *   Higher bond order means greater bond strength and shorter bond length.
-*   Explains the magnetic nature (paramagnetic/diamagnetic) of molecules like O₂.
+# 3. Prerequisites
+– Knowledge of atomic structure, electronic configuration, and quantum numbers.
+– Basic understanding of periodic trends like electronegativity.
 
-### 4. Metallic and Hydrogen Bonding
-*   **Metallic Bonding (உலோகப் பிணைப்பு):** The electrostatic attraction between metal cations and delocalized electrons.
-*   **Hydrogen Bonding (ஹைட்ரஜன் பிணைப்பு):** A special type of dipole-dipole attraction between a hydrogen atom bonded to a highly electronegative atom (F, O, N) and another nearby electronegative atom. It's responsible for many unique properties of water.
+# 4. Concept Overview
+Imagine building a complex temple gopuram (கோபுரம்). The way each brick is connected to another determines the final, stable structure. Similarly, **Chemical Bonding** explains how atoms connect to form stable molecules. This chapter is the 'architecture' of chemistry. We will explore how atoms share (covalent bond) or transfer (ionic bond) electrons to stick together. We'll learn powerful theories like VSEPR and Hybridization (கலப்பினமாதல்) to predict the 3D shapes of molecules, and use Molecular Orbital Theory to understand the nature of bonds in molecules like oxygen.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 1, Chapter 4**. It is one of the most important chapters in all of chemistry, with a very high weightage in NEET. Questions are often asked from VSEPR theory, hybridization, MOT, and dipole moment.
+
+### 5.1 Types of Chemical Bonds
+*   **Ionic Bond (அயனிப் பிணைப்பு):** Formed by the complete transfer of electrons, creating an electrostatic attraction between ions (e.g., NaCl).
+*   **Covalent Bond (சகப் பிணைப்பு):** Formed by the mutual sharing of electrons.
+    *   **Bond Parameters:** Bond length, bond angle, bond enthalpy, bond order.
+*   **Coordinate Bond:** A type of covalent bond where both shared electrons are donated by one atom.
+
+### 5.2 Theories of Covalent Bonding
+*   **VSEPR Theory (இணைதிறன் கூட்டில் உள்ள எலக்ட்ரான் இரட்டைகளின் விலக்குக் கொள்கை):** The shape of a molecule is determined by the repulsion between electron pairs in the valence shell. The order of repulsion is: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair.
+*   **Valence Bond Theory (VBT):** Explains bond formation through the overlapping of atomic orbitals.
+    *   **Hybridization (கலப்பினமாதல்):** The concept of mixing atomic orbitals to form new hybrid orbitals with specific shapes and energies (e.g., sp³, sp², sp). This determines the geometry of molecules.
+    *   **Resonance (உடனிசைவு):** When a single Lewis structure cannot describe a molecule accurately, its true structure is a resonance hybrid of multiple contributing structures.
+
+### 5.3 Molecular Orbital Theory (MOT)
+*   Atomic orbitals combine to form an equal number of molecular orbitals (MOs).
+*   **Bonding MOs (பிணைப்பு மூலக்கூறு ஆர்பிட்டால்கள்):** Lower energy, stable.
+*   **Antibonding MOs (எதிர்-பிணைப்பு மூலக்கூறு ஆர்பிட்டால்கள்):** Higher energy, unstable.
+*   **Bond Order:** \\( \\frac{1}{2} (N_b - N_a) \\), where Nₑ is electrons in bonding MOs and Nₐ is electrons in antibonding MOs. A higher bond order indicates a stronger bond.
+*   Explains the paramagnetism of O₂ and the existence/non-existence of molecules like He₂.
+
+### 5.4 Hydrogen Bonding (ஹைட்ரஜன் பிணைப்பு)
+*   A special dipole-dipole attraction between a hydrogen atom bonded to a highly electronegative atom (F, O, N) and another electronegative atom. It is responsible for the unique properties of water.
+
+# 6. Worked Examples
+
+**1. Easy:** Predict the shape of the SF₄ molecule using VSEPR theory.
+*   **Solution:**
+    *   Central atom S has 6 valence electrons.
+    *   It forms 4 single bonds with F atoms.
+    *   Total electron pairs = (6 valence e⁻ from S + 4 e⁻ from 4F) / 2 = 5 pairs.
+    *   Bond pairs = 4, Lone pairs = 1.
+    *   The electron geometry for 5 pairs is trigonal bipyramidal. The lone pair occupies an equatorial position to minimize repulsion.
+    *   Therefore, the molecular shape is a **see-saw (சீசா வடிவம்)**.
+
+**2. Medium:** Calculate the bond order of the N₂ molecule using MOT and determine its magnetic nature.
+*   **Solution:**
+    *   N₂ has a total of 14 electrons.
+    *   MOT configuration: \\((\\sigma1s)^2 (\\sigma^*1s)^2 (\\sigma2s)^2 (\\sigma^*2s)^2 (\\pi2p_x)^2 (\\pi2p_y)^2 (\\sigma2p_z)^2\\).
+    *   Number of bonding electrons (Nₑ) = 10.
+    *   Number of antibonding electrons (Nₐ) = 4.
+    *   Bond Order = \\(\\frac{1}{2}(N_b - N_a) = \\frac{1}{2}(10 - 4) = 3\\).
+    *   Since there are no unpaired electrons, N₂ is **diamagnetic (டயாகாந்தத் தன்மை)**.
+
+**3. Must-Practice:** Why is the H₂O molecule bent while the BeF₂ molecule is linear?
+*   **Solution:**
+    *   **In H₂O:** The central O atom undergoes sp³ hybridization. It has 2 bond pairs and 2 lone pairs. The strong repulsion from the two lone pairs pushes the bond pairs closer, resulting in a bent shape (104.5°).
+    *   **In BeF₂:** The central Be atom undergoes sp hybridization. It has only 2 bond pairs and no lone pairs. To be as far apart as possible, they arrange themselves 180° apart, resulting in a linear shape.
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Formula / Representation |
+| :--- | :--- |
+| Hybridization & Shape | sp (Linear), sp² (Trigonal Planar), sp³ (Tetrahedral) |
+| VSEPR Repulsion Order | lp-lp > lp-bp > bp-bp |
+| Bond Order (MOT) | \\( \\frac{1}{2} (N_b - N_a) \\) |
+| Dipole Moment (μ) | Zero for symmetrical molecules (CO₂, CCl₄) |
+
+<br>
+\`\`\`
+DIAGRAM: Hybridization Shapes
+Shows sp (linear, 180°), sp² (trigonal planar, 120°), and sp³ (tetrahedral, 109.5°) geometries with example molecules like BeCl₂, BF₃, and CH₄.
+sp (நேர்க்கோட்டு), sp² (தள முக்கோணம்), sp³ (நான்முகி)
+\`\`\`
 `,
   workedExamples: [
     {
@@ -143,3 +195,4 @@ export const chemicalBondingAndMolecularStructure: NeetModule = {
     }
   ]
 };
+

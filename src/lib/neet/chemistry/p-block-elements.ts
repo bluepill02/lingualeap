@@ -7,51 +7,74 @@ export const pBlockElements: NeetModule = {
   chapter: 'p-Block Elements',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. General Introduction to p-Block Elements (Groups 13 to 18)
+# 1. Module Title
+– Chemistry – p-Block Elements (வேதியியல் - p-தொகுதி தனிமங்கள்)
 
-*   **Definition:** Elements in which the last electron enters the outermost p orbital. They include metals, non-metals, and metalloids.
-*   **General Electronic Configuration:** ns² np¹⁻⁶.
-*   **General Trends:**
-    *   **Across a Period (Left to Right):** Atomic size decreases, ionization enthalpy and electronegativity increase.
-    *   **Down a Group:** Atomic size increases, ionization enthalpy and electronegativity decrease.
-*   **Unique Behaviour of the First Element:** The first element of each group (B, C, N, O, F) shows anomalous properties due to its small size, high electronegativity, high ionization enthalpy, and absence of d-orbitals.
+# 2. Learning Objectives
+1.  After this, you will be able to explain the general trends in properties for p-block elements.
+2.  After this, you will be able to describe the anomalous behavior of the first element in each group.
+3.  After this, you will be able to explain the inert pair effect and its consequences.
+4.  After this, you will be able to discuss the preparation, properties, and structures of important compounds like ammonia, nitric acid, ozone, and interhalogens.
 
-### 2. Group 13: The Boron Family
-*   **Configuration:** ns² np¹
-*   **Properties:** Boron is a non-metal, others are metals. Show +3 and +1 oxidation states. Stability of +1 state increases down the group (**Inert Pair Effect**). Boron compounds are electron-deficient (Lewis acids).
+# 3. Prerequisites
+– Good understanding of periodic classification and periodic trends.
+– Knowledge of chemical bonding, hybridization, and VSEPR theory.
 
-### 3. Group 14: The Carbon Family
-*   **Configuration:** ns² np²
-*   **Properties:** Carbon is a non-metal, Si & Ge are metalloids, Sn & Pb are metals. Show +4 and +2 oxidation states. Stability of +2 state increases down the group. **Catenation** (self-linking) is maximum for carbon. Carbon shows allotropy (diamond, graphite, fullerenes).
+# 4. Concept Overview
+The p-block elements are a diverse group, like the variety of shops on a busy street in a Tamil town. You can find everything from a simple metal shop (like Aluminium) to stores selling essential gases (like Oxygen and Nitrogen) and highly reactive elements (like Chlorine). This chapter covers a wide range of chemistry, exploring Groups 13 to 18. We'll examine trends, unique properties like the **Inert Pair Effect (மந்த இணை விளைவு)**, and the chemistry of fundamentally important compounds like ammonia (used in fertilizers) and sulphuric acid (the 'king of chemicals').
 
-### 4. Group 15: The Nitrogen Family
-*   **Configuration:** ns² np³
-*   **Properties:** N & P are non-metals, As & Sb are metalloids, Bi is a metal. Show a wide range of oxidation states from -3 to +5. N₂ is a diatomic gas with a triple bond, making it inert. Phosphorus shows allotropy (white, red, black).
+# 5. Detailed Explanation
+This unit covers the **Tamil Nadu State Board Class 11 Chemistry (Chapters 3 & 4)** and **Class 12 Chemistry (Chapters 2 & 3)**. It is a vast but high-scoring area in NEET. Focus on the trends, structures of oxoacids, and properties of important compounds.
 
-### 5. Group 16: The Oxygen Family (Chalcogens)
-*   **Configuration:** ns² np⁴
-*   **Properties:** O, S, Se are non-metals, Te is a metalloid, Po is a radioactive metal. Show -2, +2, +4, +6 oxidation states. Oxygen is a diatomic gas (O₂), others are solids. Ozone (O₃) is an important allotrope of oxygen.
+### 5.1 General Introduction
+*   **Electronic Configuration:** ns² np¹⁻⁶.
+*   **General Trends:** Properties vary significantly, including metals, non-metals, and metalloids.
 
-### 6. Group 17: The Halogen Family
-*   **Configuration:** ns² np⁵
-*   **Properties:** Highly reactive non-metals. They have high electronegativity and high negative electron gain enthalpy. Show -1, +1, +3, +5, +7 oxidation states (except F, which shows only -1).
+### 5.2 Group-wise Study
+*   **Group 13 (Boron Family):** ns² np¹. Boron shows anomalous properties. Trend of +3 and +1 oxidation states. Boron compounds are electron-deficient.
+*   **Group 14 (Carbon Family):** ns² np². Catenation and allotropy (diamond, graphite) are key features of carbon. Trend of +4 and +2 oxidation states.
+*   **Group 15 (Nitrogen Family):** ns² np³. Wide range of oxidation states. N₂ is inert due to a strong triple bond. Key compounds: **Ammonia (NH₃)** (Haber's process) and **Nitric Acid (HNO₃)** (Ostwald's process).
+*   **Group 16 (Oxygen Family):** ns² np⁴. Key compounds: **Ozone (O₃)** and **Sulphuric Acid (H₂SO₄)** (Contact process).
+*   **Group 17 (Halogen Family):** ns² np⁵. Highly reactive non-metals with high electronegativity. Forms interhalogen compounds (e.g., ClF₃, BrF₅).
+*   **Group 18 (Noble Gases):** ns² np⁶. Generally unreactive due to stable electron configurations. Heavier gases like Xenon can form compounds (e.g., XeF₂, XeF₄, XeOF₄).
 
-### 7. Group 18: The Noble Gases
-*   **Configuration:** ns² np⁶ (except He: 1s²)
-*   **Properties:** Have completely filled valence shells, making them very stable and unreactive. They have very high ionization enthalpies and large positive electron gain enthalpies. Heavier noble gases (Kr, Xe) can form compounds with highly electronegative elements like F and O.
+# 6. Worked Examples
+
+**1. Easy:** `PCl₅` is known, but `NCl₅` is not. Why?
+*   **Solution:** Nitrogen is in the second period and lacks vacant d-orbitals. It cannot expand its octet to form five bonds. Phosphorus is in the third period and has vacant 3d-orbitals, allowing it to promote an electron and form five bonds.
+
+**2. Medium:** Why is `Bi(V)` a stronger oxidizing agent than `Sb(V)`?
+*   **Solution:** This is due to the **Inert Pair Effect**. Down Group 15, the stability of the +5 oxidation state decreases while the +3 state becomes more stable. For Bismuth, the +3 state is much more stable than the +5 state. Therefore, `Bi(V)` has a strong tendency to accept electrons and get reduced to the more stable `Bi(III)`, making it a powerful oxidizing agent.
+
+**3. Must-Practice:** Explain why the bond angle in `NH₃` (107.8°) is greater than in `H₂O` (104.5°).
+*   **Solution:**
+    *   In both molecules, the central atom is sp³ hybridized.
+    *   `NH₃` has 3 bond pairs and 1 lone pair.
+    *   `H₂O` has 2 bond pairs and 2 lone pairs.
+    *   According to VSEPR theory, the repulsion order is: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair.
+    *   Since `H₂O` has two lone pairs, the strong lp-lp repulsion pushes the bonds closer together, reducing the bond angle more significantly than the single lone pair in `NH₃`.
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Structure/Reaction |
+| :--- | :--- |
+| Haber's Process | \\(N_2 + 3H_2 \\rightleftharpoons 2NH_3\\) |
+| Ostwald's Process | \\(NH_3 \\rightarrow NO \\rightarrow NO_2 \\rightarrow HNO_3\\) |
+| Contact Process | \\(S \\rightarrow SO_2 \\rightarrow SO_3 \\rightarrow H_2S_2O_7 \\rightarrow H_2SO_4\\) |
+| VSEPR Shapes | `XeF₄` (Square Planar), `SF₄` (See-saw) |
 `,
   workedExamples: [
     {
-        problem: '`PCl₅` is known, but `NCl₅` is not. Why?',
-        solution: 'Nitrogen (N) is in the second period and has only s and p orbitals in its valence shell. It does not have vacant d-orbitals to expand its octet. Therefore, it can only form a maximum of four covalent bonds. Phosphorus (P) is in the third period and has vacant 3d-orbitals. It can promote one of its 3s electrons to a 3d orbital, making five unpaired electrons available for bonding, thus forming `PCl₅`.'
+        problem: "`PCl₅` is known, but `NCl₅` is not. Why?",
+        solution: "Nitrogen (N) is in the second period and has only s and p orbitals in its valence shell. It does not have vacant d-orbitals to expand its octet. Therefore, it can only form a maximum of four covalent bonds. Phosphorus (P) is in the third period and has vacant 3d-orbitals. It can promote one of its 3s electrons to a 3d orbital, making five unpaired electrons available for bonding, thus forming `PCl₅`."
     },
     {
-        problem: 'Why is `Bi(V)` a stronger oxidizing agent than `Sb(V)`?',
-        solution: 'This is due to the **Inert Pair Effect**. For heavier p-block elements, the ns² electrons are more reluctant to participate in bonding. Therefore, the +3 oxidation state is more stable than the +5 state for Bi. As a result, `Bi(V)` has a strong tendency to get reduced to the more stable `Bi(III)` state, making it a strong oxidizing agent.'
+        problem: "Why is `Bi(V)` a stronger oxidizing agent than `Sb(V)`?",
+        solution: "This is due to the **Inert Pair Effect**. For heavier p-block elements, the ns² electrons are more reluctant to participate in bonding. Therefore, the +3 oxidation state is more stable than the +5 state for Bi. As a result, `Bi(V)` has a strong tendency to get reduced to the more stable `Bi(III)` state, making it a strong oxidizing agent."
     },
     {
-        problem: 'Explain why the bond angle in `NH₃` (107.8°) is greater than in `H₂O` (104.5°).',
-        solution: 'Both N in `NH₃` and O in `H₂O` are sp³ hybridized. According to VSEPR theory, the geometry is determined by the total number of electron pairs. `NH₃` has 3 bond pairs and 1 lone pair. `H₂O` has 2 bond pairs and 2 lone pairs. The repulsion order is: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair. Since `H₂O` has two lone pairs, the lp-lp repulsion is stronger, pushing the bonds closer together and reducing the bond angle more significantly than the single lone pair in `NH₃`.'
+        problem: "Explain why the bond angle in `NH₃` (107.8°) is greater than in `H₂O` (104.5°).",
+        solution: "Both N in `NH₃` and O in `H₂O` are sp³ hybridized. According to VSEPR theory, the geometry is determined by the total number of electron pairs. `NH₃` has 3 bond pairs and 1 lone pair. `H₂O` has 2 bond pairs and 2 lone pairs. The repulsion order is: Lone pair-Lone pair > Lone pair-Bond pair > Bond pair-Bond pair. Since `H₂O` has two lone pairs, the lp-lp repulsion is stronger, pushing the bonds closer together and reducing the bond angle more significantly than the single lone pair in `NH₃`."
     }
   ],
   mcqs: [
@@ -146,3 +169,4 @@ export const pBlockElements: NeetModule = {
     }
   ]
 };
+

@@ -7,37 +7,78 @@ export const equilibrium: NeetModule = {
   chapter: 'Equilibrium',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Physical and Chemical Equilibrium (இயற் மற்றும் வேதிச் சமநிலை)
-*   **Equilibrium:** A state in a process when observable properties like concentration, pressure, and temperature do not show any change with time. It is a dynamic equilibrium, meaning forward and reverse processes occur at the same rate.
-*   **Physical Equilibria:** Solid-liquid (melting), liquid-gas (boiling), solid-gas (sublimation).
-*   **Chemical Equilibrium:** The state in a reversible reaction where the rate of the forward reaction equals the rate of the reverse reaction.
+# 1. Module Title
+– Chemistry – Equilibrium (வேதியியல் - சமநிலை)
 
-### 2. Law of Chemical Equilibrium and Equilibrium Constant (வேதிச் சமநிலை விதி மற்றும் சமநிலை மாறிலி)
-*   **Law of Mass Action:** The rate of a chemical reaction is proportional to the product of the active masses of the reactants.
-*   For a reversible reaction aA + bB ⇌ cC + dD, the equilibrium constant **Kc = [C]ᶜ[D]ᵈ / [A]ᵃ[B]ᵇ**.
-*   For gaseous reactions, the equilibrium constant in terms of partial pressures is **Kp**.
-*   **Relationship between Kp and Kc:** Kp = Kc(RT)Δⁿ, where Δn = (moles of gaseous products) - (moles of gaseous reactants).
-*   **Significance of ΔG and ΔG°:** The relationship ΔG = ΔG° + RT lnQ relates free energy change to the reaction quotient. At equilibrium, ΔG = 0, so **ΔG° = -RT lnK**.
+# 2. Learning Objectives
+1.  After this, you will be able to write expressions for equilibrium constants (Kp and Kc) and relate them.
+2.  After this, you will be able to apply Le Chatelier's principle to predict the effect of changes in concentration, pressure, and temperature on a system at equilibrium.
+3.  After this, you will be able to differentiate between Arrhenius, Brønsted-Lowry, and Lewis acids and bases.
+4.  After this, you will be able to solve problems involving pH, buffer solutions, and solubility product (Ksp).
 
-### 3. Le Chatelier's Principle (லீ சாட்லியர் கொள்கை)
-*   If a change of concentration, pressure, or temperature is applied to a system in equilibrium, the system will shift in a direction that counteracts the change. (ஒரு சமநிலை அமைப்பில் மாற்றம் ஏற்பட்டால், அந்த மாற்றத்தின் விளைவைக் குறைக்க அமைப்பு முயற்சிக்கும்).
-    *   **Concentration:** Increasing reactant concentration shifts equilibrium to the right (products).
-    *   **Pressure:** Increasing pressure shifts equilibrium to the side with fewer moles of gas.
-    *   **Temperature:** Increasing temperature favors the endothermic reaction (where ΔH is positive).
-    *   **Catalyst:** A catalyst increases the rate of both forward and reverse reactions equally, so it does not affect the position of equilibrium. It only helps to attain equilibrium faster.
+# 3. Prerequisites
+– Understanding of mole concept and concentrations.
+– Knowledge of basic chemical reactions and stoichiometry.
+– Familiarity with logarithms.
 
-### 4. Ionic Equilibrium (அயனிச் சமநிலை)
-*   **Electrolytes:** Weak and strong electrolytes based on their degree of ionization.
-*   **Acids and Bases Concepts:**
-    *   **Arrhenius:** Acids give H⁺ ions, bases give OH⁻ ions in water.
-    *   **Brønsted-Lowry:** Acids are proton donors, bases are proton acceptors.
-    *   **Lewis:** Acids are electron-pair acceptors, bases are electron-pair donors.
-*   **Ionization of Acids and Bases:** Dissociation constants (Ka and Kb), multistage ionization.
-*   **Ionization of Water and pH Scale:** Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 298K. The **pH scale** (pH = -log[H⁺]) is used to express acidity.
-*   **Common Ion Effect (பொது அயனி விளைவு):** The suppression of the dissociation of a weak electrolyte by the addition of a strong electrolyte containing a common ion.
-*   **Hydrolysis of Salts and pH of their solutions:** The reaction of the anion or cation of a salt with water to produce an acidic or basic solution.
-*   **Buffer Solutions (தாங்கல் கரைசல்கள்):** Solutions that resist a change in pH on the addition of a small amount of acid or base. (e.g., a mixture of a weak acid and its salt, CH₃COOH + CH₃COONa).
-*   **Solubility Product (Ksp) (கரைதிறன் பெருக்கம்):** The equilibrium constant for a sparingly soluble salt dissolving in a solution. For AxBy ⇌ xAʸ⁺ + yBˣ⁻, Ksp = [Aʸ⁺]ˣ[Bˣ⁻]ʸ.
+# 4. Concept Overview
+Imagine a bustling market in a town like Erode (ஈரோடு), a major center for turmeric. There is a constant buying and selling of turmeric, but if the rate of buying becomes equal to the rate of selling, the overall stock in the market appears constant. This state of balance is **equilibrium (சமநிலை)**. In chemistry, we study reversible reactions that reach a similar dynamic balance. This chapter explores both physical and chemical equilibria. We will learn how to predict the direction a reaction will shift using **Le Chatelier's principle**, and we will dive into **Ionic Equilibrium**, which governs everything from the pH of our blood to how a simple salt dissolves in water.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 2, Chapter 8**. It is a very important chapter for NEET, with numerical problems frequently asked from Le Chatelier's principle, pH calculations, and solubility products.
+
+### 5.1 Physical and Chemical Equilibrium
+*   **Equilibrium:** A dynamic state where the rates of forward and reverse processes are equal.
+*   **Law of Mass Action and Equilibrium Constant:** For aA + bB ⇌ cC + dD, the equilibrium constant \\(K_c = \\frac{[C]^c[D]^d}{[A]^a[B]^b}\\).
+*   **Relationship between Kp and Kc:** \\( K_p = K_c(RT)^{\\Delta n} \\), where Δn is the change in moles of gas.
+
+### 5.2 Le Chatelier's Principle (லீ சாட்லியர் கொள்கை)
+*   A system at equilibrium, when disturbed, will shift to nullify the effect of the change.
+    *   **Concentration:** Adding reactants shifts equilibrium to the right.
+    *   **Pressure:** Increasing pressure favors the side with fewer gas moles.
+    *   **Temperature:** Increasing temperature favors the endothermic reaction.
+    *   **Catalyst:** Affects only the rate, not the equilibrium position.
+
+### 5.3 Ionic Equilibrium in Solutions (கரைசல்களில் அயனிச் சமநிலை)
+*   **Acids, Bases and Salts:** Arrhenius, Brønsted-Lowry, and Lewis concepts.
+*   **Ionization of Acids and Bases:**
+    *   **Dissociation constants (Ka and Kb):** Measure the strength of weak acids and bases.
+    *   **Ionization of water and pH scale:** \\(K_w = [H^+][OH^-] = 10^{-14}\\) at 298K. \\(pH = -log[H^+]\\).
+*   **Common Ion Effect (பொது அயனி விளைவு):** Suppression of dissociation of a weak electrolyte by adding a strong electrolyte with a common ion.
+*   **Buffer Solutions (தாங்கல் கரைசல்கள்):** Resist change in pH. Typically a mixture of a weak acid and its salt (e.g., CH₃COOH + CH₃COONa).
+*   **Hydrolysis of Salts:** Reaction of ions of a salt with water, which can make the solution acidic or basic.
+*   **Solubility Product (Ksp) (கரைதிறன் பெருக்கம்):** The equilibrium constant for a sparingly soluble salt. For AxBy, \\(K_{sp} = [A^{y+}]^x[B^{x-}]^y\\).
+
+# 6. Worked Examples
+
+**1. Easy:** The pH of a solution is 4. Calculate the hydrogen ion concentration.
+*   **Solution:**
+    *   pH = -log[H⁺].
+    *   Therefore, [H⁺] = 10⁻ᵖᴴ.
+    *   Given pH = 4, the hydrogen ion concentration [H⁺] = **10⁻⁴ M**.
+
+**2. Medium:** For the reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = -92.2 kJ/mol. How will the equilibrium be affected by (a) increasing the pressure, (b) increasing the temperature?
+*   **Solution:**
+    *   **(a) Increasing Pressure:** The forward reaction proceeds with a decrease in the number of moles of gas (1+3=4 on left, 2 on right). Increasing pressure will shift the equilibrium to the **right**, favoring the formation of ammonia.
+    *   **(b) Increasing Temperature:** The forward reaction is exothermic (ΔH is negative). Increasing the temperature will favor the endothermic (reverse) reaction. The equilibrium will shift to the **left**.
+
+**3. Must-Practice:** The solubility product (Ksp) of AgCl is 1.8 x 10⁻¹⁰. Calculate the solubility of AgCl in a 0.1 M NaCl solution.
+*   **Solution:**
+    1.  Equilibrium: AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq). Let the solubility of AgCl be 's'.
+    2.  So, [Ag⁺] = s.
+    3.  The Cl⁻ ions come from two sources: 's' from AgCl and 0.1 M from NaCl. So, [Cl⁻] = s + 0.1.
+    4.  Since s is very small compared to 0.1, we can approximate [Cl⁻] ≈ 0.1 M.
+    5.  \\(K_{sp} = [Ag^+][Cl^-] \\implies 1.8 \\times 10^{-10} = (s)(0.1)\\).
+    6.  \\(s = \\frac{1.8 \\times 10^{-10}}{0.1} = 1.8 \\times 10^{-9} \\text{ mol/L}\\). This shows the solubility is greatly reduced due to the common ion effect.
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\( K_p = K_c(RT)^{\\Delta n} \\) | Relation between Kp and Kc |
+| \\( pH = -log[H^+] \\) | pH Scale (pH அளவுகோல்) |
+| \\( pK_a = -logK_a \\) | Acid Dissociation Constant (அமிலப் பிரிகை மாறிலி) |
+| \\( K_{sp} = [A^{y+}]^x[B^{x-}]^y \\) | Solubility Product (கரைதிறன் பெருக்கம்) |
 `,
   workedExamples: [
     {
@@ -150,3 +191,4 @@ export const equilibrium: NeetModule = {
     }
   ]
 };
+

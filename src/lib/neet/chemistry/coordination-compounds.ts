@@ -7,38 +7,84 @@ export const coordinationCompounds: NeetModule = {
   chapter: 'Coordination Compounds',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Introduction to Coordination Compounds
-*   **Werner's Theory:** Postulated primary (ionisable) and secondary (non-ionisable) valencies. Secondary valencies are directed in space and determine the geometry.
-*   **Basic Terminology:**
-    *   **Coordination Entity:** A central metal atom or ion bonded to a fixed number of ions or molecules (ligands). e.g., [Co(NH₃)₆]³⁺.
-    *   **Central Atom/Ion:** The metal atom/ion to which ligands are attached.
-    *   **Ligands:** Ions or molecules that donate a pair of electrons to the central metal atom. Can be **unidentate, bidentate, polydentate**. **Chelation** is the formation of a ring structure by a bidentate or polydentate ligand.
-    *   **Coordination Number:** The number of ligand donor atoms to which the metal is directly bonded.
-    *   **Coordination Sphere:** The central atom and the ligands attached to it, enclosed in square brackets.
+# 1. Module Title
+– Chemistry – Coordination Compounds (வேதியியல் - அணைவுச் சேர்மங்கள்)
 
-### 2. IUPAC Nomenclature of Mononuclear Coordination Compounds
-*   Cation is named first, then the anion.
-*   Ligands are named alphabetically. Anionic ligands end in '-o'.
-*   Metal's oxidation state is in Roman numerals in parentheses.
-*   If the complex is an anion, the metal name ends in '-ate'.
+# 2. Learning Objectives
+1.  After this, you will be able to define key terms like ligand, coordination number, and coordination sphere.
+2.  After this, you will be able to name coordination compounds using IUPAC nomenclature.
+3.  After this, you will be able to explain isomerism in coordination compounds.
+4.  After this, you will be able to apply Valence Bond Theory and Crystal Field Theory to explain the bonding, geometry, and properties of coordination compounds.
 
-### 3. Isomerism
+# 3. Prerequisites
+– Knowledge of d-block elements and their electronic configurations.
+– Understanding of chemical bonding, molecular shapes, and Lewis acids/bases.
+
+# 4. Concept Overview
+Just as a king in a Chola dynasty (சோழர்) court is surrounded by his important ministers, a central metal ion in a **Coordination Compound** is surrounded by specific molecules or ions called **ligands (ஈனிகள்)**. These compounds are fascinating structures with unique geometries and beautiful colors, like the vibrant pigments used in temple murals. This chapter explores the 'rules of the court' for these compounds, including their naming (nomenclature), their different 3D arrangements (isomerism), and the theories that explain how the central metal and its ministers bond together.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 1, Chapter 5**. This is a very high-yield chapter for NEET. Expect questions on IUPAC naming, isomerism, and predicting magnetic properties using VBT and CFT.
+
+### 5.1 Introduction and Basic Terminology
+*   **Werner's Theory:** Introduced primary (ionisable) and secondary (non-ionisable) valencies.
+*   **Coordination Entity:** Central metal atom/ion bonded to ligands.
+*   **Ligands (ஈனிகள்):** Electron-pair donors. Classified by denticity (unidentate, bidentate, etc.).
+*   **Coordination Number:** Number of ligand donor atoms bonded to the metal.
+*   **Coordination Sphere:** The central atom and ligands, enclosed in square brackets.
+
+### 5.2 IUPAC Nomenclature (ஐயுபிஏசி பெயரிடுதல்)
+*   Systematic rules for naming coordination compounds, including naming ligands, the central metal, and its oxidation state.
+
+### 5.3 Isomerism (மாற்றியம்)
 *   **Structural Isomerism:** Linkage, Coordination, Ionization, Solvate isomerism.
 *   **Stereoisomerism:**
-    *   **Geometrical Isomerism:** cis-trans isomerism in square planar ([MA₂B₂]) and octahedral ([MA₄B₂]) complexes.
-    *   **Optical Isomerism:** Non-superimposable mirror images (enantiomers) in octahedral complexes like [M(en)₃].
+    *   **Geometrical (cis-trans):** Occurs in square planar and octahedral complexes.
+    *   **Optical:** Non-superimposable mirror images (enantiomers).
 
-### 4. Bonding in Coordination Compounds
-*   **Valence Bond Theory (VBT):** Explains bonding, geometry, and magnetic properties using hybridization (sp³, dsp², sp³d², d²sp³).
-*   **Crystal Field Theory (CFT):** An electrostatic model. It describes the splitting of the d-orbitals of the central metal ion in the electric field of the ligands.
-    *   **Octahedral field:** d-orbitals split into two sets: t₂g (lower energy) and e_g (higher energy).
-    *   **Tetrahedral field:** Splitting is inverted and smaller than in octahedral fields.
-    *   The magnitude of splitting (Δ) depends on the ligand strength, given by the **spectrochemical series**.
-    *   Strong field ligands cause large splitting (low spin complexes, pairing occurs). Weak field ligands cause small splitting (high spin complexes).
-*   **Colour and Magnetic Properties:** Colour is due to d-d electronic transitions. Magnetic properties depend on the number of unpaired electrons.
+### 5.4 Bonding Theories
+*   **Valence Bond Theory (VBT):** Explains bonding using hybridization (sp³, dsp², sp³d², d²sp³) to predict geometry and magnetic properties.
+*   **Crystal Field Theory (CFT) (படிகப்புலக் கொள்கை):** An electrostatic model describing the splitting of the metal's d-orbitals by the electric field of the ligands.
+    *   **d-orbital splitting:** In octahedral fields (into t₂g and e_g) and tetrahedral fields.
+    *   **Spectrochemical Series:** A series that ranks ligands based on their ability to cause crystal field splitting. Strong field ligands cause large splitting (low spin), and weak field ligands cause small splitting (high spin).
+    *   Explains the **colour** (due to d-d transitions) and **magnetic properties** of complexes.
 
-### 5. Importance of Coordination Compounds
-*   In qualitative analysis, extraction of metals (e.g., cyanidation process for Au, Ag), and in biological systems (e.g., chlorophyll, haemoglobin, vitamin B₁₂).
+### 5.5 Importance of Coordination Compounds
+*   Used in metallurgy, analytical chemistry, and biological systems (e.g., chlorophyll, hemoglobin).
+
+# 6. Worked Examples
+
+**1. Easy:** Write the IUPAC name of the compound [Co(NH₃)₅Cl]Cl₂.
+*   **Solution:**
+    *   Complex ion: [Co(NH₃)₅Cl]²⁺.
+    *   Ligands: 5 ammine (NH₃), 1 chlorido (Cl⁻). Name alphabetically: pentaamminechlorido.
+    *   Oxidation state of Co: x + 5(0) + (-1) = +2 => x = +3.
+    *   Name: **Pentaamminechloridocobalt(III) chloride**.
+
+**2. Medium:** Using VBT, predict the hybridization, geometry, and magnetic character of [Ni(CN)₄]²⁻.
+*   **Solution:**
+    *   Ni is in the +2 state (Ni²⁺: 3d⁸).
+    *   CN⁻ is a **strong field ligand** and forces the pairing of the 8 d-electrons.
+    *   This leaves one d-orbital empty.
+    *   Hybridization is **dsp²**.
+    *   Geometry is **square planar**.
+    *   Since all electrons are paired, the complex is **diamagnetic**.
+
+**3. Must-Practice:** What is the Crystal Field Stabilization Energy (CFSE) for a d⁶ ion in an octahedral field with a strong field ligand?
+*   **Solution:**
+    *   In an octahedral field, d-orbitals split into t₂g (lower energy) and e_g (higher energy).
+    *   For a d⁶ ion with a strong field ligand, pairing occurs. All 6 electrons fill the lower energy t₂g orbitals.
+    *   Configuration: \\(t_{2g}^6 e_g^0\\).
+    *   CFSE = (-0.4 × n(t₂g) + 0.6 × n(e_g))Δₒ + P, where P is pairing energy.
+    *   CFSE = (-0.4 × 6 + 0.6 × 0)Δₒ + 2P = **-2.4Δₒ + 2P**. (Two pairs are formed against Hund's rule).
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Key Information |
+| :--- | :--- |
+| Spectrochemical Series | I⁻ < Br⁻ < ... < H₂O < ... < NH₃ < en < CN⁻ < CO |
+| VBT Hybridization | sp³ (Tetrahedral), dsp² (Square Planar), sp³d² (Octahedral) |
+| CFT Splitting (Octahedral) | d-orbitals split into t₂g (lower) and e_g (higher) sets |
 `,
   workedExamples: [
     {
@@ -146,3 +192,4 @@ export const coordinationCompounds: NeetModule = {
     }
   ]
 };
+

@@ -7,48 +7,73 @@ export const biomolecules: NeetModule = {
   chapter: 'Biomolecules',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. General Introduction and Importance
-*   Biomolecules are complex organic molecules that build up living organisms and are required for their growth, maintenance, and metabolic processes.
+# 1. Module Title
+– Chemistry – Biomolecules (வேதியியல் - உயிர்வேதி மூலக்கூறுகள்)
 
-### 2. Carbohydrates (கார்போஹைட்ரேட்டுகள்)
-*   **Classification:** Based on their behaviour on hydrolysis.
-    *   **Monosaccharides:** Simple sugars that cannot be hydrolyzed further (e.g., glucose, fructose). Classified as aldoses or ketoses.
-    *   **Oligosaccharides:** Yield 2 to 10 monosaccharide units on hydrolysis. Disaccharides are most common (e.g., sucrose, lactose, maltose).
-    *   **Polysaccharides:** Polymers of monosaccharides (e.g., starch, cellulose, glycogen). They are not sweet.
-*   **Monosaccharides (Glucose and Fructose):** Structure and basic properties.
-*   **Constituent monosaccharides of oligosaccharides:**
-    *   Sucrose → α-D-Glucose + β-D-Fructose
-    *   Lactose → β-D-Galactose + β-D-Glucose
-    *   Maltose → α-D-Glucose + α-D-Glucose
+# 2. Learning Objectives
+1.  After this, you will be able to classify carbohydrates into monosaccharides, oligosaccharides, and polysaccharides.
+2.  After this, you will be able to describe the four levels of protein structure.
+3.  After this, you will be able to classify vitamins based on their solubility.
+4.  After this, you will be able to explain the structural differences between DNA and RNA.
 
-### 3. Proteins (புரதங்கள்)
-*   Polymers of α-amino acids.
-*   **Elementary Idea of α-amino acids:** Have an amino group (-NH₂) and a carboxyl group (-COOH) attached to the same α-carbon.
-*   **Peptide Bond (பெப்டைடு பிணைப்பு):** The amide bond (-CO-NH-) linking two α-amino acids. A polypeptide is a chain of amino acids linked by peptide bonds.
-*   **Proteins:** Polypeptides with more than 100 amino acid residues and a molecular mass higher than 10,000u.
-*   **Structure of Proteins (Qualitative idea only):**
-    *   **Primary:** The specific sequence of amino acids.
-    *   **Secondary:** Local folding of the polypeptide chain (α-helix and β-pleated sheet).
+# 3. Prerequisites
+– Basic knowledge of organic functional groups (alcohols, aldehydes, ketones, carboxylic acids, amines).
+– Understanding of polymers and monomers.
+
+# 4. Concept Overview
+The food we eat, like a simple grain of rice (அரிசி) from a paddy field in the Kaveri delta, is full of complex molecules that give us life and energy. This chapter on **Biomolecules** explores the chemistry of these essential molecules of life. We'll look at **Carbohydrates** (sugars for energy), **Proteins** (the building blocks of our body), **Vitamins** (essential helpers), and **Nucleic Acids** (the 'blueprint' of life, DNA & RNA). Understanding these molecules is the bridge between chemistry and biology.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 2, Chapter 14**. NEET questions often focus on the classification of carbohydrates, the structures of proteins, and the differences between DNA and RNA.
+
+### 5.1 Carbohydrates (கார்போஹைட்ரேட்டுகள்)
+*   **Classification:** Monosaccharides (glucose, fructose), Disaccharides (sucrose, lactose), Polysaccharides (starch, cellulose).
+*   **Monosaccharides:** Structure of glucose and fructose.
+*   **Reducing and Non-reducing Sugars:** Sugars that can reduce Tollen's or Fehling's reagent. Sucrose is a non-reducing sugar.
+
+### 5.2 Proteins (புரதங்கள்)
+*   Polymers of α-amino acids, linked by **peptide bonds (பெப்டைடு பிணைப்பு)**.
+*   **Structure of Proteins:**
+    *   **Primary:** Sequence of amino acids.
+    *   **Secondary:** α-helix and β-pleated sheet structures.
     *   **Tertiary:** Overall 3D folding of the polypeptide chain.
     *   **Quaternary:** Arrangement of multiple polypeptide subunits.
-*   **Denaturation of Proteins (புரதங்களின் இயல்பு திரிதல்):** Loss of biological activity of a protein due to disruption of its secondary, tertiary, and quaternary structures.
+*   **Denaturation (இயல்பு திரிதல்):** Loss of biological activity due to disruption of 2°, 3°, and 4° structures.
 
-### 4. Enzymes (நொதிகள்)
-*   Biological catalysts, typically globular proteins. Highly specific in their action.
+### 5.3 Enzymes and Vitamins
+*   **Enzymes (நொதிகள்):** Biological catalysts (mostly proteins).
+*   **Vitamins (வைட்டமின்கள்):** Essential micronutrients.
+    *   **Fat-soluble:** A, D, E, K.
+    *   **Water-soluble:** B complex, C.
 
-### 5. Vitamins (வைட்டமின்கள்)
-*   **Classification and functions:** Organic compounds required in the diet in small amounts.
-    *   **Fat-soluble:** Vitamins A, D, E, K.
-    *   **Water-soluble:** Vitamins B complex, C.
+### 5.4 Nucleic Acids (நியூக்ளிக் அமிலங்கள்)
+*   Polymers of nucleotides. A nucleotide consists of a sugar, a phosphate group, and a nitrogenous base.
+*   **DNA (Deoxyribonucleic Acid):** Contains deoxyribose sugar and bases A, G, C, T. It is the carrier of genetic information. It has a double helix structure.
+*   **RNA (Ribonucleic Acid):** Contains ribose sugar and bases A, G, C, U. It is involved in protein synthesis.
 
-### 6. Nucleic Acids (நியூக்ளிக் அமிலங்கள்)
-*   **Chemical constitution of DNA and RNA:** They are polynucleotides. A nucleotide has three components: a pentose sugar, a nitrogenous base, and a phosphate group.
-    *   **DNA:** Sugar is Deoxyribose. Bases are A, G, C, T.
-    *   **RNA:** Sugar is Ribose. Bases are A, G, C, U.
-*   **Biological functions of nucleic acids:** DNA is the chemical basis of heredity (stores genetic information). RNA is involved in protein synthesis.
+### 5.5 Hormones
+*   Molecules that act as intercellular messengers (e.g., Insulin).
 
-### 7. Hormones (ஹார்மோன்கள்)
-*   **General introduction:** Molecules that act as intercellular messengers. They are produced by endocrine glands. (e.g., Insulin, Testosterone).
+# 6. Worked Examples
+
+**1. Easy:** What are the hydrolysis products of Sucrose?
+*   **Solution:** Sucrose is a disaccharide. On hydrolysis, it gives one molecule of **α-D-Glucose** and one molecule of **β-D-Fructose**.
+
+**2. Medium:** Explain what is meant by a zwitterion with respect to an amino acid.
+*   **Solution:** An amino acid has both a basic amino group (-NH₂) and an acidic carboxyl group (-COOH). In aqueous solution, the carboxyl group loses a proton and the amino group accepts it. This forms a dipolar ion called a **zwitterion**, which has both a positive charge (-NH₃⁺) and a negative charge (-COO⁻) but is electrically neutral overall.
+
+**3. Must-Practice:** How are DNA and RNA different in their nitrogenous bases and sugar components?
+*   **Solution:**
+    1.  **Sugar:** DNA contains 2-deoxy-D-ribose sugar. RNA contains D-ribose sugar.
+    2.  **Bases:** Both contain Adenine (A), Guanine (G), and Cytosine (C). However, DNA's fourth base is **Thymine (T)**, while RNA's fourth base is **Uracil (U)**.
+
+# 7. Key Formulas & Diagrams
+
+| Biomolecule | Monomer | Linkage |
+| :--- | :--- | :--- |
+| Polysaccharide | Monosaccharide | Glycosidic bond |
+| Protein | Amino Acid | Peptide bond |
+| Nucleic Acid | Nucleotide | Phosphodiester bond |
 `,
   workedExamples: [
     {
@@ -187,7 +212,7 @@ export const biomolecules: NeetModule = {
         "answer": "B",
         "explanation": "Both statements are true. However, the difference in linkages (reason) is the cause for their different properties, not an explanation of why they are both polymers of glucose."
     }
-  ],
+],
   matchTheColumns: [
     {
         "column1": ["a) Glucose", "b) Sucrose", "c) Starch", "d) Fructose"],
@@ -216,3 +241,4 @@ export const biomolecules: NeetModule = {
     }
   ]
 };
+

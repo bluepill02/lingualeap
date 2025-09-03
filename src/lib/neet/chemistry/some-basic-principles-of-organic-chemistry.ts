@@ -7,33 +7,82 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
   chapter: 'Some Basic Principles of Organic Chemistry',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. General Introduction (பொது அறிமுகம்)
-*   **Tetravalency of Carbon (கார்பனின் நான்கு இணைதிறன்):** Carbon can form four covalent bonds.
-*   **Shapes of simple molecules - hybridization (s and p):** sp³ (tetrahedral), sp² (trigonal planar), sp (linear).
-*   **Classification of organic compounds based on functional groups:** and those containing halogens, oxygen, nitrogen, and sulphur.
-*   **Homologous series:** A series of compounds with the same functional group and similar chemical properties.
-*   **Isomerism (மாற்றியம்):** Structural and stereoisomerism.
+# 1. Module Title
+– Chemistry – Some Basic Principles of Organic Chemistry (வேதியியல் - கரிம வேதியியலின் சில அடிப்படைக் கொள்கைகள்)
 
-### 2. Nomenclature (பெயரிடுதல்)
-*   **Trivial (common) and IUPAC nomenclature:** Systematic method of naming organic compounds.
+# 2. Learning Objectives
+1.  After this, you will be able to classify organic compounds based on their structure and functional groups.
+2.  After this, you will be able to write the IUPAC names for simple organic compounds.
+3.  After this, you will be able to explain the different types of electronic displacement effects (Inductive, Resonance, etc.).
+4.  After this, you will be able to differentiate between various types of organic reactions (substitution, addition, elimination).
 
-### 3. Covalent Bond Fission (சகப் பிணைப்பு பிளவு)
-*   **Homolytic Fission:** Leads to the formation of free radicals (தனி உறுப்புகள்).
-*   **Heterolytic Fission:** Leads to the formation of carbocations (கார்பன் நேர் அயனிகள்) and carbanions (கார்பன் எதிர் அயனிகள்).
-*   **Stability of carbocations and free radicals:** 3° > 2° > 1°.
-*   **Electrophiles and Nucleophiles:** Electron-seeking and nucleus-seeking species.
+# 3. Prerequisites
+– Knowledge of atomic structure and chemical bonding (especially covalent bonding and hybridization).
+– Familiarity with the periodic table and basic concepts of elements.
 
-### 4. Electronic Displacement in a Covalent Bond (சகப் பிணைப்புகளில் எலக்ட்ரான் இடப்பெயர்ச்சி)
-*   **Inductive Effect (தூண்டல் விளைவு):** Permanent displacement of sigma (σ) electrons.
-*   **Electromeric Effect:** Temporary, complete transfer of a shared pair of π-electrons in the presence of an attacking reagent.
-*   **Resonance (உடனிசைவு விளைவு):** Delocalization (பரவுதல்) of pi (π) electrons.
-*   **Hyperconjugation (மிகையான உடனிணைப்பு):** Delocalization of sigma (σ) electrons of a C-H bond.
+# 4. Concept Overview
+Organic chemistry is the chemistry of carbon compounds, the very molecules that make up life itself. Think of it like learning the alphabet and grammar of a new language. This chapter introduces the fundamental 'letters' (C, H, O, N) and 'grammar rules' that govern how they combine. We will learn how to name millions of compounds using a systematic method (**IUPAC nomenclature**), understand how electrons move within molecules (**electronic effects** - தூண்டல் விளைவு, உடனிசைவு விளைவு), and classify the basic types of chemical 'conversations' (**reactions**) that these molecules have. Mastering these principles is the first step to understanding the entire world of organic chemistry.
 
-### 5. Common Types of Organic Reactions (கரிம வினைகளின் வகைகள்)
-*   **Substitution (பதிலீட்டு வினை):** An atom or group is replaced by another.
-*   **Addition (சேர்க்கை வினை):** Atoms are added across a double or triple bond.
-*   **Elimination (நீக்க வினை):** Atoms are removed to form a double or triple bond.
-*   **Rearrangement (மறுசீரமைப்பு வினை):** Migration of an atom or group within a molecule.
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 2, Chapter 11**. This is the foundation of organic chemistry. For NEET, a strong understanding of electronic effects (Inductive, Resonance, Hyperconjugation) and the stability of intermediates (carbocations, free radicals) is absolutely essential.
+
+### 5.1 Classification and Nomenclature
+*   **Classification:** Based on structure (acyclic, cyclic) and functional groups (-OH, -CHO, -COOH, etc.).
+*   **IUPAC Nomenclature (ஐயுபிஏசி பெயரிடுதல்):** Systematic rules for naming organic compounds, including identifying the parent chain, functional groups, and substituents.
+
+### 5.2 Isomerism (மாற்றியம்)
+*   **Structural Isomerism:** Same molecular formula, different structure (Chain, Position, Functional, Metamerism).
+*   **Stereoisomerism:** Same structure, different spatial arrangement.
+
+### 5.3 Fundamental Concepts in Reaction Mechanism
+*   **Fission of a Covalent Bond:**
+    *   **Homolytic Fission:** Forms **free radicals** (தனி உறுப்புகள்).
+    *   **Heterolytic Fission:** Forms **carbocations** (+) and **carbanions** (-).
+*   **Nucleophiles and Electrophiles:** Nucleus-loving (electron-rich) and electron-loving (electron-deficient) species.
+*   **Electronic Displacement Effects:**
+    *   **Inductive Effect (-I, +I):** Permanent effect operating through σ-bonds.
+    *   **Resonance Effect (-R, +R):** Delocalization of π-electrons.
+    *   **Hyperconjugation (மிகையான உடனிணைப்பு):** Delocalization of σ-electrons (no-bond resonance).
+
+### 5.4 Types of Organic Reactions
+*   **Substitution (பதிலீட்டு வினை):** An atom/group is replaced by another.
+*   **Addition (சேர்க்கை வினை):** Occurs across double or triple bonds.
+*   **Elimination (நீக்க வினை):** Removal of atoms to form double/triple bonds.
+*   **Rearrangement:** Migration of a group within a molecule.
+
+# 6. Worked Examples
+
+**1. Easy:** Give the IUPAC name of the compound CH₃-CH(CH₃)-CH₂-CH₂-OH.
+*   **Solution:**
+    1.  The principal functional group is -OH (alcohol), so the suffix is '-ol'.
+    2.  The longest carbon chain containing the -OH group has 4 carbons (butane).
+    3.  Numbering starts from the end closer to the -OH group, so the -OH is on C1.
+    4.  There is a methyl (-CH₃) substituent on C3.
+    5.  The name is **3-Methylbutan-1-ol**.
+
+**2. Medium:** Explain the order of stability of the following carbocations: (CH₃)₃C⁺, (CH₃)₂CH⁺, CH₃CH₂⁺.
+*   **Solution:**
+    *   The stability of carbocations is determined by the inductive effect (+I) and hyperconjugation. Alkyl groups are electron-donating and stabilize the positive charge.
+    *   (CH₃)₃C⁺ (tertiary): Stabilized by +I effect of three methyl groups and 9 hyperconjugative structures.
+    *   (CH₃)₂CH⁺ (secondary): Stabilized by +I effect of two methyl groups and 6 hyperconjugative structures.
+    *   CH₃CH₂⁺ (primary): Stabilized by +I effect of one methyl group and 3 hyperconjugative structures.
+    *   Therefore, the order of stability is **Tertiary > Secondary > Primary**.
+
+**3. Must-Practice:** Identify the type of electronic displacement effect operating in chloroacetic acid (Cl-CH₂-COOH) that increases its acidic strength compared to acetic acid (CH₃-COOH).
+*   **Solution:**
+    *   The effect is the **Inductive Effect (-I effect)**.
+    *   The chlorine atom is highly electronegative and withdraws electron density from the carbon chain through the sigma bonds.
+    *   This electron withdrawal polarizes the O-H bond in the carboxyl group, making it easier for the proton (H⁺) to be released.
+    *   This makes chloroacetic acid a stronger acid than acetic acid, where the methyl group has a weak electron-donating (+I) effect.
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Order of Stability / Effect |
+| :--- | :--- |
+| Carbocation Stability | 3° > 2° > 1° > Methyl |
+| Carbanion Stability | Methyl > 1° > 2° > 3° |
+| -I Effect Groups | -NO₂, -CN, -F, -Cl, -Br, -I, -OH |
+| +I Effect Groups | -CH₃, -C₂H₅, Alkyl groups |
 `,
   workedExamples: [
     {
@@ -141,3 +190,4 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
     }
   ]
 };
+

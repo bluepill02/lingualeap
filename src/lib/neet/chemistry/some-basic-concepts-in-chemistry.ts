@@ -7,43 +7,81 @@ export const someBasicConceptsInChemistry: NeetModule = {
   chapter: 'Some Basic Concepts in Chemistry',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Matter and its nature (பருப்பொருள் மற்றும் அதன் தன்மை)
-*   Chemistry deals with the composition, structure, properties, and interaction of matter. Matter is anything that has mass and occupies space.
-*   **Dalton's atomic theory:** Proposed that matter consists of indivisible atoms. Key postulates include:
-    *   All matter is made of atoms.
-    *   Atoms of a given element are identical in mass and properties.
-    *   Compounds are formed by a combination of two or more different kinds of atoms.
-    *   A chemical reaction is a rearrangement of atoms.
-*   **Concept of atom, molecule, element, and compound:**
-    *   **Atom (அணு):** The smallest particle of an element.
-    *   **Molecule (மூலக்கூறு):** The smallest particle of a substance that can exist independently.
-    *   **Element (தனிமம்):** A pure substance containing only one kind of atom.
-    *   **Compound (சேர்மம்):** A substance formed when two or more elements are chemically combined.
+# 1. Module Title
+– Chemistry – Some Basic Concepts in Chemistry (வேதியியல் - வேதியியலின் சில அடிப்படைக் கருத்துக்கள்)
 
-### 2. Laws of Chemical Combinations (வேதிச் சேர்க்கை விதிகள்)
-*   **Law of Conservation of Mass (நிறை அழிவின்மை விதி):** Mass can neither be created nor destroyed in a chemical reaction.
-*   **Law of Definite Proportions (மாறா விகித விதி):** A given compound always contains exactly the same proportion of elements by weight.
-*   **Law of Multiple Proportions (மடங்கு விகித விதி):** If two elements can combine to form more than one compound, the masses of one element that combine with a fixed mass of the other element are in the ratio of small whole numbers.
-*   **Gay Lussac's Law of Gaseous Volumes:** When gases combine or are produced in a chemical reaction they do so in a simple ratio by volume provided all gases are at the same temperature and pressure.
-*   **Avogadro's Law (அவகாட்ரோ விதி):** Equal volumes of all gases at the same temperature and pressure should contain an equal number of molecules.
+# 2. Learning Objectives
+1.  After this, you will be able to explain the importance of chemistry and the laws of chemical combination.
+2.  After this, you will be able to define and solve problems based on the mole concept, molar mass, and percentage composition.
+3.  After this, you will be able to determine the empirical and molecular formula of a compound from given data.
+4.  After this, you will be able to identify the limiting reagent and perform stoichiometric calculations.
 
-### 3. Atomic and Molecular Masses (அணு மற்றும் மூலக்கூறு நிறைகள்)
-*   **Atomic Mass:** The mass of an atom, usually expressed in atomic mass units (amu).
-*   **Molecular Mass:** The sum of the atomic masses of the elements present in a molecule.
+# 3. Prerequisites
+– Basic arithmetic and algebra.
+– Understanding of atoms and molecules.
+– Familiarity with units of mass and volume.
 
-### 4. Mole Concept and Molar Masses (மோல் கருத்து மற்றும் மோலார் நிறைகள்)
-*   **Mole (மோல்):** The amount of a substance that contains as many particles or entities as there are atoms in exactly 12 g of the C-12 isotope.
-*   **Avogadro's Number (Nₐ):** 6.022 x 10²³ particles/mol.
-*   **Molar Mass:** The mass of one mole of a substance in grams.
+# 4. Concept Overview
+Just like a master chef in a Madurai (மதுரை) restaurant needs a precise recipe to make the perfect biryani, chemists need precise rules to understand how substances combine. This chapter, **Some Basic Concepts in Chemistry**, is the 'recipe book' for all of chemistry. We will learn about the fundamental 'ingredients' (atoms and molecules) and the 'measurements' (mole concept - மோல் கருத்து) that chemists use. Understanding these basics, like stoichiometry and limiting reagents, is crucial for predicting the outcome of any chemical reaction, from a simple lab experiment to complex industrial processes.
 
-### 5. Percentage Composition, Empirical and Molecular Formulae
-*   **Percentage Composition:** The percentage by mass of each element in a compound.
-*   **Empirical Formula:** Represents the simplest whole-number ratio of various atoms present in a compound.
-*   **Molecular Formula:** Shows the exact number of different types of atoms present in a molecule of a compound. (Molecular Formula = n × Empirical Formula).
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 1, Chapter 1**. It forms the foundation for all numerical problems in physical chemistry. NEET questions from this chapter are direct and formula-based.
 
-### 6. Chemical Equations and Stoichiometry (வேதிச் சமன்பாடுகள் மற்றும் வினைக்கூறு விகிதம்)
-*   **Stoichiometry:** Deals with the calculation of masses (or sometimes volumes) of the reactants and the products involved in a chemical reaction.
-*   **Limiting Reagent (வரையறுக்கும் காரணி):** The reactant which gets consumed first in a reaction and limits the amount of product formed. (ஒரு பிரியாணி செய்யும்போது, முதலில் தீர்ந்து போகும் பொருள் எதுவோ, அது பிரியாணியின் அளவைத் தீர்மானிப்பது போல).
+### 5.1 Laws of Chemical Combination (வேதிச் சேர்க்கை விதிகள்)
+*   **Law of Conservation of Mass:** Mass is neither created nor destroyed in a chemical reaction.
+*   **Law of Definite Proportions:** A compound always contains the same elements in the same proportion by mass.
+*   **Law of Multiple Proportions:** If two elements form more than one compound, the mass ratios of the second element which combine with a fixed mass of the first element will be ratios of small whole numbers.
+*   **Gay Lussac's Law of Gaseous Volumes & Avogadro's Law:** Deal with volume relationships in gaseous reactions.
+
+### 5.2 Atomic and Molecular Masses
+*   **Atomic Mass (அணு நிறை):** Mass of an atom, based on the C-12 scale.
+*   **Molecular Mass (மூலக்கூறு நிறை):** Sum of atomic masses of all atoms in a molecule.
+
+### 5.3 Mole Concept and Stoichiometry (மோல் கருத்து மற்றும் வினைக்கூறு விகிதம்)
+*   **Mole Concept:** Defines a mole as containing **Avogadro's number (6.022 x 10²³)** of particles. One mole of any substance is equal to its molar mass in grams.
+*   **Molar Mass:** The mass of one mole of a substance.
+*   **Percentage Composition, Empirical and Molecular Formulae:**
+    *   **Empirical Formula (எளிய விகித வாய்ப்பாடு):** The simplest whole-number ratio of atoms in a compound.
+    *   **Molecular Formula (மூலக்கூறு வாய்ப்பாடு):** The actual number of atoms in a molecule. \\( Molecular Formula = n \\times Empirical Formula \\)
+*   **Stoichiometry and Stoichiometric Calculations:** Calculations based on balanced chemical equations.
+*   **Limiting Reagent (வரையறுக்கும் காரணி):** The reactant that is completely consumed in a reaction and limits the amount of product formed.
+
+# 6. Worked Examples
+
+**1. Easy:** Calculate the mass of CO₂ that could be obtained by heating 20 g of pure limestone (CaCO₃).
+*   **Solution:**
+    *   The reaction is \\(CaCO_3(s) \\rightarrow CaO(s) + CO_2(g)\\).
+    *   Molar mass of CaCO₃ = 100 g/mol. Molar mass of CO₂ = 44 g/mol.
+    *   According to the equation, 100 g of CaCO₃ produces 44 g of CO₂.
+    *   Therefore, 20 g of CaCO₃ will produce \\((\\frac{44}{100}) \\times 20 = 8.8 \\text{ g}\\) of CO₂.
+
+**2. Medium:** 50 kg of N₂(g) and 10 kg of H₂(g) are mixed to produce NH₃(g). Identify the limiting reagent.
+*   **Solution:**
+    1.  The balanced equation is \\(N_2(g) + 3H_2(g) \\rightarrow 2NH_3(g)\\).
+    2.  Moles of N₂ = 50000 g / 28 g/mol ≈ 1786 mol.
+    3.  Moles of H₂ = 10000 g / 2 g/mol = 5000 mol.
+    4.  From stoichiometry, 1 mole of N₂ requires 3 moles of H₂.
+    5.  So, 1786 moles of N₂ would require \\(1786 \\times 3 = 5358\\) moles of H₂.
+    6.  However, we only have 5000 moles of H₂. Therefore, **H₂ is the limiting reagent**.
+
+**3. Must-Practice:** An organic compound contains 49.3% carbon, 6.84% hydrogen, and the rest is oxygen. Its molar mass is 146 g/mol. Find its empirical and molecular formulas.
+*   **Solution:**
+    1.  % Oxygen = 100 - (49.3 + 6.84) = 43.86%.
+    2.  Calculate moles: C = 49.3/12 = 4.1, H = 6.84/1 = 6.84, O = 43.86/16 = 2.74.
+    3.  Divide by smallest (2.74): C = 1.5, H = 2.5, O = 1.
+    4.  Convert to whole numbers (multiply by 2): C = 3, H = 5, O = 2. **Empirical Formula is C₃H₅O₂**.
+    5.  Empirical Formula Mass = 3(12) + 5(1) + 2(16) = 73 g/mol.
+    6.  n = Molar Mass / Empirical Mass = 146 / 73 = 2.
+    7.  **Molecular Formula = 2 × (C₃H₅O₂) = C₆H₁₀O₄**.
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\( n = \\frac{mass}{Molar Mass} \\) | Moles Calculation (மோல் கணக்கீடு) |
+| \\( Molarity = \\frac{moles}{V(L)} \\) | Molarity (மோலாரிட்டி) |
+| \\( Molality = \\frac{moles}{W_{solvent}(kg)} \\) | Molality (மோலாலிட்டி) |
+| Molecular Formula = n × Empirical Formula | Molecular Formula Calculation (மூலக்கூறு வாய்ப்பாடு கணக்கீடு) |
 `,
   workedExamples: [
     {
@@ -176,3 +214,4 @@ export const someBasicConceptsInChemistry: NeetModule = {
     }
   ]
 };
+

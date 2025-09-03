@@ -7,41 +7,81 @@ export const hydrocarbons: NeetModule = {
   chapter: 'Hydrocarbons',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Classification, Isomerism, and Nomenclature
-*   **Classification:** Alkanes, Alkenes, Alkynes, Aromatic hydrocarbons.
-*   **Isomerism:** Structural and geometrical isomerism.
-*   **IUPAC Nomenclature:** Systematic naming of hydrocarbons.
+# 1. Module Title
+– Chemistry – Hydrocarbons (வேதியியல் - ஹைட்ரோகார்பன்கள்)
 
-### 2. Alkanes (ஆல்கேன்கள்)
-*   **Preparation:** From unsaturated hydrocarbons (hydrogenation), from alkyl halides (Wurtz reaction), from carboxylic acids (decarboxylation).
-*   **Properties and Reactions:**
-    *   **Conformations:** Sawhorse and Newman projections of ethane. Staggered and eclipsed conformations.
-    *   **Mechanism of Halogenation:** Free radical mechanism (initiation, propagation, termination).
+# 2. Learning Objectives
+1.  After this, you will be able to write the structures and IUPAC names for alkanes, alkenes, and alkynes.
+2.  After this, you will be able to explain the mechanism of free radical halogenation of alkanes.
+3.  After this, you will be able to apply Markovnikov's rule and the peroxide effect to predict the products of addition reactions in alkenes.
+4.  After this, you will be able to describe the mechanism of electrophilic substitution in benzene and the directive influence of substituents.
 
-### 3. Alkenes (ஆல்கீன்கள்)
-*   **Geometrical Isomerism:** cis-trans isomerism due to restricted rotation around the C=C double bond.
-*   **Preparation:** From alkynes, alkyl halides (dehydrohalogenation).
-*   **Properties and Reactions:**
-    *   **Mechanism of Electrophilic Addition:** Addition of hydrogen, halogens, water (hydration), hydrogen halides (Markownikoff's rule and peroxide effect/anti-Markownikoff).
-    *   **Ozonolysis (ஓசோனேற்றம்):** Cleavage of the double bond to form carbonyl compounds.
-    *   **Polymerization:** Formation of polymers like polyethene.
+# 3. Prerequisites
+– Understanding of basic organic chemistry principles (nomenclature, isomerism).
+– Knowledge of covalent bonding and hybridization (sp³, sp², sp).
+– Familiarity with reaction intermediates like carbocations and free radicals.
 
-### 4. Alkynes (ஆல்கைன்கள்)
-*   **Acidic Character:** Terminal alkynes are acidic due to the sp-hybridized carbon.
-*   **Preparation:** From calcium carbide, from vicinal dihalides.
-*   **Properties and Reactions:**
-    *   **Addition Reactions:** Addition of hydrogen, halogens, water, and hydrogen halides.
-    *   **Polymerization:** Linear and cyclic polymerization (e.g., formation of benzene from ethyne).
+# 4. Concept Overview
+From the petrol that fuels our bikes to the LPG gas used for cooking in our homes, **hydrocarbons** are the simplest yet most fundamental organic compounds. They are the backbone of organic chemistry. In this chapter, we will explore the different families of hydrocarbons: **Alkanes (ஆல்கேன்கள்)** (single bonds), **Alkenes (ஆல்கீன்கள்)** (double bonds), **Alkynes (ஆல்கைன்கள்)** (triple bonds), and **Aromatic Hydrocarbons (அரோமாட்டிக் ஹைட்ரோகார்பன்கள்)** like Benzene. We will learn their key reactions, such as how to add atoms across a double bond (like adding a passenger to a bus) and how benzene, despite being full of double bonds, prefers to substitute rather than add.
 
-### 5. Aromatic Hydrocarbons (அரோமாட்டிக் ஹைட்ரோகார்பன்கள்)
-*   **Nomenclature and Isomerism.**
-*   **Benzene (பென்சீன்):** Structure and Aromaticity (Hückel's rule).
-*   **Mechanism of Electrophilic Substitution:**
-    *   **Halogenation:** Reaction with halogens in the presence of a Lewis acid.
-    *   **Nitration:** Reaction with conc. HNO₃ and conc. H₂SO₄.
-    *   **Sulphonation:** Reaction with fuming H₂SO₄.
-    *   **Friedel-Crafts Alkylation and Acylation:** Reaction with alkyl/acyl halide and a Lewis acid.
-*   **Directive influence of functional group in mono-substituted benzene:** Activating (o,p-directing) and deactivating (m-directing) groups.
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 2, Chapter 13**. This is a core chapter of organic chemistry. For NEET, focus on named reactions (Wurtz, Markovnikov's rule, Friedel-Crafts), reaction mechanisms, and the directive influence of groups in benzene.
+
+### 5.1 Alkanes (ஆல்கேன்கள்)
+*   **Conformations:** Staggered and Eclipsed forms of ethane. Staggered is more stable due to minimum torsional strain.
+*   **Reactions:** Mainly undergo **free radical substitution** (e.g., halogenation).
+
+### 5.2 Alkenes (ஆல்கீன்கள்)
+*   Contain at least one C=C double bond.
+*   **Geometrical Isomerism:** Show cis-trans isomerism.
+*   **Reactions:** Undergo **electrophilic addition reactions**.
+    *   **Markovnikov's Rule:** In the addition of HX to an unsymmetrical alkene, the negative part (X⁻) goes to the carbon with fewer hydrogen atoms.
+    *   **Anti-Markovnikov's Rule (Peroxide Effect):** In the presence of peroxide, the addition of HBr occurs opposite to Markovnikov's rule.
+    *   **Ozonolysis (ஓசோனேற்றம்):** Cleavage of the double bond by ozone to form aldehydes and/or ketones.
+
+### 5.3 Alkynes (ஆல்கைன்கள்)
+*   Contain at least one C≡C triple bond.
+*   **Acidic Character:** Terminal alkynes are weakly acidic.
+
+### 5.4 Aromatic Hydrocarbons (அரோமாட்டிக் ஹைட்ரோகார்பன்கள்)
+*   **Aromaticity:** Based on Hückel's rule (4n+2)π electrons. Benzene is the primary example.
+*   **Reactions:** Undergo **electrophilic substitution**.
+    *   Nitration, Halogenation, Sulphonation, Friedel-Crafts Alkylation and Acylation.
+    *   **Directive Influence:**
+        *   **Activating groups (o, p-directing):** -OH, -NH₂, -CH₃.
+        *   **Deactivating groups (m-directing):** -NO₂, -CN, -CHO, -COOH.
+
+# 6. Worked Examples
+
+**1. Easy:** An alkene on ozonolysis gives a mixture of ethanal and propanone. Identify the alkene.
+*   **Solution:**
+    *   Ozonolysis breaks the double bond and adds an 'O' to each carbon.
+    *   The products are ethanal (CH₃CHO) and propanone ((CH₃)₂C=O).
+    *   To find the alkene, remove the oxygens and join the carbons with a double bond: CH₃-CH=C(CH₃)₂.
+    *   The alkene is **2-Methylbut-2-ene**.
+
+**2. Medium:** Predict the major product of the addition of HBr to propene (CH₃-CH=CH₂).
+*   **Solution:**
+    *   This follows **Markovnikov's rule**.
+    *   The negative part (Br⁻) adds to the carbon with fewer H atoms (the middle carbon).
+    *   The H⁺ adds to the carbon with more H atoms (the end carbon).
+    *   The major product is **2-Bromopropane** (CH₃-CHBr-CH₃).
+
+**3. Must-Practice:** Explain why the -OH group in phenol is o, p-directing towards electrophilic substitution.
+*   **Solution:**
+    *   The -OH group is an **activating group**.
+    *   The lone pair of electrons on the oxygen atom participates in **resonance** with the benzene ring.
+    *   This delocalization of electrons increases the electron density specifically at the **ortho and para positions**.
+    *   An incoming electrophile (which is electron-seeking) will preferentially attack these electron-rich ortho and para sites.
+
+# 7. Key Formulas & Diagrams
+
+| Concept | Key Information |
+| :--- | :--- |
+| Markovnikov's Rule | "Rich gets richer" (The H atom goes to the carbon that already has more H atoms). |
+| Hückel's Rule | Aromaticity: Planar, cyclic, conjugated, with (4n+2)π electrons. |
+| o,p-Directors | Activating groups (e.g., -OH, -NH₂, -R) |
+| m-Directors | Deactivating groups (e.g., -NO₂, -CN, -COOH) |
 `,
   workedExamples: [
     {
@@ -149,3 +189,4 @@ export const hydrocarbons: NeetModule = {
     }
   ]
 };
+

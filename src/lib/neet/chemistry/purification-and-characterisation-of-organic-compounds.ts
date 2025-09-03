@@ -7,32 +7,74 @@ export const purificationAndCharacterisationOfOrganicCompounds: NeetModule = {
   chapter: 'Purification and Characterisation of Organic Compounds',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Purification Methods (தூய்மையாக்கல் முறைகள்)
-*   **Crystallisation (படிகமாக்கல்):** Based on the difference in the solubilities of the compound and the impurities in a suitable solvent.
-*   **Sublimation (பதங்கமாதல்):** For solids that sublime (pass directly from solid to gas), to separate them from non-volatile impurities.
-*   **Distillation (காய்ச்சி வடித்தல்):** To separate volatile liquids from non-volatile impurities, or liquids having a sufficient difference in boiling points.
-*   **Differential Extraction:** Separating an organic compound from an aqueous solution by shaking with an organic solvent in which it is more soluble.
-*   **Chromatography (நாற்கூறு பிரிகை முறை):** A powerful technique used to separate mixtures. Based on the differential adsorption or partitioning of components of a mixture on a stationary phase over which a mobile phase is passed. Principles and their applications.
+# 1. Module Title
+– Chemistry – Purification and Characterisation of Organic Compounds (வேதியியல் - கரிமச் சேர்மங்களைத் தூய்மையாக்கல் மற்றும் பண்பறிதல்)
 
-### 2. Qualitative Analysis (பண்பறிப் பகுப்பாய்வு)
-*   **Detection of Carbon and Hydrogen:** Heating the compound with copper(II) oxide. Carbon is oxidized to CO₂ (turns lime water milky), and hydrogen to H₂O (turns anhydrous copper sulphate blue).
-*   **Detection of Nitrogen, Sulphur, and Halogens:**
-    *   **Lassaigne's Test:** The organic compound is fused with sodium metal to convert these elements into ionic forms (NaCN, Na₂S, NaX).
-        *   **Nitrogen:** Treated with FeSO₄, forms Prussian blue color (ferric ferrocyanide).
-        *   **Sulphur:** With sodium nitroprusside gives a violet color.
-        *   **Halogens:** Acidified with HNO₃ and treated with AgNO₃. White ppt (AgCl), pale yellow ppt (AgBr), yellow ppt (AgI).
-*   **Detection of Phosphorus:** The organic compound is heated with an oxidizing agent (sodium peroxide). The phosphorus is converted into phosphate, which is then tested with ammonium molybdate to give a yellow precipitate.
+# 2. Learning Objectives
+1.  After this, you will be able to describe various methods for the purification of organic compounds like sublimation, distillation, and chromatography.
+2.  After this, you will be able to explain the principle of Lassaigne's test for the qualitative analysis of nitrogen, sulphur, and halogens.
+3.  After this, you will be able to outline the principles of quantitative analysis for carbon, hydrogen, nitrogen, and halogens.
+4.  After this, you will be able to calculate the empirical and molecular formula of a compound from percentage composition data.
 
-### 3. Quantitative Analysis (அளவறிப் பகுப்பாய்வு)
-*   Basic principles only.
-*   **Estimation of Carbon and Hydrogen (Liebig's Method):** The compound is burnt in excess oxygen and the amounts of CO₂ and H₂O produced are measured.
-*   **Estimation of Nitrogen (Dumas Method & Kjeldahl's Method):**
-    *   **Dumas Method:** The nitrogen-containing compound is heated with copper oxide, and the volume of N₂ gas evolved is measured.
-    *   **Kjeldahl's Method:** The compound is heated with concentrated H₂SO₄. The nitrogen is converted to (NH₄)₂SO₄, which is then treated with excess alkali to liberate ammonia. The ammonia is then titrated.
-*   **Estimation of Halogens (Carius Method):** The compound is heated with fuming HNO₃ and AgNO₃. The halogen is precipitated as silver halide (AgX), which is then weighed.
-*   **Estimation of Sulphur (Carius Method):** The compound is heated with fuming HNO₃. Sulphur is converted to H₂SO₄, which is then precipitated as BaSO₄ by adding BaCl₂ solution.
-*   **Estimation of Phosphorus:** Phosphorus in the compound is oxidized to phosphoric acid, which is precipitated as ammonium phosphomolybdate.
-*   **Calculations of empirical formulae and molecular formulae:** Numerical problems in organic quantitative analysis.
+# 3. Prerequisites
+– Basic understanding of organic compounds and their properties.
+– Familiarity with basic laboratory techniques.
+
+# 4. Concept Overview
+Just like how raw turmeric (மஞ்சள்) from the fields of Erode must be cleaned, boiled, and polished before it becomes the fine powder we use, organic compounds synthesized in a lab are almost never pure. This chapter deals with the essential techniques chemists use to **purify (தூய்மையாக்கல்)** and then **characterize (பண்பறிதல்)** these compounds. We'll learn methods like distillation and chromatography to separate mixtures, and then use chemical tests, like the famous Lassaigne's test, to figure out which elements are present in an unknown compound. Finally, we'll learn how to determine the exact formula of a new compound.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 2, Chapter 12**. This is a highly practical chapter. For NEET, questions are common from chromatography principles and the qualitative tests for elements (especially Lassaigne's test).
+
+### 5.1 Purification Methods (தூய்மையாக்கல் முறைகள்)
+*   **Sublimation (பதங்கமாதல்):** For solids that turn directly into gas (e.g., camphor).
+*   **Crystallisation:** Based on differences in solubility.
+*   **Distillation:** Separating liquids with different boiling points. Includes simple, fractional, steam, and vacuum distillation.
+*   **Chromatography (நாற்கூறு பிரிகை முறை):** A powerful separation technique based on the differential distribution of components between a stationary phase and a mobile phase.
+
+### 5.2 Qualitative Analysis (பண்பறிப் பகுப்பாய்வு)
+*   **Detection of Carbon and Hydrogen:** Heating with CuO.
+*   **Detection of other elements (Lassaigne's Test):** The compound is fused with sodium metal to convert N, S, and halogens into ionic compounds (NaCN, Na₂S, NaX).
+    *   **Test for Nitrogen:** Formation of Prussian blue.
+    *   **Test for Sulphur:** Formation of a violet colour with sodium nitroprusside.
+    *   **Test for Halogens:** Precipitation with AgNO₃.
+
+### 5.3 Quantitative Analysis (அளவறிப் பகுப்பாய்வு)
+*   **Estimation of Carbon and Hydrogen (Liebig's Method).**
+*   **Estimation of Nitrogen (Dumas and Kjeldahl's methods).**
+*   **Estimation of Halogens (Carius method).**
+*   **Calculation of Empirical and Molecular Formulae.**
+
+# 6. Worked Examples
+
+**1. Easy:** In the Lassaigne's test for nitrogen in an organic compound, the Prussian blue colour is due to the formation of which compound?
+*   **Solution:** The Prussian blue colour is due to the formation of **Ferric ferrocyanide, Fe₄[Fe(CN)₆]₃**.
+
+**2. Medium:** Why is Kjeldahl's method not applicable for compounds containing nitrogen in nitro and azo groups?
+*   **Solution:** In Kjeldahl's method, the nitrogen in the compound must be quantitatively converted into ammonium sulphate. Nitrogen atoms in nitro (-NO₂) and azo (-N=N-) groups are not completely converted under the reaction conditions, leading to inaccurate results.
+
+**3. Must-Practice:** An organic compound contains 69% Carbon and 4.8% Hydrogen, the remainder being Oxygen. Calculate the empirical formula of the compound.
+*   **Solution:**
+    1.  % Oxygen = 100 - (69 + 4.8) = 26.2%.
+    2.  Calculate relative moles:
+        *   C = 69 / 12 = 5.75
+        *   H = 4.8 / 1 = 4.8
+        *   O = 26.2 / 16 = 1.63
+    3.  Divide by the smallest value (1.63):
+        *   C = 5.75 / 1.63 ≈ 3.5
+        *   H = 4.8 / 1.63 ≈ 2.9 ≈ 3
+        *   O = 1.63 / 1.63 = 1
+    4.  Convert to the simplest whole number ratio by multiplying by 2:
+        *   C = 7, H = 6, O = 2.
+    5.  The empirical formula is **C₇H₆O₂**.
+
+# 7. Key Formulas & Diagrams
+
+| Method | Principle | Used For |
+| :--- | :--- | :--- |
+| Distillation | Difference in boiling points | Separating miscible liquids |
+| Chromatography | Differential adsorption/partition | Separating complex mixtures |
+| Lassaigne's Test | Conversion to ionic salts | Detection of N, S, Halogens |
 `,
   workedExamples: [
     {
@@ -400,5 +442,4 @@ export const purificationAndCharacterisationOfOrganicCompounds: NeetModule = {
     }
   ]
 };
-
 

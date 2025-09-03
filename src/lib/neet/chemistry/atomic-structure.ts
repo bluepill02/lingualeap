@@ -7,39 +7,91 @@ export const atomicStructure: NeetModule = {
   chapter: 'Atomic Structure',
   subject: 'Chemistry',
   conceptNotes: `
-### 1. Introduction to Atomic Structure
-*   **Nature of electromagnetic radiation, photoelectric effect:** Light has a dual nature (wave and particle). The photoelectric effect (ejection of electrons from a metal surface by light) demonstrates the particle nature of light (photons).
-*   **Spectrum of the hydrogen atom:** The emission spectrum of hydrogen consists of distinct lines, grouped into series (Lyman, Balmer, Paschen, etc.), suggesting that electrons have quantized energy levels.
+# 1. Module Title
+– Chemistry – Atomic Structure (வேதியியல் - அணு அமைப்பு)
 
-### 2. Bohr Model of a Hydrogen Atom
-*   **Postulates:**
-    1. Electrons revolve around the nucleus in fixed circular paths called orbits.
-    2. The energy of an electron in an orbit is quantized.
-    3. An electron might jump from one orbit to another by absorbing or emitting energy.
-    4. The angular momentum of an electron is quantized: mvr = nh/2π.
-*   **Derivations:** Formulas for the energy of the electron (Eₙ = -13.6 Z²/n² eV) and radii of the orbits (rₙ = 0.529 n²/Z Å).
-*   **Limitations:** Could not explain the spectra of multi-electron atoms, the Zeeman effect, or the Stark effect. Failed to explain the dual nature of matter.
+# 2. Learning Objectives
+1.  After this, you will be able to describe the discovery of electrons, protons, and neutrons and compare different atomic models (Thomson, Rutherford).
+2.  After this, you will be able to explain the postulates of Bohr's model and calculate the radius and energy of orbits in a hydrogen atom.
+3.  After this, you will be able to explain the dual nature of matter, the uncertainty principle, and the significance of quantum numbers.
+4.  After this, you will be able to apply the Aufbau principle, Pauli's exclusion principle, and Hund's rule to write the electronic configuration of elements.
 
-### 3. Quantum Mechanical Model of the Atom
-*   **Dual nature of matter, de Broglie's relationship (λ = h/mv):** All moving particles have an associated wavelength.
-*   **Heisenberg uncertainty principle (Δx ⋅ Δp ≥ h/4π):** It is impossible to determine simultaneously the exact position and exact momentum of an electron.
-*   **Quantum Mechanics:** Describes the behavior of microscopic particles in terms of wave functions (Ψ). The square of the wave function (Ψ²) represents the probability density of finding an electron.
-*   **Concept of atomic orbitals:** A three-dimensional space around the nucleus where the probability of finding an electron is maximum.
-*   **Variation of Ψ and Ψ² with r for 1s and 2s orbitals:** Understanding the radial probability distribution and nodes.
+# 3. Prerequisites
+– Basic knowledge of atoms and elements.
+– Understanding of charge and classical mechanics.
 
-### 4. Quantum Numbers and Orbitals
-*   **Principal Quantum Number (n):** Determines the main energy level or shell (n=1, 2, 3...).
-*   **Azimuthal Quantum Number (l):** Determines the subshell and the shape of the orbital (s, p, d, f). l ranges from 0 to n-1.
-*   **Magnetic Quantum Number (mₗ):** Determines the orientation of the orbital in space (mₗ = -l to +l).
-*   **Electron Spin and Spin Quantum Number (mₛ):** Describes the intrinsic angular momentum of an electron (+1/2 or -1/2).
-*   **Shapes of s, p, and d - orbitals.**
+# 4. Concept Overview
+Just as the beautiful, intricate carvings on a Tanjore (தஞ்சாவூர்) temple pillar are made of smaller, fundamental patterns, all matter is made of atoms. But what are atoms made of? This chapter, **Atomic Structure**, unveils the secrets inside the atom. We will journey from early ideas to the modern quantum mechanical model, understanding how electrons are arranged in specific energy levels, much like the gopuram (கோபுரம்) of a temple has different tiers. Understanding this structure is the key to explaining the chemical behavior of all elements.
 
-### 5. Rules for Filling Electrons in Orbitals
-*   **Aufbau Principle:** Orbitals are filled in order of their increasing energies.
-*   **Pauli's Exclusion Principle:** No two electrons in an atom can have the same set of all four quantum numbers.
-*   **Hund's Rule of Maximum Multiplicity:** Pairing of electrons in the orbitals belonging to the same subshell does not take place until each orbital is singly occupied.
-*   **Electronic configuration of elements:** The distribution of electrons into orbitals.
-*   **Extra stability of half-filled and completely filled orbitals:** Due to symmetry and exchange energy.
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Chemistry Volume 1, Chapter 2**. It is a fundamental chapter with high weightage in NEET, especially questions on quantum numbers, electronic configuration, and Bohr's model calculations.
+
+### 5.1 Discovery of Sub-atomic Particles
+*   **Discovery of Electron (J.J. Thomson):** From cathode ray discharge tube experiments.
+*   **Discovery of Proton (Goldstein) and Neutron (Chadwick).**
+
+### 5.2 Atomic Models
+*   **Thomson's Model (Plum Pudding Model):** Atom is a sphere of positive charge with electrons embedded in it.
+*   **Rutherford's Model (Nuclear Model):** Based on the alpha-scattering experiment, it proposed a small, dense, positive nucleus with electrons orbiting it. It failed to explain the stability of the atom.
+*   **Bohr's Model for Hydrogen Atom:**
+    *   Postulates: Fixed energy shells, quantization of angular momentum (mvr = nh/2π).
+    *   Successfully explained the hydrogen spectrum.
+    *   Limitations: Failed for multi-electron atoms.
+
+### 5.3 Quantum Mechanical Model of Atom
+*   **Dual Nature of Matter (de Broglie):** All moving particles have wave-like properties (\\(\\lambda = h/mv\\)).
+*   **Heisenberg's Uncertainty Principle:** It's impossible to determine both the exact position and momentum of a microscopic particle simultaneously (\\(\\Delta x \\cdot \\Delta p \\ge h/4\\pi\\)).
+*   **Quantum Numbers (குவாண்டம் எண்கள்):** Four numbers that describe the address of an electron in an atom.
+    1.  **Principal (n):** Shell/Energy level (1, 2, 3...).
+    2.  **Azimuthal (l):** Subshell/Shape of orbital (0 to n-1). s, p, d, f.
+    3.  **Magnetic (mₗ):** Orientation of orbital (-l to +l).
+    4.  **Spin (mₛ):** Electron spin (+1/2, -1/2).
+*   **Shapes of Atomic Orbitals:** s (spherical), p (dumbbell), d (double dumbbell).
+
+### 5.4 Rules for Filling Electrons
+*   **Aufbau Principle:** Orbitals are filled in order of increasing energy (n+l rule).
+*   **Pauli's Exclusion Principle:** No two electrons can have the same set of four quantum numbers.
+*   **Hund's Rule of Maximum Multiplicity:** Pairing of electrons in orbitals of the same subshell starts only when each orbital is singly occupied.
+*   **Electronic Configuration:** Distribution of electrons in orbitals. Stability of half-filled and fully-filled orbitals (e.g., Cr and Cu).
+
+# 6. Worked Examples
+
+**1. Easy:** What are the possible values for all four quantum numbers for the last electron in a sodium atom (Z=11)?
+*   **Solution:** The electronic configuration of Na is 1s² 2s² 2p⁶ 3s¹. The last electron is in the 3s orbital.
+    *   n = 3 (principal shell)
+    *   l = 0 (for s orbital)
+    *   mₗ = 0 (since l=0)
+    *   mₛ = +1/2 or -1/2
+
+**2. Medium:** Calculate the energy of one mole of photons of radiation whose frequency is 5 x 10¹⁴ Hz.
+*   **Solution:**
+    *   Energy of one photon, E = hν, where h = 6.626 x 10⁻³⁴ J s.
+    *   E = (6.626 x 10⁻³⁴ J s) x (5 x 10¹⁴ s⁻¹) = 33.13 x 10⁻²⁰ J.
+    *   Energy of one mole of photons = E × Nₐ = (33.13 x 10⁻²⁰ J) x (6.022 x 10²³ mol⁻¹) = **199.51 kJ/mol**.
+
+**3. Must-Practice:** How many unpaired electrons are present in a Cr atom (Z=24)?
+*   **Solution:**
+    *   The electronic configuration of Cr is exceptional due to the stability of a half-filled d-orbital.
+    *   Expected: [Ar] 4s² 3d⁴. Actual: **[Ar] 4s¹ 3d⁵**.
+    *   The 4s orbital has 1 unpaired electron.
+    *   The 3d subshell has 5 orbitals, and each is singly occupied, so there are 5 unpaired electrons.
+    *   Total unpaired electrons = 1 + 5 = **6**.
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\(E = h\\nu = hc/\\lambda\\) | Photon Energy (ஃபோட்டான் ஆற்றல்) |
+| \\(L = mvr = \\frac{nh}{2\\pi}\\) | Bohr's Quantization of Angular Momentum (கோண உந்தம் குவாண்டமாக்கல்) |
+| \\(\\lambda = h/mv\\) | de Broglie Wavelength (டி பிராய் அலைநீளம்) |
+| \\(\\Delta x \\cdot \\Delta p \\ge h/4\\pi\\) | Heisenberg's Uncertainty Principle (ஹைசன்பர்க் நிச்சயமற்ற கொள்கை) |
+
+<br>
+\`\`\`
+DIAGRAM: Shapes of s and p orbitals
+A spherical s orbital and three dumbbell-shaped p orbitals (p_x, p_y, p_z) oriented along the X, Y, and Z axes respectively.
+s-orbital (கோள வடிவம்), p-orbital (டம்பெல் வடிவம்)
+\`\`\`
 `,
   workedExamples: [
     {
@@ -222,3 +274,4 @@ export const atomicStructure: NeetModule = {
     }
   ]
 };
+
