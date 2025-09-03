@@ -25,7 +25,7 @@ export const rotationalMotion: NeetModule = {
       "Understanding of vectors, especially the cross product.",
       "Concepts of Work, Energy, and Power."
     ],
-    conceptOverview": "Think of a spinning top (பம்பரம்) or the intricate movements of a Bharatanatyam (பரதநாட்டியம்) dancer. While a thrown ball follows a simple path, these objects are spinning. This chapter, Rotational Motion, introduces the physics of spinning objects. We will learn the rotational equivalents of force (Torque - திருப்புவிசை), mass (Moment of Inertia - நிலைமத் திருப்புத்திறன்), and momentum (Angular Momentum - கோண உந்தம்). Understanding these concepts will allow us to predict the motion of everything from a spinning wheel to a rotating planet.",
+    conceptOverview: "Think of a spinning top (பம்பரம்) or the intricate movements of a Bharatanatyam (பரதநாட்டியம்) dancer. While a thrown ball follows a simple path, these objects are spinning. This chapter, Rotational Motion, introduces the physics of spinning objects. We will learn the rotational equivalents of force (Torque - திருப்புவிசை), mass (Moment of Inertia - நிலைமத் திருப்புத்திறன்), and momentum (Angular Momentum - கோண உந்தம்). Understanding these concepts will allow us to predict the motion of everything from a spinning wheel to a rotating planet.",
     tnBoardMapping: "This unit corresponds to the Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 5: 'Motion of System of Particles and Rigid Bodies'. The TN board provides extensive derivations for moment of inertia. For NEET, it is crucial to memorize the final formulas for common shapes and master the application of the parallel and perpendicular axes theorems.",
     studyTips: [
       {
@@ -60,7 +60,7 @@ Think of a spinning top (பம்பரம்) or the intricate movements of a 
 This unit corresponds to the **Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 5: 'Motion of System of Particles and Rigid Bodies'**.
 
 ### 5.1 Centre of Mass and Rotational Basics
-*   **Centre of Mass (நிறை மையம்):** This is a unique point where the weighted relative position of the distributed mass sums to zero. It's the point that moves as if all the system's mass were concentrated there. For a two-particle system, \\[ R_{cm} = \\frac{m_1r_1 + m_2r_2}{m_1 + m_2} \\]. For a rigid body, it's a fixed point determined by its shape and mass distribution.
+*   **Centre of Mass (நிறை மையம்):** This is a unique point where the weighted relative position of the distributed mass sums to zero. It's the point that moves as if all the system's mass were concentrated there. For a two-particle system, \\\\[ R_{cm} = \\frac{m_1r_1 + m_2r_2}{m_1 + m_2} \\\\]. For a rigid body, it's a fixed point determined by its shape and mass distribution.
 *   **Basic concepts of rotational motion:** We use angular variables to describe rotation.
     *   Angular Position (θ): Angle in radians.
     *   Angular Velocity (ω): Rate of change of angular position (ω = dθ/dt).
@@ -161,4 +161,4 @@ The entire body rotates with an angular velocity 'ω'.
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** Is angular momentum always conserved? Discuss a real-world scenario where angular momentum is *not* conserved and explain what external torque is acting on the system.
 `
-  
+};
