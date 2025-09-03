@@ -3,7 +3,9 @@ import type { NeetModule } from '@/lib/types';
 
 const metadata = {
   "id": "physics-physics-and-measurement",
-  "title": "Physics and Measurement",
+  "title": "Physics and Measurement (இயற்பியல் மற்றும் அளவீட்டியல்)",
+  "chapter": "Unit 1: Physics and Measurement",
+  "subject": "Physics",
   "glossary": [
     { "English": "Unit", "தமிழ்": "அலகு" },
     { "English": "Least Count", "தமிழ்": "மீச்சிற்றளவு" },
@@ -23,6 +25,29 @@ const metadata = {
     "Familiarity with basic algebraic formulas and equation manipulation."
   ],
   "conceptOverview": "Imagine building a grand temple like the Brihadeeswarar Temple in Thanjavur (தஞ்சாவூர் பெருவுடையார் கோயில்). Every stone must be measured perfectly. If one stone is slightly off, the entire structure could be weak. Physics is like building the universe, and our tools are units and measurements. This chapter is the foundation, teaching us how to measure things accurately, speak the universal language of SI units, and understand the unavoidable errors (பிழைகள்) in every measurement. Mastering this is the first step to becoming a successful scientist or engineer.",
+  "tnBoardMapping": "This unit corresponds to the Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 1: 'Nature of Physical World and Measurement'. While the TN board provides a strong foundation, NEET requires deeper application skills, especially in error analysis and dimensional analysis.",
+  "contentSections": {
+    "unitsAndMeasurements": {
+      "title": "Units of Measurements",
+      "content": "Physics is built on measurement. To measure a physical quantity, we compare it with a standard amount of that quantity, which is called a **unit** (அலகு). A good unit should be well-defined, accessible, and not change with time or physical conditions."
+    },
+    "systemOfUnits": {
+        "title": "System of Units",
+        "content": "A complete set of both fundamental and derived units is called a system of units. The **SI system** (Système International) is the modern, internationally accepted system. It is a decimal system, making conversions easy. There are seven **fundamental units** (அடிப்படை அலகுகள்) from which all other **derived units** (வழியலகுகள்) are obtained."
+    },
+    "errorsInMeasurement": {
+        "title": "Errors in Measurement",
+        "content": "The difference between the true value and the measured value of a quantity is called an **error** (பிழை). Errors can be systematic (due to faulty instruments or procedures) or random (due to unpredictable fluctuations). Accuracy is the closeness to the true value, while precision is the limit to which the quantity is measured. The smallest value that can be measured by an instrument is its **least count** (மீச்சிற்றளவு). The combination of errors in calculations (addition, subtraction, multiplication, division, powers) is a very important topic for NEET."
+    },
+    "significantFigures": {
+        "title": "Significant Figures",
+        "content": "**Significant figures** (முக்கிய எண்ணுருக்கள்) are the reliable digits in a measurement which are known with certainty plus one uncertain digit. They indicate the precision of a measurement. There are specific rules for counting them and for using them in calculations to ensure the result is not more precise than the original measurements."
+    },
+    "dimensionalAnalysis": {
+        "title": "Dimensions and Dimensional Analysis",
+        "content": "The **dimensions** of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. For example, velocity = distance/time, so its dimension is [L]/[T] or [LT⁻¹]. **Dimensional analysis** (பரிமாணப் பகுப்பாய்வு) is used to check the correctness of an equation (Principle of Homogeneity) and to derive relationships between physical quantities."
+    }
+  },
   "studyTips": [
     {
       "tip": "Create a chart of all fundamental and derived quantities with their SI units and dimensional formulas. Review it daily.",
@@ -358,9 +383,9 @@ const metadata = {
   }
 };
 
-const markdownContent = `
+const content = `
 # 1. Module Title
-– Physics – Physics and Measurement
+– Physics – Physics and Measurement (இயற்பியல் - அளவீட்டியல்)
 
 # 2. Learning Objectives
 1.  After this, you will be able to differentiate between fundamental and derived quantities and list their SI units.
@@ -377,11 +402,14 @@ const markdownContent = `
 Imagine building a grand temple like the Brihadeeswarar Temple in Thanjavur (தஞ்சாவூர் பெருவுடையார் கோயில்). Every stone must be measured perfectly. If one stone is slightly off, the entire structure could be weak. Physics is like building the universe, and our tools are units and measurements. This chapter is the foundation, teaching us how to measure things accurately, speak the universal language of SI units, and understand the unavoidable errors (பிழைகள்) in every measurement. Mastering this is the first step to becoming a successful scientist or engineer.
 
 # 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 1: 'Nature of Physical World and Measurement'**. While the TN board provides a strong foundation, NEET requires deeper application skills, especially in error analysis and dimensional analysis.
 
 ## 5.1 Units and Measurements (அலகுகள் மற்றும் அளவீடுகள்)
-Physics is all about quantifying the world. To do this, we need standards, which we call **units** (*அலகுகள்*). The internationally accepted system is the **SI system**, which has 7 fundamental units.
+Physics is all about quantifying the world. To measure a physical quantity, we compare it with a standard amount of that quantity, which is called a **unit** (*அலகு*). A good unit should be well-defined, accessible, and not change with time or physical conditions.
 
-**Fundamental Units:**
+### System of Units (அலகு முறைகள்)
+A complete set of both fundamental and derived units is called a system of units. The **SI system** (Système International) is the modern, internationally accepted system. It is a decimal system, making conversions easy. There are seven **fundamental units** (*அடிப்படை அலகுகள்*) from which all other **derived units** (*வழியலகுகள்*) are obtained.
+
 | Quantity | SI Unit | Symbol |
 | :--- | :--- | :--- |
 | Length | meter | m |
@@ -392,72 +420,51 @@ Physics is all about quantifying the world. To do this, we need standards, which
 | Luminous Intensity | Candela | cd |
 | Amount of Substance | mole | mol |
 
-All other units, like velocity (m/s) or force (kg⋅m/s²), are called **derived units** because they are derived from these fundamental units.
-
 ## 5.2 Errors in Measurement (அளவீட்டுப் பிழைகள்)
-No measurement is ever perfect. The difference between the true value and the measured value is called an **error** (*பிழை*).
-
-*   **Systematic Errors:** These are errors that tend to be in one direction, either positive or negative. For example, an error in the calibration of an instrument. These can be corrected.
-*   **Random Errors:** These occur irregularly and are random in sign and size. These can be minimized by taking multiple readings and calculating the average.
-
-**Error Combination:**
-If Z = A + B, then ΔZ = ΔA + ΔB (Absolute errors add).
-If Z = A × B or Z = A / B, then ΔZ/Z = ΔA/A + ΔB/B (Percentage errors add).
-If Z = Aⁿ, then ΔZ/Z = n(ΔA/A).
+The difference between the true value and the measured value of a quantity is called an **error** (*பிழை*). Errors can be systematic (due to faulty instruments or procedures) or random (due to unpredictable fluctuations). Accuracy is the closeness to the true value, while precision is the limit to which the quantity is measured. The smallest value that can be measured by an instrument is its **least count** (*மீச்சிற்றளவு*). The combination of errors in calculations (addition, subtraction, multiplication, division, powers) is a very important topic for NEET.
 
 ## 5.3 Significant Figures (முக்கிய எண்ணுருக்கள்)
-These are the meaningful digits in a measured quantity.
-**Rules:**
-1.  All non-zero digits are significant.
-2.  Zeros between non-zero digits are significant (e.g., 205 has 3 significant figures).
-3.  Leading zeros are not significant (e.g., 0.005 has 1 significant figure).
-4.  Trailing zeros in a number with a decimal point are significant (e.g., 2.500 has 4 significant figures).
+**Significant figures** (*முக்கிய எண்ணுருக்கள்*) are the reliable digits in a measurement which are known with certainty plus one uncertain digit. They indicate the precision of a measurement. There are specific rules for counting them and for using them in calculations to ensure the result is not more precise than the original measurements.
 
 ## 5.4 Dimensional Analysis (பரிமாணப் பகுப்பாய்வு)
-Every physical quantity can be expressed in terms of fundamental dimensions: Mass [M], Length [L], Time [T], etc.
-For example, the dimension of velocity (distance/time) is [LT⁻¹].
-
-**Principle of Homogeneity:** An equation is dimensionally correct only if the dimensions of all the terms on both sides of the equation are the same.
-This principle is used to:
-1.  Check the correctness of an equation.
-2.  Derive relationships between physical quantities.
+The **dimensions** of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. For example, velocity = distance/time, so its dimension is [L]/[T] or [LT⁻¹]. **Dimensional analysis** (*பரிமாணப் பகுப்பாய்வு*) is used to check the correctness of an equation (**Principle of Homogeneity**) and to derive relationships between physical quantities.
 
 # 6. Worked Examples
 
-**1. Easy:** Check the dimensional correctness of the equation `v = u + at`.
+**1. Easy:** Check the dimensional correctness of the equation \\(v = u + at\\).
 *   **Solution:**
-    *   Dimension of `v` (final velocity) = [LT⁻¹]
-    *   Dimension of `u` (initial velocity) = [LT⁻¹]
-    *   Dimension of `at` (acceleration × time) = [LT⁻²] × [T] = [LT⁻¹]
+    *   Dimension of \\(v\\) (final velocity) = [LT⁻¹]
+    *   Dimension of \\(u\\) (initial velocity) = [LT⁻¹]
+    *   Dimension of \\(at\\) (acceleration × time) = [LT⁻²] × [T] = [LT⁻¹]
     *   Since all terms have the same dimension [LT⁻¹], the equation is dimensionally correct.
 
-**2. Medium:** A physical quantity P is related to four observables a, b, c, and d as follows: `P = a³b² / (√c d)`. The percentage errors of measurement in a, b, c, and d are 1%, 3%, 4%, and 2%, respectively. What is the percentage error in the quantity P?
+**2. Medium:** A physical quantity P is related to four observables a, b, c, and d as follows: \\(P = \\frac{a^3b^2}{\\sqrt{c} d}\\). The percentage errors of measurement in a, b, c, and d are 1%, 3%, 4%, and 2%, respectively. What is the percentage error in the quantity P?
 *   **Solution:**
-    *   The relative error in P is given by the formula: `ΔP/P = 3(Δa/a) + 2(Δb/b) + (1/2)(Δc/c) + (Δd/d)`
+    *   The relative error in P is given by the formula: \\(\\frac{\\Delta P}{P} = 3\\frac{\\Delta a}{a} + 2\\frac{\\Delta b}{b} + \\frac{1}{2}\\frac{\\Delta c}{c} + \\frac{\\Delta d}{d}\\)
     *   The percentage error is 100 times the relative error.
-    *   % Error in P = `3(% error in a) + 2(% error in b) + (1/2)(% error in c) + 1(% error in d)`
-    *   % Error in P = `3(1%) + 2(3%) + (1/2)(4%) + 1(2%)`
-    *   % Error in P = `3% + 6% + 2% + 2% = 13%`.
+    *   % Error in P = \\(3(\\% \\text{error in a}) + 2(\\% \\text{error in b}) + \\frac{1}{2}(\\% \\text{error in c}) + 1(\\% \\text{error in d})\\)
+    *   % Error in P = \\(3(1\\%) + 2(3\\%) + \\frac{1}{2}(4\\%) + 1(2\\%)\\)
+    *   % Error in P = \\(3\\% + 6\\% + 2\\% + 2\\% = 13\\%\\).
 
-**3. Must-Practice:** The period of oscillation of a simple pendulum is `T = 2π√(L/g)`. The measured value of L is 20.0 cm known to 1 mm accuracy and time for 100 oscillations is found to be 90 s using a wrist watch of 1 s resolution. What is the accuracy in the determination of g?
+**3. Must-Practice:** The period of oscillation of a simple pendulum is \\(T = 2\\pi\\sqrt{\\frac{L}{g}}\\). The measured value of L is 20.0 cm known to 1 mm accuracy and time for 100 oscillations is found to be 90 s using a wrist watch of 1 s resolution. What is the accuracy in the determination of g?
 *   **Solution:**
-    1.  First, express `g` in terms of T and L: `g = 4π²L / T²`
-    2.  The relative error in `g` is `Δg/g = ΔL/L + 2(ΔT/T)`.
-    3.  Given: `L = 20.0 cm`, `ΔL = 1 mm = 0.1 cm`. So, `ΔL/L = 0.1 / 20.0 = 0.005`.
-    4.  The time period `T = total time / number of oscillations = 90s / 100 = 0.9 s`.
-    5.  The error in total time `Δt = 1 s`. The error in the period `ΔT = Δt / 100 = 1s / 100 = 0.01 s`.
-    6.  So, `ΔT/T = 0.01 / 0.9 ≈ 0.011`.
-    7.  Substitute into the error formula: `Δg/g = 0.005 + 2(0.011) = 0.005 + 0.022 = 0.027`.
-    8.  The percentage error is `0.027 × 100 = 2.7%`.
+    1.  First, express \\(g\\) in terms of T and L: \\(g = \\frac{4\\pi^2L}{T^2}\\)
+    2.  The relative error in \\(g\\) is \\(\\frac{\\Delta g}{g} = \\frac{\\Delta L}{L} + 2\\frac{\\Delta T}{T}\\).
+    3.  Given: \\(L = 20.0 \\text{ cm}\\), \\(\\Delta L = 1 \\text{ mm} = 0.1 \\text{ cm}\\). So, \\(\\frac{\\Delta L}{L} = \\frac{0.1}{20.0} = 0.005\\).
+    4.  The time period \\(T = \\frac{\\text{total time}}{\\text{number of oscillations}} = \\frac{90s}{100} = 0.9 \\text{ s}\\).
+    5.  The error in total time \\(\\Delta t = 1 \\text{ s}\\). The error in the period \\(\\Delta T = \\frac{\\Delta t}{100} = \\frac{1s}{100} = 0.01 \\text{ s}\\).
+    6.  So, \\(\\frac{\\Delta T}{T} = \\frac{0.01}{0.9} \\approx 0.011\\).
+    7.  Substitute into the error formula: \\(\\frac{\\Delta g}{g} = 0.005 + 2(0.011) = 0.005 + 0.022 = 0.027\\).
+    8.  The percentage error is \\(0.027 \\times 100 = 2.7\\%\\).
 
 # 7. Key Formulas & Diagrams
 
 | Formula | Description (விளக்கம்) |
 | :--- | :--- |
-| `[Y] = [ML⁻¹T⁻²]` | Dimensional formula for Young's Modulus |
-| `P = a³b² / (√c d)` | Error: `ΔP/P = 3(Δa/a) + 2(Δb/b) + (1/2)(Δc/c) + (Δd/d)` |
-| `LC = 1 MSD - 1 VSD` | Least Count of Vernier Caliper (மீச்சிற்றளவு) |
-| `LC = Pitch / N` | Least Count of Screw Gauge (N = circular divisions) |
+| \\[ [Y] = [ML⁻¹T⁻²] \\] | Dimensional formula for Young's Modulus |
+| \\[ P = \\frac{a^3b^2}{\\sqrt{c} d} \\] | Error: \\(\\frac{\\Delta P}{P} = 3\\frac{\\Delta a}{a} + 2\\frac{\\Delta b}{b} + \\frac{1}{2}\\frac{\\Delta c}{c} + \\frac{\\Delta d}{d}\\) |
+| \\[ LC = 1 \\text{ MSD} - 1 \\text{ VSD} \\] | Least Count of Vernier Caliper (மீச்சிற்றளவு) |
+| \\[ LC = \\frac{\\text{Pitch}}{N} \\] | Least Count of Screw Gauge (N = circular divisions) |
 
 <br>
 
@@ -465,19 +472,16 @@ This principle is used to:
     <rect width="300" height="200" style="fill:white;stroke-width:1;stroke:black" />
     <text x="150" y="30" font-family="Verdana" font-size="14" text-anchor="middle" fill="black">Principle of Homogeneity</text>
     <text x="150" y="50" font-family="Verdana" font-size="12" text-anchor="middle" fill="gray">(பரிமாணங்களின் ஒருமைப்பாட்டு தத்துவம்)</text>
-    
     <text x="50" y="100" font-family="monospace" font-size="16" fill="blue">LHS</text>
     <text x="150" y="100" font-family="monospace" font-size="16" fill="black">=</text>
     <text x="250" y="100" font-family="monospace" font-size="16" fill="red">RHS</text>
-
     <path d="M 60 110 C 100 130, 200 130, 240 110" stroke="black" stroke-width="2" fill="none" />
-    
     <text x="150" y="150" font-family="monospace" font-size="14" text-anchor="middle" fill="green">[Dimension of LHS] = [Dimension of RHS]</text>
     <text x="150" y="170" font-family="Verdana" font-size="10" text-anchor="middle" fill="green">[LHS பரிமாணம்] = [RHS பரிமாணம்]</text>
 </svg>
 
 \`\`\`
-Diagram: Principle of Homogeneity (பரிமாணங்களின் ஒருமைப்பாட்டு தத்துவம்)
+DIAGRAM: Principle of Homogeneity (பரிமாணங்களின் ஒருமைப்பாட்டு தத்துவம்)
 An equation is valid only if the dimensions on the Left Hand Side (LHS) are equal to the dimensions on the Right Hand Side (RHS).
 [Dimension of LHS] = [Dimension of RHS]
 [LHS பரிமாணம்] = [RHS பரிமாணம்]
@@ -485,11 +489,12 @@ An equation is valid only if the dimensions on the Left Hand Side (LHS) are equa
 
 # 8. Downloadable Summary & Mnemonics
 > **Tamil Mnemonic:** பரிமாணங்களை நினைவில் கொள்ள: "வேலைக்கு (Work) ஆற்றல் (Energy) தேவை, இரண்டும் ஒன்றே." Work and Energy have the same dimensional formula: [ML²T⁻²].
-> **NEET Hack:** In error problems, remember that powers become multipliers. For `Z = Aⁿ`, the percentage error in Z is `n` times the percentage error in A. This is a very common question type.
+
+> **NEET Hack:** In error problems, remember that powers become multipliers. For \\(Z = A^n\\), the percentage error in Z is \\(n\\) times the percentage error in A. This is a very common question type.
 
 [Download PDF Summary of Physics and Measurement](/downloads/physics-measurement-summary.pdf)
 
-# 9. Self-Check Quiz
+# 9. Quiz Yourself
 1.  Why are SI units considered superior to other systems like CGS or FPS?
 2.  Explain why a dimensionally correct equation is not necessarily a physically correct one. Give an example.
 3.  Why is it important to minimize errors in measurements, especially in scientific experiments?
@@ -499,10 +504,14 @@ An equation is valid only if the dimensions on the Left Hand Side (LHS) are equa
 # 10. Next Steps & Community Discussion
 – **Next Module:** Kinematics (இயங்கியல்). Learn to describe motion mathematically.
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** Is it possible for a physical quantity to have units but no dimensions? Discuss with your friends on our forum.
-`;
+`
 
-export const physicsAndMeasurement: NeetModule = {
+const neetModuleData: NeetModule = {
   ...metadata,
-  markdownContent
+  practice: metadata.practice,
+  conceptNotes: metadata.contentSections, // Simplified mapping for export
 };
 
+export default neetModuleData;
+
+    
