@@ -151,5 +151,5 @@ The solid line shows the wave at one instant, and the faint lines show its oscil
 – **Next Module:** Electrostatics (நிலைமின்னியல்). We will begin our journey into Electricity and Magnetism, starting with the forces between stationary charges.
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** If a child on a swing wants to go higher, they "pump" their legs. From a physics perspective, how does this add energy to the oscillating system? Discuss this on our forum.
-`
-    
+\`
+};
