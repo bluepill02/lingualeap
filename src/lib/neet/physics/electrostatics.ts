@@ -2,297 +2,173 @@
 import type { NeetModule } from '@/lib/types';
 
 export const electrostatics: NeetModule = {
-  id: 'physics-electrostatics',
-  title: 'Electrostatics',
-  chapter: 'Electrostatics',
-  subject: 'Physics',
-  conceptNotes: `
-### 1. Electric Charges and Fields (மின்னூட்டங்கள் மற்றும் மின்புலங்கள்)
-*   **Electric Charges; Conservation of charge:** The total charge of an isolated system is constant.
-*   **Coulomb's law:** The force between two point charges. F = k |q₁q₂| / r².
-*   **Forces between multiple charges; superposition principle and continuous charge distribution.**
-*   **Electric field (மின்புலம்):** The space around a charge where its influence can be felt. E = F/q.
-*   **Electric field due to a point charge:** E = kq / r².
-*   **Electric field lines:** Imaginary lines used to represent an electric field.
-*   **Electric dipole:** A pair of equal and opposite charges separated by a small distance.
-*   **Electric field due to a dipole:** Field on the axial line and equatorial line.
-*   **Torque on a dipole in a uniform electric field:** τ = p × E.
-*   **Electric Flux (மின்பாயம்):** The total number of electric field lines passing through a surface. Φ_E = E ⋅ A.
-*   **Gauss's law and its applications:** The total electric flux through a closed surface is 1/ε₀ times the net charge enclosed. Φ_E = q_enclosed / ε₀.
-    *   Application to find field due to infinitely long uniformly charged straight wire.
-    *   Application to find field due to uniformly charged infinite plane sheet.
-    *   Application to find field due to uniformly charged thin spherical shell (field inside and outside).
+  metadata: {
+    id: 'physics-electrostatics',
+    title: 'Electrostatics (நிலைமின்னியல்)',
+    chapter: 'Unit 11: Electrostatics',
+    subject: 'Physics',
+    glossary: [
+      { English: 'Electric Charge', தமிழ்: 'மின்னூட்டம்' },
+      { English: 'Coulomb\'s Law', தமிழ்: 'கூலூம் விதி' },
+      { English: 'Electric Field', தமிழ்: 'மின்புலம்' },
+      { English: 'Gauss\'s Law', தமிழ்: 'காஸ் விதி' },
+      { English: 'Capacitor', தமிழ்: 'மின்தேக்கி' }
+    ],
+    learningObjectives: [
+      "State and apply Coulomb's Law and the principle of superposition to calculate forces between charges.",
+      "Define electric field and potential, and calculate them for various charge distributions like dipoles and shells.",
+      "Apply Gauss's law to find the electric field for symmetric charge distributions.",
+      "Explain the behavior of dielectrics and calculate the capacitance of capacitor combinations and the energy they store."
+    ],
+    prerequisites: [
+      "Understanding of vectors and basic calculus.",
+      "Knowledge of forces from Newton's Laws.",
+      "Concept of Work and Energy."
+    ],
+    conceptOverview: "Why does your hair sometimes stand on end when you comb it on a dry day, like during the cool Margazhi (மார்கழி) season in Tamil Nadu? The answer lies in static electricity, the same force that creates lightning. This chapter, **Electrostatics** (நிலைமின்னியல்), deals with the properties of charges at rest. We will explore the fundamental force between charges (Coulomb's Law), the concept of an electric field that surrounds them, and how we can store electrical energy in devices called capacitors—the basis of modern electronics.",
+    tnBoardMapping: "This unit corresponds to the Tamil Nadu State Board Class 12 Physics Volume 1, Chapter 1: 'Electrostatics'. The TN board book is excellent for building strong fundamentals. For NEET, focus on the application of Gauss's law and problems related to capacitors and dipoles.",
+    studyTips: [
+      {
+        tip: "Master the directions. The direction of electric field, dipole moment, and forces are crucial. Always draw a diagram to visualize the vectors before you start calculating.",
+        NEET_Hack: "For problems involving a dielectric slab inserted into a capacitor, remember these two cases: 1) If the battery is disconnected, Q remains constant, V decreases, C increases. 2) If the battery remains connected, V remains constant, C increases, Q increases. This is a very common question type."
+      },
+      {
+        tip: "Gauss's law is your best friend for symmetric charge distributions (sphere, cylinder, plane sheet). Don't try to use Coulomb's law integration where Gauss's law provides a simple solution.",
+        NEET_Hack: "The electric field inside a charged conducting shell is always zero. This simple fact can be the direct answer to several NEET questions."
+      }
+    ]
+  },
+  content: `
+# 1. Module Title
+– Physics – Electrostatics (இயற்பியல் - நிலைமின்னியல்)
 
-### 2. Electrostatic Potential and Capacitance (நிலைமின்னியல் மற்றும் மின்தேக்கம்)
-*   **Electric potential (நிலைமின்னழுத்தம்) and potential difference:** Work done per unit charge. V = W/q.
-*   **Electric potential due to a point charge, an electric dipole and system of charges.**
-*   **Equipotential surfaces:** Surfaces with the same electric potential at every point.
-*   **Electrical potential energy** of a system of two point charges and of an electric dipole in an electrostatic field.
-*   **Conductors and insulators:** Materials that allow or do not allow the flow of charge.
-*   **Dielectrics and electric polarization:** Insulating materials that get polarized in an external electric field.
-*   **Capacitors and capacitance (மின்தேக்கிகள் மற்றும் மின்தேக்குத்திறன்):** A device used to store electric charge and energy. C = Q/V.
-*   **Capacitance of a parallel plate capacitor** with and without dielectric medium between the plates. C = Kε₀A/d.
-*   **Combination of capacitors in series and parallel:**
-    *   Series: 1/C_eq = 1/C₁ + 1/C₂ + ...
-    *   Parallel: C_eq = C₁ + C₂ + ...
-*   **Energy stored in a capacitor:** U = ½CV² = ½Q²/C.
-`,
-  workedExamples: [
-    {
-        problem: "Two point charges of +2 μC and +6 μC repel each other with a force of 12 N. If a charge of -4 μC is given to each of these charges, what will be the new force?",
-        solution: "Initially, F = k(q₁q₂)/r² = 12 N. So, 12 = k(2×6)/r² = 12k/r². This gives k/r² = 1. After adding -4 μC to each, the new charges are q₁' = 2-4 = -2 μC and q₂' = 6-4 = +2 μC. The new force F' = k(q₁'q₂')/r² = k(-2)(2)/r² = -4k/r². Since k/r² = 1, the new force F' = -4 N. The negative sign indicates that the force is now attractive."
-    },
-    {
-        problem: "A parallel plate capacitor with air between the plates has a capacitance of 8 pF. What will be the capacitance if the distance between the plates is reduced by half, and the space between them is filled with a substance of dielectric constant 6?",
-        solution: "The initial capacitance is C = ε₀A/d = 8 pF. The new distance is d' = d/2. The new dielectric constant is K = 6. The new capacitance C' = Kε₀A/d' = Kε₀A/(d/2) = 2K(ε₀A/d) = 2K * C. C' = 2 * 6 * 8 pF = 96 pF."
-    },
-    {
-        problem: "Calculate the torque on an electric dipole of dipole moment 4 x 10⁻⁹ C m when it is placed in a uniform electric field of 5 x 10⁴ N/C at an angle of 30°.",
-        solution: "The torque (τ) on a dipole is given by τ = pEsinθ. Given p = 4 x 10⁻⁹ C m, E = 5 x 10⁴ N/C, and θ = 30°. τ = (4 x 10⁻⁹) * (5 x 10⁴) * sin(30°). sin(30°) = 0.5. τ = (20 x 10⁻⁵) * 0.5 = 10 x 10⁻⁵ = 1 x 10⁻⁴ N m."
-    }
-  ],
-  mcqs: [
-    {
-        "question": "The SI unit of electric charge is:",
-        "options": ["Volt", "Farad", "Ampere", "Coulomb"],
-        "answer": "Coulomb",
-        "explanation": "The Coulomb (C) is the SI unit of electric charge."
-    },
-    {
-        "question": "Two charges are placed at a distance 'd'. If a glass slab is placed between them, the force between them will:",
-        "options": ["Increase", "Decrease", "Remain the same", "Become zero"],
-        "answer": "Decrease",
-        "explanation": "The force between charges in a medium is F = F_air / K, where K is the dielectric constant. For glass, K>1, so the force decreases."
-    },
-    {
-        "question": "Electric field lines start from a ____ charge and end at a ____ charge.",
-        "options": ["Positive, Negative", "Negative, Positive", "Positive, Positive", "Negative, Negative"],
-        "answer": "Positive, Negative",
-        "explanation": "By convention, electric field lines originate from positive charges and terminate on negative charges."
-    },
-    {
-        "question": "The work done in moving a charge on an equipotential surface is:",
-        "options": ["Positive", "Negative", "Zero", "Infinite"],
-        "answer": "Zero",
-        "explanation": "On an equipotential surface, the potential difference between any two points is zero. Work done W = qΔV = q(0) = 0."
-    },
-    {
-        "question": "Three capacitors of 2F, 3F, and 6F are connected in series. The equivalent capacitance is:",
-        "options": ["11 F", "1 F", "1/11 F", "6 F"],
-        "answer": "1 F",
-        "explanation": "For series connection, 1/C_eq = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 6/6 = 1. So, C_eq = 1 F."
-    },
-    {
-        "question": "The energy stored in a capacitor is given by:",
-        "options": ["CV", "½CV", "½C²V", "½CV²"],
-        "answer": "½CV²",
-        "explanation": "The energy stored in a capacitor is U = ½CV² = ½Q²/C = ½QV."
-    },
-    {
-        "question": "Gauss's law is applicable for:",
-        "options": ["Any surface", "A closed surface only", "An open surface only", "A symmetrical surface only"],
-        "answer": "A closed surface only",
-        "explanation": "Gauss's law relates the flux through a closed surface (a Gaussian surface) to the charge enclosed within it."
-    },
-    {
-        "question": "The electric field inside a charged hollow spherical conductor is:",
-        "options": ["Constant", "Zero", "Varies with distance", "Infinite"],
-        "answer": "Zero",
-        "explanation": "According to Gauss's law, since there is no charge enclosed inside the hollow conductor, the electric field inside is zero."
-    },
-    {
-        "question": "The SI unit of electric flux is:",
-        "options": ["N/C", "V·m", "V/m", "N·m"],
-        "answer": "V·m",
-        "explanation": "Electric flux Φ = E⋅A. Units are (V/m)⋅(m²) = V·m. Another unit is N·m²/C."
-    },
-    {
-        "question": "An electric dipole placed in a uniform electric field experiences:",
-        "options": ["A net force but no torque", "A torque but no net force", "Both a net force and a torque", "Neither a force nor a torque"],
-        "answer": "A torque but no net force",
-        "explanation": "In a uniform field, the forces on the two charges are equal and opposite, so the net force is zero. However, these forces form a couple, resulting in a net torque."
-    },
-    {
-        "question": "The capacitance of a parallel plate capacitor increases when:",
-        "options": ["The area of the plates is decreased", "The distance between the plates is increased", "A dielectric is introduced between the plates", "The charge on the plates is increased"],
-        "answer": "A dielectric is introduced between the plates",
-        "explanation": "Capacitance C = Kε₀A/d. Capacitance increases with the dielectric constant K (>1) and area A, and decreases with distance d."
-    },
-    {
-        "question": "The property of electric charge that states q = ne is called:",
-        "options": ["Conservation of charge", "Quantization of charge", "Additivity of charge", "Invariance of charge"],
-        "answer": "Quantization of charge",
-        "explanation": "Quantization means that charge exists in discrete integral multiples of the fundamental charge 'e'."
-    },
-    {
-        "question": "What is the angle between an electric field line and an equipotential surface?",
-        "options": ["0°", "45°", "90°", "180°"],
-        "answer": "90°",
-        "explanation": "Electric field lines are always perpendicular to equipotential surfaces."
-    },
-    {
-        "question": "When a dielectric is introduced into a capacitor while the battery is still connected, the:",
-        "options": ["Charge decreases, voltage remains constant", "Charge increases, voltage remains constant", "Charge remains constant, voltage decreases", "Charge remains constant, voltage increases"],
-        "answer": "Charge increases, voltage remains constant",
-        "explanation": "Since the battery is connected, the voltage V remains constant. The capacitance increases to C' = KC. The new charge is Q' = C'V = (KC)V = K(CV) = KQ. The charge increases."
-    },
-    {
-        "question": "The direction of the electric dipole moment vector is from:",
-        "options": ["Positive charge to negative charge", "Negative charge to positive charge", "Center of the dipole outwards", "North to South"],
-        "answer": "Negative charge to positive charge",
-        "explanation": "By convention in physics, the dipole moment vector points from the negative charge to the positive charge."
-    },
-    {
-        "question": "The electric potential due to a point charge 'q' at a distance 'r' is:",
-        "options": ["kq/r²", "kq²/r", "kq/r", "kqr"],
-        "answer": "kq/r",
-        "explanation": "This is the standard formula for electric potential due to a point charge."
-    },
-    {
-        "question": "Two capacitors of 4 μF and 6 μF are connected in parallel. The equivalent capacitance is:",
-        "options": ["10 μF", "2.4 μF", "0.41 μF", "24 μF"],
-        "answer": "10 μF",
-        "explanation": "For parallel connection, C_eq = C₁ + C₂ = 4 + 6 = 10 μF."
-    },
-    {
-        "question": "The force per unit charge is known as:",
-        "options": ["Electric flux", "Electric field", "Electric potential", "Electric current"],
-        "answer": "Electric field",
-        "explanation": "This is the definition of electric field intensity, E = F/q."
-    },
-    {
-        "question": "The electric field at a point on the axial line of a dipole is:",
-        "options": ["Proportional to 1/r", "Proportional to 1/r²", "Proportional to 1/r³", "Proportional to r"],
-        "answer": "Proportional to 1/r³",
-        "explanation": "For a short dipole, the electric field on the axial line is E = k(2p)/r³, so it is proportional to 1/r³."
-    },
-    {
-        "question": "Van de Graaff generator is used to:",
-        "options": ["Store charge", "Generate high voltages", "Measure current", "Measure charge"],
-        "answer": "Generate high voltages",
-        "explanation": "A Van de Graaff generator is an electrostatic generator that uses a moving belt to accumulate electric charge, creating a very high electric potential."
-    },
-    {
-        "question": "The dimensional formula for capacitance is:",
-        "options": ["[M⁻¹L⁻²T⁴I²]", "[M⁻¹L⁻²T³I]", "[ML²T⁻³I⁻¹]", "[M⁻¹L⁻¹T²I²]"],
-        "answer": "[M⁻¹L⁻²T⁴I²]",
-        "explanation": "C = Q/V. Q=IT. V = W/Q = [ML²T⁻²]/[IT]. So V=[ML²T⁻³I⁻¹]. C = [IT]/[ML²T⁻³I⁻¹] = [M⁻¹L⁻²T⁴I²]."
-    },
-    {
-        "question": "What happens to the force between two charges if the distance between them is halved?",
-        "options": ["Becomes half", "Becomes double", "Becomes one-fourth", "Becomes four times"],
-        "answer": "Becomes four times",
-        "explanation": "F ∝ 1/r². If r becomes r/2, F ∝ 1/(r/2)² = 4/r². The force becomes four times larger."
-    },
-    {
-        "question": "The dielectric constant of a metal is:",
-        "options": ["Zero", "One", "Infinite", "Less than one"],
-        "answer": "Infinite",
-        "explanation": "For a conductor (metal), the electric field inside is zero. Since E = E₀/K, for E to be zero, the dielectric constant K must be infinite."
-    },
-    {
-        "question": "A capacitor blocks ____ but allows ____ to pass.",
-        "options": ["AC, DC", "DC, AC", "Both AC and DC", "Neither AC nor DC"],
-        "answer": "DC, AC",
-        "explanation": "A capacitor offers infinite resistance to DC current after being fully charged, effectively blocking it. For AC, its capacitive reactance Xc = 1/ωC is finite, allowing AC to pass."
-    },
-    {
-        "question": "If an electric dipole is placed in a non-uniform electric field, it will experience:",
-        "options": ["A force only", "A torque only", "Both a force and a torque", "No force and no torque"],
-        "answer": "Both a force and a torque",
-        "explanation": "In a non-uniform field, the forces on the two charges will not be equal and opposite, resulting in a net force as well as a net torque."
-    }
-  ],
-  "assertionReasons": [
-    {
-        "assertion": "The electric field inside a charged conducting shell is zero.",
-        "reason": "There is no charge enclosed within the shell's cavity.",
-        "answer": "A",
-        "explanation": "According to Gauss's law, the electric flux through a Gaussian surface inside the cavity is zero because no charge is enclosed. Due to symmetry, this implies the electric field is zero everywhere inside."
-    },
-    {
-        "assertion": "Electric field lines never cross each other.",
-        "reason": "If they crossed, there would be two directions of the electric field at the point of intersection, which is not possible.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The tangent to a field line at any point gives the unique direction of the net electric field at that point."
-    },
-    {
-        "assertion": "When a dielectric slab is inserted between the plates of a capacitor, its capacitance increases.",
-        "reason": "The dielectric material reduces the electric field between the plates.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The induced field in the dielectric opposes the external field, reducing the net field. Since C = Q/V and V = Ed, a smaller E leads to a smaller V for the same Q, thus increasing C."
-    },
-    {
-        "assertion": "The work done in moving a charge between two points on an equipotential surface is zero.",
-        "reason": "The potential difference between any two points on an equipotential surface is zero.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Work done W = qΔV. Since ΔV=0 for an equipotential surface, W=0."
-    },
-    {
-        "assertion": "Coulomb's force is a conservative force.",
-        "reason": "The work done by the electrostatic force in moving a charge along a closed loop is zero.",
-        "answer": "A",
-        "explanation": "The reason provides the definition of a conservative force, which is true for the electrostatic force, thus explaining the assertion."
-    },
-    {
-        "assertion": "On going away from a point charge, the electric field decreases.",
-        "reason": "The electric field is inversely proportional to the square of the distance from the charge.",
-        "answer": "A",
-        "explanation": "The reason (E ∝ 1/r²) correctly explains why the field strength decreases as the distance increases."
-    },
-    {
-        "assertion": "Two capacitors connected in parallel have an equivalent capacitance greater than either of the individual capacitances.",
-        "reason": "In a parallel connection, the effective area of the plates increases.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Connecting capacitors in parallel is like increasing the plate area, and since C ∝ A, the total capacitance increases (C_eq = C₁ + C₂)."
-    },
-    {
-        "assertion": "An electric dipole placed in a uniform electric field experiences no net force.",
-        "reason": "The forces on the two charges of the dipole are equal and opposite.",
-        "answer": "A",
-        "explanation": "The reason correctly explains why the net force is zero in a uniform field."
-    },
-    {
-        "assertion": "The charge on a body is always an integral multiple of the charge of an electron.",
-        "reason": "This is the principle of conservation of charge.",
-        "answer": "C",
-        "explanation": "Assertion is true and is the principle of *quantization* of charge. The reason is false; it describes a different principle."
-    },
-    {
-        "assertion": "Gauss's law is useful for calculating the electric field of symmetric charge distributions.",
-        "reason": "Gauss's law relates the electric flux through a closed surface to the enclosed charge.",
-        "answer": "B",
-        "explanation": "Both statements are true. Gauss's law is most useful when symmetry allows the electric field E to be taken out of the integral ∮E⋅dA. The reason is a true statement of the law but doesn't fully explain *why* it's particularly useful for symmetric cases."
-    },
-    {
-        "assertion": "A parallel plate capacitor is connected to a battery. If a dielectric slab is inserted between the plates, the energy stored increases.",
-        "reason": "The capacitance of the capacitor increases.",
-        "answer": "A",
-        "explanation": "The reason is true (C' = KC). Since the battery is connected, V is constant. The energy stored is U = ½CV². Since C increases, U also increases. The reason explains the assertion."
-    },
-    {
-        "assertion": "Electric field lines are always straight.",
-        "reason": "Electric field lines represent the path of a positive test charge.",
-        "answer": "D",
-        "explanation": "Assertion is false. Field lines are curved around dipoles or multiple charges. The reason is also false; field lines show the direction of the force on a test charge, not its path, as the charge's inertia would cause it to continue moving."
-    },
-    {
-        "assertion": "The SI unit of capacitance is Farad.",
-        "reason": "One Farad is defined as one Coulomb per Volt.",
-        "answer": "A",
-        "explanation": "The reason provides the correct definition (from C=Q/V) that explains the assertion."
-    },
-    {
-        "assertion": "When capacitors are connected in series, the charge on each capacitor is the same.",
-        "reason": "The equivalent capacitance in series is the sum of the individual capacitances.",
-        "answer": "C",
-        "explanation": "Assertion is true. Reason is false; the reciprocal of the equivalent capacitance is the sum of the reciprocals of individual capacitances (1/C_eq = 1/C₁ + 1/C₂)."
-    },
-    {
-        "assertion": "The potential at a point on the equatorial line of a dipole is zero.",
-        "reason": "The two charges of the dipole are equal and opposite.",
-        "answer": "A",
-        "explanation": "The reason explains the assertion. At any point on the equatorial line, the distance to the positive charge is the same as the distance to the negative charge. Since potential is a scalar (V = kq/r), the potentials due to the equal and opposite charges cancel out, V_net = kq/r + k(-q)/r = 0."
-    }
-  ]
-};
+# 2. Learning Objectives
+1.  After this, you will be able to state and apply Coulomb's Law and the principle of superposition to calculate forces between charges.
+2.  After this, you will be able to define electric field and potential, and calculate them for various charge distributions like dipoles and shells.
+3.  After this, you will be able to apply Gauss's law to find the electric field for symmetric charge distributions.
+4.  After this, you will be able to explain the behavior of dielectrics and calculate the capacitance of capacitor combinations and the energy they store.
+
+# 3. Prerequisites
+– Understanding of vectors and basic calculus.
+– Knowledge of forces from Newton's Laws.
+– Concept of Work and Energy.
+
+# 4. Concept Overview
+Why does your hair sometimes stand on end when you comb it on a dry day, like during the cool Margazhi (மார்கழி) season in Tamil Nadu? The answer lies in static electricity, the same force that creates lightning. This chapter, **Electrostatics** (நிலைமின்னியல்), deals with the properties of charges at rest. We will explore the fundamental force between charges (Coulomb's Law), the concept of an electric field that surrounds them, and how we can store electrical energy in devices called capacitors—the basis of modern electronics.
+
+# 5. Detailed Explanation
+This unit corresponds to the **Tamil Nadu State Board Class 12 Physics Volume 1, Chapter 1: 'Electrostatics'**.
+
+### 5.1 Electric Charges and Fields (மின்னூட்டங்கள் மற்றும் மின்புலங்கள்)
+*   **Charge Conservation (மின்னூட்ட அழிவின்மை):** The total electric charge in an isolated system remains constant. Charges are not created or destroyed, only transferred from one body to another.
+*   **Coulomb’s Law (கூலூம் விதி):** This law quantifies the force between two stationary point charges. The force is directly proportional to the product of the charges and inversely proportional to the square of the distance between them.
+    \\[ F = k \\frac{|q_1 q_2|}{r^2} \\]
+*   **Superposition Principle (மேற்பொருந்துதல் தத்துவம்):** The total force on any charge due to a number of other charges is the vector sum of all the forces on that charge due to the other charges, taken one at a time.
+*   **Continuous Charge Distributions:** For charge distributed over a line, surface, or volume, we use integration to find the total force or field.
+*   **Electric Field (மின்புலம்) and Field Lines:** The electric field is the region around a charge where another charge experiences a force. Electric field lines are imaginary curves that represent the direction and strength of the field.
+*   **Electric Dipole (மின் இருமுனை):** A system of two equal and opposite charges separated by a small distance. The **dipole moment (p)** is a vector quantity pointing from the negative to the positive charge.
+*   **Dipole Field and Torque:** An electric dipole experiences a **torque (τ = p × E)** in a uniform electric field, which tends to align it with the field. It also creates its own electric field, which can be calculated on its axial and equatorial lines.
+
+### 5.2 Electric Flux and Gauss's Law (மின்பாயம் மற்றும் காஸ் விதி)
+*   **Electric Flux (Φ_E):** A measure of the number of electric field lines passing through a given surface. It is the dot product of the electric field and the area vector.
+*   **Gauss’s Law (காஸ் விதி):** This fundamental law states that the total electric flux through any closed surface is equal to 1/ε₀ times the net charge enclosed by the surface.
+    \\[ \\Phi_E = \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{enclosed}}{\\epsilon_0} \\]
+*   **Applications:** Gauss's law is extremely useful for calculating the electric field for symmetric charge distributions like an infinitely long wire, a uniformly charged infinite plane sheet, and a uniformly charged thin spherical shell. For a spherical shell, the field inside is zero.
+
+### 5.3 Electrostatic Potential and Capacitance (நிலைமின்னழுத்தம் மற்றும் மின்தேக்கம்)
+*   **Electric Potential (V) (நிலைமின்னழுத்தம்):** The work done per unit positive charge in bringing it from infinity to a point in the electric field. It is a scalar quantity.
+*   **Potential due to charges:** We can calculate the potential due to a point charge (V = kq/r), an electric dipole, and a system of multiple charges.
+*   **Equipotential Surfaces (சமமின்னழுத்தப் பரப்புகள்):** Surfaces where the potential is the same at every point. The electric field is always perpendicular to these surfaces, and no work is done in moving a charge on them.
+*   **Potential Energy (U):** The energy stored in a system of charges due to their positions. For a dipole in an external field, \\(U = -\\vec{p} \\cdot \\vec{E}\\).
+*   **Conductors, Insulators, and Dielectrics:** Conductors allow charges to move freely, while insulators do not. Dielectrics are insulators that get polarized (develop an internal opposing field) when placed in an external electric field.
+*   **Capacitors and Capacitance (C) (மின்தேக்கிகள்):** A capacitor is a device used to store electrical energy and charge. Its ability to store charge is measured by its capacitance, \\(C = Q/V\\).
+*   **Parallel Plate Capacitor:** The capacitance is given by \\(C = \\frac{K\\epsilon_0A}{d}\\), where K is the dielectric constant of the medium between the plates.
+*   **Combination of Capacitors:**
+    *   In Series: \\(\\frac{1}{C_{eq}} = \\frac{1}{C_1} + \\frac{1}{C_2} + ...\\)
+    *   In Parallel: \\(C_{eq} = C_1 + C_2 + ...\\)
+*   **Energy Stored in a Capacitor:** The energy stored in the electric field of a capacitor is given by \\(U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C}\\).
+
+# 6. Worked Examples
+
+**1. Easy:** Two point charges of +2 μC and +6 μC repel each other with a force of 12 N. If a charge of -4 μC is given to each of these charges, what will be the new force?
+*   **Solution:**
+    *   Initially, \\(F = k \\frac{q_1q_2}{r^2} = 12 \\text{ N}\\). So, \\(12 = k\\frac{(2)(6)}{r^2} = \\frac{12k}{r^2}\\). This gives \\(k/r^2 = 1\\).
+    *   New charges: \\(q'_1 = 2-4 = -2 \\mu C\\) and \\(q'_2 = 6-4 = +2 \\mu C\\).
+    *   New force \\(F' = k \\frac{q'_1q'_2}{r^2} = k \\frac{(-2)(2)}{r^2} = -4\\frac{k}{r^2}\\).
+    *   Since \\(k/r^2 = 1\\), the new force \\(F' = -4 \\text{ N}\\). The negative sign indicates the force is now attractive.
+
+**2. Medium:** A parallel plate capacitor with air between the plates has a capacitance of 8 pF. What will be the capacitance if the distance between the plates is reduced by half, and the space between them is filled with a substance of dielectric constant 6?
+*   **Solution:**
+    1.  The initial capacitance is \\(C = \\frac{\\epsilon_0 A}{d} = 8 \\text{ pF}\\).
+    2.  The new distance is \\(d' = d/2\\). The new dielectric constant is \\(K = 6\\).
+    3.  The new capacitance \\(C' = \\frac{K\\epsilon_0 A}{d'} = \\frac{K\\epsilon_0 A}{d/2} = 2K(\\frac{\\epsilon_0 A}{d}) = 2K \\times C\\).
+    4.  \\(C' = 2 \\times 6 \\times 8 \\text{ pF} = 96 \\text{ pF}\\).
+
+**3. Must-Practice:** Calculate the torque on an electric dipole of dipole moment 4 x 10⁻⁹ C m when it is placed in a uniform electric field of 5 x 10⁴ N/C at an angle of 30°.
+*   **Solution:**
+    *   The magnitude of the torque (τ) on a dipole is given by \\(\\tau = pE\\sin{\\theta}\\).
+    *   Given \\(p = 4 \\times 10^{-9} \\text{ C m}\\), \\(E = 5 \\times 10^4 \\text{ N/C}\\), and \\(\\theta = 30°\\).
+    *   \\(\\sin(30°) = 0.5\\).
+    *   \\(\\tau = (4 \\times 10^{-9}) \\times (5 \\times 10^4) \\times 0.5\\).
+    *   \\(\\tau = (20 \\times 10^{-5}) \\times 0.5 = 10 \\times 10^{-5} = 1 \\times 10^{-4} \\text{ N m}\\).
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\( F = k \\frac{|q_1 q_2|}{r^2} \\) | Coulomb's Law (கூலூம் விதி) |
+| \\( \\Phi_E = \\frac{q_{enc}}{\\epsilon_0} \\) | Gauss's Law (காஸ் விதி) |
+| \\( C = \\frac{K\\epsilon_0A}{d} \\) | Capacitance of Parallel Plate Capacitor |
+| \\( U = \\frac{1}{2}CV^2 \\) | Energy Stored in a Capacitor |
+
+<br>
+
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="200" style="fill:white;stroke-width:1;stroke:black" />
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="blue" />
+        </marker>
+    </defs>
+    <circle cx="150" cy="100" r="10" fill="red"/>
+    <text x="150" y="105" font-size="12" text-anchor="middle" fill="white">+q</text>
+    <line x1="150" y1="100" x2="250" y2="100" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="50" y2="100" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="150" y2="20" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="150" y2="180" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="220" y2="30" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="80" y2="170" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="220" y2="170" stroke="blue" marker-end="url(#arrow)" />
+    <line x1="150" y1="100" x2="80" y2="30" stroke="blue" marker-end="url(#arrow)" />
+    <text x="150" y="195" font-size="12" text-anchor="middle">Electric Field Lines from a Point Charge</text>
+    <text x="150" y="10" font-size="10" text-anchor="middle">(புள்ளி மின்னூட்டத்தின் மின்புலக் கோடுகள்)</text>
+</svg>
+
+\`\`\`
+DIAGRAM: Electric Field Lines from a Point Charge (புள்ளி மின்னூட்டத்தின் மின்புலக் கோடுகள்)
+Shows a positive point charge (+q) at the center.
+Electric field lines are radiating outwards, showing the direction of the force on a positive test charge.
+The lines are straight and point away from the positive charge.
+\`\`\`
+
+# 8. Downloadable Summary & Mnemonics
+> **Tamil Mnemonic:** மின்தேக்கி தொடரிணைப்பு (Capacitors in Series) மின்தடைக்கு (resistor) எதிரானது. மின்தடையை தொடரில் கூட்ட வேண்டும் (R = R₁ + R₂). ஆனால், மின்தேக்கியை தொடரில் தலைகீழாகக் கூட்ட வேண்டும் (1/C = 1/C₁ + 1/C₂). (Capacitors in Series is the opposite of resistors. Resistors add directly in series, but capacitors add inversely in series).
+
+> **NEET Hack:** For questions asking for the field or potential due to a dipole at a general point, if the point is far away (r >> a), remember the dependencies: \\(E \\propto 1/r³\\) and \\(V \\propto 1/r²\\). This can help you eliminate options quickly.
+
+[Download PDF Summary of Electrostatics](/downloads/electrostatics-summary.pdf)
+
+# 9. Quiz Yourself
+1.  Why do electric field lines never cross each other?
+2.  A comb run through dry hair attracts small pieces of paper. Why? What happens if the hair is oily?
+3.  Why is it safer to be inside a car during a thunderstorm?
+
+> **Student Tip (மாணவர் கருத்து):** காஸ் விதியின் பயன்பாடுகள் (applications of Gauss's law) உங்களுக்கு கடினமாக உள்ளதா? எந்த வடிவத்திற்கு (sphere, wire, sheet) மின்புலம் கணக்கிடுவது குழப்பமாக உள்ளது? உங்கள் சந்தேகங்களை இங்கே கேளுங்கள்!
+
+# 10. Next Steps & Community Discussion
+– **Next Module:** Current Electricity (மின்னோட்டவியல்). We will move from charges at rest to the physics of charges in motion.
+
+– **உறுதிப்பெற பறவை! (Discuss & Soar!):** If the distance between two charges is doubled, the force becomes one-fourth. If three charges are arranged in a triangle, how do you find the net force on one of them? Discuss the vector nature of Coulomb's law on our forum.
+`
+  
+}

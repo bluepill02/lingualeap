@@ -2,358 +2,167 @@
 import type { NeetModule } from '@/lib/types';
 
 export const optics: NeetModule = {
-  id: 'physics-optics',
-  title: 'Optics',
-  chapter: 'Optics',
-  subject: 'Physics',
-  conceptNotes: `
-### 1. Ray Optics and Optical Instruments (கதிர் ஒளியியல் மற்றும் ஒளியியல் கருவிகள்)
-*   **Reflection of light, spherical mirrors, mirror formula:** Reflection at plane and spherical surfaces. The mirror formula 1/f = 1/v + 1/u relates focal length, image distance, and object distance.
-*   **Refraction of light at plane and spherical surfaces, thin lens formula and lens maker formula:** Refraction of light, total internal reflection and its applications, optical fibres. Lens Formula: 1/f = 1/v - 1/u. Lens Maker's Formula: 1/f = (n-1)(1/R₁ - 1/R₂).
-*   **Magnification. Power of a Lens. Combination of thin lenses in contact:** Magnification m = v/u for lenses. Power P = 1/f. For lenses in contact, P = P₁ + P₂.
-*   **Refraction of light through a prism.**
-*   **Microscope and Astronomical Telescope (reflecting and refracting) and their magnifying powers.**
+  metadata: {
+    id: 'physics-optics',
+    title: 'Optics (ஒளியியல்)',
+    chapter: 'Unit 16: Optics',
+    subject: 'Physics',
+    glossary: [
+      { English: 'Reflection', தமிழ்: 'ஒளி எதிரொளிப்பு' },
+      { English: 'Refraction', தமிழ்: 'ஒளிவிலகல்' },
+      { English: 'Interference', தமிழ்: 'குறுக்கீட்டு விளைவு' },
+      { English: 'Diffraction', தமிழ்: 'விளிம்பு விளைவு' },
+      { English: 'Polarisation', தமிழ்: 'தளவிளைவு' }
+    ],
+    learningObjectives: [
+      "Apply mirror and lens formulas to solve problems involving image formation.",
+      "Explain total internal reflection and its applications like optical fibers.",
+      "Analyze the interference pattern in Young's double-slit experiment and calculate fringe width.",
+      "Describe diffraction and polarisation as evidence for the wave nature of light."
+    ],
+    prerequisites: [
+      "Basic geometry and trigonometry.",
+      "Understanding of waves and their properties (wavelength, frequency).",
+      "Familiarity with the concept of the electromagnetic spectrum."
+    ],
+    conceptOverview: "From the stunning sculptures in Mahabalipuram (மாமல்லபுரம்) that we see with our eyes, to the vibrant kolams (கோலம்) drawn with rice flour, our world is defined by **light**. This extensive chapter, **Optics** (ஒளியியல்), explores the behavior and properties of light. We will study **Ray Optics**, which treats light as straight lines to explain how mirrors and lenses form images, and **Wave Optics**, which treats light as a wave to explain beautiful phenomena like the iridescent colors on a peacock's feather (interference) and the bending of light around corners (diffraction).",
+    tnBoardMapping: "This unit covers two large chapters from the Tamil Nadu State Board Class 12 Physics Volume 2: Chapter 6 ('Ray Optics') and Chapter 7 ('Wave Optics'). Both are extremely important for NEET. Sign convention for ray optics and formulas for interference/diffraction are high-yield areas.",
+    studyTips: [
+      {
+        tip: "Sign convention is the most critical part of Ray Optics. Strictly follow the convention that all distances are measured from the pole (for mirrors) or optical center (for lenses), and distances in the direction of incident light are positive.",
+        NEET_Hack: "For combination of lenses, find the power of each lens (P = 1/f) and add them algebraically (P_eq = P₁ + P₂). This is much faster than using the lens formula multiple times. Remember to use focal length in meters."
+      },
+      {
+        tip: "In Wave Optics, clearly differentiate the conditions for constructive and destructive interference (path difference = nλ vs (n+1/2)λ) from the conditions for diffraction minima and maxima.",
+        NEET_Hack: "The fringe width in YDSE (β = λD/d) is directly proportional to wavelength (λ). This means red light produces wider fringes than blue light. Many conceptual questions are based on this simple relationship."
+      }
+    ]
+  },
+  content: `
+# 1. Module Title
+– Physics – Optics (இயற்பியல் - ஒளியியல்)
 
-### 2. Wave Optics (அலை ஒளியியல்)
-*   **Wavefront and Huygens' principle:** Every point on a wavefront is a source of secondary wavelets.
-*   **Laws of reflection and refraction using Huygens principle.**
-*   **Interference, Young's double-slit experiment and expression for fringe width (β = λD/d), coherent sources, and sustained interference of light.**
-*   **Diffraction due to a single slit, width of central maximum.**
-*   **Polarisation, plane-polarized light: Brewster's law, uses of plane-polarized light and Polaroid.**
-`,
-  workedExamples: [
-    {
-        problem: "In a Young's double-slit experiment, the slits are separated by 0.28 mm and the screen is placed 1.4 m away. The distance between the central bright fringe and the fourth bright fringe is measured to be 1.2 cm. Determine the wavelength of light used.",
-        solution: "The distance of the nth bright fringe from the center is y_n = nλD/d. For the 4th bright fringe, n=4. So, y₄ = 4λD/d. We are given y₄ = 1.2 cm = 0.012 m, d = 0.28 mm = 0.28 x 10⁻³ m, D = 1.4 m. λ = y₄d / (4D) = (0.012 * 0.28 x 10⁻³) / (4 * 1.4) = (0.00336 x 10⁻³) / 5.6 = 0.0006 x 10⁻³ m = 600 nm."
-    },
-    {
-        problem: "A concave mirror produces three times magnified real image of an object placed at 10 cm in front of it. Where is the image located?",
-        solution: "For a real image produced by a concave mirror, the magnification m is negative. m = -3. We also know m = -v/u. So, -3 = -v/(-10). -3 = v/10. v = -30 cm. The image is located 30 cm in front of the mirror."
-    },
-    {
-        problem: "The refractive index of glass is 1.5. What is the polarizing angle for a glass slab?",
-        solution: "According to Brewster's law, tan(i_p) = n, where n is the refractive index. tan(i_p) = 1.5. i_p = tan⁻¹(1.5) ≈ 56.3°."
-    }
-  ],
-  mcqs: [
-    {
-        question: "The phenomenon of light bending around the corners of an obstacle is called:",
-        options: ["Reflection", "Refraction", "Interference", "Diffraction"],
-        answer: "Diffraction",
-        explanation: "Diffraction is the bending of waves as they pass around an obstacle or through an aperture."
-    },
-    {
-        question: "In Young's double-slit experiment, the condition for constructive interference is that the path difference should be:",
-        options: ["nλ", "(n+1/2)λ", "nλ/2", "(2n+1)λ"],
-        answer: "nλ",
-        explanation: "For constructive interference (bright fringes), the path difference must be an integral multiple of the wavelength."
-    },
-    {
-        question: "A convex lens is used to correct which vision defect?",
-        options: ["Myopia", "Hypermetropia", "Astigmatism", "Presbyopia"],
-        answer: "Hypermetropia",
-        explanation: "Hypermetropia (farsightedness) is corrected using a convex lens to converge light rays onto the retina."
-    },
-    {
-        question: "Total internal reflection occurs when light travels from:",
-        options: ["A rarer to a denser medium", "A denser to a rarer medium", "The same medium", "Any medium to another"],
-        answer: "A denser to a rarer medium",
-        explanation: "TIR can only occur when light goes from a denser medium to a rarer medium and the angle of incidence is greater than the critical angle."
-    },
-    {
-        question: "The splitting of white light into its constituent colors is known as:",
-        options: ["Dispersion", "Scattering", "Interference", "Polarisation"],
-        answer: "Dispersion",
-        explanation: "Dispersion is caused by the refractive index of the medium being different for different wavelengths of light."
-    },
-    {
-        question: "The power of a lens is +2.5 D. Its focal length is:",
-        options: ["+40 cm", "+2.5 m", "-40 cm", "-2.5 m"],
-        answer: "+40 cm",
-        explanation: "Focal length f = 1/Power. f = 1/2.5 m = 0.4 m = 40 cm. Since the power is positive, it's a convex lens."
-    },
-    {
-        question: "The mirror formula is:",
-        options: ["1/f = 1/v - 1/u", "1/f = 1/v + 1/u", "n = c/v", "m = -v/u"],
-        answer: "1/f = 1/v + 1/u",
-        explanation: "This is the standard mirror equation relating object distance (u), image distance (v), and focal length (f)."
-    },
-    {
-        question: "Which phenomenon proves that light waves are transverse?",
-        options: ["Interference", "Diffraction", "Reflection", "Polarisation"],
-        answer: "Polarisation",
-        explanation: "Only transverse waves can be polarized, as polarization involves restricting the direction of oscillation."
-    },
-    {
-        question: "The width of the fringes in a Young's double-slit experiment depends on:",
-        options: ["Wavelength of light", "Distance between slits", "Distance to the screen", "All of the above"],
-        answer: "All of the above",
-        explanation: "The fringe width β = λD/d, so it depends on wavelength (λ), screen distance (D), and slit separation (d)."
-    },
-    {
-        question: "A mirage is a phenomenon due to:",
-        options: ["Reflection of light", "Refraction and total internal reflection of light", "Dispersion of light", "Diffraction of light"],
-        answer: "Refraction and total internal reflection of light",
-        explanation: "Mirages are caused by the bending (refraction) of light rays in air layers of different densities, leading to total internal reflection."
-    },
-    {
-        question: "The resolving power of a microscope can be increased by:",
-        options: ["Increasing the wavelength of light", "Decreasing the diameter of the objective lens", "Increasing the refractive index of the medium", "Decreasing the focal length of the eyepiece"],
-        answer: "Increasing the refractive index of the medium",
-        explanation: "Resolving power is proportional to 2n sinθ / λ. It can be increased by increasing the refractive index (n) (e.g., using oil immersion) or by decreasing the wavelength (λ)."
-    },
-    {
-        question: "According to Huygens' principle, each point on a wavefront acts as a:",
-        options: ["Source of secondary wavelets", "Point of destructive interference", "Point of constructive interference", "Center of reflection"],
-        answer: "Source of secondary wavelets",
-        explanation: "This is the fundamental statement of Huygens' principle."
-    },
-    {
-        question: "Brewster's law is related to:",
-        options: ["Interference", "Diffraction", "Dispersion", "Polarisation"],
-        answer: "Polarisation",
-        explanation: "Brewster's law (tan i_p = n) gives the polarizing angle at which light reflected from a surface is completely plane-polarized."
-    },
-    {
-        question: "The magnifying power of a simple microscope is given by:",
-        options: ["1 + D/f", "1 - D/f", "D/f", "f/D"],
-        answer: "1 + D/f",
-        explanation: "This is the formula for the magnifying power when the final image is formed at the near point (D)."
-    },
-    {
-        question: "The blue color of the sky is due to:",
-        options: ["Reflection", "Refraction", "Dispersion", "Scattering"],
-        answer: "Scattering",
-        explanation: "The blue color of the sky is due to the scattering of sunlight by the molecules of the air (Rayleigh scattering), which scatters blue light more effectively than red light."
-    },
-    {
-        question: "The focal length of a plane mirror is:",
-        options: ["Zero", "Infinite", "Positive", "Negative"],
-        answer: "Infinite",
-        explanation: "A plane mirror can be considered as a spherical mirror with an infinite radius of curvature, and hence an infinite focal length."
-    },
-    {
-        question: "For a real, inverted image of the same size as the object, the object should be placed in front of a convex lens at:",
-        options: ["F", "2F", "Between F and 2F", "Infinity"],
-        answer: "2F",
-        explanation: "When an object is placed at 2F, a real, inverted image of the same size is formed at 2F on the other side of the lens."
-    },
-    {
-        question: "The critical angle for a material is C. The refractive index of the material is:",
-        options: ["sin(C)", "1/sin(C)", "tan(C)", "cos(C)"],
-        answer: "1/sin(C)",
-        explanation: "By Snell's law at the critical angle, n sin(C) = 1 * sin(90°). So, n = 1/sin(C)."
-    },
-    {
-        question": "In a compound microscope, the final image formed is:",
-        "options": ["Real and inverted", "Virtual and inverted", "Real and erect", "Virtual and erect"],
-        "answer": "Virtual and inverted",
-        "explanation": "The objective lens forms a real, inverted, and magnified image. The eyepiece acts as a simple microscope and forms a final virtual, inverted, and further magnified image."
-    },
-    {
-        "question": "The condition for the first minimum in the diffraction pattern due to a single slit of width 'a' is:",
-        "options": ["a sinθ = nλ", "a sinθ = (n+1/2)λ", "d sinθ = nλ", "a sinθ = λ"],
-        "answer": "a sinθ = λ",
-        "explanation": "The general condition for minima in single-slit diffraction is a sinθ = nλ, where n = 1, 2, 3, ... For the first minimum, n=1, so a sinθ = λ."
-    },
-    {
-        "question": "The power of two lenses +2D and -4D are placed in contact. The power of the combination is:",
-        "options": ["+2 D", "-2 D", "+6 D", "-6 D"],
-        "answer": "-2 D",
-        "explanation": "The power of lenses in contact adds algebraically. P = P₁ + P₂ = +2 + (-4) = -2 D."
-    },
-    {
-        "question": "Which color of light undergoes the maximum deviation when passing through a prism?",
-        "options": ["Red", "Yellow", "Green", "Violet"],
-        "answer": "Violet",
-        "explanation": "The refractive index is highest for violet light, so it bends the most and has the maximum deviation."
-    },
-    {
-        "question": "Two coherent monochromatic light beams of intensities I and 4I are superimposed. The maximum and minimum possible intensities in the resulting beam are:",
-        "options": ["5I and I", "5I and 3I", "9I and I", "9I and 3I"],
-        "answer": "9I and I",
-        "explanation": "I_max = (√I₁ + √I₂)² = (√I + √4I)² = (√I + 2√I)² = (3√I)² = 9I. I_min = (√I₁ - √I₂)² = (√I - 2√I)² = (-√I)² = I."
-    },
-    {
-        "question": "An optical fiber works on the principle of:",
-        "options": ["Scattering", "Interference", "Total internal reflection", "Diffraction"],
-        "answer": "Total internal reflection",
-        "explanation": "Light is guided through the core of an optical fiber by undergoing repeated total internal reflection at the core-cladding interface."
-    },
-    {
-        "question": "The ratio of the resolving powers of an optical microscope for two wavelengths λ₁ = 4000 Å and λ₂ = 6000 Å is:",
-        "options": ["3:2", "16:81", "8:27", "2:3"],
-        "answer": "3:2",
-        "explanation": "Resolving power is inversely proportional to wavelength (RP ∝ 1/λ). So, RP₁/RP₂ = λ₂/λ₁ = 6000/4000 = 3/2."
-    }
-  ],
-  assertionReasons: [
-    {
-        "assertion": "A diamond shines brightly.",
-        "reason": "The critical angle for diamond is very small, which facilitates total internal reflection.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Diamond's high refractive index gives it a small critical angle, causing most light entering it to be totally internally reflected multiple times before exiting, which gives it its sparkle."
-    },
-    {
-        "assertion": "The sky appears blue.",
-        "reason": "This is due to the scattering of light by air molecules.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. According to Rayleigh scattering, shorter wavelengths (blue light) are scattered more strongly than longer wavelengths (red light)."
-    },
-    {
-        "assertion": "A convex lens is used as a magnifying glass.",
-        "reason": "When an object is placed between the optical center and the focus of a convex lens, a virtual, erect, and magnified image is formed.",
-        "answer": "A",
-        "explanation": "The reason correctly describes the principle of a simple microscope (magnifying glass), thus explaining the assertion."
-    },
-    {
-        "assertion": "Interference is observed for two coherent sources.",
-        "reason": "Coherent sources have a constant phase difference.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. A stable and observable interference pattern requires the sources to have a constant phase relationship."
-    },
-    {
-        "assertion": "A concave mirror is used as a shaving mirror.",
-        "reason": "It forms a magnified, virtual, and erect image when the object is placed between the pole and the focus.",
-        "answer": "A",
-        "explanation": "The reason correctly explains why a concave mirror is suitable for shaving, as it provides a magnified, upright view of the face."
-    },
-    {
-        "assertion": "The fringe width in a Young's double-slit experiment increases when the screen is moved further away from the slits.",
-        "reason": "Fringe width is directly proportional to the distance between the slits and the screen (D).",
-        "answer": "A",
-        "explanation": "The reason (β ∝ D from the formula β = λD/d) correctly explains the assertion."
-    },
-    {
-        "assertion": "Two independent sources of light cannot be coherent.",
-        "reason": "The phase difference between the waves from two independent sources changes rapidly and randomly.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Coherence requires a constant phase relationship, which is not possible for two separate, independent light sources."
-    },
-    {
-        "assertion": "Dispersion of light occurs because the refractive index of a medium is different for different wavelengths.",
-        "reason": "The speed of light in a medium depends on its wavelength.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Since n = c/v, and v depends on wavelength in a dispersive medium, the refractive index 'n' also depends on wavelength, causing different colors to bend by different amounts."
-    },
-    {
-        "assertion": "The resolving power of a telescope increases when the aperture of the objective lens is increased.",
-        "reason": "Resolving power is proportional to the diameter of the objective lens.",
-        "answer": "A",
-        "explanation": "The reason (Resolving Power ∝ D) correctly explains the assertion. A larger aperture collects more light and reduces diffraction effects, allowing finer details to be resolved."
-    },
-    {
-        "assertion": "Light can be polarized, but sound cannot.",
-        "reason": "Light waves are transverse, while sound waves are longitudinal.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Polarization is a property exclusive to transverse waves."
-    },
-    {
-        "assertion": "A red object appears red in white light.",
-        "reason": "The object reflects red light and absorbs all other colors.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The perceived color of an opaque object is the color of the light it reflects."
-    },
-    {
-        "assertion": "When a light wave is reflected from a denser medium, its phase changes by π.",
-        "reason": "The reflected wave and the incident wave are in the same phase.",
-        "answer": "C",
-        "explanation": "The assertion is true. The reason is false; they are out of phase by π or 180°."
-    },
-    {
-        "assertion": "The focal length of a lens changes when it is immersed in water.",
-        "reason": "The refractive index of the lens relative to the surrounding medium changes.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The Lens Maker's formula depends on the refractive index of the lens with respect to the medium, which changes from (n_g/n_air) to (n_g/n_water)."
-    },
-    {
-        "assertion": "A single lens can suffer from chromatic and spherical aberrations.",
-        "reason": "Chromatic aberration is due to the variation of focal length with wavelength, and spherical aberration is due to the spherical shape of the lens.",
-        "answer": "A",
-        "explanation": "The reason correctly defines both types of aberrations, which are inherent defects in a single lens, thus explaining the assertion."
-    },
-    {
-        "assertion": "The diffraction pattern becomes wider if the slit width is decreased.",
-        "reason": "The width of the central maximum is inversely proportional to the slit width.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The angular width of the central maximum is approximately 2λ/a. As the slit width 'a' decreases, the diffraction pattern spreads out."
-    }
-  ],
-  matchTheColumns: [
-    {
-        column1: ["a) Interference", "b) Diffraction", "c) Polarisation", "d) Dispersion"],
-        column2: ["i) Bending of light", "ii) Splitting of white light", "iii) Superposition of waves", "iv) Transverse nature of light"],
-        answer: "a-iii, b-i, c-iv, d-ii"
-    },
-    {
-        column1: ["a) Simple Microscope", "b) Compound Microscope", "c) Telescope", "d) Human Eye"],
-        column2: ["i) To view distant objects", "ii) Retina acts as screen", "iii) To view very small objects", "iv) Single convex lens"],
-        answer: "a-iv, b-iii, c-i, d-ii"
-    },
-    {
-        column1: ["a) Myopia", "b) Hypermetropia", "c) Presbyopia", "d) Astigmatism"],
-        column2: ["i) Cylindrical lens", "ii) Convex lens", "iii) Bifocal lens", "iv) Concave lens"],
-        answer: "a-iv, b-ii, c-iii, d-i"
-    },
-    {
-        column1: ["a) Young's Experiment", "b) Brewster's Law", "c) Snell's Law", "d) Huygens' Principle"],
-        column2": ["i) Refraction", "ii) Wavefronts", "iii) Interference", "iv) Polarisation"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
-    },
-    {
-        "column1": ["a) Concave Mirror", "b) Convex Mirror", "c) Concave Lens", "d) Convex Lens"],
-        "column2": ["i) Converging lens", "ii) Diverging mirror", "iii) Converging mirror", "iv) Diverging lens"],
-        "answer": "a-iii, b-ii, c-iv, d-i"
-    },
-    {
-        "column1": ["a) Fringe Width (β)", "b) Magnifying Power (M)", "c) Refractive Index (n)", "d) Power of Lens (P)"],
-        "column2": ["i) 1/f", "ii) λD/d", "iii) c/v", "iv) 1 + D/f"],
-        "answer": "a-ii, b-iv, c-iii, d-i"
-    },
-    {
-        "column1": ["a) Total Internal Reflection", "b) Scattering", "c) Dispersion", "d) Refraction"],
-        "column2": ["i) Rainbow", "ii) Twinkling of stars", "iii) Blue color of sky", "iv) Optical fiber"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
-    },
-    {
-        "column1": ["a) Real Image", "b) Virtual Image", "c) Magnification > 1", "d) Magnification < 1"],
-        "column2": ["i) Cannot be taken on screen", "ii) Can be taken on screen", "iii) Diminished", "iv) Enlarged"],
-        "answer": "a-ii, b-i, c-iv, d-iii"
-    },
-    {
-        "column1": ["a) Mirror Formula", "b) Lens Formula", "c) Lens Maker's Formula", "d) Magnification (Lens)"],
-        "column2": ["i) 1/f = (n-1)(1/R₁ - 1/R₂)", "ii) m = v/u", "iii) 1/f = 1/v - 1/u", "iv) 1/f = 1/v + 1/u"],
-        "answer": "a-iv, b-iii, c-i, d-ii"
-    },
-    {
-        "column1": ["a) Constructive Interference", "b) Destructive Interference", "c) First Diffraction Minimum", "d) Polarising Angle"],
-        "column2": ["i) Path difference = (n+1/2)λ", "ii) tan(i_p) = n", "iii) Path difference = nλ", "iv) a sinθ = λ"],
-        "answer": "a-iii, b-i, c-iv, d-ii"
-    },
-    {
-        "column1": ["a) Red light", "b) Violet light", "c) White light", "d) Coherent light"],
-        "column2": ["i) Constant phase difference", "ii) Minimum deviation in prism", "iii) Maximum deviation in prism", "iv) Combination of VIBGYOR"],
-        "answer": "a-ii, b-iii, c-iv, d-i"
-    },
-    {
-        "column1": ["a) Polaroid", "b) Prism", "c) Grating", "d) Biprism"],
-        "column2": ["i) Produces interference", "ii) Produces diffraction", "iii) Produces dispersion", "iv) Produces polarized light"],
-        "answer": "a-iv, b-iii, c-ii, d-i"
-    },
-    {
-        "column1": ["a) Resolving Power of Telescope", "b) Resolving Power of Microscope", "c) Magnifying Power of Telescope", "d) Magnifying Power of Microscope"],
-        "column2": ["i) D/1.22λ", "ii) 2nsinθ/λ", "iii) D/f", "iv) f₀/fₑ"],
-        "answer": "a-i, b-ii, c-iv, d-iii"
-    },
-    {
-        "column1": ["a) Coherent sources", "b) Incoherent sources", "c) Monochromatic source", "d) Point source"],
-        "column2": ["i) Single wavelength", "ii) Spherical wavefront", "iii) Constant phase difference", "iv) Random phase difference"],
-        "answer": "a-iii, b-iv, c-i, d-ii"
-    },
-    {
-        "column1": ["a) Chromatic aberration", "b) Spherical aberration", "c) Astigmatism", "d) Coma"],
-        "column2": ["i) Different focal lengths for different corneal curvatures", "ii) Variation of focal length with wavelength", "iii) Off-axis aberration", "iv) Rays from different zones focus at different points"],
-        "answer": "a-ii, b-iv, c-i, d-iii"
-    }
-  ]
-};
+# 2. Learning Objectives
+1.  After this, you will be able to apply mirror and lens formulas to solve problems involving image formation.
+2.  After this, you will be able to explain total internal reflection and its applications like optical fibers.
+3.  After this, you will be able to analyze the interference pattern in Young's double-slit experiment and calculate fringe width.
+4.  After this, you will be able to describe diffraction and polarisation as evidence for the wave nature of light.
+
+# 3. Prerequisites
+– Basic geometry and trigonometry.
+– Understanding of waves and their properties (wavelength, frequency).
+– Familiarity with the concept of the electromagnetic spectrum.
+
+# 4. Concept Overview
+From the stunning sculptures in Mahabalipuram (மாமல்லபுரம்) that we see with our eyes, to the vibrant kolams (கோலம்) drawn with rice flour, our world is defined by **light**. This extensive chapter, **Optics** (ஒளியியல்), explores the behavior and properties of light. We will study **Ray Optics**, which treats light as straight lines to explain how mirrors and lenses form images, and **Wave Optics**, which treats light as a wave to explain beautiful phenomena like the iridescent colors on a peacock's feather (interference) and the bending of light around corners (diffraction).
+
+# 5. Detailed Explanation
+This unit covers chapters **6 ('Ray Optics') and 7 ('Wave Optics')** from the **Tamil Nadu State Board Class 12 Physics Volume 2**.
+
+### 5.1 Ray Optics and Optical Instruments (கதிர் ஒளியியல்)
+*   **Reflection of light:** The bouncing back of light. For **spherical mirrors**, we use the **mirror formula** and magnification formula.
+    \\[ \\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u} \\quad \\text{and} \\quad m = -\\frac{v}{u} \\]
+*   **Refraction of light (ஒளிவிலகல்):** The bending of light as it passes from one medium to another.
+    *   **Total Internal Reflection (TIR) (முழு அக எதிரொளிப்பு):** When light travels from a denser to a rarer medium at an angle greater than the critical angle, it is completely reflected back. This is used in **optical fibers**.
+*   **Refraction at spherical surfaces and by lenses:**
+    *   **Lens Maker's Formula:** Relates focal length to the refractive index and radii of curvature.
+    *   **Thin Lens Formula:** \\(\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u}\\).
+*   **Power of a Lens (P):** The ability to converge or diverge light rays. \\(P = 1/f\\), measured in dioptres.
+*   **Combination of thin lenses in contact:** The equivalent power is the algebraic sum of individual powers, \\(P = P_1 + P_2\\).
+*   **Refraction of light through a prism:** Causes dispersion, the splitting of white light into its constituent colors.
+*   **Optical Instruments:**
+    *   **Microscope:** Used to view magnified images of small objects.
+    *   **Astronomical Telescope (reflecting and refracting):** Used to view distant objects. We study their magnifying powers.
+
+### 5.2 Wave Optics (அலை ஒளியியல்)
+*   **Wavefront and Huygens' principle:** A wavefront is a locus of points having the same phase. Huygens' principle states that every point on a wavefront is a source of new secondary wavelets. This principle can be used to prove the laws of reflection and refraction.
+*   **Interference (குறுக்கீட்டு விளைவு):** The modification in the distribution of light intensity due to the superposition of two or more coherent waves.
+    *   **Young's double-slit experiment (YDSE):** The classic experiment demonstrating interference.
+    *   **Expression for fringe width (β):** The distance between two consecutive bright or dark fringes is given by \\( \\beta = \\frac{\\lambda D}{d} \\), where λ is the wavelength, D is the distance to the screen, and d is the slit separation.
+*   **Diffraction (விளிம்பு விளைவு):** The bending of light waves around the sharp corners of an obstacle.
+    *   **Diffraction due to a single slit:** Produces a central bright maximum which is much wider than the other secondary maxima.
+*   **Polarisation (தளவிளைவு):** The phenomenon of restricting the vibrations of light waves to a particular direction. It proves the transverse nature of light.
+    *   **Plane-polarized light and Brewster's law:** Brewster's law (\\(n = \\tan(i_p)\\)) gives the polarizing angle at which reflected light is completely polarized.
+    *   **Uses of Polaroid:** To produce and analyze polarized light, used in sunglasses and camera filters.
+
+# 6. Worked Examples
+
+**1. Easy:** An object is placed 10 cm in front of a concave mirror of focal length 15 cm. Find the position, nature, and magnification of the image.
+*   **Solution:**
+    *   Given: u = -10 cm, f = -15 cm.
+    *   Using mirror formula: \\(\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u} \\implies \\frac{1}{-15} = \\frac{1}{v} + \\frac{1}{-10}\\).
+    *   \\(\\frac{1}{v} = \\frac{1}{10} - \\frac{1}{15} = \\frac{3-2}{30} = \\frac{1}{30}\\). So, v = +30 cm.
+    *   Magnification \\(m = -\\frac{v}{u} = -\\frac{30}{-10} = +3\\).
+    *   **Nature:** Since v is positive, the image is formed behind the mirror and is **virtual**. Since m is positive and > 1, the image is **erect and magnified**.
+
+**2. Medium:** In a Young's double-slit experiment, the slits are separated by 0.28 mm and the screen is placed 1.4 m away. The distance between the central bright fringe and the fourth bright fringe is 1.2 cm. Determine the wavelength of light used.
+*   **Solution:**
+    1.  The distance of the nth bright fringe is \\(y_n = \\frac{n\\lambda D}{d}\\).
+    2.  For the 4th bright fringe, n=4. So, \\(y_4 = \\frac{4\\lambda D}{d}\\).
+    3.  Given: \\(y_4 = 1.2 \\text{ cm} = 0.012 \\text{ m}\\), \\(d = 0.28 \\text{ mm} = 0.28 \\times 10^{-3} \\text{ m}\\), \\(D = 1.4 \\text{ m}\\).
+    4.  \\(\\lambda = \\frac{y_4 d}{4D} = \\frac{0.012 \\times (0.28 \\times 10^{-3})}{4 \\times 1.4} = \\frac{0.00336 \\times 10^{-3}}{5.6} = 0.0006 \\times 10^{-3} \\text{ m} = 600 \\times 10^{-9} \\text{ m} = 600 \\text{ nm}\\).
+
+**3. Must-Practice:** The refractive index of glass is 1.5. A light ray is incident from air to glass. At what angle of incidence will the light reflected from the glass be completely polarized?
+*   **Solution:**
+    *   This is a direct application of Brewster's Law.
+    *   Brewster's Law states that when light is incident at the polarizing angle (i_p), the reflected light is completely polarized. The law is given by \\(n = \\tan(i_p)\\), where n is the refractive index of the medium.
+    *   Given n = 1.5.
+    *   \\(\\tan(i_p) = 1.5\\).
+    *   \\(i_p = \\tan^{-1}(1.5) \\approx 56.3°\\).
+
+# 7. Key Formulas & Diagrams
+
+| Formula | Description (விளக்கம்) |
+| :--- | :--- |
+| \\( \\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u} \\) | Thin Lens Formula (மெல்லிய லென்சு சமன்பாடு) |
+| \\( \\beta = \\frac{\\lambda D}{d} \\) | Fringe Width in YDSE (பட்டை அகலம்) |
+| \\( n = \\frac{1}{\\sin{C}} \\) | Critical Angle and Refractive Index (மாறுநிலை கோணம்) |
+| \\( n = \\tan(i_p) \\) | Brewster's Law (புரூஸ்டர் விதி) |
+
+<br>
+
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="200" style="fill:white;stroke-width:1;stroke:black" />
+    <text x="150" y="20" font-family="Verdana" font-size="14" text-anchor="middle" fill="black">Young's Double Slit Experiment</text>
+    <text x="150" y="35" font-family="Verdana" font-size="10" text-anchor="middle" fill="gray">(யங்கின் இரட்டைப் பிளவு சோதனை)</text>
+    <line x1="50" y1="50" x2="50" y2="150" stroke="black" stroke-width="3"/>
+    <line x1="48" y1="80" x2="52" y2="80" stroke="white" stroke-width="4"/>
+    <text x="30" y="85">S₁</text>
+    <line x1="48" y1="120" x2="52" y2="120" stroke="white" stroke-width="4"/>
+    <text x="30" y="125">S₂</text>
+    <line x1="250" y1="50" x2="250" y2="150" stroke="gray" stroke-width="2"/>
+    <text x="260" y="105">Screen (திரை)</text>
+    <path d="M 50 80 C 100 80, 200 90, 250 100" stroke="blue" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+    <path d="M 50 120 C 100 120, 200 110, 250 100" stroke="red" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+    <circle cx="250" cy="100" r="3" fill="yellow" stroke="black"/>
+    <text x="220" y="95">Central Max (மையப் பொலிவு)</text>
+</svg>
+
+\`\`\`
+DIAGRAM: Young's Double Slit Experiment (யங்கின் இரட்டைப் பிளவு சோதனை)
+Shows two slits, S₁ and S₂, on a barrier.
+Light waves from the slits travel to a screen, interfering with each other.
+They form a central bright fringe (Central Maxima) where the path difference is zero.
+\`\`\`
+
+# 8. Downloadable Summary & Mnemonics
+> **Tamil Mnemonic:** குழி ஆடி, குவி லென்சு இரண்டும் குவிக்கும் (converging). குவி ஆடி, குழி லென்சு இரண்டும் விரிக்கும் (diverging). (Concave mirror and convex lens both converge light. Convex mirror and concave lens both diverge light.)
+
+> **NEET Hack:** In interference and diffraction problems, the fringe width (β) is directly proportional to wavelength (λ). This means red light produces wider fringes than blue light. So, if the whole setup is immersed in water (refractive index n), the wavelength becomes λ/n, and the fringe width also becomes β/n.
+
+[Download PDF Summary of Optics](/downloads/optics-summary.pdf)
+
+# 9. Quiz Yourself
+1.  Why is the sky red during sunrise and sunset?
+2.  A convex lens of glass (n=1.5) is immersed in water (n=1.33). How will its focal length and power change?
+3.  Can two independent light sources, like two light bulbs, produce an interference pattern? Why or why not?
+
+> **Student Tip (மாணவர் கருத்து):** ஒளியியல் கருவிகளின் (Optical Instruments) உருப்பெருக்கச் சமன்பாடுகளை (magnification formulas) நினைவில் வைப்பது கடினமாக உள்ளதா? ஒவ்வொரு கருவிக்கும் ஒரு எளிய வரைபடம் வரைந்து பயிற்சி செய்யுங்கள்.
+
+# 10. Next Steps & Community Discussion
+– **Next Module:** Dual Nature of Matter and Radiation (பருப்பொருள் மற்றும் கதிர்வீச்சின் இருமைப் பண்பு). We will challenge the classical view of light and discover that it behaves both as a wave and a particle.
+
+– **உறுதிப்பெற பறவை! (Discuss & Soar!):** We see interference patterns with light (YDSE). Sound is also a wave. Can you think of a real-life example where you have experienced or could create an interference pattern with sound waves? Discuss on our forum.
+`
+  
+}
