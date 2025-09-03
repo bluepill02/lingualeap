@@ -46,10 +46,10 @@ This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 
 
 # 6. Worked Examples
 
-**1. Easy:** Arrange the following in increasing order of their basic strength in the gaseous phase: `NH₃`, `CH₃NH₂`, `(CH₃)₂NH`, `(CH₃)₃N`.
+**1. Easy:** Arrange the following in increasing order of their basic strength in the gaseous phase: \`NH₃\`, \`CH₃NH₂\`, \`(CH₃)₂NH\`, \`(CH₃)₃N\`.
 *   **Solution:**
     *   In the gaseous phase, only the inductive effect (+I effect) matters. More alkyl groups mean a stronger +I effect, which increases electron density on the nitrogen, making it more basic.
-    *   Therefore, the order is: **`NH₃ < CH₃NH₂ < (CH₃)₂NH < (CH₃)₃N`**.
+    *   Therefore, the order is: **\`NH₃ < CH₃NH₂ < (CH₃)₂NH < (CH₃)₃N\`**.
 
 **2. Medium:** How will you distinguish between aniline and N-methylaniline?
 *   **Solution:** Use the **Carbylamine Test**.
@@ -178,4 +178,3 @@ This unit corresponds to the **Tamil Nadu State Board Class 12 Chemistry Volume 
     }
   ]
 };
-
