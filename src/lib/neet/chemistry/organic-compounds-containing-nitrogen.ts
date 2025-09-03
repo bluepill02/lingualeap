@@ -49,7 +49,95 @@ export const organicCompoundsContainingNitrogen: NeetModule = {
         solution: "This can be done in two steps: 1. **Diazotisation:** Treat aniline with nitrous acid (NaNO₂ + cold dilute HCl) at 0-5 °C to form benzenediazonium chloride ([C₆H₅N₂]⁺Cl⁻). 2. **Sandmeyer Reaction:** Treat the benzenediazonium chloride with cuprous chloride (CuCl) dissolved in HCl. This will replace the diazonium group with -Cl, forming chlorobenzene. C₆H₅N₂⁺Cl⁻ --(CuCl/HCl)--> C₆H₅Cl + N₂."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "Which of the following is a primary amine?",
+        "options": ["Aniline", "Diphenylamine", "Trimethylamine", "N-methylaniline"],
+        "answer": "Aniline",
+        "explanation": "Aniline (`C₆H₅NH₂`) has one aryl group attached to the nitrogen atom, making it a primary amine."
+    },
+    {
+        "question": "The reaction of an amide with Br₂ and aqueous NaOH to give a primary amine with one less carbon atom is called:",
+        "options": ["Gabriel synthesis", "Hofmann bromamide degradation", "Carbylamine reaction", "Sandmeyer reaction"],
+        "answer": "Hofmann bromamide degradation",
+        "explanation": "This is the definition of the Hofmann bromamide degradation reaction, a method for preparing primary amines."
+    },
+    {
+        "question": "Which of the following tests is used to distinguish between primary, secondary, and tertiary amines?",
+        "options": ["Carbylamine test", "Tollen's test", "Fehling's test", "Hinsberg's test"],
+        "answer": "Hinsberg's test",
+        "explanation": "Hinsberg's test uses benzenesulphonyl chloride to distinguish the three types of amines based on the solubility of the resulting sulphonamide."
+    },
+    {
+        "question": "The conversion of aniline to benzenediazonium chloride is known as:",
+        "options": ["Diazotisation", "Coupling", "Nitration", "Sulphonation"],
+        "answer": "Diazotisation",
+        "explanation": "Diazotisation is the process of converting a primary aromatic amine into a diazonium salt using nitrous acid at low temperatures."
+    },
+    {
+        "question": "Which of the following is the most basic in the gaseous phase?",
+        "options": ["`NH₃`", "`CH₃NH₂`", "`(CH₃)₂NH`", "`(CH₃)₃N`"],
+        "answer": "`(CH₃)₃N`",
+        "explanation": "In the gaseous phase, only the inductive effect (+I effect) is significant. The tertiary amine has three methyl groups, which have the strongest combined +I effect, making it the most basic."
+    }
+],
+  assertionReasons: [
+    {
+        "assertion": "Aniline is a weaker base than ammonia.",
+        "reason": "The lone pair of electrons on the nitrogen atom in aniline is delocalized into the benzene ring.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Due to resonance, the lone pair on nitrogen is less available for donation to a proton, making aniline a weaker base."
+    },
+    {
+        "assertion": "Gabriel phthalimide synthesis is used for the preparation of primary aromatic amines.",
+        "reason": "Aryl halides do not undergo nucleophilic substitution with the anion formed by phthalimide.",
+        "answer": "D",
+        "explanation": "The assertion is false; this method is used for primary aliphatic amines. The reason is true and explains why it cannot be used for aromatic amines."
+    },
+    {
+        "assertion": "The carbylamine test is given only by primary amines.",
+        "reason": "The reaction involves the formation of a foul-smelling isocyanide.",
+        "answer": "B",
+        "explanation": "Both statements are true. The formation of an isocyanide is the characteristic result of the test, and only primary amines give this reaction. However, the reason describes the outcome, not the chemical principle explaining the specificity."
+    },
+    {
+        "assertion": "Diazonium salts are stable only at low temperatures (0-5 °C).",
+        "reason": "Above this temperature, the diazonium salt decomposes to form phenol and nitrogen gas.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The instability of the diazonium salt at higher temperatures is why diazotisation must be carried out in an ice bath."
+    },
+    {
+        "assertion": "The order of basicity of amines in the gaseous state is 3° > 2° > 1° > NH₃.",
+        "reason": "The basicity is determined by the electron-donating inductive effect of the alkyl groups.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. In the gas phase, where solvation effects are absent, the inductive effect is the dominant factor determining basicity."
+    }
+],
+  matchTheColumns: [
+    {
+        "column1": ["a) Carbylamine test", "b) Hofmann bromamide reaction", "c) Sandmeyer reaction", "d) Coupling reaction"],
+        "column2": ["i) Formation of azo dye", "ii) Amide → Amine", "iii) Isocyanide formation", "iv) Diazonium salt → Haloarene"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
+    },
+    {
+        "column1": ["a) Primary amine", "b) Secondary amine", "c) Tertiary amine", "d) Diazonium salt"],
+        "column2": ["i) `(C₂H₅)₂NH`", "ii) `C₆H₅N₂⁺Cl⁻`", "iii) `C₂H₅NH₂`", "iv) `(CH₃)₃N`"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": ["a) `R-NO₂ → R-NH₂`", "b) `R-CN → R-CH₂-NH₂`", "c) `Ar-NH₂ → Ar-N₂⁺X⁻`", "d) `R-CO-NH₂ → R-NH₂`"],
+        "column2": ["i) Diazotisation", "ii) Hofmann reaction", "iii) Reduction", "iv) Reduction"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Hinsberg's reagent", "b) Tollen's reagent", "c) Lucas reagent", "d) Fehling's solution"],
+        "column2": ["i) Test for aldehydes", "ii) Distinguishing alcohols", "iii) Distinguishing amines", "iv) Test for aldehydes"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
+    },
+    {
+        "column1": ["a) Strongest base in aqueous solution (ethyl)", "b) Weakest base", "c) Gaseous phase basicity order", "d) Aromatic amine"],
+        "column2": ["i) `Aniline`", "ii) `(C₂H₅)₂NH`", "iii) `NH₃`", "iv) `3° > 2° > 1°`"],
+        "answer": "a-ii, b-i, c-iv, d-i"
+    }
+  ]
 };

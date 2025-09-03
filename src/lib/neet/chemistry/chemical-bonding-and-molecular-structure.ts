@@ -51,9 +51,95 @@ export const chemicalBondingAndMolecularStructure: NeetModule = {
         solution: "In H₂O, the central O atom undergoes sp³ hybridization. It has 2 bond pairs and 2 lone pairs. The strong lone pair-lone pair and lone pair-bond pair repulsions push the bonds closer together, resulting in a bent shape (approx. 104.5°). In BeF₂, the central Be atom undergoes sp hybridization. It has only 2 bond pairs and no lone pairs. To minimize repulsion, the bond pairs arrange themselves 180° apart, resulting in a linear shape."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "The geometry of the `SF₆` molecule is:",
+        "options": ["Tetrahedral", "Trigonal bipyramidal", "Octahedral", "Square planar"],
+        "answer": "Octahedral",
+        "explanation": "In `SF₆`, the central sulfur atom has 6 bond pairs and 0 lone pairs, leading to `sp³d²` hybridization and an octahedral geometry."
+    },
+    {
+        "question": "Which of the following molecules has a zero dipole moment?",
+        "options": ["`NH₃`", "`H₂O`", "`CO₂`", "`CHCl₃`"],
+        "answer": "`CO₂`",
+        "explanation": "`CO₂` is a linear molecule with two polar C=O bonds that are equal and opposite, so their dipole moments cancel out."
+    },
+    {
+        "question": "According to Molecular Orbital Theory, which of the following is paramagnetic?",
+        "options": ["`N₂`", "`O₂`", "`F₂`", "`H₂`"],
+        "answer": "`O₂`",
+        "explanation": "The MOT configuration of `O₂` shows two unpaired electrons in the π* antibonding orbitals, making it paramagnetic."
+    },
+    {
+        "question": "The type of hybridization of the carbon atoms in ethyne (acetylene) is:",
+        "options": ["`sp³`", "`sp²`", "`sp`", "`dsp²`"],
+        "answer": "`sp`",
+        "explanation": "Ethyne (`C₂H₂`) has a carbon-carbon triple bond, which involves `sp` hybridization, leading to a linear geometry."
+    },
+    {
+        "question": "Which of the following exhibits hydrogen bonding?",
+        "options": ["`CH₄`", "`H₂S`", "`HCl`", "`HF`"],
+        "answer": "`HF`",
+        "explanation": "Hydrogen bonding occurs when hydrogen is bonded to a highly electronegative atom like F, O, or N. `HF` has strong hydrogen bonds."
+    }
+],
+  assertionReasons: [
+    {
+        "assertion": "`BF₃` is a planar molecule.",
+        "reason": "The central boron atom in `BF₃` undergoes `sp²` hybridization.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. `sp²` hybridization leads to a trigonal planar geometry."
+    },
+    {
+        "assertion": "The bond order of `O₂` is 2.",
+        "reason": "According to MOT, the number of electrons in bonding molecular orbitals is 10 and in antibonding molecular orbitals is 6.",
+        "answer": "A",
+        "explanation": "The reason provides the correct electron count from the MOT diagram of `O₂`. Bond order = ½(10 - 6) = 2, which explains the assertion."
+    },
+    {
+        "assertion": "A triple bond is stronger and shorter than a double bond.",
+        "reason": "Bond order is directly proportional to bond strength and inversely proportional to bond length.",
+        "answer": "A",
+        "explanation": "The reason correctly states the relationship between bond order, strength, and length, which explains the assertion (triple bond has bond order 3, double bond has 2)."
+    },
+    {
+        "assertion": "`H₂O` has a higher boiling point than `H₂S`.",
+        "reason": "`H₂O` molecules are associated with intermolecular hydrogen bonding, while `H₂S` molecules are not.",
+        "answer": "A",
+        "explanation": "The presence of strong hydrogen bonds in water requires more energy to overcome, leading to a higher boiling point. This correctly explains the assertion."
+    },
+    {
+        "assertion": "The `Be₂` molecule does not exist.",
+        "reason": "The bond order of `Be₂` is zero.",
+        "answer": "A",
+        "explanation": "The MOT configuration of `Be₂` (8 electrons) is `(σ1s)²(σ*1s)²(σ2s)²(σ*2s)²`. Bond order = ½(4-4) = 0. A zero bond order indicates that the molecule is unstable and does not exist."
+    }
+],
+  matchTheColumns: [
+    {
+        "column1": ["a) `sp`", "b) `sp²`", "c) `sp³`", "d) `sp³d²`"],
+        "column2": ["i) Tetrahedral", "ii) Octahedral", "iii) Linear", "iv) Trigonal planar"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) `NH₃`", "b) `CH₄`", "c) `H₂O`", "d) `SF₄`"],
+        "column2": ["i) See-saw", "ii) Bent", "iii) Pyramidal", "iv) Tetrahedral"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
+    },
+    {
+        "column1": ["a) Bond Order 1", "b) Bond Order 2", "c) Bond Order 3", "d) Bond Order 0"],
+        "column2": ["i) `N₂`", "ii) `Ne₂`", "iii) `F₂`", "iv) `O₂`"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Ionic Bond", "b) Covalent Bond", "c) Hydrogen Bond", "d) Metallic Bond"],
+        "column2": ["i) Sharing of electrons", "ii) Electron sea model", "iii) Transfer of electrons", "iv) Dipole-dipole interaction with H"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": ["a) `PCl₅`", "b) `BeCl₂`", "c) `XeF₄`", "d) `IF₇`"],
+        "column2": ["i) Square planar", "ii) Pentagonal bipyramidal", "iii) Trigonal bipyramidal", "iv) Linear"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    }
+  ]
 };
-
-    

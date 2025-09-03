@@ -54,9 +54,95 @@ export const coordinationCompounds: NeetModule = {
         solution: "In an octahedral field, the d-orbitals split into t₂g (lower energy) and e_g (higher energy). For a d⁶ ion with a strong field ligand, pairing occurs. All 6 electrons will go into the lower energy t₂g orbitals (t₂g⁶ e_g⁰). The CFSE formula is (-0.4 * n(t₂g) + 0.6 * n(e_g))Δₒ + P. CFSE = (-0.4 * 6 + 0.6 * 0)Δₒ + 2P = **-2.4Δₒ + 2P**, where P is the pairing energy."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "The oxidation state of Ni in `[Ni(CO)₄]` is:",
+        "options": ["+2", "+4", "0", "-4"],
+        "answer": "0",
+        "explanation": "Carbonyl (CO) is a neutral ligand. Since the overall charge of the complex is zero, the oxidation state of Ni must also be zero."
+    },
+    {
+        "question": "Which of the following is a bidentate ligand?",
+        "options": ["`NH₃`", "`CN⁻`", "`H₂O`", "`en` (ethylenediamine)"],
+        "answer": "`en` (ethylenediamine)",
+        "explanation": "Ethylenediamine (`H₂N-CH₂-CH₂-NH₂`) has two donor nitrogen atoms and can bind to the metal at two positions."
+    },
+    {
+        "question": "The complex `[Co(NH₃)₆][Cr(CN)₆]` and `[Cr(NH₃)₆][Co(CN)₆]` are examples of:",
+        "options": ["Linkage isomerism", "Ionization isomerism", "Coordination isomerism", "Geometrical isomerism"],
+        "answer": "Coordination isomerism",
+        "explanation": "This type of isomerism arises from the interchange of ligands between the cationic and anionic coordination entities."
+    },
+    {
+        "question": "According to Crystal Field Theory, the colour of transition metal complexes is due to:",
+        "options": ["Charge transfer", "d-d transitions", "Ionization", "Covalent bonding"],
+        "answer": "d-d transitions",
+        "explanation": "The absorption of light promotes an electron from a lower energy d-orbital (t₂g) to a higher energy d-orbital (e_g). The transmitted light appears as the complementary colour."
+    },
+    {
+        "question": "Which of the following ligands is expected to be a strong field ligand?",
+        "options": ["`I⁻`", "`Cl⁻`", "`H₂O`", "`CN⁻`"],
+        "answer": "`CN⁻`",
+        "explanation": "According to the spectrochemical series, `CN⁻` is a strong field ligand that causes large splitting of the d-orbitals."
+    }
+],
+  assertionReasons: [
+    {
+        "assertion": "The complex `[Ni(CN)₄]²⁻` is square planar and diamagnetic.",
+        "reason": "`CN⁻` is a strong field ligand which causes the pairing of electrons in the 3d orbitals of Ni²⁺, leading to dsp² hybridization.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The strong field ligand forces pairing, making one d-orbital available for dsp² hybridization and leaving no unpaired electrons."
+    },
+    {
+        "assertion": "`[CoF₆]³⁻` is a high spin complex.",
+        "reason": "`F⁻` is a weak field ligand.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. A weak field ligand like `F⁻` causes a small crystal field splitting (Δₒ). It is energetically more favorable for electrons to occupy the higher energy e_g orbitals than to pair up in the t₂g orbitals."
+    },
+    {
+        "assertion": "A solution of `[Ti(H₂O)₆]³⁺` is coloured.",
+        "reason": "It has one unpaired electron in the d-orbital which can undergo d-d transition.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Ti³⁺ has a d¹ configuration. The absorption of light promotes this electron from the t₂g to the e_g level, causing the complex to appear coloured."
+    },
+    {
+        "assertion": "EDTA is a hexadentate ligand.",
+        "reason": "EDTA can bind through two nitrogen and four oxygen atoms to a central metal ion.",
+        "answer": "A",
+        "explanation": "The reason correctly explains why EDTA is hexadentate, as it has six donor sites available for coordination."
+    },
+    {
+        "assertion": "Linkage isomerism arises in coordination compounds containing ambidentate ligands.",
+        "reason": "Ambidentate ligands can ligate through two different atoms.",
+        "answer": "A",
+        "explanation": "The reason provides the correct definition for an ambidentate ligand and explains why this property leads to linkage isomerism (e.g., `-NO₂` can bind through N or O)."
+    }
+],
+  matchTheColumns: [
+    {
+        "column1": ["a) `[Co(NH₃)₆]³⁺`", "b) `[Ni(CN)₄]²⁻`", "c) `[Fe(H₂O)₆]²⁺`", "d) `[NiCl₄]²⁻`"],
+        "column2": ["i) `sp³` hybridization, tetrahedral", "ii) `dsp²` hybridization, square planar", "iii) `d²sp³` hybridization, diamagnetic", "iv) `sp³d²` hybridization, paramagnetic"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
+    },
+    {
+        "column1": ["a) `en`", "b) `Cl⁻`", "c) `EDTA⁴⁻`", "d) `SCN⁻`"],
+        "column2": ["i) Ambidentate ligand", "ii) Hexadentate ligand", "iii) Unidentate ligand", "iv) Bidentate ligand"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
+    },
+    {
+        "column1": ["a) Werner's Theory", "b) VBT", "c) CFT", "d) Ligand"],
+        "column2": ["i) Splitting of d-orbitals", "ii) Electron pair donor", "iii) Primary and secondary valency", "iv) Hybridization"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Chlorophyll", "b) Haemoglobin", "c) Vitamin B₁₂", "d) Cisplatin"],
+        "column2": ["i) Cobalt", "ii) Platinum", "iii) Magnesium", "iv) Iron"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Ionization isomerism", "b) Linkage isomerism", "c) Hydrate isomerism", "d) Geometrical isomerism"],
+        "column2": ["i) `[Cr(H₂O)₆]Cl₃` and `[Cr(H₂O)₅Cl]Cl₂·H₂O`", "ii) `[Co(NH₃)₅(NO₂)]Cl₂` and `[Co(NH₃)₅(ONO)]Cl₂`", "iii) `cis-[Pt(NH₃)₂(Cl)₂]`", "iv) `[Co(NH₃)₅SO₄]Br` and `[Co(NH₃)₅Br]SO₄`"],
+        "answer": "a-iv, b-ii, c-i, d-iii"
+    }
+  ]
 };
-
-    

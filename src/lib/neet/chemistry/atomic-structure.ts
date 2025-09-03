@@ -160,76 +160,6 @@ export const atomicStructure: NeetModule = {
         "options": [ "0", "1", "2", "3" ],
         "answer": "3",
         "explanation": "The number of radial (spherical) nodes is n - l - 1. For a 4s orbital, n=4, l=0. Nodes = 4 - 0 - 1 = 3."
-    },
-    {
-        "question": "Which experiment led to the discovery of the nucleus?",
-        "options": [
-            "Cathode ray experiment",
-            "Oil drop experiment",
-            "Alpha-particle scattering experiment",
-            "Photoelectric effect"
-        ],
-        "answer": "Alpha-particle scattering experiment",
-        "explanation": "Rutherford's gold foil experiment (alpha-particle scattering) led to the discovery of a dense, positively charged nucleus."
-    },
-    {
-        "question": "The de Broglie wavelength of a particle is given by:",
-        "options": [ "λ = h/mv", "λ = mv/h", "λ = h/m", "λ = h/v" ],
-        "answer": "λ = h/mv",
-        "explanation": "The de Broglie equation relates the wavelength of a particle to its momentum (p=mv)."
-    },
-    {
-        "question": "Which rule explains the filling of electrons in degenerate orbitals?",
-        "options": [ "Aufbau principle", "Hund's rule", "Pauli exclusion principle", "(n+l) rule" ],
-        "answer": "Hund's rule",
-        "explanation": "Hund's rule of maximum multiplicity states that electrons will singly occupy degenerate orbitals before pairing up."
-    },
-    {
-        "question": "The mass number of an atom is equal to:",
-        "options": [
-            "The number of protons",
-            "The number of neutrons",
-            "The sum of protons and neutrons",
-            "The sum of protons and electrons"
-        ],
-        "answer": "The sum of protons and neutrons",
-        "explanation": "The mass number (A) represents the total number of nucleons (protons and neutrons) in the nucleus."
-    },
-    {
-        "question": "The Balmer series of the hydrogen spectrum lies in which region?",
-        "options": [ "Ultraviolet", "Visible", "Infrared", "Far-infrared" ],
-        "answer": "Visible",
-        "explanation": "The spectral lines of the Balmer series (transitions to n=2) fall within the visible region of the electromagnetic spectrum."
-    },
-    {
-        "question": "The magnetic quantum number (mₗ) specifies the:",
-        "options": [ "Size of the orbital", "Shape of the orbital", "Spatial orientation of the orbital", "Spin of the electron" ],
-        "answer": "Spatial orientation of the orbital",
-        "explanation": "The magnetic quantum number describes the orientation of an orbital in three-dimensional space."
-    },
-    {
-        "question": "What is the charge of an alpha particle?",
-        "options": [ "+1", "+2", "-1", "-2" ],
-        "answer": "+2",
-        "explanation": "An alpha particle is a helium nucleus (He²⁺), consisting of two protons and two neutrons, giving it a +2 charge."
-    },
-    {
-        "question": "The photoelectric effect demonstrates the:",
-        "options": [ "Wave nature of light", "Particle nature of light", "Wave nature of electrons", "Particle nature of electrons" ],
-        "answer": "Particle nature of light",
-        "explanation": "The photoelectric effect, explained by Einstein, shows that light consists of discrete energy packets (photons), demonstrating its particle nature."
-    },
-    {
-        "question": "Which of the following species is isoelectronic with Ne?",
-        "options": [ "O²⁻", "F", "Mg⁺", "Ar" ],
-        "answer": "O²⁻",
-        "explanation": "Ne has 10 electrons. O (Z=8) gaining 2 electrons becomes O²⁻ with 10 electrons. F has 9 electrons, Mg⁺ has 11 electrons, and Ar has 18 electrons."
-    },
-    {
-        "question": "The energy difference between the shells goes on ____ when we move away from the nucleus.",
-        "options": [ "Increasing", "Decreasing", "Remaining the same", "First increasing then decreasing" ],
-        "answer": "Decreasing",
-        "explanation": "The energy levels get closer to each other as the principal quantum number (n) increases. The difference between n=2 and n=1 is greater than between n=3 and n=2, and so on."
     }
   ],
   assertionReasons: [
@@ -262,66 +192,6 @@ export const atomicStructure: NeetModule = {
         "reason": "Cathode rays are composed of electrons.",
         "answer": "A",
         "explanation": "The reason correctly explains the assertion. Since all cathode rays are streams of electrons, and all electrons have the same charge and mass, the e/m ratio is constant regardless of the gas in the tube or the cathode material."
-    },
-    {
-        "assertion": "The mass of an atom is concentrated in its nucleus.",
-        "reason": "The nucleus contains protons and neutrons, which are much heavier than electrons.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. The mass of electrons is negligible compared to the mass of nucleons."
-    },
-    {
-        "assertion": "The radius of the first orbit of a hydrogen atom is 0.529 Å.",
-        "reason": "The radius of the nth orbit in a hydrogen atom is given by rₙ = 0.529 * n² Å.",
-        "answer": "A",
-        "explanation": "The reason provides the correct formula. For the first orbit, n=1, so r₁ = 0.529 * 1² = 0.529 Å, which proves the assertion."
-    },
-    {
-        "assertion": "A 3d orbital is more energetic than a 4s orbital.",
-        "reason": "The (n+l) value for a 3d orbital is 5, while for a 4s orbital it is 4.",
-        "answer": "A",
-        "explanation": "According to the (n+l) rule, the orbital with the higher (n+l) value has higher energy. The reason correctly applies this rule to explain the assertion."
-    },
-    {
-        "assertion": "The shape of a d_z² orbital is different from other d orbitals.",
-        "reason": "It has a dumb-bell shape with a doughnut-shaped ring around the center.",
-        "answer": "A",
-        "explanation": "The reason correctly describes the unique shape of the d_z² orbital, which explains why it is different from the other four double dumb-bell shaped d orbitals."
-    },
-    {
-        "assertion": "The emission spectrum of hydrogen consists of several series of lines.",
-        "reason": "Electrons can jump from any higher energy level to any lower energy level.",
-        "answer": "A",
-        "explanation": "The reason correctly explains the assertion. Each series (Lyman, Balmer, etc.) corresponds to transitions ending at a specific lower energy level (n=1, n=2, etc.) from various higher levels."
-    },
-    {
-        "assertion": "Thomson's atomic model is known as the plum pudding model.",
-        "reason": "It assumes the atom is a sphere of positive charge with electrons embedded in it.",
-        "answer": "A",
-        "explanation": "The reason correctly describes the model, which is analogous to plums (electrons) in a pudding (positive sphere)."
-    },
-    {
-        "assertion": "The Bohr model could not explain the spectra of multi-electron atoms.",
-        "reason": "The Bohr model does not account for electron-electron repulsions.",
-        "answer": "A",
-        "explanation": "The reason is the primary failing of the Bohr model. It works perfectly for hydrogen (one electron) but fails when inter-electronic repulsions are present."
-    },
-    {
-        "assertion": "The number of angular nodes in a p-orbital is one.",
-        "reason": "The number of angular nodes is equal to the azimuthal quantum number (l).",
-        "answer": "A",
-        "explanation": "The reason correctly states the rule. For a p-orbital, l=1, so it has one angular node (a plane)."
-    },
-    {
-        "assertion": "The size of an atom is of the order of 10⁻¹⁰ m.",
-        "reason": "The size of a nucleus is of the order of 10⁻¹⁵ m.",
-        "answer": "B",
-        "explanation": "Both statements are true and provide correct orders of magnitude for the atom and nucleus, but the size of the nucleus does not explain the size of the atom. They are just two related facts."
-    },
-    {
-        "assertion": "An electron with quantum numbers n=2, l=1, mₗ=0 is in a 2p_z orbital.",
-        "reason": "For p-orbitals, mₗ=0 corresponds to the p_z orbital by convention.",
-        "answer": "A",
-        "explanation": "The reason correctly states the convention used to assign mₗ values to specific p-orbitals, explaining the assertion."
     }
   ],
   matchTheColumns: [
@@ -349,58 +219,6 @@ export const atomicStructure: NeetModule = {
         "column1": [ "a) Aufbau Principle", "b) Pauli Exclusion Principle", "c) Hund's Rule", "d) Heisenberg's Principle" ],
         "column2": [ "i) Δx ⋅ Δp ≥ h/4π", "ii) No two e⁻ have same 4 quantum numbers", "iii) Filling of orbitals in order of increasing energy", "iv) Pairing starts after orbitals are half-filled" ],
         "answer": "a-iii, b-ii, c-iv, d-i"
-    },
-    {
-        "column1": [ "a) Isotopes", "b) Isobars", "c) Isotones", "d) Isoelectronic species" ],
-        "column2": [ "i) Same mass number", "ii) Same number of electrons", "iii) Same atomic number", "iv) Same number of neutrons" ],
-        "answer": "a-iii, b-i, c-iv, d-ii"
-    },
-    {
-        "column1": [ "a) Photoelectric effect", "b) de Broglie", "c) Bohr's model", "d) Quantum mechanics" ],
-        "column2": [ "i) Quantization of angular momentum", "ii) Wave-particle duality of matter", "iii) Ejection of electrons by light", "iv) Probability distribution of electron" ],
-        "answer": "a-iii, b-ii, c-i, d-iv"
-    },
-    {
-        "column1": [ "a) Number of protons", "b) Number of neutrons", "c) Number of electrons in Cr³⁺", "d) Number of electrons in F⁻" ],
-        "column2": [ "i) 21", "ii) Atomic number (Z)", "iii) 10", "iv) Mass number - Atomic number (A-Z)" ],
-        "answer": "a-ii, b-iv, c-i, d-iii"
-    },
-    {
-        "column1": [ "a) Planck's constant (h)", "b) Rydberg constant (R)", "c) Speed of light (c)", "d) Avogadro's number (Nₐ)" ],
-        "column2": [ "i) 6.022 x 10²³", "ii) 3 x 10⁸ m/s", "iii) 1.097 x 10⁷ m⁻¹", "iv) 6.626 x 10⁻³⁴ J s" ],
-        "answer": "a-iv, b-iii, c-ii, d-i"
-    },
-    {
-        "column1": [ "a) 2n²", "b) n²", "c) 2l + 1", "d) 4l + 2" ],
-        "column2": [ "i) Max electrons in a subshell", "ii) Number of orbitals in a shell", "iii) Max electrons in a shell", "iv) Number of orbitals in a subshell" ],
-        "answer": "a-iii, b-ii, c-iv, d-i"
-    },
-    {
-        "column1": [ "a) Number of angular nodes", "b) Number of radial nodes", "c) Total number of nodes", "d) Orbital angular momentum" ],
-        "column2": [ "i) n - l - 1", "ii) l", "iii) n - 1", "iv) √[l(l+1)] h/2π" ],
-        "answer": "a-ii, b-i, c-iii, d-iv"
-    },
-    {
-        "column1": [ "a) Cation", "b) Anion", "c) Nucleus", "d) Electron cloud" ],
-        "column2": [ "i) Negatively charged ion", "ii) Contains most of the atom's volume", "iii) Positively charged ion", "iv) Contains most of the atom's mass" ],
-        "answer": "a-iii, b-i, c-iv, d-ii"
-    },
-    {
-        "column1": [ "a) ¹H₁", "b) ²H₁", "c) ³H₁", "d) ⁴He₂" ],
-        "column2": [ "i) Alpha particle", "ii) Deuterium", "iii) Tritium", "iv) Protium" ],
-        "answer": "a-iv, b-ii, c-iii, d-i"
-    },
-    {
-        "column1": [ "a) K shell", "b) L shell", "c) M shell", "d) N shell" ],
-        "column2": [ "i) n=3", "ii) n=4", "iii) n=1", "iv) n=2" ],
-        "answer": "a-iii, b-iv, c-i, d-ii"
-    },
-    {
-        "column1": [ "a) n=2, l=1", "b) n=3, l=0", "c) n=4, l=2", "d) n=5, l=3" ],
-        "column2": [ "i) 3s", "ii) 4d", "iii) 5f", "iv) 2p" ],
-        "answer": "a-iv, b-i, c-ii, d-iii"
     }
-]
+  ]
 };
-
-    

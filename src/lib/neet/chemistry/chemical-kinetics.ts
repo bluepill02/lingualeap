@@ -53,9 +53,95 @@ export const chemicalKinetics: NeetModule = {
         solution: "Using the Arrhenius equation for two temperatures: log(k₂/k₁) = (Eₐ / 2.303R) * [(T₂ - T₁)/(T₁T₂)]. Given k₂/k₁ = 2, R = 8.314 J/mol·K, T₁ = 298 K, T₂ = 308 K. log(2) = (Eₐ / (2.303 * 8.314)) * [(308 - 298)/(308 * 298)]. 0.3010 = (Eₐ / 19.147) * (10 / 91784). Solving for Eₐ gives Eₐ ≈ 52.9 kJ/mol."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "For a first-order reaction, the half-life period is independent of:",
+        "options": ["Rate constant", "Initial concentration", "Temperature", "Pressure"],
+        "answer": "Initial concentration",
+        "explanation": "The formula for the half-life of a first-order reaction is t₁/₂ = 0.693/k. It does not depend on the initial concentration of the reactant."
+    },
+    {
+        "question": "The rate of a reaction is doubled for every 10°C rise in temperature. If the temperature is raised by 50°C, the rate of the reaction will increase by a factor of:",
+        "options": ["10", "25", "32", "64"],
+        "answer": "32",
+        "explanation": "The increase is by a factor of 2 for every 10°C rise. A 50°C rise is five such 10°C rises. So, the factor is 2⁵ = 32."
+    },
+    {
+        "question": "The units of the rate constant for a zero-order reaction are:",
+        "options": ["s⁻¹", "mol L⁻¹ s⁻¹", "L mol⁻¹ s⁻¹", "L² mol⁻² s⁻¹"],
+        "answer": "mol L⁻¹ s⁻¹",
+        "explanation": "For a zero-order reaction, Rate = k. The units of rate are mol L⁻¹ s⁻¹, so the units of k are also mol L⁻¹ s⁻¹."
+    },
+    {
+        "question": "A catalyst increases the rate of a reaction by:",
+        "options": ["Increasing the activation energy", "Decreasing the activation energy", "Increasing the enthalpy change", "Decreasing the equilibrium constant"],
+        "answer": "Decreasing the activation energy",
+        "explanation": "A catalyst provides an alternative reaction pathway with a lower activation energy, thus increasing the number of effective collisions."
+    },
+    {
+        "question": "For a reaction A + B → Products, the rate law is given by Rate = k[A][B]². What is the order of the reaction?",
+        "options": ["1", "2", "3", "0"],
+        "answer": "3",
+        "explanation": "The overall order is the sum of the powers of the concentration terms in the rate law. Order = 1 + 2 = 3."
+    }
+],
+  assertionReasons: [
+    {
+        "assertion": "The molecularity of a reaction is always a whole number.",
+        "reason": "Molecularity is the number of molecules taking part in an elementary step of the reaction.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Since molecularity represents a count of molecules, it cannot be zero, negative, or fractional."
+    },
+    {
+        "assertion": "The rate of a reaction is determined by the slowest step in the reaction mechanism.",
+        "reason": "The slowest step is the rate-determining step.",
+        "answer": "A",
+        "explanation": "The overall rate of a multi-step reaction cannot be faster than its slowest step. Therefore, the slowest step acts as a bottleneck and determines the overall rate."
+    },
+    {
+        "assertion": "The half-life of a zero-order reaction is proportional to the initial concentration.",
+        "reason": "The formula for the half-life of a zero-order reaction is t₁/₂ = [R]₀ / 2k.",
+        "answer": "A",
+        "explanation": "The reason provides the correct formula which shows that t₁/₂ is directly proportional to the initial concentration [R]₀."
+    },
+    {
+        "assertion": "All collisions between reactant molecules lead to product formation.",
+        "reason": "Only those collisions in which molecules have proper orientation and sufficient kinetic energy lead to the formation of products.",
+        "answer": "D",
+        "explanation": "The assertion is false. The reason is true and explains the concept of effective collisions."
+    },
+    {
+        "assertion": "A catalyst does not alter the Gibbs free energy (ΔG) of a reaction.",
+        "reason": "A catalyst only lowers the activation energy of a reaction.",
+        "answer": "B",
+        "explanation": "Both statements are true. A catalyst affects the rate but not the thermodynamics (ΔG, ΔH) or the equilibrium position of a reaction. However, the reason doesn't fully explain the assertion; ΔG depends only on the initial and final states, which the catalyst does not change."
+    }
+],
+  matchTheColumns: [
+    {
+        "column1": ["a) First-order reaction", "b) Zero-order reaction", "c) Rate constant (k)", "d) Activation energy (Eₐ)"],
+        "column2": ["i) Units are mol L⁻¹ s⁻¹", "ii) Arrhenius equation", "iii) Units are s⁻¹", "iv) Energy barrier"],
+        "answer": "a-iii, b-i, c-ii, d-iv"
+    },
+    {
+        "column1": ["a) Half-life (t₁/₂)", "b) Molecularity", "c) Order of reaction", "d) Collision frequency (Z)"],
+        "column2": ["i) Sum of powers in rate law", "ii) Theoretical concept", "iii) Number of collisions per second per unit volume", "iv) Time for 50% completion"],
+        "answer": "a-iv, b-ii, c-i, d-iii"
+    },
+    {
+        "column1": ["a) Rate = k[A]⁰", "b) Rate = k[A]¹", "c) Rate = k[A]²", "d) Rate = k[A]¹[B]¹"],
+        "column2": ["i) Overall order = 2", "ii) First-order reaction", "iii) Zero-order reaction", "iv) Second-order reaction"],
+        "answer": "a-iii, b-ii, c-iv, d-i"
+    },
+    {
+        "column1": ["a) Temperature", "b) Catalyst", "c) Concentration", "d) Surface area"],
+        "column2": ["i) Increases number of collisions", "ii) Increases kinetic energy of molecules", "iii) Provides alternative path", "iv) Increases contact between reactants"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) Integrated rate equation for first order", "b) Half-life for first order", "c) Arrhenius equation", "d) Half-life for zero order"],
+        "column2": ["i) t₁/₂ = [R]₀/2k", "ii) k = Ae⁻ᴱᵃ/ᴿᵀ", "iii) t₁/₂ = 0.693/k", "iv) k = (2.303/t)log([R]₀/[R])"],
+        "answer": "a-iv, b-iii, c-ii, d-i"
+    }
+  ]
 };
-
-    

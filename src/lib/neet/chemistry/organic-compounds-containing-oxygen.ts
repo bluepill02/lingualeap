@@ -49,7 +49,95 @@ export const organicCompoundsContainingOxygen: NeetModule = {
         solution: "The acidity is determined by the stability of the conjugate base formed after losing a proton. When phenol loses a proton, it forms the phenoxide ion (C₆H₅O⁻). This ion is highly stabilized by resonance, as the negative charge is delocalized over the benzene ring. When ethanol loses a proton, it forms the ethoxide ion (C₂H₅O⁻). There is no resonance stabilization for the ethoxide ion; in fact, the ethyl group is electron-donating, which destabilizes the negative charge. Due to the greater stability of the phenoxide ion, phenol is a stronger acid than ethanol."
     }
   ],
-  mcqs: [],
-  assertionReasons: [],
-  matchTheColumns: []
+  mcqs: [
+    {
+        "question": "Which reagent is used in the Lucas test to distinguish between primary, secondary, and tertiary alcohols?",
+        "options": ["`Conc. HCl + anhydrous ZnCl₂`", "`Ammoniacal AgNO₃`", "`Fehling's solution A + B`", "`Br₂ water`"],
+        "answer": "`Conc. HCl + anhydrous ZnCl₂`",
+        "explanation": "Lucas reagent is a solution of anhydrous zinc chloride in concentrated hydrochloric acid. It is used to differentiate alcohols based on the rate of formation of a cloudy alkyl chloride."
+    },
+    {
+        "question": "The reaction of phenol with chloroform in the presence of aqueous alkali is known as:",
+        "options": ["Kolbe's reaction", "Reimer-Tiemann reaction", "Aldol condensation", "Cannizzaro reaction"],
+        "answer": "Reimer-Tiemann reaction",
+        "explanation": "The Reimer-Tiemann reaction introduces a `-CHO` group (formyl group) onto the ortho position of the phenol ring."
+    },
+    {
+        "question": "Which of the following compounds will give a positive Tollen's test?",
+        "options": ["Acetone", "Benzophenone", "Ethanal", "Ethanol"],
+        "answer": "Ethanal",
+        "explanation": "Tollen's test (silver mirror test) is a characteristic test for aldehydes. Ethanal is an aldehyde."
+    },
+    {
+        "question": "The Cannizzaro reaction is NOT given by:",
+        "options": ["Formaldehyde", "Benzaldehyde", "Acetaldehyde", "Furfural"],
+        "answer": "Acetaldehyde",
+        "explanation": "The Cannizzaro reaction is a disproportionation reaction given by aldehydes that do not have an α-hydrogen atom. Acetaldehyde (`CH₃CHO`) has α-hydrogens."
+    },
+    {
+        "question": "Which of the following is the most acidic?",
+        "options": ["Phenol", "Ethanol", "Acetic acid", "Water"],
+        "answer": "Acetic acid",
+        "explanation": "Carboxylic acids (like acetic acid) are significantly more acidic than phenols and alcohols because the resulting carboxylate ion is stabilized by resonance between two equivalent structures."
+    }
+],
+  assertionReasons: [
+    {
+        "assertion": "Phenol is more acidic than ethanol.",
+        "reason": "The phenoxide ion is stabilized by resonance.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The delocalization of the negative charge over the benzene ring makes the phenoxide ion very stable, thus facilitating the release of the proton from phenol."
+    },
+    {
+        "assertion": "Aldehydes are more reactive than ketones towards nucleophilic addition.",
+        "reason": "Aldehydes have less steric hindrance and the carbonyl carbon is more electrophilic compared to ketones.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. Ketones have two bulky alkyl groups which hinder the attack of the nucleophile, whereas aldehydes have only one. Also, the two alkyl groups in ketones reduce the positive charge on the carbonyl carbon."
+    },
+    {
+        "assertion": "Formaldehyde undergoes Cannizzaro reaction.",
+        "reason": "Formaldehyde does not have any α-hydrogen atoms.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The absence of α-hydrogen is the necessary condition for an aldehyde to undergo the Cannizzaro reaction."
+    },
+    {
+        "assertion": "The boiling points of alcohols are higher than those of corresponding alkanes.",
+        "reason": "Alcohols can form intermolecular hydrogen bonds.",
+        "answer": "A",
+        "explanation": "The reason correctly explains the assertion. The presence of strong intermolecular hydrogen bonds in alcohols requires more energy to overcome, leading to higher boiling points compared to non-polar alkanes."
+    },
+    {
+        "assertion": "Benzoic acid is a stronger acid than acetic acid.",
+        "reason": "The phenyl group is electron-withdrawing.",
+        "answer": "D",
+        "explanation": "The assertion is false. Acetic acid is slightly stronger than benzoic acid. The reason is also not entirely correct; the phenyl group has a -I effect but a +R effect, the overall effect is complex and doesn't lead to higher acidity than acetic acid where the methyl group is weakly donating."
+    }
+],
+  matchTheColumns: [
+    {
+        "column1": ["a) Lucas test", "b) Tollen's test", "c) Reimer-Tiemann reaction", "d) Aldol condensation"],
+        "column2": ["i) Aldehyde vs Ketone", "ii) Aldehyde with α-H", "iii) 1°, 2°, 3° Alcohols", "iv) Phenol → Salicylaldehyde"],
+        "answer": "a-iii, b-i, c-iv, d-ii"
+    },
+    {
+        "column1": ["a) Williamson synthesis", "b) Kolbe's reaction", "c) Clemmensen reduction", "d) Cannizzaro reaction"],
+        "column2": ["i) Aldehyde → Hydrocarbon", "ii) Preparation of ethers", "iii) Phenol → Salicylic acid", "iv) Aldehyde without α-H"],
+        "answer": "a-ii, b-iii, c-i, d-iv"
+    },
+    {
+        "column1": ["a) Ethanol", "b) Phenol", "c) Benzaldehyde", "d) Acetic acid"],
+        "column2": ["i) Carboxylic acid", "ii) Aldehyde", "iii) Alcohol", "iv) Aromatic alcohol"],
+        "answer": "a-iii, b-iv, c-ii, d-i"
+    },
+    {
+        "column1": ["a) Primary alcohol oxidation (strong)", "b) Primary alcohol oxidation (mild)", "c) Secondary alcohol oxidation", "d) Tertiary alcohol oxidation"],
+        "column2": ["i) Ketone", "ii) No reaction under normal conditions", "iii) Aldehyde", "iv) Carboxylic acid"],
+        "answer": "a-iv, b-iii, c-i, d-ii"
+    },
+    {
+        "column1": ["a) Grignard reagent + Formaldehyde", "b) Grignard reagent + Aldehyde", "c) Grignard reagent + Ketone", "d) Grignard reagent + CO₂"],
+        "column2": ["i) Tertiary alcohol", "ii) Carboxylic acid", "iii) Primary alcohol", "iv) Secondary alcohol"],
+        "answer": "a-iii, b-iv, c-i, d-ii"
+    }
+  ]
 };
