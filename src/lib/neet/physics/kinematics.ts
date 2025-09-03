@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-const kinematicsModule: NeetModule = {
+export const kinematicsModule: NeetModule = {
   id: 'physics-kinematics',
   title: 'Kinematics (இயங்கியல்)',
   chapter: 'Unit 2: Kinematics',
@@ -58,8 +58,7 @@ const kinematicsModule: NeetModule = {
         solution: "Maximum Height, `H = u²sin²θ / 2g`. Horizontal Range, `R = u²sin(2θ) / g`. Given θ = 45°. `H = u²sin²(45°)/2g = u²(1/√2)² / 2g = u²/(4g)`. `R = u²sin(2*45°)/g = u²sin(90°)/g = u²/g`. The ratio `H/R = (u²/4g) / (u²/g) = 1/4`. So, the ratio is 1:4."
     }
   ],
-  practice: {
-    "mcqs": [
+  mcqs: [
         {
             "question": "A body starts from rest and travels for t second with uniform acceleration of 2 m/s². If the displacement made by it is 16 m, the time of travel t is:",
             "options": ["4 s", "8 s", "16 s", "2 s"],
@@ -211,7 +210,7 @@ const kinematicsModule: NeetModule = {
             "explanation": "If the particle returns to its starting point, displacement is zero, but distance is not. If it doesn't move, both are zero."
         }
     ],
-    "assertionReasons": [
+    assertionReasons: [
         {
             "assertion": "The speed of a projectile is minimum at the highest point.",
             "reason": "At the highest point, the vertical component of velocity is zero.",
@@ -380,164 +379,4 @@ const kinematicsModule: NeetModule = {
             "answer": "a-iii, b-iv, c-ii, d-i"
         }
     ]
-  },
-  tnBoardMapping: "This unit corresponds to the Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 2: 'Kinematics'. The TN board provides excellent graphical and calculus-based derivations, while NEET will focus heavily on the direct application of formulas and conceptual questions derived from them.",
-  glossary: [
-    { "English": "Displacement", "தமிழ்": "இடப்பெயர்ச்சி" },
-    { "English": "Velocity", "தமிழ்": "திசைவேகம்" },
-    { "English": "Acceleration", "தமிழ்": "முடுக்கம்" },
-    { "English": "Projectile Motion", "தமிழ்": "எறியிய இயக்கம்" },
-    { "English": "Centripetal Acceleration", "தமிழ்": "மையநோக்கு முடுக்கம்" }
-  ],
-  learningObjectives: [
-    "Differentiate between scalar and vector quantities like distance/displacement and speed/velocity.",
-    "Apply the equations of motion to solve problems involving uniformly accelerated objects.",
-    "Analyze projectile motion by resolving it into independent horizontal and vertical components.",
-    "Calculate centripetal acceleration for an object in uniform circular motion."
-  ],
-  prerequisites: [
-    "Understanding of basic algebra and trigonometry (sin, cos, tan).",
-    "Ability to read and interpret graphs.",
-    "Familiarity with fundamental units and dimensions from the 'Physics and Measurement' chapter."
-  ],
-  conceptOverview: "Imagine watching a thrilling Jallikattu (சல்லிக்கட்டு) event in Madurai. The bull runs in a straight line, the player dodges in a curve, and a thrown cloth flies in an arc. Kinematics (இயங்கியல்) is the branch of physics that helps us describe this motion without asking 'why' it happens. We will learn to be like a super-fast camera, capturing the path (பாதை), speed (வேகம்), and acceleration (முடுக்கம்) of any object, from a cricket ball to a planet. This chapter gives us the language to describe the 'what, where, and when' of movement.",
-  studyTips: [
-    {
-      "tip": "Create a 'formula sheet' specifically for the three equations of motion and the formulas for projectile motion (Time of Flight, Max Height, Range). Practice deriving one from the others.",
-      "NEET_Hack": "For projectile motion, remember that the range is the same for angles θ and (90°-θ). If a question mentions two different angles giving the same range, this is the concept being tested. This can save you calculation time."
-    },
-    {
-      "tip": "Draw diagrams for every problem, especially for relative velocity and projectile motion. Visualizing the vectors makes it much easier to resolve components correctly.",
-      "NEET_Hack": "Remember that at the highest point of a projectile's trajectory, the vertical component of velocity is zero, but the acceleration is still 'g'. Many conceptual questions are based on this single point."
-    }
-  ],
 };
-
-const markdownContent = `
-# 1. Module Title
-– Physics – Kinematics (இயற்பியல் - இயங்கியல்)
-
-# 2. Learning Objectives
-1.  After this, you will be able to differentiate between scalar and vector quantities like distance/displacement and speed/velocity.
-2.  After this, you will be able to apply the equations of motion to solve problems involving uniformly accelerated objects.
-3.  After this, you will be able to analyze projectile motion by resolving it into independent horizontal and vertical components.
-4.  After this, you will be able to calculate centripetal acceleration for an object in uniform circular motion.
-
-# 3. Prerequisites
-– Understanding of basic algebra and trigonometry (sin, cos, tan).
-– Ability to read and interpret graphs.
-– Familiarity with fundamental units and dimensions from the 'Physics and Measurement' chapter.
-
-# 4. Concept Overview
-Imagine watching a thrilling Jallikattu (சல்லிக்கட்டு) event in Madurai. The bull runs in a straight line, the player dodges in a curve, and a thrown cloth flies in an arc. Kinematics (இயங்கியல்) is the branch of physics that helps us describe this motion without asking 'why' it happens. We will learn to be like a super-fast camera, capturing the path (பாதை), speed (வேகம்), and acceleration (முடுக்கம்) of any object, from a cricket ball to a planet. This chapter gives us the language to describe the 'what, where, and when' of movement.
-
-# 5. Detailed Explanation
-This unit corresponds to the **Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 2: 'Kinematics'**. The TN board provides excellent graphical and calculus-based derivations, while NEET will focus heavily on the direct application of formulas and conceptual questions derived from them.
-
-## 5.1 Straight Line Motion (நேர்க்கோட்டு இயக்கம்)
-*   **The frame of reference (குறிப்பாயம்):** To describe motion, we need a coordinate system and a clock. This is our frame of reference. The observations about motion can change depending on the frame of reference.
-*   **Motion in a straight line:** This is movement where the object's position changes along a single straight line.
-*   **Position-time graph (நிலை-நேர வரைபடம்):** A graph that shows an object's position at different times. The slope of this graph gives the velocity.
-*   **Speed and velocity (வேகம் மற்றும் திசைவேகம்):** Speed is the rate of change of distance (scalar), while velocity is the rate of change of displacement (vector).
-*   **Uniform and non-uniform motion:** Motion with constant velocity is uniform. Motion with changing velocity is non-uniform.
-*   **Average speed and instantaneous velocity:** Average speed is total distance/total time. Instantaneous velocity is the velocity at a specific moment.
-*   **Uniformly accelerated motion (சீரான முடுக்கப்பட்ட இயக்கம்):** Motion where the acceleration is constant.
-*   **Velocity-time and position-time graphs (திசைவேக-நேர மற்றும் நிலை-நேர வரைபடங்கள்):** The slope of a v-t graph gives acceleration, and the area under it gives displacement.
-*   **Relations for uniformly accelerated motion (இயக்கச் சமன்பாடுகள்):**
-    \\[v = u + at\\]
-    \\[s = ut + \\frac{1}{2}at^2\\]
-    \\[v^2 = u^2 + 2as\\]
-
-## 5.2 Motion in a Plane (தளத்தில் இயக்கம்)
-*   **Scalars and vectors (ஸ்கேலர்கள் மற்றும் வெக்டர்கள்):** Scalars have only magnitude (e.g., mass, speed). Vectors have both magnitude and direction (e.g., force, velocity).
-*   **Vector addition and subtraction (வெக்டர் கூட்டல் மற்றும் கழித்தல்):** Done using the Triangle Law or Parallelogram Law. Subtraction is the addition of a negative vector.
-*   **Scalar and vector products (ஸ்கேலர் மற்றும் வெக்டர் பெருக்கல்):**
-    *   Dot Product: **A ⋅ B = ABcosθ**. Results in a scalar.
-    *   Cross Product: **A × B = ABsinθ n̂**. Results in a vector.
-*   **Unit vector (அலகு வெக்டர்):** A vector with a magnitude of one, used to specify a direction. \`Â = A / |A|\`.
-*   **Resolution of a vector (வெக்டரைப் பிரித்தல்):** Splitting a vector into its perpendicular components.
-*   **Relative velocity (சார்பு திசைவேகம்):** The velocity of one object with respect to another.
-*   **Projectile motion (எறியிய இயக்கம்):** The motion of an object thrown into the air under gravity. The path is a parabola.
-*   **Uniform circular motion (சீரான வட்ட இயக்கம்):** Motion in a circle at a constant speed. There is always a centripetal acceleration (\`a_c = v²/r\`) directed towards the center.
-
-# 6. Worked Examples
-
-**1. Easy:** A car accelerates from rest to a speed of 20 m/s in 10 s. What is its acceleration?
-*   **Solution:**
-    *   Using \`v = u + at\`.
-    *   Given: initial velocity \`u = 0\`, final velocity \`v = 20 m/s\`, time \`t = 10 s\`.
-    *   \`20 = 0 + a(10)\`
-    *   \`a = 20 / 10 = 2 m/s²\`.
-
-**2. Medium:** A stone is dropped from a rising balloon at a height of 76 m. The balloon is ascending with a velocity of 30 m/s. What is the velocity of the stone after 2 seconds? (g=10 m/s²)
-*   **Solution:**
-    *   When dropped, the stone inherits the balloon's upward velocity. So, initial velocity of the stone, \`u = +30 m/s\`.
-    *   Acceleration \`a = -g = -10 m/s²\`. Time \`t = 2 s\`.
-    *   Using \`v = u + at\`.
-    *   \`v = 30 + (-10)(2) = 30 - 20 = 10 m/s\`.
-    *   The velocity is 10 m/s in the upward direction.
-
-**3. Must-Practice:** A projectile is fired at an angle of 45° with the horizontal. The elevation angle of the projectile at its highest point as seen from the point of projection is:
-*   **Solution:**
-    1.  At the highest point, \`y = H = (u²sin²45°)/(2g) = u²/(4g)\`.
-    2.  The horizontal distance to this point is \`x = R/2 = (u²sin90°)/(2g) = u²/(2g)\`.
-    3.  The elevation angle \`φ\` is the angle of the line connecting the projection point to the highest point.
-    4.  \`tan(φ) = y/x = (u²/(4g)) / (u²/(2g)) = (1/4g) * (2g/1) = 2/4 = 1/2\`.
-    5.  Therefore, \`φ = tan⁻¹(1/2)\`.
-
-# 7. Key Formulas & Diagrams
-
-| Formula | Description (விளக்கம்) |
-| :--- | :--- |
-| \`v = u + at\` | Velocity-time relation (திசைவேக-நேரத் தொடர்பு) |
-| \`R = (u² sin(2θ)) / g\` | Range of a Projectile (எறியத்தின் வீச்சு) |
-| \`a_c = v²/r\` | Centripetal Acceleration (மையநோக்கு முடுக்கம்) |
-| \`V_AB = V_A - V_B\` | Relative Velocity (சார்பு திசைவேகம்) |
-
-<br>
-
-<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-    <rect width="300" height="200" style="fill:white;stroke-width:1;stroke:black" />
-    <path d="M 20 180 C 100 20, 200 20, 280 180" stroke="blue" stroke-width="2" fill="none" stroke-dasharray="4"/>
-    <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
-        </marker>
-    </defs>
-    <line x1="20" y1="180" x2="100" y2="180" stroke="black" marker-end="url(#arrow)" />
-    <text x="60" y="195" font-size="12" text-anchor="middle">uₓ (Horizontal Component)</text>
-    <line x1="20" y1="180" x2="20" y2="100" stroke="black" marker-end="url(#arrow)" />
-    <text x="10" y="140" font-size="12" writing-mode="vertical-rl" text-anchor="middle">uᵧ (Vertical Component)</text>
-    <line x1="150" y1="50" x2="150" y2="90" stroke="red" marker-end="url(#arrow)" />
-    <text x="160" y="75" font-size="12" fill="red">g (Gravity)</text>
-    <text x="150" y="30" font-size="14" text-anchor="middle">Projectile Motion (எறியிய இயக்கம்)</text>
-</svg>
-
-\`\`\`
-DIAGRAM: Path of a Projectile (எறியிய இயக்கம்)
-The path is a parabola.
-Initial velocity 'u' is split into horizontal (uₓ) and vertical (uᵧ) components.
-The only acceleration is gravity 'g' acting downwards.
-\`\`\`
-
-# 8. Downloadable Summary & Mnemonics
-> **Tamil Mnemonic:** மூன்று இயக்க சமன்பாடுகளை நினைவில் கொள்ள: "**வே**கம், **இ**டம், **வே**கத்தின் வர்க்கம்." (**வேஇவே** - VeIVe). This helps remember the primary variable in each equation: v = u+at, s = ut+½at², v² = u²+2as.
-
-> **NEET Hack:** For questions involving a body dropped from a moving object (balloon, aeroplane), always remember to give the initial velocity of the dropped body equal to the velocity of the moving object at that instant. This is a common trap!
-
-[Download PDF Summary of Kinematics](/downloads/kinematics-summary.pdf)
-
-# 9. Quiz Yourself
-1.  Can a body have a constant speed but still have a varying velocity? Explain with an example.
-2.  Under what condition is the distance covered equal to the magnitude of the displacement?
-3.  A ball is thrown upwards. At the highest point of its journey, what are its velocity and acceleration?
-
-> **Student Tip (மாணவர் கருத்து):** இந்த பாடத்தில் உள்ள எந்த கருத்து உங்களுக்கு மிகவும் கடினமாக இருந்தது? Projectile motion கணக்குகளை எளிதாக தீர்க்க உங்களுக்கு வேறு ஏதேனும் குறிப்புகள் உள்ளதா? எங்களோடு பகிர்ந்துகொள்ளுங்கள்!
-
-# 10. Next Steps & Community Discussion
-– **Next Module:** Laws of Motion (இயக்க விதிகள்). Now that we can describe motion, we will learn *why* things move by studying forces.
-
-– **உறுதிப்பெற பறவை! (Discuss & Soar!):** Is the driver of a car moving at a constant 60 km/h on a circular track accelerating? Discuss this with your peers on our forum.
-`
-
-export { kinematicsModule };

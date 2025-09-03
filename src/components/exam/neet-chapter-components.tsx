@@ -21,7 +21,7 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle, XCircle } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample } from '@/lib/types';
 
-function renderContent(content: string) {
+function renderContent(content: string | object) {
     if (typeof content !== 'string') {
         // Fallback for safety, though the data source should be fixed.
         return <pre>{JSON.stringify(content, null, 2)}</pre>;
@@ -95,6 +95,18 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
 }
 
 export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }: { mcqs: MCQ[], assertionReasons: AssertionReason[], matchTheColumns: MatchTheColumns[] }) {
+    if (!mcqs || !assertionReasons || !matchTheColumns) {
+        return (
+            <Card>
+                <CardHeader>
+                    <CardTitle>Practice Section</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p>Practice questions are not available for this chapter yet.</p>
+                </CardContent>
+            </Card>
+        );
+    }
     const [mcqAnswers, setMcqAnswers] = useState<(string | null)[]>(Array(mcqs.length).fill(null));
     const [submittedMcqs, setSubmittedMcqs] = useState(false);
     
