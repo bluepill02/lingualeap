@@ -29,7 +29,7 @@ import { organicCompoundsContainingOxygen } from './chemistry/organic-compounds-
 import { organicCompoundsContainingNitrogen } from './chemistry/organic-compounds-containing-nitrogen';
 import { biomolecules } from './chemistry/biomolecules';
 import { principlesRelatedToPracticalChemistry } from './chemistry/principles-related-to-practical-chemistry';
-import { physicsAndMeasurement } from './physics/physics-and-measurement';
+import physicsAndMeasurement from './physics/physics-and-measurement';
 import { kinematicsModule as kinematics } from './physics/kinematics';
 import { lawsOfMotionModule as lawsOfMotion } from './physics/laws-of-motion';
 import { workEnergyAndPower } from './physics/work-energy-and-power';
