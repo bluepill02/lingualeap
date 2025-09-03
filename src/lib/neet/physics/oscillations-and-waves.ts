@@ -134,7 +134,7 @@ The solid line shows the wave at one instant, and the faint lines show its oscil
 \`\`\`
 
 # 8. Downloadable Summary & Mnemonics
-> **Tamil Mnemonic:** அலைச் சமன்பாட்டில் (wave equation) குறியை நினைவில் கொள்ள: `kx - ωt` என்றால் அலை `+x` திசையில் செல்கிறது. `kx + ωt` என்றால் அலை `-x` திசையில் செல்கிறது. குறிகள் எதிர் திசையைக் குறிக்கின்றன! (To remember the sign in the wave equation: If it's `kx - ωt`, the wave moves in the `+x` direction. If it's `kx + ωt`, the wave moves in the `-x` direction. The signs indicate the opposite direction of travel!)
+> **Tamil Mnemonic:** அலைச் சமன்பாட்டில் (wave equation) குறியை நினைவில் கொள்ள: \`kx - ωt\` என்றால் அலை \`+x\` திசையில் செல்கிறது. \`kx + ωt\` என்றால் அலை \`-x\` திசையில் செல்கிறது. குறிகள் எதிர் திசையைக் குறிக்கின்றன! (To remember the sign in the wave equation: If it's \`kx - ωt\`, the wave moves in the \`+x\` direction. If it's \`kx + ωt\`, the wave moves in the \`-x\` direction. The signs indicate the opposite direction of travel!)
 
 > **NEET Hack:** In Doppler effect problems, simplify the logic: If the source and observer are moving closer, the apparent frequency *increases*. If they are moving apart, the apparent frequency *decreases*. Use this to choose the correct sign in the formula \\(\\nu' = \\nu (v \\pm v_o) / (v \\mp v_s)\\) and avoid confusion.
 
@@ -152,4 +152,4 @@ The solid line shows the wave at one instant, and the faint lines show its oscil
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** If a child on a swing wants to go higher, they "pump" their legs. From a physics perspective, how does this add energy to the oscillating system? Discuss this on our forum.
 `
-};
+    
