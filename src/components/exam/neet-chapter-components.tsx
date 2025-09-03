@@ -22,6 +22,10 @@ import { CheckCircle, XCircle } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample } from '@/lib/types';
 
 function renderContent(content: string) {
+    if (typeof content !== 'string') {
+        // Fallback for safety, though the data source should be fixed.
+        return <pre>{JSON.stringify(content, null, 2)}</pre>;
+    }
     const sections = content.split('\n').map((line, index) => {
         if (line.startsWith('### ')) {
             return <h3 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(4)}</h3>;
