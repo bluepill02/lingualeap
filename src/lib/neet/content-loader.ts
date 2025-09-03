@@ -30,8 +30,8 @@ import { organicCompoundsContainingNitrogen } from './chemistry/organic-compound
 import { biomolecules } from './chemistry/biomolecules';
 import { principlesRelatedToPracticalChemistry } from './chemistry/principles-related-to-practical-chemistry';
 import { physicsAndMeasurement } from './physics/physics-and-measurement';
-import { kinematics } from './physics/kinematics';
-import { lawsOfMotion } from './physics/laws-of-motion';
+import { kinematicsModule as kinematics } from './physics/kinematics';
+import { lawsOfMotionModule as lawsOfMotion } from './physics/laws-of-motion';
 import { workEnergyAndPower } from './physics/work-energy-and-power';
 import { rotationalMotion } from './physics/rotational-motion';
 import { gravitation } from './physics/gravitation';
@@ -119,5 +119,3 @@ export function getNeetChapterContent(subject: string, chapter: string): NeetMod
     }
     return null;
 }
-
-    
