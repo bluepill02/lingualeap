@@ -34,7 +34,7 @@ export const workEnergyAndPower: NeetModule = {
       },
       {
         tip: "Remember that the work done by a conservative force (like gravity) is stored as potential energy and is recoverable.",
-        NEET_Hack": "A negative sign for work done is very important. Work done by friction is always negative. Work done by gravity is negative when an object moves up."
+        NEET_Hack: "A negative sign for work done is very important. Work done by friction is always negative. Work done by gravity is negative when an object moves up."
       }
     ]
   },
@@ -60,40 +60,33 @@ Imagine lifting a heavy Kavadi (காவடி) during a Thaipusam festival. Th
 This unit corresponds to the **Tamil Nadu State Board Class 11 Physics Volume 1, Chapter 4: 'Work, Energy and Power'**.
 
 ### 5.1 Work (வேலை)
-*   **Work done by a constant force:** Work is said to be done when a force applied to a body displaces it. It is calculated as the dot product of the force and displacement vectors. It is a scalar quantity.
-    \\[ W = \\vec{F} \\cdot \\vec{d} = Fd\\cos{\\theta} \\]
-    where θ is the angle between the force and displacement.
-*   **Work done by a variable force:** If the force is not constant, the work done is calculated by finding the area under the force-displacement graph.
-    \\[ W = \\int_{x_i}^{x_f} F(x) dx \\]
+*   **Work done by a constant force and a variable force:** Work is done when a force causes displacement. For a constant force, it's the dot product \\( W = \\vec{F} \\cdot \\vec{d} = Fd\\cos{\\theta} \\). For a variable force, work is the area under the F-x graph, found by integration \\( W = \\int F dx \\).
 
-### 5.2 Energy (ஆற்றல்)
-Energy is the capacity of a body to do work. The SI unit for both work and energy is the Joule (J).
+### 5.2 Kinetic and Potential Energies (இயக்க மற்றும் நிலை ஆற்றல்)
+*   **Kinetic Energy (K.E.):** This is the energy an object possesses due to its motion. It is calculated as \\( K.E. = \\frac{1}{2}mv^2 \\).
+*   **Potential Energy (P.E.):** This is energy stored in a system due to its position or configuration. For gravity, it is \\(U = mgh\\).
+*   **Potential energy of a spring:** A stretched or compressed spring stores potential energy given by \\(U = \\frac{1}{2}kx^2\\), where k is the spring constant.
 
-*   **Kinetic Energy (K.E.) (இயக்க ஆற்றல்):** This is the energy possessed by a body due to its motion.
-    \\[ K.E. = \\frac{1}{2}mv^2 \\]
-*   **Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்):** This fundamental theorem states that the work done by the net force on a body is equal to the change in its kinetic energy.
+### 5.3 Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)
+*   This fundamental theorem states that the work done by the net force on a body is equal to the change in its kinetic energy.
     \\[ W_{net} = \\Delta K.E. = K.E._f - K.E._i \\]
-*   **Potential Energy (P.E.) (நிலை ஆற்றல்):** This is the energy stored in a body due to its position or configuration. It is defined only for conservative forces.
-    *   **Gravitational Potential Energy:** Near the Earth's surface, \\(U = mgh\\).
-    *   **Potential energy of a spring:** The energy stored in a spring when it is compressed or stretched is \\(U = \\frac{1}{2}kx^2\\), where k is the spring constant.
-
-### 5.3 Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை)
-*   **Conservative and nonconservative forces:** A force is conservative if the work done by it in moving a particle from one point to another is independent of the path taken (e.g., gravity, spring force). A force is non-conservative if the work done depends on the path (e.g., friction).
-*   **Conservation of Mechanical Energy:** For a system under the action of only conservative forces, the total mechanical energy (sum of kinetic and potential energy) remains constant.
-    \\[ K.E._i + P.E._i = K.E._f + P.E._f \\]
-*   **Motion in a vertical circle:** A classic example where energy conservation is applied to find the minimum speeds required at various points to complete the loop.
 
 ### 5.4 Power (திறன்)
-*   **Power:** This is the rate at which work is done or energy is transferred.
+*   Power is the rate at which work is done or energy is transferred.
     *   Average Power: \\(P_{avg} = \\frac{W}{t}\\)
     *   Instantaneous Power: \\(P = \\frac{dW}{dt} = \\vec{F} \\cdot \\vec{v}\\)
-*   The SI unit of power is the Watt (W). 1 Watt = 1 Joule/second.
+*   Its SI unit is the Watt (W).
 
-### 5.5 Collisions (மோதல்கள்)
-A collision is an event in which two or more bodies exert forces on each other for a relatively short time.
+### 5.5 Conservation of Mechanical Energy
+*   **Conservative and nonconservative forces:** A force is conservative if the work done by it is path-independent (e.g., gravity, spring force). A non-conservative force's work depends on the path (e.g., friction).
+*   **Conservation of Mechanical Energy:** For a system under the action of only conservative forces, the total mechanical energy (sum of kinetic and potential energy) remains constant.
+    \\[ K.E._i + P.E._i = K.E._f + P.E._f \\]
+*   **Motion in a vertical circle:** A classic application where energy conservation is used to find minimum speeds at various points to complete the loop.
 
-*   **Elastic and inelastic collisions:** In an elastic collision, both total momentum and total kinetic energy are conserved. In an inelastic collision, total momentum is conserved, but kinetic energy is not (some is lost as heat, sound, etc.). In a perfectly inelastic collision, the bodies stick together after impact.
-*   **Collisions in one and two dimensions:** The principle of conservation of linear momentum is applied along each dimension (x and y axes) independently to solve problems.
+### 5.6 Collisions (மோதல்கள்)
+*   **Elastic and inelastic collisions in one and two dimensions:** A collision is an event where bodies exert strong forces on each other for a short time. In any isolated collision, linear momentum is conserved.
+    *   **Elastic Collision:** Kinetic energy is also conserved.
+    *   **Inelastic Collision:** Kinetic energy is not conserved (some is lost as heat, sound, etc.).
 
 # 6. Worked Examples
 
@@ -168,4 +161,4 @@ The total mechanical energy of a system is the sum of its Potential Energy (PE) 
 
 – **உறுதிப்பெற பறவை! (Discuss & Soar!):** If a light body and a heavy body have the same kinetic energy, which one has greater momentum? Discuss this classic problem on our forum.
 `
-  
+};
