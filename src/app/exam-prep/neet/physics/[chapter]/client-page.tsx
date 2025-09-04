@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -18,7 +18,7 @@ interface NeetChapterClientPageProps {
   content: NeetModule;
 }
 
-export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
+function ChapterContent({ content }: NeetChapterClientPageProps) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
   const [progress, setProgress] = useState(16); // 1/6th of the way
 
@@ -206,4 +206,15 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
        </Button>
     </div>
   );
+}
+
+
+export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
