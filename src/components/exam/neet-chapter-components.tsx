@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState, Fragment, Children } from 'react';
+import { useState, Fragment, Children, isValidElement } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -39,14 +39,18 @@ import { cn } from '@/lib/utils';
 
 
 // Helper component to render bilingual text with distinct colors
-const BilingualText = ({ english, tamil }: { english?: string, tamil?: string }) => {
-    if (!english) return null;
-    return (
-        <span>
-            <span className="text-foreground">{english}</span>
-            {tamil && <span style={{ color: '#FFB74D' }} className="italic"> ({tamil})</span>}
-        </span>
-    );
+const BilingualText = ({ text }: { text?: string }) => {
+    if (!text) return null;
+    const match = text.match(/^(.*?) \((.*?)\)$/);
+    if (match) {
+        return (
+            <span>
+                <span className="text-foreground">{match[1]}</span>
+                <span style={{ color: '#FFB74D' }} className="italic"> ({match[2]})</span>
+            </span>
+        );
+    }
+    return <span>{text}</span>;
 };
 
 
@@ -64,55 +68,38 @@ export function ConceptNotesCard({ content }: { content: string }) {
                     rehypePlugins={[rehypeKatex]}
                     components={{
                         p: ({ node, ...props }) => {
-                            const textContent = Children.toArray(props.children).join('');
-                            if (textContent.includes('{{')) {
-                                const firstChild = Children.toArray(props.children)[0];
-                                if (typeof firstChild === 'string') {
-                                    if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
-                                        return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                                    }
-                                    if (firstChild.trim() === '{{ACTION_REACTION_ANIMATION}}') {
-                                        return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                                    }
-                                    if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
-                                        return <div className="not-prose my-4"><LiftAnimation /></div>;
-                                    }
-                                     if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
-                                        return <div className="not-prose my-4"><ProjectileAnimation /></div>;
-                                    }
-                                }
-                            }
-                             const childrenArray = Children.toArray(props.children);
-                            const processedChildren = childrenArray.map((child, index) => {
-                                if (typeof child === 'string') {
-                                    const match = child.match(/^(.*?) \((.*?)\)$/);
-                                    if (match) {
-                                        return <BilingualText key={index} english={match[1]} tamil={match[2]} />;
-                                    }
+                            const textContent = Children.toArray(props.children).map(child => {
+                                if (isValidElement(child)) {
+                                    return Children.toArray(child.props.children).join('');
                                 }
                                 return child;
-                            });
-                            return <p className="my-4 leading-relaxed">{processedChildren}</p>;
+                            }).join('');
+                            
+                            if (textContent.includes('{{')) {
+                                if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                                }
+                                if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                                }
+                                if (textContent.trim() === '{{LIFT_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><LiftAnimation /></div>;
+                                }
+                                if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><ProjectileAnimation /></div>;
+                                }
+                            }
+                           
+                            return <p className="my-4 leading-relaxed"><BilingualText text={textContent} /></p>;
                         },
                         h3: ({ node, ...props }) => {
                              const textContent = Children.toArray(props.children).join('');
-                             const match = textContent.match(/^(.*?) \((.*?)\)$/);
-                             if(match) return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2"><BilingualText english={match[1]} tamil={match[2]} /></h3>
-                             return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />
+                             return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2"><BilingualText text={textContent} /></h3>
                         },
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         li: ({ node, ...props }) => {
-                           const childrenArray = Children.toArray(props.children);
-                            const processedChildren = childrenArray.map((child, index) => {
-                                if (typeof child === 'string') {
-                                    const match = child.match(/^(.*?) \((.*?)\)$/);
-                                    if (match) {
-                                        return <BilingualText key={index} english={match[1]} tamil={match[2]} />;
-                                    }
-                                }
-                                return child;
-                            });
-                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span>{processedChildren}</span></li>;
+                           const textContent = Children.toArray(props.children).join('');
+                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText text={textContent} /></span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
@@ -143,8 +130,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                            <CardTitle>{example.title}</CardTitle>
-                            {example.titleTamil && <p style={{color: '#FFB74D'}} className="italic">{example.titleTamil}</p>}
+                           <CardTitle><BilingualText text={example.title} /></CardTitle>
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -175,7 +161,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                         {step.explanationTamil && <p style={{color: '#FFB74D'}} className="text-sm italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
-                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
+                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\\n${step.calculation}\\n$$`}</ReactMarkdown>
                                             </div>
                                         )}
                                     </div>
@@ -214,7 +200,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
     const BilingualDescription = ({ description }: { description: string }) => {
         const match = description.match(/^(.*?) \((.*?)\)$/);
         if (match) {
-            return <span><BilingualText english={match[1]} tamil={match[2]} /></span>;
+            return <span><span className="text-foreground">{match[1]}</span><span style={{ color: '#FFB74D' }} className="italic"> ({match[2]})</span></span>;
         }
         return <span>{description}</span>;
     }
@@ -237,7 +223,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         {formulas.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-mono text-base">
-                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${item.formula}\n$$`}</ReactMarkdown>
+                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\\n${item.formula}\\n$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
                                     <p className="whitespace-pre-line"><BilingualDescription description={item.description} /></p>
@@ -487,13 +473,5 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
-
-
-    
-
-    
-
-
-    
 
     
