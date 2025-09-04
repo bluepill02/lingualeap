@@ -62,8 +62,10 @@ In any physical process, certain quantities remain unchanged over time. These ar
     workedExamples: [
         {
             title: "Conceptual Example 1: The Unification of Forces",
+            titleTamil: "கருத்தியல் உதாரணம் 1: விசைகளின் ஒருங்கிணைப்பு",
             difficulty: 'Easy',
-            problem: "Explain the principle of 'unification' in physics using the example of electromagnetism.\n\nதமிழ்: இயற்பியலில் 'ஒருங்கிணைத்தல்' என்ற கொள்கையை மின்காந்தவியல் உதாரணத்தைப் பயன்படுத்தி விளக்கவும்.",
+            problem: "Explain the principle of 'unification' in physics using the example of electromagnetism.",
+            problemTamil: "இயற்பியலில் 'ஒருங்கிணைத்தல்' என்ற கொள்கையை மின்காந்தவியல் உதாரணத்தைப் பயன்படுத்தி விளக்கவும்.",
             solutionSteps: [
                 {
                     step: 1,
@@ -93,8 +95,10 @@ In any physical process, certain quantities remain unchanged over time. These ar
         },
         {
             title: "Conceptual Example 2: Identifying Fundamental Forces",
+            titleTamil: "கருத்தியல் உதாரணம் 2: அடிப்படை விசைகளை அடையாளம் காணுதல்",
             difficulty: 'Medium',
-            problem: "In the beta decay process (β-சிதைவு), a neutron inside a nucleus converts into a proton and an electron. Which fundamental force is responsible for this phenomenon? Justify your answer.\n\nதமிழ்: β-சிதைவு செயல்பாட்டில், ஒரு உட்கருவில் உள்ள நியூட்ரான் ஒரு புரோட்டான் மற்றும் ஒரு எலக்ட்ரானாக மாறுகிறது. இந்த நிகழ்வுக்கு எந்த அடிப்படை விசை காரணமாகும்? உங்கள் பதிலுக்கான காரணத்தைக் கூறவும்.",
+            problem: "In the beta decay process (β-decay), a neutron inside a nucleus converts into a proton and an electron. Which fundamental force is responsible for this phenomenon? Justify your answer.",
+            problemTamil: "β-சிதைவு செயல்பாட்டில், ஒரு உட்கருவில் உள்ள நியூட்ரான் ஒரு புரோட்டான் மற்றும் ஒரு எலக்ட்ரானாக மாறுகிறது. இந்த நிகழ்வுக்கு எந்த அடிப்படை விசை காரணமாகும்? உங்கள் பதிலுக்கான காரணத்தைக் கூறவும்.",
             solutionSteps: [
                 {
                     step: 1,

@@ -110,8 +110,9 @@ A collision is an event in which two or more bodies exert forces on each other f
     workedExamples: [
         {
             title: "NEET Level: Work-Energy Theorem",
+            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)",
+            problemTamil: "2 கிகி நிறையுள்ள ஒரு கட்டை 10 மீ உயரத்திலிருந்து கீழே விடப்படுகிறது. புவியீர்ப்பு விசையால் செய்யப்பட்ட வேலை மற்றும் தரையைத் தொடும் முன் கட்டையின் இறுதி திசைவேகம் என்ன? (g = 10 மீ/வி² எனக் கொள்க)",
             difficulty: 'Medium',
-            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)\n\nதமிழ்: 2 கிகி நிறையுள்ள ஒரு கட்டை 10 மீ உயரத்திலிருந்து கீழே விடப்படுகிறது. புவியீர்ப்பு விசையால் செய்யப்பட்ட வேலை மற்றும் தரையைத் தொடும் முன் கட்டையின் இறுதி திசைவேகம் என்ன? (g = 10 மீ/வி² எனக் கொள்க)",
             solutionSteps: [
                 {
                     step: 1,
@@ -183,9 +184,9 @@ A collision is an event in which two or more bodies exert forces on each other f
                 { step: 4, explanation: "Equate initial and final energies and form a quadratic equation.", explanationTamil: "ஆரம்ப மற்றும் இறுதி ஆற்றல்களைச் சமப்படுத்தி ஒரு இருபடிச் சமன்பாட்டை உருவாக்கவும்.", calculation: "mg(h+x) = (1/2)kx² => (2)(9.8)(0.4+x) = (1/2)(1960)x² => 19.6(0.4+x) = 980x² => 7.84 + 19.6x = 980x² => 980x² - 19.6x - 7.84 = 0" },
                 { step: 5, explanation: "Divide by 9.8 to simplify: 100x² - 2x - 0.8 = 0. Solve the quadratic equation for x. The positive root is the answer.", explanationTamil: "எளிமைப்படுத்த 9.8 ஆல் வகுக்கவும்: 100x² - 2x - 0.8 = 0. இருபடிச் சமன்பாட்டை x-க்கு தீர்க்கவும். நேர்மறை மூலமே விடையாகும்.", calculation: "x ≈ 0.1 m or 10 cm" }
             ],
-            commonPitfall: "Forgetting to include the additional compression distance 'x' in the gravitational potential energy term `mg(h+x)`. The block falls a total height of h+x.",
             neetHack: "When a mass is dropped on a spring, the loss in gravitational P.E. is converted into the gain in elastic P.E. of the spring.",
             neetHackTamil: "ஒரு சுருள்வில் மீது ஒரு நிறை விழும்போது, ஈர்ப்பு நிலை ஆற்றலில் ஏற்படும் இழப்பு, சுருள்வில்லின் மீட்சி நிலை ஆற்றல் ஆதாயமாக மாற்றப்படுகிறது.",
+            commonPitfall: "Forgetting to include the additional compression distance 'x' in the gravitational potential energy term `mg(h+x)`. The block falls a total height of h+x.",
             commonPitfallTamil: "ஈர்ப்பு நிலை ஆற்றல் உறுப்பான `mg(h+x)` இல் கூடுதல் அமுக்க தூரம் 'x' ஐ சேர்க்க மறப்பது. கட்டை h+x என்ற மொத்த உயரத்திலிருந்து விழுகிறது."
         },
         {
@@ -365,4 +366,5 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
+
 

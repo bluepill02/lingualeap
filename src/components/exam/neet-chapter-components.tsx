@@ -41,7 +41,8 @@ import { cn } from '@/lib/utils';
 // Helper component to render bilingual text with distinct colors
 const BilingualText = ({ children }: { children: React.ReactNode }) => {
     const textContent = Children.toArray(children).join('');
-    const match = textContent.match(/^(.*?) \((.*?)\)$/);
+    // Updated regex to handle parentheses
+    const match = textContent.match(/^(.*?)\((.*?)\)$/);
 
     if (match) {
         const [, english, tamil] = match;
@@ -127,7 +128,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                            <CardTitle><BilingualText>{example.title}</BilingualText></CardTitle>
+                            <CardTitle>{example.title}</CardTitle>
+                            {example.titleTamil && <p className="text-muted-foreground">{example.titleTamil}</p>}
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -141,6 +143,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <p className="font-bold text-lg mb-2 text-primary-foreground">Problem:</p>
                             <div className="prose prose-sm dark:prose-invert max-w-none text-foreground">
                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
+                                {example.problemTamil && <p className="text-muted-foreground italic mt-2">{example.problemTamil}</p>}
                             </div>
                         </div>
 
@@ -153,8 +156,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-base text-foreground">{step.step}: <BilingualText>{step.explanation}</BilingualText></p>
-                                        {step.explanationTamil && <p className="text-sm text-muted-foreground italic mt-1">{step.explanationTamil}</p>}
+                                        <p className="font-semibold text-base text-foreground">{step.step}: {step.explanation}</p>
+                                        {step.explanationTamil && <p className="text-sm text-muted-foreground mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
                                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
@@ -168,7 +171,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                                <BilingualText>{example.neetHack}</BilingualText>
+                                <p>{example.neetHack}</p>
                                 {example.neetHackTamil && <p className="text-xs text-muted-foreground italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
@@ -177,7 +180,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                    <BilingualText>{example.commonPitfall}</BilingualText>
+                                    <p>{example.commonPitfall}</p>
                                     {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
                                 </AlertDescription>
                             </Alert>
@@ -313,7 +316,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             >
                                                 {submittedMcqs && option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
                                                 {submittedMcqs && mcqAnswers[index] === option && option !== quiz.answer && <XCircle className="mr-2 h-4 w-4" />}
-                                                <span className={cn("mr-2 font-bold", mcqAnswers[index] === option && !submittedMcqs && "text-primary-foreground")}>{option.charAt(0)}.</span> {option.substring(2)}
+                                                <span className={cn("mr-2 font-bold")}>{option.charAt(0)}.</span> {option.substring(2)}
                                             </Button>
                                         ))}
                                     </div>

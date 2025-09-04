@@ -135,8 +135,10 @@ export interface FBDstep {
 
 export interface WorkedExample {
     title: string;
+    titleTamil?: string;
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
+    problemTamil?: string;
     fbd?: FBDstep[];
     solutionSteps: {
         step: number;
@@ -146,7 +148,7 @@ export interface WorkedExample {
     }[];
     neetHack: string;
     neetHackTamil?: string;
-    commonPitfall: string;
+    commonPitfall?: string;
     commonPitfallTamil?: string;
 }
 
