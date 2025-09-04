@@ -18,7 +18,9 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, XCircle } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample } from '@/lib/types';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
@@ -77,29 +79,53 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
     if (!examples || examples.length === 0) return null;
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Worked Examples</CardTitle>
-                <CardDescription>Step-by-step solutions to common problems.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                    {examples.map((example, index) => (
-                         <AccordionItem value={`item-${index}`} key={index}>
-                            <AccordionTrigger className="font-bold text-left">{index + 1}. {example.problem}</AccordionTrigger>
-                            <AccordionContent className="space-y-4 pt-2">
-                                <p className="font-semibold text-sm">Solution:</p>
-                                <div className="prose dark:prose-invert max-w-none">
-                                    {renderContent(example.solution)}
-                                </div>
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
-            </CardContent>
-        </Card>
-    )
+        <div className="space-y-6">
+            {examples.map((example, index) => (
+                <Card key={index}>
+                    <CardHeader className="flex flex-row justify-between items-start">
+                        <div>
+                            <CardTitle>{example.title}</CardTitle>
+                        </div>
+                        <Badge variant={
+                            example.difficulty === 'Easy' ? 'default' : 
+                            example.difficulty === 'Medium' ? 'secondary' : 'destructive'
+                        } className={
+                            example.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400 border-green-500/30' : 
+                            example.difficulty === 'Medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' : 'bg-red-500/20 text-red-400 border-red-500/30'
+                        }>
+                            {example.difficulty}
+                        </Badge>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="bg-primary/10 p-4 rounded-md">
+                            <p className="font-bold">Problem:</p>
+                            <p>{example.problem}</p>
+                        </div>
+                        <div>
+                            <p className="font-bold mb-2">Solution:</p>
+                            <ol className="list-decimal list-inside space-y-2">
+                                {example.solutionSteps.map((step, stepIndex) => (
+                                    <li key={stepIndex}>{step}</li>
+                                ))}
+                            </ol>
+                        </div>
+                        <Alert variant="default" className="bg-accent/10 border-accent">
+                            <Lightbulb className="h-4 w-4 text-accent" />
+                            <AlertTitle>NEET Hack</AlertTitle>
+                            <AlertDescription>{example.neetHack}</AlertDescription>
+                        </Alert>
+                        <Alert variant="destructive" className="bg-destructive/10">
+                            <AlertTriangle className="h-4 w-4" />
+                            <AlertTitle>Common Pitfall</AlertTitle>
+                            <AlertDescription>{example.commonPitfall}</AlertDescription>
+                        </Alert>
+                    </CardContent>
+                </Card>
+            ))}
+        </div>
+    );
 }
+
 
 export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }: { mcqs: MCQ[], assertionReasons: AssertionReason[], matchTheColumns: MatchTheColumns[] }) {
     if (!mcqs || !assertionReasons || !matchTheColumns) {

@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ConceptNotesCard } from '@/components/exam/neet-chapter-components';
+import { ConceptNotesCard, WorkedExamplesCard } from '@/components/exam/neet-chapter-components';
 
 
 interface NeetChapterClientPageProps {
@@ -52,7 +52,7 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
         <Progress value={progress} className="h-2" />
       </div>
 
-      <Tabs defaultValue="overview" className="w-full">
+      <Tabs defaultValue="examples" className="w-full">
         <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="learn">Learn</TabsTrigger>
@@ -112,7 +112,12 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
                 <Button>Mark as Completed</Button>
             </div>
         </TabsContent>
-        {/* Other Tabs Content can be added here */}
+        <TabsContent value="examples" className="mt-6 space-y-6">
+            <WorkedExamplesCard examples={workedExamples} />
+             <div className="flex justify-center">
+                <Button>Mark as Completed</Button>
+            </div>
+        </TabsContent>
       </Tabs>
       
        <Button variant="outline" size="icon" className="fixed bottom-8 right-8 rounded-full h-12 w-12 shadow-lg">

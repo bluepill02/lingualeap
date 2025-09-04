@@ -44,14 +44,14 @@ export const lawsOfMotionModule: NeetModule = {
     conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
 ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
 
-\`\`\`
+` + '`' + `
 \\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.
-\`\`\`
+` + '`' + `
 
 #### Temple Chariot and Inertia
 Massive chariot at rest needs large force to start moving
 
-\`\`\`
+` + '`' + `
 Temple Chariot (கோவில் தேர்)
 |         |
 |---------|  <-- Needs large force to overcome inertia
@@ -61,29 +61,40 @@ Temple Chariot (கோவில் தேர்)
 <-- F (Applied Force)
 Heavy chariot resists change in motion due to inertia
 பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
-\`\`\`
+` + '`' + `
 
 ### Newton's Second Law - F = ma (இரண்டாம் விதி)
 ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
 
-\`\`\`
+` + '`' + `
 Key Formulas:
 \\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்
 \\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்
-\`\`\`
+` + '`' + `
 
 ### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
 ஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.
 
-\`\`\`
+` + '`' + `
 Key Formulas:
 \\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)
-\`\`\`
+` + '`' + `
 `,
     workedExamples: [
         {
-            problem: 'A block of mass 5 kg is placed on a rough horizontal surface with a coefficient of kinetic friction of 0.2. A force of 20 N is applied to it. Find the acceleration.',
-            solution: 'First, find the maximum static friction: fs(max) = μs * N. Find the normal force N = mg = 5 * 9.8 = 49 N. Calculate kinetic friction fk = μk * N = 0.2 * 49 = 9.8 N. Applied force (20 N) is greater than fk, so it moves. Net force F_net = F_applied - fk = 20 - 9.8 = 10.2 N. Acceleration a = F_net / m = 10.2 / 5 = 2.04 m/s².'
+            title: "Solved Example 1",
+            difficulty: 'Easy',
+            problem: "A temple elephant of mass 2000 kg is pulled by a rope with force 500 N. If friction force is 100 N, find the elephant's acceleration.",
+            solutionSteps: [
+                "Given: Mass m = 2000 kg, Applied force F = 500 N, Friction f = 100 N",
+                "Net force = Applied force - Friction force",
+                "F_net = 500 - 100 = 400 N",
+                "Using Newton's second law: F = ma",
+                "400 = 2000 × a",
+                "a = 400/2000 = 0.2 m/s²"
+            ],
+            neetHack: "Always identify all forces first, then find net force before applying F = ma",
+            commonPitfall: "Students forget to consider friction as opposing force"
         }
     ],
     mcqs: [

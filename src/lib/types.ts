@@ -121,9 +121,14 @@ export interface SyllabusMapping {
 }
 
 export interface WorkedExample {
+    title: string;
+    difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
-    solution: string;
+    solutionSteps: string[];
+    neetHack: string;
+    commonPitfall: string;
 }
+
 
 export interface MCQ {
     question: string;
