@@ -66,16 +66,12 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "All generated content, including notes, examples, and questions, must be accurate, clear, and pedagogically sound.",
   },
   {
-    check: "Ensure bilingual support in Learn and Example sections",
-    details: "The Learn section (Concept Notes) and Example section (Worked Examples) should have explanations in both English and Tamil to support bilingual learning.",
-  },
-  {
-    check: "Check if bilingual content was added uniformly",
-    details: "Check if bilingual content was added uniformly to throughout the learn and worked examples section",
-  },
-  {
     check: "Include interactive diagrams in Learn section",
     details: "The Learn section (Concept Notes) should feature approximately 2 interactive diagrams to visually explain complex concepts.",
+  },
+  {
+    check: "Entire learn and worked examples section should be bilingual and nothing skipped",
+    details: "Ensure that all paragraphs, headings, steps, explanations, and tips within the Concept Notes and Worked Examples sections have corresponding Tamil translations. No English-only text should be left in these bilingual sections."
   },
   {
     check: "Verify XML Structure",
