@@ -67,6 +67,14 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "All generated content, including notes, examples, and questions, must be accurate, clear, and pedagogically sound.",
   },
   {
+    check: "Ensure bilingual support in Learn and Example sections",
+    details: "The Learn section (Concept Notes) and Example section (Worked Examples) should have explanations in both English and Tamil to support bilingual learning.",
+  },
+  {
+    check: "Include interactive diagrams in Learn section",
+    details: "The Learn section (Concept Notes) should feature approximately 2 interactive diagrams to visually explain complex concepts.",
+  },
+  {
     check: "Verify XML Structure",
     details: "All file modifications must be delivered in the strict, complete XML format.",
   },
