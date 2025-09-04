@@ -2,34 +2,43 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, Clock, BookOpen, ChevronRight, Atom, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Clock, BookOpen, ChevronRight, Atom, Lightbulb, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { getNeetContent } from '@/lib/neet/content-loader';
+import { neetContent } from '@/lib/neet/content-loader';
+import { Separator } from '@/components/ui/separator';
 
+const chapterGroups = {
+    foundation: [
+        { id: 'physical-world', title: 'Physics - Physical World (பௌதிக உலகம்)', quirkyFact: "The universe's 'how' and 'why'!" },
+        { id: 'units-and-measurements', title: 'Physics - Units and Measurements (அலகுகளும் அளவீட்டியலும்)', quirkyFact: "The secret grammar of physics." },
+    ],
+    core: [
+        { id: 'laws-of-motion', title: 'Physics - Laws of Motion (இயக்க விதிகள்)', quirkyFact: "Why apples fall and rockets fly." }
+    ],
+    bridge: []
+}
 
-const physicsChapters = [
-    {
-        id: 'physical-world',
-        chapter: 1,
-        title: 'Physics - Physical World (பௌதிக உலகம்)',
-        quirkyFact: "The universe's 'how' and 'why'!"
+const groupInfo = {
+    foundation: {
+        title: 'Foundation Chapters',
+        description: 'Build a rock-solid base. These chapters are the pillars of your physics knowledge.',
+        icon: ShieldCheck
     },
-    {
-        id: 'units-and-measurements',
-        chapter: 2,
-        title: 'Physics - Units and Measurements (அலகுகளும் அளவீட்டியலும்)',
-        quirkyFact: "The secret grammar of physics."
+    core: {
+        title: 'Core Chapters',
+        description: 'High-weightage topics that form the heart of the NEET syllabus. Master these for a top score.',
+        icon: GraduationCap
     },
-    {
-        id: 'laws-of-motion',
-        chapter: 3,
-        title: 'Physics - Laws of Motion (இயக்க விதிகள்)',
-        quirkyFact: "Why apples fall and rockets fly."
+    bridge: {
+        title: 'Bridge Chapters',
+        description: 'Connect concepts and explore specialized topics. These chapters bridge different areas of physics.',
+        icon: Link2
     }
-]
+}
+
 
 export default function NeetPhysicsPage() {
   return (
@@ -53,37 +62,52 @@ export default function NeetPhysicsPage() {
         </div>
       </header>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {physicsChapters.sort((a,b) => a.chapter - b.chapter).map((item) => {
-            const content = getNeetContent(item.id);
-            const mappingDescription = content?.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
-            return (
-                <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
-                    <Card className="hover:border-primary transition-colors h-full flex flex-col">
-                        <CardContent className="p-6 space-y-4 flex-grow">
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center gap-2">
-                                    <Badge variant="outline">Ch. {item.chapter}</Badge>
-                                </div>
-                                <ChevronRight className="w-5 h-5 text-muted-foreground" />
-                            </div>
-                            <h3 className="text-lg font-bold font-headline">{item.title}</h3>
-                            <div className="text-sm text-accent flex items-center gap-2">
-                                <Lightbulb className="w-4 h-4" />
-                                <span>{item.quirkyFact}</span>
-                            </div>
-                            <Alert className="bg-primary/5 border-primary/20">
-                                <BookOpen className="h-4 w-4 text-primary/80" />
-                                <AlertDescription className="text-primary/80 text-xs">
-                                    TN Board Mapping: {mappingDescription}
-                                </AlertDescription>
-                            </Alert>
-                        </CardContent>
-                    </Card>
-                </Link>
-            )
-        })}
-      </div>
+      {Object.entries(chapterGroups).map(([key, chapters]) => {
+          const group = groupInfo[key as keyof typeof groupInfo];
+          if (chapters.length === 0) return null;
+          return (
+            <div key={key} className="space-y-4">
+                <div className="flex items-center gap-3">
+                    <group.icon className="w-6 h-6 text-primary"/>
+                    <div>
+                        <h2 className="text-2xl font-bold font-headline">{group.title}</h2>
+                        <p className="text-muted-foreground text-sm">{group.description}</p>
+                    </div>
+                </div>
+                <Separator/>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {chapters.map((item) => {
+                        const content = neetContent[item.id];
+                        if (!content) return null;
+                        const mappingDescription = content.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
+                        return (
+                            <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
+                                <Card className="hover:border-primary transition-colors h-full flex flex-col">
+                                    <CardContent className="p-6 space-y-4 flex-grow">
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="text-lg font-bold font-headline pr-4">{item.title}</h3>
+                                            <ChevronRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                                        </div>
+                                        <div className="text-sm text-accent flex items-center gap-2">
+                                            <Lightbulb className="w-4 h-4" />
+                                            <span>{item.quirkyFact}</span>
+                                        </div>
+                                        <Alert className="bg-primary/5 border-primary/20 mt-auto">
+                                            <BookOpen className="h-4 w-4 text-primary/80" />
+                                            <AlertDescription className="text-primary/80 text-xs">
+                                                TN Board Mapping: {mappingDescription}
+                                            </AlertDescription>
+                                        </Alert>
+                                    </CardContent>
+                                </Card>
+                            </Link>
+                        )
+                    })}
+                </div>
+            </div>
+          )
+      })}
+
 
       <Card>
         <CardHeader>
