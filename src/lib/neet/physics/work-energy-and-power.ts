@@ -33,87 +33,73 @@ export const workEnergyAndPowerModule: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Work (வேலை)
-Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a [[scalar quantity:ஸ்கேலார் அளவு]].
-ஒரு விசையானது அது செயல்படும் பொருளில் ஒரு இடப்பெயர்ச்சியை உருவாக்கும் போது வேலை செய்யப்பட்டது என்று கூறப்படுகிறது. இது ஒரு ஸ்கேலார் அளவு.
+Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a [[scalar quantity:ஸ்கேலார் அளவு]]. (ஒரு விசையானது அது செயல்படும் பொருளில் ஒரு இடப்பெயர்ச்சியை உருவாக்கும் போது வேலை செய்யப்பட்டது என்று கூறப்படுகிறது. இது ஒரு ஸ்கேலார் அளவு.)
 
 #### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
-If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors.
-ஒரு நிலையான விசை $\\vec{F}$ ஒரு பொருளின் மீது செயல்பட்டு $\\vec{s}$ என்ற இடப்பெயர்ச்சியை உருவாக்கினால், செய்யப்பட்ட வேலை என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களின் புள்ளிப் பெருக்கல் ஆகும்.
+If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors. (ஒரு நிலையான விசை $\\vec{F}$ ஒரு பொருளின் மீது செயல்பட்டு $\\vec{s}$ என்ற இடப்பெயர்ச்சியை உருவாக்கினால், செய்யப்பட்ட வேலை என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களின் புள்ளிப் பெருக்கல் ஆகும்.)
 $$
 W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta
 $$
-where $\\theta$ is the angle between the force and displacement vectors. இங்கு $\\theta$ என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களுக்கு இடையிலான கோணம் ஆகும்.
+where $\\theta$ is the angle between the force and displacement vectors. (இங்கு $\\theta$ என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களுக்கு இடையிலான கோணம் ஆகும்.)
 *   **Positive Work ($\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body. (நேர் வேலை: விசை இடப்பெயர்ச்சியின் திசையில் ஒரு கூறைக் கொண்டுள்ளது. எ.கா., கீழே விழும் பொருளின் மீது ஈர்ப்பு விசையால் செய்யப்படும் வேலை.)
 *   **Negative Work ($\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction. (எதிர் வேலை: விசை இடப்பெயர்ச்சியின் திசைக்கு எதிராக ஒரு கூறைக் கொண்டுள்ளது. எ.கா., உராய்வு விசையால் செய்யப்படும் வேலை.)
 *   **Zero Work ($\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion. (சுழி வேலை: விசை இடப்பெயர்ச்சிக்கு செங்குத்தாக உள்ளது. எ.கா., சீரான வட்ட இயக்கத்தில் மையநோக்கு விசையால் செய்யப்படும் வேலை.)
 
 #### Work Done by a Variable Force (மாறும் விசையால் செய்யப்பட்ட வேலை)
-If the force is not constant, we find the work done by integrating the force over the path.
-விசை மாறிலியாக இல்லையென்றால், பாதையின் மீது விசையை தொகையீடு செய்வதன் மூலம் செய்யப்பட்ட வேலையைக் காண்கிறோம்.
+If the force is not constant, we find the work done by integrating the force over the path. (விசை மாறிலியாக இல்லையென்றால், பாதையின் மீது விசையை தொகையீடு செய்வதன் மூலம் செய்யப்பட்ட வேலையைக் காண்கிறோம்.)
 $$
 W = \\int_{s_i}^{s_f} F(s) \\,ds
 $$
-Graphically, the work done is the **area under the Force-Displacement (F-s) graph**.
-வரைபடத்தில், செய்யப்பட்ட வேலை என்பது விசை-இடப்பெயர்ச்சி (F-s) வரைபடத்தின் கீழ் உள்ள பரப்பளவு ஆகும்.
+Graphically, the work done is the **area under the Force-Displacement (F-s) graph**. (வரைபடத்தில், செய்யப்பட்ட வேலை என்பது விசை-இடப்பெயர்ச்சி (F-s) வரைபடத்தின் கீழ் உள்ள பரப்பளவு ஆகும்.)
 
 ### 2. Energy (ஆற்றல்)
-Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J).
-ஆற்றல் என்பது வேலை செய்வதற்கான திறன் ஆகும். இது ஒரு ஸ்கேலார் அளவு, மற்றும் அதன் SI அலகு ஜூல் (J) ஆகும்.
+Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J). (ஆற்றல் என்பது வேலை செய்வதற்கான திறன் ஆகும். இது ஒரு ஸ்கேலார் அளவு, மற்றும் அதன் SI அலகு ஜூல் (J) ஆகும்.)
 
 #### Kinetic Energy (இயக்க ஆற்றல் - K.E.)
-The energy possessed by a body by virtue of its motion.
-ஒரு பொருள் அதன் இயக்கத்தின் காரணமாகக் கொண்டிருக்கும் ஆற்றல்.
+The energy possessed by a body by virtue of its motion. (ஒரு பொருள் அதன் இயக்கத்தின் காரணமாகக் கொண்டிருக்கும் ஆற்றல்.)
 $$
 K.E. = \\frac{1}{2}mv^2
 $$
-The relationship between kinetic energy and linear momentum (p = mv) is:
-இயக்க ஆற்றலுக்கும் நேர்கோட்டு உந்தத்திற்கும் (p = mv) உள்ள தொடர்பு:
+The relationship between kinetic energy and linear momentum (p = mv) is: (இயக்க ஆற்றலுக்கும் நேர்கோட்டு உந்தத்திற்கும் (p = mv) உள்ள தொடர்பு:)
 $$
 K.E. = \\frac{p^2}{2m}
 $$
 
 #### Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)
-This is one of the most important theorems in mechanics. It states that the **net work done by all forces (conservative and non-conservative) on a body is equal to the change in its kinetic energy.**
-இது இயக்கவியலில் மிக முக்கியமான தேற்றங்களில் ஒன்றாகும். ஒரு பொருளின் மீது செயல்படும் அனைத்து விசைகளாலும் (ஆற்றல் மாற்றா மற்றும் ஆற்றல் மாற்றும்) செய்யப்பட்ட நிகர வேலை, அதன் இயக்க ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம் என்று இது கூறுகிறது.
+This is one of the most important theorems in mechanics. It states that the **net work done by all forces (conservative and non-conservative) on a body is equal to the change in its kinetic energy.** (இது இயக்கவியலில் மிக முக்கியமான தேற்றங்களில் ஒன்றாகும். ஒரு பொருளின் மீது செயல்படும் அனைத்து விசைகளாலும் (ஆற்றல் மாற்றா மற்றும் ஆற்றல் மாற்றும்) செய்யப்பட்ட நிகர வேலை, அதன் இயக்க ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம் என்று இது கூறுகிறது.)
 $$
 W_{net} = \\Delta K.E. = K.E._f - K.E._i
 $$
 
-{{WORK_ENERGY_SPRING_ANIMATION}}
+{{LIFT_ANIMATION}}
 
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
-The energy stored in a body by virtue of its position or configuration. It is defined only for **[[conservative forces:பாதுகாப்பு விசைகள்]]**.
-ஒரு பொருளின் நிலை அல்லது அமைப்பின் காரணமாக அதில் சேமிக்கப்படும் ஆற்றல். இது பாதுகாப்பு விசைகளுக்கு மட்டுமே வரையறுக்கப்படுகிறது.
+The energy stored in a body by virtue of its position or configuration. It is defined only for **[[conservative forces:பாதுகாப்பு விசைகள்]]**. (ஒரு பொருளின் நிலை அல்லது அமைப்பின் காரணமாக அதில் சேமிக்கப்படும் ஆற்றல். இது பாதுகாப்பு விசைகளுக்கு மட்டுமே வரையறுக்கப்படுகிறது.)
 *   **Gravitational Potential Energy (ஈர்ப்பு நிலை ஆற்றல்):** $P.E. = mgh$
-*   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression. இங்கு k என்பது சுருள்வில் மாறிலி மற்றும் x என்பது நீட்சி அல்லது அமுக்கம்.
+*   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression. (இங்கு k என்பது சுருள்வில் மாறிலி மற்றும் x என்பது நீட்சி அல்லது அமுக்கம்.)
 
 ### 3. Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி)
 *   **Conservative Force (பாதுகாப்பு விசை):** A force for which the work done is independent of the path taken and depends only on the initial and final positions. Work done in a closed loop is zero. E.g., Gravitational force, electrostatic force, spring force. (ஒரு விசையால் செய்யப்பட்ட வேலை பாதையைச் சார்ந்து இல்லாமல், ஆரம்ப மற்றும் இறுதி நிலைகளை மட்டுமே சார்ந்து இருந்தால் அது பாதுகாப்பு விசை எனப்படும். ஒரு மூடிய சுற்றில் செய்யப்படும் வேலை சுழியாகும். எ.கா., ஈர்ப்பு விசை, நிலைமின்னியல் விசை, சுருள்வில் விசை.)
 *   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance. (ஒரு விசையால் செய்யப்பட்ட வேலை பாதையைச் சார்ந்து இருந்தால் அது பாதுகாப்பற்ற விசை எனப்படும். எ.கா., உராய்வு, காற்றின் எதிர்ப்பு.)
 
 **Law of Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை விதி):**
-If **only conservative forces** are doing work on a system, its total mechanical energy (Kinetic + Potential) remains constant.
-ஒரு அமைப்பின் மீது **பாதுகாப்பு விசைகள் மட்டுமே** வேலை செய்தால், அதன் மொத்த இயந்திர ஆற்றல் (இயக்க + நிலை) மாறாமல் இருக்கும்.
+If **only conservative forces** are doing work on a system, its total mechanical energy (Kinetic + Potential) remains constant. (ஒரு அமைப்பின் மீது **பாதுகாப்பு விசைகள் மட்டுமே** வேலை செய்தால், அதன் மொத்த இயந்திர ஆற்றல் (இயக்க + நிலை) மாறாமல் இருக்கும்.)
 $$
 K.E._i + P.E._i = K.E._f + P.E._f
 $$
-If non-conservative forces (like friction) are also present, the total energy is not conserved, and the work done by these forces equals the change in total mechanical energy:
-பாதுகாப்பற்ற விசைகள் (உராய்வு போன்றவை) செயல்பட்டால், மொத்த ஆற்றல் பாதுகாக்கப்படாது, மேலும் இந்த விசைகளால் செய்யப்படும் வேலை மொத்த இயந்திர ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம்:
+If non-conservative forces (like friction) are also present, the total energy is not conserved, and the work done by these forces equals the change in total mechanical energy: (பாதுகாப்பற்ற விசைகள் (உராய்வு போன்றவை) செயல்பட்டால், மொத்த ஆற்றல் பாதுகாக்கப்படாது, மேலும் இந்த விசைகளால் செய்யப்படும் வேலை மொத்த இயந்திர ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம்:)
 $$
 W_{nc} = \\Delta K.E. + \\Delta P.E.
 $$
 
 ### 4. Power (திறன்)
-Power is the rate at which work is done. It is a scalar quantity.
-திறன் என்பது வேலை செய்யப்படும் வீதம் ஆகும். இது ஒரு ஸ்கேலார் அளவு.
+Power is the rate at which work is done. It is a scalar quantity. (திறன் என்பது வேலை செய்யப்படும் வீதம் ஆகும். இது ஒரு ஸ்கேலார் அளவு.)
 *   **Average Power (சராசரி திறன்):** $P_{avg} = \\frac{\\text{Total Work Done}}{\\text{Total Time}} = \\frac{W}{t}$
 *   **Instantaneous Power (உடனடி திறன்):** $P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$
-The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is horsepower (1 hp ≈ 746 W).
-திறனின் SI அலகு வாட் (W) ஆகும். (1 W = 1 J/s). மற்றொரு பொதுவான அலகு குதிரைத்திறன் (1 hp ≈ 746 W).
+The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is horsepower (1 hp ≈ 746 W). (திறனின் SI அலகு வாட் (W) ஆகும். (1 W = 1 J/s). மற்றொரு பொதுவான அலகு குதிரைத்திறன் (1 hp ≈ 746 W).)
 
 ### 5. Collisions (மோதல்கள்)
-A collision is an event in which two or more bodies exert forces on each other for a relatively short time.
-மோதல் என்பது இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்கள் ஒப்பீட்டளவில் குறுகிய காலத்திற்கு ஒன்றின் மீது ஒன்று விசைகளைச் செலுத்தும் ஒரு நிகழ்வு ஆகும்.
+A collision is an event in which two or more bodies exert forces on each other for a relatively short time. (மோதல் என்பது இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்கள் ஒப்பீட்டளவில் குறுகிய காலத்திற்கு ஒன்றின் மீது ஒன்று விசைகளைச் செலுத்தும் ஒரு நிகழ்வு ஆகும்.)
 *   **Total linear momentum is always conserved** in any collision if there is no external force on the system. (ஒரு அமைப்பின் மீது புற விசை இல்லாத நிலையில், எந்தவொரு மோதலிலும் மொத்த நேர்கோட்டு உந்தம் எப்போதும் பாதுகாக்கப்படுகிறது.)
 *   **[[Elastic Collision:மீள் மோதல்]]:** A collision in which both momentum and kinetic energy are conserved. (உந்தம் மற்றும் இயக்க ஆற்றல் இரண்டும் பாதுகாக்கப்படும் ஒரு மோதல்.)
 *   **[[Inelastic Collision:மீளாத மோதல்]]:** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision. (உந்தம் பாதுகாக்கப்பட்டு, ஆனால் இயக்க ஆற்றல் பாதுகாக்கப்படாத ஒரு மோதல். சில இயக்க ஆற்றல் வெப்பம், ஒலி அல்லது சிதைவாக இழக்கப்படுகிறது. மோதலுக்குப் பிறகு பொருட்கள் ஒன்றாக ஒட்டிக்கொண்டால் அது ஒரு முழுமையான மீளாத மோதல் ஆகும்.)
@@ -377,5 +363,3 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
-
-    

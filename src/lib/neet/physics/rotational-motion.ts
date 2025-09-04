@@ -32,20 +32,16 @@ export const rotationalMotion: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Center of Mass (நிறை மையம்)
-The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point.
-துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.
-For a system of n particles:
-n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:
+The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point. (துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.)
+For a system of n particles: (n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:)
 $$
 \\vec{R}_{CM} = \\frac{m_1\\vec{r}_1 + m_2\\vec{r}_2 + ... + m_n\\vec{r}_n}{m_1 + m_2 + ... + m_n} = \\frac{\\sum m_i\\vec{r}_i}{M}
 $$
-For a continuous body, we integrate:
-ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:
+For a continuous body, we integrate: (ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:)
 $$
 \\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r} \\,dm
 $$
-The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$.
-நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.
+The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$. (நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.)
 
 ### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
 *   **Torque ([[\\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force. (விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.)
@@ -74,10 +70,9 @@ For a rigid body (திண்மப் பொருளுக்கு): $I = \\
 $$
 \\tau = I \\alpha
 $$
-This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$.
-இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.
+This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. (இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.)
 
-{{CONSERVATION_OF_ANGULAR_MOMENTUM_ANIMATION}}
+{{INERTIA_ANIMATION}}
 
 #### Theorems of Moment of Inertia (நிலைமத் திருப்புத்திறன் தேற்றங்கள்):
 1.  **[[Parallel Axis Theorem:இணை அச்சுத் தேற்றம்]]:** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. (ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.)
@@ -90,22 +85,18 @@ I_z = I_x + I_y
 $$
 
 ### 4. Rolling Motion (உருளுதல் இயக்கம்)
-Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$.
-உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.
-The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies.
-ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.
+Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$. (உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.)
+The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies. (ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.)
 $$
 K_{total} = K_{trans} + K_{rot} = \\frac{1}{2}Mv_{CM}^2 + \\frac{1}{2}I_{CM}\\omega^2
 $$
 
 ### 5. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
-If the **net external torque** on a system is zero, its total angular momentum remains constant.
-ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.
+If the **net external torque** on a system is zero, its total angular momentum remains constant. (ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.)
 $$
 \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant}
 $$
-This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase).
-இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).
+This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase). (இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).)
 `,
     workedExamples: [
         {
@@ -114,8 +105,8 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             problem: "Three point masses of 1 kg, 2 kg, and 3 kg are placed at the vertices of an equilateral triangle of side 1 m. Find the coordinates of the center of mass, assuming the 1 kg mass is at the origin and the 2 kg mass is on the x-axis.",
             solutionSteps: [
                 { step: 1, explanation: "Assign coordinates to each mass. m₁=1kg at (0,0). m₂=2kg at (1,0). For m₃=3kg, the x-coordinate is 0.5 m. The y-coordinate (height of equilateral triangle) is (√3/2)*side = √3/2. So, m₃ is at (0.5, √3/2).", explanationTamil: "ஒவ்வொரு நிறைக்கும் ஆயத்தொலைவுகளை ஒதுக்கவும். m₁=1kg (0,0) இல். m₂=2kg (1,0) இல். m₃=3kg க்கு, x-ஆயத்தொலைவு 0.5 மீ. y-ஆயத்தொலைவு (சமபக்க முக்கோணத்தின் உயரம்) (√3/2)*பக்கம் = √3/2. எனவே, m₃ (0.5, √3/2) இல் உள்ளது." },
-                { step: 2, explanation: "Use the formula for the x-coordinate of the center of mass: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", calculation: "X_cm = (1*0 + 2*1 + 3*0.5) / (1+2+3) = (2 + 1.5) / 6 = 3.5 / 6 = 7/12 m" },
-                { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(√3/2)) / (1+2+3) = (3√3 / 2) / 6 = √3 / 4 m" }
+                { step: 2, explanation: "Use the formula for the x-coordinate of the center of mass: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", explanationTamil: "நிறை மையத்தின் x-ஆயத்தொலைவுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", calculation: "X_cm = (1*0 + 2*1 + 3*0.5) / (1+2+3) = (2 + 1.5) / 6 = 3.5 / 6 = 7/12 m" },
+                { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", explanationTamil: "நிறை மையத்தின் y-ஆயத்தொலைவுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(√3/2)) / (1+2+3) = (3√3 / 2) / 6 = √3 / 4 m" }
             ],
             neetHack: "For systems with symmetry, the center of mass often lies at the geometric center. For two-particle systems, the CM is always on the line joining them.",
             neetHackTamil: "சீரான அமைப்புகளுக்கு, நிறை மையம் பெரும்பாலும் வடிவியல் மையத்தில் அமைகிறது. இரண்டு-துகள் அமைப்புகளுக்கு, நிறை மையம் எப்போதும் அவற்றை இணைக்கும் கோட்டில் இருக்கும்.",
@@ -244,5 +235,3 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { column1: ["(a) Work", "(b) Power", "(c) Radius of Gyration", "(d) Angular Impulse"], column2: ["(p) √(I/M)", "(q) τΔt", "(r) τ·θ", "(s) τ·ω"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching quantities with their rotational formulas. Work = torque * angular displacement. Power = torque * angular velocity. Radius of gyration k=√(I/M). Angular impulse = change in angular momentum = τΔt." }
     ]
 };
-
-    
