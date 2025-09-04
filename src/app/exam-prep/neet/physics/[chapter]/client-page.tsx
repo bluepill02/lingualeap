@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard } from '@/components/exam/neet-chapter-components';
+import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 
 
 interface NeetChapterClientPageProps {
@@ -19,7 +19,7 @@ interface NeetChapterClientPageProps {
 }
 
 export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
   const [progress, setProgress] = useState(16); // 1/6th of the way
 
   return (
@@ -52,7 +52,7 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
         <Progress value={progress} className="h-2" />
       </div>
 
-      <Tabs defaultValue="formulas" className="w-full">
+      <Tabs defaultValue="practice" className="w-full">
         <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="learn">Learn</TabsTrigger>
@@ -120,6 +120,12 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
         </TabsContent>
         <TabsContent value="formulas" className="mt-6 space-y-6">
             <KeyFormulasCard content={keyFormulasAndDiagrams} />
+             <div className="flex justify-center">
+                <Button>Mark as Completed</Button>
+            </div>
+        </TabsContent>
+        <TabsContent value="practice" className="mt-6 space-y-6">
+            <PracticeSectionCard mcqs={mcqs} assertionReasons={assertionReasons} matchTheColumns={matchTheColumns} />
              <div className="flex justify-center">
                 <Button>Mark as Completed</Button>
             </div>

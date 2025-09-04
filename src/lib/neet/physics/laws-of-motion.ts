@@ -153,10 +153,22 @@ Heavy chariot resists change in motion due to inertia
     },
     mcqs: [
         {
-            question: "A passenger in a moving bus is thrown forward when the bus suddenly stops. This is explained by:",
-            options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "The principle of conservation of momentum"],
-            answer: "Newton's First Law",
-            explanation: "The passenger's body continues to be in a state of motion due to inertia, even when the bus stops."
+            question: "A car suddenly starts from rest. Passengers feel pushed backward due to:",
+            options: ["A. Centripetal force", "B. Inertia", "C. Momentum", "D. Acceleration"],
+            answer: "B. Inertia",
+            explanation: "The passenger's body continues to be in a state of rest due to inertia of rest, while the car moves forward."
+        },
+        {
+            question: "A ball of mass 2 kg is thrown upward with acceleration 8 m/s². The force applied is: (g = 10 m/s²)",
+            options: ["A. 16 N", "B. 20 N", "C. 36 N", "D. 4 N"],
+            answer: "C. 36 N",
+            explanation: "The net upward force is F_applied - F_gravity = ma. So, F_applied = ma + mg = m(a+g) = 2(8 + 10) = 36 N."
+        },
+        {
+            question: "Two objects of masses m₁ and m₂ are connected by string over a pulley. Acceleration is:",
+            options: ["A. g(m₁-m₂)/(m₁+m₂)", "B. g(m₁+m₂)/(m₁-m₂)", "C. g", "D. zero"],
+            answer: "A. g(m₁-m₂)/(m₁+m₂)",
+            explanation: "This is the standard formula for Atwood's machine. The net force (m₁g - m₂g) divided by the total mass (m₁ + m₂) gives the acceleration."
         }
     ],
     assertionReasons: [],

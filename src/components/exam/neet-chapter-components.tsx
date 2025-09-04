@@ -208,18 +208,18 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                 <CardDescription>Test your understanding with practice problems.</CardDescription>
             </CardHeader>
             <CardContent>
-                <Accordion type="multiple" className="w-full space-y-4">
+                <Accordion type="multiple" className="w-full space-y-4" defaultValue={['mcqs']}>
                     
                     {/* MCQs Section */}
                     <AccordionItem value="mcqs">
                         <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
-                            NEET-style Multiple Choice Questions ({mcqs.length})
+                            Multiple Choice Questions ({mcqs.length})
                         </AccordionTrigger>
                         <AccordionContent className="pt-4 space-y-6">
                             {mcqs.map((quiz, index) => (
                                 <div key={index} className="p-4 border rounded-lg">
                                     <p className="font-medium mb-2">{index + 1}. {quiz.question}</p>
-                                    <div className="space-y-2">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                         {quiz.options.map((option) => (
                                             <Button
                                                 key={option}
@@ -235,22 +235,27 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                                 {submittedMcqs && mcqAnswers[index] === option &&
                                                     (option === quiz.answer ? <CheckCircle className="mr-2 h-4 w-4" /> : <XCircle className="mr-2 h-4 w-4" />)
                                                 }
-                                                {option}
+                                                <span className="mr-2 font-bold">{option.charAt(0)}.</span> {option.substring(2)}
                                             </Button>
                                         ))}
                                     </div>
                                     {submittedMcqs && (
-                                        <div className="mt-2 p-2 rounded-md bg-primary/10">
+                                        <div className="mt-4 p-2 rounded-md bg-primary/10">
                                             <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
-                                            <p className="text-xs text-muted-foreground">{quiz.explanation}</p>
+                                            <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
                                         </div>
                                     )}
                                 </div>
                             ))}
                             {!submittedMcqs ? (
+                                <div className="flex gap-4">
                                 <Button onClick={handleMcqSubmit} disabled={mcqAnswers.includes(null)}>
-                                    Submit MCQs
+                                    Show Answers
                                 </Button>
+                                <Button variant="secondary">
+                                    Complete Practice
+                                </Button>
+                                </div>
                             ) : (
                                 <div className="p-4 bg-secondary rounded-lg text-center">
                                     <p className="text-lg font-bold">
