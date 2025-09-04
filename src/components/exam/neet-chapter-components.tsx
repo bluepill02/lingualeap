@@ -308,7 +308,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         <div>
                                             <h4 className="font-semibold mb-2">Column II</h4>
                                             <ul className="list-disc list-inside">
-                                                {item.column2.map(c2 => <li key={c2}</li>)}
+                                                {item.column2.map(c2 => <li key={c2}>{c2}</li>)}
                                             </ul>
                                         </div>
                                     </div>
