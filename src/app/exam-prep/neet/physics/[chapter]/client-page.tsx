@@ -129,7 +129,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     </Alert>}
                     {syllabusMapping && syllabusMapping.length > 0 && <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
                         <AlertTitle>TN Board Mapping</AlertTitle>
-                        <AlertDescription>{syllabusMapping?.[0]?.mappingDescription}</AlertDescription>
+                        <AlertDescription>{syllabusMapping[0].mappingDescription}</AlertDescription>
                     </Alert>}
                 </CardContent>
             </Card>
@@ -252,7 +252,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       </Tabs>
       
        <Card className="mt-8">
-        <CardContent className="p-4 text-center">
+        <CardContent className="p-6 text-center">
             <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim XP</Button>
         </CardContent>
        </Card>
