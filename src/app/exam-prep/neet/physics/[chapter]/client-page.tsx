@@ -86,7 +86,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
         <Progress value={progress} className="h-2" />
       </div>
 
-      <Tabs defaultValue="summary" className="w-full">
+      <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="learn">Learn</TabsTrigger>
@@ -239,3 +239,5 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
+
+    
