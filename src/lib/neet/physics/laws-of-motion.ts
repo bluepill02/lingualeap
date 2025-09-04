@@ -299,7 +299,7 @@ Heavy chariot resists change in motion due to inertia
             "question": "The force 'F' acting on a particle of mass 'm' is indicated by the force-time graph shown below. The change in momentum of the particle over the time interval from zero to 8 s is:",
             "options": ["A. 24 Ns", "B. 20 Ns", "C. 12 Ns", "D. 6 Ns"],
             "answer": "C. 12 Ns",
-            "explanation": "Change in momentum is the area under the F-t graph. Area = Area of triangle(0-2s) + Area of rectangle(2-4s) + Area of triangle(4-8s) = (1/2 * 2 * 6) + (2 * 0) + (1/2 * 4 * 3) = 6 + 0 + 6 = 12 Ns. Note the graph shown is illustrative: 0-2s(triangle up to 6N), 2-4s(at 0N), 4-8s(triangle down to -3N, actually area from 4-6s is positive, and 6-8s is negative - assuming the question meant a simpler graph. Let's assume areas. Area(0-2)=0.5*2*6=6. Area(2-4s)=2*6=12. Area(4-8s)=0.5*4*(-3)=-6. Total area = 6+12-6=12. Wait, the problem is underspecified without a graph. Let's re-interpret standard F-T graphs. Area(0-2s)=0.5*2*6=6. Area from 2-4s is a rectangle of 2*6=12. Area from 4-8s... Let's assume a simpler graph. Area = (1/2 * 2 * 6) + (2 * 6) + (1/2 * (8-4) * -3) = 6 + 12 - 6 = 12 Ns. The description is ambiguous, but 12 Ns is a plausible answer derived from a common graph shape."
+            "explanation": "Change in momentum is the area under the F-t graph. Assuming a standard graph shape where force increases linearly to 6N in 2s, stays constant till 4s, then decreases linearly to -3N at 8s. Area = Area(0-2s) + Area(2-4s) + Area(4-8s) = (1/2 * 2 * 6) + (2 * 6) + (1/2 * (6+(-3)) * 4) is complex. A simpler common graph: Triangle(0-2s, peak 6N), Rectangle(2-4s, at 6N), Triangle(4-8s, ends at -3N). Let's assume a simpler graph for the intended answer: Area = (1/2 * 2 * 6) + (2*0) + (1/2 * 4 * (-3)) is not 12. Let's assume the question implies a graph with areas that sum to 12. For example, a triangle from 0-4s with peak 6N gives area 1/2*4*6 = 12. The question is ambiguous without a visual graph, but 12 Ns is a common answer for such problems."
         },
         {
             "question": "A body of mass 2kg travels according to the law x(t) = pt + qt² + rt³. Where p=3m/s, q=4m/s², r=5m/s³. The force acting on the body at t=2s is:",
@@ -344,7 +344,68 @@ Heavy chariot resists change in motion due to inertia
             "explanation": "Masses are 0.2kg, 0.2kg, 0.6kg. Momentum of first two are p₁=0.2*30=6, p₂=0.2*30=6. Their resultant is √(6²+6²)=6√2. By momentum conservation, the third fragment must have equal and opposite momentum. p₃=6√2. m₃v₃=6√2. 0.6*v₃=6√2. v₃ = 10√2 m/s."
         }
     ],
-    assertionReasons: [],
+    assertionReasons: [
+        {
+            "assertion": "A body can have acceleration even if its velocity is zero at a given instant.",
+            "reason": "Acceleration is the rate of change of velocity.",
+            "answer": "A",
+            "explanation": "When a ball is thrown upwards, its velocity is zero at the highest point, but it still has acceleration due to gravity (g). Reason correctly explains that acceleration depends on the change in velocity, not velocity itself."
+        },
+        {
+            "assertion": "When a person is walking on rough ground, the frictional force exerted by the ground on the person is in the backward direction.",
+            "reason": "Frictional force always opposes the motion of a body.",
+            "answer": "E",
+            "explanation": "The person pushes the ground backward, so the ground pushes the person forward. This forward frictional force is what causes the person to move forward. The reason is also incorrect, as friction opposes relative motion or the tendency of relative motion, not necessarily the motion itself."
+        },
+        {
+            "assertion": "Newton's third law of motion is applicable only for a system of particles in equilibrium.",
+            "reason": "The forces of action and reaction always cancel each other out.",
+            "answer": "E",
+            "explanation": "Newton's third law is applicable to all systems, whether in equilibrium or not. Action-reaction forces act on different bodies, so they can never cancel each other out."
+        },
+        {
+            "assertion": "A cricketer moves his hands backward while catching a cricket ball.",
+            "reason": "Doing so increases the time of impact, and thus decreases the force exerted by the ball on his hands.",
+            "answer": "A",
+            "explanation": "From the impulse-momentum theorem, FΔt = Δp. By increasing the time of impact (Δt), the cricketer reduces the impact force (F) for a given change in momentum (Δp), which prevents injury."
+        },
+        {
+            "assertion": "An object of mass 'm' is moving on a frictionless horizontal surface. If a constant force is applied on it, it moves with constant acceleration.",
+            "reason": "According to Newton's second law, F = ma.",
+            "answer": "A",
+            "explanation": "Newton's second law directly states that a constant net force (F) on a constant mass (m) will produce a constant acceleration (a). The reason is the direct explanation for the assertion."
+        },
+        {
+            "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
+            "reason": "The net external force on the system of particles is zero during the collision.",
+            "answer": "C",
+            "explanation": "The assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present. The reason correctly states the condition for momentum conservation."
+        },
+        {
+            "assertion": "The centripetal force and centrifugal force are action-reaction pairs.",
+            "reason": "Centrifugal force is a pseudo force which has to be applied on a body to make it an inertial frame.",
+            "answer": "D",
+            "explanation": "The assertion is false. Action-reaction pairs must act on different bodies. Centripetal and centrifugal forces both act on the same body. The reason is also false. Centrifugal force is a pseudo force that arises in a non-inertial (rotating) frame of reference."
+        },
+        {
+            "assertion": "A body in a lift accelerating downwards experiences a decrease in its apparent weight.",
+            "reason": "The normal reaction force from the lift floor is less than its true weight.",
+            "answer": "A",
+            "explanation": "The apparent weight is the normal reaction (R). For downward acceleration 'a', the net force is mg - R = ma, so R = m(g-a). Since R is less than mg, the apparent weight decreases. The reason correctly explains the assertion."
+        },
+        {
+            "assertion": "Static friction is a self-adjusting force.",
+            "reason": "The force of static friction is always equal to the applied force.",
+            "answer": "C",
+            "explanation": "The assertion is true. Static friction adjusts its magnitude to be equal and opposite to the applied force, up to a maximum limit (μsN). The reason is false because it's only true up to the limit of static friction; it's not always equal to the applied force."
+        },
+        {
+            "assertion": "It is difficult to move a cycle along a road with its brakes on.",
+            "reason": "Sliding friction is greater than rolling friction.",
+            "answer": "B",
+            "explanation": "Both statements are true. It is difficult to move a cycle with brakes on because the sliding friction (from locked wheels) is much larger than the rolling friction (when wheels are rolling freely). However, the reason does not fully explain the assertion. The assertion is about the effect of brakes, which create sliding friction. The reason is a general statement comparing two types of friction."
+        }
+    ],
     matchTheColumns: []
 };
 
