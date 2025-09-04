@@ -118,19 +118,18 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <CardTitle>{example.title}</CardTitle>
                         </div>
                         <Badge variant={
-                            example.difficulty === 'Easy' ? 'default' : 
-                            example.difficulty === 'Medium' ? 'secondary' : 'destructive'
-                        } className={
-                            example.difficulty === 'Easy' ? 'bg-success/20 text-success-foreground border-success/30' : 
-                            example.difficulty === 'Medium' ? 'bg-warning/20 text-warning-foreground border-warning/30' : 'bg-destructive/20 text-destructive-foreground border-destructive/30'
+                            example.difficulty === 'Easy' ? 'success' : 
+                            example.difficulty === 'Medium' ? 'warning' : 'destructive'
                         }>
                             {example.difficulty}
                         </Badge>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <div className="bg-secondary/30 p-4 rounded-md">
-                            <p className="font-bold">Problem:</p>
-                            <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
+                        <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
+                            <p className="font-bold text-lg mb-2">Problem:</p>
+                            <div className="prose prose-sm dark:prose-invert max-w-none">
+                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
+                            </div>
                         </div>
 
                         {example.fbd && example.fbd.map((fbdItem, fbdIndex) => (
@@ -138,29 +137,27 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         ))}
 
                         <div>
-                            <p className="font-bold mb-2">Solution:</p>
+                            <p className="font-bold text-lg mb-2">Solution:</p>
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
-                                    <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5">
-                                        <p className="font-semibold text-sm">{step.explanation}</p>
-                                        {step.explanationTamil && <p className="text-xs text-primary/80 italic mt-1">{step.explanationTamil}</p>}
+                                    <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
+                                        <p className="font-semibold text-base text-primary/90">Step {step.step}: {step.explanation}</p>
+                                        {step.explanationTamil && <p className="text-sm text-primary/70 italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
-                                            <div className="text-sm font-mono bg-muted p-2 rounded-md mt-1 overflow-x-auto">
-                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$
-${step.calculation}
-$$`}</ReactMarkdown>
+                                            <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
+                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
                                             </div>
                                         )}
                                     </div>
                                 ))}
                             </div>
                         </div>
-                        <Alert variant="default" className="bg-accent/10 border-accent text-accent-foreground">
-                            <Lightbulb className="h-4 w-4 text-accent" />
-                            <AlertTitle>NEET Hack</AlertTitle>
+                        <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30 text-yellow-100">
+                            <Lightbulb className="h-4 w-4 text-yellow-400" />
+                            <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
                                 {example.neetHack}
-                                {example.neetHackTamil && <p className="text-xs text-accent/80 italic mt-1">{example.neetHackTamil}</p>}
+                                {example.neetHackTamil && <p className="text-xs text-yellow-400/80 italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -200,9 +197,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         {formulas.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-mono text-base">
-                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$
-${item.formula}
-$$`}</ReactMarkdown>
+                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${item.formula}\n$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
                                     <p className="whitespace-pre-line">{item.description}</p>
@@ -267,7 +262,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
-            className={`w-3 h-3 ${i < count ? 'text-warning fill-warning' : 'text-muted-foreground/30'}`}
+            className={`w-4 h-4 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`}
           />
         ))}
       </div>
@@ -296,17 +291,16 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             <Button
                                                 key={option}
                                                 variant={
-                                                    submittedMcqs && mcqAnswers[index] === option
-                                                    ? option === quiz.answer ? 'default' : 'destructive'
-                                                    : mcqAnswers[index] === option ? 'secondary' : 'outline'
+                                                    submittedMcqs 
+                                                        ? (option === quiz.answer ? 'success' : (mcqAnswers[index] === option ? 'destructive' : 'outline'))
+                                                        : (mcqAnswers[index] === option ? 'default' : 'outline')
                                                 }
                                                 className="w-full justify-start text-left h-auto"
                                                 onClick={() => !submittedMcqs && handleMcqOptionChange(index, option)}
                                                 disabled={submittedMcqs}
                                             >
-                                                {submittedMcqs && mcqAnswers[index] === option &&
-                                                    (option === quiz.answer ? <CheckCircle className="mr-2 h-4 w-4" /> : <XCircle className="mr-2 h-4 w-4" />)
-                                                }
+                                                {submittedMcqs && option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
+                                                {submittedMcqs && mcqAnswers[index] === option && option !== quiz.answer && <XCircle className="mr-2 h-4 w-4" />}
                                                 <span className="mr-2 font-bold">{option.charAt(0)}.</span> {option.substring(2)}
                                             </Button>
                                         ))}
@@ -344,9 +338,9 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                            Adaptive MCQ Practice
                         </AccordionTrigger>
                         <AccordionContent className="pt-4 space-y-6">
-                            <Alert>
-                                <Lightbulb className="h-4 w-4" />
-                                <AlertTitle>Focus on What Matters</AlertTitle>
+                            <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30 text-yellow-100">
+                                <Lightbulb className="h-4 w-4 text-yellow-400" />
+                                <AlertTitle className="text-yellow-300">Focus on What Matters</AlertTitle>
                                 <AlertDescription>
                                     These questions are sorted by how frequently similar concepts have appeared in past NEET exams. High-frequency questions are marked with more stars.
                                 </AlertDescription>
@@ -368,7 +362,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                                     {quiz.options.map((option) => (
                                                         <Button
                                                             key={option}
-                                                            variant={option === quiz.answer ? 'default' : 'outline'}
+                                                            variant={option === quiz.answer ? 'success' : 'outline'}
                                                             className="w-full justify-start text-left h-auto cursor-default"
                                                         >
                                                             {option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
@@ -459,5 +453,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
 
     
 
+
+    
 
     

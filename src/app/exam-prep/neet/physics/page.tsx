@@ -50,7 +50,7 @@ export default function NeetPhysicsPage() {
     <div className="space-y-8">
       <header className="flex items-center gap-4">
         <Link href="/exam-prep/neet">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" aria-label="Back to NEET Prep">
                 <ArrowLeft className="w-5 h-5" />
             </Button>
         </Link>
@@ -137,3 +137,5 @@ export default function NeetPhysicsPage() {
     </div>
   );
 }
+
+    
