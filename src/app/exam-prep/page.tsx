@@ -12,12 +12,6 @@ const examModules = [
     isNew: true,
   },
   {
-    title: 'NEET Preparation',
-    description: 'Comprehensive study modules for Physics, Chemistry, and Biology in Tamil for medical entrance exams.',
-    href: '/exam-prep/neet',
-    isNew: true,
-  },
-  {
     title: 'SSC CGL: Rajbhasha Synonyms & Antonyms',
     description: 'Master essential Hindi vocabulary for the Staff Selection Commission Combined Graduate Level exam.',
     href: '/exam-prep/ssc-cgl'
