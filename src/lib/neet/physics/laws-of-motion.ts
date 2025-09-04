@@ -41,39 +41,7 @@ export const lawsOfMotionModule: NeetModule = {
             notes: 'Centripetal force is a high-yield topic. Understand its application in banking of roads and motion in vertical circles. Problems are often formula-based.'
         }
     ],
-    conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
-ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
-` + '`' + `
-\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.
-` + '`' + `
-` + '`' + `DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
-    +---------+
-    |         |
-    |---------|  <-- Needs large force to overcome inertia
-    |_________|
-    /         \\
-   o           o
-<-- F (Applied Force)
-
-Heavy chariot resists change in motion due to inertia
-பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
-DIAGRAM_END` + '`' + `
-
-### Newton's Second Law - F = ma (இரண்டாம் விதி)
-ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
-` + '`' + `
-\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்
-` + '`' + `
-` + '`' + `
-\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்
-` + '`' + `
-
-### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
-ஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.
-` + '`' + `
-\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)
-` + '`' + `
-`,
+    conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)\nஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.\n\n` + '`FORMULA_START\n`\n' + `\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.\n` + '`\nFORMULA_END`\n\n' + '`DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)\n    +---------+\n    |         |\n    |---------|  <-- Needs large force to overcome inertia\n    |_________|\n    /         \\\n   o           o\n<-- F (Applied Force)\n\nHeavy chariot resists change in motion due to inertia\nபெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது\nDIAGRAM_END`' + `\n\n### Newton's Second Law - F = ma (இரண்டாம் விதி)\nஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.\n\n` + '`FORMULA_START\n`\n' + `\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்\n` + '`\nFORMULA_END`\n\n`' + '`FORMULA_START\n`\n' + `\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்\n` + '`\nFORMULA_END`\n\n' + `### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)\nஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.\n\n` + '`FORMULA_START\n`\n' + `\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)\n` + '`\nFORMULA_END`\n\n',
     workedExamples: [
         {
             title: "Solved Example 1",
@@ -379,7 +347,7 @@ Heavy chariot resists change in motion due to inertia
             "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
             "reason": "The net external force on the system of particles is zero during the collision.",
             "answer": "D",
-            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation, which makes the assertion false."
+            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation."
         },
         {
             "assertion": "The centripetal force and centrifugal force are action-reaction pairs.",
@@ -402,11 +370,41 @@ Heavy chariot resists change in motion due to inertia
         {
             "assertion": "It is difficult to move a cycle along a road with its brakes on.",
             "reason": "Sliding friction is greater than rolling friction.",
-            "answer": "B",
-            "explanation": "Both statements are true. It is difficult to move a cycle with brakes on because the locked wheels create sliding friction. It is also true that sliding friction is generally greater than rolling friction. However, the reason is a general principle and not the direct explanation for the difficulty mentioned in the assertion, which is specifically about the action of the brakes causing the higher friction."
+            "answer": "A",
+            "explanation": "Both statements are true and the reason is the correct explanation. When brakes are applied, the wheels lock and slide, creating sliding friction, which is much greater than the rolling friction present when the wheels are rolling freely. This makes it difficult to move the cycle."
+        },
+        {
+            "assertion": "The assertion is false that in a collision, the total linear momentum of the system of particles is always conserved because the correct reason that momentum is conserved only if the net external force on the system is zero, as in many collisions, external forces like friction or gravity are present and can't be ignored.",
+            "reason": "momentum is conserved only if the net external force on the system is zero, as in many collisions, external forces like friction or gravity are present and can't be ignored.",
+            "answer": "D",
+            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation."
         }
     ],
-    matchTheColumns: []
+    matchTheColumns: [
+        {
+            column1: ["(a) Inertia", "(b) Momentum", "(c) Impulse", "(d) Frictional Force"],
+            column2: ["(p) Product of mass and velocity", "(q) Opposes relative motion", "(r) Change in momentum", "(s) Property to resist change in state of motion"],
+            answer: "a-s, b-p, c-r, d-q"
+        },
+        {
+            column1: ["(a) Centripetal Force", "(b) Tension", "(c) Normal Reaction", "(d) Weight"],
+            column2: ["(p) Force by a string", "(q) Gravitational pull of Earth", "(r) Perpendicular force by a surface", "(s) Force required for circular motion"],
+            answer: "a-s, b-p, c-r, d-q"
+        },
+        {
+            column1: ["(a) Newton's First Law", "(b) Newton's Second Law", "(c) Newton's Third Law", "(d) Law of Conservation of Momentum"],
+            column2: ["(p) F = ma", "(q) Action-Reaction", "(r) Law of Inertia", "(s) Total initial momentum = Total final momentum"],
+            answer: "a-r, b-p, c-q, d-s"
+        },
+        {
+            column1: ["(a) Static Friction", "(b) Kinetic Friction", "(c) Rolling Friction", "(d) Angle of Repose"],
+            column2: ["(p) Friction on a moving body", "(q) Maximum angle for an object not to slip", "(r) Self-adjusting force", "(s) Friction for rolling objects"],
+            answer: "a-r, b-p, c-s, d-q"
+        },
+        {
+            column1: ["(a) Apparent weight in a lift accelerating up", "(b) Apparent weight in a lift accelerating down", "(c) Apparent weight in free fall", "(d) Banking of roads"],
+            column2: ["(p) Zero", "(q) m(g+a)", "(r) Provides necessary centripetal force", "(s) m(g-a)"],
+            answer: "a-q, b-s, c-p, d-r"
+        }
+    ]
 };
-
-    
