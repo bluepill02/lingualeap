@@ -55,6 +55,8 @@ At the center of the Earth, d = R, so g becomes zero. (பூமியின் 
 $$ g' = g - R\\omega^2 \\cos^2\\lambda $$
 where $\\lambda$ is the latitude. At the equator, $\\lambda=0^\\circ$; at the poles, $\\lambda=90^\\circ$. (இங்கு $\\lambda$ என்பது அட்சரேகை. நிலநடுக்கோட்டில், $\\lambda=0^\\circ$; துருவங்களில், $\\lambda=90^\\circ$.)
 
+{{LIFT_ANIMATION}}
+
 ### 3. Gravitational Potential and Potential Energy (ஈர்ப்பு நிலை ஆற்றல் மற்றும் நிலை ஆற்றல்)
 *   **Gravitational Potential (V) (ஈர்ப்பு நிலை ஆற்றல்):** The work done in bringing a unit mass from infinity to a point in the gravitational field. (ஈர்ப்புப் புலத்தில் உள்ள ஒரு புள்ளிக்கு முடிவிலியிலிருந்து ஓரலகு நிறையை கொண்டு வர செய்யப்படும் வேலை.)
 $$ V = -\\frac{GM}{r} $$
@@ -156,6 +158,40 @@ $$ T^2 \\propto a^3 $$`,
             neetHack: "When comparing quantities, setting up a ratio is often the fastest method. gA/gB = (MA/MB) * (RB/RA)². This immediately gives the answer.",
             neetHackTamil: "அளவுகளை ஒப்பிடும்போது, ஒரு விகிதத்தை அமைப்பது பெரும்பாலும் வேகமான முறையாகும். gA/gB = (MA/MB) * (RB/RA)². இது உடனடியாக விடையைத் தரும்."
         }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: '\\vec{F} = G \\frac{m_1 m_2}{r^2} \\hat{r}',
+                description: 'Newtons Law of Universal Gravitation'
+            },
+            {
+                formula: 'g = \\frac{GM}{R^2}',
+                description: 'Acceleration due to gravity on Earths surface'
+            },
+            {
+                formula: 'v_e = \\sqrt{2GM/R} = \\sqrt{2gR}',
+                description: 'Escape Velocity'
+            },
+            {
+                formula: 'T^2 \\propto a^3',
+                description: 'Keplers Third Law'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Gravity is a universal, attractive force that follows an inverse square law.",
+        "The value of 'g' decreases with both altitude and depth.",
+        "For a satellite to escape Earth's gravity, it must be given a total energy of zero or more.",
+        "Kepler's laws describe planetary motion, which is a direct result of the gravitational force."
+    ],
+    mnemonics: [
+        { text: "Remember `g` is greatest on the surface. Going up or down, it always goes down.", tamil: "g-ன் மதிப்பு தரைமட்டத்தில் தான் அதிகம். மேலே சென்றாலும், கீழே சென்றாலும் அது குறையும்." }
+    ],
+    neetTips: [
+        { text: "Problems involving ratios of g, v_e, or T for different planets are very common. Master the proportionality relationships.", tamil: "வெவ்வேறு கோள்களுக்கு g, v_e, அல்லது T விகிதங்கள் சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. விகிதாசார உறவுகளை நன்கு புரிந்து கொள்ளுங்கள்." },
+        { text: "Work-energy theorem is often the easiest way to solve problems involving change in speed of satellites or objects moving between points in a gravitational field.", tamil: "ஈர்ப்புப் புலத்தில் புள்ளிகளுக்கு இடையே நகரும் செயற்கைக்கோள்கள் அல்லது பொருட்களின் வேக மாற்றத்தைக் கணக்கிட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் எளிதான வழியாகும்." }
     ],
     mcqs: [
         {
