@@ -40,7 +40,7 @@ export const lawsOfMotionModule: NeetModule = {
             topic: 'Momentum & Collisions',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using `F=dp/dt` is more fundamental than `F=ma`.',
+            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.',
             mappingDescription: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power maps to NEET Physics Unit 4'
         }
     ],
@@ -53,7 +53,7 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw \`W = mg\` acting vertically downwards).
+    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw W = mg acting vertically downwards).
     *   **[[Contact Forces:தொடு விசைகள்]]:** What is the object touching? Each point of contact can exert a force.
         *   Is it on a surface? There is a **[[Normal Force:செங்குத்து விசை]] (N)**, perpendicular to the surface, pushing away from the surface.
         *   Is a string or rope attached? There is **[[Tension:இழுவிசை]] (T)**, acting along the rope, pulling away from the object.
@@ -64,24 +64,24 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If \`F_net = 0\`, then \`a = 0\` (which means \`v = constant\`).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If F_net = 0, then a = 0 (which means v = constant).
 
 {{INERTIA_ANIMATION}}
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's [[linear momentum:நேர்கோட்டு உந்தம்]] is directly proportional to the net external force applied, and this change occurs in the direction of the force.
-\`\`\`math
+$$
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
-\`\`\`
-Since momentum \`p = mv\`, if mass 'm' is constant, this simplifies to the famous equation:
-\`\`\`math
+$$
+Since momentum p = mv, if mass 'm' is constant, this simplifies to the famous equation:
+$$
 \\vec{F}_{net} = m\\vec{a}
-\`\`\`
-This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\` and \`ΣF_y = ma_y\`. The core of problem-solving is applying these component equations after drawing an FBD.
+$$
+This is a vector equation. It can be broken down into components: ΣF_x = ma_x and ΣF_y = ma_y. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (\`F_AB = -F_BA\`).
+*   Forces always occur in pairs (F_AB = -F_BA).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 {{ACTION_REACTION_ANIMATION}}
@@ -96,14 +96,14 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **[[pseudo force:போலி விசை]]**.
 *   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** \`F_p = ma₀\`, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
+*   **Magnitude:** F_p = ma₀, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply \`ΣF_real + F_pseudo = ma_relative\` as if it were an inertial frame.
+Once you add the pseudo force, you can apply ΣF_real + F_pseudo = ma_relative as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, \`N = mg + ma = m(g+a)\`. The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
-*   **Lift Accelerating Downwards:** The pseudo force \`F_p = ma\` is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, \`N + ma = mg\`, so \`N = m(g-a)\`. The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, N = mg + ma = m(g+a). The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
+*   **Lift Accelerating Downwards:** The pseudo force F_p = ma is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, N + ma = mg, so N = m(g-a). The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
 
 {{LIFT_ANIMATION}}
 `,
@@ -138,7 +138,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                     step: 1,
                     explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁_max + f₂_max.',
                     explanationTamil: 'அமைப்பு நகருமா என்று பார்க்க, இரு கட்டைகளுக்குமான பெரும நிலை உராய்வு விசையைக் கணக்கிடவும். மொத்த உராய்வு = f₁_max + f₂_max.',
-                    calculation: 'f_{1,max} = \\mu m_1 g = 0.2 \\times 4 \\times 10 = 8 N. \\\\ f_{2,max} = \\mu m_2 g = 0.2 \\times 6 \\times 10 = 12 N. \\\\ Total_{max} = 20 N.'
+                    calculation: 'f_{1,max} = \\mu m_1 g = 0.2 \\times 4 \\times 10 = 8 N. \\\\ f_{2,max} = \\mu m_2 g = 0.2 \\times 6 \\times 10 = 12 N. \\\\ Total_{max} = 20 N'
                 },
                 {
                     step: 2,
@@ -189,8 +189,8 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 },
                 {
                     step: 3,
-                    explanation: 'Component of gravity pulling down the incline is `mg sin(θ)`. Component of pseudo force pushing up the incline is `mA cos(θ)`.',
-                    explanationTamil: "சாய்தளத்தில் கீழ்நோக்கி இழுக்கும் ஈர்ப்பு விசையின் கூறு `mg sin(θ)`. சாய்தளத்தில் மேல்நோக்கி தள்ளும் போலி விசையின் கூறு `mA cos(θ)`."
+                    explanation: 'Component of gravity pulling down the incline is mg sin(θ). Component of pseudo force pushing up the incline is mA cos(θ).',
+                    explanationTamil: "சாய்தளத்தில் கீழ்நோக்கி இழுக்கும் ஈர்ப்பு விசையின் கூறு mg sin(θ). சாய்தளத்தில் மேல்நோக்கி தள்ளும் போலி விசையின் கூறு mA cos(θ)."
                 },
                 {
                     step: 4,
@@ -199,8 +199,8 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                     calculation: 'mg \\sin(\\theta) = mA \\cos(\\theta) \\implies A = g \\frac{\\sin(\\theta)}{\\cos(\\theta)} \\implies A = g \\tan(\\theta)'
                 }
             ],
-            neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
-            neetHackTamil: "இது ஒரு நிலையான முடிவு மற்றும் போட்டித் தேர்வுகளில் மிகவும் பொதுவான முறை. ஒரு வழுவழுப்பான சாய்தளத்தில் உள்ள கட்டை நழுவாமல் இருக்கத் தேவையான கிடைமட்ட முடுக்கம் எப்போதும் `A = g tan(θ)` ஆகும். இந்த முறையை அறிந்துகொள்வது நேரத்தை மிச்சப்படுத்தும்."
+            neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always A = g tan(θ). Recognizing this pattern can save a lot of time.",
+            neetHackTamil: "இது ஒரு நிலையான முடிவு மற்றும் போட்டித் தேர்வுகளில் மிகவும் பொதுவான முறை. ஒரு வழுவழுப்பான சாய்தளத்தில் உள்ள கட்டை நழுவாமல் இருக்கத் தேவையான கிடைமட்ட முடுக்கம் எப்போதும் A = g tan(θ) ஆகும். இந்த முறையை அறிந்துகொள்வது நேரத்தை மிச்சப்படுத்தும்."
         },
         {
             title: "NEET Level: Pulley System",
@@ -209,9 +209,9 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             solutionSteps: [
                 { step: 1, explanation: "Draw FBDs for both masses. For the 3kg mass, 3g acts down and T acts up. For the 2kg mass, 2g acts down and T acts up." },
                 { step: 2, explanation: "Assume the 3kg mass moves down and the 2kg mass moves up with acceleration 'a'. Write Newton's second law for each mass." },
-                { step: 3, explanation: "For 3kg mass: `3g - T = 3a`. For 2kg mass: `T - 2g = 2a`." },
-                { step: 4, explanation: "Add the two equations to eliminate T: `(3g - T) + (T - 2g) = (3a + 2a)` => `g = 5a`." },
-                { step: 5, explanation: "Solve for a: `a = g/5 = 10/5 = 2 m/s²`. Substitute 'a' back into one equation to find T: `T = 2a + 2g = 2(2) + 2(10) = 24 N`." }
+                { step: 3, explanation: "For 3kg mass: 3g - T = 3a. For 2kg mass: T - 2g = 2a." },
+                { step: 4, explanation: "Add the two equations to eliminate T: (3g - T) + (T - 2g) = (3a + 2a) => g = 5a." },
+                { step: 5, explanation: "Solve for a: a = g/5 = 10/5 = 2 m/s². Substitute 'a' back into one equation to find T: T = 2a + 2g = 2(2) + 2(10) = 24 N." }
             ],
             neetHack: "For a simple pulley (Atwood machine), acceleration `a` is always `((M - m) / (M + m)) * g`. Tension `T` is `(2Mm / (M + m)) * g`. Memorizing these can save minutes."
         },
@@ -220,13 +220,13 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             difficulty: 'Hard',
             problem: "A ball of mass 0.5 kg moving at 10 m/s strikes a wall normally and rebounds with the same speed. If the contact time is 0.1 s, find the impulse imparted and the average force on the wall.",
             solutionSteps: [
-                { step: 1, explanation: "Define initial and final momentum. Let the initial direction be positive. Initial momentum `p_i = mv = 0.5 * 10 = 5 kg m/s`." },
-                { step: 2, explanation: "Final momentum `p_f = m(-v) = 0.5 * (-10) = -5 kg m/s`, as it rebounds." },
-                { step: 3, explanation: "Impulse is the change in momentum: `J = p_f - p_i = -5 - 5 = -10 Ns`. The magnitude of impulse is 10 Ns." },
-                { step: 4, explanation: "Average force is Impulse / contact time: `F_avg = J / Δt = 10 / 0.1 = 100 N`." },
+                { step: 1, explanation: "Define initial and final momentum. Let the initial direction be positive. Initial momentum p_i = mv = 0.5 * 10 = 5 kg m/s." },
+                { step: 2, explanation: "Final momentum p_f = m(-v) = 0.5 * (-10) = -5 kg m/s, as it rebounds." },
+                { step: 3, explanation: "Impulse is the change in momentum: J = p_f - p_i = -5 - 5 = -10 Ns. The magnitude of impulse is 10 Ns." },
+                { step: 4, explanation: "Average force is Impulse / contact time: F_avg = J / Δt = 10 / 0.1 = 100 N." },
                 { step: 5, explanation: "The force is directed away from the wall (in the negative direction)." }
             ],
-            commonPitfall: "A common error is forgetting that momentum is a vector. The change is `p_f - p_i`, not `m(v-v)=0`. The final velocity is in the opposite direction, hence negative."
+            commonPitfall: "A common error is forgetting that momentum is a vector. The change is p_f - p_i, not m(v-v)=0. The final velocity is in the opposite direction, hence negative."
         },
         {
             title: "NEET Level: Static vs Kinetic Friction",
@@ -234,12 +234,12 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             problem: "A 5 kg block is on a rough surface with μs=0.4 and μk=0.3. A horizontal force of 15 N is applied. Does the block move? What is the frictional force? (g = 10 m/s²)",
             solutionSteps: [
                 { step: 1, explanation: "Calculate the maximum static friction (`f_s_max`) to determine the threshold for motion. `f_s_max = μs * N`." },
-                { step: 2, explanation: "Normal force `N = mg = 5 * 10 = 50 N`." },
+                { step: 2, explanation: "Normal force N = mg = 5 * 10 = 50 N." },
                 { step: 3, explanation: "`f_s_max = 0.4 * 50 = 20 N`." },
-                { step: 4, explanation: "Compare the applied force with `f_s_max`. Applied force `F = 15 N`." },
-                { step: 5, explanation: "Since `F (15N) < f_s_max (20N)`, the block does not move. The static friction is self-adjusting and matches the applied force. Therefore, the frictional force is 15 N." }
+                { step: 4, explanation: "Compare the applied force with `f_s_max`. Applied force F = 15 N." },
+                { step: 5, explanation: "Since F (15N) < f_s_max (20N), the block does not move. The static friction is self-adjusting and matches the applied force. Therefore, the frictional force is 15 N." }
             ],
-            neetHack: "Static friction is a 'lazy' force. It only does enough to prevent motion. It is not always equal to `μs*N`. Only if the block is *about to move* does static friction reach its maximum value."
+            neetHack: "Static friction is a 'lazy' force. It only does enough to prevent motion. It is not always equal to μs*N. Only if the block is *about to move* does static friction reach its maximum value."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -280,7 +280,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
     },
     keyTakeaways: [
         "First Law: Inertia - objects resist change in motion.",
-        "Second Law: `F = ma` - net force causes acceleration.",
+        "Second Law: F = ma - net force causes acceleration.",
         "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
         "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
     ],
@@ -305,7 +305,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             question: "A lift of mass 1000 kg is moving upwards with an acceleration of 1 m/s². The tension in the supporting cable is (g = 9.8 m/s²):",
             options: ["A. 9800 N", "B. 10800 N", "C. 8800 N", "D. 1000 N"],
             answer: "B. 10800 N",
-            explanation: "The net upward force is `T - mg = ma`. So, `T = mg + ma = m(g+a) = 1000(9.8 + 1) = 1000(10.8) = 10800 N`. The tension must support the weight AND provide the upward acceleration.",
+            explanation: "The net upward force is T - mg = ma. So, T = mg + ma = m(g+a) = 1000(9.8 + 1) = 1000(10.8) = 10800 N. The tension must support the weight AND provide the upward acceleration.",
             neetFrequency: 5
         },
         {
@@ -319,14 +319,14 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             question: "A man in a lift will feel his weight to be less than his actual weight when the lift is:",
             options: ["A. Moving up with constant velocity", "B. Moving down with constant velocity", "C. Accelerating downwards", "D. Accelerating upwards"],
             answer: "C. Accelerating downwards",
-            explanation: "Apparent weight `N = m(g - a)` when accelerating downwards. Since 'a' is positive, `N < mg`.",
+            explanation: "Apparent weight N = m(g - a) when accelerating downwards. Since 'a' is positive, N < mg.",
             neetFrequency: 4
         },
         {
             question: "A block of mass m is placed on a smooth inclined plane of inclination θ. The force exerted by the plane on the block (normal force) is:",
             options: ["A. mg", "B. mg sin(θ)", "C. mg cos(θ)", "D. mg tan(θ)"],
             answer: "C. mg cos(θ)",
-            explanation: "The normal force balances the component of weight perpendicular to the inclined plane, which is `mg cos(θ)`.",
+            explanation: "The normal force balances the component of weight perpendicular to the inclined plane, which is mg cos(θ).",
             neetFrequency: 3
         },
         { question: "The coefficient of static friction is:", options: ["A. Less than the coefficient of kinetic friction", "B. Equal to the coefficient of kinetic friction", "C. Greater than the coefficient of kinetic friction", "D. Dependent on the area of contact"], answer: "C. Greater than the coefficient of kinetic friction", explanation: "It takes more force to start motion than to maintain it, so μs > μk.", neetFrequency: 2 },
@@ -334,18 +334,18 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         { question: "A rocket works on the principle of conservation of:", options: ["A. Mass", "B. Energy", "C. Linear Momentum", "D. Angular Momentum"], answer: "C. Linear Momentum", explanation: "The rocket expels gas backward (momentum), and by conservation, the rocket gains an equal and opposite momentum forward.", neetFrequency: 4 },
         { question: "A force of 10 N acts on a body of mass 2 kg for 3 seconds. The change in its momentum is:", options: ["A. 15 kg m/s", "B. 30 kg m/s", "C. 60 kg m/s", "D. 5 kg m/s"], answer: "B. 30 kg m/s", explanation: "Impulse (Change in momentum) = Force × time = 10 N × 3 s = 30 Ns.", neetFrequency: 3 },
         { question: "The force required to keep a body in uniform circular motion is:", options: ["A. Centrifugal force", "B. Frictional force", "C. Centripetal force", "D. Resistive force"], answer: "C. Centripetal force", explanation: "Centripetal force is the net force that acts on an object to keep it moving along a circular path.", neetFrequency: 2 },
-        { question: "If the net force on a body is zero, its acceleration will be:", options: ["A. Infinite", "B. Zero", "C. Constant but non-zero", "D. Variable"], answer: "B. Zero", explanation: "According to Newton's Second Law, `F_net = ma`. If `F_net = 0`, then `a` must be 0.", neetFrequency: 1 },
+        { question: "If the net force on a body is zero, its acceleration will be:", options: ["A. Infinite", "B. Zero", "C. Constant but non-zero", "D. Variable"], answer: "B. Zero", explanation: "According to Newton's Second Law, F_net = ma. If F_net = 0, then a must be 0.", neetFrequency: 1 },
         { question: "Which of the following is a self-adjusting force?", options: ["A. Kinetic friction", "B. Tension", "C. Static friction", "D. Normal force"], answer: "C. Static friction", explanation: "Static friction adjusts its magnitude to be equal and opposite to the applied force, up to its maximum limit.", neetFrequency: 3 },
         { question: "A 5 N force is required to keep a block of mass 10 kg moving at a constant velocity on a rough surface. The value of kinetic friction is:", options: ["A. 5 N", "B. 10 N", "C. 50 N", "D. 0.5 N"], answer: "A. 5 N", explanation: "For constant velocity, the net force is zero. So, the applied force must be equal to the kinetic friction.", neetFrequency: 2 },
         { question: "When a bullet is fired from a gun, the gun recoils. This is an example of:", options: ["A. Newton's first law", "B. Newton's second law", "C. Newton's third law", "D. Law of conservation of energy"], answer: "C. Newton's third law", explanation: "The gun exerts a force on the bullet (action), and the bullet exerts an equal and opposite force on the gun (reaction).", neetFrequency: 4 },
         { question: "The unit of impulse is:", options: ["A. N", "B. N/s", "C. N·m", "D. N·s"], answer: "D. N·s", explanation: "Impulse = Force × time, so its unit is Newton-second.", neetFrequency: 1 },
-        { question: "A person of mass 60 kg is in a lift. The apparent weight of the person when the lift is moving down with an acceleration of 4.9 m/s² is (g=9.8 m/s²):", options: ["A. 30 kg-wt", "B. 60 kg-wt", "C. 90 kg-wt", "D. 0"], answer: "A. 30 kg-wt", explanation: "Apparent weight `N = m(g - a) = 60(9.8 - 4.9) = 60(4.9) = 294 N`. Since 1 kg-wt = 9.8 N, N = 294/9.8 = 30 kg-wt.", neetFrequency: 4 },
+        { question: "A person of mass 60 kg is in a lift. The apparent weight of the person when the lift is moving down with an acceleration of 4.9 m/s² is (g=9.8 m/s²):", options: ["A. 30 kg-wt", "B. 60 kg-wt", "C. 90 kg-wt", "D. 0"], answer: "A. 30 kg-wt", explanation: "Apparent weight N = m(g - a) = 60(9.8 - 4.9) = 60(4.9) = 294 N. Since 1 kg-wt = 9.8 N, N = 294/9.8 = 30 kg-wt.", neetFrequency: 4 },
         { question: "What is the angle between the frictional force and the direction of motion?", options: ["A. 0°", "B. 90°", "C. 180°", "D. 45°"], answer: "C. 180°", explanation: "Frictional force always opposes motion.", neetFrequency: 2 },
         { question: "If a body is in equilibrium, it means:", options: ["A. It is at rest", "B. It is moving with constant velocity", "C. The net force on it is zero", "D. All of the above"], answer: "D. All of the above", explanation: "Equilibrium means the net force is zero, which implies zero acceleration. This can mean the body is at rest or moving with constant velocity.", neetFrequency: 3 },
         { question: "A block is pulled along a horizontal frictionless surface by a rope. The tension in the rope will be:", options: ["A. Equal to the pulling force", "B. Less than the pulling force", "C. More than the pulling force", "D. Dependent on the mass of the rope"], answer: "A. Equal to the pulling force", explanation: "If the rope is massless and horizontal, the tension is equal to the pulling force.", neetFrequency: 1 },
         { question: "The measure of inertia of a body is its:", options: ["A. Weight", "B. Mass", "C. Velocity", "D. Acceleration"], answer: "B. Mass", explanation: "Mass is the quantitative measure of inertia.", neetFrequency: 2 },
         { question: "Two forces of 3N and 4N are acting on a body. Which of the following cannot be the resultant force?", options: ["A. 0.5 N", "B. 1 N", "C. 5 N", "D. 7 N"], answer: "A. 0.5 N", explanation: "The resultant force R must be between |F1 - F2| and |F1 + F2|. So, 1 N ≤ R ≤ 7 N. 0.5 N is not possible.", neetFrequency: 3 },
-        { question: "A force F = (6i - 8j + 10k) N produces an acceleration of 1 m/s² in a body. The mass of the body is:", options: ["A. 10 kg", "B. 10√2 kg", "C. 20 kg", "D. 6 kg"], answer: "B. 10√2 kg", explanation: "Magnitude of `F = √(6² + (-8)² + 10²) = √(36 + 64 + 100) = √200 = 10√2 N`. Since `F = ma`, `m = F/a = 10√2 / 1 = 10√2 kg`.", neetFrequency: 4 },
+        { question: "A force F = (6i - 8j + 10k) N produces an acceleration of 1 m/s² in a body. The mass of the body is:", options: ["A. 10 kg", "B. 10√2 kg", "C. 20 kg", "D. 6 kg"], answer: "B. 10√2 kg", explanation: "Magnitude of F = √(6² + (-8)² + 10²) = √(36 + 64 + 100) = √200 = 10√2 N. Since F = ma, m = F/a = 10√2 / 1 = 10√2 kg.", neetFrequency: 4 },
         { question: "The banking of roads is done to provide:", options: ["A. Necessary frictional force", "B. Necessary centripetal force", "C. A way to increase speed", "D. A way to decrease friction"], answer: "B. Necessary centripetal force", explanation: "The horizontal component of the normal force provides the necessary centripetal force for a car to take a turn safely.", neetFrequency: 3 },
         { question: "If a string breaks, the tension in it becomes:", options: ["A. Infinite", "B. Maximum", "C. Zero", "D. Unchanged"], answer: "C. Zero", explanation: "Once the string breaks, it can no longer exert any pulling force, so the tension becomes zero.", neetFrequency: 1 },
         { question: "Which law of motion is also known as the law of inertia?", options: ["A. First Law", "B. Second Law", "C. Third Law", "D. Law of Gravitation"], answer: "A. First Law", explanation: "Newton's first law defines the concept of inertia.", neetFrequency: 2 }
@@ -367,7 +367,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             assertion: "A cricketer moves his hands backward while catching a ball.",
             reason: "This increases the time of impact, reducing the force exerted by the ball on the hands.",
             answer: "A",
-            explanation: "The assertion is a common practice. The reason correctly explains the physics. From `F = Δp/Δt`, by increasing the time Δt, the force F is reduced for a given change in momentum Δp."
+            explanation: "The assertion is a common practice. The reason correctly explains the physics. From F = Δp/Δt, by increasing the time Δt, the force F is reduced for a given change in momentum Δp."
         },
         {
             assertion: "The centripetal force and centrifugal force cancel each other out.",
@@ -379,7 +379,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             assertion: "Pulling a lawn roller is easier than pushing it.",
             reason: "When pulling, the vertical component of the applied force reduces the normal reaction, thus reducing friction.",
             answer: "A",
-            explanation: "The assertion is true. The reason is the correct explanation. When pulling, a component of the force acts upwards, reducing the normal force and hence the friction (`f = μN`). When pushing, a component acts downwards, increasing the normal force and friction."
+            explanation: "The assertion is true. The reason is the correct explanation. When pulling, a component of the force acts upwards, reducing the normal force and hence the friction (f = μN). When pushing, a component acts downwards, increasing the normal force and friction."
         }
     ],
     matchTheColumns: [

@@ -72,17 +72,16 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                                 return <div className="not-prose my-4"><LiftAnimation /></div>;
                            }
                            
-                           // Logic to handle inline math
+                           // Logic to handle block math
+                           if (typeof props.children === 'string' && props.children.startsWith('$$') && props.children.endsWith('$$')) {
+                                const math = props.children.slice(2, -2);
+                                return <BlockMath math={math} />;
+                           }
+                           
                            const childrenArray = Children.toArray(props.children);
                            const newChildren = childrenArray.map((child, index) => {
                                if (typeof child === 'string') {
-                                   const parts = child.split(/(`.*?`)/g);
-                                   return parts.map((part, partIndex) => {
-                                       if (part.startsWith('`') && part.endsWith('`')) {
-                                           return <InlineMath key={`${index}-${partIndex}`} math={part.slice(1, -1)} />;
-                                       }
-                                       return renderTextWithTooltips(part);
-                                   });
+                                   return renderTextWithTooltips(child);
                                }
                                return child;
                            });
@@ -100,14 +99,9 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
                         em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
                         code({ node, inline, className, children, ...props }) {
-                            const match = /language-(\w+)/.exec(className || '');
-                            if (match && match[1] === 'math') {
-                              return <BlockMath math={String(children).replace(/\n$/, '')} />;
-                            }
-                            if (inline) {
-                              return <InlineMath math={String(children)} />;
-                            }
-                            return <code className={className} {...props}>{children}</code>;
+                           // This will be handled by the 'p' component logic for block math.
+                           // Inline code is rendered as standard text.
+                           return <code className="font-mono bg-muted/50 text-foreground/80 px-1 py-0.5 rounded-sm" {...props}>{children}</code>;
                         }
                     }}
                 >
