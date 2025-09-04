@@ -53,7 +53,7 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw W = mg acting vertically downwards).
+    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw $\\boldsymbol{W = mg}$ acting vertically downwards).
     *   **[[Contact Forces:தொடு விசைகள்]]:** What is the object touching? Each point of contact can exert a force.
         *   Is it on a surface? There is a **[[Normal Force:செங்குத்து விசை]] (N)**, perpendicular to the surface, pushing away from the surface.
         *   Is a string or rope attached? There is **[[Tension:இழுவிசை]] (T)**, acting along the rope, pulling away from the object.
@@ -64,7 +64,7 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If F_net = 0, then a = 0 (which means v = constant).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If $\\boldsymbol{F_{net} = 0}$, then $\\boldsymbol{a = 0}$ (which means $\\boldsymbol{v}$ = constant).
 
 {{INERTIA_ANIMATION}}
 
@@ -73,15 +73,15 @@ The rate of change of a body's [[linear momentum:நேர்கோட்டு 
 $$
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 $$
-Since momentum p = mv, if mass 'm' is constant, this simplifies to the famous equation:
+Since momentum $\\boldsymbol{p = mv}$, if mass 'm' is constant, this simplifies to the famous equation:
 $$
 \\vec{F}_{net} = m\\vec{a}
 $$
-This is a vector equation. It can be broken down into components: ΣF_x = ma_x and ΣF_y = ma_y. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: $\\boldsymbol{\\Sigma F_{x} = ma_{x}}$ and $\\boldsymbol{\\Sigma F_{y} = ma_{y}}$. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (F_AB = -F_BA).
+*   Forces always occur in pairs ($\\boldsymbol{F_{AB} = -F_{BA}}$).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 {{ACTION_REACTION_ANIMATION}}
@@ -95,15 +95,15 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **[[pseudo force:போலி விசை]]**.
-*   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** F_p = ma₀, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
+*   **Pseudo Force ($\\boldsymbol{F_{p}}$):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
+*   **Magnitude:** $\\boldsymbol{F_{p} = ma_{0}}$, where 'm' is the mass of the object being observed, and '$\\boldsymbol{a_{0}}$' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply ΣF_real + F_pseudo = ma_relative as if it were an inertial frame.
+Once you add the pseudo force, you can apply $\\boldsymbol{\\Sigma F_{real} + F_{pseudo} = ma_{relative}}$ as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, N = mg + ma = m(g+a). The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
-*   **Lift Accelerating Downwards:** The pseudo force F_p = ma is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, N + ma = mg, so N = m(g-a). The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F₋ (down). For equilibrium in this frame, $\\boldsymbol{N = mg + ma = m(g+a)}$. The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
+*   **Lift Accelerating Downwards:** The pseudo force $\\boldsymbol{F_{p} = ma}$ is now upwards. The forces are N (up), Fₚ (up), and mg (down). For equilibrium, $\\boldsymbol{N + ma = mg}$, so $\\boldsymbol{N = m(g-a)}$. The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
 
 {{LIFT_ANIMATION}}
 `,
@@ -136,8 +136,8 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             solutionSteps: [
                 {
                     step: 1,
-                    explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁_max + f₂_max.',
-                    explanationTamil: 'அமைப்பு நகருமா என்று பார்க்க, இரு கட்டைகளுக்குமான பெரும நிலை உராய்வு விசையைக் கணக்கிடவும். மொத்த உராய்வு = f₁_max + f₂_max.',
+                    explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁₋ₘₐₓ + f₂₋ₘₐₓ.',
+                    explanationTamil: 'அமைப்பு நகருமா என்று பார்க்க, இரு கட்டைகளுக்குமான பெரும நிலை உராய்வு விசையைக் கணக்கிடவும். மொத்த உராய்வு = f₁₋ₘₐₓ + f₂₋ₘₐₓ.',
                     calculation: 'f_{1,max} = \\mu m_1 g = 0.2 \\times 4 \\times 10 = 8 N. \\\\ f_{2,max} = \\mu m_2 g = 0.2 \\times 6 \\times 10 = 12 N. \\\\ Total_{max} = 20 N'
                 },
                 {
@@ -147,19 +147,19 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 },
                 {
                     step: 3,
-                    explanation: 'Apply F_net = ma to the whole system (m₁ + m₂) to find acceleration.',
-                    explanationTamil: 'முடுக்கத்தைக் கண்டறிய, முழு அமைப்பிற்கும் (m₁ + m₂) F_net = ma ஐப் பயன்படுத்தவும்.',
+                    explanation: 'Apply Fₙₑₜ = ma to the whole system (m₁ + m₂) to find acceleration.',
+                    explanationTamil: 'முடுக்கத்தைக் கண்டறிய, முழு அமைப்பிற்கும் (m₁ + m₂) Fₙₑₜ = ma ஐப் பயன்படுத்தவும்.',
                     calculation: 'F - f_1 - f_2 = (m_1 + m_2)a \\implies 50 - 8 - 12 = 10a \\implies 30 = 10a \\implies a = 3 m/s²'
                 },
                 {
                     step: 4,
-                    explanation: 'Apply F_net = ma to a single block (m₁) to find tension T.',
-                    explanationTamil: 'இழுவிசை T ஐக் கண்டறிய, ஒரு கட்டைக்கு (m₁) மட்டும் F_net = ma ஐப் பயன்படுத்தவும்.',
+                    explanation: 'Apply Fₙₑₜ = ma to a single block (m₁) to find tension T.',
+                    explanationTamil: 'இழுவிசை T ஐக் கண்டறிய, ஒரு கட்டைக்கு (m₁) மட்டும் Fₙₑₜ = ma ஐப் பயன்படுத்தவும்.',
                     calculation: 'T - f_1 = m_1 a \\implies T - 8 = 4 \\times 3 \\implies T = 12 + 8 \\implies T = 20 N'
                 }
             ],
-            neetHack: "For connected blocks, always treat them as a single system to find acceleration first: a = F_net_external / M_total. Then isolate one block (usually the one with fewer forces) to find internal forces like tension.",
-            neetHackTamil: "இணைக்கப்பட்ட கட்டைகளுக்கு, முதலில் முடுக்கத்தைக் கண்டுபிடிக்க முழு அமைப்பையும் ஒரே பொருளாகக் கருதுங்கள்: a = F_net_external / M_total. பிறகு, இழுவிசை போன்ற அக விசைகளைக் கண்டுபிடிக்க, குறைவான விசைகள் கொண்ட ஒரு கட்டையைத் தனிமைப்படுத்தவும்.",
+            neetHack: "For connected blocks, always treat them as a single system to find acceleration first: a = Fₙₑₜ₋ₑₓₜₑᵣₙₐₗ / Mₜₒₜₐₗ. Then isolate one block (usually the one with fewer forces) to find internal forces like tension.",
+            neetHackTamil: "இணைக்கப்பட்ட கட்டைகளுக்கு, முதலில் முடுக்கத்தைக் கண்டுபிடிக்க முழு அமைப்பையும் ஒரே பொருளாகக் கருதுங்கள்: a = Fₙₑₜ₋ₑₓₜₑᵣₙₐₗ / Mₜₒₜₐₗ. பிறகு, இழுவிசை போன்ற அக விசைகளைக் கண்டுபிடிக்க, குறைவான விசைகள் கொண்ட ஒரு கட்டையைத் தனிமைப்படுத்தவும்.",
             commonPitfall: "A common mistake is to only consider friction on the block being pulled. Friction opposes motion for *every* block in contact with the surface. Drawing FBDs for each block separately prevents this error.",
             commonPitfallTamil: "இழுக்கப்படும் கட்டையின் மீது மட்டுமே உராய்வு விசையைக் கருத்தில் கொள்வது ஒரு பொதுவான தவறு. பரப்புடன் தொடர்பில் உள்ள ஒவ்வொரு கட்டையின் இயக்கத்தையும் உராய்வு எதிர்க்கும். ஒவ்வொரு கட்டைக்கும் தனித்தனியாக FBD வரைவது இந்தத் தவறைத் தடுக்கும்."
         },
@@ -220,26 +220,26 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             difficulty: 'Hard',
             problem: "A ball of mass 0.5 kg moving at 10 m/s strikes a wall normally and rebounds with the same speed. If the contact time is 0.1 s, find the impulse imparted and the average force on the wall.",
             solutionSteps: [
-                { step: 1, explanation: "Define initial and final momentum. Let the initial direction be positive. Initial momentum p_i = mv = 0.5 * 10 = 5 kg m/s." },
-                { step: 2, explanation: "Final momentum p_f = m(-v) = 0.5 * (-10) = -5 kg m/s, as it rebounds." },
-                { step: 3, explanation: "Impulse is the change in momentum: J = p_f - p_i = -5 - 5 = -10 Ns. The magnitude of impulse is 10 Ns." },
-                { step: 4, explanation: "Average force is Impulse / contact time: F_avg = J / Δt = 10 / 0.1 = 100 N." },
+                { step: 1, explanation: "Define initial and final momentum. Let the initial direction be positive. Initial momentum pᵢ = mv = 0.5 * 10 = 5 kg m/s." },
+                { step: 2, explanation: "Final momentum pբ = m(-v) = 0.5 * (-10) = -5 kg m/s, as it rebounds." },
+                { step: 3, explanation: "Impulse is the change in momentum: J = pբ - pᵢ = -5 - 5 = -10 Ns. The magnitude of impulse is 10 Ns." },
+                { step: 4, explanation: "Average force is Impulse / contact time: Fₐᵥ₉ = J / Δt = 10 / 0.1 = 100 N." },
                 { step: 5, explanation: "The force is directed away from the wall (in the negative direction)." }
             ],
-            commonPitfall: "A common error is forgetting that momentum is a vector. The change is p_f - p_i, not m(v-v)=0. The final velocity is in the opposite direction, hence negative."
+            commonPitfall: "A common error is forgetting that momentum is a vector. The change is pբ - pᵢ, not m(v-v)=0. The final velocity is in the opposite direction, hence negative."
         },
         {
             title: "NEET Level: Static vs Kinetic Friction",
             difficulty: 'Medium',
-            problem: "A 5 kg block is on a rough surface with μs=0.4 and μk=0.3. A horizontal force of 15 N is applied. Does the block move? What is the frictional force? (g = 10 m/s²)",
+            problem: "A 5 kg block is on a rough surface with μₛ=0.4 and μₖ=0.3. A horizontal force of 15 N is applied. Does the block move? What is the frictional force? (g = 10 m/s²)",
             solutionSteps: [
-                { step: 1, explanation: "Calculate the maximum static friction (`f_s_max`) to determine the threshold for motion. `f_s_max = μs * N`." },
+                { step: 1, explanation: "Calculate the maximum static friction (`fₛ₋ₘₐₓ`) to determine the threshold for motion. `fₛ₋ₘₐₓ = μₛ * N`." },
                 { step: 2, explanation: "Normal force N = mg = 5 * 10 = 50 N." },
-                { step: 3, explanation: "`f_s_max = 0.4 * 50 = 20 N`." },
-                { step: 4, explanation: "Compare the applied force with `f_s_max`. Applied force F = 15 N." },
-                { step: 5, explanation: "Since F (15N) < f_s_max (20N), the block does not move. The static friction is self-adjusting and matches the applied force. Therefore, the frictional force is 15 N." }
+                { step: 3, explanation: "`fₛ₋ₘₐₓ = 0.4 * 50 = 20 N`." },
+                { step: 4, explanation: "Compare the applied force with `fₛ₋ₘₐₓ`. Applied force F = 15 N." },
+                { step: 5, explanation: "Since F (15N) < fₛ₋ₘₐₓ (20N), the block does not move. The static friction is self-adjusting and matches the applied force. Therefore, the frictional force is 15 N." }
             ],
-            neetHack: "Static friction is a 'lazy' force. It only does enough to prevent motion. It is not always equal to μs*N. Only if the block is *about to move* does static friction reach its maximum value."
+            neetHack: "Static friction is a 'lazy' force. It only does enough to prevent motion. It is not always equal to μₛ*N. Only if the block is *about to move* does static friction reach its maximum value."
         }
     ],
     keyFormulasAndDiagrams: {

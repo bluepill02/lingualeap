@@ -34,7 +34,7 @@ export const motionInAStraightLineModule: NeetModule = {
 *   **Path Length (பாதை நீளம்):** The total length of the actual path traversed by an object. It is a [[scalar quantity:ஸ்கேலார் அளவு]] (has only magnitude) and is always positive.
 *   **Displacement (இடப்பெயர்ச்சி):** The shortest straight-line distance between the initial and final positions of an object. It is a [[vector quantity:வெக்டர் அளவு]] (has both magnitude and direction). Displacement can be positive, negative, or zero.
 $$
-\\Delta x = x_f - x_i
+\\Delta x = x_{f} - x_{i}
 $$
     Example: If you walk 5m East and then 3m West, your path length is 8m, but your displacement is 2m East.
 
@@ -58,7 +58,7 @@ $$
 *   **Acceleration (முடுக்கம்):** The rate of change of velocity with respect to time. It is a vector quantity.
 *   **Average Acceleration (சராசரி முடுக்கம்):**
 $$
-\\bar{a} = \\frac{\\Delta v}{\\Delta t} = \\frac{v_f - v_i}{t_f - t_i}
+\\bar{a} = \\frac{\\Delta v}{\\Delta t} = \\frac{v_{f} - v_{i}}{t_{f} - t_{i}}
 $$
 *   **Instantaneous Acceleration (உடனடி முடுக்கம்):**
 $$
@@ -67,9 +67,9 @@ $$
 
 ### 4. Kinematic Equations for Uniformly Accelerated Motion (சீரான முடுக்கத்துடன் கூடிய இயக்கத்திற்கான இயக்கச் சமன்பாடுகள்)
 These three equations are the cornerstone of kinematics and are valid *only* when the acceleration 'a' is constant.
-1.  **Velocity-Time Relation:** v = u + at
-2.  **Position-Time Relation:** s = ut + ½at²
-3.  **Position-Velocity Relation:** v² = u² + 2as
+1.  **Velocity-Time Relation:** $\\boldsymbol{v = u + at}$
+2.  **Position-Time Relation:** $\\boldsymbol{s = ut + ½at²}$
+3.  **Position-Velocity Relation:** $\\boldsymbol{v² = u² + 2as}$
 
 Where:
 *   u = initial velocity (தொடக்க திசைவேகம்)
@@ -80,17 +80,17 @@ Where:
 
 A fourth useful equation can be derived for displacement in the *n*th second:
 $$
-s_n = u + \\frac{a}{2}(2n - 1)
+s_{n} = u + \\frac{a}{2}(2n - 1)
 $$
 
 ### 5. Motion Under Gravity (ஈர்ப்பின் கீழ் இயக்கம்)
 This is a special case of uniformly accelerated motion where the acceleration is due to gravity, *g* (approximately 9.8 m/s²).
 *   **Sign Convention is Crucial:** A common convention is to take the upward direction as positive and the downward direction as negative.
-    *   In this case, acceleration a = -g for all scenarios (object thrown up, falling down).
+    *   In this case, acceleration $\\boldsymbol{a = -g}$ for all scenarios (object thrown up, falling down).
 *   The kinematic equations become:
-    1.  v = u - gt
-    2.  s = ut - ½gt²
-    3.  v² = u² - 2gs
+    1.  $\\boldsymbol{v = u - gt}$
+    2.  $\\boldsymbol{s = ut - ½gt²}$
+    3.  $\\boldsymbol{v² = u² - 2gs}$
 `,
     keyTakeaways: [
         "Displacement is the shortest path (vector), while distance is the total path length (scalar).",
@@ -183,9 +183,9 @@ This is a special case of uniformly accelerated motion where the acceleration is
             problem: "Two trains A and B of length 400 m each are moving on two parallel tracks with a uniform speed of 72 km/h in the same direction, with A ahead of B. The driver of B decides to overtake A and accelerates by 1 m/s². If after 50 s, the guard of B just brushes past the driver of A, what was the original distance between them?",
             solutionSteps: [
                 { step: 1, explanation: "Convert speed to m/s: 72 km/h = 72 * (5/18) = 20 m/s." },
-                { step: 2, explanation: "Consider the motion relative to train A. The initial relative velocity of B with respect to A is u_rel = u_B - u_A = 20 - 20 = 0 m/s." },
-                { step: 3, explanation: "The relative acceleration is a_rel = a_B - a_A = 1 - 0 = 1 m/s²." },
-                { step: 4, explanation: "For the guard of B (tail of B) to pass the driver of A (front of A), the total relative distance to be covered is the sum of the lengths of both trains. Let the initial distance be x. The relative distance covered is s_rel = u_rel*t + 0.5*a_rel*t²", calculation: "s_{rel} = 0*50 + 0.5*1*(50)² = 1250 m" },
+                { step: 2, explanation: "Consider the motion relative to train A. The initial relative velocity of B with respect to A is uᵣₑₗ = u₋ - uₐ = 20 - 20 = 0 m/s." },
+                { step: 3, explanation: "The relative acceleration is aᵣₑₗ = a₋ - aₐ = 1 - 0 = 1 m/s²." },
+                { step: 4, explanation: "For the guard of B (tail of B) to pass the driver of A (front of A), the total relative distance to be covered is the sum of the lengths of both trains. Let the initial distance be x. The relative distance covered is sᵣₑₗ = uᵣₑₗ*t + 0.5*aᵣₑₗ*t²", calculation: "s_{rel} = 0*50 + 0.5*1*(50)² = 1250 m" },
                 { step: 5, explanation: "This 1250m is the total distance the front of train B gained on the front of train A. The event 'guard of B passes driver of A' means train B has moved its own length (400m) plus the length of train A (400m) plus the initial gap (x) relative to train A. So, x + 400 + 400 = 1250m.", calculation: "x + 800 = 1250 \\implies x = 450m" }
             ],
             commonPitfall: "Defining the relative distance in train problems is the most common error. Draw a diagram showing the initial and final positions to clearly visualize the total distance that needs to be covered in the relative frame. 'Guard passing the driver' means the rear of the overtaking train has passed the front of the other train.",
@@ -209,10 +209,10 @@ This is a special case of uniformly accelerated motion where the acceleration is
             difficulty: 'Easy',
             problem: "A particle starts from rest with a constant acceleration of 2 m/s². Find the distance covered in the 5th second of its motion.",
             solutionSteps: [
-                { step: 1, explanation: "Use the formula for distance in the nth second: s_n = u + (a/2)(2n - 1)." },
+                { step: 1, explanation: "Use the formula for distance in the nth second: sₙ = u + (a/2)(2n - 1)." },
                 { step: 2, explanation: "Identify the given values: u = 0, a = 2 m/s², n = 5." },
                 { step: 3, explanation: "Substitute the values into the formula." },
-                { step: 4, explanation: "s_5 = 0 + (2/2)(2*5 - 1) = 1 * (10 - 1) = 9 m." },
+                { step: 4, explanation: "s₅ = 0 + (2/2)(2*5 - 1) = 1 * (10 - 1) = 9 m." },
                 { step: 5, explanation: "Alternatively, find distance in 5s and 4s and subtract. s(5) = 0.5*2*5² = 25m. s(4) = 0.5*2*4² = 16m. Distance in 5th second = s(5) - s(4) = 9 m." }
             ],
             commonPitfall: "Confusing 'distance in 5 seconds' with 'distance in the 5th second'. The latter is the distance covered between t=4s and t=5s."
