@@ -38,7 +38,7 @@ export const lawsOfMotionModule: NeetModule = {
             topic: 'Momentum & Collisions',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using **F=dp/dt** is more fundamental than **F=ma**.'
+            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.'
         }
     ],
     conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology (விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை)
@@ -48,7 +48,7 @@ The single most important skill in solving mechanics problems is drawing a Free-
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **Non-Contact Force (தொடா விசை):** Does gravity (ஈர்ப்பு விசை) act on it? (Almost always, draw **W = mg** acting vertically downwards).
+    *   **Non-Contact Force (தொடா விசை):** Does gravity (ஈர்ப்பு விசை) act on it? (Almost always, draw W = mg acting vertically downwards).
     *   **Contact Forces (தொடு விசைகள்):** What is the object touching? Each point of contact can exert a force.
         *   Is it on a surface? There is a **Normal Force (செங்குத்து விசை, N)**, perpendicular to the surface, pushing away from the surface.
         *   Is a string or rope attached? There is **Tension (இழுவிசை, T)**, acting along the rope, pulling away from the object.
@@ -59,22 +59,22 @@ The single most important skill in solving mechanics problems is drawing a Free-
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If **F_net = 0**, then **a = 0** (which means **v = constant**).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If F_net = 0, then a = 0 (which means v = constant).
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 
 \`\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}\`
 
-Since momentum **p = mv**, if mass 'm' is constant, this simplifies to the famous equation:
+Since momentum p = mv, if mass 'm' is constant, this simplifies to the famous equation:
 
 \`\\vec{F}_{net} = m\\vec{a}\`
 
-This is a vector equation. It can be broken down into components: **ΣF_x = ma_x** and **ΣF_y = ma_y**. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: ΣF_x = ma_x and ΣF_y = ma_y. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (**F_AB = -F_BA**).
+*   Forces always occur in pairs (F_AB = -F_BA).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
@@ -87,14 +87,14 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
 *   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** **F_p = ma₀**, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
+*   **Magnitude:** F_p = ma₀, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply **ΣF_real + F_pseudo = ma_relative** as if it were an inertial frame.
+Once you add the pseudo force, you can apply ΣF_real + F_pseudo = ma_relative as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, **N = mg + ma = m(g+a)**. The person feels heavier (தோற்ற எடை அதிகம்).
-*   **Lift Accelerating Downwards:** The pseudo force **F_p = ma** is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, **N + ma = mg**, so **N = m(g-a)**. The person feels lighter (தோற்ற எடை குறைவு).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, N = mg + ma = m(g+a). The person feels heavier (தோற்ற எடை அதிகம்).
+*   **Lift Accelerating Downwards:** The pseudo force F_p = ma is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, N + ma = mg, so N = m(g-a). The person feels lighter (தோற்ற எடை குறைவு).
 `,
     workedExamples: [
         {
@@ -444,5 +444,3 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         }
     ]
 };
-
-    
