@@ -57,18 +57,18 @@ function renderContent(content: string) {
         } else if (trimmedLine.startsWith('FORMULA_START')) {
             inBlock = 'formula';
             return;
-        } else if (trimmedLine === 'FORMULA_END' && inBlock === 'formula') {
-            const [formula, description] = blockContent.join('\n').split('#').map(s => s.trim());
+        } else if (trimmedLine.startsWith('`')) {
+            const formulaLine = trimmedLine.slice(1, -1);
+            const [formula, description] = formulaLine.split('#').map(s => s.trim());
             elements.push(
                  <div key={`formula-${index}`} className="bg-muted p-4 rounded-lg my-4">
                     <BlockMath math={formula} />
                     {description && <p className="text-sm text-center text-muted-foreground mt-2">{description}</p>}
                 </div>
             );
-            inBlock = null;
-            blockContent = [];
             return;
         }
+
 
         if (inBlock) {
             blockContent.push(line);
@@ -313,7 +313,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
                                             <AccordionContent className="p-2 bg-primary/10 rounded-md">
-                                                <strong>Answer:</strong> {item.answer}
+                                                <strong>Answer:</strong> {item.explanation}
                                             </AccordionContent>
                                         </AccordionItem>
                                     </Accordion>
