@@ -19,7 +19,7 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from '../ui/separator';
 import { Calendar } from 'lucide-react';
 
 export default function SettingsPage() {
