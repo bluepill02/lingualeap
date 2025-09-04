@@ -124,7 +124,11 @@ export interface WorkedExample {
     title: string;
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
-    solutionSteps: string[];
+    solutionSteps: {
+        step: number;
+        explanation: string;
+        calculation?: string;
+    }[];
     neetHack: string;
     commonPitfall: string;
 }
@@ -227,3 +231,5 @@ export interface LiveClass {
   startTime: string;
   endTime: string;
 }
+
+    

@@ -46,7 +46,7 @@ export function ConceptNotesCard({ content }: { content: string }) {
                         h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2" {...props} />,
                         li: ({node, ...props}) => <li className="ml-5 list-disc my-1" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold" {...props} />,
-                        em: ({node, ...props}) => <i {...props} />,
+                        em: ({node, ...props}) => <i className="italic" {...props} />,
                         code: ({node, ...props}) => {
                             if (node?.children[0]?.type === 'text') {
                                 return <BlockMath math={node.children[0].value} />;
@@ -90,11 +90,16 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         </div>
                         <div>
                             <p className="font-bold mb-2">Solution:</p>
-                            <ol className="list-decimal list-inside space-y-2">
+                             <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
-                                    <li key={stepIndex}>{step}</li>
+                                    <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5 rounded-r-md">
+                                        <p className="font-semibold text-sm">Step {stepIndex + 1}: {step.explanation}</p>
+                                        {step.calculation && (
+                                            <p className="text-sm font-mono bg-muted p-2 rounded-md mt-1">{step.calculation}</p>
+                                        )}
+                                    </div>
                                 ))}
-                            </ol>
+                            </div>
                         </div>
                         <Alert variant="default" className="bg-accent/10 border-accent">
                             <Lightbulb className="h-4 w-4 text-accent" />
@@ -378,3 +383,5 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
+
+    

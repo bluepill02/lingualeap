@@ -102,21 +102,30 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             difficulty: 'Medium',
             problem: "Two blocks of masses m₁=4kg and m₂=6kg are connected by a string and placed on a rough horizontal surface (μ=0.2). A force F=50N is applied on m₂. Find the acceleration of the system and the tension in the string. (g=10 m/s²)",
             solutionSteps: [
-                "Strategy: First, we find the maximum possible friction to see if the system moves. Then, we apply Newton's 2nd Law to the whole system to find acceleration, and finally to a single block to find the internal force (tension).",
-                "Step 1: Draw FBD for both blocks. For m₁, forces are Tension (T) right, friction (f₁) left, weight (m₁g) down, normal (N₁) up. For m₂, forces are F right, T left, friction (f₂) left, weight (m₂g) down, normal (N₂) up.",
-                `
-FBD for m₁:               FBD for m₂:
-      N₁ ↑                      N₂ ↑
-        [m₁] → T                  F ← [m₂] → T
-      f₁ ←                      f₂ ←
-      W₁ ↓                      W₂ ↓
-`,
-                "Step 2: Calculate maximum static friction for both. f₁_max = μN₁ = μm₁g = 0.2 * 4 * 10 = 8 N. f₂_max = μN₂ = μm₂g = 0.2 * 6 * 10 = 12 N. Total max friction = 20 N.",
-                "Step 3: Check for motion. The total driving force is F=50N. Since F (50N) > f_total_max (20N), the system will accelerate. The friction acting will be kinetic friction, f = μN.",
-                "Step 4: Apply F_net = ma to the system (m₁ + m₂). The net force is the driving force minus the opposing frictional forces. F_net = F - f₁ - f₂ = (m₁ + m₂)a.",
-                "50 - 8 - 12 = (4 + 6)a  => 30 = 10a => a = 3 m/s².",
-                "Step 5: Isolate one block to find tension. It's easier to use m₁. Apply F_net = ma to m₁. The net force on m₁ is T - f₁. So, T - f₁ = m₁a.",
-                "T - 8 = 4 * 3 => T - 8 = 12 => T = 20 N."
+                {
+                    step: 1,
+                    explanation: 'Draw FBD for both blocks. For m₁, forces are Tension (T) right, friction (f₁) left, weight (m₁g) down, normal (N₁) up. For m₂, forces are F right, T left, friction (f₂) left, weight (m₂g) down, normal (N₂) up.',
+                    calculation: `FBD for m₁: N₁ ↑, T →, f₁ ←, W₁ ↓ | FBD for m₂: N₂ ↑, F →, T ←, f₂ ←, W₂ ↓`
+                },
+                {
+                    step: 2,
+                    explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁_max + f₂_max.',
+                    calculation: 'f₁_max = μm₁g = 0.2*4*10 = 8 N. f₂_max = μm₂g = 0.2*6*10 = 12 N. Total max = 20 N.'
+                },
+                {
+                    step: 3,
+                    explanation: 'Compare driving force to max friction. Since F(50N) > Total Friction(20N), the system moves. The friction will be kinetic friction.',
+                },
+                {
+                    step: 4,
+                    explanation: 'Apply F_net = ma to the whole system (m₁ + m₂) to find acceleration.',
+                    calculation: 'F - f₁ - f₂ = (m₁ + m₂)a  =>  50 - 8 - 12 = 10a  =>  30 = 10a  =>  a = 3 m/s²'
+                },
+                {
+                    step: 5,
+                    explanation: 'Apply F_net = ma to a single block (m₁) to find tension T.',
+                    calculation: 'T - f₁ = m₁a  =>  T - 8 = 4 * 3  =>  T = 12 + 8  =>  T = 20 N'
+                }
             ],
             neetHack: "For connected blocks, always treat them as a single system to find acceleration first: a = F_net_external / M_total. Then isolate one block (usually the one with fewer forces) to find internal forces like tension.",
             commonPitfall: "A common mistake is to only consider friction on the block being pulled. Friction opposes motion for *every* block in contact with the surface. Drawing FBDs for each block separately prevents this error."
@@ -126,97 +135,112 @@ FBD for m₁:               FBD for m₂:
             difficulty: 'Hard',
             problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip on it?",
             solutionSteps: [
-                "Strategy: This problem is best solved from the non-inertial (accelerating) frame of the wedge. We'll add a pseudo force to the block and then apply the condition for equilibrium (no slipping).",
-                "Step 1: Consider the wedge as our frame of reference. This frame is accelerating to the right with acceleration `A`.",
-                "Step 2: Draw the FBD of block 'm' as seen from the wedge. The real forces are: weight `mg` (vertically down) and the Normal force `N` (perpendicular to the incline, upwards).",
-                `
-FBD of 'm' in wedge's frame:
-          N ↖
-           [m]
-  F_p=mA ←  ↓ mg
-`,
-                "Step 3: Add the Pseudo Force. Because the frame (wedge) is accelerating to the right with `A`, we must add a pseudo force `F_p = mA` on the block, directed to the left.",
-                "Step 4: Apply equilibrium conditions. For the block not to slip, the net force parallel to the incline must be zero. We must resolve all forces into components parallel and perpendicular to the incline.",
-                "The component of gravity pulling the block down the incline is `mg sin(θ)`.",
-                "The component of the pseudo force pushing the block up the incline is `F_p cos(θ)` which is `mA cos(θ)`.",
-                "Step 5: Set the parallel forces equal to each other for equilibrium. `mg sin(θ) = mA cos(θ)`.",
-                "Step 6: Solve for the acceleration `A`. `A = (mg sin(θ)) / (m cos(θ)) = g * (sin(θ)/cos(θ)) = g tan(θ)`."
+                {
+                    step: 1,
+                    explanation: 'This problem is best solved from the non-inertial (accelerating) frame of the wedge. We add a pseudo force to the block and then apply the condition for equilibrium (no slipping).'
+                },
+                {
+                    step: 2,
+                    explanation: 'Draw the FBD of block `m` as seen from the wedge. The real forces are weight `mg` (down) and Normal force `N` (perpendicular to the incline). A pseudo force `F_p = mA` acts opposite to the wedge\'s acceleration.',
+                    calculation: 'Forces: mg (↓), N (↖), F_p = mA (←)'
+                },
+                {
+                    step: 3,
+                    explanation: 'Resolve forces into components parallel to the incline. For equilibrium (no slipping), the net force parallel to the incline must be zero.'
+                },
+                {
+                    step: 4,
+                    explanation: 'Component of gravity pulling down the incline is `mg sin(θ)`. Component of pseudo force pushing up the incline is `mA cos(θ)`.',
+                },
+                {
+                    step: 5,
+                    explanation: 'Set the parallel forces equal to each other for equilibrium and solve for A.',
+                    calculation: 'mg sin(θ) = mA cos(θ)  =>  A = g * (sin(θ)/cos(θ))  =>  A = g tan(θ)'
+                }
             ],
             neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
-            commonPitfall: "The most common error is forgetting to add the pseudo force, or adding it in the wrong direction. The second mistake is resolving the components incorrectly. Remember `mg` gets a `sin(θ)` component along the incline, while the horizontal force `mA` gets a `cos(θ)` component."
+            commonPitfall: "Forgetting to add the pseudo force, or adding it in the wrong direction. The second mistake is resolving the components incorrectly. Remember `mg` gets a `sin(θ)` component along the incline, while the horizontal force `mA` gets a `cos(θ)` component."
         },
         {
             title: "NEET Level: Block on an Incline with Friction",
             difficulty: 'Medium',
             problem: "A block of mass 5 kg is placed on a rough inclined plane making an angle of 30° with the horizontal. The coefficient of static friction is 0.6. Will the block slide down? What is the frictional force acting on it? (g = 10 m/s²)",
             solutionSteps: [
-                "Strategy: To determine if the block slides, we must compare the component of gravity pulling it down the incline with the maximum possible static frictional force that can oppose it.",
-                `Step 1: Draw FBD and calculate the force pulling the block down the incline (F_down = mg sin(θ)).
-FBD of block on incline:
-        N ↖  ↗ f_s (friction)
-           [m]
-           ↙   ↘
-  mg sin(θ)     mg cos(θ)
-          (component along incline) (component perp. to incline)
-`,
-                "F_down = 5 kg * 10 m/s² * sin(30°) = 50 * 0.5 = 25 N.",
-                "Step 2: Calculate the normal force (N) acting on the block. This is the component of its weight perpendicular to the slope: N = mg cos(θ).",
-                "N = 5 kg * 10 m/s² * cos(30°) = 50 * (√3 / 2) ≈ 43.3 N.",
-                "Step 3: Calculate the maximum possible static friction (f_s_max). f_s_max = μs * N.",
-                "f_s_max = 0.6 * 43.3 N ≈ 25.98 N.",
-                "Step 4: Compare the forces. The force pulling the block down is F_down = 25 N. The maximum friction available to stop it is f_s_max ≈ 25.98 N.",
-                "Step 5: Conclude. Since F_down (25 N) is less than f_s_max (25.98 N), the block will NOT slide. Because it is in equilibrium, the actual static frictional force acting on it is exactly equal to the downward force. f_s = 25 N."
+                {
+                    step: 1,
+                    explanation: "Compare the component of gravity pulling it down (F_down) with the maximum possible static frictional force (f_s_max).",
+                },
+                {
+                    step: 2,
+                    explanation: "Calculate the force pulling the block down the incline.",
+                    calculation: "F_down = mg sin(θ) = 5 * 10 * sin(30°) = 50 * 0.5 = 25 N"
+                },
+                {
+                    step: 3,
+                    explanation: "Calculate the normal force (N), which is the component of weight perpendicular to the slope.",
+                    calculation: "N = mg cos(θ) = 5 * 10 * cos(30°) = 50 * (√3 / 2) ≈ 43.3 N"
+                },
+                {
+                    step: 4,
+                    explanation: "Calculate the maximum possible static friction (f_s_max).",
+                    calculation: "f_s_max = μs * N = 0.6 * 43.3 N ≈ 25.98 N"
+                },
+                {
+                    step: 5,
+                    explanation: "Compare forces. Since F_down (25 N) < f_s_max (25.98 N), the block will NOT slide. The actual static frictional force is equal to the downward force.",
+                    calculation: "f_s = F_down = 25 N"
+                }
             ],
-            neetHack: "The critical comparison is between tan(θ) and μs. If tan(θ) ≤ μs, the block will not slide. Here, tan(30°) ≈ 0.577, which is less than μs = 0.6. So, it won't slide. This is a quick check.",
-            commonPitfall: "The most common mistake is to assume the frictional force is f = μsN = 25.98 N. This is incorrect. Static friction is a self-adjusting force; it is only as large as it needs to be to prevent motion, up to its maximum value. Since only 25 N is needed, the friction is 25 N."
+            neetHack: "A quick check: if tan(θ) ≤ μs, the block will not slide. Here, tan(30°) ≈ 0.577, which is less than μs = 0.6. So, it won't slide.",
+            commonPitfall: "The most common mistake is to assume the frictional force is f = μsN = 25.98 N. This is incorrect. Static friction is a self-adjusting force; it is only as large as it needs to be to prevent motion, up to its maximum value."
         },
         {
             title: "NEET Level: The Classic Atwood Machine",
             difficulty: 'Medium',
             problem: "Two masses, m₁ = 10 kg and m₂ = 5 kg, are connected by a massless, inextensible string passing over a frictionless pulley. Find the acceleration of the system and the tension in the string when they are released. (g = 10 m/s²)",
             solutionSteps: [
-                "Strategy: Identify the net force driving the system's motion and divide by the total mass to find acceleration. Then, analyze one of the masses individually to find the tension.",
-                `Step 1: Draw FBDs. For m₁, forces are T (up) and m₁g (down). For m₂, forces are T (up) and m₂g (down). Since m₁ > m₂, m₁ accelerates down and m₂ accelerates up.
-FBD for m₁:     FBD for m₂:
-     T ↑             T ↑
-      [m₁]            [m₂]
-     W₁=m₁g ↓        W₂=m₂g ↓
-     (a ↓)           (a ↑)
-`,
-                "Step 2: Calculate the net external force on the system. The force causing the motion is m₁g, and the force opposing it is m₂g. So, F_net = m₁g - m₂g.",
-                "F_net = (10 * 10) - (5 * 10) = 100 N - 50 N = 50 N.",
-                "Step 3: Calculate the total mass being accelerated. M_total = m₁ + m₂ = 10 kg + 5 kg = 15 kg.",
-                "Step 4: Calculate the acceleration using Newton's second law for the system. a = F_net / M_total.",
-                "a = 50 N / 15 kg = 10/3 m/s² ≈ 3.33 m/s².",
-                "Step 5: Find the tension by creating an equation for one mass. Let's use m₂ (it is accelerating upwards). The net force on m₂ is T - m₂g = m₂a.",
-                "T = m₂g + m₂a = m₂(g + a) = 5 * (10 + 10/3) = 5 * (40/3) = 200/3 N ≈ 66.7 N."
+                {
+                    step: 1,
+                    explanation: "Identify the net force driving the system's motion and the total mass being accelerated.",
+                    calculation: "F_net = m₁g - m₂g = 100 N - 50 N = 50 N. M_total = m₁ + m₂ = 15 kg."
+                },
+                {
+                    step: 2,
+                    explanation: "Calculate the acceleration using Newton's second law for the system: a = F_net / M_total.",
+                    calculation: "a = 50 N / 15 kg = 10/3 m/s² ≈ 3.33 m/s²"
+                },
+                {
+                    step: 3,
+                    explanation: "Find the tension by creating an equation for one mass. Let's use m₂ (accelerating up): T - m₂g = m₂a.",
+                    calculation: "T = m₂(g + a) = 5 * (10 + 10/3) = 5 * (40/3) ≈ 66.7 N"
+                }
             ],
-            neetHack: "A shortcut formula for acceleration in an Atwood machine is a = g * (m₁-m₂) / (m₁ + m₂). And for tension, T = 2m₁m₂g / (m₁ + m₂). Plugging in the values gives the same results instantly. It's worth memorizing these for speed.",
-            commonPitfall: "A frequent error is calculating the net force incorrectly (e.g., just using m₁g) or using the wrong total mass. Remember that both masses are part of the accelerating system. Another mistake is assuming tension equals one of the weights; tension is the same throughout the string but is not equal to either weight unless the system is in equilibrium."
+            neetHack: "Memorize the shortcut formulas for an Atwood machine: a = g(m₁-m₂)/(m₁+m₂) and T = 2m₁m₂g/(m₁+m₂). They save valuable time in exams.",
+            commonPitfall: "Assuming tension equals one of the weights. Tension is an internal force and is not equal to either weight unless the system is in equilibrium (a=0)."
         },
         {
             title: "JEE Level: Centripetal Force and Friction",
             difficulty: 'Hard',
             problem: "A car of mass 1000 kg is moving at a speed of 10 m/s on a flat, circular road of radius 50 m. What is the minimum coefficient of static friction (μs) between the tires and the road required to prevent the car from slipping?",
             solutionSteps: [
-                "Strategy: The force causing the car to turn in a circle (the centripetal force) is provided entirely by the static friction between the tires and the road. We need to calculate the required centripetal force and set it equal to the maximum possible static friction force.",
-                `Step 1: Draw FBD. The side view shows Normal force (N) up and weight (mg) down. The top-down view shows the frictional force (f_s) pointing towards the center of the circular path. This friction provides the centripetal force.
-Side View:       Top-Down View:
-   N ↑
-  [car]                 [car] → v
-   mg ↓                  ↑ f_s (towards center)
-`,
-                "Step 2: Calculate the required centripetal force (Fc). The formula is Fc = mv²/r.",
-                "Fc = (1000 kg) * (10 m/s)² / 50 m = 1000 * 100 / 50 = 2000 N.",
-                "Step 3: This 2000 N force must be provided by static friction. So, the required frictional force is f_s = 2000 N. The maximum possible static friction is given by f_s_max = μs * N. On a flat road, the normal force (N) is equal to the car's weight (mg).",
-                "N = mg = 1000 kg * 10 m/s² = 10000 N.",
-                "Step 4: To prevent slipping, the required frictional force must be less than or equal to the maximum available frictional force. The minimum coefficient is when they are equal: f_s = f_s_max.",
-                "2000 N = μs * 10000 N.",
-                "Step 5: Solve for the minimum coefficient of static friction (μs).",
-                "μs = 2000 / 10000 = 0.2."
+                {
+                    step: 1,
+                    explanation: "The force causing the circular motion (centripetal force) is provided by static friction. Calculate the required centripetal force.",
+                    calculation: "Fc = mv²/r = (1000 kg) * (10 m/s)² / 50 m = 2000 N"
+                },
+                {
+                    step: 2,
+                    explanation: "The maximum available static friction is f_s_max = μs * N. On a flat road, N = mg.",
+                    calculation: "N = 1000 kg * 10 m/s² = 10000 N"
+                },
+                {
+                    step: 3,
+                    explanation: "To prevent slipping, the required centripetal force must equal the maximum static friction. Set Fc = f_s_max and solve for μs.",
+                    calculation: "2000 N = μs * 10000 N  =>  μs = 2000 / 10000 = 0.2"
+                }
             ],
-            neetHack: "For any object moving in a flat circle, the condition is mv²/r ≤ μs * mg. Notice that the mass 'm' cancels out. The condition simplifies to v²/rg ≤ μs. You can quickly calculate v²/rg = 100 / (50 * 10) = 0.2. So, μs must be at least 0.2.",
-            commonPitfall: "Confusing centripetal and centrifugal forces. Centripetal force is the *real* force (in this case, friction) that points inward, causing the circular motion. Centrifugal force is a fictitious pseudo force that you would only consider if you were analyzing the situation from the non-inertial frame of the car itself. For most problems, stick to the inertial (ground) frame."
+            neetHack: "For any object on a flat circular path, the condition to prevent slipping is v² ≤ μs*g*r. This rearranges to μs ≥ v²/(gr). This shortcut allows you to solve for the coefficient without calculating the force or mass explicitly.",
+            commonPitfall: "Confusing centripetal force as a new, separate force. It's not. Centripetal force is the *net force* directed towards the center. In this case, that net force is provided by friction. In other cases, it could be tension, gravity, or a combination of forces."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -530,3 +554,5 @@ Side View:       Top-Down View:
         }
     ]
 };
+
+    
