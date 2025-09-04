@@ -101,5 +101,9 @@ export const qaChecklist: QAChecklistItem[] = [
   {
     check: "Verify Color Scheme Application",
     details: "Ensure that colors for all UI elements, including text, backgrounds, and icons, are consistent with the established theme and meet WCAG contrast requirements."
+  },
+  {
+    check: "Ensure Module is Added to UI",
+    details: "After creating or modifying a module, verify that it is correctly listed and linked in the relevant UI page (e.g., the chapter selection screen)."
   }
 ];
