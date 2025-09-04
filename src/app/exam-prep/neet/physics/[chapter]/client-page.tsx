@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,6 +13,8 @@ import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
+import { mockUser } from '@/lib/data';
 
 interface NeetChapterClientPageProps {
   content: NeetModule;
@@ -20,13 +22,21 @@ interface NeetChapterClientPageProps {
 
 function ChapterContent({ content }: NeetChapterClientPageProps) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
-  const [completedSections, setCompletedSections] = useState<string[]>([]);
   const totalSections = 6;
 
+  const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
+
+  if (isLoading) {
+    return (
+        <div className="flex justify-center items-center h-64">
+            <Loader2 className="w-8 h-8 animate-spin" />
+            <p className="ml-2">Loading your progress...</p>
+        </div>
+    )
+  }
+  
   const handleCompleteSection = (section: string) => {
-    if (!completedSections.includes(section)) {
-        setCompletedSections([...completedSections, section]);
-    }
+    toggleSection(section);
   }
 
   const progress = (completedSections.length / totalSections) * 100;
@@ -74,7 +84,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
 
       <Tabs defaultValue="overview" className="w-full">
         <ScrollArea>
-            <TabsList className="grid w-full grid-cols-none md:grid-cols-6">
+            <TabsList className="grid w-full grid-cols-none p-1 md:grid-cols-6">
             <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
@@ -124,8 +134,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
             </Card>
             
             <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('overview')} disabled={completedSections.includes('overview')}>
-                    {completedSections.includes('overview') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('overview')} >
+                    {completedSections.includes('overview') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
 
@@ -135,32 +145,32 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                  {conceptNotes}
             </ConceptNotesCard>
             <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('learn')} disabled={completedSections.includes('learn')}>
-                     {completedSections.includes('learn') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('learn')}>
+                     {completedSections.includes('learn') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
         </TabsContent>
         <TabsContent value="examples" className="mt-6 space-y-6">
             <WorkedExamplesCard examples={workedExamples} />
              <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('examples')} disabled={completedSections.includes('examples')}>
-                    {completedSections.includes('examples') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('examples')}>
+                    {completedSections.includes('examples') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
         </TabsContent>
         <TabsContent value="formulas" className="mt-6 space-y-6">
             <KeyFormulasCard content={keyFormulasAndDiagrams} />
              <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('formulas')} disabled={completedSections.includes('formulas')}>
-                    {completedSections.includes('formulas') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('formulas')}>
+                    {completedSections.includes('formulas') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
         </TabsContent>
         <TabsContent value="practice" className="mt-6 space-y-6">
             <PracticeSectionCard mcqs={mcqs} assertionReasons={assertionReasons} matchTheColumns={matchTheColumns} />
              <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('practice')} disabled={completedSections.includes('practice')}>
-                    {completedSections.includes('practice') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('practice')}>
+                    {completedSections.includes('practice') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
         </TabsContent>
@@ -214,8 +224,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                 </CardContent>
             </Card>
              <div className="flex justify-center">
-                <Button onClick={() => handleCompleteSection('summary')} disabled={completedSections.includes('summary')}>
-                    {completedSections.includes('summary') ? 'Completed' : 'Mark as Completed'}
+                <Button onClick={() => handleCompleteSection('summary')}>
+                    {completedSections.includes('summary') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
                 </Button>
             </div>
         </TabsContent>
@@ -238,5 +248,3 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
-
-    
