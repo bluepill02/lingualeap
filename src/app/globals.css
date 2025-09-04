@@ -17,8 +17,8 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 222 47% 20%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 95% 55%; /* Vibrant Yellow */
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 224 33% 25%;
@@ -40,8 +40,8 @@
     --secondary-foreground: 210 40% 98%;
     --muted: 222 47% 20%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 95% 55%;
+    --accent-foreground: 222 47% 11%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 224 33% 25%;
