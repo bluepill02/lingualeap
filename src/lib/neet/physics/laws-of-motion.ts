@@ -111,6 +111,53 @@ Key Formulas:
             ],
             neetHack: "For connected objects, find system acceleration first, then analyze individual objects for internal forces",
             commonPitfall: "Don't use total force to find tension directly"
+        },
+        {
+            title: "Solved Example 3",
+            difficulty: 'Medium',
+            problem: "A block of mass 5 kg rests on a frictionless plane inclined at 30 degrees. What is the acceleration of the block down the incline? (Take g = 9.8 m/s²)",
+            solutionSteps: [
+                "Given: Mass m = 5 kg, Angle θ = 30°",
+                "The force causing the block to slide down the incline is the component of gravity parallel to the incline, which is mg sin(θ).",
+                "The net force on the block is F_net = mg sin(θ).",
+                "According to Newton's Second Law, F_net = ma.",
+                "So, ma = mg sin(θ). The mass 'm' cancels out.",
+                "a = g sin(θ) = 9.8 × sin(30°) = 9.8 × 0.5 = 4.9 m/s²"
+            ],
+            neetHack: "For any object on a frictionless incline, the acceleration is always g sin(θ), regardless of the object's mass. Memorize this.",
+            commonPitfall: "Confusing sin(θ) and cos(θ). Remember: the component that 'slides' is 'sin', while the component pressing into the plane is 'cos'."
+        },
+        {
+            title: "Solved Example 4",
+            difficulty: 'Medium',
+            problem: "A person of mass 60 kg is in a lift moving upwards with an acceleration of 2 m/s². What is the apparent weight of the person? (Take g = 10 m/s²)",
+            solutionSteps: [
+                "Given: Mass m = 60 kg, Upward acceleration a = 2 m/s²",
+                "Apparent weight is the normal reaction force (R) from the lift's floor on the person.",
+                "The net force on the person is F_net = R - mg (upward direction is positive).",
+                "From Newton's second law, F_net = ma.",
+                "Therefore, R - mg = ma.",
+                "R = mg + ma = m(g + a) = 60(10 + 2) = 60 × 12 = 720 N."
+            ],
+            neetHack: "For upward acceleration in a lift, apparent weight is m(g+a). For downward acceleration, it's m(g-a). Quick formula to save time.",
+            commonPitfall: "Forgetting to add the acceleration 'a' to 'g'. When accelerating up, you feel heavier, so the force must be greater than your actual weight (mg)."
+        },
+        {
+            title: "Solved Example 5",
+            difficulty: 'Hard',
+            problem: "A bullet of mass 20 g hits a sandbag of mass 5 kg and gets embedded in it. If the sandbag moves with a velocity of 1 m/s, what was the initial velocity of the bullet?",
+            solutionSteps: [
+                "Given: Bullet mass m₁ = 20 g = 0.02 kg, Sandbag mass m₂ = 5 kg, Final velocity v_f = 1 m/s.",
+                "This is a perfectly inelastic collision. The principle of conservation of linear momentum applies.",
+                "Initial momentum = Final momentum.",
+                "m₁u₁ + m₂u₂ = (m₁ + m₂)v_f",
+                "The sandbag is initially at rest, so u₂ = 0.",
+                "0.02 × u₁ + 5 × 0 = (0.02 + 5) × 1",
+                "0.02 × u₁ = 5.02",
+                "u₁ = 5.02 / 0.02 = 251 m/s."
+            ],
+            neetHack: "In embedding problems, the final velocity is common for both objects. Use the momentum conservation formula directly to find the unknown velocity.",
+            commonPitfall: "Forgetting to convert the bullet's mass from grams to kilograms, which is the SI unit. This is a very common source of error in exams."
         }
     ],
     keyFormulasAndDiagrams: {
