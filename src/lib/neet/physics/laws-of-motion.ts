@@ -44,11 +44,29 @@ export const lawsOfMotionModule: NeetModule = {
     conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
 ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
 
-` + '`\\sum F = 0 \\Rightarrow a = 0` # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.' + `
+\`\\sum F = 0 \\Rightarrow a = 0\` # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.
 
 #### Temple Chariot and Inertia
 Massive chariot at rest needs large force to start moving
-` + '```\nTemple Chariot (கோவில் தேர்)\n|         |\n|---------|  <-- Needs large force to overcome inertia\n|_________|\n```' + `
+
+\`\`\`
+Temple Chariot (கோவில் தேர்)
+|         |
+|---------|  <-- Needs large force to overcome inertia
+|_________|
+    /   \\
+   o     o
+<-- F (Applied Force)
+Heavy chariot resists change in motion due to inertia
+பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
+\`\`\`
+
+### Newton's Second Law - F = ma (இரண்டாம் விதி)
+ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
+
+#### Key Formulas:
+\`\\vec{F} = m\\vec{a}\` # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்
+\`\\vec{F} = \\frac{d\\vec{p}}{dt}\` # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்
 `,
     workedExamples: [
         {
