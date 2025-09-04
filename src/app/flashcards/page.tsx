@@ -147,11 +147,11 @@ export default function FlashcardsPage() {
   const getMicButton = () => {
     switch (recordingState) {
         case 'recording':
-            return <Button size="icon" variant="destructive" onClick={handleMicClick}><Mic /></Button>;
+            return <Button size="icon" variant="destructive" onClick={handleMicClick} aria-label="Stop recording"><Mic /></Button>;
         case 'processing':
-            return <Button size="icon" variant="outline" disabled><Loader className="animate-spin" /></Button>;
+            return <Button size="icon" variant="outline" disabled aria-label="Processing audio"><Loader className="animate-spin" /></Button>;
         default:
-            return <Button size="icon" variant="outline" onClick={handleMicClick}><Mic /></Button>;
+            return <Button size="icon" variant="outline" onClick={handleMicClick} aria-label="Start recording pronunciation"><Mic /></Button>;
     }
   }
   
@@ -201,7 +201,7 @@ export default function FlashcardsPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <h1 className="mb-4 text-center text-3xl font-bold font-headline">Flashcard Review</h1>
-      <Progress value={progress} className="mb-6 h-3" />
+      <Progress value={progress} className="mb-6 h-3" aria-label={`Review progress: ${Math.round(progress)}%`} />
       
       <Card
         className="relative min-h-[450px] cursor-pointer perspective-[1000px]"
@@ -236,14 +236,14 @@ export default function FlashcardsPage() {
               <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.phonetic}</p>
               
               <div className="flex items-center justify-center gap-2 mt-4">
-                <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()}>
+                <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()} aria-label="Play pronunciation audio">
                     <Volume2 />
                 </Button>
                 {getMicButton()}
               </div>
 
               {pronunciationResult && (
-                <Alert className={`mt-4 text-left ${pronunciationResult.isCorrect ? 'border-green-500 bg-green-500/10' : 'border-yellow-500 bg-yellow-500/10'}`}>
+                <Alert role="alert" className={`mt-4 text-left ${pronunciationResult.isCorrect ? 'border-green-500 bg-green-500/10' : 'border-yellow-500 bg-yellow-500/10'}`}>
                     {pronunciationResult.isCorrect 
                         ? <CheckCircle className="h-4 w-4 text-green-500" /> 
                         : <XCircle className="h-4 w-4 text-yellow-500" />}
@@ -264,7 +264,7 @@ export default function FlashcardsPage() {
               <div className="text-left w-full">
                 <h3 className="flex items-center font-semibold text-sm mb-2"><BookText className="mr-2" /> Cosmic Chronicle</h3>
                 {loadingStory ? (
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                  <div className="flex items-center gap-2 text-muted-foreground text-sm" role="status" aria-live="polite">
                     <Loader className="animate-spin" />
                     <p>Your avatar's next chapter is being written...</p>
                   </div>

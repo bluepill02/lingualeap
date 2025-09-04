@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import * as React from 'react';
@@ -109,7 +108,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <SidebarMenu>
             {menuItems.map((item) => (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href}>
+                <Link href={item.href} aria-label={item.label}>
                   <SidebarMenuButton
                     isActive={pathname.startsWith(item.href)}
                     tooltip={item.label}
@@ -136,7 +135,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <SidebarTrigger />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+              <Button variant="ghost" className="relative h-10 w-10 rounded-full" aria-label="Open user menu">
                 <Avatar>
                   <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
                   <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>

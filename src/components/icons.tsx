@@ -1,3 +1,4 @@
+
 import type { SVGProps } from 'react';
 
 export function LinguaLeapLogo(props: SVGProps<SVGSVGElement>) {
@@ -8,7 +9,10 @@ export function LinguaLeapLogo(props: SVGProps<SVGSVGElement>) {
       width="1em"
       height="1em"
       {...props}
+      role="img"
+      aria-labelledby="lingualeap-logo-title"
     >
+      <title id="lingualeap-logo-title">LinguaLeap Logo</title>
       <path fill="none" d="M0 0h256v256H0z" />
       <path
         fill="currentColor"

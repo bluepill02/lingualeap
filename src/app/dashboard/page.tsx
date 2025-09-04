@@ -206,7 +206,7 @@ export default function DashboardPage() {
               <h3 className="text-sm font-medium">Vocabulary Progress</h3>
               <span className="text-sm text-muted-foreground">{masteredWords} / {totalFlashcards} mastered</span>
             </div>
-            <Progress value={progressValue} className="h-2" />
+            <Progress value={progressValue} className="h-2" aria-label={`Vocabulary progress: ${Math.round(progressValue)}%`} />
             <div className="flex justify-between text-xs text-muted-foreground mt-2">
               <div className="flex items-center gap-1.5">
                 <span className="h-2 w-2 rounded-full bg-secondary"></span>
@@ -249,6 +249,7 @@ export default function DashboardPage() {
                   <div
                     className="w-4 bg-primary rounded-t-sm"
                     style={{ height: `${item.activity * 100}%` }}
+                    aria-label={`Activity level for ${item.day}: ${item.activity * 100}%`}
                   ></div>
                 </div>
               ))}
@@ -271,7 +272,7 @@ export default function DashboardPage() {
                               <p className="text-sm text-muted-foreground">Date Joined</p>
                           </>
                        ) : (
-                          <Loader2 className="animate-spin" />
+                          <Loader2 className="animate-spin" aria-label="Loading join date" />
                        )}
                   </div>
               </TabsContent>
@@ -283,7 +284,7 @@ export default function DashboardPage() {
                               <p className="text-sm text-muted-foreground">Recent Accuracy</p>
                           </>
                       ) : (
-                          <Loader2 className="animate-spin" />
+                          <Loader2 className="animate-spin" aria-label="Loading accuracy data" />
                       )}
                   </div>
               </TabsContent>
@@ -362,14 +363,14 @@ export default function DashboardPage() {
             </div>
             <div className="flex gap-2">
                 <Link href="/settings">
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" aria-label="Go to settings page">
                     <Settings className="h-5 w-5" />
                 </Button>
                 </Link>
             </div>
             </div>
             <div className="mt-2">
-                <Progress value={levelProgress} className="h-2" />
+                <Progress value={levelProgress} className="h-2" aria-label={`Experience progress: ${Math.round(levelProgress)}%`} />
                 <p className="text-xs text-muted-foreground text-right mt-1">
                     {xpIntoCurrentLevel.toLocaleString()} / {xpForNextLevel.toLocaleString()} XP
                 </p>
