@@ -341,7 +341,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         <p className="font-medium">{index + 1}. {quiz.question}</p>
                                         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
                                             <FrequencyStars count={quiz.neetFrequency || 0} />
-                                            <span>({quiz.neetFrequency}/5)</span>
+                                            <span>(Frequency: {quiz.neetFrequency || 0})</span>
                                         </div>
                                     </div>
                                     <Accordion type="single" collapsible className="w-full mt-2">
