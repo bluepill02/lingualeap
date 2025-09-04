@@ -45,13 +45,13 @@ $$
 The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$.
 
 ### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
-*   **Torque ($\vec{\tau}$):** The rotational analogue of force. It is the turning effect of a force.
+*   **Torque ([[\\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force.
 $$
 \\vec{\\tau} = \\vec{r} \\times \\vec{F}
 $$
 Magnitude: $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule.
 
-*   **Angular Momentum ($\vec{L}$):** The rotational analogue of linear momentum. For a single particle:
+*   **Angular Momentum ([[\\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle:
 $$
 \\vec{L} = \\vec{r} \\times \\vec{p}
 $$
@@ -63,7 +63,7 @@ $$
 $$
 
 ### 3. Moment of Inertia and Rotational Dynamics (நிலைமத் திருப்புத்திறன் மற்றும் சுழற்சி இயக்கவியல்)
-*   **Moment of Inertia (I):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation.
+*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation.
 For a system of particles: $I = \\sum m_i r_i^2$
 For a rigid body: $I = \\int r^2 \\,dm$
 
@@ -74,11 +74,11 @@ $$
 This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$.
 
 #### Theorems of Moment of Inertia:
-1.  **Parallel Axis Theorem (இணை அச்சுத் தேற்றம்):** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes.
+1.  **[[Parallel Axis Theorem:இணை அச்சுத் தேற்றம்]]:** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes.
 $$
 I = I_{CM} + Md^2
 $$
-2.  **Perpendicular Axis Theorem (செங்குத்து அச்சுத் தேற்றம்):** For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$).
+2.  **[[Perpendicular Axis Theorem:செங்குத்து அச்சுத் தேற்றம்]]:** For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$).
 $$
 I_z = I_x + I_y
 $$
@@ -191,9 +191,9 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { question: "The radius of gyration of a solid sphere of radius R about its diameter is:", options: ["A. R", "B. R/√2", "C. √(2/5)R", "D. √(3/5)R"], answer: "C. √(2/5)R", explanation: "Moment of inertia I = Mk². For a solid sphere, I = (2/5)MR². Equating them gives Mk² = (2/5)MR², so k = √(2/5)R.", neetFrequency: 3 },
         { question: "A couple produces:", options: ["A. Purely linear motion", "B. Purely rotational motion", "C. Both linear and rotational motion", "D. No motion"], answer: "B. Purely rotational motion", explanation: "A couple consists of two equal and opposite forces, so the net force is zero (no linear motion), but they produce a net torque, causing purely rotational motion.", neetFrequency: 2 },
         { question: "If the net external torque on a system is zero, then:", options: ["A. The angular velocity will be zero", "B. The angular momentum will be zero", "C. The angular momentum will be conserved", "D. The angular velocity will be conserved"], answer: "C. The angular momentum will be conserved", explanation: "This is the statement of the law of conservation of angular momentum. Angular velocity is not necessarily conserved, as the moment of inertia can change.", neetFrequency: 5 },
-        { question: "A solid cylinder of mass M and radius R rolls down an inclined plane of height h. The rotational kinetic energy of the cylinder at the bottom of the plane is:", options: ["A. (1/2)Mgh", "B. (1/3)Mgh", "C. (1/4)Mgh", "D. (2/5)Mgh"], answer: "B. (1/3)Mgh", explanation: "Total K.E. = K_trans + K_rot = Mgh. For a solid cylinder, K_trans / K_rot = 2. So K_rot = (1/3) * Total Energy = (1/3)Mgh.", neetFrequency: 4 },
+        { question: "A solid cylinder of mass M and radius R rolls down an inclined plane of height h. The rotational kinetic energy of the cylinder at the bottom of the plane is:", options: ["A. (1/2)Mgh", "B. (1/3)Mgh", "C. (1/4)Mgh", "D. (2/5)Mgh"], answer: "B. (1/3)Mgh", explanation: "Total K.E. = K_trans + K_rot = Mgh. For a solid cylinder, I=1/2MR², so K_trans/K_rot = (1/2)Mv² / (1/2)(1/2MR²)ω² = M(Rω)² / (1/2)MR²ω² = 2. So K_rot is 1/3 of the total energy, which is Mgh. K_rot = (1/3)Mgh.", neetFrequency: 4 },
         { question: "The center of mass of a system of particles:", options: ["A. Always coincides with one of the particles", "B. May lie where there is no mass", "C. Is always inside the body", "D. Is always outside the body"], answer: "B. May lie where there is no mass", explanation: "For example, the center of mass of a ring is at its geometric center, where there is no material.", neetFrequency: 3 },
-        { question: "The angular momentum of a particle moving with a constant velocity:", options: ["A. Is always zero", "B. Is constant", "C. Is constant only if its path passes through the origin of the position vector", "D. Varies with time"], answer: "C. Is constant only if its path passes through the origin of the position vector", explanation: "L = r x p. If v is constant, p is constant. If the particle is moving along a line not passing through the origin, r changes, so L changes. L is constant only if the line of motion passes through the origin (r is parallel or anti-parallel to p, so L=0).", neetFrequency: 2 },
+        { question: "The angular momentum of a particle moving with a constant velocity is:", options: ["A. Always zero", "B. Always constant", "C. Constant only if its path is a straight line passing through the origin", "D. Varies with time"], answer: "C. Constant only if its path is a straight line passing through the origin", explanation: "L = r x p. If v is constant, p is constant. If the particle is moving along a line not passing through the origin, r changes and the angle between r and p changes, so L changes. L is constant (and zero) only if the line of motion passes through the origin (r is parallel or anti-parallel to p).", neetFrequency: 2 },
         { question: "The moment of inertia of a circular ring about an axis passing through its center and perpendicular to its plane is MR². What is its moment of inertia about its diameter?", options: ["A. MR²", "B. (1/2)MR²", "C. (1/4)MR²", "D. 2MR²"], answer: "B. (1/2)MR²", explanation: "By the perpendicular axis theorem, I_z = I_x + I_y. For a ring, I_z = MR² and by symmetry, I_x = I_y. So, MR² = 2I_diameter. I_diameter = (1/2)MR².", neetFrequency: 5 },
         { question: "A man is sitting on a rotating stool with his arms outstretched. If he suddenly folds his arms, his angular velocity will:", options: ["A. Decrease", "B. Increase", "C. Remain the same", "D. Become zero"], answer: "B. Increase", explanation: "By folding his arms, he decreases his moment of inertia (I). Since angular momentum (L = Iω) is conserved, his angular velocity (ω) must increase.", neetFrequency: 4 },
         { question: "Torque has the same dimensions as:", options: ["A. Force", "B. Work", "C. Power", "D. Linear Momentum"], answer: "B. Work", explanation: "Torque (τ = rF) has dimensions [M L² T⁻²]. Work (W = Fs) also has dimensions [M L² T⁻²].", neetFrequency: 1 },
@@ -204,7 +204,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { question: "A solid sphere and a hollow sphere of same mass and radius are rolling down an incline. Which will reach the bottom first?", options: ["A. Solid sphere", "B. Hollow sphere", "C. Both will reach at the same time", "D. Cannot be determined"], answer: "A. Solid sphere", explanation: "The object with the smaller moment of inertia will have greater acceleration and reach first. I_solid = (2/5)MR², I_hollow = (2/3)MR². Since I_solid < I_hollow, the solid sphere reaches first.", neetFrequency: 5 },
         { question: "The vector product of two non-zero vectors is zero if they are:", options: ["A. Perpendicular to each other", "B. Parallel to each other", "C. At an angle of 45°", "D. At an angle of 60°"], answer: "B. Parallel to each other", explanation: "The magnitude of the vector product (cross product) is |A||B|sinθ. This is zero when sinθ = 0, which means θ = 0° or 180° (parallel or anti-parallel).", neetFrequency: 1 },
         { question: "The position of the center of mass of a uniform semi-circular disc of radius R from the center is:", options: ["A. 4R/3π", "B. 3R/4π", "C. 2R/π", "D. R/2"], answer: "A. 4R/3π", explanation: "This is a standard result derived from integration. It's useful to memorize the CM positions for common shapes like a semi-circular disc, ring, and cone.", neetFrequency: 3 },
-        { question: "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is halved and its kinetic energy is doubled, then the new angular momentum is:", options: ["A. L/4", "B. L/2", "C. 2L", "D. 4L"], answer: "D. 4L", explanation: "Rotational K.E. = (1/2)Iω² = (1/2)Lω. So L = 2(K.E)/ω. New K.E' = 2(K.E), New ω' = ω/2. New L' = 2(2*K.E)/(ω/2) = 8(K.E/ω) = 4 * (2*K.E/ω) = 4L.", neetFrequency: 3 },
+        { question: "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is halved and its kinetic energy is doubled, then the new angular momentum is:", options: ["A. L/4", "B. L/2", "C. 2L", "D. 4L"], answer: "D. 4L", explanation: "Rotational K.E. = (1/2)Iω² = (1/2)Lω. So L = 2(K.E.)/ω. New K.E' = 2(K.E.), New ω' = ω/2. New L' = 2(2*K.E.)/(ω/2) = 8(K.E./ω) = 4 * (2K.E./ω) = 4L.", neetFrequency: 3 },
         { question: "A flywheel rotating at 300 rpm slows down to a constant rate of 180 rpm in 2 seconds. The angular deceleration is:", options: ["A. π rad/s²", "B. 2π rad/s²", "C. 3π rad/s²", "D. 4π rad/s²"], answer: "B. 2π rad/s²", explanation: "ω_i = 300 * 2π/60 = 10π rad/s. ω_f = 180 * 2π/60 = 6π rad/s. α = (ω_f - ω_i)/t = (6π - 10π)/2 = -4π/2 = -2π rad/s². The deceleration is 2π rad/s².", neetFrequency: 2 },
         { question: "The physical quantity in rotational motion which is analogous to mass in linear motion is:", options: ["A. Torque", "B. Angular momentum", "C. Moment of inertia", "D. Radius of gyration"], answer: "C. Moment of inertia", explanation: "Moment of inertia (I) plays the same role in rotational dynamics (τ = Iα) as mass (m) does in linear dynamics (F = ma).", neetFrequency: 1 },
         { question: "A particle is moving on a circular path with constant speed. What is the nature of its angular momentum?", options: ["A. Constant in magnitude and direction", "B. Constant in magnitude but variable in direction", "C. Variable in magnitude but constant in direction", "D. Variable in both magnitude and direction"], answer: "A. Constant in magnitude and direction", explanation: "For a particle in a circular path, L = mvr. Since m, v, and r are constant, the magnitude of L is constant. The direction of L (r x p) is perpendicular to the plane of motion, which is also constant.", neetFrequency: 3 },
@@ -227,3 +227,5 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { column1: ["(a) Work", "(b) Power", "(c) Radius of Gyration", "(d) Angular Impulse"], column2: ["(p) √(I/M)", "(q) τΔt", "(r) τ·θ", "(s) τ·ω"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching quantities with their rotational formulas. Work = torque * angular displacement. Power = torque * angular velocity. Radius of gyration k=√(I/M). Angular impulse = change in angular momentum = τΔt." }
     ]
 };
+
+    

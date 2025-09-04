@@ -70,10 +70,9 @@ This is one of the most important theorems in mechanics. It states that the **ne
 $$
 W_{net} = \\Delta K.E. = K.E._f - K.E._i
 $$
-{{INERTIA_ANIMATION}}
 
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
-The energy stored in a body by virtue of its position or configuration. It is defined only for **conservative forces**.
+The energy stored in a body by virtue of its position or configuration. It is defined only for **[[conservative forces:பாதுகாப்பு விசைகள்]]**.
 *   **Gravitational Potential Energy:** $P.E. = mgh$
 *   **Elastic Potential Energy (Spring):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression.
 
@@ -100,15 +99,14 @@ The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is hors
 ### 5. Collisions (மோதல்கள்)
 A collision is an event in which two or more bodies exert forces on each other for a relatively short time.
 *   **Total linear momentum is always conserved** in any collision if there is no external force on the system.
-*   **Elastic Collision (மீள் மோதல்):** A collision in which both momentum and kinetic energy are conserved.
-*   **Inelastic Collision (மீளாத மோதல்):** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.
-{{ACTION_REACTION_ANIMATION}}
+*   **[[Elastic Collision:மீள் மோதல்]]:** A collision in which both momentum and kinetic energy are conserved.
+*   **[[Inelastic Collision:மீளாத மோதல்]]:** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.
 `,
     workedExamples: [
         {
             title: "NEET Level: Work-Energy Theorem",
             difficulty: 'Medium',
-            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)\n\nதமிழ்: ஒரு பல மாடிக் கட்டிடத்தின் உச்சியிலிருந்து ஒரு பந்து 20 மீ/வி திசைவேகத்தில் செங்குத்தாக மேல்நோக்கி எறியப்படுகிறது. பந்து எறியப்பட்ட இடத்தின் உயரம் தரையிலிருந்து 25 மீ ஆகும். (a) பந்து எவ்வளவு உயரம் எழும்பும்? (b) பந்து தரையைத் தொடும் முன் எவ்வளவு நேரம் ஆகும்? (g = 10 மீ/வி² எனக் கொள்க)",
+            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)\n\nதமிழ்: 2 கிகி நிறையுள்ள ஒரு கட்டை 10 மீ உயரத்திலிருந்து கீழே விடப்படுகிறது. புவியீர்ப்பு விசையால் செய்யப்பட்ட வேலை மற்றும் தரையைத் தொடும் முன் கட்டையின் இறுதி திசைவேகம் என்ன? (g = 10 மீ/வி² எனக் கொள்க)",
             solutionSteps: [
                 {
                     step: 1,
@@ -360,3 +358,5 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
+
+    
