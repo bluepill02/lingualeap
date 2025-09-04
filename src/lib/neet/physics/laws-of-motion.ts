@@ -59,22 +59,22 @@ The single most important skill in solving mechanics problems is drawing a Free-
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If F_net = 0, then a = 0 (which means v = constant).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 \`\`\`
-Since momentum p = mv, if mass 'm' is constant, this simplifies to the famous equation:
+Since momentum *p = mv*, if mass 'm' is constant, this simplifies to the famous equation:
 \`\`\`
 \\vec{F}_{net} = m\\vec{a}
 \`\`\`
-This is a vector equation. It can be broken down into components: ΣF_x = ma_x and ΣF_y = ma_y. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: *ΣF_x = ma_x* and *ΣF_y = ma_y*. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (F_AB = -F_BA).
+*   Forces always occur in pairs (*F_AB = -F_BA*).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
@@ -87,14 +87,14 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
 *   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** F_p = ma₀, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
+*   **Magnitude:** *F_p = ma₀*, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply ΣF_real + F_pseudo = ma_relative as if it were an inertial frame.
+Once you add the pseudo force, you can apply *ΣF_real + F_pseudo = ma_relative* as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, N = mg + ma = m(g+a). The person feels heavier (தோற்ற எடை அதிகம்).
-*   **Lift Accelerating Downwards:** The pseudo force F_p = ma is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, N + ma = mg, so N = m(g-a). The person feels lighter (தோற்ற எடை குறைவு).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, *N = mg + ma = m(g+a)*. The person feels heavier (தோற்ற எடை அதிகம்).
+*   **Lift Accelerating Downwards:** The pseudo force *F_p = ma* is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, *N + ma = mg*, so *N = m(g-a)*. The person feels lighter (தோற்ற எடை குறைவு).
 `,
     workedExamples: [
         {
@@ -105,20 +105,20 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     body: "Block m₁",
                     forces: [
-                        { name: "Tension (T)", direction: "right" },
-                        { name: "Friction (f₁)", direction: "left" },
-                        { name: "Weight (m₁g)", direction: "down" },
-                        { name: "Normal (N₁)", direction: "up" }
+                        { name: "T", direction: "right" },
+                        { name: "f₁", direction: "left" },
+                        { name: "m₁g", direction: "down" },
+                        { name: "N₁", direction: "up" }
                     ]
                 },
                 {
                     body: "Block m₂",
                     forces: [
-                        { name: "Applied Force (F)", direction: "right" },
-                        { name: "Tension (T)", direction: "left" },
-                        { name: "Friction (f₂)", direction: "left" },
-                        { name: "Weight (m₂g)", direction: "down" },
-                        { name: "Normal (N₂)", direction: "up" }
+                        { name: "F", direction: "right" },
+                        { name: "T", direction: "left" },
+                        { name: "f₂", direction: "left" },
+                        { name: "m₂g", direction: "down" },
+                        { name: "N₂", direction: "up" }
                     ]
                 }
             ],
@@ -126,7 +126,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     step: 1,
                     explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁_max + f₂_max.',
-                    calculation: 'f₁_max = μm₁g = 0.2*4*10 = 8 N. f₂_max = μm₂g = 0.2*6*10 = 12 N. Total max = 20 N.'
+                    calculation: 'f_{1,max} = \\mu m_1 g = 0.2 \\times 4 \\times 10 = 8 N. \\\\ f_{2,max} = \\mu m_2 g = 0.2 \\times 6 \\times 10 = 12 N. \\\\ Total_{max} = 20 N.'
                 },
                 {
                     step: 2,
@@ -135,12 +135,12 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     step: 3,
                     explanation: 'Apply F_net = ma to the whole system (m₁ + m₂) to find acceleration.',
-                    calculation: 'F - f₁ - f₂ = (m₁ + m₂)a  =>  50 - 8 - 12 = 10a  =>  30 = 10a  =>  a = 3 m/s²'
+                    calculation: 'F - f_1 - f_2 = (m_1 + m_2)a \\implies 50 - 8 - 12 = 10a \\implies 30 = 10a \\implies a = 3 m/s²'
                 },
                 {
                     step: 4,
                     explanation: 'Apply F_net = ma to a single block (m₁) to find tension T.',
-                    calculation: 'T - f₁ = m₁a  =>  T - 8 = 4 * 3  =>  T = 12 + 8  =>  T = 20 N'
+                    calculation: 'T - f_1 = m_1 a \\implies T - 8 = 4 \\times 3 \\implies T = 12 + 8 \\implies T = 20 N'
                 }
             ],
             neetHack: "For connected blocks, always treat them as a single system to find acceleration first: a = F_net_external / M_total. Then isolate one block (usually the one with fewer forces) to find internal forces like tension.",
@@ -153,9 +153,9 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             fbd: [{
                 body: "Block m (in wedge's frame)",
                 forces: [
-                    { name: "Weight (mg)", direction: "down" },
-                    { name: "Normal (N)", direction: "up-left" },
-                    { name: "Pseudo Force (mA)", direction: "left" }
+                    { name: "mg", direction: "down", showComponents: true },
+                    { name: "N", direction: "up-left" },
+                    { name: "mA (Pseudo)", direction: "left" }
                 ],
                 isAngled: true,
             }],
@@ -166,7 +166,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 },
                 {
                     step: 2,
-                    explanation: 'Resolve forces into components parallel to the incline. For equilibrium (no slipping), the net force parallel to the incline must be zero.'
+                    explanation: 'Resolve forces into components parallel and perpendicular to the incline. For equilibrium (no slipping), the net force parallel to the incline must be zero.'
                 },
                 {
                     step: 3,
@@ -175,7 +175,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     step: 4,
                     explanation: 'Set the parallel forces equal to each other for equilibrium and solve for A.',
-                    calculation: 'mg sin(θ) = mA cos(θ)  =>  A = g * (sin(θ)/cos(θ))  =>  A = g tan(θ)'
+                    calculation: 'mg \\sin(\\theta) = mA \\cos(\\theta) \\implies A = g \\frac{\\sin(\\theta)}{\\cos(\\theta)} \\implies A = g \\tan(\\theta)'
                 }
             ],
             neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
@@ -188,9 +188,9 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             fbd: [{
                 body: "Block on Incline",
                 forces: [
-                    { name: "Weight (mg)", direction: "down" },
-                    { name: "Normal (N)", direction: "up-left" },
-                    { name: "Friction (f)", direction: "up-right" }
+                    { name: "mg", direction: "down", showComponents: true },
+                    { name: "N", direction: "up-left" },
+                    { name: "f", direction: "up-right" }
                 ],
                 isAngled: true,
             }],
@@ -202,22 +202,22 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     step: 2,
                     explanation: "Calculate the force pulling the block down the incline.",
-                    calculation: "F_down = mg sin(θ) = 5 * 10 * sin(30°) = 50 * 0.5 = 25 N"
+                    calculation: "F_{down} = mg \\sin(\\theta) = 5 \\times 10 \\times \\sin(30^{\\circ}) = 50 \\times 0.5 = 25 N"
                 },
                 {
                     step: 3,
                     explanation: "Calculate the normal force (N), which is the component of weight perpendicular to the slope.",
-                    calculation: "N = mg cos(θ) = 5 * 10 * cos(30°) = 50 * (√3 / 2) ≈ 43.3 N"
+                    calculation: "N = mg \\cos(\\theta) = 5 \\times 10 \\times \\cos(30^{\\circ}) = 50 \\times \\frac{\\sqrt{3}}{2} \\approx 43.3 N"
                 },
                 {
                     step: 4,
                     explanation: "Calculate the maximum possible static friction (f_s_max).",
-                    calculation: "f_s_max = μs * N = 0.6 * 43.3 N ≈ 25.98 N"
+                    calculation: "f_{s,max} = \\mu_s N = 0.6 \\times 43.3 N \\approx 25.98 N"
                 },
                 {
                     step: 5,
                     explanation: "Compare forces. Since F_down (25 N) < f_s_max (25.98 N), the block will NOT slide. The actual static frictional force is equal to the downward force.",
-                    calculation: "f_s = F_down = 25 N"
+                    calculation: "f_s = F_{down} = 25 N"
                 }
             ],
             neetHack: "A quick check: if tan(θ) ≤ μs, the block will not slide. Here, tan(30°) ≈ 0.577, which is less than μs = 0.6. So, it won't slide.",
@@ -227,21 +227,33 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             title: "NEET Level: The Classic Atwood Machine",
             difficulty: 'Medium',
             problem: "Two masses, m₁ = 10 kg and m₂ = 5 kg, are connected by a massless, inextensible string passing over a frictionless pulley. Find the acceleration of the system and the tension in the string when they are released. (g = 10 m/s²)",
+            fbd: [
+                {
+                    body: "Atwood System",
+                    forces: [
+                        { name: "m₁g", direction: "down" },
+                        { name: "m₂g", direction: "down" },
+                        { name: "T", direction: "up" },
+                        { name: "T", direction: "up" }
+                    ],
+                    context: "Visualizing forces on both masses. Note tension is an internal force."
+                }
+            ],
             solutionSteps: [
                 {
                     step: 1,
                     explanation: "Identify the net force driving the system's motion and the total mass being accelerated.",
-                    calculation: "F_net = m₁g - m₂g = 100 N - 50 N = 50 N. M_total = m₁ + m₂ = 15 kg."
+                    calculation: "F_{net} = m_1 g - m_2 g = 100 N - 50 N = 50 N. \\\\ M_{total} = m_1 + m_2 = 15 kg."
                 },
                 {
                     step: 2,
                     explanation: "Calculate the acceleration using Newton's second law for the system: a = F_net / M_total.",
-                    calculation: "a = 50 N / 15 kg = 10/3 m/s² ≈ 3.33 m/s²"
+                    calculation: "a = \\frac{50 N}{15 kg} = \\frac{10}{3} m/s² \\approx 3.33 m/s²"
                 },
                 {
                     step: 3,
                     explanation: "Find the tension by creating an equation for one mass. Let's use m₂ (accelerating up): T - m₂g = m₂a.",
-                    calculation: "T = m₂(g + a) = 5 * (10 + 10/3) = 5 * (40/3) ≈ 66.7 N"
+                    calculation: "T = m_2(g + a) = 5 \\times (10 + \\frac{10}{3}) = 5 \\times (\\frac{40}{3}) \\approx 66.7 N"
                 }
             ],
             neetHack: "Memorize the shortcut formulas for an Atwood machine: a = g(m₁-m₂)/(m₁+m₂) and T = 2m₁m₂g/(m₁+m₂). They save valuable time in exams.",
@@ -254,26 +266,26 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             fbd: [{
                 body: "Car (Top View)",
                 forces: [
-                    { name: "Friction (f)", direction: "inward" }
+                    { name: "f", direction: "inward" }
                 ],
                 isAngled: false,
-                context: "This friction provides the centripetal force."
+                context: "This friction provides the necessary centripetal force."
             }],
             solutionSteps: [
                 {
                     step: 1,
                     explanation: "The force causing the circular motion (centripetal force) is provided by static friction. Calculate the required centripetal force.",
-                    calculation: "Fc = mv²/r = (1000 kg) * (10 m/s)² / 50 m = 2000 N"
+                    calculation: "F_c = \\frac{mv^2}{r} = \\frac{(1000 kg) \\times (10 m/s)^2}{50 m} = 2000 N"
                 },
                 {
                     step: 2,
                     explanation: "The maximum available static friction is f_s_max = μs * N. On a flat road, N = mg.",
-                    calculation: "N = 1000 kg * 10 m/s² = 10000 N"
+                    calculation: "N = 1000 kg \\times 10 m/s² = 10000 N"
                 },
                 {
                     step: 3,
-                    explanation: "To prevent slipping, the required centripetal force must equal the maximum static friction. Set Fc = f_s_max and solve for μs.",
-                    calculation: "2000 N = μs * 10000 N  =>  μs = 2000 / 10000 = 0.2"
+                    explanation: "To prevent slipping, the required centripetal force must be less than or equal to the maximum static friction. We solve for the minimum μs where they are equal.",
+                    calculation: "2000 N = \\mu_s \\times 10000 N \\implies \\mu_s = \\frac{2000}{10000} = 0.2"
                 }
             ],
             neetHack: "For any object on a flat circular path, the condition to prevent slipping is v² ≤ μs*g*r. This rearranges to μs ≥ v²/(gr). This shortcut allows you to solve for the coefficient without calculating the force or mass explicitly.",
@@ -306,9 +318,9 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 fbd: {
                     body: "Block on Incline",
                     forces: [
-                        { name: "Weight (mg)", direction: "down" },
-                        { name: "Normal (N)", direction: "up-left" },
-                        { name: "Friction (f)", direction: "up-right" }
+                        { name: "mg", direction: "down", showComponents: true },
+                        { name: "N", direction: "up-left" },
+                        { name: "f", direction: "up-right" }
                     ],
                     isAngled: true,
                     context: "Key forces on an inclined plane."

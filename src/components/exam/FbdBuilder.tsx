@@ -37,6 +37,8 @@ export function FbdBuilder(props: FBDstep) {
   const handleReset = () => {
     setStep(0);
   }
+  
+  const showComponents = props.isAngled && props.forces.some(f => f.showComponents && f.direction === 'down');
 
   return (
     <Card className="bg-muted/50">
@@ -48,31 +50,51 @@ export function FbdBuilder(props: FBDstep) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className={cn("relative w-48 h-48 mx-auto border-2 border-dashed rounded-lg flex items-center justify-center", props.isAngled && "-rotate-[30deg] bg-primary/5")}>
-            <div className={cn("w-12 h-12 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold", props.isAngled && "rotate-[30deg]")}>
+        <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
+            <div className={cn("absolute w-full h-full border-2 border-dashed rounded-lg", props.isAngled && "-rotate-[30deg] bg-primary/5")}>
+                {/* Dotted lines for components */}
+                {showComponents && step > 0 && (
+                    <>
+                         <div className="absolute top-1/2 left-1/2 w-[60%] h-[1px] bg-border border-t border-dashed -translate-x-1/2 -translate-y-1/2 rotate-[60deg]" />
+                         <div className="absolute top-1/2 left-1/2 w-[70%] h-[1px] bg-border border-t border-dashed -translate-x-1/2 -translate-y-1/2 rotate-[-30deg]" />
+                    </>
+                )}
+            </div>
+            <div className={cn("w-12 h-12 bg-primary rounded-md flex items-center justify-center text-primary-foreground font-bold z-10", props.isAngled && "")}>
                 {props.body.split(' ')[1] || 'm'}
             </div>
+            
+            {/* Force Vectors */}
             {props.forces.map((force, index) => (
                 <div key={index} className={cn(
-                    "absolute flex items-center transition-opacity duration-500",
+                    "absolute flex items-center transition-opacity duration-500 z-20",
                     step > index ? "opacity-100" : "opacity-0",
                     // Positioning classes
-                    force.direction.includes('up') && "bottom-1/2",
-                    force.direction.includes('down') && "top-1/2",
-                    force.direction.includes('left') && "right-1/2",
-                    force.direction.includes('right') && "left-1/2",
                     force.direction === 'up' && "bottom-full left-1/2 -translate-x-1/2",
                     force.direction === 'down' && "top-full left-1/2 -translate-x-1/2",
                     force.direction === 'left' && "right-full top-1/2 -translate-y-1/2",
                     force.direction === 'right' && "left-full top-1/2 -translate-y-1/2",
+                    force.direction === 'up-left' && "bottom-1/2 right-1/2",
+                    force.direction === 'up-right' && "bottom-1/2 left-1/2",
+                    force.direction === 'down-left' && "top-1/2 right-1/2",
+                    force.direction === 'down-right' && "top-1/2 left-1/2",
                     force.direction === 'inward' && "right-1/2 top-1/2 -translate-y-1/2",
                 )}>
                     <div className={cn("flex items-center text-sm font-semibold", getArrowRotation(force.direction))}>
-                       <span className={cn("mr-1", props.isAngled && "rotate-[30deg]")}>{force.name}</span>
+                       <span className="mr-1">{force.name}</span>
                        <ArrowRight className="w-5 h-5 text-destructive" />
                     </div>
                 </div>
             ))}
+
+            {/* Component Labels */}
+            {showComponents && step > 0 && (
+                 <>
+                    <div className="absolute text-xs font-mono top-[75%] left-[10%] -rotate-[30deg] text-muted-foreground opacity-70">mg sinθ</div>
+                    <div className="absolute text-xs font-mono top-[60%] left-[65%] -rotate-[30deg] text-muted-foreground opacity-70">mg cosθ</div>
+                 </>
+            )}
+
         </div>
         <div className="mt-4 flex justify-center items-center gap-4">
           {step <= totalForces ? (

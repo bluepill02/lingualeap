@@ -122,7 +122,11 @@ export interface SyllabusMapping {
 
 export interface FBDstep {
     body: string;
-    forces: { name: string, direction: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | 'inward' | 'outward' }[];
+    forces: { 
+        name: string, 
+        direction: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | 'inward' | 'outward',
+        showComponents?: boolean 
+    }[];
     isAngled?: boolean;
     context?: string;
 }
