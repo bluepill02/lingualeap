@@ -3,15 +3,254 @@ import type { NeetModule } from '@/lib/types';
 
 export const kineticTheoryOfGasesModule: NeetModule = {
     id: 'neet-physics-kinetic-theory-of-gases',
-    title: 'Physics - Kinetic Theory of Gases',
+    title: 'Physics - Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)',
     chapter: 'Kinetic Theory of Gases',
     subject: 'Physics',
-    learningObjectives: [],
-    prerequisites: [],
-    syllabusMapping: [],
-    conceptNotes: '',
-    workedExamples: [],
-    mcqs: [],
-    assertionReasons: [],
-    matchTheColumns: []
+    learningObjectives: [
+        "State the postulates of the kinetic theory of gases.",
+        "Derive the expression for the pressure exerted by an ideal gas.",
+        "Relate the average kinetic energy of gas molecules to the absolute temperature of the gas.",
+        "Define degrees of freedom and apply the law of equipartition of energy.",
+        "Calculate the molar specific heats (Cv and Cp) for monoatomic, diatomic, and polyatomic gases.",
+        "Understand the concept of the mean free path."
+    ],
+    prerequisites: [
+        "Newton's Laws of Motion.",
+        "Concepts of pressure, volume, and temperature.",
+        "Ideal Gas Equation (PV=nRT)."
+    ],
+    conceptOverview: "The Kinetic Theory of Gases provides a microscopic explanation for the macroscopic behavior of gases (like pressure and temperature) that we studied in Thermodynamics. The core idea is that a gas consists of a large number of randomly moving molecules. By applying the laws of mechanics to these molecules, we can derive the ideal gas laws and gain a deeper understanding of concepts like internal energy and temperature. This chapter beautifully connects the microscopic world of atoms and molecules to the bulk properties we observe every day.",
+    tamilConnection: "வாயுக்கள் கண்ணுக்குத் தெரியாத துகள்களால் ஆனவை. அந்தத் துகள்களின் இயக்கம்தான் அதன் அழுத்தம், வெப்பநிலை போன்ற பண்புகளுக்குக் காரணம். இந்த இயக்கவியற் கொள்கை, வெப்ப இயக்கவியலில் நாம் கற்ற விதிகளுக்கு ஒரு மூலக்கூறு அளவிலான விளக்கத்தை அளிக்கிறது. இது பெரிய அளவிலான நிகழ்வுகளை சிறிய அளவிலான காரணங்களுடன் இணைக்கும் இயற்பியலின் ஒரு அழகான எடுத்துக்காட்டு.",
+    culturalContext: "Think about the aroma of filter coffee spreading through a room. This is a direct result of gas molecules (the aromatic compounds) moving randomly and colliding with air molecules, a core concept of the kinetic theory. The theory explains this diffusion process and how temperature affects the speed at which the aroma spreads.",
+    syllabusMapping: [
+         {
+            topic: 'Kinetic Theory of Gases',
+            tnBoardChapter: '11th Std Physics - Vol 2, Chapter 9: Kinetic Theory of Gases',
+            ncertReference: 'Class 11 Physics - Part 2, Chapter 13: Kinetic Theory',
+            notes: 'A foundational chapter that links mechanics and thermodynamics. Questions on RMS speed, degrees of freedom, and the law of equipartition of energy are common. Make sure to memorize the values of γ for monoatomic, diatomic, and polyatomic gases.',
+            mappingDescription: '11th Std Physics - Vol 2, Chapter 9 maps to NEET Physics Unit 9'
+        }
+    ],
+    conceptNotes: `### 1. Postulates of Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கையின் எடுகோள்கள்)
+1.  A gas consists of a very large number of identical molecules which are perfect spheres.
+2.  The molecules are in continuous, random motion.
+3.  The volume of the molecules themselves is negligible compared to the volume of the container.
+4.  There are no intermolecular forces of attraction or repulsion.
+5.  Collisions between molecules and with the walls of the container are perfectly elastic.
+6.  The time taken for a collision is negligible compared to the time between successive collisions.
+
+### 2. Pressure of an Ideal Gas (நல்லியல்பு வாயுவின் அழுத்தம்)
+The pressure exerted by a gas is due to the continuous collisions of its molecules with the walls of the container. The expression for pressure is:
+$$
+P = \\frac{1}{3} \\frac{nM}{V} v_{rms}^2 = \\frac{1}{3} \\rho v_{rms}^2
+$$
+where,
+*   n = number of moles
+*   M = Molar mass
+*   V = Volume
+*   ρ = density of the gas
+*   $v_{rms}$ = **Root Mean Square (RMS) speed** of the gas molecules. (மூல சராசரி வர்க்க வேகம்)
+
+### 3. Kinetic Interpretation of Temperature (வெப்பநிலையின் இயக்கவியற் விளக்கம்)
+The average translational kinetic energy of a gas molecule is directly proportional to the absolute temperature (T) of the gas.
+$$
+\\text{Average K.E. per molecule} = \\frac{1}{2}m v_{rms}^2 = \\frac{3}{2} k_B T
+$$
+where $k_B$ is the **Boltzmann constant** ($k_B = 1.38 \\times 10^{-23}$ J/K).
+This is a crucial result: **Temperature is a measure of the average kinetic energy of the molecules.**
+From this, we can find the RMS speed:
+$$
+v_{rms} = \\sqrt{\\frac{3k_B T}{m}} = \\sqrt{\\frac{3RT}{M}}
+$$
+where R is the universal gas constant and M is the molar mass.
+
+### 4. Degrees of Freedom (சுதந்திர இயக்கக்கூறுகள், f)
+The total number of independent ways in which a system can possess energy is called its degrees of freedom.
+*   **Monoatomic Gas (ஓரணு வாயு, e.g., He, Ne, Ar):** Has 3 translational degrees of freedom. So, f = 3.
+*   **Diatomic Gas (ஈரணு வாயு, e.g., O₂, N₂, H₂):** Has 3 translational and 2 rotational degrees of freedom at normal temperatures. So, f = 5. At very high temperatures, it also has 2 vibrational degrees of freedom (f=7).
+*   **Triatomic Gas (மூவணு வாயு):**
+    *   Linear (e.g., CO₂): f = 5 (3 trans + 2 rot).
+    *   Non-linear (e.g., H₂O): f = 6 (3 trans + 3 rot).
+
+### 5. Law of Equipartition of Energy (ஆற்றல் சம பங்கீட்டு விதி)
+For a system in thermal equilibrium, the total energy is equally distributed among all its degrees of freedom, and the energy associated with each degree of freedom per molecule is $\\frac{1}{2}k_B T$.
+*   **Total Internal Energy of n moles of a gas:**
+$$
+U = n \\times N_A \\times (f \\times \\frac{1}{2}k_B T) = \\frac{f}{2} n (N_A k_B) T = \\frac{f}{2} nRT
+$$
+
+### 6. Specific Heats of Gases (வாயுக்களின் தன்வெப்ப ஏற்புத்திறன்கள்)
+*   **Molar specific heat at constant volume ($C_v$):**
+$$ C_v = \\frac{dU}{dT} = \\frac{d}{dT} (\\frac{f}{2} nRT) = \\frac{f}{2}R $$
+*   **Molar specific heat at constant pressure ($C_p$):** Using Mayer's relation ($C_p - C_v = R$):
+$$ C_p = C_v + R = \\frac{f}{2}R + R = (\\frac{f}{2} + 1)R $$
+*   **Adiabatic Exponent ($\\gamma$):**
+$$ \\gamma = \\frac{C_p}{C_v} = \\frac{(\\frac{f}{2} + 1)R}{\\frac{f}{2}R} = 1 + \\frac{2}{f} $$
+
+| Gas Type | Degrees of Freedom (f) | $C_v$ | $C_p$ | $\\gamma = C_p/C_v$ |
+| :--- | :--- | :--- | :--- | :--- |
+| Monoatomic | 3 | $\\frac{3}{2}R$ | $\\frac{5}{2}R$ | 5/3 ≈ 1.67 |
+| Diatomic | 5 | $\\frac{5}{2}R$ | $\\frac{7}{2}R$ | 7/5 = 1.4 |
+| Polyatomic | 6 (non-linear) | 3R | 4R | 4/3 ≈ 1.33 |
+`,
+    workedExamples: [
+        {
+            title: "NEET Level: RMS Speed Calculation",
+            titleTamil: "நீட் நிலை: RMS வேகம் கணக்கீடு",
+            difficulty: 'Easy',
+            problem: "Calculate the root mean square speed of oxygen molecules at 27°C. (Molar mass of O₂ = 32 g/mol, R = 8.31 J/mol·K)",
+            problemTamil: "27°C வெப்பநிலையில் ஆக்ஸிஜன் மூலக்கூறுகளின் மூல சராசரி வர்க்க வேகத்தைக் கணக்கிடுக. (O₂-இன் மோலார் நிறை = 32 கி/மோல், R = 8.31 J/mol·K)",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Convert all units to the SI system. Temperature must be in Kelvin and Molar Mass in kg/mol.",
+                    explanationTamil: "அனைத்து அலகுகளையும் SI முறைக்கு மாற்றவும். வெப்பநிலை கெல்வினிலும், மோலார் நிறை கிிகி/மோல்-இலும் இருக்க வேண்டும்.",
+                    calculation: "T = 27 + 273 = 300 K. \\\\ M = 32 g/mol = 0.032 kg/mol."
+                },
+                {
+                    step: 2,
+                    explanation: "Use the formula for RMS speed: v_rms = \\sqrt{3RT/M}.",
+                    explanationTamil: "RMS வேகத்திற்கான சூத்திரத்தைப் பயன்படுத்தவும்: v_rms = \\sqrt{3RT/M}.",
+                    calculation: "v_{rms} = \\sqrt{\\frac{3 \\times 8.31 \\times 300}{0.032}}"
+                },
+                {
+                    step: 3,
+                    explanation: "Perform the calculation.",
+                    calculation: "v_{rms} = \\sqrt{\\frac{7479}{0.032}} = \\sqrt{233718.75} \\approx 483.4 \\text{ m/s}"
+                }
+            ],
+            neetHack: "Remember that v_rms is proportional to the square root of the absolute temperature (v_rms ∝ √T) and inversely proportional to the square root of the molar mass (v_rms ∝ 1/√M). Many questions involve ratios where R and 3 cancel out.",
+            neetHackTamil: "v_rms தனி வெப்பநிலையின் வர்க்க மூலத்திற்கு நேர்த்தகவிலும் (v_rms ∝ √T), மோலார் நிறையின் வர்க்க மூலத்திற்கு எதிர்த்தகவிலும் (v_rms ∝ 1/√M) இருக்கும் என்பதை நினைவில் கொள்க. பல கேள்விகள் விகிதங்களை உள்ளடக்கியது, அங்கு R மற்றும் 3 நீக்கப்படும்.",
+            commonPitfall: "Forgetting to convert temperature to Kelvin or molar mass to kg/mol. This is the most common source of error in these problems.",
+            commonPitfallTamil: "வெப்பநிலையை கெல்வினுக்கும் அல்லது மோலார் நிறையை கிிகி/மோல்-க்கும் மாற்ற மறப்பது. இந்தக் கணக்குகளில் இதுவே மிகவும் பொதுவான பிழைக்கான காரணமாகும்."
+        },
+        {
+            title: "JEE Level: Mixture of Gases",
+            titleTamil: "ஜே.இ.இ நிலை: வாயுக்களின் கலவை",
+            difficulty: 'Hard',
+            problem: "One mole of a monoatomic gas is mixed with three moles of a diatomic gas. What is the molar specific heat of the mixture at constant volume?",
+            problemTamil: "ஒரு மோல் ஓரணு வாயு மூன்று மோல் ஈரணு வாயுவுடன் கலக்கப்படுகிறது. கலவையின் மாறா பருமனில் உள்ள மோலார் தன்வெப்ப ஏற்புத்திறன் என்ன?",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "The internal energy of the mixture is the sum of the internal energies of the individual gases: U_mix = U_mono + U_di.",
+                    explanationTamil: "கலவையின் அக ஆற்றல் தனிப்பட்ட வாயுக்களின் அக ஆற்றல்களின் கூடுதலாகும்: U_கலவை = U_ஓரணு + U_ஈரணு."
+                },
+                {
+                    step: 2,
+                    explanation: "Write the formula for internal energy for each gas using U = (f/2)nRT. For monoatomic gas, f=3. For diatomic gas, f=5.",
+                    explanationTamil: "ஒவ்வொரு வாயுவிற்கும் U = (f/2)nRT சூத்திரத்தைப் பயன்படுத்தி அக ஆற்றலை எழுதவும். ஓரணு வாயுவிற்கு, f=3. ஈரணு வாயுவிற்கு, f=5.",
+                    calculation: "U_{mix} = \\frac{3}{2}(1)RT + \\frac{5}{2}(3)RT = (\\frac{3}{2} + \\frac{15}{2})RT = \\frac{18}{2}RT = 9RT"
+                },
+                {
+                    step: 3,
+                    explanation: "The internal energy of the mixture can also be written in terms of the mixture's specific heat and total moles: U_mix = (f_mix/2)(n₁+n₂)RT.",
+                    explanationTamil: "கலவையின் அக ஆற்றலை கலவையின் தன்வெப்ப ஏற்புத்திறன் மற்றும் மொத்த மோல்களின் அடிப்படையில் எழுதலாம்: U_கலவை = (f_கலவை/2)(n₁+n₂)RT."
+                },
+                {
+                    step: 4,
+                    explanation: "Equate the two expressions for U_mix to find the effective degrees of freedom (f_mix) or directly find C_v_mix.",
+                    explanationTamil: "U_கலவையின் இரண்டு கோவைகளையும் சமப்படுத்தி, திறனுள்ள சுதந்திர இயக்கக்கூறுகளை (f_கலவை) கண்டறியவும் அல்லது நேரடியாக C_v_கலவையைக் கண்டறியவும்.",
+                    calculation: "Let C_{v,mix} = \\frac{U_{mix}}{(n_1+n_2)T} = \\frac{9RT}{(1+3)T} = \\frac{9R}{4}"
+                },
+                {
+                    step: 5,
+                    explanation: "Alternatively, use the formula for the specific heat of a mixture: C_{v,mix} = (n₁C_v₁ + n₂C_v₂) / (n₁ + n₂).",
+                    explanationTamil: "மாற்றாக, ஒரு கலவையின் தன்வெப்ப ஏற்புத்திறனுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: C_{v,mix} = (n₁C_v₁ + n₂C_v₂) / (n₁ + n₂).",
+                    calculation: "C_v₁ = (3/2)R, C_v₂ = (5/2)R. \\\\ C_{v,mix} = \\frac{1(\\frac{3}{2}R) + 3(\\frac{5}{2}R)}{1+3} = \\frac{\\frac{3}{2}R + \\frac{15}{2}R}{4} = \\frac{\\frac{18}{2}R}{4} = \\frac{9R}{4}"
+                }
+            ],
+            neetHack: "For mixtures, the internal energy and the total number of moles are simply additive. The final property is a weighted average based on the number of moles.",
+            neetHackTamil: "கலவைகளுக்கு, அக ஆற்றல் மற்றும் மொத்த மோல்களின் எண்ணிக்கை ஆகியவை கூட்டல் பண்புடையவை. இறுதிப் பண்பு என்பது மோல்களின் எண்ணிக்கையை அடிப்படையாகக் கொண்ட ஒரு भारित சராசரி ஆகும்."
+        }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'v_{rms} = \\sqrt{\\frac{3RT}{M}}',
+                description: 'Root Mean Square (RMS) Speed'
+            },
+            {
+                formula: 'U = \\frac{f}{2}nRT',
+                description: 'Internal Energy of an Ideal Gas'
+            },
+            {
+                formula: 'C_v = \\frac{f}{2}R',
+                description: 'Molar Specific Heat at Constant Volume'
+            },
+            {
+                formula: '\\gamma = 1 + \\frac{2}{f}',
+                description: 'Adiabatic Exponent (Ratio of specific heats)'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Gas pressure arises from molecular collisions with container walls.",
+        "Absolute temperature is a direct measure of the average translational kinetic energy of molecules.",
+        "The internal energy of an ideal gas depends on its temperature and its degrees of freedom (molecular structure).",
+        "The ratio of specific heats, γ, is determined solely by the degrees of freedom of the gas molecules."
+    ],
+    mcqs: [
+        {
+            question: "According to the kinetic theory of gases, at absolute zero of temperature:",
+            options: ["A. Water freezes", "B. Liquid helium freezes", "C. Molecular motion stops", "D. All of the above"],
+            answer: "C. Molecular motion stops",
+            explanation: "Absolute zero (0 K) is the temperature at which the average kinetic energy of molecules is zero, meaning all translational molecular motion ceases.",
+            neetFrequency: 3
+        },
+        {
+            question: "The ratio of specific heats Cp/Cv = γ for a monoatomic gas is:",
+            options: ["A. 5/3", "B. 7/5", "C. 4/3", "D. 9/7"],
+            answer: "A. 5/3",
+            explanation: "For a monoatomic gas, degrees of freedom f = 3. γ = 1 + 2/f = 1 + 2/3 = 5/3.",
+            neetFrequency: 5
+        },
+        {
+            question: "The RMS speed of gas molecules is directly proportional to:",
+            options: ["A. T", "B. T²", "C. √T", "D. 1/√T"],
+            answer: "C. √T",
+            explanation: "From the formula v_rms = \\sqrt{3RT/M}, we can see that v_rms is proportional to the square root of the absolute temperature T.",
+            neetFrequency: 5
+        },
+        {
+            question: "At a given temperature, which of the following gases will have the highest RMS speed?",
+            options: ["A. Oxygen (O₂)", "B. Nitrogen (N₂)", "C. Hydrogen (H₂)", "D. Carbon Dioxide (CO₂)"],
+            answer: "C. Hydrogen (H₂)",
+            explanation: "RMS speed v_rms is inversely proportional to the square root of the molar mass M (v_rms ∝ 1/√M). Since Hydrogen has the lowest molar mass, it will have the highest RMS speed.",
+            neetFrequency: 4
+        },
+        {
+            question: "The number of translational degrees of freedom for a diatomic gas molecule is:",
+            options: ["A. 2", "B. 3", "C. 5", "D. 6"],
+            answer: "B. 3",
+            explanation: "Any molecule, regardless of its structure (monoatomic, diatomic, etc.), can move along the x, y, and z axes. Therefore, it always has 3 translational degrees of freedom.",
+            neetFrequency: 3
+        }
+    ],
+    assertionReasons: [
+        {
+            assertion: "The internal energy of an ideal gas depends only on its temperature.",
+            reason: "For an ideal gas, there are no intermolecular forces of attraction, so there is no potential energy in the system.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. Internal energy is the sum of kinetic and potential energies. Since intermolecular PE is zero for an ideal gas, U is just the total kinetic energy, which depends only on temperature."
+        },
+        {
+            assertion: "Cp is always greater than Cv for any gas.",
+            reason: "When a gas is heated at constant pressure, some of the heat is used to do work of expansion.",
+            answer: "A",
+            explanation: "Assertion is true. The reason is also true and correctly explains why. At constant pressure, Q_p = ΔU + W. At constant volume, Q_v = ΔU. Since work W is done during expansion, Q_p > Q_v, which implies Cp > Cv."
+        }
+    ],
+    matchTheColumns: [
+        {
+            column1: ["(a) Monoatomic Gas", "(b) Diatomic Gas", "(c) RMS Speed", "(d) Average K.E."],
+            column2: ["(p) Proportional to √T", "(q) γ = 7/5", "(r) Proportional to T", "(s) γ = 5/3"],
+            answer: "a-s, b-q, c-p, d-r",
+            explanation: "Matching gas types to their γ values and physical quantities to their temperature dependencies."
+        }
+    ]
 };
+
+
+    
