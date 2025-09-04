@@ -1,3 +1,4 @@
+
 'use client';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,7 +17,9 @@ export default function LandingPage() {
           </h1>
         </div>
         <nav className="flex items-center gap-4">
-          <Button variant="ghost">Log In</Button>
+          <Link href="/auth">
+            <Button variant="ghost">Log In</Button>
+          </Link>
           <Link href="/dashboard">
             <Button>
               Get Started Free
