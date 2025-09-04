@@ -60,7 +60,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       <header className="flex items-center justify-between">
          <div className="flex items-center gap-4">
             <Link href="/exam-prep/neet/physics">
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" aria-label="Back to NEET Physics chapters">
                     <ArrowLeft className="w-5 h-5" />
                 </Button>
             </Link>
@@ -79,10 +79,10 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       <Card>
         <CardContent className="p-4">
             <div className="flex justify-between items-center mb-1 text-sm">
-                <span className="text-muted-foreground">Study Progress</span>
-                <span>{completedSections.length}/{totalSections} sections completed</span>
+                <span className="text-muted-foreground font-semibold">Study Progress</span>
+                <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
             </div>
-            <Progress value={progress} className="h-2" />
+            <Progress value={progress} className="h-2 [&>div]:bg-primary" />
         </CardContent>
       </Card>
 
@@ -90,12 +90,12 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
         <div className="flex justify-center">
           <ScrollArea className="w-full pb-2 md:w-auto">
             <TabsList className="grid grid-cols-3 h-auto md:h-10 md:grid-cols-6 w-full md:w-auto">
-            <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
-            <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
-            <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
-            <TabsTrigger value="formulas">Formulas {completedSections.includes('formulas') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
-            <TabsTrigger value="practice">Practice {completedSections.includes('practice') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
-            <TabsTrigger value="summary">Summary {completedSections.includes('summary') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+            <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
+            <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
+            <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
+            <TabsTrigger value="formulas">Formulas {completedSections.includes('formulas') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
+            <TabsTrigger value="practice">Practice {completedSections.includes('practice') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
+            <TabsTrigger value="summary">Summary {completedSections.includes('summary') && <CheckCircle className="ml-2 h-4 w-4 text-success"/>}</TabsTrigger>
             </TabsList>
           </ScrollArea>
         </div>
