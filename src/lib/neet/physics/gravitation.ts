@@ -74,5 +74,9 @@ $$ \\frac{1}{2}mv_e^2 - \\frac{GMm}{R} = 0 \\implies v_e = \\sqrt{\\frac{2GM}{R}
 1.  **Law of Orbits (சுற்றுப்பாதை விதி):** Every planet revolves around the Sun in an elliptical orbit with the Sun situated at one of the foci. (ஒவ்வொரு கோளும் சூரியனை ஒரு குவியத்தில் கொண்டு நீள்வட்டப் பாதையில் சுற்றி வருகிறது.)
 2.  **Law of Areas (பரப்புகளின் விதி):** The line joining the Sun to a planet sweeps out equal areas in equal intervals of time. This implies that the areal velocity ($dA/dt$) is constant. This is a consequence of the **conservation of angular momentum**. (சூரியனையும் ஒரு கோளையும் இணைக்கும் கோடு சம கால இடைவெளிகளில் சம பரப்புகளைத் துடைக்கிறது. இதன் பொருள் பரப்பளவின் திசைவேகம் ($dA/dt$) மாறிலி ஆகும். இது **கோண உந்த அழிவின்மையின்** விளைவாகும்.)
 3.  **Law of Periods (சுற்றுக் காலங்களின் விதி):** The square of the time period of revolution of a planet around the Sun is directly proportional to the cube of the semi-major axis of its elliptical orbit. (சூரியனைச் சுற்றி ஒரு கோளின் சுழற்சியின் சுற்றுக் காலத்தின் வர்க்கம் அதன் நீள்வட்டப் பாதையின் அரை-பெரும் அச்சின் முப்படிக்கு நேர்த்தகவில் இருக்கும்.)
-$$ T^2 \\propto a^3 $$
-`
+$$ T^2 \\propto a^3 $$`,
+    workedExamples: [],
+    mcqs: [],
+    assertionReasons: [],
+    matchTheColumns: []
+};
