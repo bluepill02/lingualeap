@@ -29,3 +29,5 @@ export function TamilTooltip({ term, translation }: TamilTooltipProps) {
     </TooltipProvider>
   );
 }
+
+    

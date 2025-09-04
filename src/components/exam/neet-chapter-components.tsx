@@ -66,6 +66,7 @@ export function ConceptNotesCard({ content }: { content: string }) {
                     components={{
                         p: ({node, ...props}) => {
                            const childrenArray = Children.toArray(props.children);
+                           let hasTooltip = false;
                            
                            // Check for block math
                            if (childrenArray.length === 1 && typeof childrenArray[0] === 'string' && (childrenArray[0] as string).startsWith('$$') && (childrenArray[0] as string).endsWith('$$')) {
@@ -88,14 +89,25 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
                                     return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                                }
+                               if (firstChild.includes('[[') && firstChild.includes(']]')) {
+                                   hasTooltip = true;
+                               }
                            }
                            
                            const newChildren = childrenArray.map((child, index) => {
                                if (typeof child === 'string') {
                                    return renderTextWithTooltips(child);
                                }
+                               if (React.isValidElement(child) && child.type === TamilTooltip) {
+                                   hasTooltip = true;
+                               }
                                return child;
                            });
+
+                           // If the paragraph contains a tooltip, render a div instead to avoid invalid HTML
+                           if (hasTooltip) {
+                               return <div className="my-4 leading-relaxed text-muted-foreground">{newChildren}</div>;
+                           }
 
                            return <p className="my-4 leading-relaxed text-muted-foreground">{newChildren}</p>
                         },
@@ -485,3 +497,5 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     );
 }
 
+
+    
