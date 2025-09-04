@@ -61,6 +61,8 @@ The single most important skill in solving mechanics problems is drawing a Free-
 #### First Law (The Law of Inertia - நிலைம விதி)
 An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
 
+{{ANIMATION}}
+
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 \`\`\`

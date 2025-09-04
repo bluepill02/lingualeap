@@ -12,6 +12,7 @@ import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
+import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
 
 
 interface NeetChapterClientPageProps {
@@ -122,7 +123,9 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
 
         </TabsContent>
         <TabsContent value="learn" className="mt-6 space-y-6">
-            <ConceptNotesCard content={conceptNotes} />
+            <ConceptNotesCard content={conceptNotes} >
+                 <InertiaAnimation />
+            </ConceptNotesCard>
             <div className="flex justify-center">
                 <Button>Mark as Completed</Button>
             </div>
