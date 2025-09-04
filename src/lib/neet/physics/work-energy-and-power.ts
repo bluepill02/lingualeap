@@ -110,7 +110,8 @@ A collision is an event in which two or more bodies exert forces on each other f
     workedExamples: [
         {
             title: "NEET Level: Work-Energy Theorem",
-            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)",
+            titleTamil: "நீட் நிலை: வேலை-ஆற்றல் தேற்றம்",
+            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground?",
             problemTamil: "2 கிகி நிறையுள்ள ஒரு கட்டை 10 மீ உயரத்திலிருந்து கீழே விடப்படுகிறது. புவியீர்ப்பு விசையால் செய்யப்பட்ட வேலை மற்றும் தரையைத் தொடும் முன் கட்டையின் இறுதி திசைவேகம் என்ன? (g = 10 மீ/வி² எனக் கொள்க)",
             difficulty: 'Medium',
             solutionSteps: [
@@ -134,7 +135,7 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 4,
                     explanation: "Solve for the final velocity v_f.",
                     explanationTamil: "இறுதி திசைவேகம் v_f-ஐக் கண்டறியவும்.",
-                    calculation: "200 = (1/2) * 2 * v_f² => v_f² = 200 => v_f = √200 = 10√2 m/s"
+                    calculation: "200 = (1/2) * 2 * v_f² => v_f² = 200 => v_f = \\sqrt{200} = 10\\sqrt{2} m/s"
                 }
             ],
             neetHack: "Work-Energy Theorem is often faster than kinematics for problems involving forces, distances and speeds. If time is not asked, think 'Energy' first!",
@@ -144,8 +145,10 @@ A collision is an event in which two or more bodies exert forces on each other f
         },
         {
             title: "JEE Level: Potential Energy Curves",
+            titleTamil: "ஜே.இ.இ நிலை: நிலை ஆற்றல் வளைவுகள்",
             difficulty: 'Hard',
             problem: "The potential energy of a particle is given by U(x) = x³ - 6x² + 5. Find the positions of stable and unstable equilibrium.",
+            problemTamil: "ஒரு துகளின் நிலை ஆற்றல் U(x) = x³ - 6x² + 5 என கொடுக்கப்பட்டுள்ளது. நிலையான மற்றும் நிலையற்ற சமநிலை நிலைகளைக் கண்டறியவும்.",
             solutionSteps: [
                 {
                     step: 1,
@@ -172,62 +175,14 @@ A collision is an event in which two or more bodies exert forces on each other f
             ],
             neetHack: "On a U-x graph, a 'valley' (minimum) is a point of stable equilibrium, and a 'hill' (maximum) is a point of unstable equilibrium.",
             neetHackTamil: "ஒரு U-x வரைபடத்தில், ஒரு 'பள்ளத்தாக்கு' (குறைந்தபட்சம்) ஒரு நிலையான சமநிலை புள்ளி, மற்றும் ஒரு 'குன்று' (அதிகபட்சம்) ஒரு நிலையற்ற சமநிலை புள்ளி."
-        },
-        {
-            title: "NEET Level: Conservation of Energy with a Spring",
-            difficulty: 'Medium',
-            problem: "A 2 kg block is dropped from a height of 0.4 m onto a spring whose force constant is 1960 N/m. Find the maximum distance the spring is compressed.",
-            solutionSteps: [
-                { step: 1, explanation: "Apply the law of conservation of mechanical energy. The initial state is the block at height h, and the final state is when the spring is maximally compressed (block momentarily at rest).", explanationTamil: "இயந்திர ஆற்றல் அழிவின்மை விதியைப் பயன்படுத்தவும். ஆரம்ப நிலை h உயரத்தில் உள்ள கட்டை, மற்றும் இறுதி நிலை சுருள்வில் அதிகபட்சமாக அமுக்கப்படும்போது (கட்டை தற்காலிகமாக ஓய்வில் இருக்கும்) ஆகும்.", calculation: "Initial Energy (E_i) = Final Energy (E_f)" },
-                { step: 2, explanation: "Initial energy is purely gravitational potential energy. Let the point of maximum compression be the zero potential energy level. The total height fallen is h+x.", explanationTamil: "ஆரம்ப ஆற்றல் முற்றிலும் ஈர்ப்பு நிலை ஆற்றல் ஆகும். அதிகபட்ச அமுக்கப் புள்ளியை பூஜ்ஜிய நிலை ஆற்றல் மட்டமாகக் கொள்வோம். விழுந்த மொத்த உயரம் h+x ஆகும்.", calculation: "E_i = mg(h+x)" },
-                { step: 3, explanation: "Final energy is purely elastic potential energy stored in the spring.", explanationTamil: "இறுதி ஆற்றல் முற்றிலும் சுருள்வில்லில் சேமிக்கப்பட்ட மீட்சி நிலை ஆற்றல் ஆகும்.", calculation: "E_f = (1/2)kx²" },
-                { step: 4, explanation: "Equate initial and final energies and form a quadratic equation.", explanationTamil: "ஆரம்ப மற்றும் இறுதி ஆற்றல்களைச் சமப்படுத்தி ஒரு இருபடிச் சமன்பாட்டை உருவாக்கவும்.", calculation: "mg(h+x) = (1/2)kx² => (2)(9.8)(0.4+x) = (1/2)(1960)x² => 19.6(0.4+x) = 980x² => 7.84 + 19.6x = 980x² => 980x² - 19.6x - 7.84 = 0" },
-                { step: 5, explanation: "Divide by 9.8 to simplify: 100x² - 2x - 0.8 = 0. Solve the quadratic equation for x. The positive root is the answer.", explanationTamil: "எளிமைப்படுத்த 9.8 ஆல் வகுக்கவும்: 100x² - 2x - 0.8 = 0. இருபடிச் சமன்பாட்டை x-க்கு தீர்க்கவும். நேர்மறை மூலமே விடையாகும்.", calculation: "x ≈ 0.1 m or 10 cm" }
-            ],
-            neetHack: "When a mass is dropped on a spring, the loss in gravitational P.E. is converted into the gain in elastic P.E. of the spring.",
-            neetHackTamil: "ஒரு சுருள்வில் மீது ஒரு நிறை விழும்போது, ஈர்ப்பு நிலை ஆற்றலில் ஏற்படும் இழப்பு, சுருள்வில்லின் மீட்சி நிலை ஆற்றல் ஆதாயமாக மாற்றப்படுகிறது.",
-            commonPitfall: "Forgetting to include the additional compression distance 'x' in the gravitational potential energy term `mg(h+x)`. The block falls a total height of h+x.",
-            commonPitfallTamil: "ஈர்ப்பு நிலை ஆற்றல் உறுப்பான `mg(h+x)` இல் கூடுதல் அமுக்க தூரம் 'x' ஐ சேர்க்க மறப்பது. கட்டை h+x என்ற மொத்த உயரத்திலிருந்து விழுகிறது."
-        },
-        {
-            title: "JEE Level: Power Calculation",
-            difficulty: 'Medium',
-            problem: "A car of mass 'm' starts from rest and accelerates so that its instantaneous power delivered by the engine has a constant value P. Find the velocity of the car as a function of time.",
-            solutionSteps: [
-                { step: 1, explanation: "Use the formula for instantaneous power: P = Fv.", explanationTamil: "உடனடி திறனுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: P = Fv." },
-                { step: 2, explanation: "Express Force F using Newton's second law, F = ma = m(dv/dt).", explanationTamil: "நியூட்டனின் இரண்டாம் விதியைப் பயன்படுத்தி விசை F-ஐ வெளிப்படுத்தவும், F = ma = m(dv/dt).", calculation: "P = m(dv/dt)v" },
-                { step: 3, explanation: "Separate the variables to integrate. We have a relation between v and t.", explanationTamil: "தொகையீடு செய்ய மாறிகளைப் பிரிக்கவும். v மற்றும் t-க்கு இடையே ஒரு தொடர்பு உள்ளது.", calculation: "P dt = mv dv" },
-                { step: 4, explanation: "Integrate both sides. The car starts from rest (v=0 at t=0).", explanationTamil: "இருபுறமும் தொகையீடு செய்யவும். கார் ஓய்விலிருந்து தொடங்குகிறது (t=0 இல் v=0).", calculation: "∫P dt = ∫mv dv => Pt = (1/2)mv²" },
-                { step: 5, explanation: "Solve for velocity v.", explanationTamil: "திசைவேகம் v-க்கு தீர்க்கவும்.", calculation: "v² = 2Pt/m => v = √(2Pt/m)" }
-            ],
-            neetHack: "For constant power, velocity is proportional to √t, and distance is proportional to t^(3/2).",
-            neetHackTamil: "மாறா திறனுக்கு, திசைவேகம் √t க்கு விகித சமமாகவும், தூரம் t^(3/2) க்கு விகித சமமாகவும் இருக்கும்.",
-            commonPitfall: "Assuming constant acceleration. If power is constant and velocity is increasing, then the force (F = P/v) must be decreasing. So, acceleration is not constant.",
-            commonPitfallTamil: "மாறா முடுக்கம் என்று கருதுவது. திறன் மாறிலியாகவும், திசைவேகம் அதிகரித்துக்கொண்டும் இருந்தால், விசை (F = P/v) குறைந்தே ஆக வேண்டும். எனவே, முடுக்கம் மாறிலி அல்ல."
-        },
-        {
-            title: "NEET Level: Elastic Collision in 1D",
-            difficulty: 'Easy',
-            problem: "A ball of mass 'm' moving with velocity 'v' collides elastically with another identical ball at rest. What are their velocities after the collision?",
-            solutionSteps: [
-                { step: 1, explanation: "In a 1D elastic collision between two identical masses, the velocities are exchanged.", explanationTamil: "ஒரே நிறையுள்ள இரண்டு பொருட்களுக்கு இடையேயான ஒரு பரிமாண மீள் மோதலில், திசைவேகங்கள் பரிமாறிக்கொள்ளப்படும்." },
-                { step: 2, explanation: "Let initial velocities be u₁=v and u₂=0. Let final velocities be v₁ and v₂.", explanationTamil: "தொடக்க திசைவேகங்கள் u₁=v மற்றும் u₂=0 ஆகவும். இறுதி திசைவேகங்கள் v₁ மற்றும் v₂ ஆகவும் இருக்கட்டும்." },
-                { step: 3, explanation: "By the principle of velocity exchange, the first ball will transfer all its velocity to the second ball.", explanationTamil: "திசைவேகப் பரிமாற்றக் கொள்கையின்படி, முதல் பந்து அதன் முழு திசைவேகத்தையும் இரண்டாவது பந்திற்கு மாற்றும்." },
-                { step: 4, explanation: "The final velocity of the first ball (v₁) will be the initial velocity of the second ball (u₂).", explanationTamil: "முதல் பந்தின் இறுதித் திசைவேகம் (v₁) இரண்டாவது பந்தின் தொடக்கத் திசைவேகமாக (u₂) இருக்கும்.", calculation: "v₁ = u₂ = 0" },
-                { step: 5, explanation: "The final velocity of the second ball (v₂) will be the initial velocity of the first ball (u₁).", explanationTamil: "இரண்டாவது பந்தின் இறுதித் திசைவேகம் (v₂) முதல் பந்தின் தொடக்கத் திசைவேகமாக (u₁) இருக்கும்.", calculation: "v₂ = u₁ = v" }
-            ],
-            neetHack: "Memorize this special case: For a 1D elastic collision of equal masses, they just swap their velocities. This saves a lot of calculation time.",
-            neetHackTamil: "இந்த சிறப்பு நேர்வை மனப்பாடம் செய்யவும்: சம நிறைகளின் ஒரு பரிமாண மீள் மோதலுக்கு, அவை தங்கள் திசைவேகங்களை பரிமாறிக்கொள்ளும். இது கணக்கீட்டு நேரத்தை மிச்சப்படுத்தும்.",
-            commonPitfall: "Applying this special rule to unequal masses or inelastic collisions. This shortcut works *only* for 1D elastic collisions of equal masses.",
-            commonPitfallTamil: "இந்த குறுக்குவழியை சமமற்ற நிறைகள் அல்லது மீளாத மோதல்களுக்குப் பயன்படுத்துவது. இந்த குறுக்குவழி சம நிறைகளின் ஒரு பரிமாண மீள் மோதல்களுக்கு *மட்டுமே* வேலை செய்யும்."
         }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
-            { formula: "W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta", description: "Work done by a constant force" },
-            { formula: "K.E. = \\frac{1}{2}mv^2 = \\frac{p^2}{2m}", description: "Kinetic Energy and its relation to momentum" },
-            { formula: "W_{net} = \\Delta K.E.", description: "Work-Energy Theorem" },
-            { formula: "P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v}", description: "Power definition and instantaneous power" }
+            { formula: "W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta", description: "Work done by a constant force (மாறா விசையால் செய்யப்பட்ட வேலை)" },
+            { formula: "K.E. = \\frac{1}{2}mv^2 = \\frac{p^2}{2m}", description: "Kinetic Energy and its relation to momentum (இயக்க ஆற்றல் மற்றும் அதன் உந்தத்துடனான தொடர்பு)" },
+            { formula: "W_{net} = \\Delta K.E.", description: "Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)" },
+            { formula: "P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v}", description: "Power definition and instantaneous power (திறன் வரையறை மற்றும் உடனடி திறன்)" }
         ],
         diagrams: []
     },
@@ -366,5 +321,6 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
+
 
 

@@ -39,22 +39,14 @@ import { cn } from '@/lib/utils';
 
 
 // Helper component to render bilingual text with distinct colors
-const BilingualText = ({ children }: { children: React.ReactNode }) => {
-    const textContent = Children.toArray(children).join('');
-    // Updated regex to handle parentheses
-    const match = textContent.match(/^(.*?)\((.*?)\)$/);
-
-    if (match) {
-        const [, english, tamil] = match;
-        return (
-            <span>
-                <span className="text-foreground">{english}</span>
-                <span className="text-muted-foreground"> ({tamil})</span>
-            </span>
-        );
-    }
-
-    return <span className="text-foreground">{textContent}</span>;
+const BilingualText = ({ english, tamil }: { english?: string, tamil?: string }) => {
+    if (!english) return null;
+    return (
+        <span>
+            <span className="text-foreground">{english}</span>
+            {tamil && <span className="text-muted-foreground italic"> ({tamil})</span>}
+        </span>
+    );
 };
 
 
@@ -90,14 +82,26 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                     }
                                 }
                             }
-                            
-                            return <p className="my-4 leading-relaxed"><BilingualText>{props.children}</BilingualText></p>;
+                            const match = textContent.match(/^(.*?) \((.*?)\)$/);
+                            if (match) {
+                                return <p className="my-4 leading-relaxed"><BilingualText english={match[1]} tamil={match[2]} /></p>;
+                            }
+                            return <p className="my-4 leading-relaxed">{props.children}</p>;
                         },
-                        h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
+                        h3: ({ node, ...props }) => {
+                             const textContent = Children.toArray(props.children).join('');
+                             const match = textContent.match(/^(.*?) \((.*?)\)$/);
+                             if(match) return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2"><BilingualText english={match[1]} tamil={match[2]} /></h3>
+                             return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />
+                        },
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
-                        ul: ({ node, ...props }) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
-                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText>{props.children}</BilingualText></span></li>;
+                           const textContent = Children.toArray(props.children).join('');
+                           const match = textContent.match(/^(.*?) \((.*?)\)$/);
+                           if (match) {
+                               return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText english={match[1]} tamil={match[2]} /></span></li>;
+                           }
+                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span>{props.children}</span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
@@ -129,7 +133,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
                             <CardTitle>{example.title}</CardTitle>
-                            {example.titleTamil && <p className="text-muted-foreground">{example.titleTamil}</p>}
+                            {example.titleTamil && <p className="text-muted-foreground italic">{example.titleTamil}</p>}
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -156,8 +160,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-base text-foreground">{step.step}: {step.explanation}</p>
-                                        {step.explanationTamil && <p className="text-sm text-muted-foreground mt-1">{step.explanationTamil}</p>}
+                                        <p className="font-semibold text-base text-foreground">{step.explanation}</p>
+                                        {step.explanationTamil && <p className="text-sm text-muted-foreground italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
                                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
@@ -171,7 +175,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                                <p>{example.neetHack}</p>
+                                <p className="text-foreground">{example.neetHack}</p>
                                 {example.neetHackTamil && <p className="text-xs text-muted-foreground italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
@@ -180,7 +184,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                    <p>{example.commonPitfall}</p>
+                                    <p className="text-foreground">{example.commonPitfall}</p>
                                     {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
                                 </AlertDescription>
                             </Alert>
@@ -195,6 +199,16 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
 export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasAndDiagrams'] }) {
     if (!content) return null;
     const { formulas, diagrams } = content;
+
+    const BilingualDescription = ({ description }: { description: string }) => {
+        const match = description.match(/^(.*?) \((.*?)\)$/);
+        if (match) {
+            return <span><BilingualText english={match[1]} tamil={match[2]} /></span>;
+        }
+        return <span>{description}</span>;
+    }
+
+
     return (
         <Card>
             <CardHeader>
@@ -215,7 +229,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                                     <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${item.formula}\n$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
-                                    <p className="whitespace-pre-line"><BilingualText>{item.description}</BilingualText></p>
+                                    <p className="whitespace-pre-line"><BilingualDescription description={item.description} /></p>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -225,8 +239,8 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                 {diagrams && diagrams.map((diagram, index) => (
                     <div key={index}>
                         <Separator className="my-4" />
-                        <h4 className="font-bold text-lg"><BilingualText>{diagram.title}</BilingualText></h4>
-                        <p className="text-muted-foreground text-sm mb-2"><BilingualText>{diagram.description}</BilingualText></p>
+                        <h4 className="font-bold text-lg"><BilingualDescription description={diagram.title} /></h4>
+                        <p className="text-muted-foreground text-sm mb-2"><BilingualDescription description={diagram.description} /></p>
                         {diagram.fbd ? (
                            <div className="flex justify-center py-4">
                              <FbdBuilder {...diagram.fbd} />

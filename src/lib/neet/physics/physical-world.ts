@@ -92,37 +92,6 @@ In any physical process, certain quantities remain unchanged over time. These ar
             neetHackTamil: "நீட் தேர்வுக்கு, ஒருங்கிணைப்புடன் தொடர்புடைய பெயர்களை நினைவில் கொள்ளுங்கள்: நியூட்டன் பூமி மற்றும் வான் இயக்கவியலை ஒருங்கிணைத்தார். மாக்ஸ்வெல் மின்சாரம், காந்தவியல் மற்றும் ஒளியியலை ஒருங்கிணைத்தார். ஐன்ஸ்டீன் ஈர்ப்பு மற்றும் மின்காந்தவியலை ஒருங்கிணைக்க முயன்றார்.",
             commonPitfall: "Do not confuse unification with reductionism. Unification is about finding a single framework for different phenomena (e.g., electromagnetism). Reductionism is about explaining a system by its parts (e.g., explaining thermodynamics through the kinetic theory of gas molecules).",
             commonPitfallTamil: "ஒருங்கிணைத்தலையும் குறைத்தல்வாதத்தையும் குழப்பிக் கொள்ளாதீர்கள். ஒருங்கிணைத்தல் என்பது வெவ்வேறு நிகழ்வுகளுக்கு ஒரு ஒற்றை கட்டமைப்பைக் கண்டுபிடிப்பது (எ.கா., மின்காந்தவியல்). குறைத்தல்வாதம் என்பது ஒரு அமைப்பை அதன் பாகங்களால் விளக்குவது (எ.கா., வாயு மூலக்கூறுகளின் இயக்கவியல் கோட்பாட்டின் மூலம் வெப்ப இயக்கவியலை விளக்குவது)."
-        },
-        {
-            title: "Conceptual Example 2: Identifying Fundamental Forces",
-            titleTamil: "கருத்தியல் உதாரணம் 2: அடிப்படை விசைகளை அடையாளம் காணுதல்",
-            difficulty: 'Medium',
-            problem: "In the beta decay process (β-decay), a neutron inside a nucleus converts into a proton and an electron. Which fundamental force is responsible for this phenomenon? Justify your answer.",
-            problemTamil: "β-சிதைவு செயல்பாட்டில், ஒரு உட்கருவில் உள்ள நியூட்ரான் ஒரு புரோட்டான் மற்றும் ஒரு எலக்ட்ரானாக மாறுகிறது. இந்த நிகழ்வுக்கு எந்த அடிப்படை விசை காரணமாகும்? உங்கள் பதிலுக்கான காரணத்தைக் கூறவும்.",
-            solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "Analyze the Strong Nuclear Force's role. The strong force binds protons and neutrons together. Since beta decay involves the *transformation* of a neutron, not just its binding, the strong force is not the primary cause.",
-                    explanationTamil: "வலுவான அணுக்கரு விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். வலுவான விசை புரோட்டான்களையும் நியூட்ரான்களையும் பிணைக்கிறது. β-சிதைவு ஒரு நியூட்ரானின் மாற்றத்தை உள்ளடக்கியிருப்பதால், அதன் பிணைப்பை மட்டுமல்ல, வலுவான விசை முதன்மைக் காரணம் அல்ல."
-                },
-                {
-                    step: 2,
-                    explanation: "Analyze the Electromagnetic Force's role. The electromagnetic force acts on charged particles. A neutron is neutral, so this force cannot initiate its decay. While it acts on the resulting proton and electron, it doesn't cause the transformation itself.",
-                    explanationTamil: "மின்காந்த விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். மின்காந்த விசை மின்னூட்டத் துகள்கள் மீது செயல்படுகிறது. ஒரு நியூட்ரான் நடுநிலையானது, எனவே இந்த விசை அதன் சிதைவைத் தொடங்க முடியாது. இது விளைந்த புரோட்டான் மற்றும் எலக்ட்ரான் மீது செயல்பட்டாலும், அது மாற்றத்தை ஏற்படுத்தாது."
-                },
-                {
-                    step: 3,
-                    explanation: "Analyze the Gravitational Force's role. Gravity is extremely weak at the subatomic scale (10⁻³⁸ relative strength) and is completely negligible in nuclear processes.",
-                    explanationTamil: "ஈர்ப்பு விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். ஈர்ப்பு விசை அணு அளவில் மிகவும் பலவீனமானது (சார்பு வலிமை 10⁻³⁸) மற்றும் அணுக்கரு செயல்பாடுகளில் முற்றிலும் புறக்கணிக்கத்தக்கது."
-                },
-                {
-                    step: 4,
-                    explanation: "Conclude with the Weak Nuclear Force. By elimination, the Weak Nuclear Force is responsible. Its defining characteristic is that it can change the 'flavor' of quarks, which is exactly what happens when a neutron (one up quark, two down quarks) changes into a proton (two up quarks, one down quark). This force is the only one of the four that can do this.",
-                    explanationTamil: "மெலிந்த அணுக்கரு விசையுடன் முடிக்கவும். நீக்குதல் மூலம், மெலிந்த அணுக்கரு விசையே இதற்குப் பொறுப்பு. குவார்க்குகளின் 'சுவையை' மாற்றும் திறன் அதன் வரையறுக்கும் பண்பு, இதுவே நியூட்ரான் (ஒரு அப் குவார்க், இரண்டு டவுன் குவார்க்குகள்) புரோட்டானாக (இரண்டு அப் குவார்க்குகள், ஒரு டவுன் குவார்க்) மாறும் போது நிகழ்கிறது. நான்கு விசைகளில் இந்த விசையால் மட்டுமே இதைச் செய்ய முடியும்."
-                }
-            ],
-            neetHack: "Remember the key roles: Strong force = Nuclear binding. Electromagnetic = Charged particle interaction. Gravity = Celestial mechanics. Weak force = Radioactive decay (like beta decay). This simple mapping solves most questions on this topic.",
-            neetHackTamil: "முக்கிய பங்குகளை நினைவில் கொள்ளுங்கள்: வலுவான விசை = அணுக்கரு பிணைப்பு. மின்காந்த விசை = மின்னூட்டத் துகள்களின் தொடர்பு. ஈர்ப்பு = வான்பொருள் இயக்கவியல். மெலிந்த விசை = கதிரியக்கச் சிதைவு (β-சிதைவு போன்றவை). இந்த எளிய வரைபடம் இந்தப் தலைப்பில் உள்ள பெரும்பாலான கேள்விகளைத் தீர்க்கும்."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -175,13 +144,6 @@ Gravitational Force (1)
             answer: "D. Gravitational Force",
             explanation: "As per the relative strength table, the Gravitational Force is the weakest, with a relative strength of 1, compared to the Strong Nuclear Force's 10³⁸.",
             neetFrequency: 3
-        },
-        {
-            question: "The Law of Conservation of Energy implies that:",
-            options: ["A. Energy can be created from nothing.", "B. The total energy of the universe is decreasing.", "C. Energy can only be converted from one form to another.", "D. Energy is only conserved in mechanical systems."],
-            answer: "C. Energy can only be converted from one form to another.",
-            explanation: "The law states that energy is always conserved in an isolated system; it can change forms (e.g., potential to kinetic), but the total amount remains constant.",
-            neetFrequency: 2
         }
     ],
     assertionReasons: [

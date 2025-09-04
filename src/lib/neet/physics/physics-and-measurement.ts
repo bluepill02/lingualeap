@@ -80,8 +80,10 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.
     workedExamples: [
         {
             title: "NEET Level: Dimensional Correctness",
+            titleTamil: "நீட் நிலை: பரிமாண சரிபார்ப்பு",
             difficulty: 'Easy',
-            problem: "Check the dimensional correctness of the equation v² = u² + 2as, where u and v are velocities, a is acceleration, and s is displacement.\n\nதமிழ்: v² = u² + 2as என்ற சமன்பாட்டின் பரிமாண முறைப்படி சரியானதா என சரிபார்க்கவும், இங்கு u மற்றும் v திசைவேகங்கள், a முடுக்கம், மற்றும் s இடப்பெயர்ச்சி.",
+            problem: "Check the dimensional correctness of the equation v² = u² + 2as, where u and v are velocities, a is acceleration, and s is displacement.",
+            problemTamil: "v² = u² + 2as என்ற சமன்பாட்டின் பரிமாண முறைப்படி சரியானதா என சரிபார்க்கவும், இங்கு u மற்றும் v திசைவேகங்கள், a முடுக்கம், மற்றும் s இடப்பெயர்ச்சி.",
             solutionSteps: [
                 {
                     step: 1,
@@ -116,8 +118,10 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.
         },
         {
             title: "JEE Level: Error Propagation",
+            titleTamil: "ஜே.இ.இ நிலை: பிழை பரவல்",
             difficulty: 'Medium',
-            problem: "The resistance R of a conductor is given by R = V/I. The percentage errors in the measurement of voltage V and current I are 2% and 3% respectively. What is the maximum percentage error in the measurement of resistance R?\n\nதமிழ்: ஒரு கடத்தியின் மின்தடை R = V/I என கொடுக்கப்பட்டுள்ளது. மின்னழுத்தம் V மற்றும் மின்னோட்டம் I ஆகியவற்றின் அளவீட்டில் ஏற்படும் சதவீதப் பிழைகள் முறையே 2% மற்றும் 3% ஆகும். மின்தடை R-ஐ அளவிடுவதில் ஏற்படும் பெரும சதவீதப் பிழை என்ன?",
+            problem: "The resistance R of a conductor is given by R = V/I. The percentage errors in the measurement of voltage V and current I are 2% and 3% respectively. What is the maximum percentage error in the measurement of resistance R?",
+            problemTamil: "ஒரு கடத்தியின் மின்தடை R = V/I என கொடுக்கப்பட்டுள்ளது. மின்னழுத்தம் V மற்றும் மின்னோட்டம் I ஆகியவற்றின் அளவீட்டில் ஏற்படும் சதவீதப் பிழைகள் முறையே 2% மற்றும் 3% ஆகும். மின்தடை R-ஐ அளவிடுவதில் ஏற்படும் பெரும சதவீதப் பிழை என்ன?",
             solutionSteps: [
                 {
                     step: 1,
@@ -153,11 +157,11 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.
         formulas: [
             {
                 formula: '[Force] = [MLT^{-2}]',
-                description: 'Dimensional formula for Force.'
+                description: 'Dimensional formula for Force. (விசையின் பரிமாண வாய்ப்பாடு)'
             },
              {
                 formula: '[Energy] = [ML^2T^{-2}]',
-                description: 'Dimensional formula for Energy/Work/Torque.'
+                description: 'Dimensional formula for Energy/Work/Torque. (ஆற்றல்/வேலை/திருப்புவிசையின் பரிமாண வாய்ப்பாடு)'
             },
             {
                 formula: '\\frac{\\Delta Z}{Z} = n\\frac{\\Delta A}{A} + m\\frac{\\Delta B}{B}',
@@ -186,13 +190,6 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.
             answer: "B. Angular Momentum",
             explanation: "From E = hν, the dimensions of h are [E]/[ν] = [ML²T⁻²]/[T⁻¹] = [ML²T⁻¹]. The dimensions of angular momentum (L = mvr) are [M][L T⁻¹][L] = [ML²T⁻¹]. They are the same.",
             neetFrequency: 5
-        },
-        {
-            question: "The length of a rod is measured as 5.23 cm. This measurement has a precision of:",
-            options: ["A. 1 cm", "B. 0.1 cm", "C. 0.01 cm", "D. 0.001 cm"],
-            answer: "C. 0.01 cm",
-            explanation: "The precision of an instrument is equal to its least count. Here, the measurement is made up to two decimal places, so the least count is 0.01 cm.",
-            neetFrequency: 3
         }
     ],
     assertionReasons: [
