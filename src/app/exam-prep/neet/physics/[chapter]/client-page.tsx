@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2 } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Atom } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -59,18 +59,21 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
   return (
     <div className="space-y-6">
       <header className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+         <div className="flex items-center gap-4">
             <Link href="/exam-prep/neet/physics">
                 <Button variant="ghost" size="icon">
                     <ArrowLeft className="w-5 h-5" />
                 </Button>
             </Link>
-          <div>
-            <h1 className="text-2xl font-bold font-headline">{title}</h1>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                <Badge variant="secondary">{content.chapter}</Badge>
+            <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-500/20 text-blue-400">
+                    <Atom className="w-6 h-6" />
+                </div>
+                <div>
+                    <h1 className="text-2xl font-bold font-headline">{title}</h1>
+                    <p className="text-muted-foreground">Physics</p>
+                </div>
             </div>
-          </div>
         </div>
       </header>
 
@@ -254,3 +257,5 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
+
+    
