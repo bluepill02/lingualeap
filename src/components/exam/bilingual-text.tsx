@@ -15,7 +15,7 @@ export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, cl
     <div className={className}>
       <MarkdownRenderer>{english}</MarkdownRenderer>
       {tamil && (
-        <div className="italic text-sm mt-1 text-accent">
+        <div className="italic text-sm mt-1 !text-accent">
             <MarkdownRenderer>{`(${tamil})`}</MarkdownRenderer>
         </div>
       )}
