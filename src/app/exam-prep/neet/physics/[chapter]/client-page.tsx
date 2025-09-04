@@ -17,7 +17,6 @@ import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 import { SyllabusMappingCard } from '@/components/exam/exam-components';
-import { BilingualText } from '@/components/exam/bilingual-text';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 
 function ChapterContent({ content }: { content: NeetModule }) {
@@ -179,7 +178,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                     {mnemonics.map((mnemonic, index) => (
                          <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
                             <div className="prose dark:prose-invert max-w-none">
-                                <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} tamilClass="text-primary/80"/>
+                                <MarkdownRenderer>{`${mnemonic.text} (${mnemonic.tamil})`}</MarkdownRenderer>
                             </div>
                          </Button>
                     ))}
@@ -207,7 +206,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
                              <div className="prose dark:prose-invert max-w-none">
-                                 <BilingualText english={tip.text} tamil={tip.tamil} />
+                                 <MarkdownRenderer>{`${tip.text} (${tip.tamil})`}</MarkdownRenderer>
                             </div>
                         </div>
                     ))}
@@ -217,11 +216,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
                          <AlertDescription className="mt-2 space-y-2">
                             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Student Tip:</strong> 
-                                <BilingualText english={"Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!"} tamil={"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"}/>
+                                <MarkdownRenderer>{"Connect Newton's laws with real-life examples you observe - that's when you'll truly understand! (நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!)"}</MarkdownRenderer>
                             </div>
                             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Peer Discussion:</strong> 
-                                <BilingualText english={""} tamil={"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}/>
+                                <MarkdownRenderer>{"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}</MarkdownRenderer>
                            </div>
                          </AlertDescription>
                     </Alert>
@@ -259,6 +258,10 @@ function ChapterContent({ content }: { content: NeetModule }) {
   );
 }
 
+
+interface NeetChapterClientPageProps {
+    content: NeetModule;
+}
 
 export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
   const [isClient, setIsClient] = useState(false)

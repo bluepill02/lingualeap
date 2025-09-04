@@ -27,7 +27,7 @@ import { Separator } from '../ui/separator';
 import { FbdBuilder } from './FbdBuilder';
 import { cn } from '@/lib/utils';
 import { MarkdownRenderer } from './markdown-renderer';
-import { BilingualText } from './bilingual-text';
+
 
 export function ConceptNotesCard({ content }: { content: string }) {
     return (
@@ -52,7 +52,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                           <BilingualText english={example.title} tamil={example.titleTamil} englishClass="text-xl font-bold" />
+                           <MarkdownRenderer>{`${example.title} (${example.titleTamil})`}</MarkdownRenderer>
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -65,7 +65,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
                             <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
                             <div className="prose prose-sm dark:prose-invert max-w-none">
-                                <BilingualText english={example.problem} tamil={example.problemTamil} />
+                                <MarkdownRenderer>{`${example.problem} (${example.problemTamil})`}</MarkdownRenderer>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
                                         <div className="font-semibold text-base">
-                                            <BilingualText english={step.explanation} tamil={step.explanationTamil} />
+                                            <MarkdownRenderer>{`${step.explanation} (${step.explanationTamil})`}</MarkdownRenderer>
                                         </div>
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
@@ -94,7 +94,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                               <BilingualText english={example.neetHack} tamil={example.neetHackTamil} />
+                               <MarkdownRenderer>{`${example.neetHack} (${example.neetHackTamil})`}</MarkdownRenderer>
                             </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -102,7 +102,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                     <BilingualText english={example.commonPitfall} tamil={example.commonPitfallTamil} />
+                                     <MarkdownRenderer>{`${example.commonPitfall} (${example.commonPitfallTamil})`}</MarkdownRenderer>
                                 </AlertDescription>
                             </Alert>
                         )}
