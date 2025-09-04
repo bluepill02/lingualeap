@@ -166,7 +166,14 @@ Gravitational Force (1)
             neetFrequency: 2
         }
     ],
-    assertionReasons: [],
+    assertionReasons: [
+        {
+            assertion: "Electromagnetic force is a long-range force.",
+            reason: "The exchange particle for electromagnetic force is the photon, which is massless.",
+            answer: "A",
+            explanation: "Both Assertion and Reason are true, and the Reason is the correct explanation. Forces mediated by massless particles (like photons for EM force and gravitons for gravity) have an infinite range."
+        }
+    ],
     matchTheColumns: [
         {
             column1: ["(a) Macroscopic Physics", "(b) Microscopic Physics", "(c) Strong Nuclear Force", "(d) Weak Nuclear Force"],
