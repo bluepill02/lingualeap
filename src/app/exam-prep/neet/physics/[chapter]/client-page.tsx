@@ -173,11 +173,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
         <TabsContent value="summary" className="mt-6 space-y-6">
             {mnemonics && mnemonics.length > 0 && <Card>
                 <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
+                    <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-4 text-center">
                     {mnemonics.map((mnemonic, index) => (
-                         <div key={index} className="w-full text-left p-4 rounded-md bg-primary/10 border border-primary/20">
+                         <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
                            <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
                          </div>
                     ))}
