@@ -35,6 +35,7 @@ import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { TamilTooltip } from './TamilTooltip';
 import { BlockMath, InlineMath } from 'react-katex';
+import { ProjectileAnimation } from './ProjectileAnimation';
 
 
 const renderTextWithTooltips = (text: string) => {
@@ -83,6 +84,9 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                }
                                if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
                                     return <div className="not-prose my-4"><LiftAnimation /></div>;
+                               }
+                               if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                                }
                            }
                            

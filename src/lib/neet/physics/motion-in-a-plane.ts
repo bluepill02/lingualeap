@@ -45,6 +45,8 @@ Projectile motion is the motion of an object thrown or projected into the air, s
 | **Velocity (திசைவேகம்)** | $v_x = u_x = u \\cos\\theta$ (Constant) | $v_y = u_y - gt = u \\sin\\theta - gt$ |
 | **Displacement (இடப்பெயர்ச்சி)**| $x = (u \\cos\\theta) t$ | $y = (u \\sin\\theta) t - \\frac{1}{2}gt^2$ |
 
+{{PROJECTILE_ANIMATION}}
+
 #### Key Formulas for Projectile Motion:
 *   **Time of Flight (பறக்கும் நேரம்), T:** The total time the projectile is in the air.
 $$ T = \\frac{2u \\sin\\theta}{g} $$
@@ -192,27 +194,7 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
                 description: 'Relative Velocity'
             }
         ],
-        diagrams: [
-             {
-                title: 'Projectile Trajectory',
-                description: 'Decomposition of initial velocity `u` into horizontal (u cosθ) and vertical (u sinθ) components.',
-                diagram: `
-        ^ y
-        |     /\\
-        |    /  \\ H (Max Height)
-        |   /    \\
- u_y |  /      \\
-    /| /        \\
-   / |/          \\
-  u  θ------------> x
-   \\ |            |
-    \\|            |
-     u_x          |
-     --------------------
-     O           R (Range)
-                `
-            }
-        ]
+        diagrams: []
     },
     keyTakeaways: [
         "2D motion is two independent 1D motions.",
@@ -269,7 +251,7 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
         { question: "The horizontal range and the maximum height of a projectile are equal. The angle of projection of the projectile is:", options: ["A. θ = tan⁻¹(1/4)", "B. θ = tan⁻¹(4)", "C. θ = tan⁻¹(2)", "D. θ = 45°"], answer: "B. θ = tan⁻¹(4)", explanation: "Given R = H. (u²sin(2θ))/g = (u²sin²θ)/2g. This simplifies to 2sinθcosθ = (sin²θ)/2. Dividing by sinθcosθ gives 2 = (tanθ)/2, so tanθ = 4.", neetFrequency: 4 },
         { question: "A person aiming to a target in a horizontal plane has to aim:", options: ["A. Higher than the target", "B. Lower than the target", "C. Directly at the target", "D. It depends on the distance"], answer: "A. Higher than the target", explanation: "Due to gravity, the projectile will fall as it moves forward. To compensate for this drop, one must aim slightly higher than the target.", neetFrequency: 1 },
         { question: "The scalar product of two vectors $\\vec{A} = 3\\hat{i} + 5\\hat{j}$ and $\\vec{B} = 2\\hat{i} - 3\\hat{j}$ is:", options: ["A. 9", "B. -9", "C. 21", "D. -21"], answer: "B. -9", explanation: "A·B = (3)(2) + (5)(-3) = 6 - 15 = -9.", neetFrequency: 2 },
-        { question: "The vector product of two vectors $\\vec{A} = 3\\hat{i} + \\hat{k}$ and $\\vec{B} = \\hat{i} + \\hat{j}$ is:", options: ["A. -i - j + 3k", "B. i - j - 3k", "C. -i + j + 3k", "D. i + j - 3k"], answer: "A. -i - j + 3k", explanation: "AxB = (3i+k) x (i+j) = 3(ixi) + 3(ixj) + (kxi) + (kxj) = 0 + 3k + j - i = -i + j + 3k. Correcting calculation: (1*0 - 1*1)i - (3*0 - 1*1)j + (3*1 - 1*0)k = -i + j + 3k. Let me re-calculate with determinant: i(0-1) - j(0-1) + k(3-0) = -i+j+3k. Let me re-calculate again: i(1*0 - 1*1) - j(3*0-1*1) + k(3*1-1*0) is not right. It is i(1*0 - 1*1) - j(3*0-1*1) + k(3*1 - 0*1) -> no. i(1*0 - 1*1) -> no. A=(3,0,1), B=(1,1,0). i(0*0 - 1*1) - j(3*0 - 1*1) + k(3*1 - 0*1) = -i -(-j) + 3k = -i+j+3k. Wait.  A = 3i+0j+k, B=i+j+0k. i(0*0 - 1*1) - j(3*0 - 1*1) + k(3*1 - 0*1) = -i - (-j) + 3k = -i + j + 3k. Let me re-recalculate: i(0-1) - j(0-1) + k(3-0) = -i+j+3k. One more time: `i(0*0 - 1*1) - j(3*0 - 1*1) + k(3*1 - 1*0) = -i -(-j) +3k = -i+j+3k` -- This is wrong. Let's do it properly. C_x = Ay*Bz - Az*By = 0*0 - 1*1 = -1. C_y = Az*Bx - Ax*Bz = 1*1 - 3*0 = 1. C_z = Ax*By - Ay*Bx = 3*1 - 0*1 = 3. So, -i+j+3k. The options are wrong or I am wrong. Let's re-read the question. `A=3i+k`, `B=i+j`. Ah, I see the error in the options. It should be -i+j+3k. I will select the closest option 'A' and assume a typo in the provided options.", neetFrequency: 3 },
+        { question: "The vector product of two vectors $\\vec{A} = 3\\hat{i} + \\hat{k}$ and $\\vec{B} = \\hat{i} + \\hat{j}$ is:", options: ["A. -i + j + 3k", "B. i - j - 3k", "C. -i + j + 3k", "D. i + j - 3k"], answer: "A. -i + j + 3k", explanation: "The cross product (vector product) of A and B is calculated as: A x B = i(0*0 - 1*1) - j(3*0 - 1*1) + k(3*1 - 0*1) = -i -(-j) + 3k = -i + j + 3k.", neetFrequency: 3 },
         { question: "Which of the following is not a vector quantity?", options: ["A. Speed", "B. Velocity", "C. Torque", "D. Displacement"], answer: "A. Speed", explanation: "Speed is a scalar quantity as it only has magnitude and no direction.", neetFrequency: 1 },
         { question: "At the top of the trajectory of a projectile, the direction of its velocity and acceleration are:", options: ["A. Parallel to each other", "B. Antiparallel to each other", "C. Perpendicular to each other", "D. Inclined at an angle of 45°"], answer: "C. Perpendicular to each other", explanation: "At the highest point, velocity is purely horizontal, while acceleration (g) is purely vertical (downwards). Hence, they are perpendicular.", neetFrequency: 4 },
         { question: "A body is moving with a constant speed v in a circle of radius r. Its angular velocity is:", options: ["A. v/r", "B. vr", "C. v/r²", "D. v²r"], answer: "A. v/r", explanation: "The relationship between linear speed and angular velocity is v = ωr, so ω = v/r.", neetFrequency: 2 },
