@@ -95,6 +95,22 @@ Key Formulas:
             ],
             neetHack: "Always identify all forces first, then find net force before applying F = ma",
             commonPitfall: "Students forget to consider friction as opposing force"
+        },
+        {
+            title: "Solved Example 2",
+            difficulty: 'Medium',
+            problem: "Two boxes of masses 10 kg and 15 kg are connected by a rope. A force of 100 N pulls the 10 kg box. Find acceleration and tension in rope (ignore friction).",
+            solutionSteps: [
+                "Given: m₁ = 10 kg, m₂ = 15 kg, Applied force F = 100 N",
+                "Total mass = m₁ + m₂ = 10 + 15 = 25 kg",
+                "For the system: F = (m₁ + m₂)a",
+                "100 = 25 × a",
+                "a = 4 m/s²",
+                "For tension, consider 15 kg box alone:",
+                "T = m₂ × a = 15 × 4 = 60 N"
+            ],
+            neetHack: "For connected objects, find system acceleration first, then analyze individual objects for internal forces",
+            commonPitfall: "Don't use total force to find tension directly"
         }
     ],
     mcqs: [
