@@ -17,10 +17,10 @@ export default function LandingPage() {
           </h1>
         </div>
         <nav className="flex items-center gap-4">
-          <Link href="/auth">
+          <Link href="/auth" aria-label="Log In">
             <Button variant="ghost">Log In</Button>
           </Link>
-          <Link href="/dashboard">
+          <Link href="/dashboard" aria-label="Get Started Free">
             <Button>
               Get Started Free
             </Button>
@@ -33,10 +33,11 @@ export default function LandingPage() {
             <div className="absolute inset-0 z-0">
                 <Image 
                     src="https://picsum.photos/1200/800"
-                    alt="Abstract background"
+                    alt="Abstract background of a modern library, symbolizing learning."
                     data-ai-hint="professional learning"
                     fill
                     className="object-cover opacity-10"
+                    priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
             </div>
@@ -54,9 +55,11 @@ export default function LandingPage() {
                             Start Your Journey <ArrowRight className="ml-2" />
                         </Button>
                     </Link>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                        Explore Courses
-                    </Button>
+                    <Link href="/language-selection">
+                        <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                            Explore Courses
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

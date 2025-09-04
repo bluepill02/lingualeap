@@ -78,19 +78,19 @@ export default function DashboardPage() {
       icon: Trophy,
       value: mockUser.streak,
       label: 'Day Streak',
-      color: 'text-accent',
+      color: 'text-yellow-400',
     },
     {
       icon: BrainCircuit,
       value: masteredWords,
       label: 'Words Mastered',
-      color: 'text-secondary',
+      color: 'text-green-400',
     },
     {
       icon: Target,
       value: cefrLevel,
       label: 'CEFR Level',
-      color: 'text-green-400',
+      color: 'text-sky-400',
     },
     {
       icon: Clock,
@@ -217,7 +217,7 @@ export default function DashboardPage() {
                 <span>Learning</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-primary"></span>
+                <span className="h-2 w-2 rounded-full bg-primary/50"></span>
                 <span>New</span>
               </div>
             </div>
@@ -285,7 +285,7 @@ export default function DashboardPage() {
                           </>
                       ) : (
                           <Loader2 className="animate-spin" aria-label="Loading accuracy data" />
-                      )}
+                       )}
                   </div>
               </TabsContent>
           </Tabs>

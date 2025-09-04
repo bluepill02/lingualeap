@@ -38,6 +38,20 @@ import { ProjectileAnimation } from './ProjectileAnimation';
 
 
 export function ConceptNotesCard({ content }: { content: string }) {
+    const renderTextWithTooltips = (text: string) => {
+        const parts = text.split(/(\(.*?\))/g);
+        return parts.map((part, index) => {
+            if (part.match(/\(.*?\)/)) {
+                const term = part.slice(1, -1);
+                const [english, tamil] = term.split(':');
+                if (english && tamil) {
+                    return <span key={index} className="text-accent">{`${english} (${tamil})`}</span>;
+                }
+            }
+            return part;
+        });
+    };
+
     return (
         <Card>
             <CardHeader>
@@ -49,35 +63,31 @@ export function ConceptNotesCard({ content }: { content: string }) {
                     remarkPlugins={[remarkGfm, remarkMath]}
                     rehypePlugins={[rehypeKatex]}
                     components={{
-                        p: ({node, ...props}) => {
-                           // Check for block math
-                           if (props.children.length === 1 && typeof props.children[0] === 'string' && (props.children[0] as string).startsWith('$$') && (props.children[0] as string).endsWith('$$')) {
-                                const math = (props.children[0] as string).slice(2, -2);
-                                return <BlockMath math={math} />;
-                           }
+                        p: ({ node, ...props }) => {
+                            const textContent = Children.toArray(props.children).join('');
+                            if (textContent.includes('{{')) {
+                                const firstChild = Children.toArray(props.children)[0];
+                                if (typeof firstChild === 'string') {
+                                    if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
+                                        return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                                    }
+                                    if (firstChild.trim() === '{{ACTION_REACTION_ANIMATION}}') {
+                                        return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                                    }
+                                    if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
+                                        return <div className="not-prose my-4"><LiftAnimation /></div>;
+                                    }
+                                    if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
+                                        return <div className="not-prose my-4"><ProjectileAnimation /></div>;
+                                    }
+                                }
+                            }
 
-                           // Check for special animations
-                           const firstChild = Children.toArray(props.children)[0];
-                           if (typeof firstChild === 'string') {
-                               if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                               }
-                               if (firstChild.trim() === '{{ACTION_REACTION_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                               }
-                               if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><LiftAnimation /></div>;
-                               }
-                               if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><ProjectileAnimation /></div>;
-                               }
-                           }
-                           
-                           return <p className="my-4 leading-relaxed text-muted-foreground">{props.children}</p>
+                            return <div className="my-4 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent)}</div>;
                         },
-                        h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
-                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
-                        ul: ({node, ...props}) => <ul className="list-none p-0 space-y-2" {...props} />,
+                        h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
+                        h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
+                        ul: ({ node, ...props }) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
                            return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{props.children}</span></li>;
                         },
@@ -123,7 +133,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         </Badge>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <div className="bg-primary/10 p-4 rounded-md">
+                        <div className="bg-secondary/30 p-4 rounded-md">
                             <p className="font-bold">Problem:</p>
                             <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
                         </div>
@@ -136,7 +146,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <p className="font-bold mb-2">Solution:</p>
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
-                                    <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5 rounded-r-md">
+                                    <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5">
                                         <p className="font-semibold text-sm">{step.explanation}</p>
                                         {step.explanationTamil && <p className="text-xs text-primary/80 italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
@@ -150,7 +160,7 @@ $$`}</ReactMarkdown>
                                 ))}
                             </div>
                         </div>
-                        <Alert variant="default" className="bg-accent/10 border-accent">
+                        <Alert variant="default" className="bg-accent/10 border-accent text-accent-foreground">
                             <Lightbulb className="h-4 w-4 text-accent" />
                             <AlertTitle>NEET Hack</AlertTitle>
                             <AlertDescription>
@@ -307,7 +317,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         ))}
                                     </div>
                                     {submittedMcqs && (
-                                        <div className="mt-4 p-2 rounded-md bg-primary/10">
+                                        <div className="mt-4 p-2 rounded-md bg-secondary/30">
                                             <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
                                             <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
                                         </div>
@@ -371,7 +381,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                                         </Button>
                                                     ))}
                                                 </div>
-                                                <div className="p-2 rounded-md bg-primary/10">
+                                                <div className="p-2 rounded-md bg-secondary/30">
                                                     <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
                                                     <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
                                                 </div>
@@ -396,7 +406,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="p-2 bg-primary/10 rounded-md">
+                                            <AccordionContent className="p-2 bg-secondary/30 rounded-md">
                                                 <strong>Answer:</strong> {item.explanation}
                                             </AccordionContent>
                                         </AccordionItem>
@@ -432,7 +442,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-4">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="p-2 bg-primary/10 rounded-md">
+                                            <AccordionContent className="p-2 bg-secondary/30 rounded-md">
                                                  <strong>Answer:</strong> {item.answer}
                                                  {item.explanation && <p className="text-xs text-muted-foreground mt-1">{item.explanation}</p>}
                                             </AccordionContent>
