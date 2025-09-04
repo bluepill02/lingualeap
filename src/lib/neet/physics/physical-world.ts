@@ -29,16 +29,16 @@ export const physicalWorldModule: NeetModule = {
         }
     ],
     conceptNotes: `### 1. What is Physics? (இயற்பியல் என்றால் என்ன?)
-Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is [[unification:ஒருங்கிணைத்தல்]]—explaining diverse physical phenomena with a few concepts and laws—and [[reductionism:குறைத்தல்வாதம்]], which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.
+Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is unification (ஒருங்கிணைத்தல்)—explaining diverse physical phenomena with a few concepts and laws—and reductionism (குறைத்தல்வாதம்), which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.
 
 ### 2. Scope and Excitement of Physics (இயற்பியலின் வீச்சு மற்றும் உற்சாகம்)
 The scope of Physics is vast, covering two main domains:
-*   **Macroscopic (பேரியல்):** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **[[Classical Physics:செவ்வியல் இயற்பியல்]]**, which includes:
+*   **Macroscopic (பேரியல்):** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **Classical Physics (செவ்வியல் இயற்பியல்)**, which includes:
     *   Mechanics (இயக்கவியல்): Deals with the motion of objects (Newton's Laws, etc.).
     *   Electrodynamics (மின்னியக்கவியல்): Deals with electric and magnetic phenomena.
     *   Optics (ஒளியியல்): Deals with the phenomena involving light.
     *   Thermodynamics (வெப்ப இயக்கவியல்): Deals with heat, temperature, and the bulk properties of matter.
-*   **Microscopic (நுண்ணியல்):** Includes phenomena at the atomic, molecular, and nuclear scales. This is the realm of **[[Quantum Mechanics:குவாண்டம் இயக்கவியல்]]**.
+*   **Microscopic (நுண்ணியல்):** Includes phenomena at the atomic, molecular, and nuclear scales. This is the realm of **Quantum Mechanics (குவாண்டம் இயக்கவியல்)**.
 
 The excitement of Physics comes from uncovering the secrets of nature, predicting future events based on its laws, and applying this knowledge for societal benefit.
 

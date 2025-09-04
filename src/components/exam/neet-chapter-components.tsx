@@ -38,9 +38,6 @@ import { ProjectileAnimation } from './ProjectileAnimation';
 
 
 export function ConceptNotesCard({ content }: { content: string }) {
-    const renderTextWithTooltips = (text: string) => {
-        return text;
-    };
 
     return (
         <Card>
@@ -73,11 +70,6 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                 }
                             }
                             
-                            // Check for tooltip syntax and render a div if it exists
-                            if (typeof textContent === 'string' && /\[\[.*?\]\]/.test(textContent)) {
-                                return <div className="my-4 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent)}</div>;
-                            }
-
                             return <p className="my-4 leading-relaxed text-muted-foreground">{props.children}</p>;
                         },
                         h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
@@ -141,8 +133,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-base text-primary/90">Step {step.step}: {step.explanation}</p>
-                                        {step.explanationTamil && <p className="text-sm text-primary/70 italic mt-1">{step.explanationTamil}</p>}
+                                        <p className="font-semibold text-base text-foreground">{step.step}: {step.explanation}</p>
+                                        {step.explanationTamil && <p className="text-sm text-muted-foreground italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
                                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
@@ -157,7 +149,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
                                 {example.neetHack}
-                                {example.neetHackTamil && <p className="text-xs text-yellow-400/80 italic mt-1">{example.neetHackTamil}</p>}
+                                {example.neetHackTamil && <p className="text-xs text-muted-foreground italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -338,9 +330,9 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                            Adaptive MCQ Practice
                         </AccordionTrigger>
                         <AccordionContent className="pt-4 space-y-6">
-                            <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30 text-yellow-100">
-                                <Lightbulb className="h-4 w-4 text-yellow-400" />
-                                <AlertTitle className="text-yellow-300">Focus on What Matters</AlertTitle>
+                            <Alert variant="warning" className="bg-yellow-500/10">
+                                <Lightbulb className="h-4 w-4" />
+                                <AlertTitle>Focus on What Matters</AlertTitle>
                                 <AlertDescription>
                                     These questions are sorted by how frequently similar concepts have appeared in past NEET exams. High-frequency questions are marked with more stars.
                                 </AlertDescription>

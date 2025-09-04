@@ -31,8 +31,8 @@ export const motionInAStraightLineModule: NeetModule = {
     ],
     conceptNotes: `### 1. Describing Motion: Position, Path Length, and Displacement (இயக்கத்தை விவரித்தல்: நிலை, பாதை நீளம் மற்றும் இடப்பெயர்ச்சி)
 *   **Frame of Reference (குறிப்பாயம்):** A coordinate system (like x, y, z axes) with a clock, with respect to which we describe the motion of an object.
-*   **Path Length (பாதை நீளம்):** The total length of the actual path traversed by an object. It is a [[scalar quantity:ஸ்கேலார் அளவு]] (has only magnitude) and is always positive.
-*   **Displacement (இடப்பெயர்ச்சி):** The shortest straight-line distance between the initial and final positions of an object. It is a [[vector quantity:வெக்டர் அளவு]] (has both magnitude and direction). Displacement can be positive, negative, or zero.
+*   **Path Length (பாதை நீளம்):** The total length of the actual path traversed by an object. It is a scalar quantity (ஸ்கேலார் அளவு) and is always positive.
+*   **Displacement (இடப்பெயர்ச்சி):** The shortest straight-line distance between the initial and final positions of an object. It is a vector quantity (வெக்டர் அளவு) and can be positive, negative, or zero.
 $$
 \\Delta x = x_f - x_i
 $$
