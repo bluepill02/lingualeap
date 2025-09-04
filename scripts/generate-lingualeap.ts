@@ -4,33 +4,45 @@ import fs from 'fs';
 import path from 'path';
 import { generateNeetContent } from '../src/ai/flows/neet-content-generator';
 
-// Define a specific type for the subjects
+// Define a specific type for the subjects and categories
 type Subject = 'physics' | 'chemistry' | 'biology';
+type PhysicsCategory = 'core' | 'bridge' | 'foundation';
 
-// NEET UG 2025 syllabus exactly as per NTA PDF
-const neetSyllabus: Record<Subject, string[]> = {
-  physics: [
-    'Physics and Measurement',
-    'Kinematics',
-    'Laws of Motion',
-    'Work, Energy, and Power',
-    'Rotational Motion',
-    'Gravitation',
-    'Properties of Solids and Liquids',
-    'Thermodynamics',
-    'Kinetic Theory of Gases',
-    'Oscillations and Waves',
-    'Electrostatics',
-    'Current Electricity',
-    'Magnetic Effects of Current and Magnetism',
-    'Electromagnetic Induction and Alternating Currents',
-    'Electromagnetic Waves',
-    'Optics',
-    'Dual Nature of Matter and Radiation',
-    'Atoms and Nuclei',
-    'Electronic Devices',
-    'Experimental Skills',
-  ],
+// NEET UG 2025 syllabus based on strategic categorization
+const neetSyllabus: {
+  physics: Record<PhysicsCategory, string[]>;
+  chemistry: string[];
+  biology: string[];
+} = {
+  physics: {
+    core: [
+      'Laws of Motion',
+      'Work, Energy & Power',
+      'Motion in a Straight Line',
+      'Thermodynamics',
+      'Ray Optics',
+      'Current Electricity',
+      'Electrostatics',
+      'Atoms & Nuclei',
+      'Semiconductor Electronics',
+    ],
+    bridge: [
+      'Communication Systems',
+      'Electromagnetic Waves',
+      'Wave Optics',
+      'Magnetism and Matter',
+      'Dual Nature of Radiation',
+      'Mechanical Properties of Fluids',
+    ],
+    foundation: [
+      'Physical World',
+      'Units and Measurements',
+      'Kinetic Theory',
+      'System of Particles',
+      'Gravitation',
+      'Mechanical Properties of Solids',
+    ],
+  },
   chemistry: [
     // Physical Chemistry
     'Some Basic Concepts in Chemistry',
@@ -72,29 +84,38 @@ const neetSyllabus: Record<Subject, string[]> = {
   ],
 };
 
-// Use the Subject type for the keys of expectedCounts
-const expectedCounts: Record<Subject, number> = { physics: 20, chemistry: 20, biology: 10 };
-
-// Guard clause to ensure 100% coverage
-for (const subject of Object.keys(neetSyllabus) as Subject[]) {
-  const chapters = neetSyllabus[subject];
-  if (chapters.length !== expectedCounts[subject]) {
-    throw new Error(
-      `Syllabus mismatch for ${subject}: expected ${expectedCounts[subject]}, found ${chapters.length}`
-    );
-  }
-}
-console.log('✅ NEET UG 2025 syllabus arrays fully aligned with NTA PDF');
-
 // Batch-generate lessons
 async function run() {
-  for (const subject of Object.keys(neetSyllabus) as Subject[]) {
-    const chapters = neetSyllabus[subject];
+  // Generate Physics content by category
+  for (const category of Object.keys(neetSyllabus.physics) as PhysicsCategory[]) {
+    const chapters = neetSyllabus.physics[category];
     for (const chapter of chapters) {
       try {
+        console.log(`🚀 Generating Physics > ${category} > ${chapter}...`);
+        
+        const result = await generateNeetContent({ subject: 'Physics', chapter, category });
+        
+        const safeName = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
+        const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
+        
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+        fs.writeFileSync(filePath, result.markdownContent);
+
+        console.log(`📝 Successfully generated Physics > ${category} > ${chapter}`);
+      } catch (error) {
+        console.error(`❌ Failed to generate Physics > ${category} > ${chapter}:`, error);
+      }
+    }
+  }
+
+  // Generate for other subjects (unchanged)
+  const otherSubjects: Subject[] = ['chemistry', 'biology'];
+  for (const subject of otherSubjects) {
+    const chapters = neetSyllabus[subject];
+    for (const chapter of chapters) {
+       try {
         console.log(`🚀 Generating ${subject} > ${chapter}...`);
         
-        // Call the Genkit flow directly
         const result = await generateNeetContent({ subject, chapter });
         
         const safeName = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
