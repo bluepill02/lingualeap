@@ -73,14 +73,14 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                            }
                            return <p className="my-2 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent || '')}</p>
                         },
-                        h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3" {...props} />,
-                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2" {...props} />,
+                        h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3 text-foreground" {...props} />,
+                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2 text-primary" {...props} />,
                         li: ({ node, ...props }) => {
-                            const textContent = node?.children.map(c => c.type === 'text' ? c.value : '').join('');
-                            return <li className="ml-5 list-disc my-1">{renderTextWithTooltips(textContent)}</li>;
+                            const textContent = node?.children.map(c => 'value' in c ? c.value : '').join('');
+                            return <li className="my-1 text-muted-foreground">{renderTextWithTooltips(textContent || '')}</li>;
                         },
-                        strong: ({node, ...props}) => <strong className="font-semibold" {...props} />,
-                        em: ({node, ...props}) => <i className="italic" {...props} />,
+                        strong: ({node, ...props}) => <strong className="font-semibold text-foreground" {...props} />,
+                        em: ({node, ...props}) => <i className="italic text-foreground/90" {...props} />,
                         code: ({node, ...props}) => {
                             if (node?.children[0]?.type === 'text') {
                                 return <BlockMath math={node.children[0].value} />;
@@ -437,3 +437,4 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
+
