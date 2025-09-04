@@ -12,23 +12,40 @@ import { Separator } from '@/components/ui/separator';
 
 const chapterGroups = {
     foundation: [
-        { id: 'physical-world', title: 'Physics - Physical World (பௌதிக உலகம்)', quirkyFact: "The universe's 'how' and 'why'!" },
-        { id: 'units-and-measurements', title: 'Physics - Units and Measurements (அலகுகளும் அளவீட்டியலும்)', quirkyFact: "The secret grammar of physics." },
+        { id: 'physical-world', title: 'Physical World (பௌதிக உலகம்)'},
+        { id: 'units-and-measurements', title: 'Units and Measurements (அலகுகளும் அளவீட்டியலும்)'},
     ],
     core: [
-        { id: 'motion-in-a-straight-line', title: 'Physics - Motion in a Straight Line (நேர்கோட்டு இயக்கம்)', quirkyFact: "The ABCs of how things move." },
-        { id: 'motion-in-a-plane', title: 'Physics - Motion in a Plane (தளத்தில் இயக்கம்)', quirkyFact: "From cricket balls to planets." },
-        { id: 'laws-of-motion', title: 'Physics - Laws of Motion (இயக்க விதிகள்)', quirkyFact: "Why apples fall and rockets fly." },
-        { id: 'work-energy-and-power', title: 'Physics - Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)', quirkyFact: "The currency of the universe." },
-        { id: 'rotational-motion', title: 'Physics - System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)', quirkyFact: "Why spinning makes things stable." },
-        { id: 'gravitation', title: 'Physics - Gravitation (ஈர்ப்பியல்)', quirkyFact: "The force that runs the cosmos." },
-        { id: 'properties-of-solids-and-liquids', title: 'Physics - Properties of Solids and Liquids (திண்மங்கள் மற்றும் பாய்மங்களின் பண்புகள்)', quirkyFact: "Why raindrops are round and ships float." },
-        { id: 'thermodynamics', title: 'Physics - Thermodynamics (வெப்ப இயக்கவியல்)', quirkyFact: "The rules of heat, work, and energy." },
-        { id: 'kinetic-theory-of-gases', title: 'Physics - Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)', quirkyFact: "Why smells spread across a room." },
-        { id: 'oscillations-and-waves', title: 'Physics - Oscillations and Waves (அலைவுகளும் அலைகளும்)', quirkyFact: "The physics of music and earthquakes." },
-        { id: 'electrostatics', title: 'Physics - Electrostatics (நிலைமின்னியல்)', quirkyFact: "Why socks stick together in the dryer." },
+        { id: 'motion-in-a-straight-line', title: 'Motion in a Straight Line (நேர்கோட்டு இயக்கம்)'},
+        { id: 'motion-in-a-plane', title: 'Motion in a Plane (தளத்தில் இயக்கம்)'},
+        { id: 'laws-of-motion', title: 'Laws of Motion (இயக்க விதிகள்)'},
+        { id: 'work-energy-and-power', title: 'Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)'},
+        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)'},
+        { id: 'gravitation', title: 'Gravitation (ஈர்ப்பியல்)'},
+        { id: 'mechanical-properties-of-solids', title: 'Mechanical Properties of Solids'},
+        { id: 'mechanical-properties-of-fluids', title: 'Mechanical Properties of Fluids'},
+        { id: 'thermal-properties-of-matter', title: 'Thermal Properties of Matter'},
+        { id: 'thermodynamics', title: 'Thermodynamics (வெப்ப இயக்கவியல்)'},
+        { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)'},
+        { id: 'oscillations', title: 'Oscillations'},
+        { id: 'waves', title: 'Waves'},
+        { id: 'electrostatics', title: 'Electrostatics (நிலைமின்னியல்)'},
+        { id: 'current-electricity', title: 'Current Electricity'},
+        { id: 'moving-charges-and-magnetism', title: 'Moving Charges and Magnetism'},
+        { id: 'magnetism-and-matter', title: 'Magnetism and Matter'},
+        { id: 'electromagnetic-induction', title: 'Electromagnetic Induction'},
+        { id: 'alternating-current', title: 'Alternating Current'},
+        { id: 'electromagnetic-waves', title: 'Electromagnetic Waves'},
+        { id: 'ray-optics-and-optical-instruments', title: 'Ray Optics and Optical Instruments'},
+        { id: 'wave-optics', title: 'Wave Optics'},
+        { id: 'dual-nature-of-radiation-and-matter', title: 'Dual Nature of Radiation and Matter'},
+        { id: 'atoms', title: 'Atoms'},
+        { id: 'nuclei', title: 'Nuclei'},
+        { id: 'semiconductor-electronics', title: 'Semiconductor Electronics'},
     ],
-    bridge: []
+    bridge: [
+        { id: 'communication-systems', title: 'Communication Systems'}
+    ]
 }
 
 const groupInfo = {
@@ -67,7 +84,7 @@ export default function NeetPhysicsPage() {
             <div>
                 <h1 className="text-2xl font-bold font-headline">Physics</h1>
                 <p className="text-muted-foreground">
-                    Master fundamental concepts and problem-solving (16 Chapters)
+                    Master fundamental concepts and problem-solving
                 </p>
             </div>
         </div>
@@ -100,10 +117,6 @@ export default function NeetPhysicsPage() {
                                             <h3 className="text-lg font-bold font-headline pr-4">{item.title}</h3>
                                             <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                         </div>
-                                        <div className="text-sm text-accent flex items-center gap-2">
-                                            <Lightbulb className="w-4 h-4" />
-                                            <span>{item.quirkyFact}</span>
-                                        </div>
                                         <Alert className="bg-primary/5 border-primary/20 mt-auto">
                                             <BookOpen className="h-4 w-4 text-primary/80" />
                                             <AlertDescription className="text-primary/80 text-xs">
@@ -131,7 +144,7 @@ export default function NeetPhysicsPage() {
                 <p className="text-sm text-muted-foreground">Completed</p>
             </div>
             <div>
-                <p className="text-2xl font-bold">7</p>
+                <p className="text-2xl font-bold">{Object.values(chapterGroups).flat().length}</p>
                 <p className="text-sm text-muted-foreground">Total Chapters</p>
             </div>
              <div>

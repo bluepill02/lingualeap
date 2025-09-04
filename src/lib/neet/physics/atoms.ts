@@ -1,10 +1,10 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const dualNatureOfMatterAndRadiationModule: NeetModule = {
-    id: 'neet-physics-dual-nature-of-matter-and-radiation',
-    title: 'Physics - Dual Nature of Matter and Radiation',
-    chapter: 'Dual Nature of Matter and Radiation',
+export const atomsModule: NeetModule = {
+    id: 'neet-physics-atoms',
+    title: 'Physics - Atoms',
+    chapter: 'Atoms',
     subject: 'Physics',
     learningObjectives: [],
     prerequisites: [],

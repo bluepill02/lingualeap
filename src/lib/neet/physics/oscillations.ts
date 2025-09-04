@@ -1,10 +1,10 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const atomsAndNucleiModule: NeetModule = {
-    id: 'neet-physics-atoms-and-nuclei',
-    title: 'Physics - Atoms and Nuclei',
-    chapter: 'Atoms and Nuclei',
+export const oscillationsModule: NeetModule = {
+    id: 'neet-physics-oscillations',
+    title: 'Physics - Oscillations',
+    chapter: 'Oscillations',
     subject: 'Physics',
     learningObjectives: [],
     prerequisites: [],

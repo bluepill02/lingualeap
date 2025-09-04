@@ -1,10 +1,10 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const electronicDevicesModule: NeetModule = {
-    id: 'neet-physics-electronic-devices',
-    title: 'Physics - Electronic Devices',
-    chapter: 'Electronic Devices',
+export const rayOpticsAndOpticalInstrumentsModule: NeetModule = {
+    id: 'neet-physics-ray-optics-and-optical-instruments',
+    title: 'Physics - Ray Optics and Optical Instruments',
+    chapter: 'Ray Optics and Optical Instruments',
     subject: 'Physics',
     learningObjectives: [],
     prerequisites: [],

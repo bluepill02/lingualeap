@@ -1,10 +1,10 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const magneticEffectsOfCurrentAndMagnetismModule: NeetModule = {
-    id: 'neet-physics-magnetic-effects-of-current-and-magnetism',
-    title: 'Physics - Magnetic Effects of Current and Magnetism',
-    chapter: 'Magnetic Effects of Current and Magnetism',
+export const waveOpticsModule: NeetModule = {
+    id: 'neet-physics-wave-optics',
+    title: 'Physics - Wave Optics',
+    chapter: 'Wave Optics',
     subject: 'Physics',
     learningObjectives: [],
     prerequisites: [],
