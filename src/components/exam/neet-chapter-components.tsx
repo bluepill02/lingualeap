@@ -29,6 +29,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
 import { FbdBuilder } from './FbdBuilder';
+import { InertiaAnimation } from './InertiaAnimation';
+import { ActionReactionAnimation } from './ActionReactionAnimation';
+import { LiftAnimation } from './LiftAnimation';
 
 export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
     return (
@@ -43,12 +46,15 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                     rehypePlugins={[rehypeKatex]}
                     components={{
                         p: ({node, ...props}) => {
-                           if (typeof props.children === 'object' && Array.isArray(props.children) && props.children[0]) {
-                                // Check if this paragraph is where the animation should go
-                                const childNode = props.children[0];
-                                if (typeof childNode === 'string' && childNode.includes('{{')) {
-                                    return <div className="not-prose">{children}</div>;
-                                }
+                           const value = node?.children[0]?.type === 'text' ? node.children[0].value : '';
+                           if (value === '{{INERTIA_ANIMATION}}') {
+                                return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                           }
+                           if (value === '{{ACTION_REACTION_ANIMATION}}') {
+                                return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                           }
+                           if (value === '{{LIFT_ANIMATION}}') {
+                                return <div className="not-prose my-4"><LiftAnimation /></div>;
                            }
                            return <p className="my-2 leading-relaxed text-muted-foreground" {...props} />
                         },
