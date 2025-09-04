@@ -63,31 +63,28 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                     components={{
                          p: ({node, ...props}) => {
                            const childrenArray = Children.toArray(props.children);
-                           const textContent = childrenArray.map(child => {
-                             if (typeof child === 'string') {
-                               return child;
-                             }
-                             if (React.isValidElement(child) && typeof child.props.children === 'string') {
-                               return child.props.children;
-                             }
-                             return '';
-                           }).join('').trim();
                            
-                           if (textContent === '{{INERTIA_ANIMATION}}') {
-                                return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                           }
-                           if (textContent === '{{ACTION_REACTION_ANIMATION}}') {
-                                return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                           }
-                           if (textContent === '{{LIFT_ANIMATION}}') {
-                                return <div className="not-prose my-4"><LiftAnimation /></div>;
+                           // Check for custom animation components
+                           const firstChild = childrenArray[0];
+                           if (typeof firstChild === 'string') {
+                               if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                               }
+                               if (firstChild.trim() === '{{ACTION_REACTION_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                               }
+                               if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><LiftAnimation /></div>;
+                               }
                            }
                            
-                           if (textContent.startsWith('$$') && textContent.endsWith('$$')) {
-                                const math = textContent.slice(2, -2).trim();
+                           // Check for Block Math: paragraph with a single child that is a string starting and ending with $$
+                           if (childrenArray.length === 1 && typeof firstChild === 'string' && firstChild.trim().startsWith('$$') && firstChild.trim().endsWith('$$')) {
+                                const math = firstChild.trim().slice(2, -2).trim();
                                 return <BlockMath math={math} />;
                            }
                            
+                           // Default paragraph rendering with tooltip support
                            const newChildren = childrenArray.map((child, index) => {
                                if (typeof child === 'string') {
                                    return renderTextWithTooltips(child);
@@ -183,14 +180,16 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 {example.neetHackTamil && <p className="text-xs text-accent/80 italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
-                        <Alert variant="destructive" className="bg-destructive/10">
-                            <AlertTriangle className="h-4 w-4" />
-                            <AlertTitle>Common Pitfall</AlertTitle>
-                            <AlertDescription>
-                                {example.commonPitfall}
-                                {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
-                            </AlertDescription>
-                        </Alert>
+                        {example.commonPitfall && (
+                            <Alert variant="destructive" className="bg-destructive/10">
+                                <AlertTriangle className="h-4 w-4" />
+                                <AlertTitle>Common Pitfall</AlertTitle>
+                                <AlertDescription>
+                                    {example.commonPitfall}
+                                    {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
+                                </AlertDescription>
+                            </Alert>
+                        )}
                     </CardContent>
                 </Card>
             ))}
@@ -204,7 +203,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
     return (
         <Card>
             <CardHeader>
-                <CardTitle className="flex items-center gap-2"><FileText />Key Formulas & Diagrams</CardTitle>
+                <CardTitle className="flex items-center gap-2"><FileText />Key Formulas &amp; Diagrams</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
                 <Table>
@@ -228,7 +227,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                     </TableBody>
                 </Table>
                 
-                {diagrams.map((diagram, index) => (
+                {diagrams && diagrams.map((diagram, index) => (
                     <div key={index}>
                         <Separator className="my-4" />
                         <h4 className="font-bold text-lg">{diagram.title}</h4>
@@ -238,7 +237,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                              <FbdBuilder {...diagram.fbd} />
                            </div>
                         ) : (
-                           <pre className="bg-muted p-4 rounded-lg text-sm font-mono overflow-x-auto">{diagram.diagram}</pre>
+                           diagram.diagram && <pre className="bg-muted p-4 rounded-lg text-sm font-mono overflow-x-auto">{diagram.diagram}</pre>
                         )}
                     </div>
                 ))}
@@ -378,7 +377,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     </div>
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
-                                            <AccordionTrigger className="text-xs p-2">View Options & Solution</AccordionTrigger>
+                                            <AccordionTrigger className="text-xs p-2">View Options &amp; Solution</AccordionTrigger>
                                             <AccordionContent className="p-2 space-y-4">
                                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                     {quiz.options.map((option) => (
@@ -405,7 +404,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                     </AccordionItem>
 
                     {/* Assertion-Reason Section */}
-                    <AccordionItem value="assertion-reason">
+                    {assertionReasons && assertionReasons.length > 0 && <AccordionItem value="assertion-reason">
                         <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
                             Assertion-Reason Questions ({assertionReasons.length})
                         </AccordionTrigger>
@@ -425,10 +424,10 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                 </div>
                             ))}
                         </AccordionContent>
-                    </AccordionItem>
+                    </AccordionItem>}
 
                     {/* Match the Columns Section */}
-                    <AccordionItem value="match-the-columns">
+                    {matchTheColumns && matchTheColumns.length > 0 && <AccordionItem value="match-the-columns">
                         <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
                             Match the Columns ({matchTheColumns.length})
                         </AccordionTrigger>
@@ -462,7 +461,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                 </div>
                            ))}
                         </AccordionContent>
-                    </AccordionItem>
+                    </AccordionItem>}
 
                 </Accordion>
             </CardContent>
@@ -477,3 +476,6 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     
 
 
+
+
+    
