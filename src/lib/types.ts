@@ -205,6 +205,9 @@ export interface NeetModule {
         formulas: KeyFormula[];
         diagrams: KeyDiagram[];
     };
+    keyTakeaways?: string[];
+    mnemonics?: { text: string; tamil: string }[];
+    neetTips?: { text: string; tamil: string }[];
 }
 
 

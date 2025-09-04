@@ -234,6 +234,21 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             }
         ]
     },
+    keyTakeaways: [
+        "First Law: Inertia - objects resist change in motion.",
+        "Second Law: F = ma - net force causes acceleration.",
+        "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
+        "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
+    ],
+    mnemonics: [
+        { text: "Remember FMA: Force = Mass × Acceleration.", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
+        { text: "Action-reaction pairs are a two-way street; they never act on the same body.", tamil: "செயல்-எதிர்ச்செயல் விசைகள் எப்போதும் வெவ்வேறு பொருட்கள் மீது செயல்படும்." }
+    ],
+    neetTips: [
+        { text: "For connected objects, always find system acceleration first: a = F_net / m_total.", tamil: "இணைக்கப்பட்ட பொருட்களுக்கு முதலில் கூட்டு முடுக்கம் கண்டுபிடிக்கவும்." },
+        { text: "Pitfall: Weight is mg, not mass. Weight changes with g, mass doesn't!", tamil: "எடை = mg, நிறை அல்ல. எடை g யுடன் மாறும், நிறை மாறாது." },
+        { text: "Strategy: Draw FBDs for EVERY object in the problem. This prevents mistakes.", tamil: "எல்லா பொருட்களுக்கும் விசை படம் வரையவும்." }
+    ],
     mcqs: [
         {
             question: "A car suddenly starts from rest. Passengers feel pushed backward due to:",

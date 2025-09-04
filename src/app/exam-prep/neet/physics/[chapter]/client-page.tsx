@@ -22,7 +22,7 @@ interface NeetChapterClientPageProps {
 }
 
 function ChapterContent({ content }: NeetChapterClientPageProps) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips } = content;
   const totalSections = 6;
 
   const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
@@ -49,21 +49,6 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
   }
 
   const progress = (completedSections.length / totalSections) * 100;
-
-
-  const summaryPoints = [
-    "First Law: Inertia - objects resist change in motion",
-    "Second Law: F = ma - force causes acceleration",
-    "Third Law: Action-Reaction pairs are equal and opposite",
-    "Always draw free body diagrams before solving"
-  ];
-
-  const neetTips = [
-      { text: "Time-Saver: For connected objects, always find system acceleration first: a = F_net/m_total", tamil: "இணைக்கப்பட்ட பொருட்களுக்கு முதலில் கூட்டு முடுக்கம் கண்டுபிடிக்கவும்" },
-      { text: "Mnemonic: Remember FMA: Force = Mass × Acceleration. Like 'Famous Madras Academy'", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
-      { text: "Pitfall: Weight is mg, not mass. Weight changes with g, mass doesn't!", tamil: "எடை = mg, நிறை அல்ல. எடை g யுடன் மாறும், நிறை மாறாது" },
-      { text: "Strategy: Draw free body diagrams for EVERY object in the problem. This prevents mistakes.", tamil: "எல்லா பொருட்களுக்கும் விசை படம் வரையவும்" }
-  ]
 
   return (
     <div className="space-y-6">
@@ -191,35 +176,39 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
             </div>
         </TabsContent>
         <TabsContent value="summary" className="mt-6 space-y-6">
-            <Card>
+            {mnemonics && mnemonics.length > 0 && <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">விசை நிறை முடுக்க விதி - F = ma (Visai Nirai Mudukka Vithi)</Button>
-                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">செயல் எதிர்செயல் சமம் - Action-Reaction equal (Seyal Ethirseyal Samam)</Button>
-                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">ஓய்வு இயக்கம் மாறாது - Rest and motion unchanged (Oyvu Iyakkam Maradu)</Button>
+                    {mnemonics.map((mnemonic, index) => (
+                         <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
+                            <div>
+                                <p>{mnemonic.text}</p>
+                                <p className="text-xs text-primary/80">{mnemonic.tamil}</p>
+                            </div>
+                         </Button>
+                    ))}
                 </CardContent>
-            </Card>
-             <Card>
+            </Card>}
+             {keyTakeaways && keyTakeaways.length > 0 && <Card>
                 <CardHeader>
                     <CardTitle>Chapter Summary</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    {summaryPoints.map((point, index) => (
+                    {keyTakeaways.map((point, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
                             <p>{point}</p>
                         </div>
                     ))}
                 </CardContent>
-            </Card>
-             <Card>
+            </Card>}
+             {neetTips && neetTips.length > 0 && <Card>
                 <CardHeader>
-                    <CardTitle>Next Steps & NEET Tips</CardTitle>
+                    <CardTitle>NEET Tips</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    <h3 className="font-semibold text-green-400">NEET Hacks & Tips:</h3>
                     {neetTips.map((tip, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
@@ -238,7 +227,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                          </AlertDescription>
                     </Alert>
                 </CardContent>
-            </Card>
+            </Card>}
 
             <Card className="bg-accent/10 border-accent">
                 <CardHeader>

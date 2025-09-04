@@ -150,6 +150,19 @@ Gravitational Force (1)
             }
         ]
     },
+    keyTakeaways: [
+        "Physics unifies diverse phenomena under a few fundamental laws.",
+        "Nature is governed by four fundamental forces: Strong Nuclear, Electromagnetic, Weak Nuclear, and Gravitational.",
+        "Energy, linear momentum, angular momentum, and charge are conserved quantities in an isolated system.",
+        "The scope of physics ranges from the subatomic (quantum mechanics) to the astronomical (classical mechanics)."
+    ],
+    mnemonics: [
+        { text: "Remember the force hierarchy: 'Strongly Electromagnetic, Weakly Gravitating'.", tamil: "விசை வரிசையை நினைவில் கொள்க: 'வலுவான மின்காந்தம், மெலிந்த ஈர்ப்பு'." },
+    ],
+    neetTips: [
+        { text: "Relative strengths of forces are often asked. Remember the order: Strong > EM > Weak > Gravity.", tamil: "விசைகளின் சார்பு வலிமை அடிக்கடி கேட்கப்படுகிறது. வரிசையை நினைவில் கொள்க: வலுவான > மின்காந்த > மெலிந்த > ஈர்ப்பு." },
+        { text: "Conservation laws are powerful tools for solving problems where details of the forces are unknown.", tamil: "விசைகளின் விவரங்கள் தெரியாத கணக்குகளைத் தீர்க்க, பாதுகாப்பு விதிகள் சக்திவாய்ந்த கருவிகளாகும்." },
+    ],
     mcqs: [
         {
             question: "Which of the following is the weakest fundamental force in nature?",
