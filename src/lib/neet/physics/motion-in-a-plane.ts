@@ -47,20 +47,20 @@ Projectile motion is the motion of an object thrown or projected into the air, s
 
 #### Key Formulas for Projectile Motion:
 *   **Time of Flight (பறக்கும் நேரம்), T:** The total time the projectile is in the air.
-    $$ T = \\frac{2u \\sin\\theta}{g} $$
+$$ T = \\frac{2u \\sin\\theta}{g} $$
 *   **Maximum Height (பெரும உயரம்), H:** The highest point reached by the projectile.
-    $$ H = \\frac{u^2 \\sin^2\\theta}{2g} $$
+$$ H = \\frac{u^2 \\sin^2\\theta}{2g} $$
 *   **Horizontal Range (கிடைத்தள நெடுக்கம்), R:** The total horizontal distance covered.
-    $$ R = \\frac{u^2 \\sin(2\\theta)}{g} $$
+$$ R = \\frac{u^2 \\sin(2\\theta)}{g} $$
     *Note: The range is maximum when $\\sin(2\\theta) = 1$, which means $2\\theta = 90^\\circ$ or $\\theta = 45^\\circ$.*
 
 ### 3. Uniform Circular Motion (சீரான வட்ட இயக்கம்)
 This is the motion of an object traveling at a constant *speed* along a circular path. Even though the speed is constant, the *velocity* is continuously changing because its direction is changing. This change in velocity means there must be an acceleration.
 *   **Centripetal Acceleration (மையநோக்கு முடுக்கம்), $a_c$:** This acceleration is always directed towards the center of the circle. Its magnitude is given by:
-    $$ a_c = \\frac{v^2}{r} = \\omega^2 r $$
+$$ a_c = \\frac{v^2}{r} = \\omega^2 r $$
     where $v$ is the linear speed, $r$ is the radius of the circle, and $\\omega$ is the angular velocity.
 *   **Centripetal Force (மையநோக்கு விசை), $F_c$:** According to Newton's second law, this acceleration must be caused by a net force, also directed towards the center.
-    $$ F_c = ma_c = \\frac{mv^2}{r} $$
+$$ F_c = ma_c = \\frac{mv^2}{r} $$
     *This is not a new kind of force. It is simply the net force (e.g., tension, gravity, friction) that is causing the circular motion.*
 
 ### 4. Relative Velocity in Two Dimensions (இரு பரிமாணங்களில் சார்பு திசைவேகம்)
@@ -87,19 +87,19 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
                     step: 2,
                     explanation: "Part (a): Use the formula for maximum height, H = (u² sin²θ) / 2g.",
                     explanationTamil: "பகுதி (a): பெரும உயரத்திற்கான சூத்திரத்தைப் பயன்படுத்தவும், H = (u² sin²θ) / 2g.",
-                    calculation: "H = (28² * sin²(30°)) / (2 * 9.8) = (784 * (0.5)²) / 19.6 = (784 * 0.25) / 19.6 = 196 / 19.6 = 10 m"
+                    calculation: "H = \\frac{28^2 \\times \\sin^2(30^\\circ)}{2 \\times 9.8} = \\frac{784 \\times (0.5)^2}{19.6} = \\frac{784 \\times 0.25}{19.6} = \\frac{196}{19.6} = 10 \\text{ m}"
                 },
                 {
                     step: 3,
                     explanation: "Part (b): Use the formula for time of flight, T = (2u sinθ) / g.",
                     explanationTamil: "பகுதி (b): பறக்கும் நேரத்திற்கான சூத்திரத்தைப் பயன்படுத்தவும், T = (2u sinθ) / g.",
-                    calculation: "T = (2 * 28 * sin(30°)) / 9.8 = (56 * 0.5) / 9.8 = 28 / 9.8 ≈ 2.86 s"
+                    calculation: "T = \\frac{2 \\times 28 \\times \\sin(30^\\circ)}{9.8} = \\frac{56 \\times 0.5}{9.8} = \\frac{28}{9.8} \\approx 2.86 \\text{ s}"
                 },
                 {
                     step: 4,
                     explanation: "Part (c): Use the formula for horizontal range, R = (u² sin(2θ)) / g.",
                     explanationTamil: "பகுதி (c): கிடைத்தள நெடுக்கத்திற்கான சூத்திரத்தைப் பயன்படுத்தவும், R = (u² sin(2θ)) / g.",
-                    calculation: "R = (28² * sin(2*30°)) / 9.8 = (784 * sin(60°)) / 9.8 = (784 * 0.866) / 9.8 ≈ 69.3 m"
+                    calculation: "R = \\frac{28^2 \\times \\sin(2 \\times 30^\\circ)}{9.8} = \\frac{784 \\times \\sin(60^\\circ)}{9.8} = \\frac{784 \\times 0.866}{9.8} \\approx 69.3 \\text{ m}"
                 }
             ],
             neetHack: "For projectile motion, remember that the time taken to reach maximum height is exactly half the total time of flight (T/2). Also, the range is the same for complementary angles of projection (e.g., 30° and 60°).",
@@ -201,5 +201,7 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
         }
     ],
     assertionReasons: [],
-    matchTheColumns: []
+    matchTheColumns: [],
+    mnemonics: [],
+    neetTips: []
 };
