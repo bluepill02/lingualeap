@@ -72,11 +72,11 @@ These three equations are the cornerstone of kinematics and are valid *only* whe
 3.  **Position-Velocity Relation:** \`v^2 = u^2 + 2as\`
 
 Where:
-*   `u` = initial velocity (தொடக்க திசைவேகம்)
-*   `v` = final velocity (இறுதி திசைவேகம்)
-*   `a` = constant acceleration (சீரான முடுக்கம்)
-*   `s` = displacement (இடப்பெயர்ச்சி)
-*   `t` = time interval (கால இடைவெளி)
+*   \`u\` = initial velocity (தொடக்க திசைவேகம்)
+*   \`v\` = final velocity (இறுதி திசைவேகம்)
+*   \`a\` = constant acceleration (சீரான முடுக்கம்)
+*   \`s\` = displacement (இடப்பெயர்ச்சி)
+*   \`t\` = time interval (கால இடைவெளி)
 
 A fourth useful equation can be derived for displacement in the *n*th second:
 \`\`\`math
@@ -86,7 +86,7 @@ s_n = u + \\frac{a}{2}(2n - 1)
 ### 5. Motion Under Gravity (ஈர்ப்பின் கீழ் இயக்கம்)
 This is a special case of uniformly accelerated motion where the acceleration is due to gravity, *g* (approximately 9.8 m/s²).
 *   **Sign Convention is Crucial:** A common convention is to take the upward direction as positive and the downward direction as negative.
-    *   In this case, acceleration `a = -g` for all scenarios (object thrown up, falling down).
+    *   In this case, acceleration \`a = -g\` for all scenarios (object thrown up, falling down).
 *   The kinematic equations become:
     1.  \`v = u - gt\`
     2.  \`s = ut - \\frac{1}{2}gt^2\`
@@ -338,5 +338,3 @@ This is a special case of uniformly accelerated motion where the acceleration is
         }
     ]
 };
-
-    

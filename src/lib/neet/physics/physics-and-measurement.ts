@@ -72,9 +72,9 @@ Significant figures in a measurement are the reliable digits plus the first unce
 *   **Percentage Error (சதவீதப் பிழை):** Relative error expressed in percent. * (δa_mean / a_mean) × 100%*.
 
 #### Combination of Errors (பிழைகளின் பரவல்):
-If *Z = A ± B*, then the absolute error is *ΔZ = ΔA + ΔB*.
-If *Z = A × B* or *Z = A / B*, then the relative error is *ΔZ/Z = ΔA/A + ΔB/B*.
-If *Z = Aⁿ*, then *ΔZ/Z = n(ΔA/A)*.
+If \`Z = A ± B\`, then the absolute error is \`ΔZ = ΔA + ΔB\`.
+If \`Z = A × B\` or \`Z = A / B\`, then the relative error is \`ΔZ/Z = ΔA/A + ΔB/B\`.
+If \`Z = Aⁿ\`, then \`ΔZ/Z = n(ΔA/A)\`.
 `,
     workedExamples: [
         {
