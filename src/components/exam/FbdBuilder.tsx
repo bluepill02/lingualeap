@@ -70,15 +70,15 @@ export function FbdBuilder(props: FBDstep) {
                     "absolute flex items-center transition-opacity duration-500 z-20",
                     step > index ? "opacity-100" : "opacity-0",
                     // Positioning classes
-                    force.direction === 'up' && "bottom-full left-1/2 -translate-x-1/2",
-                    force.direction === 'down' && "top-full left-1/2 -translate-x-1/2",
-                    force.direction === 'left' && "right-full top-1/2 -translate-y-1/2",
-                    force.direction === 'right' && "left-full top-1/2 -translate-y-1/2",
-                    force.direction === 'up-left' && "bottom-1/2 right-1/2",
-                    force.direction === 'up-right' && "bottom-1/2 left-1/2",
-                    force.direction === 'down-left' && "top-1/2 right-1/2",
-                    force.direction === 'down-right' && "top-1/2 left-1/2",
-                    force.direction === 'inward' && "right-1/2 top-1/2 -translate-y-1/2",
+                    force.direction === 'up' && "bottom-[110%] left-1/2 -translate-x-1/2",
+                    force.direction === 'down' && "top-[110%] left-1/2 -translate-x-1/2",
+                    force.direction === 'left' && "right-[110%] top-1/2 -translate-y-1/2",
+                    force.direction === 'right' && "left-[110%] top-1/2 -translate-y-1/2",
+                    force.direction === 'up-left' && "bottom-[85%] right-[85%]",
+                    force.direction === 'up-right' && "bottom-[85%] left-[85%]",
+                    force.direction === 'down-left' && "top-[85%] right-[85%]",
+                    force.direction === 'down-right' && "top-[85%] left-[85%]",
+                    force.direction === 'inward' && "right-[110%] top-1/2 -translate-y-1/2",
                 )}>
                     <div className={cn("flex items-center text-sm font-semibold", getArrowRotation(force.direction))}>
                        <span className="mr-1">{force.name}</span>
@@ -90,8 +90,8 @@ export function FbdBuilder(props: FBDstep) {
             {/* Component Labels */}
             {showComponents && step > 0 && (
                  <>
-                    <div className="absolute text-xs font-mono top-[75%] left-[10%] -rotate-[30deg] text-muted-foreground opacity-70">mg sinθ</div>
-                    <div className="absolute text-xs font-mono top-[60%] left-[65%] -rotate-[30deg] text-muted-foreground opacity-70">mg cosθ</div>
+                    <div className="absolute text-xs font-mono top-[65%] -left-[15%] -rotate-[30deg] text-muted-foreground opacity-80">mg sinθ</div>
+                    <div className="absolute text-xs font-mono top-[85%] left-[60%] -rotate-[30deg] text-muted-foreground opacity-80">mg cosθ</div>
                  </>
             )}
 
