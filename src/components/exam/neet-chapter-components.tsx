@@ -74,7 +74,7 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                            return <p className="my-2 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent || '')}</p>
                         },
                         h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3 text-foreground" {...props} />,
-                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2 text-primary" {...props} />,
+                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2 text-accent" {...props} />,
                         li: ({ node, ...props }) => {
                             const textContent = node?.children.map(c => 'value' in c ? c.value : '').join('');
                             return <li className="my-1 text-muted-foreground">{renderTextWithTooltips(textContent || '')}</li>;
@@ -438,3 +438,6 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     );
 }
 
+
+
+    
