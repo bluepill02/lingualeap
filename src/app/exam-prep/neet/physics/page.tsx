@@ -12,26 +12,26 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 const physicsChapters = [
     {
         id: 'physical-world',
-        chapter: 0,
+        chapter: 1,
         title: 'Physics - Physical World (பௌதிக உலகம்)',
         difficulty: 'Easy',
         estimatedTime: '20-30 min',
         tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 1: Nature of Physical World'
     },
     {
-        id: 'motion-in-one-dimension',
-        chapter: 1,
-        title: 'Physics - Motion in One Dimension (ஒரு பரிமாண இயக்கம்)',
+        id: 'units-and-measurements',
+        chapter: 2,
+        title: 'Physics - Units and Measurements (அலகுகளும் அளவீட்டியலும்)',
         difficulty: 'Medium',
         estimatedTime: '45-60 min',
-        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 2: Kinematics maps to NEET Physics Unit 1'
+        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 1: Nature of Physical World and Measurement'
     },
     {
         id: 'laws-of-motion',
-        chapter: 2,
+        chapter: 3,
         title: 'Physics - Laws of Motion (இயக்க விதிகள்)',
-        difficulty: 'Medium',
-        estimatedTime: '45-60 min',
+        difficulty: 'Hard',
+        estimatedTime: '60-90 min',
         tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 3: Laws of Motion maps to NEET Physics Unit 2'
     }
 ]
