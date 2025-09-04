@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState, Fragment, Children, isValidElement } from 'react';
+import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -21,73 +21,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, Info } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
-import 'katex/dist/katex.min.css';
 import { Separator } from '../ui/separator';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
 import { FbdBuilder } from './FbdBuilder';
-import { InertiaAnimation } from './InertiaAnimation';
-import { ActionReactionAnimation } from './ActionReactionAnimation';
-import { LiftAnimation } from './LiftAnimation';
-import { ProjectileAnimation } from './ProjectileAnimation';
-import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 import { cn } from '@/lib/utils';
-
-// Centralized Markdown Renderer Component
-const MarkdownRenderer: React.FC<{ children: string | null | undefined }> = ({ children }) => {
-    if (!children) return null;
-    return (
-        <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkMath]}
-            rehypePlugins={[rehypeKatex]}
-            components={{
-                p: ({ node, ...props }) => {
-                     const textContent = Children.toArray(props.children).map(child => {
-                        if (isValidElement(child)) {
-                            return Children.toArray(child.props.children).join('');
-                        }
-                        return child;
-                    }).join('');
-                    
-                    if (textContent.includes('{{')) {
-                        if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
-                            return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
-                            return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{LIFT_ANIMATION}}') {
-                            return <div className="not-prose my-4"><LiftAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
-                            return <div className="not-prose my-4"><ProjectileAnimation /></div>;
-                        }
-                         if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
-                            return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
-                        }
-                    }
-                    return <p {...props} />;
-                },
-            }}
-        >
-            {children}
-        </ReactMarkdown>
-    );
-};
-
-const BilingualText: React.FC<{ english: string | null | undefined; tamil: string | null | undefined; className?: string; tamilClassName?: string }> = ({ english, tamil, className, tamilClassName }) => {
-    return (
-        <>
-            {english && <div className={cn("text-foreground", className)}><MarkdownRenderer>{english}</MarkdownRenderer></div>}
-            {tamil && <div className={cn("text-yellow-400/90 italic text-sm mt-1", tamilClassName)}><MarkdownRenderer>{tamil}</MarkdownRenderer></div>}
-        </>
-    );
-};
-
+import { MarkdownRenderer } from './markdown-renderer';
+import { BilingualText } from './bilingual-text';
 
 export function ConceptNotesCard({ content }: { content: string }) {
     return (
@@ -112,7 +52,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                           <BilingualText english={example.title} tamil={example.titleTamil} className="text-xl font-bold" />
+                           <BilingualText english={example.title} tamil={example.titleTamil} englishClass="text-xl font-bold" />
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 

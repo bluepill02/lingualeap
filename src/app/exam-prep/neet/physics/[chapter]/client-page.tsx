@@ -17,28 +17,10 @@ import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 import { SyllabusMappingCard } from '@/components/exam/exam-components';
-import ReactMarkdown from 'react-markdown';
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
-import 'katex/dist/katex.min.css';
+import { BilingualText } from '@/components/exam/bilingual-text';
+import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 
-interface NeetChapterClientPageProps {
-  content: NeetModule;
-}
-
-// Reusable component for bilingual markdown rendering
-const BilingualMarkdown: React.FC<{ english?: string, tamil?: string, wrapperClass?: string, englishClass?: string, tamilClass?: string }> = 
-({ english, tamil, wrapperClass, englishClass, tamilClass }) => {
-    if (!english && !tamil) return null;
-    return (
-        <div className={wrapperClass}>
-            {english && <div className={englishClass}><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{english}</ReactMarkdown></div>}
-            {tamil && <div className={tamilClass || 'text-yellow-400/80 italic text-sm mt-1'}><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tamil}</ReactMarkdown></div>}
-        </div>
-    )
-};
-
-function ChapterContent({ content }: NeetChapterClientPageProps) {
+function ChapterContent({ content }: { content: NeetModule }) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips } = content;
   const totalSections = 6;
 
@@ -133,16 +115,16 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     <CardTitle>Concept Overview</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
-                    <BilingualMarkdown english={conceptOverview} />
+                    <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>
                     <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
                         <Lightbulb className="h-4 w-4 text-yellow-400" />
                         <AlertTitle>Tamil Connection</AlertTitle>
-                        <AlertDescription><BilingualMarkdown english={tamilConnection} /></AlertDescription>
+                        <AlertDescription><MarkdownRenderer>{tamilConnection}</MarkdownRenderer></AlertDescription>
                     </Alert>
                      <Alert variant="default" className="bg-green-500/10 border-green-500/30">
                         <BookOpen className="h-4 w-4 text-green-400" />
                         <AlertTitle>Cultural Context</AlertTitle>
-                        <AlertDescription><BilingualMarkdown english={culturalContext} /></AlertDescription>
+                        <AlertDescription><MarkdownRenderer>{culturalContext}</MarkdownRenderer></AlertDescription>
                     </Alert>
                 </CardContent>
             </Card>
@@ -197,7 +179,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     {mnemonics.map((mnemonic, index) => (
                          <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
                             <div className="prose dark:prose-invert max-w-none">
-                                <BilingualMarkdown english={mnemonic.text} tamil={mnemonic.tamil} tamilClass="text-primary/80"/>
+                                <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} tamilClass="text-primary/80"/>
                             </div>
                          </Button>
                     ))}
@@ -211,7 +193,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     {keyTakeaways.map((point, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
-                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{point || ''}</ReactMarkdown></div>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer></div>
                         </div>
                     ))}
                 </CardContent>
@@ -225,7 +207,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
                              <div className="prose dark:prose-invert max-w-none">
-                                 <BilingualMarkdown english={tip.text} tamil={tip.tamil} />
+                                 <BilingualText english={tip.text} tamil={tip.tamil} />
                             </div>
                         </div>
                     ))}
@@ -235,11 +217,11 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                          <AlertDescription className="mt-2 space-y-2">
                             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Student Tip:</strong> 
-                                <BilingualMarkdown english={"Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!"} tamil={"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"}/>
+                                <BilingualText english={"Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!"} tamil={"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"}/>
                             </div>
                             <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Peer Discussion:</strong> 
-                                <BilingualMarkdown tamil={"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}/>
+                                <BilingualText english={""} tamil={"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}/>
                            </div>
                          </AlertDescription>
                     </Alert>
@@ -251,7 +233,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     <CardTitle className="flex items-center gap-2 text-accent"><Megaphone />Peer-Teaching Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="prose dark:prose-invert max-w-none text-muted-foreground mb-4"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers."}</ReactMarkdown></div>
+                    <div className="prose dark:prose-invert max-w-none text-muted-foreground mb-4"><MarkdownRenderer>{"You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers."}</MarkdownRenderer></div>
                     <Link href="/peer-teaching">
                         <Button variant="outline" className="w-full">
                             Start Your First Mission
