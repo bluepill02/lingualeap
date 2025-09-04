@@ -45,6 +45,7 @@ const groupInfo = {
 
 
 export default function NeetPhysicsPage() {
+  let chapterCounter = 0;
   return (
     <div className="space-y-8">
       <header className="flex items-center gap-4">
@@ -81,6 +82,7 @@ export default function NeetPhysicsPage() {
                 <Separator/>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {chapters.map((item) => {
+                        chapterCounter++;
                         const content = neetContent[item.id];
                         if (!content) return null;
                         const mappingDescription = content.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
@@ -90,7 +92,7 @@ export default function NeetPhysicsPage() {
                                     <CardContent className="p-6 space-y-4 flex-grow">
                                         <div className="flex justify-between items-start">
                                             <h3 className="text-lg font-bold font-headline pr-4">{item.title}</h3>
-                                            <ChevronRight className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                                            <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                         </div>
                                         <div className="text-sm text-accent flex items-center gap-2">
                                             <Lightbulb className="w-4 h-4" />
