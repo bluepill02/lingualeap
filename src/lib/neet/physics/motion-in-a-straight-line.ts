@@ -67,7 +67,7 @@ export const motionInAStraightLineModule: NeetModule = {
 
 ### 4. Kinematic Equations for Uniformly Accelerated Motion (சீரான முடுக்கத்துடன் கூடிய இயக்கத்திற்கான இயக்கச் சமன்பாடுகள்)
 These three equations are the cornerstone of kinematics and are valid *only* when the acceleration 'a' is constant.
-1.  **Velocity-Time Relation:**  \`v = u + at\`
+1.  **Velocity-Time Relation:** \`v = u + at\`
 2.  **Position-Time Relation:** \`s = ut + \\frac{1}{2}at^2\`
 3.  **Position-Velocity Relation:** \`v^2 = u^2 + 2as\`
 
