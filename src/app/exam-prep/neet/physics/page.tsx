@@ -56,7 +56,7 @@ export default function NeetPhysicsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {physicsChapters.sort((a,b) => a.chapter - b.chapter).map((item) => {
             const content = getNeetContent(item.id);
-            const mappingDescription = content?.syllabusMapping?.[0]?.mappingDescription || 'Mapping not available.';
+            const mappingDescription = content?.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
             return (
                 <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
                     <Card className="hover:border-primary transition-colors h-full flex flex-col">
