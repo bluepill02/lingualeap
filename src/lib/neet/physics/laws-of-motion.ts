@@ -42,29 +42,29 @@ export const lawsOfMotionModule: NeetModule = {
         }
     ],
     conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology (விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை)
-The single most important skill in solving mechanics problems is drawing a Free-Body Diagram (தனித்த பொருளின் விசைப் படம் - FBD). It is a diagram that shows ALL the forces (விசைகள்) acting ON a single object.
+The single most important skill in solving mechanics problems is drawing a [[Free-Body Diagram:தனித்த பொருளின் விசைப் படம்]] (FBD). It is a diagram that shows ALL the [[forces:விசைகள்]] acting ON a single object.
 
 #### The 4-Step FBD Strategy:
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **Non-Contact Force (தொடா விசை):** Does gravity (ஈர்ப்பு விசை) act on it? (Almost always, draw *W = mg* acting vertically downwards).
-    *   **Contact Forces (தொடு விசைகள்):** What is the object touching? Each point of contact can exert a force.
-        *   Is it on a surface? There is a **Normal Force (செங்குத்து விசை, N)**, perpendicular to the surface, pushing away from the surface.
-        *   Is a string or rope attached? There is **Tension (இழுவிசை, T)**, acting along the rope, pulling away from the object.
-        *   Is there friction? **Frictional Force (உராய்வு விசை, f)** acts parallel to the surface, opposing relative motion or the *tendency* of motion.
-        *   Is a spring attached? **Spring Force (சுருள்வில் விசை, kx)** acts along the spring.
+    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw *W = mg* acting vertically downwards).
+    *   **[[Contact Forces:தொடு விசைகள்]]:** What is the object touching? Each point of contact can exert a force.
+        *   Is it on a surface? There is a **[[Normal Force:செங்குத்து விசை]] (N)**, perpendicular to the surface, pushing away from the surface.
+        *   Is a string or rope attached? There is **[[Tension:இழுவிசை]] (T)**, acting along the rope, pulling away from the object.
+        *   Is there friction? **[[Frictional Force:உராய்வு விசை]] (f)** acts parallel to the surface, opposing relative motion or the *tendency* of motion.
+        *   Is a spring attached? **[[Spring Force:சுருள்வில் விசை]] (kx)** acts along the spring.
 4.  **Establish a Coordinate System:** Choose an x-y coordinate system. It's often smart to align one axis with the direction of acceleration.
 
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
 
 {{INERTIA_ANIMATION}}
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
-The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
+The rate of change of a body's [[linear momentum:நேர்கோட்டு உந்தம்]] is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 \`\`\`
@@ -84,12 +84,12 @@ For every action, there is an equal and opposite reaction.
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
 
 #### A. Motion with Constraints (கட்டுப்பாடுகளுடன் கூடிய இயக்கம்)
-When the motion of two or more bodies is interdependent (e.g., connected by a string or stacked), we need a "constraint relation" that connects their accelerations.
+When the motion of two or more bodies is interdependent (e.g., connected by a string or stacked), we need a "[[constraint relation:கட்டுப்பாட்டுத் தொடர்பு]]" that connects their accelerations.
 *   **String Constraint:** If two objects are connected by a taut, inextensible string, the component of their accelerations *along the string* must be the same.
 *   **Wedge Constraint:** For a block on a wedge, their accelerations *perpendicular to the contact surface* must be equal for them to remain in contact.
 
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
-Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
+Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **[[pseudo force:போலி விசை]]**.
 *   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
 *   **Magnitude:** *F_p = ma₀*, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
@@ -97,8 +97,8 @@ Once you add the pseudo force, you can apply *ΣF_real + F_pseudo = ma_relative*
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, *N = mg + ma = m(g+a)*. The person feels heavier (தோற்ற எடை அதிகம்).
-*   **Lift Accelerating Downwards:** The pseudo force *F_p = ma* is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, *N + ma = mg*, so *N = m(g-a)*. The person feels lighter (தோற்ற எடை குறைவு).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, *N = mg + ma = m(g+a)*. The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
+*   **Lift Accelerating Downwards:** The pseudo force *F_p = ma* is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, *N + ma = mg*, so *N = m(g-a)*. The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
 
 {{LIFT_ANIMATION}}
 `,

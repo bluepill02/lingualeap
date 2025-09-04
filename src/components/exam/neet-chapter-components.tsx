@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -32,6 +32,21 @@ import { FbdBuilder } from './FbdBuilder';
 import { InertiaAnimation } from './InertiaAnimation';
 import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
+import { TamilTooltip } from './TamilTooltip';
+
+const renderTextWithTooltips = (text: string) => {
+    const parts = text.split(/(\[\[.*?\]\])/g);
+    return parts.map((part, index) => {
+        const match = part.match(/\[\[(.*?)\]\]/);
+        if (match) {
+            const [fullMatch, content] = match;
+            const [term, translation] = content.split(':');
+            return <TamilTooltip key={index} term={term} translation={translation} />;
+        }
+        return <Fragment key={index}>{part}</Fragment>;
+    });
+};
+
 
 export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
     return (
@@ -46,21 +61,24 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                     rehypePlugins={[rehypeKatex]}
                     components={{
                         p: ({node, ...props}) => {
-                           const value = node?.children[0]?.type === 'text' ? node.children[0].value : '';
-                           if (value === '{{INERTIA_ANIMATION}}') {
+                           const textContent = node?.children.map(child => ('value' in child ? child.value : '')).join('');
+                           if (textContent === '{{INERTIA_ANIMATION}}') {
                                 return <div className="not-prose my-4"><InertiaAnimation /></div>;
                            }
-                           if (value === '{{ACTION_REACTION_ANIMATION}}') {
+                           if (textContent === '{{ACTION_REACTION_ANIMATION}}') {
                                 return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
                            }
-                           if (value === '{{LIFT_ANIMATION}}') {
+                           if (textContent === '{{LIFT_ANIMATION}}') {
                                 return <div className="not-prose my-4"><LiftAnimation /></div>;
                            }
-                           return <p className="my-2 leading-relaxed text-muted-foreground" {...props} />
+                           return <p className="my-2 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent || '')}</p>
                         },
                         h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3" {...props} />,
                         h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2" {...props} />,
-                        li: ({node, ...props}) => <li className="ml-5 list-disc my-1" {...props} />,
+                        li: ({ node, ...props }) => {
+                            const textContent = node?.children.map(c => c.type === 'text' ? c.value : '').join('');
+                            return <li className="ml-5 list-disc my-1">{renderTextWithTooltips(textContent)}</li>;
+                        },
                         strong: ({node, ...props}) => <strong className="font-semibold" {...props} />,
                         em: ({node, ...props}) => <i className="italic" {...props} />,
                         code: ({node, ...props}) => {
