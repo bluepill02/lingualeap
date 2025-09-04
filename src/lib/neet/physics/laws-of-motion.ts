@@ -43,10 +43,10 @@ export const lawsOfMotionModule: NeetModule = {
     ],
     conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
 ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
-FORMULA_START
+` + '`' + `
 \\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.
-FORMULA_END
-DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
+` + '`' + `
+` + '`' + `DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
     +---------+
     |         |
     |---------|  <-- Needs large force to overcome inertia
@@ -57,22 +57,22 @@ DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் ம�
 
 Heavy chariot resists change in motion due to inertia
 பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
-DIAGRAM_END
+DIAGRAM_END` + '`' + `
 
 ### Newton's Second Law - F = ma (இரண்டாம் விதி)
 ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
-FORMULA_START
+` + '`' + `
 \\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்
-FORMULA_END
-FORMULA_START
+` + '`' + `
+` + '`' + `
 \\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்
-FORMULA_END
+` + '`' + `
 
 ### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
 ஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.
-FORMULA_START
+` + '`' + `
 \\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)
-FORMULA_END
+` + '`' + `
 `,
     workedExamples: [
         {
@@ -233,7 +233,7 @@ Heavy chariot resists change in motion due to inertia
             "question": "A cricketer catches a ball of mass 150 g moving at a speed of 20 m/s. If the catching process is completed in 0.1 s, the force of the blow exerted by the ball on the hand of the player is:",
             "options": ["A. 300 N", "B. 150 N", "C. 30 N", "D. 3 N"],
             "answer": "C. 30 N",
-            "explanation": "The impulse is equal to the change in momentum. Force = (change in momentum) / time = (m(v-u))/t = (0.15 * (0 - 20)) / 0.1 = -30 N. The magnitude is 30 N."
+            "explanation": "Impulse is equal to the change in momentum. Force = (change in momentum) / time = (m(v-u))/t = (0.15 * (0 - 20)) / 0.1 = -30 N. The magnitude is 30 N."
         },
         {
             "question": "A body of mass 5 kg is acted upon by a constant force F = -10j N. The initial velocity of the body is u = 6i m/s. When will the body have a velocity along the y-axis only?",
@@ -299,7 +299,7 @@ Heavy chariot resists change in motion due to inertia
             "question": "The force 'F' acting on a particle of mass 'm' is indicated by the force-time graph shown below. The change in momentum of the particle over the time interval from zero to 8 s is:",
             "options": ["A. 24 Ns", "B. 20 Ns", "C. 12 Ns", "D. 6 Ns"],
             "answer": "C. 12 Ns",
-            "explanation": "Change in momentum is the area under the F-t graph. Assuming a standard graph shape where force increases linearly to 6N in 2s, stays constant till 4s, then decreases linearly to -3N at 8s. Area = Area(0-2s) + Area(2-4s) + Area(4-8s) = (1/2 * 2 * 6) + (2 * 6) + (1/2 * (6+(-3)) * 4) is complex. A simpler common graph: Triangle(0-2s, peak 6N), Rectangle(2-4s, at 6N), Triangle(4-8s, ends at -3N). Let's assume a simpler graph for the intended answer: Area = (1/2 * 2 * 6) + (2*0) + (1/2 * 4 * (-3)) is not 12. Let's assume the question implies a graph with areas that sum to 12. For example, a triangle from 0-4s with peak 6N gives area 1/2*4*6 = 12. The question is ambiguous without a visual graph, but 12 Ns is a common answer for such problems."
+            "explanation": "Change in momentum is the area under the F-t graph. Assuming a standard graph shape where force increases linearly to 6N in 2s, stays constant till 4s, then decreases linearly to -3N at 8s. Area = Area(0-2s) + Area(2-4s) + Area(4-8s) = (1/2 * 2 * 6) + (2 * 6) + (1/2 * (6+(-3)) * 4) is complex. A simpler common graph: Triangle(0-4s, peak 6N) gives area 1/2*4*6 = 12. The question is ambiguous without a visual graph, but 12 Ns is a common answer for such problems."
         },
         {
             "question": "A body of mass 2kg travels according to the law x(t) = pt + qt² + rt³. Where p=3m/s, q=4m/s², r=5m/s³. The force acting on the body at t=2s is:",
@@ -355,19 +355,19 @@ Heavy chariot resists change in motion due to inertia
             "assertion": "When a person is walking on rough ground, the frictional force exerted by the ground on the person is in the backward direction.",
             "reason": "Frictional force always opposes the motion of a body.",
             "answer": "E",
-            "explanation": "The person pushes the ground backward, so the ground pushes the person forward. This forward frictional force is what causes the person to move forward. The reason is also incorrect, as friction opposes relative motion or the tendency of relative motion, not necessarily the motion itself."
+            "explanation": "Assertion is false: The person pushes the ground backward, so the ground pushes the person forward. This forward frictional force is what causes the person to move forward. Reason is also false: Friction opposes relative motion or the tendency of relative motion, not necessarily the direction of motion."
         },
         {
             "assertion": "Newton's third law of motion is applicable only for a system of particles in equilibrium.",
             "reason": "The forces of action and reaction always cancel each other out.",
             "answer": "E",
-            "explanation": "Newton's third law is applicable to all systems, whether in equilibrium or not. Action-reaction forces act on different bodies, so they can never cancel each other out."
+            "explanation": "Assertion is false: Newton's third law is applicable to all systems, whether in equilibrium or not. Reason is also false: Action-reaction forces act on different bodies, so they can never cancel each other out."
         },
         {
             "assertion": "A cricketer moves his hands backward while catching a cricket ball.",
             "reason": "Doing so increases the time of impact, and thus decreases the force exerted by the ball on his hands.",
             "answer": "A",
-            "explanation": "From the impulse-momentum theorem, FΔt = Δp. By increasing the time of impact (Δt), the cricketer reduces the impact force (F) for a given change in momentum (Δp), which prevents injury."
+            "explanation": "From the impulse-momentum theorem, FΔt = Δp. By increasing the time of impact (Δt), the cricketer reduces the impact force (F) for a given change in momentum (Δp), which prevents injury. The reason is a correct explanation of the assertion."
         },
         {
             "assertion": "An object of mass 'm' is moving on a frictionless horizontal surface. If a constant force is applied on it, it moves with constant acceleration.",
@@ -378,32 +378,32 @@ Heavy chariot resists change in motion due to inertia
         {
             "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
             "reason": "The net external force on the system of particles is zero during the collision.",
-            "answer": "C",
-            "explanation": "The assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present. The reason correctly states the condition for momentum conservation."
+            "answer": "D",
+            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation, which makes the assertion false."
         },
         {
             "assertion": "The centripetal force and centrifugal force are action-reaction pairs.",
             "reason": "Centrifugal force is a pseudo force which has to be applied on a body to make it an inertial frame.",
-            "answer": "D",
-            "explanation": "The assertion is false. Action-reaction pairs must act on different bodies. Centripetal and centrifugal forces both act on the same body. The reason is also false. Centrifugal force is a pseudo force that arises in a non-inertial (rotating) frame of reference."
+            "answer": "E",
+            "explanation": "Assertion is false. Action-reaction pairs must act on different bodies. Centripetal and centrifugal forces both act on the same body. Reason is also false. Centrifugal force is a pseudo force that arises in a non-inertial (rotating) frame of reference."
         },
         {
             "assertion": "A body in a lift accelerating downwards experiences a decrease in its apparent weight.",
             "reason": "The normal reaction force from the lift floor is less than its true weight.",
             "answer": "A",
-            "explanation": "The apparent weight is the normal reaction (R). For downward acceleration 'a', the net force is mg - R = ma, so R = m(g-a). Since R is less than mg, the apparent weight decreases. The reason correctly explains the assertion."
+            "explanation": "The apparent weight is the normal reaction (R). For downward acceleration 'a', the net force is mg - R = ma, so R = m(g-a). Since R is less than mg, the apparent weight decreases. The reason is a correct explanation for the assertion."
         },
         {
             "assertion": "Static friction is a self-adjusting force.",
             "reason": "The force of static friction is always equal to the applied force.",
             "answer": "C",
-            "explanation": "The assertion is true. Static friction adjusts its magnitude to be equal and opposite to the applied force, up to a maximum limit (μsN). The reason is false because it's only true up to the limit of static friction; it's not always equal to the applied force."
+            "explanation": "The assertion is true. Static friction adjusts its magnitude to be equal and opposite to the applied force, up to a maximum limit (μsN). The reason is false because it's only true up to the limit of static friction; it's not *always* equal to the applied force (e.g., if applied force exceeds the maximum static friction)."
         },
         {
             "assertion": "It is difficult to move a cycle along a road with its brakes on.",
             "reason": "Sliding friction is greater than rolling friction.",
             "answer": "B",
-            "explanation": "Both statements are true. It is difficult to move a cycle with brakes on because the sliding friction (from locked wheels) is much larger than the rolling friction (when wheels are rolling freely). However, the reason does not fully explain the assertion. The assertion is about the effect of brakes, which create sliding friction. The reason is a general statement comparing two types of friction."
+            "explanation": "Both statements are true. It is difficult to move a cycle with brakes on because the locked wheels create sliding friction. It is also true that sliding friction is generally greater than rolling friction. However, the reason is a general principle and not the direct explanation for the difficulty mentioned in the assertion, which is specifically about the action of the brakes causing the higher friction."
         }
     ],
     matchTheColumns: []
