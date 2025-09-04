@@ -11,32 +11,39 @@ import { Separator } from '@/components/ui/separator';
 
 const chapterGroups = {
     core: [
-        { id: 'laws-of-motion', title: 'Laws of Motion (இயக்க விதிகள்)'},
-        { id: 'work-energy-and-power', title: 'Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)'},
-        { id: 'motion-in-a-straight-line', title: 'Motion in a Straight Line (நேர்கோட்டு இயக்கம்)'},
-        { id: 'thermodynamics', title: 'Thermodynamics (வெப்ப இயக்கவியல்)'},
-        { id: 'ray-optics-and-optical-instruments', title: 'Ray Optics and Optical Instruments'},
-        { id: 'current-electricity', title: 'Current Electricity'},
-        { id: 'electrostatics', title: 'Electrostatics (நிலைமின்னியல்)'},
-        { id: 'atoms', title: 'Atoms'},
-        { id: 'nuclei', title: 'Nuclei'},
-        { id: 'semiconductor-electronics', title: 'Semiconductor Electronics'},
+        { id: 'laws-of-motion', title: 'Laws of Motion' },
+        { id: 'work-energy-and-power', title: 'Work, Energy and Power' },
+        { id: 'motion-in-a-straight-line', title: 'Motion in a Straight Line' },
+        { id: 'thermodynamics', title: 'Thermodynamics' },
+        { id: 'ray-optics-and-optical-instruments', title: 'Ray Optics and Optical Instruments' },
+        { id: 'current-electricity', title: 'Current Electricity' },
+        { id: 'electrostatics', title: 'Electrostatics' },
+        { id: 'atoms', title: 'Atoms' },
+        { id: 'nuclei', title: 'Nuclei' },
+        { id: 'semiconductor-electronics', title: 'Semiconductor Electronics' },
     ],
     bridge: [
-        { id: 'communication-systems', title: 'Communication Systems'},
-        { id: 'electromagnetic-waves', title: 'Electromagnetic Waves'},
-        { id: 'wave-optics', title: 'Wave Optics'},
-        { id: 'magnetism-and-matter', title: 'Magnetism and Matter'},
-        { id: 'dual-nature-of-radiation-and-matter', title: 'Dual Nature of Radiation and Matter'},
-        { id: 'mechanical-properties-of-fluids', title: 'Mechanical Properties of Fluids'},
+        { id: 'communication-systems', title: 'Communication Systems' },
+        { id: 'electromagnetic-waves', title: 'Electromagnetic Waves' },
+        { id: 'wave-optics', title: 'Wave Optics' },
+        { id: 'magnetism-and-matter', title: 'Magnetism and Matter' },
+        { id: 'dual-nature-of-radiation-and-matter', title: 'Dual Nature of Radiation and Matter' },
+        { id: 'mechanical-properties-of-fluids', title: 'Mechanical Properties of Fluids' },
+        { id: 'alternating-current', title: 'Alternating Current' },
+        { id: 'electromagnetic-induction', title: 'Electromagnetic Induction' },
+        { id: 'moving-charges-and-magnetism', title: 'Moving Charges and Magnetism' },
+        { id: 'waves', title: 'Waves' },
+        { id: 'oscillations', title: 'Oscillations' },
     ],
     foundation: [
-        { id: 'physical-world', title: 'Physical World (பௌதிக உலகம்)'},
-        { id: 'units-and-measurements', title: 'Units and Measurements (அலகுகளும் அளவீட்டியலும்)'},
-        { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)'},
-        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)'},
-        { id: 'gravitation', title: 'Gravitation (ஈர்ப்பியல்)'},
-        { id: 'mechanical-properties-of-solids', title: 'Mechanical Properties of Solids'},
+        { id: 'physical-world', title: 'Physical World' },
+        { id: 'units-and-measurements', title: 'Units and Measurements' },
+        { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases' },
+        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion' },
+        { id: 'gravitation', title: 'Gravitation' },
+        { id: 'mechanical-properties-of-solids', title: 'Mechanical Properties of Solids' },
+        { id: 'motion-in-a-plane', title: 'Motion in a Plane' },
+        { id: 'thermal-properties-of-matter', title: 'Thermal Properties of Matter' },
     ]
 }
 
@@ -61,6 +68,8 @@ const groupInfo = {
 
 export default function NeetPhysicsPage() {
   let chapterCounter = 0;
+  const totalChapters = Object.values(chapterGroups).flat().length;
+
   return (
     <div className="space-y-8">
       <header className="flex items-center gap-4">
@@ -136,7 +145,7 @@ export default function NeetPhysicsPage() {
                 <p className="text-sm text-muted-foreground">Completed</p>
             </div>
             <div>
-                <p className="text-2xl font-bold">{Object.values(chapterGroups).flat().length}</p>
+                <p className="text-2xl font-bold">{totalChapters}</p>
                 <p className="text-sm text-muted-foreground">Total Chapters</p>
             </div>
              <div>
