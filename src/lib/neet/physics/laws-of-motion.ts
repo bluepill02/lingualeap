@@ -38,7 +38,7 @@ export const lawsOfMotionModule: NeetModule = {
             topic: 'Momentum & Collisions',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.'
+            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using **F=dp/dt** is more fundamental than **F=ma**.'
         }
     ],
     conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology (விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை)
@@ -59,7 +59,7 @@ The single most important skill in solving mechanics problems is drawing a Free-
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. **If F_net = 0, then a = 0 (which means v = constant)**.
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If **F_net = 0**, then **a = 0** (which means **v = constant**).
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
@@ -188,227 +188,227 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             neetFrequency: 5
         },
         {
-            "question": "The coefficient of static friction, μs, between a block of mass m and a horizontal surface is 0.4. What is the maximum horizontal force F that can be applied to the block without moving it? (g=10 m/s²)",
-            "options": ["A. 0.4mg", "B. 4N", "C. 0.4m", "D. 4mg"],
-            "answer": "A. 0.4mg",
-            "explanation": "The block will move if the applied force exceeds the maximum static friction, f_s_max = μs * N. On a horizontal surface, the normal force N equals the weight mg. Therefore, F_max = μs * mg = 0.4mg.",
+            question: "The coefficient of static friction, μs, between a block of mass m and a horizontal surface is 0.4. What is the maximum horizontal force F that can be applied to the block without moving it? (g=10 m/s²)",
+            options: ["A. 0.4mg", "B. 4N", "C. 0.4m", "D. 4mg"],
+            answer: "A. 0.4mg",
+            explanation: "The block will move if the applied force exceeds the maximum static friction, f_s_max = μs * N. On a horizontal surface, the normal force N equals the weight mg. Therefore, F_max = μs * mg = 0.4mg.",
             neetFrequency: 4
         },
         {
-            "question": "A bomb of mass 9 kg, initially at rest, explodes into two pieces of masses 3 kg and 6 kg. If the velocity of the 3 kg mass is 16 m/s, the kinetic energy of the 6 kg mass is:",
-            "options": ["A. 96 J", "B. 192 J", "C. 384 J", "D. 768 J"],
-            "answer": "B. 192 J",
-            "explanation": "By conservation of momentum, p_initial = p_final => 0 = m₁v₁ + m₂v₂. So, m₂v₂ = -m₁v₁. 6 * v₂ = -3 * 16 => v₂ = -8 m/s. Kinetic Energy of 6 kg mass = ½ * m₂ * v₂² = ½ * 6 * (-8)² = 3 * 64 = 192 J.",
+            question: "A bomb of mass 9 kg, initially at rest, explodes into two pieces of masses 3 kg and 6 kg. If the velocity of the 3 kg mass is 16 m/s, the kinetic energy of the 6 kg mass is:",
+            options: ["A. 96 J", "B. 192 J", "C. 384 J", "D. 768 J"],
+            answer: "B. 192 J",
+            explanation: "By conservation of momentum, p_initial = p_final => 0 = m₁v₁ + m₂v₂. So, m₂v₂ = -m₁v₁. 6 * v₂ = -3 * 16 => v₂ = -8 m/s. Kinetic Energy of 6 kg mass = ½ * m₂ * v₂² = ½ * 6 * (-8)² = 3 * 64 = 192 J.",
             neetFrequency: 5
         },
         {
-            "question": "Which of Newton's laws is considered the 'real' law of motion from which the other two can be derived?",
-            "options": ["A. First Law", "B. Second Law", "C. Third Law", "D. Law of Gravitation"],
-            "answer": "B. Second Law",
-            "explanation": "The second law (F=dp/dt) is the most fundamental. The first law is a special case of the second where F=0. The third law can be derived by applying the second law to a system of two interacting particles and using the conservation of momentum.",
+            question: "Which of Newton's laws is considered the 'real' law of motion from which the other two can be derived?",
+            options: ["A. First Law", "B. Second Law", "C. Third Law", "D. Law of Gravitation"],
+            answer: "B. Second Law",
+            explanation: "The second law (F=dp/dt) is the most fundamental. The first law is a special case of the second where F=0. The third law can be derived by applying the second law to a system of two interacting particles and using the conservation of momentum.",
             neetFrequency: 2
         },
         {
-            "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving downwards with a uniform acceleration of 5 m/s². The reading on the weighing scale is: (g=10 m/s²)",
-            "options": ["A. 350 N", "B. 700 N", "C. 1050 N", "D. Zero"],
-            "answer": "A. 350 N",
-            "explanation": "The reading on the scale is the apparent weight (Normal Reaction, R). For downward acceleration 'a', the net force is mg - R = ma. So, R = mg - ma = m(g-a) = 70(10-5) = 70 * 5 = 350 N.",
+            question: "A man of mass 70 kg stands on a weighing scale in a lift which is moving downwards with a uniform acceleration of 5 m/s². The reading on the weighing scale is: (g=10 m/s²)",
+            options: ["A. 350 N", "B. 700 N", "C. 1050 N", "D. Zero"],
+            answer: "A. 350 N",
+            explanation: "The reading on the scale is the apparent weight (Normal Reaction, R). For downward acceleration 'a', the net force is mg - R = ma. So, R = mg - ma = m(g-a) = 70(10-5) = 70 * 5 = 350 N.",
             neetFrequency: 5
         },
         {
-            "question": "A block of mass M is pulled along a horizontal frictionless surface by a rope of mass m. If a force P is applied at the free end of the rope, the force exerted by the rope on the block is:",
-            "options": ["A. PM / (M+m)", "B. Pm / (M+m)", "C. P", "D. P(M-m) / (M+m)"],
-            "answer": "A. PM / (M+m)",
-            "explanation": "First, find the acceleration of the entire system (block + rope): a = P / (M+m). The force exerted by the rope on the block is the force that accelerates the block M. So, F_on_block = M * a = M * (P / (M+m)) = PM / (M+m).",
+            question: "A block of mass M is pulled along a horizontal frictionless surface by a rope of mass m. If a force P is applied at the free end of the rope, the force exerted by the rope on the block is:",
+            options: ["A. PM / (M+m)", "B. Pm / (M+m)", "C. P", "D. P(M-m) / (M+m)"],
+            answer: "A. PM / (M+m)",
+            explanation: "First, find the acceleration of the entire system (block + rope): a = P / (M+m). The force exerted by the rope on the block is the force that accelerates the block M. So, F_on_block = M * a = M * (P / (M+m)) = PM / (M+m).",
             neetFrequency: 3
         },
         {
-            "question": "The time period of a simple pendulum measured inside a stationary lift is T. If the lift starts accelerating upwards with an acceleration g/3, the new time period will be:",
-            "options": ["A. T√3", "B. T√3/2", "C. T/√3", "D. T/3"],
-            "answer": "B. T√3/2",
-            "explanation": "The time period T is proportional to 1/√g_eff. Initially, g_eff = g. When accelerating upwards, the effective gravity becomes g_eff' = g + a = g + g/3 = 4g/3. So, the new time period T' is proportional to 1/√(4g/3). The ratio T'/T = √(g / g_eff') = √(g / (4g/3)) = √(3/4) = √3/2. Therefore, T' = T√3/2.",
+            question: "The time period of a simple pendulum measured inside a stationary lift is T. If the lift starts accelerating upwards with an acceleration g/3, the new time period will be:",
+            options: ["A. T√3", "B. T√3/2", "C. T/√3", "D. T/3"],
+            answer: "B. T√3/2",
+            explanation: "The time period T is proportional to 1/√g_eff. Initially, g_eff = g. When accelerating upwards, the effective gravity becomes g_eff' = g + a = g + g/3 = 4g/3. So, the new time period T' is proportional to 1/√(4g/3). The ratio T'/T = √(g / g_eff') = √(g / (4g/3)) = √(3/4) = √3/2. Therefore, T' = T√3/2.",
             neetFrequency: 3
         },
          {
             question: "Action and reaction forces act on:",
             options: ["A. The same body", "B. Different bodies", "C. The same body but in opposite directions", "D. Different bodies but in the same direction"],
             answer: "B. Different bodies",
-            explanation": "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting objects. This is a fundamental property of these force pairs.",
+            explanation: "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting objects. This is a fundamental property of these force pairs.",
             neetFrequency: 5
         },
         {
             question: "A body of mass 2kg is sliding with a constant velocity of 4 m/s on a frictionless horizontal table. The force required to keep the body moving with the same velocity is:",
             options: ["A. 8 N", "B. 2 N", "C. 0 N", "D. 32 N"],
-            answer": "C. 0 N",
-            "explanation": "According to Newton's First Law, if a body is moving with constant velocity, its acceleration is zero. Therefore, the net force on the body is zero. Since the table is frictionless, no force is required to maintain the constant velocity.",
+            answer: "C. 0 N",
+            explanation: "According to Newton's First Law, if a body is moving with constant velocity, its acceleration is zero. Therefore, the net force on the body is zero. Since the table is frictionless, no force is required to maintain the constant velocity.",
             neetFrequency: 4
         },
         {
             question: "A bullet of mass 0.04 kg moving with a speed of 90 m/s enters a heavy wooden block and is stopped after a distance of 60 cm. The average resistive force exerted by the block on the bullet is:",
             options: ["A. 270 N", "B. 200 N", "C. 150 N", "D. 300 N"],
-            "answer": "A. 270 N",
-            "explanation": "First, find the deceleration 'a' using v² = u² + 2as. Here, v=0, u=90, s=0.6m. So, 0 = 90² + 2a(0.6) => a = -8100 / 1.2 = -6750 m/s². The resistive force F = ma = 0.04 * 6750 = 270 N.",
+            answer: "A. 270 N",
+            explanation: "First, find the deceleration 'a' using v² = u² + 2as. Here, v=0, u=90, s=0.6m. So, 0 = 90² + 2a(0.6) => a = -8100 / 1.2 = -6750 m/s². The resistive force F = ma = 0.04 * 6750 = 270 N.",
             neetFrequency: 4
         },
         {
             question: "Consider a car of mass 'm' moving on a banked road of radius 'r' with a speed 'v'. The angle of banking is 'θ'. For safe turning without friction, the speed is given by:",
             options: ["A. √(rg tanθ)", "B. √(rg/tanθ)", "C. √(rg sinθ)", "D. √(rg/sinθ)"],
-            "answer": "A. √(rg tanθ)",
-            "explanation": "For safe banking, the horizontal component of the normal force provides the necessary centripetal force. Nsinθ = mv²/r and Ncosθ = mg. Dividing the two equations gives tanθ = v²/(rg), so v = √(rg tanθ).",
+            answer: "A. √(rg tanθ)",
+            explanation: "For safe banking, the horizontal component of the normal force provides the necessary centripetal force. Nsinθ = mv²/r and Ncosθ = mg. Dividing the two equations gives tanθ = v²/(rg), so v = √(rg tanθ).",
             neetFrequency: 5
         },
         {
             question: "If the net external force on a system of particles is zero, then which of the following must be constant?",
             options: ["A. The kinetic energy of the system", "B. The acceleration of the center of mass", "C. The velocity of the center of mass", "D. The potential energy of the system"],
-            "answer": "C. The velocity of the center of mass",
-            "explanation": "If F_ext = 0, then the acceleration of the center of mass is zero (F_ext = M_total * a_cm). If the acceleration is zero, the velocity of the center of mass must be constant. Kinetic energy can change due to internal forces (e.g., in an explosion).",
+            answer: "C. The velocity of the center of mass",
+            explanation: "If F_ext = 0, then the acceleration of the center of mass is zero (F_ext = M_total * a_cm). If the acceleration is zero, the velocity of the center of mass must be constant. Kinetic energy can change due to internal forces (e.g., in an explosion).",
             neetFrequency: 4
         },
         {
             question: "A man is standing in a spring-balance. If he jumps outside from the balance, then the reading of the spring-balance:",
             options: ["A. first increases then decreases to zero", "B. first decreases then increases to zero", "C. remains same", "D. increases"],
-            "answer": "A. first increases then decreases to zero",
-            "explanation": "To jump, the man must first push down on the scale (action), which increases the reading (reaction). As he leaves the scale, he is airborne and no longer exerts a force, so the reading decreases to zero.",
+            answer: "A. first increases then decreases to zero",
+            explanation: "To jump, the man must first push down on the scale (action), which increases the reading (reaction). As he leaves the scale, he is airborne and no longer exerts a force, so the reading decreases to zero.",
             neetFrequency: 2
         },
         {
             question: "A block of mass 2 kg is resting on a floor. The coefficient of static friction is 0.5. If a force of 2.5 N is applied on the block in parallel to the floor, the force of friction between the block and the floor is: (g = 10 N/kg)",
             options: ["A. 2.5 N", "B. 10 N", "C. 5 N", "D. 0 N"],
-            "answer": "A. 2.5 N",
-            "explanation": "First, calculate the maximum static friction: f_max = μs * N = μs * mg = 0.5 * 2 * 10 = 10 N. Since the applied force (2.5 N) is less than the maximum static friction (10 N), the block will not move. Static friction is a self-adjusting force, so it will be equal to the applied force to maintain equilibrium. Thus, f = 2.5 N.",
+            answer: "A. 2.5 N",
+            explanation: "First, calculate the maximum static friction: f_max = μs * N = μs * mg = 0.5 * 2 * 10 = 10 N. Since the applied force (2.5 N) is less than the maximum static friction (10 N), the block will not move. Static friction is a self-adjusting force, so it will be equal to the applied force to maintain equilibrium. Thus, f = 2.5 N.",
             neetFrequency: 5
         },
         {
             question: "A body of mass 5 kg is acted upon by two perpendicular forces 8 N and 6 N. The magnitude of the acceleration of the body is:",
             options: ["A. 2 m/s²", "B. 2.8 m/s²", "C. 1.4 m/s²", "D. 10 m/s²"],
-            "answer": "A. 2 m/s²",
-            "explanation": "The net force is the vector sum of the two perpendicular forces. F_net = √(8² + 6²) = √(64 + 36) = √100 = 10 N. According to Newton's second law, a = F_net / m = 10 N / 5 kg = 2 m/s².",
+            answer: "A. 2 m/s²",
+            explanation: "The net force is the vector sum of the two perpendicular forces. F_net = √(8² + 6²) = √(64 + 36) = √100 = 10 N. According to Newton's second law, a = F_net / m = 10 N / 5 kg = 2 m/s².",
             neetFrequency: 4
         },
         {
             question: "A block is kept on a frictionless inclined surface with angle of inclination 'α'. The incline is given an acceleration 'a' to keep the block stationary. Then 'a' is equal to:",
             options: ["A. g tan(α)", "B. g / tan(α)", "C. g cosec(α)", "D. g"],
-            "answer": "A. g tan(α)",
-            "explanation": "In the non-inertial frame of the incline, a pseudo force 'ma' acts horizontally opposite to the acceleration. For the block to be stationary, the component of this pseudo force along the incline must balance the component of gravity along the incline. ma cos(α) = mg sin(α) => a = g (sin(α)/cos(α)) = g tan(α).",
+            answer: "A. g tan(α)",
+            explanation: "In the non-inertial frame of the incline, a pseudo force 'ma' acts horizontally opposite to the acceleration. For the block to be stationary, the component of this pseudo force along the incline must balance the component of gravity along the incline. ma cos(α) = mg sin(α) => a = g (sin(α)/cos(α)) = g tan(α).",
             neetFrequency: 3
         },
         {
             question: "A marble block of mass 2 kg lying on ice when given a velocity of 6 m/s is stopped by friction in 10s. Then the coefficient of friction is:",
             options: ["A. 0.02", "B. 0.03", "C. 0.06", "D. 0.01"],
-            "answer": "C. 0.06",
-            "explanation": "First, find the deceleration: v = u + at => 0 = 6 + a(10) => a = -0.6 m/s². The frictional force is F = ma = 2 * 0.6 = 1.2 N. We also know that F = μN = μmg. So, 1.2 = μ * 2 * 10 => μ = 1.2 / 20 = 0.06.",
+            answer: "C. 0.06",
+            explanation: "First, find the deceleration: v = u + at => 0 = 6 + a(10) => a = -0.6 m/s². The frictional force is F = ma = 2 * 0.6 = 1.2 N. We also know that F = μN = μmg. So, 1.2 = μ * 2 * 10 => μ = 1.2 / 20 = 0.06.",
             neetFrequency: 3
         },
         {
             question: "The engine of a car produces an acceleration of 4 m/s² in the car. If this car pulls another car of same mass, what will be the acceleration produced?",
             options: ["A. 2 m/s²", "B. 4 m/s²", "C. 1/2 m/s²", "D. 1/4 m/s²"],
-            "answer": "A. 2 m/s²",
-            "explanation": "Let the mass of the car be 'm' and the force produced by the engine be 'F'. Initially, F = m * 4. When it pulls another car of the same mass, the total mass of the system becomes 2m. The force produced by the engine is the same. So, F = (2m) * a'. Equating the two, m * 4 = 2m * a' => a' = 4/2 = 2 m/s².",
+            answer: "A. 2 m/s²",
+            explanation: "Let the mass of the car be 'm' and the force produced by the engine be 'F'. Initially, F = m * 4. When it pulls another car of the same mass, the total mass of the system becomes 2m. The force produced by the engine is the same. So, F = (2m) * a'. Equating the two, m * 4 = 2m * a' => a' = 4/2 = 2 m/s².",
             neetFrequency: 2
         },
         {
             question: "Swimming is possible on account of:",
             options: ["A. Newton's First Law of Motion", "B. Newton's Second Law of Motion", "C. Newton's Third Law of Motion", "D. Newton's Law of Gravitation"],
-            "answer": "C. Newton's Third Law of Motion",
-            "explanation": "A swimmer pushes water backward (action). The water, in turn, pushes the swimmer forward with an equal and opposite force (reaction), which allows for swimming. This is a direct application of Newton's Third Law.",
+            answer: "C. Newton's Third Law of Motion",
+            explanation: "A swimmer pushes water backward (action). The water, in turn, pushes the swimmer forward with an equal and opposite force (reaction), which allows for swimming. This is a direct application of Newton's Third Law.",
             neetFrequency: 4
         },
         {
             question: "A gun of mass 10 kg fires 4 bullets per second. The mass of each bullet is 20 g and the velocity of the bullet when it leaves the gun is 300 m/s. The force required to hold the gun when firing is:",
             options: ["A. 6 N", "B. 8 N", "C. 24 N", "D. 240 N"],
-            "answer": "C. 24 N",
-            "explanation": "The momentum of one bullet is p = mv = (0.020 kg) * (300 m/s) = 6 kg·m/s. The gun fires 4 bullets per second, so the rate of change of momentum is Δp/Δt = 4 * 6 kg·m/s / 1 s = 24 kg·m/s². By Newton's second law, this rate of change of momentum is equal to the force. So, the recoil force is 24 N.",
+            answer: "C. 24 N",
+            explanation: "The momentum of one bullet is p = mv = (0.020 kg) * (300 m/s) = 6 kg·m/s. The gun fires 4 bullets per second, so the rate of change of momentum is Δp/Δt = 4 * 6 kg·m/s / 1 s = 24 kg·m/s². By Newton's second law, this rate of change of momentum is equal to the force. So, the recoil force is 24 N.",
             neetFrequency: 3
         },
         {
             question: "The dimensions of 'impulse' are the same as that of:",
             options: ["A. Pressure", "B. Force", "C. Work", "D. Linear Momentum"],
-            "answer": "D. Linear Momentum",
-            "explanation": "Impulse is defined as the change in momentum (J = Δp). Therefore, its dimensions must be the same as that of linear momentum, which is [MLT⁻¹].",
+            answer: "D. Linear Momentum",
+            explanation: "Impulse is defined as the change in momentum (J = Δp). Therefore, its dimensions must be the same as that of linear momentum, which is [MLT⁻¹].",
             neetFrequency: 4
         },
         {
-            "question": "A body is moving in a circle with uniform speed. What is true about the motion?",
-            "options": ["A. Its velocity is constant.", "B. Its acceleration is constant.", "C. Its acceleration is directed towards the center.", "D. It has no acceleration."],
-            "answer": "C. Its acceleration is directed towards the center.",
-            "explanation": "In uniform circular motion, the speed is constant, but the direction of velocity is continuously changing. This change in velocity means there is an acceleration, called centripetal acceleration, which is always directed towards the center of the circle.",
+            question: "A body is moving in a circle with uniform speed. What is true about the motion?",
+            options: ["A. Its velocity is constant.", "B. Its acceleration is constant.", "C. Its acceleration is directed towards the center.", "D. It has no acceleration."],
+            answer: "C. Its acceleration is directed towards the center.",
+            explanation: "In uniform circular motion, the speed is constant, but the direction of velocity is continuously changing. This change in velocity means there is an acceleration, called centripetal acceleration, which is always directed towards the center of the circle.",
             neetFrequency: 5
         },
         {
-            "question": "Which of the following is a self-adjusting force?",
-            "options": ["A. Kinetic friction", "B. Static friction", "C. Tension in a string", "D. Normal force"],
-            "answer": "B. Static friction",
-            "explanation": "Static friction is a self-adjusting force. It adjusts its magnitude to be equal to the applied force, up to its maximum limit (μsN). Kinetic friction, on the other hand, is roughly constant.",
+            question: "Which of the following is a self-adjusting force?",
+            options: ["A. Kinetic friction", "B. Static friction", "C. Tension in a string", "D. Normal force"],
+            answer: "B. Static friction",
+            explanation: "Static friction is a self-adjusting force. It adjusts its magnitude to be equal to the applied force, up to its maximum limit (μsN). Kinetic friction, on the other hand, is roughly constant.",
             neetFrequency: 4
         },
         {
-            "question": "A force of 10 N acts on a body of mass 2 kg for 3 seconds. The impulse of the force is:",
-            "options": ["A. 20 Ns", "B. 30 Ns", "C. 15 Ns", "D. 6.67 Ns"],
-            "answer": "B. 30 Ns",
-            "explanation": "Impulse is defined as the product of force and the time interval for which it acts. Impulse (J) = F * Δt = 10 N * 3 s = 30 Ns.",
+            question: "A force of 10 N acts on a body of mass 2 kg for 3 seconds. The impulse of the force is:",
+            options: ["A. 20 Ns", "B. 30 Ns", "C. 15 Ns", "D. 6.67 Ns"],
+            answer: "B. 30 Ns",
+            explanation: "Impulse is defined as the product of force and the time interval for which it acts. Impulse (J) = F * Δt = 10 N * 3 s = 30 Ns.",
             neetFrequency: 3
         }
     ],
     assertionReasons: [
         {
-            "assertion": "A body can have acceleration even if its velocity is zero at a given instant.",
-            "reason": "Acceleration is the rate of change of velocity, not velocity itself.",
-            "answer": "A",
-            "explanation": "Assertion is true. At the highest point of its trajectory, a vertically thrown ball has zero velocity but still possesses acceleration due to gravity (g). The reason correctly explains that acceleration is about the *change* in velocity, which is happening at that instant."
+            assertion: "A body can have acceleration even if its velocity is zero at a given instant.",
+            reason: "Acceleration is the rate of change of velocity, not velocity itself.",
+            answer: "A",
+            explanation: "Assertion is true. At the highest point of its trajectory, a vertically thrown ball has zero velocity but still possesses acceleration due to gravity (g). The reason correctly explains that acceleration is about the *change* in velocity, which is happening at that instant."
         },
         {
-            "assertion": "When a person walks, the frictional force exerted by the ground on the person is in the forward direction.",
-            "reason": "Frictional force always opposes the motion of a body.",
-            "answer": "C",
-            "explanation": "The assertion is true. To walk, one pushes the ground backward with their foot. By Newton's third law, the ground exerts an equal and opposite (forward) frictional force, which propels the person. The reason is false. Friction opposes the *relative motion* or the *tendency of relative motion* between surfaces, not necessarily the motion of the body as a whole."
+            assertion: "When a person walks, the frictional force exerted by the ground on the person is in the forward direction.",
+            reason: "Frictional force always opposes the motion of a body.",
+            answer: "C",
+            explanation: "The assertion is true. To walk, one pushes the ground backward with their foot. By Newton's third law, the ground exerts an equal and opposite (forward) frictional force, which propels the person. The reason is false. Friction opposes the *relative motion* or the *tendency of relative motion* between surfaces, not necessarily the motion of the body as a whole."
         },
         {
-            "assertion": "A cricketer moves his hands backward while catching a cricket ball.",
-            "reason": "This increases the time of impact (Δt), and according to the impulse-momentum theorem (FΔt = Δp), it decreases the average impact force (F) exerted by the ball on his hands.",
-            "answer": "A",
-            "explanation": "Both statements are true and the reason provides the correct physical explanation for the action described in the assertion. Increasing the time of impact for a given change in momentum reduces the force, preventing injury."
+            assertion: "A cricketer moves his hands backward while catching a cricket ball.",
+            reason: "This increases the time of impact (Δt), and according to the impulse-momentum theorem (FΔt = Δp), it decreases the average impact force (F) exerted by the ball on his hands.",
+            answer: "A",
+            explanation: "Both statements are true and the reason provides the correct physical explanation for the action described in the assertion. Increasing the time of impact for a given change in momentum reduces the force, preventing injury."
         },
         {
-            "assertion": "An object of mass 'm' is moving on a frictionless horizontal surface. If a constant force is applied on it, it moves with constant acceleration.",
-            "reason": "According to Newton's second law, F = ma.",
-            "answer": "A",
-            "explanation": "The assertion is a direct consequence of Newton's second law. If the net force F is constant and the mass m is constant, the acceleration 'a' must also be constant. The reason is the correct law explaining this."
+            assertion: "An object of mass 'm' is moving on a frictionless horizontal surface. If a constant force is applied on it, it moves with constant acceleration.",
+            reason: "According to Newton's second law, F = ma.",
+            answer: "A",
+            explanation: "The assertion is a direct consequence of Newton's second law. If the net force F is constant and the mass m is constant, the acceleration 'a' must also be constant. The reason is the correct law explaining this."
         },
         {
-            "assertion": "Centripetal force and centrifugal force are action-reaction pairs.",
-            "reason": "Action and reaction forces act on different bodies.",
-            "answer": "D",
-            "explanation": "The assertion is false. Centripetal force is a real force directed towards the center of the circle. Centrifugal force is a pseudo force experienced in a non-inertial (rotating) frame, directed away from the center. They don't form an action-reaction pair. The reason, however, is a true statement, as action-reaction forces indeed act on different bodies."
+            assertion: "Centripetal force and centrifugal force are action-reaction pairs.",
+            reason: "Action and reaction forces act on different bodies.",
+            answer: "D",
+            explanation: "The assertion is false. Centripetal force is a real force directed towards the center of the circle. Centrifugal force is a pseudo force experienced in a non-inertial (rotating) frame, directed away from the center. They don't form an action-reaction pair. The reason, however, is a true statement, as action-reaction forces indeed act on different bodies."
         },
         {
-            "assertion": "It is difficult to move a cycle along a road with its brakes on.",
-            "reason": "Sliding friction is greater than rolling friction.",
-            "answer": "A",
-            "explanation": "Both statements are true. When brakes are applied, the wheels lock and slide, which generates sliding friction. This force is significantly larger than the rolling friction that exists when the wheels rotate freely. The reason correctly explains the assertion."
+            assertion: "It is difficult to move a cycle along a road with its brakes on.",
+            reason: "Sliding friction is greater than rolling friction.",
+            answer: "A",
+            explanation: "Both statements are true. When brakes are applied, the wheels lock and slide, which generates sliding friction. This force is significantly larger than the rolling friction that exists when the wheels rotate freely. The reason correctly explains the assertion."
         },
         {
-            "assertion": "A rocket moves forward by pushing the gases backward.",
-            "reason": "This is an example of Newton's Third Law of Motion.",
-            "answer": "A",
-            "explanation": "The rocket exerts a force on the gases to expel them backward (action). According to Newton's third law, the gases exert an equal and opposite force on the rocket, pushing it forward (reaction). Both assertion and reason are true, and the reason correctly explains the assertion."
+            assertion: "A rocket moves forward by pushing the gases backward.",
+            reason: "This is an example of Newton's Third Law of Motion.",
+            answer: "A",
+            explanation: "The rocket exerts a force on the gases to expel them backward (action). According to Newton's third law, the gases exert an equal and opposite force on the rocket, pushing it forward (reaction). Both assertion and reason are true, and the reason correctly explains the assertion."
         },
         {
-            "assertion": "The concept of impulse is a measure of the total effect of a force.",
-            "reason": "Impulse is the product of the average force and the time interval for which it acts.",
-            "answer": "A",
-            "explanation": "The assertion is true; impulse (J = FΔt) quantifies the overall effect of a force over time. The reason provides the correct definition of impulse and thus is the correct explanation for the assertion. It is also equal to the change in momentum."
+            assertion: "The concept of impulse is a measure of the total effect of a force.",
+            reason: "Impulse is the product of the average force and the time interval for which it acts.",
+            answer: "A",
+            explanation: "The assertion is true; impulse (J = FΔt) quantifies the overall effect of a force over time. The reason provides the correct definition of impulse and thus is the correct explanation for the assertion. It is also equal to the change in momentum."
         },
         {
-            "assertion": "A block placed on a table is in equilibrium. The force of gravity on the block is the action, and the normal force from the table is the reaction.",
-            "reason": "Action and reaction forces are always equal and opposite.",
-            "answer": "D",
-            "explanation": "The assertion is false. While the block is in equilibrium and N=mg, the normal force and gravity are NOT an action-reaction pair. They both act on the same body (the block). The reaction to gravity (Earth pulling the block) is the block pulling the Earth. The reaction to the normal force (table pushing the block) is the block pushing the table. The reason is a true statement but does not validate the false assertion."
+            assertion: "A block placed on a table is in equilibrium. The force of gravity on the block is the action, and the normal force from the table is the reaction.",
+            reason: "Action and reaction forces are always equal and opposite.",
+            answer: "D",
+            explanation: "The assertion is false. While the block is in equilibrium and N=mg, the normal force and gravity are NOT an action-reaction pair. They both act on the same body (the block). The reaction to gravity (Earth pulling the block) is the block pulling the Earth. The reaction to the normal force (table pushing the block) is the block pushing the table. The reason is a true statement but does not validate the false assertion."
         },
         {
-            "assertion": "A body in a lift accelerating downwards experiences a decrease in its apparent weight.",
-            "reason": "The normal reaction force from the lift floor is less than its true weight.",
-            "answer": "A",
-            "explanation": "The apparent weight is the normal reaction (R). For downward acceleration 'a', the net force is mg - R = ma, so R = m(g-a). Since R is less than mg, the apparent weight decreases. The reason is a correct explanation for the assertion."
+            assertion: "A body in a lift accelerating downwards experiences a decrease in its apparent weight.",
+            reason: "The normal reaction force from the lift floor is less than its true weight.",
+            answer: "A",
+            explanation: "The apparent weight is the normal reaction (R). For downward acceleration 'a', the net force is mg - R = ma, so R = m(g-a). Since R is less than mg, the apparent weight decreases. The reason is a correct explanation for the assertion."
         }
     ],
     matchTheColumns: [
@@ -416,31 +416,33 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             column1: ["(a) Inertia", "(b) Momentum", "(c) Impulse", "(d) Frictional Force"],
             column2: ["(p) `mv`", "(q) `μN`", "(r) `Δp`", "(s) Resistance to change in state"],
             answer: "a-s, b-p, c-r, d-q",
-            explanation": "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
+            explanation: "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
         },
         {
             column1: ["(a) Newton's First Law", "(b) Newton's Second Law", "(c) Newton's Third Law", "(d) Conservation of Momentum"],
             column2: ["(p) `F = dp/dt`", "(q) Action-Reaction", "(r) Defines Inertial Frame", "(s) Occurs when `F_ext = 0`"],
-            answer": "a-r, b-p, c-q, d-s",
-            "explanation": "First law defines inertia. Second law relates force to momentum change. Third law defines action-reaction pairs. Conservation of momentum applies when net external force is zero."
+            answer: "a-r, b-p, c-q, d-s",
+            explanation: "First law defines inertia. Second law relates force to momentum change. Third law defines action-reaction pairs. Conservation of momentum applies when net external force is zero."
         },
         {
             column1: ["(a) Static Friction", "(b) Kinetic Friction", "(c) Lift accelerating up", "(d) Lift accelerating down"],
             column2: ["(p) Constant value `μ_k * N`", "(q) Self-adjusting force", "(r) Apparent weight = `m(g-a)`", "(s) Apparent weight = `m(g+a)`"],
-            answer": "a-q, b-p, c-s, d-r",
-            "explanation": "Static friction is self-adjusting. Kinetic friction is constant. Apparent weight increases with upward acceleration and decreases with downward acceleration."
+            answer: "a-q, b-p, c-s, d-r",
+            explanation: "Static friction is self-adjusting. Kinetic friction is constant. Apparent weight increases with upward acceleration and decreases with downward acceleration."
         },
         {
             column1: ["(a) Unit of Force", "(b) Unit of Impulse", "(c) Unit of Friction", "(d) Unit of Momentum"],
             column2: ["(p) Newton-second (N-s)", "(q) kg-m/s", "(r) Newton (N)", "(s) Newton (N)"],
-            answer": "a-r, b-p, c-s, d-q",
-            "explanation": "Force and Friction are both measured in Newtons. Impulse has units of N-s, which is equivalent to kg-m/s, the unit for momentum."
+            answer: "a-r, b-p, c-s, d-q",
+            explanation: "Force and Friction are both measured in Newtons. Impulse has units of N-s, which is equivalent to kg-m/s, the unit for momentum."
         },
         {
             column1: ["(a) Rocket Propulsion", "(b) A book on a table", "(c) Pushing a heavy box", "(d) A planet orbiting the sun"],
             column2: ["(p) Static Friction", "(q) Normal Force equals Weight", "(r) Centripetal Force", "(s) Conservation of Momentum"],
-            answer": "a-s, b-q, c-p, d-r",
-            "explanation": "Rocket propulsion is based on conservation of momentum. A book on a table is a simple equilibrium case (N=W). Pushing a box involves overcoming static friction. Orbital motion requires a centripetal force."
+            answer: "a-s, b-q, c-p, d-r",
+            explanation: "Rocket propulsion is based on conservation of momentum. A book on a table is a simple equilibrium case (N=W). Pushing a box involves overcoming static friction. Orbital motion requires a centripetal force."
         }
     ]
 };
+
+    
