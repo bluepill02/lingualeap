@@ -107,7 +107,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             solutionSteps: [
                 { step: 1, explanation: "Assign coordinates to each mass. m₁=1kg at (0,0). m₂=2kg at (1,0). For m₃=3kg, the x-coordinate is 0.5 m. The y-coordinate (height of equilateral triangle) is (√3/2)*side = √3/2. So, m₃ is at (0.5, √3/2).", explanationTamil: "ஒவ்வொரு நிறைக்கும் ஆயத்தொலைவுகளை ஒதுக்கவும். m₁=1kg (0,0) இல். m₂=2kg (1,0) இல். m₃=3kg க்கு, x-ஆயத்தொலைவு 0.5 மீ. y-ஆயத்தொலைவு (சமபக்க முக்கோணத்தின் உயரம்) (√3/2)*பக்கம் = √3/2. எனவே, m₃ (0.5, √3/2) இல் உள்ளது." },
                 { step: 2, explanation: "Use the formula for the x-coordinate of the center of mass: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", explanationTamil: "நிறை மையத்தின் x-ஆயத்தொலைவுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", calculation: "X_cm = (1*0 + 2*1 + 3*0.5) / (1+2+3) = (2 + 1.5) / 6 = 3.5 / 6 = 7/12 m" },
-                { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", explanationTamil: "நிறை மையத்தின் y-ஆயத்தொலைவுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(√3/2)) / (1+2+3) = (3√3 / 2) / 6 = √3 / 4 m" }
+                { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", explanationTamil: "நிறை மையத்தின் y-ஆயத்தொலைவுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(\\sqrt{3}/2)) / (1+2+3) = (3\\sqrt{3} / 2) / 6 = \\sqrt{3} / 4 m" }
             ],
             neetHack: "For systems with symmetry, the center of mass often lies at the geometric center. For two-particle systems, the CM is always on the line joining them.",
             neetHackTamil: "சீரான அமைப்புகளுக்கு, நிறை மையம் பெரும்பாலும் வடிவியல் மையத்தில் அமைகிறது. இரண்டு-துகள் அமைப்புகளுக்கு, நிறை மையம் எப்போதும் அவற்றை இணைக்கும் கோட்டில் இருக்கும்.",
@@ -119,10 +119,10 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             difficulty: 'Medium',
             problem: "A circular platform is rotating with an angular velocity of 10 rad/s. A man of mass 80 kg is standing on the edge. If he walks to the center of the platform, what will be the new angular velocity? The moment of inertia of the platform is 400 kg m² and its radius is 2 m.",
             solutionSteps: [
-                { step: 1, explanation: "Identify the principle: Since there is no external torque, angular momentum is conserved. L_initial = L_final.", explanationTamil: "கொள்கையை அடையாளம் காணவும்: வெளிப்புற திருப்புவிசை இல்லாததால், கோண உந்தம் பாதுகாக்கப்படுகிறது. L_ஆரம்ப = L_இறுதி.", calculation: "I_i * ω_i = I_f * ω_f" },
+                { step: 1, explanation: "Identify the principle: Since there is no external torque, angular momentum is conserved. L_initial = L_final.", explanationTamil: "கொள்கையை அடையாளம் காணவும்: வெளிப்புற திருப்புவிசை இல்லாததால், கோண உந்தம் பாதுகாக்கப்படுகிறது. L_ஆரம்ப = L_இறுதி.", calculation: "I_i * \\omega_i = I_f * \\omega_f" },
                 { step: 2, explanation: "Calculate the initial total moment of inertia (platform + man at edge). The man is treated as a point mass.", explanationTamil: "ஆரம்ப மொத்த நிலைமத் திருப்புத்திறனைக் கணக்கிடவும் (மேடை + விளிம்பில் உள்ள மனிதன்). மனிதன் ஒரு புள்ளி நிறையாகக் கருதப்படுகிறான்.", calculation: "I_i = I_platform + I_man = 400 + mr² = 400 + 80*(2)² = 400 + 320 = 720 kg m²" },
                 { step: 3, explanation: "Calculate the final total moment of inertia (platform + man at center). When the man is at the center, his distance from the axis r=0.", explanationTamil: "இறுதி மொத்த நிலைமத் திருப்புத்திறனைக் கணக்கிடவும் (மேடை + மையத்தில் உள்ள மனிதன்). மனிதன் மையத்தில் இருக்கும்போது, அச்சிலிருந்து அவனது தூரம் r=0.", calculation: "I_f = I_platform + I_man = 400 + m(0)² = 400 kg m²" },
-                { step: 4, explanation: "Apply the conservation law and solve for the final angular velocity ω_f.", explanationTamil: "பாதுகாப்பு விதியைப் பயன்படுத்தி இறுதி கோண திசைவேகம் ω_f-ஐக் கண்டறியவும்.", calculation: "720 * 10 = 400 * ω_f => ω_f = 7200 / 400 = 18 rad/s" }
+                { step: 4, explanation: "Apply the conservation law and solve for the final angular velocity ω_f.", explanationTamil: "பாதுகாப்பு விதியைப் பயன்படுத்தி இறுதி கோண திசைவேகம் ω_f-ஐக் கண்டறியவும்.", calculation: "720 * 10 = 400 * \\omega_f => \\omega_f = 7200 / 400 = 18 rad/s" }
             ],
             neetHack: "In conservation of angular momentum problems (L=Iω), if I decreases, ω must increase, and vice versa. This can help you quickly check if your answer makes sense.",
             neetHackTamil: "கோண உந்த அழிவின்மை கணக்குகளில் (L=Iω), I குறைந்தால், ω அதிகரிக்க வேண்டும், மற்றும் நேர்மாறாகவும். உங்கள் பதில் சரியாக உள்ளதா என விரைவாகச் சரிபார்க்க இது உதவும்.",
@@ -134,10 +134,10 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             difficulty: 'Medium',
             problem: "Find the moment of inertia of a solid sphere of mass M and radius R about a tangent to the sphere.",
             solutionSteps: [
-                { step: 1, explanation: "Recall the moment of inertia of a solid sphere about an axis through its center of mass.", explanationTamil: "ஒரு திண்மக் கோளத்தின் நிறை மையம் வழியாகச் செல்லும் அச்சைப் பற்றிய அதன் நிலைமத் திருப்புத்திறனை நினைவு கூரவும்.", calculation: "I_cm = (2/5)MR²" },
+                { step: 1, explanation: "Recall the moment of inertia of a solid sphere about an axis through its center of mass.", explanationTamil: "ஒரு திண்மக் கோளத்தின் நிறை மையம் வழியாகச் செல்லும் அச்சைப் பற்றிய அதன் நிலைமத் திருப்புத்திறனை நினைவு கூரவும்.", calculation: "I_{cm} = (2/5)MR²" },
                 { step: 2, explanation: "A tangent is an axis parallel to a diameter, at a distance 'd' from the center.", explanationTamil: "ஒரு தொடுகோடு என்பது விட்டத்திற்கு இணையான ஒரு அச்சு, மையத்திலிருந்து 'd' தொலைவில் உள்ளது.", calculation: "The distance d between the center and the tangent is equal to the radius R. So, d = R." },
-                { step: 3, explanation: "Apply the Parallel Axis Theorem: I = I_cm + Md².", explanationTamil: "இணை அச்சுத் தேற்றத்தைப் பயன்படுத்தவும்: I = I_cm + Md².", calculation: "I_tangent = (2/5)MR² + MR²" },
-                { step: 4, explanation: "Simplify the expression to get the final answer.", explanationTamil: "இறுதி விடையைப் பெற கோவையை எளிமைப்படுத்தவும்.", calculation: "I_tangent = (2/5 + 1)MR² = (7/5)MR²" }
+                { step: 3, explanation: "Apply the Parallel Axis Theorem: I = I_cm + Md².", explanationTamil: "இணை அச்சுத் தேற்றத்தைப் பயன்படுத்தவும்: I = I_cm + Md².", calculation: "I_{tangent} = (2/5)MR² + MR²" },
+                { step: 4, explanation: "Simplify the expression to get the final answer.", explanationTamil: "இறுதி விடையைப் பெற கோவையை எளிமைப்படுத்தவும்.", calculation: "I_{tangent} = (2/5 + 1)MR² = (7/5)MR²" }
             ],
             neetHack: "Memorize the standard moments of inertia for common shapes (rod, ring, disk, sphere). Most problems will require you to apply the parallel or perpendicular axis theorems to these standard results.",
             neetHackTamil: "பொதுவான வடிவங்களுக்கு (கோல், வளையம், வட்டு, கோளம்) நிலையான நிலைமத் திருப்புத்திறன்களை மனப்பாடம் செய்யவும். பெரும்பாலான கணக்குகள் இந்த நிலையான முடிவுகளுக்கு இணை அல்லது செங்குத்து அச்சுத் தேற்றங்களைப் பயன்படுத்த வேண்டியிருக்கும்.",
@@ -149,10 +149,10 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             difficulty: 'Hard',
             problem: "A solid sphere rolls down an inclined plane of height 'h' without slipping. What is its velocity at the bottom?",
             solutionSteps: [
-                { step: 1, explanation: "Apply the principle of conservation of energy. The initial potential energy at the top is converted into total kinetic energy (translational + rotational) at the bottom.", explanationTamil: "ஆற்றல் அழிவின்மை விதியைப் பயன்படுத்தவும். உச்சியில் உள்ள ஆரம்ப நிலை ஆற்றல், அடியில் உள்ள மொத்த இயக்க ஆற்றலாக (இடப்பெயர்வு + சுழற்சி) மாற்றப்படுகிறது.", calculation: "mgh = (1/2)mv² + (1/2)Iω²" },
-                { step: 2, explanation: "For a solid sphere, I = (2/5)mr². For rolling without slipping, ω = v/r.", explanationTamil: "ஒரு திண்மக் கோளத்திற்கு, I = (2/5)mr². நழுவாமல் உருளுவதற்கு, ω = v/r.", calculation: "mgh = (1/2)mv² + (1/2)(2/5)mr²(v/r)²" },
-                { step: 3, explanation: "Simplify the equation. The mass 'm' and radius 'r' will cancel out.", explanationTamil: "சமன்பாட்டை எளிமைப்படுத்தவும். நிறை 'm' மற்றும் ஆரம் 'r' நீக்கப்படும்.", calculation: "gh = (1/2)v² + (1/5)v² = (7/10)v²" },
-                { step: 4, explanation: "Solve for the final velocity v.", explanationTamil: "இறுதி திசைவேகம் v-க்கு தீர்க்கவும்.", calculation: "v² = 10gh/7 => v = √(10gh/7)" }
+                { step: 1, explanation: "Apply the principle of conservation of energy. The initial potential energy at the top is converted into total kinetic energy (translational + rotational) at the bottom.", explanationTamil: "ஆற்றல் அழிவின்மை விதியைப் பயன்படுத்தவும். உச்சியில் உள்ள ஆரம்ப நிலை ஆற்றல், அடியில் உள்ள மொத்த இயக்க ஆற்றலாக (இடப்பெயர்வு + சுழற்சி) மாற்றப்படுகிறது.", calculation: "Mgh = (1/2)Mv² + (1/2)I\\omega²" },
+                { step: 2, explanation: "For a solid sphere, I = (2/5)MR². For rolling without slipping, ω = v/R.", explanationTamil: "ஒரு திண்மக் கோளத்திற்கு, I = (2/5)MR². நழுவாமல் உருளுவதற்கு, ω = v/R.", calculation: "Mgh = (1/2)Mv² + (1/2)(2/5)MR²(v/R)²" },
+                { step: 3, explanation: "Simplify the equation. The mass 'M' and radius 'R' will cancel out.", explanationTamil: "சமன்பாட்டை எளிமைப்படுத்தவும். நிறை 'M' மற்றும் ஆரம் 'R' நீக்கப்படும்.", calculation: "gh = (1/2)v² + (1/5)v² = (7/10)v²" },
+                { step: 4, explanation: "Solve for the final velocity v.", explanationTamil: "இறுதி திசைவேகம் v-க்கு தீர்க்கவும்.", calculation: "v² = 10gh/7 => v = \\sqrt{10gh/7}" }
             ],
             neetHack: "For any object rolling down an incline, the final velocity is given by v = √(2gh / (1 + k²/R²)), where 'k' is the radius of gyration (I = mk²). For a sphere, k²/R² = 2/5. For a disk, k²/R² = 1/2. For a ring, k²/R² = 1. The smaller the factor (1 + k²/R²), the faster the object.",
             neetHackTamil: "ஒரு சாய்வில் உருளும் எந்தவொரு பொருளுக்கும், இறுதி திசைவேகம் v = √(2gh / (1 + k²/R²)) மூலம் கொடுக்கப்படுகிறது, இங்கு 'k' என்பது சுழற்சி ஆரம் (I = mk²). ஒரு கோளத்திற்கு, k²/R² = 2/5. ஒரு வட்டுக்கு, k²/R² = 1/2. ஒரு வளையத்திற்கு, k²/R² = 1. (1 + k²/R²) காரணி சிறியதாக இருந்தால், பொருள் வேகமாக இருக்கும்."
@@ -169,8 +169,8 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             ],
             neetHack: "When calculating cross products, be meticulous with the determinant signs. A small mistake here can flip the direction of the resulting vector.",
             neetHackTamil: "குறுக்குப் பெருக்கல்களைக் கணக்கிடும்போது, அணிக்கோவை குறிகளில் கவனமாக இருங்கள். இங்கு ஒரு சிறிய தவறு, விளைவான வெக்டரின் திசையை மாற்றிவிடும்.",
-            commonPitfall: "Calculating `F x r` instead of `r x F`. The cross product is not commutative ( `$\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$` ), so the order is critical.",
-            commonPitfallTamil: "`r x F` க்கு பதிலாக `F x r` ஐக் கணக்கிடுவது. குறுக்குப் பெருக்கல் பரிமாற்றுப் பண்பு அற்றது ( `$\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$` ), எனவே வரிசை முக்கியமானது."
+            commonPitfall: "Calculating `$\\vec{F} \\times \\vec{r}$` instead of `$\\vec{r} \\times \\vec{F}$`. The cross product is not commutative (`$\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$`), so the order is critical.",
+            commonPitfallTamil: "`$\\vec{F} \\times \\vec{r}$` என்பதற்கு பதிலாக `$\\vec{r} \\times \\vec{F}$` ஐக் கணக்கிடுவது. குறுக்குப் பெருக்கல் பரிமாற்றுப் பண்பு அற்றது (`$\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$`), எனவே வரிசை முக்கியமானது."
         }
     ],
     keyFormulasAndDiagrams: {
