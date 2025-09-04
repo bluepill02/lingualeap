@@ -42,19 +42,19 @@ export const lawsOfMotionModule: NeetModule = {
             notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.'
         }
     ],
-    conceptNotes: `### 1. The Language of Forces: Free-Body Diagrams (FBD)
+    conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology
 The single most important skill in solving mechanics problems is drawing a Free-Body Diagram (FBD). It is a diagram that shows ALL the forces acting ON a single object.
 
-#### The 4-Step FBD Strategy
+#### The 4-Step FBD Strategy:
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **Non-Contact Force:** Does gravity act on it? (Almost always, draw `W = mg` acting vertically downwards).
+    *   **Non-Contact Force:** Does gravity act on it? (Almost always, draw \`W = mg\` acting vertically downwards).
     *   **Contact Forces:** What is the object touching? Each point of contact can exert a force.
-        *   Is it on a surface? There is a **Normal Force** (`N`), perpendicular to the surface, pushing away from the surface.
-        *   Is a string or rope attached? There is **Tension** (`T`), acting along the rope, pulling away from the object.
-        *   Is there friction? **Frictional Force** (`f`) acts parallel to the surface, opposing relative motion or the *tendency* of motion.
-        *   Is a spring attached? **Spring Force** (`kx`) acts along the spring.
+        *   Is it on a surface? There is a **Normal Force** (\`N\`), perpendicular to the surface, pushing away from the surface.
+        *   Is a string or rope attached? There is **Tension** (\`T\`), acting along the rope, pulling away from the object.
+        *   Is there friction? **Frictional Force** (\`f\`) acts parallel to the surface, opposing relative motion or the *tendency* of motion.
+        *   Is a spring attached? **Spring Force** (\`kx\`) acts along the spring.
 4.  **Establish a Coordinate System:** Choose an x-y coordinate system. It's often smart to align one axis with the direction of acceleration.
 
 ### 2. Newton's Laws of Motion: The Core Principles
@@ -70,15 +70,15 @@ The rate of change of a body's linear momentum is directly proportional to the n
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 \`\`\`
-Since momentum `\\vec{p} = m\\vec{v}`, if mass `m` is constant, this simplifies to the famous equation:
+Since momentum \`\\vec{p} = m\\vec{v}\`, if mass \`m\` is constant, this simplifies to the famous equation:
 \`\`\`
 \\vec{F}_{net} = m\\vec{a}
 \`\`\`
-This is a vector equation. It can be broken down into components: `ΣF_x = ma_x` and `ΣF_y = ma_y`. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\` and \`ΣF_y = ma_y\`. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (`\\vec{F}_{AB} = -\\vec{F}_{BA}`).
+*   Forces always occur in pairs (\`\\vec{F}_{AB} = -\\vec{F}_{BA}\`).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 ### 3. Applying the Principles in Complex Scenarios
@@ -90,15 +90,15 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 
 #### B. Understanding Non-Inertial Frames
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force**.
-*   **Pseudo Force (`F_p`):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** `F_p = ma_0`, where `m` is the mass of the object being observed, and `a_0` is the acceleration of the frame.
+*   **Pseudo Force (\`F_p\`):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
+*   **Magnitude:** \`F_p = ma_0\`, where \`m\` is the mass of the object being observed, and \`a_0\` is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply `ΣF_real + F_pseudo = ma_relative` as if it were an inertial frame.
+Once you add the pseudo force, you can apply \`ΣF_real + F_pseudo = ma_relative\` as if it were an inertial frame.
 
 **Classic Example: The Lift Problem**
-Consider a person of mass `m` on a weighing scale in a lift accelerating at `a`.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are `N` (up), `mg` (down), and `F_p = ma` (down). For equilibrium in this frame, `N = mg + ma = m(g+a)`. The person feels heavier.
-*   **Lift Accelerating Downwards:** The pseudo force `F_p = ma` is now upwards. The forces are `N` (up), `F_p` (up), and `mg` (down). For equilibrium, `N + ma = mg`, so `N = m(g-a)`. The person feels lighter.
+Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`a\`.
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are \`N\` (up), \`mg\` (down), and \`F_p = ma\` (down). For equilibrium in this frame, \`N = mg + ma = m(g+a)\`. The person feels heavier.
+*   **Lift Accelerating Downwards:** The pseudo force \`F_p = ma\` is now upwards. The forces are \`N\` (up), \`F_p\` (up), and \`mg\` (down). For equilibrium, \`N + ma = mg\`, so \`N = m(g-a)\`. The person feels lighter.
 `,
     workedExamples: [
         {
@@ -121,29 +121,20 @@ Consider a person of mass `m` on a weighing scale in a lift accelerating at `a`.
         {
             title: "JEE Level: Analyzing Motion in a Non-Inertial Frame",
             difficulty: 'Hard',
-            problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. The system is released from rest. Find the acceleration of the wedge.",
+            problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip on it?",
             solutionSteps: [
-                "Strategy: This problem is complex in the ground (inertial) frame. It becomes simpler if we analyze the motion of block 'm' from the accelerating frame of the wedge 'M'. We will need to apply a pseudo force.",
-                "Step 1: Assume the wedge 'M' accelerates to the left with acceleration 'A'. This is our non-inertial frame.",
-                "Step 2: Consider the forces on block 'm' *from the wedge's frame*. The real forces are weight `mg` (down) and Normal force `N` (perpendicular to incline).",
-                "Step 3: Add the Pseudo Force. Since the frame (wedge) accelerates left with 'A', the pseudo force on 'm' is `F_p = mA`, directed to the right.",
-                "Step 4: Now apply Newton's Laws as if the frame were inertial. Resolve forces parallel and perpendicular to the incline. For the block to stay on the wedge, the net force perpendicular to the incline is zero.",
-                "Perpendicular: N - mg cos(θ) - (mA)sin(θ) = 0 => N = mg cos(θ) + mA sin(θ). (Eq 1)",
-                "Parallel: mg sin(θ) - (mA)cos(θ) = 0. (For the block to be stationary *relative* to the wedge, if asked. But here it slides.) Let its relative acceleration be a_rel. Then mg sin(θ) - mAcos(θ) = ma_rel.",
-                "Step 5: Now, consider the whole system from the ground frame to relate 'A' to the forces. The only external horizontal force is the horizontal component of the normal force N from the ground on the wedge (this is complex). A simpler way is to analyze the forces on the wedge M. The only horizontal force on M is the horizontal component of the N from the block.",
-                "Horizontal force on Wedge M is Nsin(θ). So, Nsin(θ) = MA. (Eq 2)",
-                "Step 6: We have two equations for N and A. Substitute N from (Eq 1) into (Eq 2).",
-                "(mg cos(θ) + mA sin(θ)) * sin(θ) = MA",
-                "mg sin(θ)cos(θ) + mA sin²(θ) = MA",
-                "mg sin(θ)cos(θ) = A(M - m sin²(θ)) ... Wait, error in derivation from memory. Let's re-derive from ground frame as it's safer.",
-                "Let's stick to a clearer method. Ground Frame Analysis: Acceleration of M is `A` (left). Acceleration of m has two components: `A` (left) and `a_rel` (down the incline). Let's resolve forces and accelerations along horizontal and vertical axes.",
-                "On M: Nsin(θ) = MA (Horizontal). (Eq i)",
-                "On m: (Horizontal) Nsin(θ) = m(a_x). Wait, this is getting complicated. The pseudo force method is better but must be applied correctly. Let's restart Step 5 more carefully.",
-                "Correct approach: Consider the forces in the ground frame. For M, the only horizontal force is N sin(θ) from m. `N sin(θ) = MA` (Eq A). For m, in the horizontal direction, `N sin(θ) = m a_x`. In the vertical direction, `mg - N cos(θ) = m a_y`. The constraint is that the block stays on the wedge, `a_y = a_x tan(θ)`. This system is complex to solve.",
-                "The key insight from the pseudo-force frame is for the case where the block *doesn't slip* on the wedge. Then a_rel=0. From `mg sin(θ) - mAcos(θ) = 0`, we get `A = g tan(θ)`. If the question is about finding `A` when the block slides, the ground frame is more direct. The acceleration of the block `m` is `(A, 0) + (a_rel cosθ, -a_rel sinθ)`... this is too complex. The first pseudo-force equation was nearly right. Let's correct it: From the wedge's frame, the net force parallel to incline causes relative acceleration: `mg sinθ - mA cosθ = m a_rel`. And `N = mg cosθ + mA sinθ`. Back in ground frame, the force causing M to accelerate is from m. `N sinθ = MA`. Substituting N: `(mg cosθ + mA sinθ) sinθ = MA`. `mg sinθcosθ = A(M - msin²θ)`. Apologies, the initial derivation had a sign error. Correct is: `mg sinθcosθ = MA - mAsin²θ` => `mg sinθcosθ = A(M - msin²θ)`. This is still incorrect. Let's use a standard result for clarity: `A = (mg sin(θ)cos(θ)) / (M + m sin²(θ))`. This is the correct answer and relies on relating the accelerations of both blocks through constraints, a hallmark of advanced problems."
+                "Strategy: This problem is best solved from the non-inertial (accelerating) frame of the wedge. We'll add a pseudo force to the block and then apply the condition for equilibrium (no slipping).",
+                "Step 1: Consider the wedge as our frame of reference. This frame is accelerating to the right with acceleration `A`.",
+                "Step 2: Draw the FBD of block 'm' as seen from the wedge. The real forces are: weight `mg` (vertically down) and the Normal force `N` (perpendicular to the incline, upwards).",
+                "Step 3: Add the Pseudo Force. Because the frame (wedge) is accelerating to the right with `A`, we must add a pseudo force `F_p = mA` on the block, directed to the left.",
+                "Step 4: Apply equilibrium conditions. For the block not to slip, the net force parallel to the incline must be zero. We must resolve all forces into components parallel and perpendicular to the incline.",
+                "The component of gravity pulling the block down the incline is `mg sin(θ)`.",
+                "The component of the pseudo force pushing the block up the incline is `F_p cos(θ)` which is `mA cos(θ)`.",
+                "Step 5: Set the parallel forces equal to each other for equilibrium. `mg sin(θ) = mA cos(θ)`.",
+                "Step 6: Solve for the acceleration `A`. `A = (mg sin(θ)) / (m cos(θ)) = g * (sin(θ)/cos(θ)) = g tan(θ)`."
             ],
-            neetHack: "For NEET, you will most likely encounter the simpler case: 'What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip?'. In the wedge's frame, add pseudo force `mA` to the right. For no slipping, force down the incline `mg sin(θ)` must be balanced by the component of pseudo force up the incline `(mA)cos(θ)`. So, `mg sin(θ) = mA cos(θ)` => `A = g tan(θ)`.",
-            commonPitfall: "The most common error is applying Newton's laws in a non-inertial frame without adding the pseudo force, or adding it in the wrong direction. The second most common error is incorrectly resolving vector components of forces or accelerations."
+            neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
+            commonPitfall: "The most common error is forgetting to add the pseudo force, or adding it in the wrong direction. The second mistake is resolving the components incorrectly. Remember `mg` gets a `sin(θ)` component along the incline, while the horizontal force `mA` gets a `cos(θ)` component."
         }
     ],
     keyFormulasAndDiagrams: {
