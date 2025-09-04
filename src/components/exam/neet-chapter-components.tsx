@@ -28,43 +28,74 @@ import { Separator } from '../ui/separator';
 
 function renderContent(content: string) {
     if (typeof content !== 'string') {
-        // Fallback for safety, though the data source should be fixed.
         return <pre>{JSON.stringify(content, null, 2)}</pre>;
     }
-    const sections = content.split('\n').map((line, index) => {
+    const lines = content.split('\n');
+    const elements: React.ReactNode[] = [];
+    let currentDiagram: string[] | null = null;
+    let currentDiagramTitle: string | null = null;
+
+    lines.forEach((line, index) => {
+        if (line.trim().startsWith('DIAGRAM_START:')) {
+            currentDiagram = [];
+            currentDiagramTitle = line.replace('DIAGRAM_START:', '').trim();
+            return;
+        }
+
+        if (line.trim() === 'DIAGRAM_END') {
+            if (currentDiagram) {
+                elements.push(
+                    <div key={`diag-${index}`} className="bg-muted p-4 rounded-lg my-4 text-sm font-mono overflow-x-auto">
+                        {currentDiagramTitle && <p className="font-sans text-foreground text-sm font-semibold mb-2">{currentDiagramTitle}</p>}
+                        <pre>{currentDiagram.join('\n')}</pre>
+                    </div>
+                );
+                currentDiagram = null;
+                currentDiagramTitle = null;
+            }
+            return;
+        }
+
+        if (currentDiagram !== null) {
+            currentDiagram.push(line);
+            return;
+        }
+
         if (line.startsWith('### ')) {
-            return <h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>;
-        }
-        if (line.startsWith('#### ')) {
-             return <h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>;
-        }
-        if (line.startsWith('*   **')) {
-             const parts = line.split('**');
-             return <p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>
-        }
-        if (line.trim().startsWith('`')) {
-             const formula = line.replace(/`/g, '').split('#')[0].trim();
-             const description = line.split('#')[1]?.trim();
-             return (
-                <div key={index} className="bg-muted p-4 rounded-lg my-4 text-center">
+            elements.push(<h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>);
+        } else if (line.startsWith('#### ')) {
+            elements.push(<h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>);
+        } else if (line.startsWith('*   **')) {
+            const parts = line.split('**');
+            elements.push(<p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>);
+        } else if (line.trim().startsWith('`') && line.trim().endsWith('`')) {
+            const formulaContent = line.replace(/`/g, '').trim();
+            const [formula, description] = formulaContent.split('#').map(s => s.trim());
+            elements.push(
+                <div key={index} className="bg-muted p-4 rounded-lg my-4">
                     <BlockMath math={formula} />
-                    {description && <p className="text-sm text-muted-foreground mt-2">{description}</p>}
+                    {description && <p className="text-sm text-center text-muted-foreground mt-2">{description}</p>}
                 </div>
-             );
+            );
+        } else if (line.trim().startsWith('- ')) {
+            elements.push(<li key={index} className="ml-5 list-disc my-1">{line.substring(2)}</li>);
+        } else if (line.trim() === '') {
+            elements.push(<div key={index} className="h-4" />);
+        } else {
+            elements.push(<p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>);
         }
-        if (line.trim().startsWith('-')) {
-             return <li key={index} className="ml-5 list-disc my-1">{line.substring(line.indexOf('-') + 1).trim()}</li>;
-        }
-        if (line.trim() === '') {
-            return <div key={index} className="h-4" />;
-        }
-        if (line.trim().startsWith('DIAGRAM:')) {
-            const diagramContent = line.substring(8).replace(/\\n/g, '\n');
-            return <pre key={index} className="bg-muted p-4 rounded-lg my-4 text-sm font-mono overflow-x-auto">{diagramContent}</pre>;
-        }
-        return <p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>;
     });
-    return <>{sections}</>;
+
+    if (currentDiagram) {
+        elements.push(
+            <div key={`diag-end`} className="bg-muted p-4 rounded-lg my-4 text-sm font-mono overflow-x-auto">
+                {currentDiagramTitle && <p className="font-sans text-foreground text-sm font-semibold mb-2">{currentDiagramTitle}</p>}
+                <pre>{currentDiagram.join('\n')}</pre>
+            </div>
+        );
+    }
+    
+    return <>{elements}</>;
 }
 
 
