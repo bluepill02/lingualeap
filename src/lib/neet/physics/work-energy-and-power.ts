@@ -34,73 +34,89 @@ export const workEnergyAndPowerModule: NeetModule = {
     ],
     conceptNotes: `### 1. Work (வேலை)
 Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a [[scalar quantity:ஸ்கேலார் அளவு]].
+ஒரு விசையானது அது செயல்படும் பொருளில் ஒரு இடப்பெயர்ச்சியை உருவாக்கும் போது வேலை செய்யப்பட்டது என்று கூறப்படுகிறது. இது ஒரு ஸ்கேலார் அளவு.
 
-#### Work Done by a Constant Force
+#### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
 If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors.
+ஒரு நிலையான விசை $\\vec{F}$ ஒரு பொருளின் மீது செயல்பட்டு $\\vec{s}$ என்ற இடப்பெயர்ச்சியை உருவாக்கினால், செய்யப்பட்ட வேலை என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களின் புள்ளிப் பெருக்கல் ஆகும்.
 $$
 W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta
 $$
-where $\\theta$ is the angle between the force and displacement vectors.
-*   **Positive Work ($\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body.
-*   **Negative Work ($\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction.
-*   **Zero Work ($\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion.
+where $\\theta$ is the angle between the force and displacement vectors. இங்கு $\\theta$ என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களுக்கு இடையிலான கோணம் ஆகும்.
+*   **Positive Work ($\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body. (நேர் வேலை: விசை இடப்பெயர்ச்சியின் திசையில் ஒரு கூறைக் கொண்டுள்ளது. எ.கா., கீழே விழும் பொருளின் மீது ஈர்ப்பு விசையால் செய்யப்படும் வேலை.)
+*   **Negative Work ($\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction. (எதிர் வேலை: விசை இடப்பெயர்ச்சியின் திசைக்கு எதிராக ஒரு கூறைக் கொண்டுள்ளது. எ.கா., உராய்வு விசையால் செய்யப்படும் வேலை.)
+*   **Zero Work ($\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion. (சுழி வேலை: விசை இடப்பெயர்ச்சிக்கு செங்குத்தாக உள்ளது. எ.கா., சீரான வட்ட இயக்கத்தில் மையநோக்கு விசையால் செய்யப்படும் வேலை.)
 
-#### Work Done by a Variable Force
+#### Work Done by a Variable Force (மாறும் விசையால் செய்யப்பட்ட வேலை)
 If the force is not constant, we find the work done by integrating the force over the path.
+விசை மாறிலியாக இல்லையென்றால், பாதையின் மீது விசையை தொகையீடு செய்வதன் மூலம் செய்யப்பட்ட வேலையைக் காண்கிறோம்.
 $$
 W = \\int_{s_i}^{s_f} F(s) \\,ds
 $$
 Graphically, the work done is the **area under the Force-Displacement (F-s) graph**.
+வரைபடத்தில், செய்யப்பட்ட வேலை என்பது விசை-இடப்பெயர்ச்சி (F-s) வரைபடத்தின் கீழ் உள்ள பரப்பளவு ஆகும்.
 
 ### 2. Energy (ஆற்றல்)
 Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J).
+ஆற்றல் என்பது வேலை செய்வதற்கான திறன் ஆகும். இது ஒரு ஸ்கேலார் அளவு, மற்றும் அதன் SI அலகு ஜூல் (J) ஆகும்.
 
 #### Kinetic Energy (இயக்க ஆற்றல் - K.E.)
 The energy possessed by a body by virtue of its motion.
+ஒரு பொருள் அதன் இயக்கத்தின் காரணமாகக் கொண்டிருக்கும் ஆற்றல்.
 $$
 K.E. = \\frac{1}{2}mv^2
 $$
 The relationship between kinetic energy and linear momentum (p = mv) is:
+இயக்க ஆற்றலுக்கும் நேர்கோட்டு உந்தத்திற்கும் (p = mv) உள்ள தொடர்பு:
 $$
 K.E. = \\frac{p^2}{2m}
 $$
 
 #### Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)
 This is one of the most important theorems in mechanics. It states that the **net work done by all forces (conservative and non-conservative) on a body is equal to the change in its kinetic energy.**
+இது இயக்கவியலில் மிக முக்கியமான தேற்றங்களில் ஒன்றாகும். ஒரு பொருளின் மீது செயல்படும் அனைத்து விசைகளாலும் (ஆற்றல் மாற்றா மற்றும் ஆற்றல் மாற்றும்) செய்யப்பட்ட நிகர வேலை, அதன் இயக்க ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம் என்று இது கூறுகிறது.
 $$
 W_{net} = \\Delta K.E. = K.E._f - K.E._i
 $$
 
+{{WORK_ENERGY_SPRING_ANIMATION}}
+
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
 The energy stored in a body by virtue of its position or configuration. It is defined only for **[[conservative forces:பாதுகாப்பு விசைகள்]]**.
-*   **Gravitational Potential Energy:** $P.E. = mgh$
-*   **Elastic Potential Energy (Spring):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression.
+ஒரு பொருளின் நிலை அல்லது அமைப்பின் காரணமாக அதில் சேமிக்கப்படும் ஆற்றல். இது பாதுகாப்பு விசைகளுக்கு மட்டுமே வரையறுக்கப்படுகிறது.
+*   **Gravitational Potential Energy (ஈர்ப்பு நிலை ஆற்றல்):** $P.E. = mgh$
+*   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression. இங்கு k என்பது சுருள்வில் மாறிலி மற்றும் x என்பது நீட்சி அல்லது அமுக்கம்.
 
 ### 3. Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி)
-*   **Conservative Force (பாதுகாப்பு விசை):** A force for which the work done is independent of the path taken and depends only on the initial and final positions. Work done in a closed loop is zero. E.g., Gravitational force, electrostatic force, spring force.
-*   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance.
+*   **Conservative Force (பாதுகாப்பு விசை):** A force for which the work done is independent of the path taken and depends only on the initial and final positions. Work done in a closed loop is zero. E.g., Gravitational force, electrostatic force, spring force. (ஒரு விசையால் செய்யப்பட்ட வேலை பாதையைச் சார்ந்து இல்லாமல், ஆரம்ப மற்றும் இறுதி நிலைகளை மட்டுமே சார்ந்து இருந்தால் அது பாதுகாப்பு விசை எனப்படும். ஒரு மூடிய சுற்றில் செய்யப்படும் வேலை சுழியாகும். எ.கா., ஈர்ப்பு விசை, நிலைமின்னியல் விசை, சுருள்வில் விசை.)
+*   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance. (ஒரு விசையால் செய்யப்பட்ட வேலை பாதையைச் சார்ந்து இருந்தால் அது பாதுகாப்பற்ற விசை எனப்படும். எ.கா., உராய்வு, காற்றின் எதிர்ப்பு.)
 
-**Law of Conservation of Mechanical Energy:**
+**Law of Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை விதி):**
 If **only conservative forces** are doing work on a system, its total mechanical energy (Kinetic + Potential) remains constant.
+ஒரு அமைப்பின் மீது **பாதுகாப்பு விசைகள் மட்டுமே** வேலை செய்தால், அதன் மொத்த இயந்திர ஆற்றல் (இயக்க + நிலை) மாறாமல் இருக்கும்.
 $$
 K.E._i + P.E._i = K.E._f + P.E._f
 $$
 If non-conservative forces (like friction) are also present, the total energy is not conserved, and the work done by these forces equals the change in total mechanical energy:
+பாதுகாப்பற்ற விசைகள் (உராய்வு போன்றவை) செயல்பட்டால், மொத்த ஆற்றல் பாதுகாக்கப்படாது, மேலும் இந்த விசைகளால் செய்யப்படும் வேலை மொத்த இயந்திர ஆற்றலில் ஏற்படும் மாற்றத்திற்கு சமம்:
 $$
 W_{nc} = \\Delta K.E. + \\Delta P.E.
 $$
 
 ### 4. Power (திறன்)
 Power is the rate at which work is done. It is a scalar quantity.
-*   **Average Power:** $P_{avg} = \\frac{\\text{Total Work Done}}{\\text{Total Time}} = \\frac{W}{t}$
-*   **Instantaneous Power:** $P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$
+திறன் என்பது வேலை செய்யப்படும் வீதம் ஆகும். இது ஒரு ஸ்கேலார் அளவு.
+*   **Average Power (சராசரி திறன்):** $P_{avg} = \\frac{\\text{Total Work Done}}{\\text{Total Time}} = \\frac{W}{t}$
+*   **Instantaneous Power (உடனடி திறன்):** $P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$
 The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is horsepower (1 hp ≈ 746 W).
+திறனின் SI அலகு வாட் (W) ஆகும். (1 W = 1 J/s). மற்றொரு பொதுவான அலகு குதிரைத்திறன் (1 hp ≈ 746 W).
 
 ### 5. Collisions (மோதல்கள்)
 A collision is an event in which two or more bodies exert forces on each other for a relatively short time.
-*   **Total linear momentum is always conserved** in any collision if there is no external force on the system.
-*   **[[Elastic Collision:மீள் மோதல்]]:** A collision in which both momentum and kinetic energy are conserved.
-*   **[[Inelastic Collision:மீளாத மோதல்]]:** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.
+மோதல் என்பது இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்கள் ஒப்பீட்டளவில் குறுகிய காலத்திற்கு ஒன்றின் மீது ஒன்று விசைகளைச் செலுத்தும் ஒரு நிகழ்வு ஆகும்.
+*   **Total linear momentum is always conserved** in any collision if there is no external force on the system. (ஒரு அமைப்பின் மீது புற விசை இல்லாத நிலையில், எந்தவொரு மோதலிலும் மொத்த நேர்கோட்டு உந்தம் எப்போதும் பாதுகாக்கப்படுகிறது.)
+*   **[[Elastic Collision:மீள் மோதல்]]:** A collision in which both momentum and kinetic energy are conserved. (உந்தம் மற்றும் இயக்க ஆற்றல் இரண்டும் பாதுகாக்கப்படும் ஒரு மோதல்.)
+*   **[[Inelastic Collision:மீளாத மோதல்]]:** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision. (உந்தம் பாதுகாக்கப்பட்டு, ஆனால் இயக்க ஆற்றல் பாதுகாக்கப்படாத ஒரு மோதல். சில இயக்க ஆற்றல் வெப்பம், ஒலி அல்லது சிதைவாக இழக்கப்படுகிறது. மோதலுக்குப் பிறகு பொருட்கள் ஒன்றாக ஒட்டிக்கொண்டால் அது ஒரு முழுமையான மீளாத மோதல் ஆகும்.)
 `,
     workedExamples: [
         {
@@ -111,8 +127,7 @@ A collision is an event in which two or more bodies exert forces on each other f
                 {
                     step: 1,
                     explanation: "Calculate the work done by gravity. Work = Force × displacement × cos(θ). Here, Force = mg, displacement = h, and the angle θ between force and displacement is 0°.",
-                    explanationTamil: "ஈர்ப்பு விசையால் செய்யப்பட்ட வேலையைக் கணக்கிடவும். வேலை = விசை × இடப்பெயர்ச்சி × cos(θ). இங்கு, விசை = mg, இடப்பெயர்ச்சி = h, மற்றும் விசைக்கும் இடப்பெயர்ச்சிக்கும் இடையிலான கோணம் θ = 0°.",
-                    calculation: "W_g = (mg) * h * cos(0°) = (2 * 10) * 10 * 1 = 200 J"
+                    explanationTamil: "ஈர்ப்பு விசையால் செய்யப்பட்ட வேலையைக் கணக்கிடவும். வேலை = விசை × இடப்பெயர்ச்சி × cos(θ). இங்கு, விசை = mg, இடப்பெயர்ச்சி = h, மற்றும் விசைக்கும் இடப்பெயர்ச்சிக்கும் இடையிலான கோணம் θ = 0°."
                 },
                 {
                     step: 2,
@@ -121,9 +136,9 @@ A collision is an event in which two or more bodies exert forces on each other f
                 },
                 {
                     step: 3,
-                    explanation: "The only force doing work is gravity, so W_net = W_g = 200 J. The initial kinetic energy K.E_i is 0 since the block is dropped from rest.",
-                    explanationTamil: "இங்கு வேலை செய்யும் ஒரே விசை ஈர்ப்பு விசை மட்டுமே, எனவே W_net = W_g = 200 J. கட்டை ஓய்விலிருந்து விடப்படுவதால் ஆரம்ப இயக்க ஆற்றல் K.E_i சுழியாகும்.",
-                    calculation: "200 = (1/2)mv_f² - 0"
+                    explanation: "The only force doing work is gravity, so W_net = W_g. The initial kinetic energy K.E_i is 0 since the block is dropped from rest.",
+                    explanationTamil: "இங்கு வேலை செய்யும் ஒரே விசை ஈர்ப்பு விசை மட்டுமே, எனவே W_net = W_g. கட்டை ஓய்விலிருந்து விடப்படுவதால் ஆரம்ப இயக்க ஆற்றல் K.E_i சுழியாகும்.",
+                    calculation: "W_g = (mg) * h * cos(0°) = (2 * 10) * 10 * 1 = 200 J. \\implies 200 = (1/2)mv_f² - 0"
                 },
                 {
                     step: 4,
@@ -167,51 +182,55 @@ A collision is an event in which two or more bodies exert forces on each other f
                 }
             ],
             neetHack: "On a U-x graph, a 'valley' (minimum) is a point of stable equilibrium, and a 'hill' (maximum) is a point of unstable equilibrium.",
-            neetHackTamil: "ஒரு U-x வரைபடத்தில், ஒரு 'பள்ளத்தாக்கு' (குறைந்தபட்சம்) ஒரு நிலையான சமநிலை புள்ளி, மற்றும் ஒரு 'குன்று' (அதிகபட்சம்) ஒரு நிலையற்ற சமநிலை புள்ளி.",
-            commonPitfall: "Confusing the conditions. For equilibrium, F=0 (first derivative of U is zero). For stability, check the sign of the *second* derivative of U.",
-            commonPitfallTamil: "நிபந்தனைகளைக் குழப்பிக் கொள்வது. சமநிலைக்கு, F=0 (U-வின் முதல் வகைக்கெழு சுழி). நிலைப்புத்தன்மைக்கு, U-வின் *இரண்டாம்* வகைக்கெழுவின் குறியைச் சரிபார்க்கவும்."
+            neetHackTamil: "ஒரு U-x வரைபடத்தில், ஒரு 'பள்ளத்தாக்கு' (குறைந்தபட்சம்) ஒரு நிலையான சமநிலை புள்ளி, மற்றும் ஒரு 'குன்று' (அதிகபட்சம்) ஒரு நிலையற்ற சமநிலை புள்ளி."
         },
         {
             title: "NEET Level: Conservation of Energy with a Spring",
             difficulty: 'Medium',
             problem: "A 2 kg block is dropped from a height of 0.4 m onto a spring whose force constant is 1960 N/m. Find the maximum distance the spring is compressed.",
             solutionSteps: [
-                { step: 1, explanation: "Apply the law of conservation of mechanical energy. The initial state is the block at height h, and the final state is when the spring is maximally compressed (block momentarily at rest).", calculation: "Initial Energy (E_i) = Final Energy (E_f)" },
-                { step: 2, explanation: "Initial energy is purely gravitational potential energy. Let the point of maximum compression be the zero potential energy level. The total height fallen is h+x.", calculation: "E_i = mg(h+x)" },
-                { step: 3, explanation: "Final energy is purely elastic potential energy stored in the spring.", calculation: "E_f = (1/2)kx²" },
-                { step: 4, explanation: "Equate initial and final energies and form a quadratic equation.", calculation: "mg(h+x) = (1/2)kx² => (2)(9.8)(0.4+x) = (1/2)(1960)x² => 19.6(0.4+x) = 980x² => 7.84 + 19.6x = 980x² => 980x² - 19.6x - 7.84 = 0" },
-                { step: 5, explanation: "Divide by 9.8 to simplify: 100x² - 2x - 0.8 = 0. Solve the quadratic equation for x. The positive root is the answer.", calculation: "x ≈ 0.1 m or 10 cm" }
+                { step: 1, explanation: "Apply the law of conservation of mechanical energy. The initial state is the block at height h, and the final state is when the spring is maximally compressed (block momentarily at rest).", explanationTamil: "இயந்திர ஆற்றல் அழிவின்மை விதியைப் பயன்படுத்தவும். ஆரம்ப நிலை h உயரத்தில் உள்ள கட்டை, மற்றும் இறுதி நிலை சுருள்வில் அதிகபட்சமாக அமுக்கப்படும்போது (கட்டை தற்காலிகமாக ஓய்வில் இருக்கும்) ஆகும்.", calculation: "Initial Energy (E_i) = Final Energy (E_f)" },
+                { step: 2, explanation: "Initial energy is purely gravitational potential energy. Let the point of maximum compression be the zero potential energy level. The total height fallen is h+x.", explanationTamil: "ஆரம்ப ஆற்றல் முற்றிலும் ஈர்ப்பு நிலை ஆற்றல் ஆகும். அதிகபட்ச அமுக்கப் புள்ளியை பூஜ்ஜிய நிலை ஆற்றல் மட்டமாகக் கொள்வோம். விழுந்த மொத்த உயரம் h+x ஆகும்.", calculation: "E_i = mg(h+x)" },
+                { step: 3, explanation: "Final energy is purely elastic potential energy stored in the spring.", explanationTamil: "இறுதி ஆற்றல் முற்றிலும் சுருள்வில்லில் சேமிக்கப்பட்ட மீட்சி நிலை ஆற்றல் ஆகும்.", calculation: "E_f = (1/2)kx²" },
+                { step: 4, explanation: "Equate initial and final energies and form a quadratic equation.", explanationTamil: "ஆரம்ப மற்றும் இறுதி ஆற்றல்களைச் சமப்படுத்தி ஒரு இருபடிச் சமன்பாட்டை உருவாக்கவும்.", calculation: "mg(h+x) = (1/2)kx² => (2)(9.8)(0.4+x) = (1/2)(1960)x² => 19.6(0.4+x) = 980x² => 7.84 + 19.6x = 980x² => 980x² - 19.6x - 7.84 = 0" },
+                { step: 5, explanation: "Divide by 9.8 to simplify: 100x² - 2x - 0.8 = 0. Solve the quadratic equation for x. The positive root is the answer.", explanationTamil: "எளிமைப்படுத்த 9.8 ஆல் வகுக்கவும்: 100x² - 2x - 0.8 = 0. இருபடிச் சமன்பாட்டை x-க்கு தீர்க்கவும். நேர்மறை மூலமே விடையாகும்.", calculation: "x ≈ 0.1 m or 10 cm" }
             ],
             neetHack: "When a mass is dropped on a spring, the loss in gravitational P.E. is converted into the gain in elastic P.E. of the spring.",
-            commonPitfall: "Forgetting to include the additional compression distance 'x' in the gravitational potential energy term `mg(h+x)`. The block falls a total height of h+x."
+            neetHackTamil: "ஒரு சுருள்வில் மீது ஒரு நிறை விழும்போது, ஈர்ப்பு நிலை ஆற்றலில் ஏற்படும் இழப்பு, சுருள்வில்லின் மீட்சி நிலை ஆற்றல் ஆதாயமாக மாற்றப்படுகிறது.",
+            commonPitfall: "Forgetting to include the additional compression distance 'x' in the gravitational potential energy term `mg(h+x)`. The block falls a total height of h+x.",
+            commonPitfallTamil: "ஈர்ப்பு நிலை ஆற்றல் உறுப்பான `mg(h+x)` இல் கூடுதல் அமுக்க தூரம் 'x' ஐ சேர்க்க மறப்பது. கட்டை h+x என்ற மொத்த உயரத்திலிருந்து விழுகிறது."
         },
         {
             title: "JEE Level: Power Calculation",
             difficulty: 'Medium',
             problem: "A car of mass 'm' starts from rest and accelerates so that its instantaneous power delivered by the engine has a constant value P. Find the velocity of the car as a function of time.",
             solutionSteps: [
-                { step: 1, explanation: "Use the formula for instantaneous power: P = Fv." },
-                { step: 2, explanation: "Express Force F using Newton's second law, F = ma = m(dv/dt).", calculation: "P = m(dv/dt)v" },
-                { step: 3, explanation: "Separate the variables to integrate. We have a relation between v and t.", calculation: "P dt = mv dv" },
-                { step: 4, explanation: "Integrate both sides. The car starts from rest (v=0 at t=0).", calculation: "∫P dt = ∫mv dv => Pt = (1/2)mv²" },
-                { step: 5, explanation: "Solve for velocity v.", calculation: "v² = 2Pt/m => v = √(2Pt/m)" }
+                { step: 1, explanation: "Use the formula for instantaneous power: P = Fv.", explanationTamil: "உடனடி திறனுக்கான சூத்திரத்தைப் பயன்படுத்தவும்: P = Fv." },
+                { step: 2, explanation: "Express Force F using Newton's second law, F = ma = m(dv/dt).", explanationTamil: "நியூட்டனின் இரண்டாம் விதியைப் பயன்படுத்தி விசை F-ஐ வெளிப்படுத்தவும், F = ma = m(dv/dt).", calculation: "P = m(dv/dt)v" },
+                { step: 3, explanation: "Separate the variables to integrate. We have a relation between v and t.", explanationTamil: "தொகையீடு செய்ய மாறிகளைப் பிரிக்கவும். v மற்றும் t-க்கு இடையே ஒரு தொடர்பு உள்ளது.", calculation: "P dt = mv dv" },
+                { step: 4, explanation: "Integrate both sides. The car starts from rest (v=0 at t=0).", explanationTamil: "இருபுறமும் தொகையீடு செய்யவும். கார் ஓய்விலிருந்து தொடங்குகிறது (t=0 இல் v=0).", calculation: "∫P dt = ∫mv dv => Pt = (1/2)mv²" },
+                { step: 5, explanation: "Solve for velocity v.", explanationTamil: "திசைவேகம் v-க்கு தீர்க்கவும்.", calculation: "v² = 2Pt/m => v = √(2Pt/m)" }
             ],
             neetHack: "For constant power, velocity is proportional to √t, and distance is proportional to t^(3/2).",
-            commonPitfall: "Assuming constant acceleration. If power is constant and velocity is increasing, then the force (F = P/v) must be decreasing. So, acceleration is not constant."
+            neetHackTamil: "மாறா திறனுக்கு, திசைவேகம் √t க்கு விகித சமமாகவும், தூரம் t^(3/2) க்கு விகித சமமாகவும் இருக்கும்.",
+            commonPitfall: "Assuming constant acceleration. If power is constant and velocity is increasing, then the force (F = P/v) must be decreasing. So, acceleration is not constant.",
+            commonPitfallTamil: "மாறா முடுக்கம் என்று கருதுவது. திறன் மாறிலியாகவும், திசைவேகம் அதிகரித்துக்கொண்டும் இருந்தால், விசை (F = P/v) குறைந்தே ஆக வேண்டும். எனவே, முடுக்கம் மாறிலி அல்ல."
         },
         {
             title: "NEET Level: Elastic Collision in 1D",
             difficulty: 'Easy',
             problem: "A ball of mass 'm' moving with velocity 'v' collides elastically with another identical ball at rest. What are their velocities after the collision?",
             solutionSteps: [
-                { step: 1, explanation: "In a 1D elastic collision between two identical masses, the velocities are exchanged." },
-                { step: 2, explanation: "Let initial velocities be u₁=v and u₂=0. Let final velocities be v₁ and v₂." },
-                { step: 3, explanation: "By the principle of velocity exchange, the first ball will transfer all its velocity to the second ball." },
-                { step: 4, explanation: "The final velocity of the first ball (v₁) will be the initial velocity of the second ball (u₂).", calculation: "v₁ = u₂ = 0" },
-                { step: 5, explanation: "The final velocity of the second ball (v₂) will be the initial velocity of the first ball (u₁).", calculation: "v₂ = u₁ = v" }
+                { step: 1, explanation: "In a 1D elastic collision between two identical masses, the velocities are exchanged.", explanationTamil: "ஒரே நிறையுள்ள இரண்டு பொருட்களுக்கு இடையேயான ஒரு பரிமாண மீள் மோதலில், திசைவேகங்கள் பரிமாறிக்கொள்ளப்படும்." },
+                { step: 2, explanation: "Let initial velocities be u₁=v and u₂=0. Let final velocities be v₁ and v₂.", explanationTamil: "தொடக்க திசைவேகங்கள் u₁=v மற்றும் u₂=0 ஆகவும். இறுதி திசைவேகங்கள் v₁ மற்றும் v₂ ஆகவும் இருக்கட்டும்." },
+                { step: 3, explanation: "By the principle of velocity exchange, the first ball will transfer all its velocity to the second ball.", explanationTamil: "திசைவேகப் பரிமாற்றக் கொள்கையின்படி, முதல் பந்து அதன் முழு திசைவேகத்தையும் இரண்டாவது பந்திற்கு மாற்றும்." },
+                { step: 4, explanation: "The final velocity of the first ball (v₁) will be the initial velocity of the second ball (u₂).", explanationTamil: "முதல் பந்தின் இறுதித் திசைவேகம் (v₁) இரண்டாவது பந்தின் தொடக்கத் திசைவேகமாக (u₂) இருக்கும்.", calculation: "v₁ = u₂ = 0" },
+                { step: 5, explanation: "The final velocity of the second ball (v₂) will be the initial velocity of the first ball (u₁).", explanationTamil: "இரண்டாவது பந்தின் இறுதித் திசைவேகம் (v₂) முதல் பந்தின் தொடக்கத் திசைவேகமாக (u₁) இருக்கும்.", calculation: "v₂ = u₁ = v" }
             ],
             neetHack: "Memorize this special case: For a 1D elastic collision of equal masses, they just swap their velocities. This saves a lot of calculation time.",
-            commonPitfall: "Applying this special rule to unequal masses or inelastic collisions. This shortcut works *only* for 1D elastic collisions of equal masses."
+            neetHackTamil: "இந்த சிறப்பு நேர்வை மனப்பாடம் செய்யவும்: சம நிறைகளின் ஒரு பரிமாண மீள் மோதலுக்கு, அவை தங்கள் திசைவேகங்களை பரிமாறிக்கொள்ளும். இது கணக்கீட்டு நேரத்தை மிச்சப்படுத்தும்.",
+            commonPitfall: "Applying this special rule to unequal masses or inelastic collisions. This shortcut works *only* for 1D elastic collisions of equal masses.",
+            commonPitfallTamil: "இந்த குறுக்குவழியை சமமற்ற நிறைகள் அல்லது மீளாத மோதல்களுக்குப் பயன்படுத்துவது. இந்த குறுக்குவழி சம நிறைகளின் ஒரு பரிமாண மீள் மோதல்களுக்கு *மட்டுமே* வேலை செய்யும்."
         }
     ],
     keyFormulasAndDiagrams: {

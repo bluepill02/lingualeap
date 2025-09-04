@@ -33,69 +33,79 @@ export const rotationalMotion: NeetModule = {
     ],
     conceptNotes: `### 1. Center of Mass (நிறை மையம்)
 The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point.
-
+துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.
 For a system of n particles:
+n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:
 $$
 \\vec{R}_{CM} = \\frac{m_1\\vec{r}_1 + m_2\\vec{r}_2 + ... + m_n\\vec{r}_n}{m_1 + m_2 + ... + m_n} = \\frac{\\sum m_i\\vec{r}_i}{M}
 $$
 For a continuous body, we integrate:
+ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:
 $$
 \\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r} \\,dm
 $$
 The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$.
+நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.
 
 ### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
-*   **Torque ([[\\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force.
+*   **Torque ([[\\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force. (விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.)
 $$
 \\vec{\\tau} = \\vec{r} \\times \\vec{F}
 $$
-Magnitude: $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule.
+Magnitude (எண்மதிப்பு): $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule. (திசை வலது கை விதியால் கொடுக்கப்படுகிறது.)
 
-*   **Angular Momentum ([[\\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle:
+*   **Angular Momentum ([[\\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle: (நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:)
 $$
 \\vec{L} = \\vec{r} \\times \\vec{p}
 $$
-where $\\vec{p}$ is the linear momentum. Magnitude: $L = rp \\sin\\theta = mvr \\sin\\theta$.
+where $\\vec{p}$ is the linear momentum. Magnitude (எண்மதிப்பு): $L = rp \\sin\\theta = mvr \\sin\\theta$.
 
-*   **Rotational Second Law:** The net external torque on a system is equal to the rate of change of its angular momentum.
+*   **Rotational Second Law (சுழற்சிக்கான இரண்டாம் விதி):** The net external torque on a system is equal to the rate of change of its angular momentum. (ஒரு அமைப்பின் மீதான நிகர வெளிப்புற திருப்புவிசை அதன் கோண உந்தத்தின் மாறுவீதத்திற்கு சமம்.)
 $$
 \\vec{\\tau}_{ext} = \\frac{d\\vec{L}}{dt}
 $$
 
 ### 3. Moment of Inertia and Rotational Dynamics (நிலைமத் திருப்புத்திறன் மற்றும் சுழற்சி இயக்கவியல்)
-*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation.
-For a system of particles: $I = \\sum m_i r_i^2$
-For a rigid body: $I = \\int r^2 \\,dm$
+*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation. (நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.)
+For a system of particles (துகள் அமைப்புக்கு): $I = \\sum m_i r_i^2$
+For a rigid body (திண்மப் பொருளுக்கு): $I = \\int r^2 \\,dm$
 
-*   **Relationship for a Rigid Body:** For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by:
+*   **Relationship for a Rigid Body (ஒரு திண்மப் பொருளுக்கான தொடர்பு):** For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by: (ஒரு நிலையான அச்சைப் பற்றி சுழலும் ஒரு திண்மப் பொருளுக்கு, திருப்புவிசை, நிலைமத் திருப்புத்திறன் மற்றும் கோண முடுக்கம் (α) ஆகியவை பின்வருமாறு தொடர்புடையவை:)
 $$
 \\tau = I \\alpha
 $$
 This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$.
+இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.
 
-#### Theorems of Moment of Inertia:
-1.  **[[Parallel Axis Theorem:இணை அச்சுத் தேற்றம்]]:** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes.
+{{CONSERVATION_OF_ANGULAR_MOMENTUM_ANIMATION}}
+
+#### Theorems of Moment of Inertia (நிலைமத் திருப்புத்திறன் தேற்றங்கள்):
+1.  **[[Parallel Axis Theorem:இணை அச்சுத் தேற்றம்]]:** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. (ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.)
 $$
 I = I_{CM} + Md^2
 $$
-2.  **[[Perpendicular Axis Theorem:செங்குத்து அச்சுத் தேற்றம்]]:** For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$).
+2.  **[[Perpendicular Axis Theorem:செங்குத்து அச்சுத் தேற்றம்]]:** For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$). (ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).)
 $$
 I_z = I_x + I_y
 $$
 
 ### 4. Rolling Motion (உருளுதல் இயக்கம்)
 Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$.
+உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.
 The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies.
+ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.
 $$
 K_{total} = K_{trans} + K_{rot} = \\frac{1}{2}Mv_{CM}^2 + \\frac{1}{2}I_{CM}\\omega^2
 $$
 
 ### 5. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
 If the **net external torque** on a system is zero, its total angular momentum remains constant.
+ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.
 $$
 \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant}
 $$
 This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase).
+இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).
 `,
     workedExamples: [
         {
@@ -108,58 +118,65 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
                 { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(√3/2)) / (1+2+3) = (3√3 / 2) / 6 = √3 / 4 m" }
             ],
             neetHack: "For systems with symmetry, the center of mass often lies at the geometric center. For two-particle systems, the CM is always on the line joining them.",
-            commonPitfall: "Forgetting to correctly calculate the coordinates of all particles before applying the formula. Drawing a simple diagram is crucial."
+            neetHackTamil: "சீரான அமைப்புகளுக்கு, நிறை மையம் பெரும்பாலும் வடிவியல் மையத்தில் அமைகிறது. இரண்டு-துகள் அமைப்புகளுக்கு, நிறை மையம் எப்போதும் அவற்றை இணைக்கும் கோட்டில் இருக்கும்.",
+            commonPitfall: "Forgetting to correctly calculate the coordinates of all particles before applying the formula. Drawing a simple diagram is crucial.",
+            commonPitfallTamil: "சூத்திரத்தைப் பயன்படுத்துவதற்கு முன்பு அனைத்து துகள்களின் ஆயத்தொலைவுகளையும் சரியாகக் கணக்கிட மறப்பது. ஒரு எளிய வரைபடம் வரைவது முக்கியம்."
         },
         {
             title: "JEE Level: Conservation of Angular Momentum",
             difficulty: 'Medium',
             problem: "A circular platform is rotating with an angular velocity of 10 rad/s. A man of mass 80 kg is standing on the edge. If he walks to the center of the platform, what will be the new angular velocity? The moment of inertia of the platform is 400 kg m² and its radius is 2 m.",
             solutionSteps: [
-                { step: 1, explanation: "Identify the principle: Since there is no external torque, angular momentum is conserved. L_initial = L_final.", calculation: "I_i * ω_i = I_f * ω_f" },
-                { step: 2, explanation: "Calculate the initial total moment of inertia (platform + man at edge). The man is treated as a point mass.", calculation: "I_i = I_platform + I_man = 400 + mr² = 400 + 80*(2)² = 400 + 320 = 720 kg m²" },
-                { step: 3, explanation: "Calculate the final total moment of inertia (platform + man at center). When the man is at the center, his distance from the axis r=0.", calculation: "I_f = I_platform + I_man = 400 + m(0)² = 400 kg m²" },
-                { step: 4, explanation: "Apply the conservation law and solve for the final angular velocity ω_f.", calculation: "720 * 10 = 400 * ω_f => ω_f = 7200 / 400 = 18 rad/s" }
+                { step: 1, explanation: "Identify the principle: Since there is no external torque, angular momentum is conserved. L_initial = L_final.", explanationTamil: "கொள்கையை அடையாளம் காணவும்: வெளிப்புற திருப்புவிசை இல்லாததால், கோண உந்தம் பாதுகாக்கப்படுகிறது. L_ஆரம்ப = L_இறுதி.", calculation: "I_i * ω_i = I_f * ω_f" },
+                { step: 2, explanation: "Calculate the initial total moment of inertia (platform + man at edge). The man is treated as a point mass.", explanationTamil: "ஆரம்ப மொத்த நிலைமத் திருப்புத்திறனைக் கணக்கிடவும் (மேடை + விளிம்பில் உள்ள மனிதன்). மனிதன் ஒரு புள்ளி நிறையாகக் கருதப்படுகிறான்.", calculation: "I_i = I_platform + I_man = 400 + mr² = 400 + 80*(2)² = 400 + 320 = 720 kg m²" },
+                { step: 3, explanation: "Calculate the final total moment of inertia (platform + man at center). When the man is at the center, his distance from the axis r=0.", explanationTamil: "இறுதி மொத்த நிலைமத் திருப்புத்திறனைக் கணக்கிடவும் (மேடை + மையத்தில் உள்ள மனிதன்). மனிதன் மையத்தில் இருக்கும்போது, அச்சிலிருந்து அவனது தூரம் r=0.", calculation: "I_f = I_platform + I_man = 400 + m(0)² = 400 kg m²" },
+                { step: 4, explanation: "Apply the conservation law and solve for the final angular velocity ω_f.", explanationTamil: "பாதுகாப்பு விதியைப் பயன்படுத்தி இறுதி கோண திசைவேகம் ω_f-ஐக் கண்டறியவும்.", calculation: "720 * 10 = 400 * ω_f => ω_f = 7200 / 400 = 18 rad/s" }
             ],
             neetHack: "In conservation of angular momentum problems (L=Iω), if I decreases, ω must increase, and vice versa. This can help you quickly check if your answer makes sense.",
-            commonPitfall: "Forgetting to include the man's moment of inertia in the total system moment of inertia in both the initial and final states."
+            neetHackTamil: "கோண உந்த அழிவின்மை கணக்குகளில் (L=Iω), I குறைந்தால், ω அதிகரிக்க வேண்டும், மற்றும் நேர்மாறாகவும். உங்கள் பதில் சரியாக உள்ளதா என விரைவாகச் சரிபார்க்க இது உதவும்.",
+            commonPitfall: "Forgetting to include the man's moment of inertia in the total system moment of inertia in both the initial and final states.",
+            commonPitfallTamil: "ஆரம்ப மற்றும் இறுதி நிலைகளில் மொத்த அமைப்பு நிலைமத் திருப்புத்திறனில் மனிதனின் நிலைமத் திருப்புத்திறனைச் சேர்க்க மறப்பது."
         },
         {
             title: "NEET Level: Parallel Axis Theorem",
             difficulty: 'Medium',
             problem: "Find the moment of inertia of a solid sphere of mass M and radius R about a tangent to the sphere.",
             solutionSteps: [
-                { step: 1, explanation: "Recall the moment of inertia of a solid sphere about an axis through its center of mass.", calculation: "I_cm = (2/5)MR²" },
-                { step: 2, explanation: "A tangent is an axis parallel to a diameter, at a distance 'd' from the center.", calculation: "The distance d between the center and the tangent is equal to the radius R. So, d = R." },
-                { step: 3, explanation: "Apply the Parallel Axis Theorem: I = I_cm + Md².", calculation: "I_tangent = (2/5)MR² + MR²" },
-                { step: 4, explanation: "Simplify the expression to get the final answer.", calculation: "I_tangent = (2/5 + 1)MR² = (7/5)MR²" }
+                { step: 1, explanation: "Recall the moment of inertia of a solid sphere about an axis through its center of mass.", explanationTamil: "ஒரு திண்மக் கோளத்தின் நிறை மையம் வழியாகச் செல்லும் அச்சைப் பற்றிய அதன் நிலைமத் திருப்புத்திறனை நினைவு கூரவும்.", calculation: "I_cm = (2/5)MR²" },
+                { step: 2, explanation: "A tangent is an axis parallel to a diameter, at a distance 'd' from the center.", explanationTamil: "ஒரு தொடுகோடு என்பது விட்டத்திற்கு இணையான ஒரு அச்சு, மையத்திலிருந்து 'd' தொலைவில் உள்ளது.", calculation: "The distance d between the center and the tangent is equal to the radius R. So, d = R." },
+                { step: 3, explanation: "Apply the Parallel Axis Theorem: I = I_cm + Md².", explanationTamil: "இணை அச்சுத் தேற்றத்தைப் பயன்படுத்தவும்: I = I_cm + Md².", calculation: "I_tangent = (2/5)MR² + MR²" },
+                { step: 4, explanation: "Simplify the expression to get the final answer.", explanationTamil: "இறுதி விடையைப் பெற கோவையை எளிமைப்படுத்தவும்.", calculation: "I_tangent = (2/5 + 1)MR² = (7/5)MR²" }
             ],
             neetHack: "Memorize the standard moments of inertia for common shapes (rod, ring, disk, sphere). Most problems will require you to apply the parallel or perpendicular axis theorems to these standard results.",
-            commonPitfall: "Confusing the parallel and perpendicular axis theorems. The parallel axis theorem can be applied to any body, but the perpendicular axis theorem is only valid for planar bodies (laminas)."
+            neetHackTamil: "பொதுவான வடிவங்களுக்கு (கோல், வளையம், வட்டு, கோளம்) நிலையான நிலைமத் திருப்புத்திறன்களை மனப்பாடம் செய்யவும். பெரும்பாலான கணக்குகள் இந்த நிலையான முடிவுகளுக்கு இணை அல்லது செங்குத்து அச்சுத் தேற்றங்களைப் பயன்படுத்த வேண்டியிருக்கும்.",
+            commonPitfall: "Confusing the parallel and perpendicular axis theorems. The parallel axis theorem can be applied to any body, but the perpendicular axis theorem is only valid for planar bodies (laminas).",
+            commonPitfallTamil: "இணை மற்றும் செங்குத்து அச்சுத் தேற்றங்களைக் குழப்பிக் கொள்வது. இணை அச்சுத் தேற்றத்தை எந்தவொரு பொருளுக்கும் பயன்படுத்தலாம், ஆனால் செங்குத்து அச்சுத் தேற்றம் தளப் பொருட்களுக்கு (lamina) மட்டுமே செல்லுபடியாகும்."
         },
         {
             title: "JEE Level: Rolling without Slipping",
             difficulty: 'Hard',
             problem: "A solid sphere rolls down an inclined plane of height 'h' without slipping. What is its velocity at the bottom?",
             solutionSteps: [
-                { step: 1, explanation: "Apply the principle of conservation of energy. The initial potential energy at the top is converted into total kinetic energy (translational + rotational) at the bottom.", calculation: "mgh = (1/2)mv² + (1/2)Iω²" },
-                { step: 2, explanation: "For a solid sphere, I = (2/5)mr². For rolling without slipping, ω = v/r.", calculation: "mgh = (1/2)mv² + (1/2)(2/5)mr²(v/r)²" },
-                { step: 3, explanation: "Simplify the equation. The mass 'm' and radius 'r' will cancel out.", calculation: "gh = (1/2)v² + (1/5)v² = (7/10)v²" },
-                { step: 4, explanation: "Solve for the final velocity v.", calculation: "v² = 10gh/7 => v = √(10gh/7)" }
+                { step: 1, explanation: "Apply the principle of conservation of energy. The initial potential energy at the top is converted into total kinetic energy (translational + rotational) at the bottom.", explanationTamil: "ஆற்றல் அழிவின்மை விதியைப் பயன்படுத்தவும். உச்சியில் உள்ள ஆரம்ப நிலை ஆற்றல், அடியில் உள்ள மொத்த இயக்க ஆற்றலாக (இடப்பெயர்வு + சுழற்சி) மாற்றப்படுகிறது.", calculation: "mgh = (1/2)mv² + (1/2)Iω²" },
+                { step: 2, explanation: "For a solid sphere, I = (2/5)mr². For rolling without slipping, ω = v/r.", explanationTamil: "ஒரு திண்மக் கோளத்திற்கு, I = (2/5)mr². நழுவாமல் உருளுவதற்கு, ω = v/r.", calculation: "mgh = (1/2)mv² + (1/2)(2/5)mr²(v/r)²" },
+                { step: 3, explanation: "Simplify the equation. The mass 'm' and radius 'r' will cancel out.", explanationTamil: "சமன்பாட்டை எளிமைப்படுத்தவும். நிறை 'm' மற்றும் ஆரம் 'r' நீக்கப்படும்.", calculation: "gh = (1/2)v² + (1/5)v² = (7/10)v²" },
+                { step: 4, explanation: "Solve for the final velocity v.", explanationTamil: "இறுதி திசைவேகம் v-க்கு தீர்க்கவும்.", calculation: "v² = 10gh/7 => v = √(10gh/7)" }
             ],
             neetHack: "For any object rolling down an incline, the final velocity is given by v = √(2gh / (1 + k²/R²)), where 'k' is the radius of gyration (I = mk²). For a sphere, k²/R² = 2/5. For a disk, k²/R² = 1/2. For a ring, k²/R² = 1. The smaller the factor (1 + k²/R²), the faster the object.",
-            commonPitfall: "Forgetting to include the rotational kinetic energy term. When an object is rolling, it has both translational and rotational kinetic energy."
+            neetHackTamil: "ஒரு சாய்வில் உருளும் எந்தவொரு பொருளுக்கும், இறுதி திசைவேகம் v = √(2gh / (1 + k²/R²)) மூலம் கொடுக்கப்படுகிறது, இங்கு 'k' என்பது சுழற்சி ஆரம் (I = mk²). ஒரு கோளத்திற்கு, k²/R² = 2/5. ஒரு வட்டுக்கு, k²/R² = 1/2. ஒரு வளையத்திற்கு, k²/R² = 1. (1 + k²/R²) காரணி சிறியதாக இருந்தால், பொருள் வேகமாக இருக்கும்."
         },
         {
             title: "NEET Level: Torque Calculation",
             difficulty: 'Easy',
             problem: "A force $\\vec{F} = (2\\hat{i} + 3\\hat{j} - \\hat{k})$ N acts at a point with position vector $\\vec{r} = (\\hat{i} - \\hat{j} + 2\\hat{k})$ m from the origin. Find the torque.",
             solutionSteps: [
-                { step: 1, explanation: "Use the formula for torque, which is the cross product of the position vector and the force vector: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$." },
-                { step: 2, explanation: "Set up the determinant for the cross product.", calculation: "\\vec{\\tau} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & -1 & 2 \\\\ 2 & 3 & -1 \\end{vmatrix}" },
-                { step: 3, explanation: "Calculate the determinant.", calculation: "\\vec{\\tau} = \\hat{i}((-1)(-1) - (2)(3)) - \\hat{j}((1)(-1) - (2)(2)) + \\hat{k}((1)(3) - (-1)(2))" },
-                { step: 4, explanation: "Simplify the components to get the final torque vector.", calculation: "\\vec{\\tau} = \\hat{i}(1 - 6) - \\hat{j}(-1 - 4) + \\hat{k}(3 + 2) = -5\\hat{i} + 5\\hat{j} + 5\\hat{k} \\text{ N·m}" }
+                { step: 1, explanation: "Use the formula for torque, which is the cross product of the position vector and the force vector: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$.", explanationTamil: "திருப்புவிசைக்கான சூத்திரத்தைப் பயன்படுத்தவும், இது நிலை வெக்டர் மற்றும் விசை வெக்டரின் குறுக்குப் பெருக்கல் ஆகும்: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$." },
+                { step: 2, explanation: "Set up the determinant for the cross product.", explanationTamil: "குறுக்குப் பெருக்கலுக்கான அணிக்கோவையை அமைக்கவும்.", calculation: "\\vec{\\tau} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & -1 & 2 \\\\ 2 & 3 & -1 \\end{vmatrix}" },
+                { step: 3, explanation: "Calculate the determinant.", explanationTamil: "அணிக்கோவையைக் கணக்கிடவும்.", calculation: "\\vec{\\tau} = \\hat{i}((-1)(-1) - (2)(3)) - \\hat{j}((1)(-1) - (2)(2)) + \\hat{k}((1)(3) - (-1)(2))" },
+                { step: 4, explanation: "Simplify the components to get the final torque vector.", explanationTamil: "இறுதி திருப்புவிசை வெக்டரைப் பெற கூறுகளை எளிமைப்படுத்தவும்.", calculation: "\\vec{\\tau} = \\hat{i}(1 - 6) - \\hat{j}(-1 - 4) + \\hat{k}(3 + 2) = -5\\hat{i} + 5\\hat{j} + 5\\hat{k} \\text{ N·m}" }
             ],
-            commonPitfall: "Calculating F x r instead of r x F. The cross product is not commutative ($\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$), so the order is critical."
+            commonPitfall: "Calculating F x r instead of r x F. The cross product is not commutative ($\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$), so the order is critical.",
+            commonPitfallTamil: "r x F க்கு பதிலாக F x r ஐக் கணக்கிடுவது. குறுக்குப் பெருக்கல் பரிமாற்றுப் பண்பு அற்றது ($\\vec{r} \\times \\vec{F} = -(\\vec{F} \\times \\vec{r})$), எனவே வரிசை முக்கியமானது."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -193,7 +210,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { question: "If the net external torque on a system is zero, then:", options: ["A. The angular velocity will be zero", "B. The angular momentum will be zero", "C. The angular momentum will be conserved", "D. The angular velocity will be conserved"], answer: "C. The angular momentum will be conserved", explanation: "This is the statement of the law of conservation of angular momentum. Angular velocity is not necessarily conserved, as the moment of inertia can change.", neetFrequency: 5 },
         { question: "A solid cylinder of mass M and radius R rolls down an inclined plane of height h. The rotational kinetic energy of the cylinder at the bottom of the plane is:", options: ["A. (1/2)Mgh", "B. (1/3)Mgh", "C. (1/4)Mgh", "D. (2/5)Mgh"], answer: "B. (1/3)Mgh", explanation: "Total K.E. = K_trans + K_rot = Mgh. For a solid cylinder, I=1/2MR², so K_trans/K_rot = (1/2)Mv² / (1/2)(1/2MR²)ω² = M(Rω)² / (1/2)MR²ω² = 2. So K_rot is 1/3 of the total energy, which is Mgh. K_rot = (1/3)Mgh.", neetFrequency: 4 },
         { question: "The center of mass of a system of particles:", options: ["A. Always coincides with one of the particles", "B. May lie where there is no mass", "C. Is always inside the body", "D. Is always outside the body"], answer: "B. May lie where there is no mass", explanation: "For example, the center of mass of a ring is at its geometric center, where there is no material.", neetFrequency: 3 },
-        { question: "The angular momentum of a particle moving with a constant velocity is:", options: ["A. Always zero", "B. Always constant", "C. Constant only if its path is a straight line passing through the origin", "D. Varies with time"], answer: "C. Constant only if its path is a straight line passing through the origin", explanation: "L = r x p. If v is constant, p is constant. If the particle is moving along a line not passing through the origin, r changes and the angle between r and p changes, so L changes. L is constant (and zero) only if the line of motion passes through the origin (r is parallel or anti-parallel to p).", neetFrequency: 2 },
+        { question: "The angular momentum of a particle moving with a constant velocity is:", options: ["A. Always zero", "B. Always constant", "C. Constant only if its path is a straight line passing through the origin", "D. Varies with time"], answer: "C. Constant only if its path is a straight line passing through the origin", explanation: "L = r x p. If v is constant, p is constant. L is constant only if r is also constant or the angle between r and p is constant, which happens if the line of motion passes through the origin (angle is 0 or 180).", neetFrequency: 2 },
         { question: "The moment of inertia of a circular ring about an axis passing through its center and perpendicular to its plane is MR². What is its moment of inertia about its diameter?", options: ["A. MR²", "B. (1/2)MR²", "C. (1/4)MR²", "D. 2MR²"], answer: "B. (1/2)MR²", explanation: "By the perpendicular axis theorem, I_z = I_x + I_y. For a ring, I_z = MR² and by symmetry, I_x = I_y. So, MR² = 2I_diameter. I_diameter = (1/2)MR².", neetFrequency: 5 },
         { question: "A man is sitting on a rotating stool with his arms outstretched. If he suddenly folds his arms, his angular velocity will:", options: ["A. Decrease", "B. Increase", "C. Remain the same", "D. Become zero"], answer: "B. Increase", explanation: "By folding his arms, he decreases his moment of inertia (I). Since angular momentum (L = Iω) is conserved, his angular velocity (ω) must increase.", neetFrequency: 4 },
         { question: "Torque has the same dimensions as:", options: ["A. Force", "B. Work", "C. Power", "D. Linear Momentum"], answer: "B. Work", explanation: "Torque (τ = rF) has dimensions [M L² T⁻²]. Work (W = Fs) also has dimensions [M L² T⁻²].", neetFrequency: 1 },
