@@ -101,28 +101,44 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             title: "NEET/JEE Level: Connected Blocks with Friction",
             difficulty: 'Medium',
             problem: "Two blocks of masses m₁=4kg and m₂=6kg are connected by a string and placed on a rough horizontal surface (μ=0.2). A force F=50N is applied on m₂. Find the acceleration of the system and the tension in the string. (g=10 m/s²)",
+            fbd: [
+                {
+                    body: "Block m₁",
+                    forces: [
+                        { name: "Tension (T)", direction: "right" },
+                        { name: "Friction (f₁)", direction: "left" },
+                        { name: "Weight (m₁g)", direction: "down" },
+                        { name: "Normal (N₁)", direction: "up" }
+                    ]
+                },
+                {
+                    body: "Block m₂",
+                    forces: [
+                        { name: "Applied Force (F)", direction: "right" },
+                        { name: "Tension (T)", direction: "left" },
+                        { name: "Friction (f₂)", direction: "left" },
+                        { name: "Weight (m₂g)", direction: "down" },
+                        { name: "Normal (N₂)", direction: "up" }
+                    ]
+                }
+            ],
             solutionSteps: [
                 {
                     step: 1,
-                    explanation: 'Draw FBD for both blocks. For m₁, forces are Tension (T) right, friction (f₁) left, weight (m₁g) down, normal (N₁) up. For m₂, forces are F right, T left, friction (f₂) left, weight (m₂g) down, normal (N₂) up.',
-                    calculation: `FBD for m₁: N₁ ↑, T →, f₁ ←, W₁ ↓ | FBD for m₂: N₂ ↑, F →, T ←, f₂ ←, W₂ ↓`
-                },
-                {
-                    step: 2,
                     explanation: 'Calculate maximum static friction for both blocks to see if the system moves. Total max friction = f₁_max + f₂_max.',
                     calculation: 'f₁_max = μm₁g = 0.2*4*10 = 8 N. f₂_max = μm₂g = 0.2*6*10 = 12 N. Total max = 20 N.'
                 },
                 {
-                    step: 3,
+                    step: 2,
                     explanation: 'Compare driving force to max friction. Since F(50N) > Total Friction(20N), the system moves. The friction will be kinetic friction.',
                 },
                 {
-                    step: 4,
+                    step: 3,
                     explanation: 'Apply F_net = ma to the whole system (m₁ + m₂) to find acceleration.',
                     calculation: 'F - f₁ - f₂ = (m₁ + m₂)a  =>  50 - 8 - 12 = 10a  =>  30 = 10a  =>  a = 3 m/s²'
                 },
                 {
-                    step: 5,
+                    step: 4,
                     explanation: 'Apply F_net = ma to a single block (m₁) to find tension T.',
                     calculation: 'T - f₁ = m₁a  =>  T - 8 = 4 * 3  =>  T = 12 + 8  =>  T = 20 N'
                 }
@@ -134,6 +150,15 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             title: "JEE Level: Analyzing Motion in a Non-Inertial Frame",
             difficulty: 'Hard',
             problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip on it?",
+            fbd: [{
+                body: "Block m (in wedge's frame)",
+                forces: [
+                    { name: "Weight (mg)", direction: "down" },
+                    { name: "Normal (N)", direction: "up-left" },
+                    { name: "Pseudo Force (mA)", direction: "left" }
+                ],
+                isAngled: true,
+            }],
             solutionSteps: [
                 {
                     step: 1,
@@ -141,19 +166,14 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 },
                 {
                     step: 2,
-                    explanation: 'Draw the FBD of block `m` as seen from the wedge. The real forces are weight `mg` (down) and Normal force `N` (perpendicular to the incline). A pseudo force `F_p = mA` acts opposite to the wedge\'s acceleration.',
-                    calculation: 'Forces: mg (↓), N (↖), F_p = mA (←)'
-                },
-                {
-                    step: 3,
                     explanation: 'Resolve forces into components parallel to the incline. For equilibrium (no slipping), the net force parallel to the incline must be zero.'
                 },
                 {
-                    step: 4,
+                    step: 3,
                     explanation: 'Component of gravity pulling down the incline is `mg sin(θ)`. Component of pseudo force pushing up the incline is `mA cos(θ)`.',
                 },
                 {
-                    step: 5,
+                    step: 4,
                     explanation: 'Set the parallel forces equal to each other for equilibrium and solve for A.',
                     calculation: 'mg sin(θ) = mA cos(θ)  =>  A = g * (sin(θ)/cos(θ))  =>  A = g tan(θ)'
                 }
@@ -165,6 +185,15 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             title: "NEET Level: Block on an Incline with Friction",
             difficulty: 'Medium',
             problem: "A block of mass 5 kg is placed on a rough inclined plane making an angle of 30° with the horizontal. The coefficient of static friction is 0.6. Will the block slide down? What is the frictional force acting on it? (g = 10 m/s²)",
+            fbd: [{
+                body: "Block on Incline",
+                forces: [
+                    { name: "Weight (mg)", direction: "down" },
+                    { name: "Normal (N)", direction: "up-left" },
+                    { name: "Friction (f)", direction: "up-right" }
+                ],
+                isAngled: true,
+            }],
             solutionSteps: [
                 {
                     step: 1,
@@ -222,6 +251,14 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             title: "JEE Level: Centripetal Force and Friction",
             difficulty: 'Hard',
             problem: "A car of mass 1000 kg is moving at a speed of 10 m/s on a flat, circular road of radius 50 m. What is the minimum coefficient of static friction (μs) between the tires and the road required to prevent the car from slipping?",
+            fbd: [{
+                body: "Car (Top View)",
+                forces: [
+                    { name: "Friction (f)", direction: "inward" }
+                ],
+                isAngled: false,
+                context: "This friction provides the centripetal force."
+            }],
             solutionSteps: [
                 {
                     step: 1,
@@ -554,5 +591,3 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         }
     ]
 };
-
-    

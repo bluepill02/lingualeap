@@ -23,11 +23,12 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
-import { BlockMath, InlineMath } from 'react-katex';
+import { BlockMath } from 'react-katex';
 import { Separator } from '../ui/separator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
+import { FbdBuilder } from './FbdBuilder';
 
 export function ConceptNotesCard({ content }: { content: string }) {
     return (
@@ -88,6 +89,11 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <p className="font-bold">Problem:</p>
                             <p>{example.problem}</p>
                         </div>
+
+                        {example.fbd && example.fbd.map((fbdItem, fbdIndex) => (
+                            <FbdBuilder key={fbdIndex} {...fbdItem} />
+                        ))}
+
                         <div>
                             <p className="font-bold mb-2">Solution:</p>
                              <div className="space-y-4">
@@ -95,7 +101,9 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                     <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5 rounded-r-md">
                                         <p className="font-semibold text-sm">Step {stepIndex + 1}: {step.explanation}</p>
                                         {step.calculation && (
-                                            <p className="text-sm font-mono bg-muted p-2 rounded-md mt-1">{step.calculation}</p>
+                                            <div className="text-sm font-mono bg-muted p-2 rounded-md mt-1 overflow-x-auto">
+                                                <BlockMath math={step.calculation} />
+                                            </div>
                                         )}
                                     </div>
                                 ))}
@@ -383,5 +391,3 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
-
-    

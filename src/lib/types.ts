@@ -120,10 +120,19 @@ export interface SyllabusMapping {
     notes: string;
 }
 
+export interface FBDstep {
+    body: string;
+    forces: { name: string, direction: 'up' | 'down' | 'left' | 'right' | 'up-left' | 'up-right' | 'down-left' | 'down-right' | 'inward' | 'outward' }[];
+    isAngled?: boolean;
+    context?: string;
+}
+
+
 export interface WorkedExample {
     title: string;
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
+    fbd?: FBDstep[];
     solutionSteps: {
         step: number;
         explanation: string;
