@@ -53,7 +53,7 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw $\\boldsymbol{W = mg}$ acting vertically downwards).
+    *   **[[Non-Contact Force:தொடா விசை]]:** Does [[gravity:ஈர்ப்பு விசை]] act on it? (Almost always, draw $W = mg$ acting vertically downwards).
     *   **[[Contact Forces:தொடு விசைகள்]]:** What is the object touching? Each point of contact can exert a force.
         *   Is it on a surface? There is a **[[Normal Force:செங்குத்து விசை]] (N)**, perpendicular to the surface, pushing away from the surface.
         *   Is a string or rope attached? There is **[[Tension:இழுவிசை]] (T)**, acting along the rope, pulling away from the object.
@@ -64,7 +64,7 @@ The single most important skill in solving mechanics problems is drawing a [[Fre
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If $\\boldsymbol{F_{net} = 0}$, then $\\boldsymbol{a = 0}$ (which means $\\boldsymbol{v}$ = constant).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **[[Inertial Frame of Reference:நிலைமக் குறிப்பாயம்]]** (a non-accelerating frame) where Newton's laws are valid. If $\mathbf{F}_{net} = 0$, then $\mathbf{a} = 0$ (which means $\mathbf{v}$ = constant).
 
 {{INERTIA_ANIMATION}}
 
@@ -73,15 +73,15 @@ The rate of change of a body's [[linear momentum:நேர்கோட்டு 
 $$
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 $$
-Since momentum $\\boldsymbol{p = mv}$, if mass 'm' is constant, this simplifies to the famous equation:
+Since momentum $p = mv$, if mass 'm' is constant, this simplifies to the famous equation:
 $$
 \\vec{F}_{net} = m\\vec{a}
 $$
-This is a vector equation. It can be broken down into components: $\\boldsymbol{\\Sigma F_{x} = ma_{x}}$ and $\\boldsymbol{\\Sigma F_{y} = ma_{y}}$. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: $\Sigma \mathbf{F}_x = m \mathbf{a}_x$ and $\Sigma \mathbf{F}_y = m \mathbf{a}_y$. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs ($\\boldsymbol{F_{AB} = -F_{BA}}$).
+*   Forces always occur in pairs ($\mathbf{F}_{AB} = -\mathbf{F}_{BA}$).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 {{ACTION_REACTION_ANIMATION}}
@@ -95,15 +95,15 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **[[pseudo force:போலி விசை]]**.
-*   **Pseudo Force ($\\boldsymbol{F_{p}}$):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** $\\boldsymbol{F_{p} = ma_{0}}$, where 'm' is the mass of the object being observed, and '$\\boldsymbol{a_{0}}$' is the acceleration of the frame.
+*   **Pseudo Force ($F_p$):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
+*   **Magnitude:** $F_p = ma_0$, where 'm' is the mass of the object being observed, and '$a_0$' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply $\\boldsymbol{\\Sigma F_{real} + F_{pseudo} = ma_{relative}}$ as if it were an inertial frame.
+Once you add the pseudo force, you can apply $\Sigma \mathbf{F}_{real} + \mathbf{F}_{pseudo} = m\mathbf{a}_{relative}$ as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F₋ (down). For equilibrium in this frame, $\\boldsymbol{N = mg + ma = m(g+a)}$. The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
-*   **Lift Accelerating Downwards:** The pseudo force $\\boldsymbol{F_{p} = ma}$ is now upwards. The forces are N (up), Fₚ (up), and mg (down). For equilibrium, $\\boldsymbol{N + ma = mg}$, so $\\boldsymbol{N = m(g-a)}$. The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and $F_p = ma$ (down). For equilibrium in this frame, $N = mg + ma = m(g+a)$. The person feels heavier ([[apparent weight:தோற்ற எடை]] > true weight).
+*   **Lift Accelerating Downwards:** The pseudo force $F_p = ma$ is now upwards. The forces are N (up), $F_p$ (up), and mg (down). For equilibrium, $N + ma = mg$, so $N = m(g-a)$. The person feels lighter ([[apparent weight:தோற்ற எடை]] < true weight).
 
 {{LIFT_ANIMATION}}
 `,
@@ -166,7 +166,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         {
             title: "JEE Level: Analyzing Motion in a Non-Inertial Frame",
             difficulty: 'Hard',
-            problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip on it?\n\nதமிழ்: 'm' நிறையுள்ள ஒரு கட்டை, 'M' நிறையும் 'θ' சாய்வும் கொண்ட ஒரு வழுவழுப்பான ஆப்பின் மீது வைக்கப்பட்டுள்ளது. 'm' கட்டை ஆப்பின் மீது நழுவாமல் இருக்க, ஆப்பிற்கு 어떤 கிடைமட்ட முடுக்கம் `A` கொடுக்க வேண்டும்?",
+            problem: "A block of mass 'm' is placed on a smooth wedge of mass 'M' and inclination 'θ'. What horizontal acceleration `A` must be given to the wedge so the block `m` does *not* slip on it?\n\nதமிழ்: 'm' நிறையுள்ள ஒரு கட்டை, 'M' நிறையும் 'θ' சாய்வும் கொண்ட ஒரு வழுவழுப்பான ஆப்பின் மீது வைக்கப்பட்டுள்ளது. 'm' கட்டை ஆப்பின் மீது நழுவாமல் இருக்க, ஆப்பிற்கு எந்த கிடைமட்ட முடுக்கம் `A` கொடுக்க வேண்டும்?",
             fbd: [{
                 body: "Block m (in wedge's frame)",
                 forces: [

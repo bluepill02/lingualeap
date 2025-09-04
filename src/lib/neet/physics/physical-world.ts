@@ -48,9 +48,9 @@ All the forces we observe in the macroscopic and microscopic worlds can be trace
 | Force (விசை) | Relative Strength (சார்பு வலிமை) | Range (வீச்சு) | Operates Among (செயல்படும் துகள்கள்) |
 | :--- | :--- | :--- | :--- |
 | **Gravitational Force (ஈர்ப்பியல் விசை)** | 1 | Infinite (முடிவற்றது) | All objects in the universe (அனைத்து பொருட்கள்) |
-| **Weak Nuclear Force (மெலிந்த அணுக்கரு விசை)** | 10²⁵ | Very short, sub-nuclear size (~10⁻¹⁶ m) | Some elementary particles (சில அடிப்படை துகள்கள்) |
-| **Electromagnetic Force (மின்காந்த விசை)** | 10³⁶ | Infinite (முடிவற்றது) | Charged particles (மின்னூட்டத் துகள்கள்) |
-| **Strong Nuclear Force (வலுவான அணுக்கரு விசை)** | 10³⁸ | Short, nuclear size (~10⁻¹⁵ m) | Nucleons (protons, neutrons) (நியூக்ளியான்கள்) |
+| **Weak Nuclear Force (மெலிந்த அணுக்கரு விசை)** | $10^{25}$ | Very short, sub-nuclear size (~$10^{-16}$ m) | Some elementary particles (சில அடிப்படை துகள்கள்) |
+| **Electromagnetic Force (மின்காந்த விசை)** | $10^{36}$ | Infinite (முடிவற்றது) | Charged particles (மின்னூட்டத் துகள்கள்) |
+| **Strong Nuclear Force (வலுவான அணுக்கரு விசை)** | $10^{38}$ | Short, nuclear size (~$10^{-15}$ m) | Nucleons (protons, neutrons) (நியூக்ளியான்கள்) |
 
 ### 4. Fundamental Conservation Laws (அடிப்படைப் பாதுகாப்பு விதிகள்)
 In any physical process, certain quantities remain unchanged over time. These are called conserved quantities. These laws are fundamental and cannot be proven; they are verified by observation and experiment.
