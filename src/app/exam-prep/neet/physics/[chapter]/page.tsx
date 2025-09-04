@@ -3,7 +3,7 @@ import { getNeetContent } from '@/lib/neet/content-loader';
 import { notFound } from 'next/navigation';
 import NeetChapterClientPage from './client-page';
 
-export default async function NeetChapterPage({ params }: { params: { subject: string, chapter: string } }) {
+export default async function NeetChapterPage({ params }: { params: { chapter: string } }) {
     const content = getNeetContent(params.chapter);
 
     if (!content) {
