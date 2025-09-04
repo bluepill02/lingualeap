@@ -26,6 +26,18 @@ interface NeetChapterClientPageProps {
   content: NeetModule;
 }
 
+// Reusable component for bilingual markdown rendering
+const BilingualMarkdown: React.FC<{ english?: string, tamil?: string, wrapperClass?: string, englishClass?: string, tamilClass?: string }> = 
+({ english, tamil, wrapperClass, englishClass, tamilClass }) => {
+    if (!english && !tamil) return null;
+    return (
+        <div className={wrapperClass}>
+            {english && <div className={englishClass}><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{english}</ReactMarkdown></div>}
+            {tamil && <div className={tamilClass || 'text-yellow-400/80 italic text-sm mt-1'}><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tamil}</ReactMarkdown></div>}
+        </div>
+    )
+};
+
 function ChapterContent({ content }: NeetChapterClientPageProps) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips } = content;
   const totalSections = 6;
@@ -120,18 +132,18 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                 <CardHeader>
                     <CardTitle>Concept Overview</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{conceptOverview || ''}</ReactMarkdown>
-                    {tamilConnection && <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
+                <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
+                    <BilingualMarkdown english={conceptOverview} />
+                    <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
                         <Lightbulb className="h-4 w-4 text-yellow-400" />
                         <AlertTitle>Tamil Connection</AlertTitle>
-                        <AlertDescription><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tamilConnection || ''}</ReactMarkdown></AlertDescription>
-                    </Alert>}
-                     {culturalContext && <Alert variant="default" className="bg-green-500/10 border-green-500/30">
+                        <AlertDescription><BilingualMarkdown english={tamilConnection} /></AlertDescription>
+                    </Alert>
+                     <Alert variant="default" className="bg-green-500/10 border-green-500/30">
                         <BookOpen className="h-4 w-4 text-green-400" />
                         <AlertTitle>Cultural Context</AlertTitle>
-                        <AlertDescription><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{culturalContext || ''}</ReactMarkdown></AlertDescription>
-                    </Alert>}
+                        <AlertDescription><BilingualMarkdown english={culturalContext} /></AlertDescription>
+                    </Alert>
                 </CardContent>
             </Card>
 
@@ -184,11 +196,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                 <CardContent className="space-y-2">
                     {mnemonics.map((mnemonic, index) => (
                          <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
-                            <div className="prose dark:prose-invert max-w-none text-foreground">
-                                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{mnemonic.text || ''}</ReactMarkdown>
-                                <div className="text-xs text-primary/80">
-                                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{mnemonic.tamil || ''}</ReactMarkdown>
-                                </div>
+                            <div className="prose dark:prose-invert max-w-none">
+                                <BilingualMarkdown english={mnemonic.text} tamil={mnemonic.tamil} tamilClass="text-primary/80"/>
                             </div>
                          </Button>
                     ))}
@@ -215,9 +224,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     {neetTips.map((tip, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
-                            <div className="prose dark:prose-invert max-w-none">
-                                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.text || ''}</ReactMarkdown>
-                                <div className="text-sm text-yellow-400/80"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.tamil || ''}</ReactMarkdown></div>
+                             <div className="prose dark:prose-invert max-w-none">
+                                 <BilingualMarkdown english={tip.text} tamil={tip.tamil} />
                             </div>
                         </div>
                     ))}
@@ -225,8 +233,14 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                          <Info className="h-4 w-4" />
                          <AlertTitle>Next Module: Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)</AlertTitle>
                          <AlertDescription className="mt-2 space-y-2">
-                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><strong>Student Tip:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்! (Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!)"}</ReactMarkdown></div>
-                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><strong>Peer Discussion:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}</ReactMarkdown></div>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                <strong>Student Tip:</strong> 
+                                <BilingualMarkdown english={"Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!"} tamil={"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"}/>
+                            </div>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                <strong>Peer Discussion:</strong> 
+                                <BilingualMarkdown tamil={"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}/>
+                           </div>
                          </AlertDescription>
                     </Alert>
                 </CardContent>

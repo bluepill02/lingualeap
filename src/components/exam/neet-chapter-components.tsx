@@ -38,7 +38,8 @@ import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 import { cn } from '@/lib/utils';
 
 // Centralized Markdown Renderer Component
-const MarkdownRenderer: React.FC<{ children: string }> = ({ children }) => {
+const MarkdownRenderer: React.FC<{ children: string | null | undefined }> = ({ children }) => {
+    if (!children) return null;
     return (
         <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkMath]}
@@ -65,7 +66,7 @@ const MarkdownRenderer: React.FC<{ children: string }> = ({ children }) => {
                         if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
                             return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                         }
-                        if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
+                         if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
                             return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
                         }
                     }
@@ -75,6 +76,15 @@ const MarkdownRenderer: React.FC<{ children: string }> = ({ children }) => {
         >
             {children}
         </ReactMarkdown>
+    );
+};
+
+const BilingualText: React.FC<{ english: string | null | undefined; tamil: string | null | undefined; className?: string; tamilClassName?: string }> = ({ english, tamil, className, tamilClassName }) => {
+    return (
+        <>
+            {english && <div className={cn("text-foreground", className)}><MarkdownRenderer>{english}</MarkdownRenderer></div>}
+            {tamil && <div className={cn("text-yellow-400/90 italic text-sm mt-1", tamilClassName)}><MarkdownRenderer>{tamil}</MarkdownRenderer></div>}
+        </>
     );
 };
 
@@ -102,7 +112,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                           <CardTitle><MarkdownRenderer>{example.title}</MarkdownRenderer></CardTitle>
+                           <BilingualText english={example.title} tamil={example.titleTamil} className="text-xl font-bold" />
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -114,9 +124,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardContent className="space-y-4">
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
                             <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
-                            <div className="prose prose-sm dark:prose-invert max-w-none text-foreground">
-                                <MarkdownRenderer>{example.problem}</MarkdownRenderer>
-                                {example.problemTamil && <div className="italic mt-2 text-yellow-400"><MarkdownRenderer>{example.problemTamil}</MarkdownRenderer></div>}
+                            <div className="prose prose-sm dark:prose-invert max-w-none">
+                                <BilingualText english={example.problem} tamil={example.problemTamil} />
                             </div>
                         </div>
 
@@ -129,8 +138,9 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <div className="font-semibold text-base text-foreground"><MarkdownRenderer>{step.explanation}</MarkdownRenderer></div>
-                                        {step.explanationTamil && <div className="text-sm italic mt-1 text-yellow-400"><MarkdownRenderer>{step.explanationTamil}</MarkdownRenderer></div>}
+                                        <div className="font-semibold text-base">
+                                            <BilingualText english={step.explanation} tamil={step.explanationTamil} />
+                                        </div>
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
                                                 <MarkdownRenderer>{`$$${step.calculation}$$`}</MarkdownRenderer>
@@ -144,8 +154,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                                <div className="text-foreground"><MarkdownRenderer>{example.neetHack}</MarkdownRenderer></div>
-                                {example.neetHackTamil && <div className="text-xs italic mt-1 text-yellow-400"><MarkdownRenderer>{example.neetHackTamil}</MarkdownRenderer></div>}
+                               <BilingualText english={example.neetHack} tamil={example.neetHackTamil} />
                             </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -153,8 +162,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                    <div className="text-foreground"><MarkdownRenderer>{example.commonPitfall}</MarkdownRenderer></div>
-                                    {example.commonPitfallTamil && <div className="text-xs italic mt-1 text-yellow-400"><MarkdownRenderer>{example.commonPitfallTamil}</MarkdownRenderer></div>}
+                                     <BilingualText english={example.commonPitfall} tamil={example.commonPitfallTamil} />
                                 </AlertDescription>
                             </Alert>
                         )}
