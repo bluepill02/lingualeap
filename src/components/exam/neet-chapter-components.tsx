@@ -33,30 +33,53 @@ import { FbdBuilder } from './FbdBuilder';
 import { InertiaAnimation } from './InertiaAnimation';
 import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
-import { BlockMath, InlineMath } from 'react-katex';
 import { ProjectileAnimation } from './ProjectileAnimation';
 import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 import { cn } from '@/lib/utils';
 
-
-// Helper component to render bilingual text with distinct colors
-const BilingualText = ({ text }: { text?: string }) => {
-    if (!text) return null;
-    const match = text.match(/^(.*?) \((.*?)\)$/);
-    if (match) {
-        return (
-            <span>
-                <span className="text-foreground">{match[1]}</span>
-                <span style={{ color: '#FFB74D' }} className="italic"> ({match[2]})</span>
-            </span>
-        );
-    }
-    return <span>{text}</span>;
+// Centralized Markdown Renderer Component
+const MarkdownRenderer: React.FC<{ children: string }> = ({ children }) => {
+    return (
+        <ReactMarkdown
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+            components={{
+                p: ({ node, ...props }) => {
+                     const textContent = Children.toArray(props.children).map(child => {
+                        if (isValidElement(child)) {
+                            return Children.toArray(child.props.children).join('');
+                        }
+                        return child;
+                    }).join('');
+                    
+                    if (textContent.includes('{{')) {
+                        if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
+                            return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
+                            return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{LIFT_ANIMATION}}') {
+                            return <div className="not-prose my-4"><LiftAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
+                            return <div className="not-prose my-4"><ProjectileAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
+                            return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
+                        }
+                    }
+                    return <p {...props} />;
+                },
+            }}
+        >
+            {children}
+        </ReactMarkdown>
+    );
 };
 
 
 export function ConceptNotesCard({ content }: { content: string }) {
-
     return (
         <Card>
             <CardHeader>
@@ -64,67 +87,7 @@ export function ConceptNotesCard({ content }: { content: string }) {
                 <CardDescription>Detailed explanations of key topics.</CardDescription>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
-                <ReactMarkdown
-                    remarkPlugins={[remarkGfm, remarkMath]}
-                    rehypePlugins={[rehypeKatex]}
-                    components={{
-                        p: ({ node, ...props }) => {
-                            const textContent = Children.toArray(props.children).map(child => {
-                                if (isValidElement(child)) {
-                                    return Children.toArray(child.props.children).join('');
-                                }
-                                return child;
-                            }).join('');
-                            
-                            if (textContent.includes('{{')) {
-                                if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                                }
-                                if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                                }
-                                if (textContent.trim() === '{{LIFT_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><LiftAnimation /></div>;
-                                }
-                                if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><ProjectileAnimation /></div>;
-                                }
-                                if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
-                                    return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
-                                }
-                            }
-                           
-                            return <p className="my-4 leading-relaxed"><BilingualText text={textContent} /></p>;
-                        },
-                        h3: ({ node, ...props }) => {
-                             const textContent = Children.toArray(props.children).join('');
-                             return <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2"><BilingualText text={textContent} /></h3>
-                        },
-                        h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
-                        li: ({ node, ...props }) => {
-                           const textContent = Children.toArray(props.children).map(child => {
-                                if (isValidElement(child) && child.props.children) {
-                                    return Children.toArray(child.props.children).join('');
-                                }
-                                return child;
-                           }).join('');
-                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText text={textContent} /></span></li>;
-                        },
-                        blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
-                        strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
-                        em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
-                        code: ({ node, className, children, ...props }) => {
-                            const match = /language-math/.exec(className || '');
-                            const inline = !className;
-                            if (inline) {
-                                return <InlineMath math={String(children)} />;
-                            }
-                            return <BlockMath math={String(children)} />;
-                        }
-                    }}
-                >
-                    {content}
-                </ReactMarkdown>
+                <MarkdownRenderer>{content}</MarkdownRenderer>
             </CardContent>
         </Card>
     );
@@ -139,7 +102,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                           <CardTitle><BilingualText text={example.title} /></CardTitle>
+                           <CardTitle><MarkdownRenderer>{example.title}</MarkdownRenderer></CardTitle>
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -152,8 +115,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
                             <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
                             <div className="prose prose-sm dark:prose-invert max-w-none text-foreground">
-                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
-                                {example.problemTamil && <p style={{color: '#FFB74D'}} className="italic mt-2">{example.problemTamil}</p>}
+                                <MarkdownRenderer>{example.problem}</MarkdownRenderer>
+                                {example.problemTamil && <div className="italic mt-2 text-yellow-400"><MarkdownRenderer>{example.problemTamil}</MarkdownRenderer></div>}
                             </div>
                         </div>
 
@@ -166,11 +129,11 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-base text-foreground">{step.explanation}</p>
-                                        {step.explanationTamil && <p style={{color: '#FFB74D'}} className="text-sm italic mt-1">{step.explanationTamil}</p>}
+                                        <div className="font-semibold text-base text-foreground"><MarkdownRenderer>{step.explanation}</MarkdownRenderer></div>
+                                        {step.explanationTamil && <div className="text-sm italic mt-1 text-yellow-400"><MarkdownRenderer>{step.explanationTamil}</MarkdownRenderer></div>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
-                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\\n${step.calculation}\\n$$`}</ReactMarkdown>
+                                                <MarkdownRenderer>{`$$${step.calculation}$$`}</MarkdownRenderer>
                                             </div>
                                         )}
                                     </div>
@@ -181,17 +144,17 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                                <p className="text-foreground">{example.neetHack}</p>
-                                {example.neetHackTamil && <p style={{color: '#FFB74D'}} className="text-xs italic mt-1">{example.neetHackTamil}</p>}
-                                </AlertDescription>
+                                <div className="text-foreground"><MarkdownRenderer>{example.neetHack}</MarkdownRenderer></div>
+                                {example.neetHackTamil && <div className="text-xs italic mt-1 text-yellow-400"><MarkdownRenderer>{example.neetHackTamil}</MarkdownRenderer></div>}
+                            </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
                             <Alert variant="destructive" className="bg-destructive/10">
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                    <p className="text-foreground">{example.commonPitfall}</p>
-                                    {example.commonPitfallTamil && <p style={{color: '#FFB74D'}} className="text-xs italic mt-1">{example.commonPitfallTamil}</p>}
+                                    <div className="text-foreground"><MarkdownRenderer>{example.commonPitfall}</MarkdownRenderer></div>
+                                    {example.commonPitfallTamil && <div className="text-xs italic mt-1 text-yellow-400"><MarkdownRenderer>{example.commonPitfallTamil}</MarkdownRenderer></div>}
                                 </AlertDescription>
                             </Alert>
                         )}
@@ -205,15 +168,6 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
 export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasAndDiagrams'] }) {
     if (!content) return null;
     const { formulas, diagrams } = content;
-
-    const BilingualDescription = ({ description }: { description: string }) => {
-        const match = description.match(/^(.*?) \((.*?)\)$/);
-        if (match) {
-            return <span><span className="text-foreground">{match[1]}</span><span style={{ color: '#FFB74D' }} className="italic"> ({match[2]})</span></span>;
-        }
-        return <span>{description}</span>;
-    }
-
 
     return (
         <Card>
@@ -232,10 +186,10 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         {formulas.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-mono text-base">
-                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$${item.formula}$$`}</ReactMarkdown>
+                                    <MarkdownRenderer>{`$$${item.formula}$$`}</MarkdownRenderer>
                                 </TableCell>
                                 <TableCell>
-                                    <p className="whitespace-pre-line"><BilingualDescription description={item.description} /></p>
+                                    <MarkdownRenderer>{item.description}</MarkdownRenderer>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -245,8 +199,8 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                 {diagrams && diagrams.map((diagram, index) => (
                     <div key={index}>
                         <Separator className="my-4" />
-                        <h4 className="font-bold text-lg"><BilingualDescription description={diagram.title} /></h4>
-                        <p className="text-muted-foreground text-sm mb-2"><BilingualDescription description={diagram.description} /></p>
+                        <h4 className="font-bold text-lg"><MarkdownRenderer>{diagram.title}</MarkdownRenderer></h4>
+                        <div className="text-muted-foreground text-sm mb-2"><MarkdownRenderer>{diagram.description}</MarkdownRenderer></div>
                         {diagram.fbd ? (
                            <div className="flex justify-center py-4">
                              <FbdBuilder {...diagram.fbd} />
@@ -320,7 +274,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                         <AccordionContent className="pt-4 space-y-6">
                             {mcqs.map((quiz, index) => (
                                 <div key={index} className="p-4 border rounded-lg">
-                                    <p className="font-medium mb-2">{index + 1}. {quiz.question}</p>
+                                    <div className="font-medium mb-2"><MarkdownRenderer>{`${index + 1}. ${quiz.question}`}</MarkdownRenderer></div>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                         {quiz.options.map((option) => (
                                             <Button
@@ -336,14 +290,14 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             >
                                                 {submittedMcqs && option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
                                                 {submittedMcqs && mcqAnswers[index] === option && option !== quiz.answer && <XCircle className="mr-2 h-4 w-4" />}
-                                                <span className={cn("mr-2 font-bold")}>{option.charAt(0)}.</span> {option.substring(2)}
+                                                <span className={cn("mr-2 font-bold")}>{option.charAt(0)}.</span> <MarkdownRenderer>{option.substring(2)}</MarkdownRenderer>
                                             </Button>
                                         ))}
                                     </div>
                                     {submittedMcqs && (
                                         <div className="mt-4 p-2 rounded-md bg-secondary/30">
                                             <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
-                                            <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
+                                            <div className="text-xs text-muted-foreground mt-1"><MarkdownRenderer>{quiz.explanation}</MarkdownRenderer></div>
                                         </div>
                                     )}
                                 </div>
@@ -383,8 +337,8 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                             {[...mcqs].sort((a,b) => (b.neetFrequency || 0) - (a.neetFrequency || 0)).map((quiz, index) => (
                                 <div key={index} className="p-4 border rounded-lg">
                                     <div className="flex justify-between items-center mb-2">
-                                        <p className="font-medium">{index + 1}. {quiz.question}</p>
-                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                                        <div className="font-medium pr-4"><MarkdownRenderer>{`${index + 1}. ${quiz.question}`}</MarkdownRenderer></div>
+                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground shrink-0">
                                             <FrequencyStars count={quiz.neetFrequency || 0} />
                                             <span>(Frequency: {quiz.neetFrequency || 0})</span>
                                         </div>
@@ -401,13 +355,13 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                                             className="w-full justify-start text-left h-auto cursor-default"
                                                         >
                                                             {option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
-                                                            <span className="mr-2 font-bold">{option.charAt(0)}.</span> {option.substring(2)}
+                                                            <span className="mr-2 font-bold">{option.charAt(0)}.</span> <MarkdownRenderer>{option.substring(2)}</MarkdownRenderer>
                                                         </Button>
                                                     ))}
                                                 </div>
                                                 <div className="p-2 rounded-md bg-secondary/30">
                                                     <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
-                                                    <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
+                                                    <div className="text-xs text-muted-foreground mt-1"><MarkdownRenderer>{quiz.explanation}</MarkdownRenderer></div>
                                                 </div>
                                             </AccordionContent>
                                         </AccordionItem>
@@ -425,8 +379,8 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                         <AccordionContent className="pt-4 space-y-6">
                             {assertionReasons.map((item, index) => (
                                 <div key={index} className="p-4 border rounded-lg text-sm">
-                                    <p><strong>{index + 1}. Assertion (A):</strong> {item.assertion}</p>
-                                    <p><strong>Reason (R):</strong> {item.reason}</p>
+                                    <div><strong>{index + 1}. Assertion (A):</strong> <MarkdownRenderer>{item.assertion}</MarkdownRenderer></div>
+                                    <div><strong>Reason (R):</strong> <MarkdownRenderer>{item.reason}</MarkdownRenderer></div>
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
@@ -453,13 +407,13 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         <div>
                                             <h4 className="font-semibold mb-2">Column I</h4>
                                             <ul className="list-disc list-inside">
-                                                {item.column1.map(c1 => <li key={c1}>{c1}</li>)}
+                                                {item.column1.map(c1 => <li key={c1}><MarkdownRenderer>{c1}</MarkdownRenderer></li>)}
                                             </ul>
                                         </div>
                                         <div>
                                             <h4 className="font-semibold mb-2">Column II</h4>
                                             <ul className="list-disc list-inside">
-                                                {item.column2.map(c2 => <li key={c2}>{c2}</li>)}
+                                                {item.column2.map(c2 => <li key={c2}><MarkdownRenderer>{c2}</MarkdownRenderer></li>)}
                                             </ul>
                                         </div>
                                     </div>
@@ -468,7 +422,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
                                             <AccordionContent className="p-2 bg-secondary/30 rounded-md">
                                                  <strong>Answer:</strong> {item.answer}
-                                                 {item.explanation && <p className="text-xs text-muted-foreground mt-1">{item.explanation}</p>}
+                                                 {item.explanation && <div className="text-xs text-muted-foreground mt-1"><MarkdownRenderer>{item.explanation}</MarkdownRenderer></div>}
                                             </AccordionContent>
                                         </AccordionItem>
                                     </Accordion>
@@ -482,6 +436,3 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
-
-
-    
