@@ -20,10 +20,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle } from 'lucide-react';
-import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample } from '@/lib/types';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText } from 'lucide-react';
+import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
+import { Separator } from '../ui/separator';
 
 function renderContent(content: string) {
     if (typeof content !== 'string') {
@@ -123,6 +124,49 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 </Card>
             ))}
         </div>
+    );
+}
+
+export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasAndDiagrams'] }) {
+    if (!content) return null;
+    const { formulas, diagrams } = content;
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><FileText />Key Formulas & Diagrams</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead>Formula</TableHead>
+                            <TableHead>Description</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {formulas.map((item, index) => (
+                            <TableRow key={index}>
+                                <TableCell className="font-mono text-base">
+                                    <BlockMath math={item.formula} />
+                                </TableCell>
+                                <TableCell>
+                                    <p className="whitespace-pre-line">{item.description}</p>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                
+                {diagrams.map((diagram, index) => (
+                    <div key={index}>
+                        <Separator className="my-4" />
+                        <h4 className="font-bold text-lg">{diagram.title}</h4>
+                        <p className="text-muted-foreground text-sm mb-2">{diagram.description}</p>
+                        <pre className="bg-muted p-4 rounded-lg text-sm font-mono overflow-x-auto">{diagram.diagram}</pre>
+                    </div>
+                ))}
+            </CardContent>
+        </Card>
     );
 }
 

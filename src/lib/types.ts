@@ -150,6 +150,16 @@ export interface MatchTheColumns {
     answer: string;
 }
 
+export interface KeyFormula {
+    formula: string;
+    description: string;
+}
+
+export interface KeyDiagram {
+    title: string;
+    description: string;
+    diagram: string;
+}
 
 export interface NeetModule {
     id: string;
@@ -167,6 +177,10 @@ export interface NeetModule {
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];
     matchTheColumns: MatchTheColumns[];
+    keyFormulasAndDiagrams?: {
+        formulas: KeyFormula[];
+        diagrams: KeyDiagram[];
+    };
 }
 
 

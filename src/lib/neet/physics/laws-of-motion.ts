@@ -113,6 +113,44 @@ Key Formulas:
             commonPitfall: "Don't use total force to find tension directly"
         }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: '\\sum F = 0 \\Rightarrow a = 0',
+                description: 'When net force is zero, acceleration is zero\nவிசை இல்லை என்றால் முடுக்கம் இல்லை'
+            },
+            {
+                formula: '\\vec{F} = m\\vec{a}',
+                description: 'Force equals mass times acceleration (vector form)\nவிசை = நிறை × முடுக்கம்'
+            },
+            {
+                formula: '\\vec{F} = \\frac{d\\vec{p}}{dt}',
+                description: 'Force equals rate of change of momentum\nவிசை = உந்த மாற்ற விகிதம்'
+            },
+            {
+                formula: '\\vec{F}_{AB} = -\\vec{F}_{BA}',
+                description: 'Action-reaction forces are equal and opposite\nசெயல் விசை = -(எதிர்செயல் விசை)'
+            }
+        ],
+        diagrams: [
+            {
+                title: 'Temple Chariot and Inertia',
+                description: 'Massive chariot at rest needs large force to start moving',
+                diagram: `
+Temple Chariot (கோவில் தேர்)
+    |         |
+    |---------|  <-- Needs large force to overcome inertia
+    |_________|
+        /   \\
+       o     o
+<-- F (Applied Force)
+
+Heavy chariot resists change in motion due to inertia
+பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
+`
+            }
+        ]
+    },
     mcqs: [
         {
             question: "A passenger in a moving bus is thrown forward when the bus suddenly stops. This is explained by:",
