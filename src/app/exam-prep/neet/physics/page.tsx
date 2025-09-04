@@ -22,6 +22,10 @@ const chapterGroups = {
         { id: 'work-energy-and-power', title: 'Physics - Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)', quirkyFact: "The currency of the universe." },
         { id: 'rotational-motion', title: 'Physics - System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)', quirkyFact: "Why spinning makes things stable." },
         { id: 'gravitation', title: 'Physics - Gravitation (ஈர்ப்பியல்)', quirkyFact: "The force that runs the cosmos." },
+        { id: 'properties-of-solids-and-liquids', title: 'Physics - Properties of Solids and Liquids (திண்மங்கள் மற்றும் பாய்மங்களின் பண்புகள்)', quirkyFact: 'Why raindrops are round and ships float.' },
+        { id: 'thermodynamics', title: 'Physics - Thermodynamics (வெப்ப இயக்கவியல்)', quirkyFact: "The rules of heat, work, and energy." },
+        { id: 'kinetic-theory-of-gases', title: 'Physics - Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)', quirkyFact: 'Why smells spread across a room.' },
+        { id: 'oscillations-and-waves', title: 'Physics - Oscillations and Waves (அலைவுகளும் அலைகளும்)', quirkyFact: 'The physics of music and earthquakes.' },
     ],
     bridge: []
 }
@@ -138,5 +142,3 @@ export default function NeetPhysicsPage() {
     </div>
   );
 }
-
-    
