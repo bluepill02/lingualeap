@@ -18,7 +18,7 @@ export const lawsOfMotionModule: NeetModule = {
         "Kinematic equations for uniformly accelerated motion.",
         "Basic calculus (differentiation and integration) for understanding variable forces and momentum change."
     ],
-    conceptOverview: "Newton's Laws of Motion are the absolute bedrock of Classical Mechanics. This module is designed to build a deep, intuitive, and analytical foundation, going beyond mere formula memorization. Our goal is to equip you with a robust problem-solving methodology that allows you to deconstruct any mechanics problem—from simple blocks to complex systems—from first principles. By mastering the 'why' behind the physics, you will gain the confidence to tackle any new problem, a skill essential for both NEET and JEE.",
+    conceptOverview: "Newton's Laws of Motion are the absolute bedrock of Classical Mechanics. This module aims to build a deep, intuitive, and analytical foundation, going beyond mere formula memorization to foster true physical insight. Our goal is to equip you with a robust problem-solving methodology that allows you to deconstruct any mechanics problem—from simple blocks to complex systems—from first principles. By mastering the 'why' behind the physics, you will gain the confidence to tackle any new problem, a skill essential for both NEET and JEE.",
     tamilConnection: "இயற்பியலின் மொழி கணிதம், ஆனால் அதன் ஆன்மா நியூட்டனின் விதிகளில் உள்ளது. ஒரு தேர் நகரத் தேவையான விசையிலிருந்து ராக்கெட் விண்ணில் பாய்வது வரை அனைத்தையும் இந்த மூன்று விதிகளும் விளக்குகின்றன. இந்த விதிகளை மனப்பாடம் செய்வதை விட, அதன் பின்னால் உள்ள தர்க்கத்தை ஆழமாகப் புரிந்துகொள்வது, கடினமான கணக்குகளையும் எளிதாக்கும்.",
     culturalContext: "Think of the precision required in Jallikattu, where a person must rapidly assess forces and motion to tame a bull. This is a brilliant display of intuitive physics. This module will help you formalize that intuition, turning it into a powerful, analytical tool that can be applied to any problem.",
     syllabusMapping: [
@@ -61,19 +61,17 @@ The single most important skill in solving mechanics problems is drawing a Free-
 #### First Law (The Law of Inertia - நிலைம விதி)
 An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid.
 
-\`\`\`
-If \\vec{F}_{net} = 0, then \\vec{a} = 0 (which means \\vec{v} = constant)
-\`\`\`
+\`If \\vec{F}_{net} = 0, then \\vec{a} = 0 (which means \\vec{v} = constant)\`
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
-\`\`\`
-\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
-\`\`\`
+
+\`\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}\`
+
 Since momentum \`\\vec{p} = m\\vec{v}\`, if mass \`m\` is constant, this simplifies to the famous equation:
-\`\`\`
-\\vec{F}_{net} = m\\vec{a}
-\`\`\`
+
+\`\\vec{F}_{net} = m\\vec{a}\`
+
 This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\` and \`ΣF_y = ma_y\`. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
@@ -448,4 +446,3 @@ Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`
         }
     ]
 };
-
