@@ -232,7 +232,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         {formulas.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-mono text-base">
-                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\\n${item.formula}\\n$$`}</ReactMarkdown>
+                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$${item.formula}$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
                                     <p className="whitespace-pre-line"><BilingualDescription description={item.description} /></p>
