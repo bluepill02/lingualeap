@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, Fragment, Children } from 'react';
+import { useState, Fragment, Children, ReactNode } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -61,7 +61,17 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                     rehypePlugins={[rehypeKatex]}
                     components={{
                          p: ({node, ...props}) => {
-                           const textContent = node?.children.map(child => ('value' in child ? child.value : '')).join('');
+                           const childrenArray = Children.toArray(props.children);
+                           const textContent = childrenArray.map(child => {
+                             if (typeof child === 'string') {
+                               return child;
+                             }
+                             if (React.isValidElement(child) && typeof child.props.children === 'string') {
+                               return child.props.children;
+                             }
+                             return '';
+                           }).join('').trim();
+                           
                            if (textContent === '{{INERTIA_ANIMATION}}') {
                                 return <div className="not-prose my-4"><InertiaAnimation /></div>;
                            }
@@ -72,13 +82,11 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                                 return <div className="not-prose my-4"><LiftAnimation /></div>;
                            }
                            
-                           // Logic to handle block math
-                           if (typeof props.children === 'string' && props.children.startsWith('$$') && props.children.endsWith('$$')) {
-                                const math = props.children.slice(2, -2);
+                           if (textContent.startsWith('$$') && textContent.endsWith('$$')) {
+                                const math = textContent.slice(2, -2).trim();
                                 return <BlockMath math={math} />;
                            }
                            
-                           const childrenArray = Children.toArray(props.children);
                            const newChildren = childrenArray.map((child, index) => {
                                if (typeof child === 'string') {
                                    return renderTextWithTooltips(child);
@@ -92,17 +100,24 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         ul: ({node, ...props}) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
-                            const textContent = node?.children.map(c => 'value' in c ? c.value : '').join('');
-                            return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{renderTextWithTooltips(textContent || '')}</span></li>;
+                            const childrenArray = Children.toArray(props.children);
+                            const newChildren = childrenArray.map((child, index) => {
+                                // Handle cases where list items are wrapped in <p> tags by markdown parser
+                                if (React.isValidElement(child) && child.type === 'p') {
+                                     const pChildren = Children.toArray(child.props.children);
+                                     return pChildren.map((pChild, pIndex) => typeof pChild === 'string' ? renderTextWithTooltips(pChild) : pChild);
+                                }
+                                if (typeof child === 'string') {
+                                   return renderTextWithTooltips(child);
+                                }
+                                return child;
+                            });
+
+                           return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{newChildren}</span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
                         em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
-                        code({ node, inline, className, children, ...props }) {
-                           // This will be handled by the 'p' component logic for block math.
-                           // Inline code is rendered as standard text.
-                           return <code className="font-mono bg-muted/50 text-foreground/80 px-1 py-0.5 rounded-sm" {...props}>{children}</code>;
-                        }
                     }}
                 >
                     {children?.toString()}
@@ -459,3 +474,4 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     
 
     
+
