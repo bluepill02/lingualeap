@@ -128,6 +128,40 @@ This is a special case of uniformly accelerated motion where the acceleration is
             neetHack: "For motion under gravity, always establish a clear sign convention (e.g., up is positive). The most common mistake is mixing up signs for displacement, velocity, and acceleration. The displacement 's' is about the *net change* in position, not the total distance traveled.",
             neetHackTamil: "ஈர்ப்பின் கீழ் இயக்கத்தில், எப்போதும் ஒரு தெளிவான குறியீட்டு மரபை (எ.கா., மேல்நோக்கி நேர்க்குறி) அமைக்கவும். இடப்பெயர்ச்சி, திசைவேகம் மற்றும் முடுக்கம் ஆகியவற்றிற்கான குறியீடுகளைக் குழப்பிக் கொள்வது மிகவும் பொதுவான தவறு. இடப்பெயர்ச்சி 's' என்பது மொத்தப் பயண தூரம் அல்ல, அது நிலையில் ஏற்படும் *நிகர மாற்றம்* ஆகும்."
         },
+        {
+            title: "JEE Level: Motion with Variable Acceleration",
+            difficulty: 'Hard',
+            problem: "The acceleration of a particle is given by a = 3t² + 2t + 2 (m/s²). If the particle starts from rest (u=0 at t=0), find the velocity at the end of 2 seconds.\n\nதமிழ்: ஒரு துகளின் முடுக்கம் a = 3t² + 2t + 2 (மீ/வி²) என கொடுக்கப்பட்டுள்ளது. துகள் ஓய்விலிருந்து (t=0 இல் u=0) தொடங்கினால், 2 வினாடிகளின் முடிவில் திசைவேகத்தைக் கண்டறியவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Understand the relationship between acceleration and velocity. Since acceleration is the rate of change of velocity, we can find the change in velocity by integrating acceleration with respect to time.",
+                    explanationTamil: "முடுக்கம் மற்றும் திசைவேகத்திற்கு இடையேயான தொடர்பைப் புரிந்து கொள்ளுங்கள். முடுக்கம் என்பது திசைவேகத்தின் மாறுவீதம் என்பதால், நேரத்தைப் பொறுத்து முடுக்கத்தை தொகையீடு செய்வதன் மூலம் திசைவேகத்தில் ஏற்படும் மாற்றத்தைக் காணலாம்."
+                },
+                {
+                    step: 2,
+                    explanation: "Set up the integral. We know a = dv/dt, so dv = a dt. We integrate both sides.",
+                    calculation: "\\int_{u}^{v} dv = \\int_{0}^{t} a \\,dt"
+                },
+                {
+                    step: 3,
+                    explanation: "Substitute the given expression for 'a' and the initial condition u=0 at t=0.",
+                    calculation: "\\int_{0}^{v} dv = \\int_{0}^{t} (3t^2 + 2t + 2) \\,dt"
+                },
+                {
+                    step: 4,
+                    explanation: "Perform the integration to find the expression for velocity 'v' as a function of time 't'.",
+                    calculation: "v = [\\frac{3t^3}{3} + \\frac{2t^2}{2} + 2t]_0^t \\implies v = t^3 + t^2 + 2t"
+                },
+                {
+                    step: 5,
+                    explanation: "Substitute t = 2 seconds into the velocity expression to find the final velocity.",
+                    calculation: "v = (2)^3 + (2)^2 + 2(2) = 8 + 4 + 4 = 16 m/s"
+                }
+            ],
+            neetHack: "When acceleration is a function of time, remember the calculus relationship: a = dv/dt and v = dx/dt. To go from acceleration to velocity, integrate. To go from velocity to acceleration, differentiate. This is a fundamental concept for JEE.",
+            neetHackTamil: "முடுக்கம் நேரத்தின் சார்பாக இருக்கும்போது, கால்குலஸ் தொடர்பை நினைவில் கொள்ளுங்கள்: a = dv/dt மற்றும் v = dx/dt. முடுக்கத்திலிருந்து திசைவேகத்திற்குச் செல்ல, தொகையீடு செய்யவும். திசைவேகத்திலிருந்து முடுக்கத்திற்குச் செல்ல, வகையீடு செய்யவும். இது JEE-க்கு ஒரு அடிப்படைக் கருத்து."
+        }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
@@ -168,6 +202,20 @@ This is a special case of uniformly accelerated motion where the acceleration is
             neetFrequency: 3
         }
     ],
-    assertionReasons: [],
-    matchTheColumns: []
+    assertionReasons: [
+        {
+            assertion: "The speed of a body can be negative.",
+            reason: "Speed is the magnitude of velocity, and magnitude of a vector is always non-negative.",
+            answer: "D",
+            explanation: "Assertion is false. Speed, being the magnitude of velocity, is a scalar quantity and can never be negative. The Reason is a true statement."
+        }
+    ],
+    matchTheColumns: [
+         {
+            column1: ["(a) Distance", "(b) Displacement", "(c) Speed", "(d) Velocity"],
+            column2: ["(p) Can be zero, positive, or negative", "(q) Always non-negative", "(r) Scalar quantity", "(s) Vector quantity"],
+            answer: "a-q,r; b-p,s; c-q,r; d-p,s",
+            explanation: "Distance and Speed are scalar and always non-negative. Displacement and Velocity are vectors and can be positive, negative, or zero."
+        }
+    ]
 };
