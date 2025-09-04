@@ -1,4 +1,6 @@
 
+'use client';
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
@@ -9,6 +11,12 @@ const examModules = [
     title: 'On-Demand Quiz Generator',
     description: 'Generate a custom quiz on any topic instantly using AI. Perfect for hyper-personalized learning.',
     href: '/exam-prep/on-demand',
+    isNew: true,
+  },
+  {
+    title: 'NEET Preparation',
+    description: 'Complete study materials for Physics, Chemistry, and Biology tailored for Tamil Nadu students.',
+    href: '/exam-prep/neet',
     isNew: true,
   },
   {
