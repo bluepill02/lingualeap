@@ -59,8 +59,7 @@ $$ T = \\frac{2u \\sin\\theta}{g} $$
 $$ H = \\frac{u^2 \\sin^2\\theta}{2g} $$
 *   **Horizontal Range (கிடைத்தள நெடுக்கம்), R:** The total horizontal distance covered. (கடந்த மொத்த கிடைமட்ட தூரம்.)
 $$ R = \\frac{u^2 \\sin(2\\theta)}{g} $$
-    *Note: The range is maximum when $\\sin(2\\theta) = 1$, which means $2\\theta = 90^\\circ$ or $\\theta = 45^\\circ$.* (குறிப்பு: நெடுக்கம் பெருமமாக இருக்க $\\sin(2\\theta) = 1$ ஆக இருக்க வேண்டும், அதாவது $2\\theta = 90^\\circ$ அல்லது $\\theta = 45^\\circ$.)
-`
+    *Note: The range is maximum when $\\sin(2\\theta) = 1$, which means $2\\theta = 90^\\circ$ or $\\theta = 45^\\circ$.* (குறிப்பு: நெடுக்கம் பெருமமாக இருக்க $\\sin(2\\theta) = 1$ ஆக இருக்க வேண்டும், அதாவது $2\\theta = 90^\\circ$ அல்லது $\\theta = 45^\\circ$.)`
         },
         {
             english: `### 3. Uniform Circular Motion (சீரான வட்ட இயக்கம்)
@@ -70,8 +69,7 @@ $$ a_c = \\frac{v^2}{r} = \\omega^2 r $$
     where $v$ is the linear speed, $r$ is the radius of the circle, and $\\omega$ is the angular velocity. (இங்கு $v$ என்பது நேர்கோட்டு வேகம், $r$ என்பது வட்டத்தின் ஆரம், மற்றும் $\\omega$ என்பது கோண திசைவேகம்.)
 *   **Centripetal Force (மையநோக்கு விசை), $F_c$:** According to Newton's second law, this acceleration must be caused by a net force, also directed towards the center. (நியூட்டனின் இரண்டாம் விதிப்படி, இந்த முடுக்கம் ஒரு நிகர விசையால் ஏற்பட வேண்டும், அதுவும் மையத்தை நோக்கியே இயக்கப்படும்.)
 $$ F_c = ma_c = \\frac{mv^2}{r} $$
-    *This is not a new kind of force. It is simply the net force (e.g., tension, gravity, friction) that is causing the circular motion.* (இது ஒரு புதிய வகை விசை அல்ல. இது வட்ட இயக்கத்தை ஏற்படுத்தும் நிகர விசை (எ.கா., இழுவிசை, ஈர்ப்பு, உராய்வு) ஆகும்.)
-`
+    *This is not a new kind of force. It is simply the net force (e.g., tension, gravity, friction) that is causing the circular motion.* (இது ஒரு புதிய வகை விசை அல்ல. இது வட்ட இயக்கத்தை ஏற்படுத்தும் நிகர விசை (எ.கா., இழுவிசை, ஈர்ப்பு, உராய்வு) ஆகும்.)`
         },
         {
             english: `### 4. Relative Velocity in Two Dimensions (இரு பரிமாணங்களில் சார்பு திசைவேகம்)
@@ -81,8 +79,7 @@ $$
 $$
 This is a vector subtraction. It's often easier to think of it as adding the negative of $\\vec{v}_B$ to $\\vec{v}_A$: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$. (இது ஒரு வெக்டர் கழித்தல் ஆகும். இதை $\\vec{v}_A$ உடன் $\\vec{v}_B$ இன் எதிர்மறையை கூட்டுவதாக நினைப்பது பெரும்பாலும் எளிதானது: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$.)
 *   **Rain-Man Problems:** To a person running, rain that is falling vertically appears to fall at an angle. The velocity of the rain relative to the man is $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$. (ஓடும் ஒருவருக்கு, செங்குத்தாக விழும் மழை ஒரு கோணத்தில் விழுவது போல் தோன்றும். மனிதனைப் பொறுத்து மழையின் திசைவேகம் $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$ ஆகும்.)
-*   **Boat-River Problems:** To cross a river, a boat's velocity with respect to the ground is the vector sum of its velocity with respect to the water and the velocity of the water with respect to the ground. (ஒரு ஆற்றைக் கடக்க, தரையைப் பொறுத்து ஒரு படகின் திசைவேகம், நீரைப் பொறுத்து அதன் திசைவேகம் மற்றும் தரையைப் பொறுத்து நீரின் திசைவேகத்தின் வெக்டர் கூடுதலாகும்.)
-`
+*   **Boat-River Problems:** To cross a river, a boat's velocity with respect to the ground is the vector sum of its velocity with respect to the water and the velocity of the water with respect to the ground. (ஒரு ஆற்றைக் கடக்க, தரையைப் பொறுத்து ஒரு படகின் திசைவேகம், நீரைப் பொறுத்து அதன் திசைவேகம் மற்றும் தரையைப் பொறுத்து நீரின் திசைவேகத்தின் வெக்டர் கூடுதலாகும்.)`
         }
     ],
     workedExamples: [

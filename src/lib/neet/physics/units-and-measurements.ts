@@ -242,121 +242,14 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
             answer: "B. Angular Momentum",
             explanation: "From E = hν, the dimensions of h are [E]/[ν] = [ML²T⁻²]/[T⁻¹] = [ML²T⁻¹]. The dimensions of angular momentum (L = mvr) are [M][L T⁻¹][L] = [ML²T⁻¹]. They are the same.",
             neetFrequency: 5
-        },
-        {
-            question: "Which of the following has no dimensions?",
-            options: ["A. Strain", "B. Stress", "C. Young's Modulus", "D. Force"],
-            answer: "A. Strain",
-            explanation: "Strain is the ratio of change in dimension to the original dimension (e.g., ΔL/L), so it is a dimensionless quantity.",
-            neetFrequency: 4
-        },
-        {
-            question: "The number of significant figures in 0.06900 is:",
-            options: ["A. 5", "B. 4", "C. 2", "D. 3"],
-            answer: "B. 4",
-            explanation: "Leading zeros are not significant. Trailing zeros after a decimal point are significant. So, 6, 9, 0, 0 are the four significant figures.",
-            neetFrequency: 3
-        },
-        {
-            question: "If error in measurement of radius of a sphere is 2%, what would be the error in the volume of the sphere?",
-            options: ["A. 2%", "B. 4%", "C. 6%", "D. 8%"],
-            answer: "C. 6%",
-            explanation: "Volume of a sphere V = (4/3)πr³. Using the error propagation rule, ΔV/V = 3(Δr/r). The percentage error in volume is 3 times the percentage error in radius, so 3 * 2% = 6%.",
-            neetFrequency: 5
-        },
-        {
-            question: "The dimensional formula for gravitational constant G is:",
-            options: ["A. [ML³T⁻²]", "B. [M⁻¹L³T⁻²]", "C. [M⁻¹L²T⁻³]", "D. [MLT⁻¹]"],
-            answer: "B. [M⁻¹L³T⁻²]",
-            explanation: "From F = Gm₁m₂/r², G = Fr²/(m₁m₂). Dimensions are [MLT⁻²][L²]/[M²] = M⁻¹L³T⁻².",
-            neetFrequency: 4
-        },
-        {
-            question: "The sum of the numbers 436.32, 227.2 and 0.301 in appropriate significant figures is:",
-            options: ["A. 663.821", "B. 663.8", "C. 663.82", "D. 664"],
-            answer: "B. 663.8",
-            explanation: "In addition, the result must be rounded to the same number of decimal places as the number with the least decimal places. 227.2 has only one decimal place. The sum is 663.821, which rounds to 663.8.",
-            neetFrequency: 3
-        },
-        {
-            question: "Which of the following pairs of physical quantities does not have the same dimensional formula?",
-            options: ["A. Work and Torque", "B. Angular momentum and Planck's constant", "C. Tension and Surface Tension", "D. Impulse and Linear Momentum"],
-            answer: "C. Tension and Surface Tension",
-            explanation: "Tension is a force [MLT⁻²]. Surface Tension is force per unit length [MT⁻²]. All other pairs have the same dimensions.",
-            neetFrequency: 4
-        },
-        {
-            question: "If force (F), velocity (V) and time (T) are taken as fundamental units, the dimensions of mass are:",
-            options: ["A. [FVT⁻¹]", "B. [FVT⁻²]", "C. [FV⁻¹T⁻¹]", "D. [FV⁻¹T]"],
-            answer: "D. [FV⁻¹T]",
-            explanation: "We know F=ma = m(v/t). So, m = Ft/v = [F T V⁻¹].",
-            neetFrequency: 3
-        },
-        {
-            question: "A student measures the time period of 100 oscillations of a simple pendulum four times. The data set is 90 s, 91 s, 95 s, and 92 s. The least count of the measurement is 1 s. The reported mean time should be:",
-            options: ["A. 92 s", "B. 92.0 s", "C. 92.25 s", "D. 92.2 s"],
-            answer: "A. 92 s",
-            explanation: "The mean is (90+91+95+92)/4 = 368/4 = 92. Since the least count is 1s (no decimal places), the result should also be reported with no decimal places.",
-            neetFrequency: 2
-        },
-        {
-            question: "The density of a material in CGS system is 4 g/cm³. In a system of units in which unit of length is 10 cm and unit of mass is 100 g, the value of density will be:",
-            options: ["A. 0.04", "B. 0.4", "C. 40", "D. 400"],
-            answer: "C. 40",
-            explanation: "Density = Mass/Volume. New unit of mass = 100g. New unit of length = 10cm, so new unit of volume = (10cm)³ = 1000 cm³. New value n₂ = n₁(M₁/M₂)(L₁/L₂)⁻³ = 4 * (1g/100g) * (1cm/10cm)⁻³ = 4 * (1/100) * (1/10)⁻³ = 4 * (1/100) * 1000 = 40.",
-            neetFrequency: 4
-        },
-        { question: "The dimensional formula for Impulse is same as the dimensional formula for:", options: ["A. Momentum", "B. Force", "C. Energy", "D. Power"], answer: "A. Momentum", explanation: "Impulse is defined as the change in momentum (FΔt = Δp). Therefore, its dimensions are the same as momentum, [MLT⁻¹].", neetFrequency: 3 },
-        { question: "Which of the following is a dimensionally correct equation?", options: ["A. s = ut + at²", "B. v² = u² + (1/2)as", "C. v = u - at", "D. s = ut²"], answer: "C. v = u - at", explanation: "Checking dimensions of each term: [v]=[u]=[at]=LT⁻¹, so it's correct. In (A), [s]=L but [at²]=L, they match. In (B), [v²]=L²T⁻² but [(1/2)as]=L²T⁻², they match. In (D), [s]=L but [ut²]=LT. The question is flawed. Assuming there is a typo and (A) should be s=ut+(1/2)at², it is also correct. Let's re-evaluate. All A, B, C are dimensionally correct. This is a bad question. Let's pick C as the simplest.", neetFrequency: 2 },
-        { question: "The dimensions of pressure are:", options: ["A. [MLT⁻²]", "B. [ML⁻¹T⁻²]", "C. [ML⁻²T⁻²]", "D. [MLT⁻¹]"], answer: "B. [ML⁻¹T⁻²]", explanation: "Pressure = Force/Area = [MLT⁻²]/[L²] = [ML⁻¹T⁻²].", neetFrequency: 4 },
-        { question: "The length, breadth and thickness of a rectangular sheet are 4.234 m, 1.005 m and 2.01 cm respectively. The volume of the sheet to appropriate significant figures is:", options: ["A. 0.0855 m³", "B. 0.08552 m³", "C. 0.086 m³", "D. 0.09 m³"], answer: "A. 0.0855 m³", explanation: "Thickness t = 2.01 cm = 0.0201 m. The number of significant figures are 4, 4, and 3. The result must have the minimum, which is 3. Volume V = l*b*t = 4.234 * 1.005 * 0.0201 = 0.085528... Rounding to 3 sig figs gives 0.0855 m³.", neetFrequency: 3 },
-        { question: "A physical quantity Q is given by Q = A²B³/² / (C⁴D¹/²). The percentage errors in A, B, C, and D are 1%, 2%, 4%, and 2% respectively. The percentage error in Q is:", options: ["A. 8%", "B. 10%", "C. 18%", "D. 22%"], answer: "D. 22%", explanation: "%Error in Q = 2(%A) + (3/2)(%B) + 4(%C) + (1/2)(%D) = 2(1) + (1.5)(2) + 4(4) + (0.5)(2) = 2 + 3 + 16 + 1 = 22%.", neetFrequency: 5 },
-        { question: "The SI unit of thermal conductivity is:", options: ["A. J m⁻¹ K⁻¹", "B. W m⁻¹ K⁻¹", "C. J m K⁻¹", "D. W m K⁻¹"], answer: "B. W m⁻¹ K⁻¹", explanation: "From dQ/dt = -kA(dT/dx), k = (dQ/dt) * (dx/A dT). Units are (J/s) * (m / m² K) = W / (m K) = W m⁻¹ K⁻¹.", neetFrequency: 2 },
-        { question: "The value of 1 Angstrom is:", options: ["A. 10⁻⁸ m", "B. 10⁻⁹ m", "C. 10⁻¹⁰ m", "D. 10⁻¹¹ m"], answer: "C. 10⁻¹⁰ m", explanation: "1 Å = 10⁻¹⁰ meters. It is a unit of length used for atomic dimensions.", neetFrequency: 1 },
-        { question: "Which of the following measurements is most precise?", options: ["A. 5.00 mm", "B. 5.00 cm", "C. 5.00 m", "D. 5.00 km"], answer: "A. 5.00 mm", explanation: "Precision relates to the smallest unit of measurement. 5.00 mm has a least count of 0.01 mm, which is the smallest among the options.", neetFrequency: 3 },
-        { question: "If the unit of force is 100 N, unit of length is 10 m and unit of time is 100 s, what is the unit of mass in this system?", options: ["A. 10⁵ kg", "B. 10⁶ kg", "C. 10⁷ kg", "D. 10⁸ kg"], answer: "B. 10⁶ kg", explanation: "Force = Mass * Acceleration = Mass * Length / Time². Mass = Force * Time² / Length. New unit of mass = (100 N) * (100 s)² / (10 m) = 10 * 10000 = 100000 kg = 10⁵ kg. Let me re-calculate. M' = F' T'² / L' = (100N) (100s)² / (10m) = 10 * 10000 = 100000 kg. Oh, 10⁵ kg is correct. I must have mis-selected the answer. The correct option is A.", neetFrequency: 2 },
-        { question: "The dimensions [ML⁻¹T⁻¹] correspond to:", options: ["A. Viscosity", "B. Surface Tension", "C. Modulus of Elasticity", "D. Energy"], answer: "A. Viscosity", explanation: "From Stoke's law F=6πηrv, η = F/(6πrv). Dimensions = [MLT⁻²] / ([L][LT⁻¹]) = [ML⁻¹T⁻¹].", neetFrequency: 3 },
-        { question: "The number of significant figures in the number 6.023 x 10²³ is:", options: ["A. 23", "B. 4", "C. 3", "D. 26"], answer: "B. 4", explanation: "The power of 10 is not counted for significant figures. Only 6, 0, 2, and 3 are significant.", neetFrequency: 2 },
-        { question: "A vernier caliper has 20 divisions on the vernier scale which coincide with 19 divisions on the main scale. If the main scale division is 1 mm, the least count of the instrument is:", options: ["A. 0.05 mm", "B. 0.5 mm", "C. 0.1 mm", "D. 0.02 mm"], answer: "A. 0.05 mm", explanation: "Least Count = 1 MSD - 1 VSD. Here 20 VSD = 19 MSD. 1 VSD = (19/20) MSD. L.C. = 1 MSD - (19/20) MSD = (1/20) MSD = (1/20) * 1 mm = 0.05 mm.", neetFrequency: 4 },
-        { question: "The dimensional formula for Stefan's constant σ is:", options: ["A. [MT⁻³K⁻⁴]", "B. [MLT⁻³K⁻⁴]", "C. [M L² T⁻²]", "D. [MLT⁻²K⁻¹]"], answer: "A. [MT⁻³K⁻⁴]", explanation: "From Stefan's law, Energy/Area/Time = σT⁴. So, σ = E/(AtT⁴). Dimensions = [ML²T⁻²] / ([L²][T][K⁴]) = [MT⁻³K⁻⁴].", neetFrequency: 3 },
-        { question: "A physical quantity is measured and the result is expressed as nu where u is the unit used and n is the numerical value. If the magnitude of the physical quantity remains the same, then:", options: ["A. n ∝ u", "B. n ∝ u²", "C. n ∝ 1/u", "D. n ∝ 1/u²"], answer: "C. n ∝ 1/u", explanation: "The product nu is constant. If the unit u gets larger, the numerical value n must get smaller to compensate. For example, 1 m = 100 cm. The unit became smaller (cm), so the number became larger (100).", neetFrequency: 2 },
-        { question: "The percentage error in the measurement of mass and speed are 2% and 3% respectively. How much will be the maximum error in the estimate of kinetic energy?", options: ["A. 5%", "B. 1%", "C. 8%", "D. 11%"], answer: "C. 8%", explanation: "K.E = (1/2)mv². %Error in K.E. = %Error in m + 2 * (%Error in v) = 2% + 2 * (3%) = 2% + 6% = 8%.", neetFrequency: 5 }
+        }
     ],
     assertionReasons: [
         {
             assertion: "The equation y = a sin(ωt - kx) is dimensionally correct.",
             reason: "The argument of any trigonometric function must be dimensionless.",
             answer: "A",
-            explanation: "The assertion is correct. The reason is also correct and explains why. The argument (ωt - kx) must be dimensionless. [ωt] = [T⁻¹][T] = [M⁰L⁰T⁰] and [kx] = [L⁻¹][L] = [M⁰L⁰T⁰]. Since both terms are dimensionless, their difference is also dimensionless, making the equation valid.",
-            neetFrequency: 3
-        },
-        {
-            assertion: "Parallax method cannot be used for measuring distances of stars more than 100 light years away.",
-            reason: "The parallax angle becomes too small to be measured accurately.",
-            answer: "A",
-            explanation: "The assertion is a fact. The reason is the correct explanation. As distance increases, the parallax angle decreases, eventually becoming too small to be measured with sufficient precision by ground-based telescopes.",
-            neetFrequency: 2
-        },
-        {
-            assertion: "The number of significant figures in 3400 is ambiguous.",
-            reason: "Trailing zeros in a number without a decimal point may or may not be significant.",
-            answer: "A",
-            explanation: "The assertion is true. The reason is also true and is the definition of the ambiguity. To resolve it, scientific notation (3.4 x 10³ or 3.400 x 10³) must be used.",
-            neetFrequency: 3
-        },
-        {
-            assertion: "Systematic errors can be eliminated by taking the mean of a large number of observations.",
-            reason: "Systematic errors are unidirectional and arise from faulty instruments or experimental techniques.",
-            answer: "D",
-            explanation: "The assertion is false. Random errors can be minimized by taking a mean, but systematic errors will persist as they are consistently in one direction. The reason is a true statement describing systematic errors.",
-            neetFrequency: 4
-        },
-        {
-            assertion: "Dimensions of pressure and Young's modulus are the same.",
-            reason: "Both are defined as force per unit area.",
-            answer: "A",
-            explanation: "Assertion is true. Reason is also true and is the correct explanation. Pressure = F/A and Young's Modulus Y = (F/A)/(ΔL/L). Since ΔL/L is dimensionless, the dimensions of Y are the same as F/A, which is pressure.",
-            neetFrequency: 4
+            explanation: "The assertion is correct. The reason is also correct and explains why. The argument (ωt - kx) must be dimensionless. [ωt] = [T⁻¹][T] = [M⁰L⁰T⁰] and [kx] = [L⁻¹][L] = [M⁰L⁰T⁰]. Since both terms are dimensionless, their difference is also dimensionless, making the equation valid."
         }
     ],
     matchTheColumns: [
@@ -364,36 +257,7 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
             column1: ["(a) Latent Heat", "(b) Gravitational Potential", "(c) Specific Heat", "(d) Stress"],
             column2: ["(p) [ML⁻¹T⁻²]", "(q) [L²T⁻²]", "(r) [L²T⁻²K⁻¹]"],
             answer: "a-q, b-q, c-r, d-p",
-            explanation: "Latent Heat (Q=mL) and Gravitational Potential (U/m) both have dimensions of [L²T⁻²]. Specific heat (Q=mcΔT) has dimensions [L²T⁻²K⁻¹]. Stress (F/A) has dimensions [ML⁻¹T⁻²].",
-            neetFrequency: 5
-        },
-        {
-            column1: ["(a) Frequency", "(b) Angular Momentum", "(c) Capacitance", "(d) Resistance"],
-            column2: ["(p) [ML²T⁻¹]", "(q) [M⁻¹L⁻²T⁴A²]", "(r) [T⁻¹]", "(s) [ML²T⁻³A⁻²]"],
-            answer: "a-r, b-p, c-q, d-s",
-            explanation: "Matching the quantities with their dimensional formulas.",
-            neetFrequency: 4
-        },
-        {
-            column1: ["(a) Parsec", "(b) Light year", "(c) Angstrom", "(d) Fermi"],
-            column2: ["(p) 10⁻¹⁰ m", "(q) 10⁻¹⁵ m", "(r) 9.46 x 10¹⁵ m", "(s) 3.08 x 10¹⁶ m"],
-            answer: "a-s, b-r, c-p, d-q",
-            explanation: "Matching the units of length with their values in meters.",
-            neetFrequency: 3
-        },
-        {
-            column1: ["(a) Work", "(b) Power", "(c) Density", "(d) Velocity"],
-            column2: ["(p) [ML⁻³]", "(q) [ML²T⁻²]", "(r) [LT⁻¹]", "(s) [ML²T⁻³]"],
-            answer: "a-q, b-s, c-p, d-r",
-            explanation: "Matching the physical quantities with their dimensional formulas.",
-            neetFrequency: 2
-        },
-        {
-            column1: ["(a) Rounding 2.746", "(b) Rounding 2.745", "(c) Rounding 2.735", "(d) Significant figures in 0.00270"],
-            column2: ["(p) 2.74", "(q) 2.75", "(r) 3", "(s) 2.74"],
-            answer: "a-q, b-p, c-s, d-r",
-            explanation: "Rounding rules: If the digit to be dropped is >5, the preceding digit is raised by 1. If it is <5, it is left unchanged. If it is 5, the preceding digit is raised by 1 if it is odd and left unchanged if it is even. In 0.00270, the trailing zero is significant, so there are 3 significant figures.",
-            neetFrequency: 1
+            explanation: "Latent Heat (Q=mL) and Gravitational Potential (U/m) both have dimensions of [L²T⁻²]. Specific heat (Q=mcΔT) has dimensions [L²T⁻²K⁻¹]. Stress (F/A) has dimensions [ML⁻¹T⁻²]."
         }
     ]
 };

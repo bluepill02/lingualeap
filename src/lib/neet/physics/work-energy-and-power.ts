@@ -35,7 +35,9 @@ export const workEnergyAndPowerModule: NeetModule = {
             mappingDescription: '11th Std Physics - Vol 1, Chapter 4 maps to NEET Physics Unit 4'
         }
     ],
-    conceptNotes: `### 1. Work (வேலை)
+    conceptNotes: [
+        {
+            english: `### 1. Work (வேலை)
 Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a scalar quantity (ஸ்கேலார் அளவு).
 
 #### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
@@ -53,9 +55,10 @@ If the force is not constant, we find the work done by integrating the force ove
 $$
 W = \\int_{s_i}^{s_f} F(s) \\,ds
 $$
-Graphically, the work done is the **area under the Force-Displacement (F-s) graph**.
-
-### 2. Energy (ஆற்றல்)
+Graphically, the work done is the **area under the Force-Displacement (F-s) graph**.`
+        },
+        {
+            english: `### 2. Energy (ஆற்றல்)
 Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J).
 
 #### Kinetic Energy (இயக்க ஆற்றல் - K.E.)
@@ -79,9 +82,10 @@ $$
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
 The energy stored in a body by virtue of its position or configuration. It is defined only for **conservative forces (பாதுகாப்பு விசைகள்)**.
 *   **Gravitational Potential Energy (ஈர்ப்பு நிலை ஆற்றல்):** $P.E. = mgh$
-*   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression.
-
-### 3. Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி)
+*   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression.`
+        },
+        {
+            english: `### 3. Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி)
 *   **Conservative Force (பாதுகாப்பு விசை):** A force for which the work done is independent of the path taken and depends only on the initial and final positions. Work done in a closed loop is zero. E.g., Gravitational force, electrostatic force, spring force.
 *   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance.
 
@@ -93,20 +97,23 @@ $$
 If non-conservative forces (like friction) are also present, the total energy is not conserved, and the work done by these forces equals the change in total mechanical energy:
 $$
 W_{nc} = \\Delta K.E. + \\Delta P.E.
-$$
-
-### 4. Power (திறன்)
+$$`
+        },
+        {
+            english: `### 4. Power (திறன்)
 Power is the rate at which work is done. It is a scalar quantity.
 *   **Average Power (சராசரி திறன்):** $P_{avg} = \\frac{\\text{Total Work Done}}{\\text{Total Time}} = \\frac{W}{t}$
 *   **Instantaneous Power (உடனடி திறன்):** $P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$
-The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is horsepower (1 hp ≈ 746 W).
-
-### 5. Collisions (மோதல்கள்)
+The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is horsepower (1 hp ≈ 746 W).`
+        },
+        {
+            english: `### 5. Collisions (மோதல்கள்)
 A collision is an event in which two or more bodies exert forces on each other for a relatively short time.
 *   **Total linear momentum is always conserved** in any collision if there is no external force on the system.
 *   **Elastic Collision (மீள் மோதல்):** A collision in which both momentum and kinetic energy are conserved.
-*   **Inelastic Collision (மீளாத மோதல்):** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.
-`,
+*   **Inelastic Collision (மீளாத மோதல்):** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.`
+        }
+    ],
     workedExamples: [
         {
             title: "NEET Level: Work-Energy Theorem",
@@ -321,7 +328,3 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
-
-
-
-
