@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, Fragment } from 'react';
+import { useState, Fragment, Children } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -23,7 +23,7 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
-import { BlockMath } from 'react-katex';
+import { BlockMath, InlineMath } from 'react-katex';
 import { Separator } from '../ui/separator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -60,7 +60,7 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeKatex]}
                     components={{
-                        p: ({node, ...props}) => {
+                         p: ({node, ...props}) => {
                            const textContent = node?.children.map(child => ('value' in child ? child.value : '')).join('');
                            if (textContent === '{{INERTIA_ANIMATION}}') {
                                 return <div className="not-prose my-4"><InertiaAnimation /></div>;
@@ -71,7 +71,23 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                            if (textContent === '{{LIFT_ANIMATION}}') {
                                 return <div className="not-prose my-4"><LiftAnimation /></div>;
                            }
-                           return <p className="my-2 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent || '')}</p>
+                           
+                           // Logic to handle inline math
+                           const childrenArray = Children.toArray(props.children);
+                           const newChildren = childrenArray.map((child, index) => {
+                               if (typeof child === 'string') {
+                                   const parts = child.split(/(`.*?`)/g);
+                                   return parts.map((part, partIndex) => {
+                                       if (part.startsWith('`') && part.endsWith('`')) {
+                                           return <InlineMath key={`${index}-${partIndex}`} math={part.slice(1, -1)} />;
+                                       }
+                                       return renderTextWithTooltips(part);
+                                   });
+                               }
+                               return child;
+                           });
+
+                           return <p className="my-2 leading-relaxed text-muted-foreground">{newChildren}</p>
                         },
                         h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3 text-foreground" {...props} />,
                         h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2 text-accent" {...props} />,
@@ -81,11 +97,12 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         },
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground" {...props} />,
                         em: ({node, ...props}) => <i className="italic text-foreground/90" {...props} />,
-                        code: ({node, ...props}) => {
-                            if (node?.children[0]?.type === 'text') {
-                                return <BlockMath math={node.children[0].value} />;
+                        code: ({ node, className, children, ...props }) => {
+                            const match = /language-math/.exec(className || '')
+                            if (match) {
+                                return <BlockMath math={String(children).replace(/\n$/, '')} />
                             }
-                            return <code {...props} />;
+                            return <code className={className} {...props}>{children}</code>
                         }
                     }}
                 >
