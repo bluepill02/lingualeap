@@ -33,7 +33,7 @@ export const workEnergyAndPowerModule: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Work (வேலை)
-Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a scalar quantity.
+Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a [[scalar quantity:ஸ்கேலார் அளவு]].
 
 #### Work Done by a Constant Force
 If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors.
@@ -70,6 +70,7 @@ This is one of the most important theorems in mechanics. It states that the **ne
 $$
 W_{net} = \\Delta K.E. = K.E._f - K.E._i
 $$
+{{INERTIA_ANIMATION}}
 
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
 The energy stored in a body by virtue of its position or configuration. It is defined only for **conservative forces**.
@@ -101,21 +102,41 @@ A collision is an event in which two or more bodies exert forces on each other f
 *   **Total linear momentum is always conserved** in any collision if there is no external force on the system.
 *   **Elastic Collision (மீள் மோதல்):** A collision in which both momentum and kinetic energy are conserved.
 *   **Inelastic Collision (மீளாத மோதல்):** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision.
+{{ACTION_REACTION_ANIMATION}}
 `,
     workedExamples: [
         {
             title: "NEET Level: Work-Energy Theorem",
             difficulty: 'Medium',
-            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)",
+            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)\n\nதமிழ்: ஒரு பல மாடிக் கட்டிடத்தின் உச்சியிலிருந்து ஒரு பந்து 20 மீ/வி திசைவேகத்தில் செங்குத்தாக மேல்நோக்கி எறியப்படுகிறது. பந்து எறியப்பட்ட இடத்தின் உயரம் தரையிலிருந்து 25 மீ ஆகும். (a) பந்து எவ்வளவு உயரம் எழும்பும்? (b) பந்து தரையைத் தொடும் முன் எவ்வளவு நேரம் ஆகும்? (g = 10 மீ/வி² எனக் கொள்க)",
             solutionSteps: [
-                { step: 1, explanation: "Calculate the work done by gravity. Work = Force × displacement × cos(θ). Here, Force = mg, displacement = h, and the angle θ between force and displacement is 0°.", calculation: "W_g = (mg) * h * cos(0°) = (2 * 10) * 10 * 1 = 200 J" },
-                { step: 2, explanation: "Apply the Work-Energy Theorem: W_net = ΔK.E. = K.E_f - K.E_i." },
-                { step: 3, explanation: "The only force doing work is gravity, so W_net = W_g = 200 J. The initial kinetic energy K.E_i is 0 since the block is dropped from rest.", calculation: "200 = (1/2)mv_f² - 0" },
-                { step: 4, explanation: "Solve for the final velocity v_f.", calculation: "200 = (1/2) * 2 * v_f² => v_f² = 200 => v_f = √200 = 10√2 m/s" }
+                {
+                    step: 1,
+                    explanation: "Calculate the work done by gravity. Work = Force × displacement × cos(θ). Here, Force = mg, displacement = h, and the angle θ between force and displacement is 0°.",
+                    explanationTamil: "ஈர்ப்பு விசையால் செய்யப்பட்ட வேலையைக் கணக்கிடவும். வேலை = விசை × இடப்பெயர்ச்சி × cos(θ). இங்கு, விசை = mg, இடப்பெயர்ச்சி = h, மற்றும் விசைக்கும் இடப்பெயர்ச்சிக்கும் இடையிலான கோணம் θ = 0°.",
+                    calculation: "W_g = (mg) * h * cos(0°) = (2 * 10) * 10 * 1 = 200 J"
+                },
+                {
+                    step: 2,
+                    explanation: "Apply the Work-Energy Theorem: W_net = ΔK.E. = K.E_f - K.E_i.",
+                    explanationTamil: "வேலை-ஆற்றல் தேற்றத்தைப் பயன்படுத்தவும்: W_net = ΔK.E. = K.E_f - K.E_i."
+                },
+                {
+                    step: 3,
+                    explanation: "The only force doing work is gravity, so W_net = W_g = 200 J. The initial kinetic energy K.E_i is 0 since the block is dropped from rest.",
+                    explanationTamil: "இங்கு வேலை செய்யும் ஒரே விசை ஈர்ப்பு விசை மட்டுமே, எனவே W_net = W_g = 200 J. கட்டை ஓய்விலிருந்து விடப்படுவதால் ஆரம்ப இயக்க ஆற்றல் K.E_i சுழியாகும்.",
+                    calculation: "200 = (1/2)mv_f² - 0"
+                },
+                {
+                    step: 4,
+                    explanation: "Solve for the final velocity v_f.",
+                    explanationTamil: "இறுதி திசைவேகம் v_f-ஐக் கண்டறியவும்.",
+                    calculation: "200 = (1/2) * 2 * v_f² => v_f² = 200 => v_f = √200 = 10√2 m/s"
+                }
             ],
             neetHack: "Work-Energy Theorem is often faster than kinematics for problems involving forces, distances and speeds. If time is not asked, think 'Energy' first!",
-            commonPitfall: "Forgetting to consider the work done by *all* forces when applying the theorem. If friction were present, W_net would be W_gravity + W_friction.",
             neetHackTamil: "விசைகள், தூரங்கள் மற்றும் வேகங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, இயக்கவியலை விட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் வேகமானது. நேரம் கேட்கப்படவில்லை என்றால், முதலில் 'ஆற்றல்' முறையை சிந்திக்கவும்!",
+            commonPitfall: "Forgetting to consider the work done by *all* forces when applying the theorem. If friction were present, W_net would be W_gravity + W_friction.",
             commonPitfallTamil: "தேற்றத்தைப் பயன்படுத்தும்போது *அனைத்து* விசைகளாலும் செய்யப்பட்ட வேலையைக் கருத்தில் கொள்ள மறப்பது. உராய்வு இருந்திருந்தால், W_net = W_ஈர்ப்பு + W_உராய்வு."
         },
         {
@@ -123,14 +144,33 @@ A collision is an event in which two or more bodies exert forces on each other f
             difficulty: 'Hard',
             problem: "The potential energy of a particle is given by U(x) = x³ - 6x² + 5. Find the positions of stable and unstable equilibrium.",
             solutionSteps: [
-                { step: 1, explanation: "Equilibrium occurs where the net force on the particle is zero. The force is related to potential energy by F = -dU/dx.", calculation: "F = -d/dx(x³ - 6x² + 5) = -(3x² - 12x) = 12x - 3x²" },
-                { step: 2, explanation: "Set F = 0 to find the equilibrium positions.", calculation: "12x - 3x² = 0 => 3x(4 - x) = 0 => x = 0, x = 4" },
-                { step: 3, explanation: "To determine stability, check the second derivative of the potential energy, d²U/dx². If d²U/dx² > 0, it's stable equilibrium. If d²U/dx² < 0, it's unstable equilibrium.", calculation: "d²U/dx² = d/dx(3x² - 12x) = 6x - 12" },
-                { step: 4, explanation: "Evaluate d²U/dx² at the equilibrium points. At x=0: d²U/dx² = 6(0) - 12 = -12 (Unstable). At x=4: d²U/dx² = 6(4) - 12 = 12 (Stable)." }
+                {
+                    step: 1,
+                    explanation: "Equilibrium occurs where the net force on the particle is zero. The force is related to potential energy by F = -dU/dx.",
+                    explanationTamil: "துகள் மீதான நிகர விசை சுழியாக இருக்கும் இடத்தில் சமநிலை ஏற்படுகிறது. விசை மற்றும் நிலை ஆற்றல் தொடர்பு: F = -dU/dx.",
+                    calculation: "F = -d/dx(x³ - 6x² + 5) = -(3x² - 12x) = 12x - 3x²"
+                },
+                {
+                    step: 2,
+                    explanation: "Set F = 0 to find the equilibrium positions.",
+                    explanationTamil: "சமநிலை நிலைகளைக் கண்டறிய F = 0 என அமைக்கவும்.",
+                    calculation: "12x - 3x² = 0 => 3x(4 - x) = 0 => x = 0, x = 4"
+                },
+                {
+                    step: 3,
+                    explanation: "To determine stability, check the second derivative of the potential energy, d²U/dx². If d²U/dx² > 0, it's stable equilibrium. If d²U/dx² < 0, it's unstable equilibrium.",
+                    explanationTamil: "நிலைப்புத்தன்மையை தீர்மானிக்க, நிலை ஆற்றலின் இரண்டாம் வகைக்கெழுவை, d²U/dx²-ஐ சரிபார்க்கவும். d²U/dx² > 0 எனில், அது நிலையான சமநிலை. d²U/dx² < 0 எனில், அது நிலையற்ற சமநிலை.",
+                    calculation: "d²U/dx² = d/dx(3x² - 12x) = 6x - 12"
+                },
+                {
+                    step: 4,
+                    explanation: "Evaluate d²U/dx² at the equilibrium points. At x=0: d²U/dx² = 6(0) - 12 = -12 (Unstable). At x=4: d²U/dx² = 6(4) - 12 = 12 (Stable).",
+                    explanationTamil: "சமநிலை புள்ளிகளில் d²U/dx²-ஐ மதிப்பிடவும். x=0 இல்: d²U/dx² = -12 (நிலையற்றது). x=4 இல்: d²U/dx² = 12 (நிலையானது)."
+                }
             ],
             neetHack: "On a U-x graph, a 'valley' (minimum) is a point of stable equilibrium, and a 'hill' (maximum) is a point of unstable equilibrium.",
-            commonPitfall: "Confusing the conditions. For equilibrium, F=0 (first derivative of U is zero). For stability, check the sign of the *second* derivative of U.",
             neetHackTamil: "ஒரு U-x வரைபடத்தில், ஒரு 'பள்ளத்தாக்கு' (குறைந்தபட்சம்) ஒரு நிலையான சமநிலை புள்ளி, மற்றும் ஒரு 'குன்று' (அதிகபட்சம்) ஒரு நிலையற்ற சமநிலை புள்ளி.",
+            commonPitfall: "Confusing the conditions. For equilibrium, F=0 (first derivative of U is zero). For stability, check the sign of the *second* derivative of U.",
             commonPitfallTamil: "நிபந்தனைகளைக் குழப்பிக் கொள்வது. சமநிலைக்கு, F=0 (U-வின் முதல் வகைக்கெழு சுழி). நிலைப்புத்தன்மைக்கு, U-வின் *இரண்டாம்* வகைக்கெழுவின் குறியைச் சரிபார்க்கவும்."
         },
         {

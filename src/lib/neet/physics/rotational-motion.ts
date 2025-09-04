@@ -67,6 +67,8 @@ $$
 For a system of particles: $I = \\sum m_i r_i^2$
 For a rigid body: $I = \\int r^2 \\,dm$
 
+{{ACTION_REACTION_ANIMATION}}
+
 *   **Relationship for a Rigid Body:** For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by:
 $$
 \\tau = I \\alpha
@@ -89,6 +91,7 @@ The total kinetic energy of a rolling body is the sum of its translational and r
 $$
 K_{total} = K_{trans} + K_{rot} = \\frac{1}{2}Mv_{CM}^2 + \\frac{1}{2}I_{CM}\\omega^2
 $$
+{{PROJECTILE_ANIMATION}}
 
 ### 5. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
 If the **net external torque** on a system is zero, its total angular momentum remains constant.
@@ -103,7 +106,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
             difficulty: 'Easy',
             problem: "Three point masses of 1 kg, 2 kg, and 3 kg are placed at the vertices of an equilateral triangle of side 1 m. Find the coordinates of the center of mass, assuming the 1 kg mass is at the origin and the 2 kg mass is on the x-axis.",
             solutionSteps: [
-                { step: 1, explanation: "Assign coordinates to each mass. m₁=1kg at (0,0). m₂=2kg at (1,0). For m₃=3kg, the x-coordinate is 0.5 m. The y-coordinate (height of equilateral triangle) is (√3/2)*side = √3/2. So, m₃ is at (0.5, √3/2)." },
+                { step: 1, explanation: "Assign coordinates to each mass. m₁=1kg at (0,0). m₂=2kg at (1,0). For m₃=3kg, the x-coordinate is 0.5 m. The y-coordinate (height of equilateral triangle) is (√3/2)*side = √3/2. So, m₃ is at (0.5, √3/2).", explanationTamil: "ஒவ்வொரு நிறைக்கும் ஆயத்தொலைவுகளை ஒதுக்கவும். m₁=1kg (0,0) இல். m₂=2kg (1,0) இல். m₃=3kg க்கு, x-ஆயத்தொலைவு 0.5 மீ. y-ஆயத்தொலைவு (சமபக்க முக்கோணத்தின் உயரம்) (√3/2)*பக்கம் = √3/2. எனவே, m₃ (0.5, √3/2) இல் உள்ளது." },
                 { step: 2, explanation: "Use the formula for the x-coordinate of the center of mass: X_cm = (m₁x₁ + m₂x₂ + m₃x₃) / (m₁ + m₂ + m₃).", calculation: "X_cm = (1*0 + 2*1 + 3*0.5) / (1+2+3) = (2 + 1.5) / 6 = 3.5 / 6 = 7/12 m" },
                 { step: 3, explanation: "Use the formula for the y-coordinate of the center of mass: Y_cm = (m₁y₁ + m₂y₂ + m₃y₃) / (m₁ + m₂ + m₃).", calculation: "Y_cm = (1*0 + 2*0 + 3*(√3/2)) / (1+2+3) = (3√3 / 2) / 6 = √3 / 4 m" }
             ],
@@ -216,7 +219,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { assertion: "The center of mass of a body may lie where there is no mass.", reason: "The center of mass of a uniform ring is at its center.", answer: "A", explanation: "The assertion is true, and the reason provides a perfect example (a ring or a hollow sphere). The reason correctly explains the assertion." },
         { assertion: "Torque is a vector quantity.", reason: "Torque is the cross product of two vectors, position vector and force vector.", answer: "A", explanation: "Both statements are true. The cross product of two vectors results in a third vector, so the reason is the correct explanation for the assertion." },
         { assertion: "The moment of inertia of a body is not a fixed quantity.", reason: "The moment of inertia depends on the axis of rotation and the distribution of mass.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains why the moment of inertia changes. For the same body, I is different for different axes.", neetFrequency: 3 },
-        { assertion: "In a purely rotational motion, every particle of the body moves in a circle.", reason: "The particles on the axis of rotation are stationary.", answer: "C", explanation: "The assertion is true for particles not on the axis. However, the reason is also true, which contradicts the 'every particle' part of the assertion, making the assertion false as a universal statement. So, Assertion is false but Reason is true (this seems to be a common trick question format). Let me re-evaluate. The assertion is *mostly* true but technically false because of the particles on the axis. The reason is true. So Assertion is False, Reason is True. Answer is D. Wait. Let's re-read the options for A/R. A: A,R true, R explains A. B: A,R true, R not explains A. C: A true, R false. D: A false, R true. Ok, my analysis points to D. Let me re-check the user's provided A/R for previous modules. `answer: 'C'` means Assertion is true, but Reason is false. `answer: 'D'` means Assertion is false but Reason is true. My analysis stands. Assertion is False, Reason is True. Hence, D.", answer: "D" },
+        { assertion: "In a purely rotational motion, every particle of the body moves in a circle.", reason: "The particles on the axis of rotation are stationary.", answer: "D", explanation: "The assertion is false because particles on the axis of rotation do not move. The reason correctly states this fact." },
         { assertion: "If there is no external torque on a system, its angular velocity remains constant.", reason: "The angular momentum of the system remains constant if the net external torque is zero.", answer: "D", explanation: "Assertion is false. Angular velocity can change if the moment of inertia changes (e.g., an ice skater pulling in her arms). The reason is true, as it is the statement of the law of conservation of angular momentum." }
     ],
     matchTheColumns: [
