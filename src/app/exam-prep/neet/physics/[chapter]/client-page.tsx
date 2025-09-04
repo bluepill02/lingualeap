@@ -106,8 +106,11 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
             </div>
 
         </TabsContent>
-        <TabsContent value="learn" className="mt-6">
+        <TabsContent value="learn" className="mt-6 space-y-6">
             <ConceptNotesCard content={conceptNotes} />
+            <div className="flex justify-center">
+                <Button>Mark as Completed</Button>
+            </div>
         </TabsContent>
         {/* Other Tabs Content can be added here */}
       </Tabs>
