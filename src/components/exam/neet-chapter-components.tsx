@@ -99,12 +99,15 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
                         em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
-                        code: ({ node, className, children, ...props }) => {
-                            const match = /language-math/.exec(className || '')
-                            if (match) {
-                                return <BlockMath math={String(children).replace(/\n$/, '')} />
+                        code({ node, inline, className, children, ...props }) {
+                            const match = /language-(\w+)/.exec(className || '');
+                            if (match && match[1] === 'math') {
+                              return <BlockMath math={String(children).replace(/\n$/, '')} />;
                             }
-                            return <code className={className} {...props}>{children}</code>
+                            if (inline) {
+                              return <InlineMath math={String(children)} />;
+                            }
+                            return <code className={className} {...props}>{children}</code>;
                         }
                     }}
                 >
@@ -458,5 +461,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
 }
 
 
+
+    
 
     

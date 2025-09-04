@@ -213,7 +213,7 @@ This is a special case of uniformly accelerated motion where the acceleration is
                 { step: 2, explanation: "Identify the given values: u = 0, a = 2 m/s², n = 5." },
                 { step: 3, explanation: "Substitute the values into the formula." },
                 { step: 4, explanation: "`s_5 = 0 + (2/2)(2*5 - 1) = 1 * (10 - 1) = 9 m`." },
-                { step: 5, explanation: "Alternatively, find distance in 5s and 4s and subtract. `s(5) = 0.5*2*5² = 25m`. `s(4) = 0.5*2*4² = 16m`. Distance in 5th second = `s(5) - s(4) = 25 - 16 = 9 m`." }
+                { step: 5, explanation: "Alternatively, find distance in 5s and 4s and subtract. `s(5) = 0.5*2*5² = 25m`. `s(4) = 0.5*2*4² = 16m`. Distance in 5th second = `s(5) - s(4) = 9 m`." }
             ],
             commonPitfall: "Confusing 'distance in 5 seconds' with 'distance in the 5th second'. The latter is the distance covered between t=4s and t=5s."
         }
@@ -338,3 +338,5 @@ This is a special case of uniformly accelerated motion where the acceleration is
         }
     ]
 };
+
+    

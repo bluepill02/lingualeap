@@ -415,3 +415,5 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         }
     ]
 };
+
+    
