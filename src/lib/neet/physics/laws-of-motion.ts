@@ -44,7 +44,12 @@ export const lawsOfMotionModule: NeetModule = {
     conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
 ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
 
-` + '`FORMULA_START\n`\n' + `\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.\n` + '`\nFORMULA_END`\n\n' + `DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
+\`\`\`
+\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.
+\`\`\`
+
+\`\`\`diagram
+DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
     +---------+
     |         |
     |---------|  <-- Needs large force to overcome inertia
@@ -55,13 +60,27 @@ export const lawsOfMotionModule: NeetModule = {
 
 Heavy chariot resists change in motion due to inertia
 பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
-DIAGRAM_END` + `\n\n### Newton's Second Law - F = ma (இரண்டாம் விதி)
+DIAGRAM_END
+\`\`\`
+
+### Newton's Second Law - F = ma (இரண்டாம் விதி)
 ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
 
-` + '`FORMULA_START\n`\n' + `\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்\n` + '`\nFORMULA_END`\n\n`' + `` + '`FORMULA_START\n`\n' + `\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்\n` + '`\nFORMULA_END`\n\n' + `### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
+\`\`\`
+\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்
+\`\`\`
+
+\`\`\`
+\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்
+\`\`\`
+
+### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
 ஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.
 
-` + '`FORMULA_START\n`\n' + `\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)\n` + '`\nFORMULA_END`\n\n',
+\`\`\`
+\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)
+\`\`\`
+`,
     workedExamples: [
         {
             title: "Solved Example 1",
@@ -312,6 +331,24 @@ Heavy chariot resists change in motion due to inertia
             "options": ["A. PM / (M+m)", "B. Pm / (M+m)", "C. P", "D. P(M-m) / (M+m)"],
             "answer": "A. PM / (M+m)",
             "explanation": "The acceleration of the system is a = P / (M+m). The force exerted by the rope on the block is what accelerates the block. F_block = M * a = M * (P / (M+m)) = PM / (M+m)."
+        },
+        {
+            "question": "A gun fires a bullet of mass 50g with a velocity of 30 m/s. Because of this, the gun is pushed back with a velocity of 1 m/s. The mass of the gun is:",
+            "options": ["A. 1.5 kg", "B. 30 kg", "C. 15 kg", "D. 20 kg"],
+            "answer": "A. 1.5 kg",
+            "explanation": "By conservation of momentum, momentum of gun = momentum of bullet. M_gun * V_gun = M_bullet * V_bullet. M_gun * 1 = (50/1000) * 30. M_gun = 1.5 kg."
+        },
+        {
+            "question": "A man of mass 70 kg stands on a weighing scale in a lift which is moving downwards with a uniform acceleration of 5 m/s². The reading on the weighing scale is:",
+            "options": ["A. 350 N", "B. 700 N", "C. 1050 N", "D. Zero"],
+            "answer": "A. 350 N",
+            "explanation": "The reading on the scale is the apparent weight, R = m(g-a) for downward acceleration. R = 70(10-5) = 70 * 5 = 350 N."
+        },
+        {
+            "question": "The time period of a simple pendulum measured inside a stationary lift is found to be T. If the lift starts accelerating upwards with an acceleration g/3, the new time period will be:",
+            "options": ["A. T√3", "B. T√3/2", "C. T/√3", "D. T/3"],
+            "answer": "B. T√3/2",
+            "explanation": "The time period T is proportional to 1/√g_eff. Initially, g_eff = g. When accelerating upwards, g_eff' = g + a = g + g/3 = 4g/3. So, T' / T = √(g_eff / g_eff') = √(g / (4g/3)) = √(3/4) = √3/2. T' = T√3/2."
         }
     ],
     assertionReasons: [
@@ -319,19 +356,19 @@ Heavy chariot resists change in motion due to inertia
             "assertion": "A body can have acceleration even if its velocity is zero at a given instant.",
             "reason": "Acceleration is the rate of change of velocity.",
             "answer": "A",
-            "explanation": "When a ball is thrown upwards, its velocity is zero at the highest point, but it still has acceleration due to gravity (g). Reason correctly explains that acceleration depends on the change in velocity, not velocity itself."
+            "explanation": "Assertion is true. For example, when a ball is thrown upwards, its velocity is zero at the highest point, but it still has acceleration due to gravity (g). Reason is the correct explanation for the assertion because acceleration depends on the change in velocity, not its instantaneous value."
         },
         {
-            "assertion": "When a person is walking on rough ground, the frictional force exerted by the ground on the person is in the backward direction.",
+            "assertion": "When a person is walking on rough ground, the frictional force exerted by the ground on the person is in the forward direction.",
             "reason": "Frictional force always opposes the motion of a body.",
-            "answer": "E",
-            "explanation": "Assertion is false: The person pushes the ground backward, so the ground pushes the person forward. This forward frictional force is what causes the person to move forward. Reason is also false: Friction opposes relative motion or the tendency of relative motion, not necessarily the direction of motion."
+            "answer": "C",
+            "explanation": "Assertion is true. To walk, a person pushes the ground backward. By Newton's third law, the ground exerts an equal and opposite (forward) frictional force on the person, which causes the motion. The reason is false because friction opposes relative motion or the tendency of relative motion, not necessarily the motion of the body itself."
         },
         {
-            "assertion": "Newton's third law of motion is applicable only for a system of particles in equilibrium.",
-            "reason": "The forces of action and reaction always cancel each other out.",
-            "answer": "E",
-            "explanation": "Assertion is false: Newton's third law is applicable to all systems, whether in equilibrium or not. Reason is also false: Action-reaction forces act on different bodies, so they can never cancel each other out."
+            "assertion": "Newton's third law of motion is applicable to all forces, irrespective of their origin.",
+            "reason": "Action and reaction forces act on different bodies and can never cancel each other out.",
+            "answer": "B",
+            "explanation": "Both assertion and reason are true. Newton's third law is a universal law for any pair of interacting bodies. Action and reaction forces act on different bodies, so they don't cancel out. However, the reason doesn't explain why the law is universal; it just describes a property of the forces. Thus, it is not the correct explanation of the assertion."
         },
         {
             "assertion": "A cricketer moves his hands backward while catching a cricket ball.",
@@ -346,10 +383,10 @@ Heavy chariot resists change in motion due to inertia
             "explanation": "Newton's second law directly states that a constant net force (F) on a constant mass (m) will produce a constant acceleration (a). The reason is the direct explanation for the assertion."
         },
         {
-            "assertion": "The centripetal force and centrifugal force are action-reaction pairs.",
-            "reason": "Centrifugal force is a pseudo force which has to be applied on a body to make it an inertial frame.",
-            "answer": "E",
-            "explanation": "Assertion is false. Action-reaction pairs must act on different bodies. Centripetal and centrifugal forces both act on the same body. Reason is also false. Centrifugal force is a pseudo force that arises in a non-inertial (rotating) frame of reference."
+            "assertion": "Centripetal force and centrifugal force are action-reaction pairs.",
+            "reason": "Centrifugal force is a pseudo force that arises in a non-inertial (rotating) frame of reference.",
+            "answer": "D",
+            "explanation": "Assertion is false. Action-reaction pairs must act on different bodies. Centripetal and centrifugal forces both are considered to act on the same body in their respective frames. The reason is a true statement on its own but does not relate to the (false) assertion."
         },
         {
             "assertion": "A body in a lift accelerating downwards experiences a decrease in its apparent weight.",
@@ -359,9 +396,9 @@ Heavy chariot resists change in motion due to inertia
         },
         {
             "assertion": "Static friction is a self-adjusting force.",
-            "reason": "The force of static friction is always equal to the applied force.",
-            "answer": "C",
-            "explanation": "The assertion is true. Static friction adjusts its magnitude to be equal and opposite to the applied force, up to a maximum limit (μsN). The reason is false because it's only true up to the limit of static friction; it's not *always* equal to the applied force (e.g., if applied force exceeds the maximum static friction)."
+            "reason": "The force of static friction is always equal to the applied force up to a certain limit.",
+            "answer": "A",
+            "explanation": "The assertion is true. Static friction adjusts its magnitude to be equal and opposite to the applied force. The reason is also true and correctly explains why it's called self-adjusting—it changes itself in response to the applied force, up to its maximum value."
         },
         {
             "assertion": "It is difficult to move a cycle along a road with its brakes on.",
@@ -370,10 +407,10 @@ Heavy chariot resists change in motion due to inertia
             "explanation": "Both statements are true and the reason is the correct explanation. When brakes are applied, the wheels lock and slide, creating sliding friction, which is much greater than the rolling friction present when the wheels are rolling freely. This makes it difficult to move the cycle."
         },
         {
-            "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
-            "reason": "The net external force on the system of particles is zero during the collision.",
-            "answer": "D",
-            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation."
+            "assertion": "In any collision, the total linear momentum of the system of particles is conserved if the net external force on the system is zero.",
+            "reason": "The forces of interaction between particles in a collision are internal forces and always occur in equal and opposite pairs.",
+            "answer": "A",
+            "explanation": "The assertion correctly states the law of conservation of linear momentum. The reason is the correct explanation because internal forces (action-reaction pairs) cancel out, so the change in total momentum is only due to external forces. If external forces are zero, momentum is conserved."
         }
     ],
     matchTheColumns: [
