@@ -48,12 +48,12 @@ The single most important skill in solving mechanics problems is drawing a Free-
 1.  **Isolate the Object:** Mentally separate the object from its surroundings.
 2.  **Represent with a Point:** Draw a dot or a box to represent the object.
 3.  **Identify All Forces:** Go through a checklist of forces.
-    *   **Non-Contact Force:** Does gravity act on it? (Almost always, `W = mg`, acting downwards).
+    *   **Non-Contact Force:** Does gravity act on it? (Almost always, \`W = mg\`, acting downwards).
     *   **Contact Forces:** What is the object touching? Each point of contact can exert a force.
-        *   Is it on a surface? There is a **Normal Force** (`N`), perpendicular to the surface.
-        *   Is a string or rope attached? There is **Tension** (`T`), acting along the rope, away from the object.
-        *   Is there friction? **Frictional Force** (`f`) acts parallel to the surface, opposing relative motion or tendency of motion.
-        *   Is a spring attached? **Spring Force** (`kx`) acts along the spring.
+        *   Is it on a surface? There is a **Normal Force** (\`N\`), perpendicular to the surface.
+        *   Is a string or rope attached? There is **Tension** (\`T\`), acting along the rope, away from the object.
+        *   Is there friction? **Frictional Force** (\`f\`) acts parallel to the surface, opposing relative motion or tendency of motion.
+        *   Is a spring attached? **Spring Force** (\`kx\`) acts along the spring.
 4.  **Draw Force Vectors:** Draw arrows for each force, originating from the point, in the correct direction. Label each force clearly.
 
 ### 2. Newton's Laws of Motion (Revisited with Depth)
@@ -69,14 +69,14 @@ The rate of change of linear momentum of a body is directly proportional to the 
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt} = \\frac{d(m\\vec{v})}{dt}
 \`\`\`
-If mass `m` is constant, this simplifies to the famous equation:
+If mass \`m\` is constant, this simplifies to the famous equation:
 \`\`\`
 \\vec{F}_{net} = m\\frac{d\\vec{v}}{dt} = m\\vec{a}
 \`\`\`
-This is a vector equation. It can be broken down into components: `ΣF_x = ma_x`, `ΣF_y = ma_y`, `ΣF_z = ma_z`.
+This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\`, \`ΣF_y = ma_y\`, \`ΣF_z = ma_z\`.
 
 #### Third Law (Action-Reaction)
-For every action, there is an equal and opposite reaction. `Action = -Reaction`.
+For every action, there is an equal and opposite reaction. \`Action = -Reaction\`.
 *   Forces always occur in pairs.
 *   Action and reaction forces act on **different bodies**.
 *   They are equal in magnitude and opposite in direction.
@@ -92,16 +92,16 @@ When the motion of two or more bodies is interdependent, it is called constraine
 *   **Wedge Constraint:** If a block rests on a wedge, the component of their accelerations perpendicular to the contact surface must be equal for them to remain in contact.
 
 #### B. Non-Inertial Frames and Pseudo Force
-Newton's laws are only valid in inertial frames (non-accelerating frames). To apply them in a non-inertial frame (a frame accelerating with `a_0`), we must introduce a **pseudo force**.
-*   **Pseudo Force (`F_p`):** It is an imaginary force.
-*   **Magnitude:** `F_p = ma`, where `m` is the mass of the object being observed.
-*   **Direction:** It acts in the direction **opposite** to the acceleration of the frame (`a_0`).
-After applying the pseudo force, we can treat the non-inertial frame as if it were inertial and apply `ΣF_real + F_pseudo = 0` (if the object is at rest in the accelerating frame).
+Newton's laws are only valid in inertial frames (non-accelerating frames). To apply them in a non-inertial frame (a frame accelerating with \`a_0\`), we must introduce a **pseudo force**.
+*   **Pseudo Force (\`F_p\`):** It is an imaginary force.
+*   **Magnitude:** \`F_p = ma\`, where \`m\` is the mass of the object being observed.
+*   **Direction:** It acts in the direction **opposite** to the acceleration of the frame (\`a_0\`).
+After applying the pseudo force, we can treat the non-inertial frame as if it were inertial and apply \`ΣF_real + F_pseudo = 0\` (if the object is at rest in the accelerating frame).
 
 **Example: The Lift Problem**
-*   **Lift Accelerating Upwards (a):** Apparent weight = `N = m(g+a)`. You feel heavier.
-*   **Lift Accelerating Downwards (a):** Apparent weight = `N = m(g-a)`. You feel lighter.
-*   **Lift in Free Fall (a=g):** Apparent weight = `N = m(g-g) = 0`. This is weightlessness.
+*   **Lift Accelerating Upwards (a):** Apparent weight = \`N = m(g+a)\`. You feel heavier.
+*   **Lift Accelerating Downwards (a):** Apparent weight = \`N = m(g-a)\`. You feel lighter.
+*   **Lift in Free Fall (a=g):** Apparent weight = \`N = m(g-g) = 0\`. This is weightlessness.
 
 `,
     workedExamples: [
@@ -230,6 +230,96 @@ After applying the pseudo force, we can treat the non-inertial frame as if it we
             "options": ["A. T√3", "B. T√3/2", "C. T/√3", "D. T/3"],
             "answer": "B. T√3/2",
             "explanation": "The time period T is proportional to 1/√g_eff. Initially, g_eff = g. When accelerating upwards, the effective gravity becomes g_eff' = g + a = g + g/3 = 4g/3. So, the new time period T' is proportional to 1/√(4g/3). The ratio T'/T = √(g / g_eff') = √(g / (4g/3)) = √(3/4) = √3/2. Therefore, T' = T√3/2."
+        },
+         {
+            question: "Action and reaction forces act on:",
+            options: ["A. The same body", "B. Different bodies", "C. The same body but in opposite directions", "D. Different bodies but in the same direction"],
+            answer: "B. Different bodies",
+            explanation: "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting objects. This is a fundamental property of these force pairs."
+        },
+        {
+            question: "A body of mass 2kg is sliding with a constant velocity of 4 m/s on a frictionless horizontal table. The force required to keep the body moving with the same velocity is:",
+            options: ["A. 8 N", "B. 2 N", "C. 0 N", "D. 32 N"],
+            answer: "C. 0 N",
+            explanation: "According to Newton's First Law, if a body is moving with constant velocity, its acceleration is zero. Therefore, the net force on the body is zero. Since the table is frictionless, no force is required to maintain the constant velocity."
+        },
+        {
+            question: "A bullet of mass 0.04 kg moving with a speed of 90 m/s enters a heavy wooden block and is stopped after a distance of 60 cm. The average resistive force exerted by the block on the bullet is:",
+            options: ["A. 270 N", "B. 200 N", "C. 150 N", "D. 300 N"],
+            answer: "A. 270 N",
+            explanation: "First, find the deceleration 'a' using v² = u² + 2as. Here, v=0, u=90, s=0.6m. So, 0 = 90² + 2a(0.6) => a = -8100 / 1.2 = -6750 m/s². The resistive force F = ma = 0.04 * 6750 = 270 N."
+        },
+        {
+            question: "Consider a car of mass 'm' moving on a banked road of radius 'r' with a speed 'v'. The angle of banking is 'θ'. For safe turning without friction, the speed is given by:",
+            options: ["A. √(rg tanθ)", "B. √(rg/tanθ)", "C. √(rg sinθ)", "D. √(rg/sinθ)"],
+            answer: "A. √(rg tanθ)",
+            explanation: "For safe banking, the horizontal component of the normal force provides the necessary centripetal force. Nsinθ = mv²/r and Ncosθ = mg. Dividing the two equations gives tanθ = v²/(rg), so v = √(rg tanθ)."
+        },
+        {
+            question: "If the net external force on a system of particles is zero, then which of the following must be constant?",
+            options: ["A. The kinetic energy of the system", "B. The acceleration of the center of mass", "C. The velocity of the center of mass", "D. The potential energy of the system"],
+            answer: "C. The velocity of the center of mass",
+            explanation: "If F_ext = 0, then the acceleration of the center of mass is zero (F_ext = M_total * a_cm). If the acceleration is zero, the velocity of the center of mass must be constant. Kinetic energy can change due to internal forces (e.g., in an explosion)."
+        },
+        {
+            question: "A man is standing in a spring-balance. If he jumps outside from the balance, then the reading of the spring-balance:",
+            options: ["A. first increases then decreases to zero", "B. first decreases then increases to zero", "C. remains same", "D. increases"],
+            answer: "A. first increases then decreases to zero",
+            explanation: "To jump, the man must first push down on the scale (action), which increases the reading (reaction). As he leaves the scale, he is airborne and no longer exerts a force, so the reading decreases to zero."
+        },
+        {
+            question: "A block of mass 2 kg is resting on a floor. The coefficient of static friction is 0.5. If a force of 2.5 N is applied on the block in parallel to the floor, the force of friction between the block and the floor is: (g = 10 N/kg)",
+            options: ["A. 2.5 N", "B. 10 N", "C. 5 N", "D. 0 N"],
+            answer: "A. 2.5 N",
+            explanation: "First, calculate the maximum static friction: f_max = μs * N = μs * mg = 0.5 * 2 * 10 = 10 N. Since the applied force (2.5 N) is less than the maximum static friction (10 N), the block will not move. Static friction is a self-adjusting force, so it will be equal to the applied force to maintain equilibrium. Thus, f = 2.5 N."
+        },
+        {
+            question: "A body of mass 5 kg is acted upon by two perpendicular forces 8 N and 6 N. The magnitude of the acceleration of the body is:",
+            options: ["A. 2 m/s²", "B. 2.8 m/s²", "C. 1.4 m/s²", "D. 10 m/s²"],
+            answer: "A. 2 m/s²",
+            explanation: "The net force is the vector sum of the two perpendicular forces. F_net = √(8² + 6²) = √(64 + 36) = √100 = 10 N. According to Newton's second law, a = F_net / m = 10 N / 5 kg = 2 m/s²."
+        },
+        {
+            question: "A block is kept on a frictionless inclined surface with angle of inclination 'α'. The incline is given an acceleration 'a' to keep the block stationary. Then 'a' is equal to:",
+            options: ["A. g tan(α)", "B. g / tan(α)", "C. g cosec(α)", "D. g"],
+            answer: "A. g tan(α)",
+            explanation: "In the non-inertial frame of the incline, a pseudo force 'ma' acts horizontally opposite to the acceleration. For the block to be stationary, the component of this pseudo force along the incline must balance the component of gravity along the incline. ma cos(α) = mg sin(α) => a = g (sin(α)/cos(α)) = g tan(α)."
+        },
+        {
+            question: "A marble block of mass 2 kg lying on ice when given a velocity of 6 m/s is stopped by friction in 10s. Then the coefficient of friction is:",
+            options: ["A. 0.02", "B. 0.03", "C. 0.06", "D. 0.01"],
+            answer: "C. 0.06",
+            explanation: "First, find the deceleration: v = u + at => 0 = 6 + a(10) => a = -0.6 m/s². The frictional force is F = ma = 2 * 0.6 = 1.2 N. We also know that F = μN = μmg. So, 1.2 = μ * 2 * 10 => μ = 1.2 / 20 = 0.06."
+        },
+        {
+            question: "The engine of a car produces an acceleration of 4 m/s² in the car. If this car pulls another car of same mass, what will be the acceleration produced?",
+            options: ["A. 2 m/s²", "B. 4 m/s²", "C. 1/2 m/s²", "D. 1/4 m/s²"],
+            answer: "A. 2 m/s²",
+            explanation: "Let the mass of the car be 'm' and the force produced by the engine be 'F'. Initially, F = m * 4. When it pulls another car of the same mass, the total mass of the system becomes 2m. The force produced by the engine is the same. So, F = (2m) * a'. Equating the two, m * 4 = 2m * a' => a' = 4/2 = 2 m/s²."
+        },
+        {
+            question: "Swimming is possible on account of:",
+            options: ["A. Newton's First Law of Motion", "B. Newton's Second Law of Motion", "C. Newton's Third Law of Motion", "D. Newton's Law of Gravitation"],
+            answer: "C. Newton's Third Law of Motion",
+            explanation: "A swimmer pushes water backward (action). The water, in turn, pushes the swimmer forward with an equal and opposite force (reaction), which allows for swimming. This is a direct application of Newton's Third Law."
+        },
+        {
+            question: "A gun of mass 10 kg fires 4 bullets per second. The mass of each bullet is 20 g and the velocity of the bullet when it leaves the gun is 300 m/s. The force required to hold the gun when firing is:",
+            options: ["A. 6 N", "B. 8 N", "C. 24 N", "D. 240 N"],
+            answer: "C. 24 N",
+            explanation: "The momentum of one bullet is p = mv = (0.020 kg) * (300 m/s) = 6 kg·m/s. The gun fires 4 bullets per second, so the rate of change of momentum is Δp/Δt = 4 * 6 kg·m/s / 1 s = 24 kg·m/s². By Newton's second law, this rate of change of momentum is equal to the force. So, the recoil force is 24 N."
+        },
+        {
+            question: "The dimensions of 'impulse' are the same as that of:",
+            options: ["A. Pressure", "B. Force", "C. Work", "D. Linear Momentum"],
+            answer: "D. Linear Momentum",
+            explanation: "Impulse is defined as the change in momentum (J = Δp). Therefore, its dimensions must be the same as that of linear momentum, which is [MLT⁻¹]."
+        },
+        {
+            question: "An object is in equilibrium under three concurrent forces. The resultant of any two forces:",
+            options: ["A. is equal and opposite to the third force", "B. is perpendicular to the third force", "C. has the same magnitude as the third force", "D. is zero"],
+            answer: "A. is equal and opposite to the third force",
+            explanation: "For the object to be in equilibrium, the net force must be zero (F₁ + F₂ + F₃ = 0). This implies that the resultant of any two forces (e.g., F₁ + F₂) must be equal in magnitude and opposite in direction to the third force (F₁ + F₂ = -F₃)."
         }
     ],
     assertionReasons: [
