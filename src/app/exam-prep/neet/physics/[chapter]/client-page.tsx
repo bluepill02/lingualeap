@@ -15,6 +15,7 @@ import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionC
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
+import { useToast } from '@/hooks/use-toast';
 
 interface NeetChapterClientPageProps {
   content: NeetModule;
@@ -25,6 +26,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
   const totalSections = 6;
 
   const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
+  const { toast } = useToast();
 
   if (isLoading) {
     return (
@@ -37,6 +39,13 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
   
   const handleCompleteSection = (section: string) => {
     toggleSection(section);
+  }
+
+  const handleClaimXp = () => {
+    toast({
+        title: "Achievement Unlocked! ✨",
+        description: "Congratulations! You've earned 150 XP for completing this chapter.",
+    });
   }
 
   const progress = (completedSections.length / totalSections) * 100;
@@ -240,7 +249,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       
        <Card className="mt-8">
         <CardContent className="p-4 text-center">
-            <Button size="lg" disabled={completedSections.length < totalSections}>Complete Chapter & Claim XP</Button>
+            <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim XP</Button>
         </CardContent>
        </Card>
     </div>
