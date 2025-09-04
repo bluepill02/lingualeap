@@ -48,35 +48,33 @@ The single most important skill in solving mechanics problems is drawing a Free-
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
 3.  **Identify and Draw All Forces:** Go through a checklist of forces. For each force, draw a vector arrow originating from your point, pointing in the correct direction.
-    *   **Non-Contact Force (தொடா விசை):** Does gravity (ஈர்ப்பு விசை) act on it? (Almost always, draw \`W = mg\` acting vertically downwards).
+    *   **Non-Contact Force (தொடா விசை):** Does gravity (ஈர்ப்பு விசை) act on it? (Almost always, draw **W = mg** acting vertically downwards).
     *   **Contact Forces (தொடு விசைகள்):** What is the object touching? Each point of contact can exert a force.
-        *   Is it on a surface? There is a **Normal Force (செங்குத்து விசை)** (\`N\`), perpendicular to the surface, pushing away from the surface.
-        *   Is a string or rope attached? There is **Tension (இழுவிசை)** (\`T\`), acting along the rope, pulling away from the object.
-        *   Is there friction? **Frictional Force (உராய்வு விசை)** (\`f\`) acts parallel to the surface, opposing relative motion or the *tendency* of motion.
-        *   Is a spring attached? **Spring Force (சுருள்வில் விசை)** (\`kx\`) acts along the spring.
+        *   Is it on a surface? There is a **Normal Force (செங்குத்து விசை, N)**, perpendicular to the surface, pushing away from the surface.
+        *   Is a string or rope attached? There is **Tension (இழுவிசை, T)**, acting along the rope, pulling away from the object.
+        *   Is there friction? **Frictional Force (உராய்வு விசை, f)** acts parallel to the surface, opposing relative motion or the *tendency* of motion.
+        *   Is a spring attached? **Spring Force (சுருள்வில் விசை, kx)** acts along the spring.
 4.  **Establish a Coordinate System:** Choose an x-y coordinate system. It's often smart to align one axis with the direction of acceleration.
 
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid.
-
-\`If \\vec{F}_{net} = 0, then \\vec{a} = 0 (which means \\vec{v} = constant)\`
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. **If F_net = 0, then a = 0 (which means v = constant)**.
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 
 \`\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}\`
 
-Since momentum \`\\vec{p} = m\\vec{v}\`, if mass \`m\` is constant, this simplifies to the famous equation:
+Since momentum **p = mv**, if mass 'm' is constant, this simplifies to the famous equation:
 
 \`\\vec{F}_{net} = m\\vec{a}\`
 
-This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\` and \`ΣF_y = ma_y\`. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: **ΣF_x = ma_x** and **ΣF_y = ma_y**. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (\`\\vec{F}_{AB} = -\\vec{F}_{BA}\`).
+*   Forces always occur in pairs (**F_AB = -F_BA**).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
@@ -88,15 +86,15 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
-*   **Pseudo Force (\`F_p\`):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** \`F_p = ma_0\`, where \`m\` is the mass of the object being observed, and \`a_0\` is the acceleration of the frame.
+*   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
+*   **Magnitude:** **F_p = ma₀**, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply \`ΣF_real + F_pseudo = ma_relative\` as if it were an inertial frame.
+Once you add the pseudo force, you can apply **ΣF_real + F_pseudo = ma_relative** as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
-Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`a\`.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are \`N\` (up), \`mg\` (down), and \`F_p = ma\` (down). For equilibrium in this frame, \`N = mg + ma = m(g+a)\`. The person feels heavier (தோற்ற எடை அதிகம்).
-*   **Lift Accelerating Downwards:** The pseudo force \`F_p = ma\` is now upwards. The forces are \`N\` (up), \`F_p\` (up), and \`mg\` (down). For equilibrium, \`N + ma = mg\`, so \`N = m(g-a)\`. The person feels lighter (தோற்ற எடை குறைவு).
+Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, **N = mg + ma = m(g+a)**. The person feels heavier (தோற்ற எடை அதிகம்).
+*   **Lift Accelerating Downwards:** The pseudo force **F_p = ma** is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, **N + ma = mg**, so **N = m(g-a)**. The person feels lighter (தோற்ற எடை குறைவு).
 `,
     workedExamples: [
         {
@@ -235,20 +233,20 @@ Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`
             question: "Action and reaction forces act on:",
             options: ["A. The same body", "B. Different bodies", "C. The same body but in opposite directions", "D. Different bodies but in the same direction"],
             answer: "B. Different bodies",
-            explanation: "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting objects. This is a fundamental property of these force pairs.",
+            explanation": "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting objects. This is a fundamental property of these force pairs.",
             neetFrequency: 5
         },
         {
             question: "A body of mass 2kg is sliding with a constant velocity of 4 m/s on a frictionless horizontal table. The force required to keep the body moving with the same velocity is:",
             options: ["A. 8 N", "B. 2 N", "C. 0 N", "D. 32 N"],
-            answer: "C. 0 N",
+            answer": "C. 0 N",
             "explanation": "According to Newton's First Law, if a body is moving with constant velocity, its acceleration is zero. Therefore, the net force on the body is zero. Since the table is frictionless, no force is required to maintain the constant velocity.",
             neetFrequency: 4
         },
         {
             question: "A bullet of mass 0.04 kg moving with a speed of 90 m/s enters a heavy wooden block and is stopped after a distance of 60 cm. The average resistive force exerted by the block on the bullet is:",
             options: ["A. 270 N", "B. 200 N", "C. 150 N", "D. 300 N"],
-            answer: "A. 270 N",
+            "answer": "A. 270 N",
             "explanation": "First, find the deceleration 'a' using v² = u² + 2as. Here, v=0, u=90, s=0.6m. So, 0 = 90² + 2a(0.6) => a = -8100 / 1.2 = -6750 m/s². The resistive force F = ma = 0.04 * 6750 = 270 N.",
             neetFrequency: 4
         },
@@ -418,31 +416,31 @@ Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`
             column1: ["(a) Inertia", "(b) Momentum", "(c) Impulse", "(d) Frictional Force"],
             column2: ["(p) `mv`", "(q) `μN`", "(r) `Δp`", "(s) Resistance to change in state"],
             answer: "a-s, b-p, c-r, d-q",
-            explanation: "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
+            explanation": "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
         },
         {
             column1: ["(a) Newton's First Law", "(b) Newton's Second Law", "(c) Newton's Third Law", "(d) Conservation of Momentum"],
             column2: ["(p) `F = dp/dt`", "(q) Action-Reaction", "(r) Defines Inertial Frame", "(s) Occurs when `F_ext = 0`"],
-            answer: "a-r, b-p, c-q, d-s",
-            explanation: "First law defines inertia. Second law relates force to momentum change. Third law defines action-reaction pairs. Conservation of momentum applies when net external force is zero."
+            answer": "a-r, b-p, c-q, d-s",
+            "explanation": "First law defines inertia. Second law relates force to momentum change. Third law defines action-reaction pairs. Conservation of momentum applies when net external force is zero."
         },
         {
             column1: ["(a) Static Friction", "(b) Kinetic Friction", "(c) Lift accelerating up", "(d) Lift accelerating down"],
             column2: ["(p) Constant value `μ_k * N`", "(q) Self-adjusting force", "(r) Apparent weight = `m(g-a)`", "(s) Apparent weight = `m(g+a)`"],
-            answer: "a-q, b-p, c-s, d-r",
+            answer": "a-q, b-p, c-s, d-r",
             "explanation": "Static friction is self-adjusting. Kinetic friction is constant. Apparent weight increases with upward acceleration and decreases with downward acceleration."
         },
         {
             column1: ["(a) Unit of Force", "(b) Unit of Impulse", "(c) Unit of Friction", "(d) Unit of Momentum"],
             column2: ["(p) Newton-second (N-s)", "(q) kg-m/s", "(r) Newton (N)", "(s) Newton (N)"],
-            answer: "a-r, b-p, c-s, d-q",
-            explanation: "Force and Friction are both measured in Newtons. Impulse has units of N-s, which is equivalent to kg-m/s, the unit for momentum."
+            answer": "a-r, b-p, c-s, d-q",
+            "explanation": "Force and Friction are both measured in Newtons. Impulse has units of N-s, which is equivalent to kg-m/s, the unit for momentum."
         },
         {
             column1: ["(a) Rocket Propulsion", "(b) A book on a table", "(c) Pushing a heavy box", "(d) A planet orbiting the sun"],
             column2: ["(p) Static Friction", "(q) Normal Force equals Weight", "(r) Centripetal Force", "(s) Conservation of Momentum"],
-            answer: "a-s, b-q, c-p, d-r",
-            explanation: "Rocket propulsion is based on conservation of momentum. A book on a table is a simple equilibrium case (N=W). Pushing a box involves overcoming static friction. Orbital motion requires a centripetal force."
+            answer": "a-s, b-q, c-p, d-r",
+            "explanation": "Rocket propulsion is based on conservation of momentum. A book on a table is a simple equilibrium case (N=W). Pushing a box involves overcoming static friction. Orbital motion requires a centripetal force."
         }
     ]
 };
