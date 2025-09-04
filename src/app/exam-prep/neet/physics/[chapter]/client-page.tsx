@@ -16,6 +16,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
+import { SyllabusMappingCard } from '@/components/exam/exam-components';
 
 interface NeetChapterClientPageProps {
   content: NeetModule;
@@ -127,12 +128,10 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                         <AlertTitle>Cultural Context</AlertTitle>
                         <AlertDescription>{culturalContext}</AlertDescription>
                     </Alert>}
-                    {syllabusMapping && syllabusMapping.length > 0 && <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
-                        <AlertTitle>TN Board Mapping</AlertTitle>
-                        <AlertDescription>{syllabusMapping[0].mappingDescription}</AlertDescription>
-                    </Alert>}
                 </CardContent>
             </Card>
+
+            <SyllabusMappingCard mapping={syllabusMapping} />
             
             <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('overview')} >
