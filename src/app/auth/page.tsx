@@ -20,12 +20,12 @@ import {
 export default function AuthPage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-background p-4">
-        <Tabs defaultValue="signin" className="w-full max-w-md">
-        <Card className="bg-card/80 backdrop-blur-sm">
+        <Tabs defaultValue="signup" className="w-full max-w-md">
+        <Card>
             <CardHeader className="text-center">
-                <CardTitle className="text-2xl font-headline">Welcome to LinguaLeap</CardTitle>
+                <CardTitle className="text-2xl font-headline">Welcome to Bite-Size Lingo</CardTitle>
                 <CardDescription>
-                Sign in or create an account to continue your language journey.
+                Sign in to continue your language journey
                 </CardDescription>
             </CardHeader>
             <CardContent className="p-4 pt-0">
@@ -51,8 +51,8 @@ export default function AuthPage() {
                 <TabsContent value="signup">
                     <CardContent className="space-y-4 pt-6">
                         <div className="space-y-2">
-                            <Label htmlFor="name-signup">Name</Label>
-                            <Input id="name-signup" placeholder="Your Name" />
+                            <Label htmlFor="name-signup">Full Name</Label>
+                            <Input id="name-signup" placeholder="Your Full Name" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="email-signup">Email</Label>
