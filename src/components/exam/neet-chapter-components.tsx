@@ -23,50 +23,11 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
-import { BlockMath } from 'react-katex';
+import { BlockMath, InlineMath } from 'react-katex';
 import { Separator } from '../ui/separator';
-
-function renderContent(content: string) {
-    if (typeof content !== 'string') {
-        return <pre>{JSON.stringify(content, null, 2)}</pre>;
-    }
-    const lines = content.split('\n');
-    const elements: React.ReactNode[] = [];
-
-    lines.forEach((line, index) => {
-        if (line.trim().startsWith('`')) {
-            const formulaLine = line.trim().slice(1, -1);
-            elements.push(
-                <div key={`formula-${index}`} className="bg-muted p-4 rounded-lg my-4">
-                    <BlockMath math={formulaLine} />
-                </div>
-            );
-        } else if (line.trim().startsWith('### ')) {
-            elements.push(<h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>);
-        } else if (line.trim().startsWith('#### ')) {
-            elements.push(<h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>);
-        } else if (line.trim().startsWith('*   **')) {
-            const parts = line.split('**');
-            elements.push(<p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>);
-        } else if (line.trim().startsWith('- ')) {
-            elements.push(<li key={index} className="ml-5 list-disc my-1">{line.substring(2)}</li>);
-        } else if (line.trim() === '') {
-           // empty line
-        } else if (line) { // Ensure the line is not empty
-            const parts = line.split(/<b>|<\/b>/g);
-            const lineElements = parts.map((part, i) => {
-                if (i % 2 === 1) { // This part was inside <b> tags
-                    return <strong key={i} className="font-semibold">{part}</strong>;
-                }
-                return part;
-            });
-            elements.push(<p key={index} className="my-2 leading-relaxed text-muted-foreground">{lineElements}</p>);
-        }
-    });
-    
-    return <>{elements}</>;
-}
-
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeKatex from 'rehype-katex';
 
 export function ConceptNotesCard({ content }: { content: string }) {
     return (
@@ -76,7 +37,26 @@ export function ConceptNotesCard({ content }: { content: string }) {
                 <CardDescription>Detailed explanations of key topics.</CardDescription>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
-                {renderContent(content)}
+                <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                    rehypePlugins={[rehypeKatex]}
+                    components={{
+                        p: ({node, ...props}) => <p className="my-2 leading-relaxed text-muted-foreground" {...props} />,
+                        h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3" {...props} />,
+                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2" {...props} />,
+                        li: ({node, ...props}) => <li className="ml-5 list-disc my-1" {...props} />,
+                        strong: ({node, ...props}) => <strong className="font-semibold" {...props} />,
+                        em: ({node, ...props}) => <i {...props} />,
+                        code: ({node, ...props}) => {
+                            if (node?.children[0]?.type === 'text') {
+                                return <BlockMath math={node.children[0].value} />;
+                            }
+                            return <code {...props} />;
+                        }
+                    }}
+                >
+                    {content}
+                </ReactMarkdown>
             </CardContent>
         </Card>
     );
@@ -112,7 +92,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <p className="font-bold mb-2">Solution:</p>
                             <ol className="list-decimal list-inside space-y-2">
                                 {example.solutionSteps.map((step, stepIndex) => (
-                                    <li key={stepIndex}>{step.toString()}</li>
+                                    <li key={stepIndex}>{step}</li>
                                 ))}
                             </ol>
                         </div>
