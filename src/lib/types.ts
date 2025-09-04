@@ -178,6 +178,7 @@ export interface MatchTheColumns {
 export interface KeyFormula {
     formula: string;
     description: string;
+    descriptionTamil?: string;
 }
 
 export interface KeyDiagram {
@@ -185,6 +186,11 @@ export interface KeyDiagram {
     description: string;
     diagram?: string;
     fbd?: FBDstep;
+}
+
+export interface BilingualContent {
+    english: string;
+    tamil?: string;
 }
 
 export interface NeetModule {
@@ -198,7 +204,7 @@ export interface NeetModule {
     conceptOverview?: string;
     tamilConnection?: string;
     culturalContext?: string;
-    conceptNotes: string;
+    conceptNotes: BilingualContent[];
     workedExamples: WorkedExample[];
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];

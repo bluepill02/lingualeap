@@ -22,7 +22,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
-import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
+import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram, BilingualContent } from '@/lib/types';
 import { Separator } from '../ui/separator';
 import { FbdBuilder } from './FbdBuilder';
 import { cn } from '@/lib/utils';
@@ -30,7 +30,7 @@ import { MarkdownRenderer } from './markdown-renderer';
 import { BilingualText } from './bilingual-text';
 
 
-export function ConceptNotesCard({ content }: { content: string }) {
+export function ConceptNotesCard({ content }: { content: BilingualContent[] }) {
     return (
         <Card>
             <CardHeader>
@@ -38,7 +38,9 @@ export function ConceptNotesCard({ content }: { content: string }) {
                 <CardDescription>Detailed explanations of key topics.</CardDescription>
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
-                <MarkdownRenderer>{content}</MarkdownRenderer>
+                {content.map((item, index) => (
+                    <BilingualText key={index} english={item.english} tamil={item.tamil} />
+                ))}
             </CardContent>
         </Card>
     );
@@ -134,7 +136,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                                     <MarkdownRenderer>{`$$${item.formula}$$`}</MarkdownRenderer>
                                 </TableCell>
                                 <TableCell>
-                                    <MarkdownRenderer>{item.description}</MarkdownRenderer>
+                                    <BilingualText english={item.description} tamil={item.descriptionTamil} />
                                 </TableCell>
                             </TableRow>
                         ))}
