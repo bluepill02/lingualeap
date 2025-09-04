@@ -78,4 +78,8 @@ export const qaChecklist: QAChecklistItem[] = [
     check: "Verify XML Structure",
     details: "All file modifications must be delivered in the strict, complete XML format.",
   },
+  {
+    check: "Add chapter number tag to the chapter cards",
+    details: "The UI for listing chapters should display a 'Chapter X' tag for clear organization."
+  },
 ];
