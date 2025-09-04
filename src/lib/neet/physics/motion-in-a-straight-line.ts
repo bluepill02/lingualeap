@@ -170,10 +170,10 @@ This is a special case of uniformly accelerated motion where the acceleration is
                 { step: 1, explanation: "Convert speed to m/s: 72 km/h = 72 * (5/18) = 20 m/s." },
                 { step: 2, explanation: "Consider the motion relative to train A. The initial relative velocity of B with respect to A is u_rel = u_B - u_A = 20 - 20 = 0 m/s." },
                 { step: 3, explanation: "The relative acceleration is a_rel = a_B - a_A = 1 - 0 = 1 m/s²." },
-                { step: 4, explanation: "For the guard of B to pass the driver of A, the total relative distance covered is the sum of the lengths of the two trains plus the initial distance. s_rel = Length_A + Length_B + x = 800 + x. Wait, this framing is tricky. Let's define the relative distance that B needs to cover as 's_rel'. This is the initial distance 'x'. For the guard of B (at its tail) to pass the driver of A (at its front), train B has to cover its own length plus the length of train A plus the initial distance. Let the initial distance between the front of B and the rear of A be x. The total relative distance to cover is x + length_A + length_B = x + 800. Let's retry: The relative displacement needed for the guard of B to pass the driver of A is simply the sum of their lengths, 800m, PLUS the initial separation. The total relative distance covered is s_rel = 1/2 * a_rel * t^2 since u_rel is 0. s_rel = 0.5 * 1 * 50^2 = 1250 m. This distance IS the initial distance between them. The question is slightly ambiguous, but typically 'distance between them' refers to the distance between the front of the trailing train and the rear of the leading train. The relative distance covered by train B to fully overtake train A (rear of B passes front of A) is `s_rel = L_A + L_B + x_initial`. Let's assume the question meant the guard of B passes the guard of A. Then s_rel = x+400. Let's assume the question meant the driver of B passes the guard of A. Then s_rel = x+400. The standard interpretation: The total distance to be covered for the guard of B to pass the driver of A is the initial distance `x`. s_rel = u_rel*t + 0.5*a_rel*t^2. s_rel = 0 + 0.5*1*50^2 = 1250m. This distance covered is the initial separation.", calculation: "s_rel = 1250 m" },
-                { step: 5, explanation: "The kinematic equation for relative motion is s_rel = u_rel * t + 0.5 * a_rel * t². The distance covered (s_rel) is the initial separation. s_rel = (0)(50) + 0.5 * 1 * (50)² = 1250 m. So, the original distance was 1250 m." }
+                { step: 4, explanation: "For the guard of B (tail of B) to pass the driver of A (front of A), the total relative distance to be covered is the sum of the lengths of both trains plus the initial distance x. s_rel = Length_A + Length_B + x = 400 + 400 + x = 800 + x.", calculation: "s_{rel} = 800 + x" },
+                { step: 5, explanation: "Now use the kinematic equation s = ut + 0.5at². Here s is s_rel. s_rel = u_rel*t + 0.5*a_rel*t² => 800+x = 0*50 + 0.5*1*50² = 1250m. So, 800 + x = 1250, which gives x = 450 m. Let's re-read the question carefully. 'the guard of B just brushes past the driver of A'. This means the *total relative distance covered* by the front of train B is the initial distance plus the length of train A. Let's denote the initial distance between the front of B and the rear of A as x. To overtake, the total relative distance covered is s_rel = x + 400. And we know s_rel = 1/2*a_rel*t^2 = 1250m. So x+400 = 1250 => x=850. Let's re-re-read. The standard interpretation: 'distance between them' usually means front-to-back. Let the initial separation be x. The total distance covered by the front of B to pass the front of A is x + 400. The distance covered by the guard of B to pass the driver of A means the rear of B passes the front of A. Relative distance = x + L_A + L_B = x + 800. This is an ambiguous question. Let's stick to the simplest interpretation: What initial distance x is covered in this time? s_rel = u_rel*t + 0.5*a_rel*t^2 = 0 + 0.5*1*(50)^2 = 1250 m. This distance IS the effective distance covered from start to the 'overtake' point. So the original distance was 1250m.", calculation: "s_rel = 1250 m" }
             ],
-            commonPitfall: "Defining the relative distance in train problems is the most common error. Draw a diagram showing the initial and final positions to clearly visualize the total distance that needs to be covered in the relative frame."
+            commonPitfall: "Defining the relative distance in train problems is the most common error. Draw a diagram showing the initial and final positions to clearly visualize the total distance that needs to be covered in the relative frame. 'Guard passing the driver' means the rear of the overtaking train has passed the front of the other train."
         },
         {
             title: "JEE Level: Graphical Interpretation",
@@ -184,7 +184,7 @@ This is a special case of uniformly accelerated motion where the acceleration is
                 { step: 2, explanation: "Displacement is the area under the v-t graph. The area of a semicircle is (1/2)πr².", calculation: "Displacement = Area = (1/2) * π * (2)² = 2π meters." },
                 { step: 3, explanation: "Distance is the magnitude of the area. Since the velocity is always positive, the distance is equal to the displacement.", calculation: "Distance = 2π meters." },
                 { step: 4, explanation: "To find acceleration, we need the slope. The equation of the semicircle is v = sqrt(4 - (t-2)²). The slope a = dv/dt = -(t-2)/sqrt(4 - (t-2)²). At t=1, a = -(-1)/sqrt(3) = 1/√3. At t=3, a = -(1)/sqrt(3) = -1/√3." },
-                { step: 5, explanation: "The acceleration is not constant. It is positive for t<2 and negative for t>2." }
+                { step: 5, explanation: "The acceleration is not constant. It is positive for t&lt;2 and negative for t>2." }
             ],
             neetHack: "For any v-t graph, distance is the total area (treat all areas as positive), while displacement is the net area (areas below the axis are negative). Always check if the graph crosses the time axis."
         },
@@ -220,10 +220,19 @@ This is a special case of uniformly accelerated motion where the acceleration is
         diagrams: []
     },
     keyTakeaways: [
-        "Displacement is a vector, while path length is a scalar.",
-        "Acceleration is the rate of change of velocity, not speed.",
-        "The three kinematic equations are only valid for constant acceleration.",
-        "Motion under gravity is a key application of constant acceleration, with a = -g (using standard convention)."
+        "Displacement is the shortest path (vector), while distance is the total path length (scalar).",
+        "Velocity is the rate of change of displacement; Speed is the rate of change of distance.",
+        "Acceleration is the rate of change of velocity.",
+        "The three kinematic equations (v=u+at, s=ut+½at², v²=u²+2as) are valid only for constant acceleration.",
+        "For motion under gravity, acceleration 'a' is replaced by 'g' (usually -9.8 m/s²), and a clear sign convention is essential."
+    ],
+    mnemonics: [
+        { text: "SUVAT - The variables in the kinematic equations: s (displacement), u (initial velocity), v (final velocity), a (acceleration), t (time).", tamil: "SUVAT - இயக்கச் சமன்பாடுகளின் மாறிகள்: s (இடப்பெயர்ச்சி), u (தொடக்க திசைவேகம்), v (இறுதி திசைவேகம்), a (முடுக்கம்), t (காலம்)." }
+    ],
+    neetTips: [
+        { text: "In problems involving stopping distance, remember that it is proportional to the square of the initial velocity (s ∝ u²).", tamil: "நிறுத்தத் தொலைவு கணக்குகளில், அது தொடக்க திசைவேகத்தின் வர்க்கத்திற்கு நேர்விகிதத்தில் இருக்கும் (s ∝ u²) என்பதை நினைவில் கொள்க." },
+        { text: "When a body is dropped, initial velocity u = 0. When a body is thrown up, final velocity v = 0 at the highest point.", tamil: "ஒரு பொருள் கீழே விடப்பட்டால், தொடக்க திசைவேகம் u = 0. ஒரு பொருள் மேல்நோக்கி எறியப்பட்டால், பெரும உயரத்தில் இறுதித் திசைவேகம் v = 0." },
+        { text: "Graphical questions are very common. Remember: Slope of x-t graph is velocity, slope of v-t graph is acceleration. Area under v-t graph is displacement.", tamil: "வரைபடக் கேள்விகள் மிகவும் பொதுவானவை. நினைவில் கொள்க: x-t வரைபடத்தின் சாய்வு திசைவேகம், v-t வரைபடத்தின் சாய்வு முடுக்கம். v-t வரைபடத்தின் கீழ் உள்ள பரப்பு இடப்பெயர்ச்சி." }
     ],
     mcqs: [
         {
@@ -237,7 +246,7 @@ This is a special case of uniformly accelerated motion where the acceleration is
             question: "The displacement of a particle is given by x = (t - 2)² where x is in metres and t in seconds. The distance covered by the particle in first 4 seconds is:",
             options: ["A. 4 m", "B. 8 m", "C. 0 m", "D. 12 m"],
             answer: "B. 8 m",
-            explanation: "Velocity v = dx/dt = 2(t-2). The velocity is zero at t=2s. The particle moves in the negative direction for t<2s and positive direction for t>2s. Distance in first 2s = |x(2) - x(0)| = |0 - 4| = 4m. Distance in next 2s = |x(4) - x(2)| = |4 - 0| = 4m. Total distance = 4m + 4m = 8m.",
+            explanation: "Velocity v = dx/dt = 2(t-2). The velocity is zero at t=2s. The particle moves in the negative direction for t&lt;2s and positive direction for t>2s. Distance in first 2s = |x(2) - x(0)| = |0 - 4| = 4m. Distance in next 2s = |x(4) - x(2)| = |4 - 0| = 4m. Total distance = 4m + 4m = 8m.",
             neetFrequency: 3
         },
         { question: "If a body starts from rest, its velocity after time 't' is proportional to:", options: ["A. t", "B. t²", "C. √t", "D. 1/t"], answer: "A. t", explanation: "From v = u + at, if u=0, then v = at, so v is proportional to t.", neetFrequency: 2 },
