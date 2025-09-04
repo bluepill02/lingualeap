@@ -58,7 +58,98 @@ In any physical process, certain quantities remain unchanged over time. These ar
 *   **Law of Conservation of Angular Momentum (கோண உந்தப் பாதுகாப்பு விதி):** If no external torque acts on a system, its total angular momentum remains constant.
 *   **Law of Conservation of Charge (மின்னூட்டப் பாதுகாப்பு விதி):** The total electric charge in an isolated system never changes.
 `,
-    workedExamples: [],
+    workedExamples: [
+        {
+            title: "Conceptual Example 1: The Unification of Forces",
+            difficulty: 'Easy',
+            problem: "Explain the principle of 'unification' in physics using the example of electromagnetism.\n\nதமிழ்: இயற்பியலில் 'ஒருங்கிணைத்தல்' என்ற கொள்கையை மின்காந்தவியல் உதாரணத்தைப் பயன்படுத்தி விளக்கவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Identify the separate phenomena before unification. Before the 19th century, electricity, magnetism, and light were considered three separate, unrelated phenomena.",
+                    explanationTamil: "ஒருங்கிணைப்பிற்கு முன் தனித்தனி நிகழ்வுகளை அடையாளம் காணவும். 19 ஆம் நூற்றாண்டிற்கு முன்பு, மின்சாரம், காந்தவியல் மற்றும் ஒளி ஆகியவை மூன்று தனித்தனி, தொடர்பில்லாத நிகழ்வுகளாகக் கருதப்பட்டன."
+                },
+                {
+                    step: 2,
+                    explanation: "Note the key scientific contributions that linked them. Scientists like Oersted, Faraday, and Ampere showed that electric currents could create magnetic fields and changing magnetic fields could create electric currents.",
+                    explanationTamil: "அவற்றை இணைத்த முக்கிய விஞ்ஞான பங்களிப்புகளைக் கவனிக்கவும். ஓர்ஸ்டெட், ఫారడే மற்றும் ஆம்பியர் போன்ற விஞ்ஞானிகள் மின்னோட்டங்கள் காந்தப்புலங்களை உருவாக்க முடியும் என்றும், மாறும் காந்தப்புலங்கள் மின்னோட்டங்களை உருவாக்க முடியும் என்றும் காட்டினர்."
+                },
+                {
+                    step: 3,
+                    explanation: "Describe the final unified theory. James Clerk Maxwell formulated a set of four equations (Maxwell's Equations) that described all electric and magnetic phenomena. These equations predicted the existence of electromagnetic waves traveling at the speed of light.",
+                    explanationTamil: "இறுதி ஒருங்கிணைந்த கோட்பாட்டை விவரிக்கவும். ஜேம்ஸ் கிளார்க் மாக்ஸ்வெல் நான்கு சமன்பாடுகளை (மாக்ஸ்வெல் சமன்பாடுகள்) உருவாக்கினார், அவை அனைத்து மின் மற்றும் காந்த நிகழ்வுகளையும் விவரித்தன. இந்த சமன்பாடுகள் ஒளியின் வேகத்தில் பயணிக்கும் மின்காந்த அலைகளின் இருப்பைக் கணித்தன."
+                },
+                {
+                    step: 4,
+                    explanation: "State the conclusion of the unification. This proved that light is an electromagnetic wave, thus unifying the three separate fields into a single, elegant theory of electromagnetism. This is a classic example of unification.",
+                    explanationTamil: "ஒருங்கிணைப்பின் முடிவைக் கூறவும். இது ஒளி ஒரு மின்காந்த அலை என்பதை நிரூபித்தது, இதனால் மூன்று தனித்தனி துறைகளையும் மின்காந்தவியலின் ஒற்றை, நேர்த்தியான கோட்பாட்டிற்குள் ஒருங்கிணைத்தது. இது ஒருங்கிணைப்பிற்கு ஒரு சிறந்த எடுத்துக்காட்டு."
+                }
+            ],
+            neetHack: "For NEET, remember the names associated with unification: Newton unified terrestrial and celestial mechanics. Maxwell unified electricity, magnetism, and optics. Einstein attempted to unify gravity and electromagnetism.",
+            neetHackTamil: "நீட் தேர்வுக்கு, ஒருங்கிணைப்புடன் தொடர்புடைய பெயர்களை நினைவில் கொள்ளுங்கள்: நியூட்டன் பூமி மற்றும் வான் இயக்கவியலை ஒருங்கிணைத்தார். மாக்ஸ்வெல் மின்சாரம், காந்தவியல் மற்றும் ஒளியியலை ஒருங்கிணைத்தார். ஐன்ஸ்டீன் ஈர்ப்பு மற்றும் மின்காந்தவியலை ஒருங்கிணைக்க முயன்றார்.",
+            commonPitfall: "Do not confuse unification with reductionism. Unification is about finding a single framework for different phenomena (e.g., electromagnetism). Reductionism is about explaining a system by its parts (e.g., explaining thermodynamics through the kinetic theory of gas molecules).",
+            commonPitfallTamil: "ஒருங்கிணைத்தலையும் குறைத்தல்வாதத்தையும் குழப்பிக் கொள்ளாதீர்கள். ஒருங்கிணைத்தல் என்பது வெவ்வேறு நிகழ்வுகளுக்கு ஒரு ஒற்றை கட்டமைப்பைக் கண்டுபிடிப்பது (எ.கா., மின்காந்தவியல்). குறைத்தல்வாதம் என்பது ஒரு அமைப்பை அதன் பாகங்களால் விளக்குவது (எ.கா., வாயு மூலக்கூறுகளின் இயக்கவியல் கோட்பாட்டின் மூலம் வெப்ப இயக்கவியலை விளக்குவது)."
+        },
+        {
+            title: "Conceptual Example 2: Identifying Fundamental Forces",
+            difficulty: 'Medium',
+            problem: "In the beta decay process (β-சிதைவு), a neutron inside a nucleus converts into a proton and an electron. Which fundamental force is responsible for this phenomenon? Justify your answer.\n\nதமிழ்: β-சிதைவு செயல்பாட்டில், ஒரு உட்கருவில் உள்ள நியூட்ரான் ஒரு புரோட்டான் மற்றும் ஒரு எலக்ட்ரானாக மாறுகிறது. இந்த நிகழ்வுக்கு எந்த அடிப்படை விசை காரணமாகும்? உங்கள் பதிலுக்கான காரணத்தைக் கூறவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Analyze the Strong Nuclear Force's role. The strong force binds protons and neutrons together. Since beta decay involves the *transformation* of a neutron, not just its binding, the strong force is not the primary cause.",
+                    explanationTamil: "வலுவான அணுக்கரு விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். வலுவான விசை புரோட்டான்களையும் நியூட்ரான்களையும் பிணைக்கிறது. β-சிதைவு ஒரு நியூட்ரானின் மாற்றத்தை உள்ளடக்கியிருப்பதால், அதன் பிணைப்பை மட்டுமல்ல, வலுவான விசை முதன்மைக் காரணம் அல்ல."
+                },
+                {
+                    step: 2,
+                    explanation: "Analyze the Electromagnetic Force's role. The electromagnetic force acts on charged particles. A neutron is neutral, so this force cannot initiate its decay. While it acts on the resulting proton and electron, it doesn't cause the transformation itself.",
+                    explanationTamil: "மின்காந்த விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். மின்காந்த விசை மின்னூட்டத் துகள்கள் மீது செயல்படுகிறது. ஒரு நியூட்ரான் நடுநிலையானது, எனவே இந்த விசை அதன் சிதைவைத் தொடங்க முடியாது. இது விளைந்த புரோட்டான் மற்றும் எலக்ட்ரான் மீது செயல்பட்டாலும், அது மாற்றத்தை ஏற்படுத்தாது."
+                },
+                {
+                    step: 3,
+                    explanation: "Analyze the Gravitational Force's role. Gravity is extremely weak at the subatomic scale (10⁻³⁸ relative strength) and is completely negligible in nuclear processes.",
+                    explanationTamil: "ஈர்ப்பு விசையின் பங்கை பகுப்பாய்வு செய்யுங்கள். ஈர்ப்பு விசை அணு அளவில் மிகவும் பலவீனமானது (சார்பு வலிமை 10⁻³⁸) மற்றும் அணுக்கரு செயல்பாடுகளில் முற்றிலும் புறக்கணிக்கத்தக்கது."
+                },
+                {
+                    step: 4,
+                    explanation: "Conclude with the Weak Nuclear Force. By elimination, the Weak Nuclear Force is responsible. Its defining characteristic is that it can change the 'flavor' of quarks, which is exactly what happens when a neutron (one up quark, two down quarks) changes into a proton (two up quarks, one down quark). This force is the only one of the four that can do this.",
+                    explanationTamil: "மெலிந்த அணுக்கரு விசையுடன் முடிக்கவும். நீக்குதல் மூலம், மெலிந்த அணுக்கரு விசையே இதற்குப் பொறுப்பு. குவார்க்குகளின் 'சுவையை' மாற்றும் திறன் அதன் வரையறுக்கும் பண்பு, இதுவே நியூட்ரான் (ஒரு அப் குவார்க், இரண்டு டவுன் குவார்க்குகள்) புரோட்டானாக (இரண்டு அப் குவார்க்குகள், ஒரு டவுன் குவார்க்) மாறும் போது நிகழ்கிறது. நான்கு விசைகளில் இந்த விசையால் மட்டுமே இதைச் செய்ய முடியும்."
+                }
+            ],
+            neetHack: "Remember the key roles: Strong force = Nuclear binding. Electromagnetic = Charged particle interaction. Gravity = Celestial mechanics. Weak force = Radioactive decay (like beta decay). This simple mapping solves most questions on this topic.",
+            neetHackTamil: "முக்கிய பங்குகளை நினைவில் கொள்ளுங்கள்: வலுவான விசை = அணுக்கரு பிணைப்பு. மின்காந்த விசை = மின்னூட்டத் துகள்களின் தொடர்பு. ஈர்ப்பு = வான்பொருள் இயக்கவியல். மெலிந்த விசை = கதிரியக்கச் சிதைவு (β-சிதைவு போன்றவை). இந்த எளிய வரைபடம் இந்தப் தலைப்பில் உள்ள பெரும்பாலான கேள்விகளைத் தீர்க்கும்."
+        }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'F_G \\propto \\frac{m_1 m_2}{r^2}',
+                description: 'Gravitational Force is proportional to the product of masses and inversely proportional to the square of the distance.'
+            },
+            {
+                formula: 'F_E \\propto \\frac{q_1 q_2}{r^2}',
+                description: 'Electromagnetic Force is proportional to the product of charges and inversely proportional to the square of the distance.'
+            }
+        ],
+        diagrams: [
+             {
+                title: 'Hierarchy of Fundamental Forces',
+                description: 'A conceptual diagram showing the relative strength of the four fundamental forces.',
+                diagram: `
+Strong Nuclear Force (10³⁸)
+    |
+    v
+Electromagnetic Force (10³⁶)
+    |
+    v
+Weak Nuclear Force (10²⁵)
+    |
+    v
+Gravitational Force (1)
+                `
+            }
+        ]
+    },
     mcqs: [
         {
             question: "Which of the following is the weakest fundamental force in nature?",
