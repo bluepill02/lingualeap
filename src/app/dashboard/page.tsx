@@ -25,6 +25,7 @@ import {
   Users,
   Crown,
   Loader2,
+  Star,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -339,20 +340,40 @@ export default function DashboardPage() {
       )
   }
 
+  const xpForNextLevel = 1000;
+  const currentLevel = Math.floor(mockUser.xp / xpForNextLevel);
+  const xpForCurrentLevel = currentLevel * xpForNextLevel;
+  const xpIntoCurrentLevel = mockUser.xp - xpForCurrentLevel;
+  const levelProgress = (xpIntoCurrentLevel / xpForNextLevel) * 100;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="md:col-span-2 space-y-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold">
-            {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
-          </h1>
-          <div className="flex gap-2">
-             <Link href="/settings">
-              <Button variant="ghost" size="icon">
-                <Settings className="h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
+        <div>
+            <div className="flex justify-between items-start">
+            <div>
+                <h1 className="text-2xl font-bold">
+                    {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
+                </h1>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                    <Star className="w-4 h-4 text-yellow-400" />
+                    <span>Level {currentLevel}</span>
+                </div>
+            </div>
+            <div className="flex gap-2">
+                <Link href="/settings">
+                <Button variant="ghost" size="icon">
+                    <Settings className="h-5 w-5" />
+                </Button>
+                </Link>
+            </div>
+            </div>
+            <div className="mt-2">
+                <Progress value={levelProgress} className="h-2" />
+                <p className="text-xs text-muted-foreground text-right mt-1">
+                    {xpIntoCurrentLevel.toLocaleString()} / {xpForNextLevel.toLocaleString()} XP
+                </p>
+            </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

@@ -6,6 +6,7 @@ export interface User {
   email: string;
   avatarUrl: string;
   streak: number;
+  xp: number;
   language: string;
   timezone: string;
   isPro: boolean;
