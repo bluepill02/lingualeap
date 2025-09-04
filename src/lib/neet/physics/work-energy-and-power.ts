@@ -1,5 +1,8 @@
 
 import type { NeetModule } from '@/lib/types';
+import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
+import { ActionReactionAnimation } from '@/components/exam/ActionReactionAnimation';
+import { LiftAnimation } from '@/components/exam/LiftAnimation';
 
 export const workEnergyAndPowerModule: NeetModule = {
     id: 'neet-physics-work-energy-and-power',
@@ -33,7 +36,7 @@ export const workEnergyAndPowerModule: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Work (வேலை)
-Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a [[scalar quantity:ஸ்கேலார் அளவு]]. (ஒரு விசையானது அது செயல்படும் பொருளில் ஒரு இடப்பெயர்ச்சியை உருவாக்கும் போது வேலை செய்யப்பட்டது என்று கூறப்படுகிறது. இது ஒரு ஸ்கேலார் அளவு.)
+Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a scalar quantity (ஸ்கேலார் அளவு). (ஒரு விசையானது அது செயல்படும் பொருளில் ஒரு இடப்பெயர்ச்சியை உருவாக்கும் போது வேலை செய்யப்பட்டது என்று கூறப்படுகிறது. இது ஒரு ஸ்கேலார் அளவு.)
 
 #### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
 If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors. (ஒரு நிலையான விசை $\\vec{F}$ ஒரு பொருளின் மீது செயல்பட்டு $\\vec{s}$ என்ற இடப்பெயர்ச்சியை உருவாக்கினால், செய்யப்பட்ட வேலை என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களின் புள்ளிப் பெருக்கல் ஆகும்.)
@@ -41,9 +44,9 @@ $$
 W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta
 $$
 where $\\theta$ is the angle between the force and displacement vectors. (இங்கு $\\theta$ என்பது விசை மற்றும் இடப்பெயர்ச்சி வெக்டர்களுக்கு இடையிலான கோணம் ஆகும்.)
-*   **Positive Work ($\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body. (நேர் வேலை: விசை இடப்பெயர்ச்சியின் திசையில் ஒரு கூறைக் கொண்டுள்ளது. எ.கா., கீழே விழும் பொருளின் மீது ஈர்ப்பு விசையால் செய்யப்படும் வேலை.)
-*   **Negative Work ($\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction. (எதிர் வேலை: விசை இடப்பெயர்ச்சியின் திசைக்கு எதிராக ஒரு கூறைக் கொண்டுள்ளது. எ.கா., உராய்வு விசையால் செய்யப்படும் வேலை.)
-*   **Zero Work ($\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion. (சுழி வேலை: விசை இடப்பெயர்ச்சிக்கு செங்குத்தாக உள்ளது. எ.கா., சீரான வட்ட இயக்கத்தில் மையநோக்கு விசையால் செய்யப்படும் வேலை.)
+*   **Positive Work (நேர் வேலை, $\\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body. (விசை இடப்பெயர்ச்சியின் திசையில் ஒரு கூறைக் கொண்டுள்ளது. எ.கா., கீழே விழும் பொருளின் மீது ஈர்ப்பு விசையால் செய்யப்படும் வேலை.)
+*   **Negative Work (எதிர் வேலை, $\\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction. (விசை இடப்பெயர்ச்சியின் திசைக்கு எதிராக ஒரு கூறைக் கொண்டுள்ளது. எ.கா., உராய்வு விசையால் செய்யப்படும் வேலை.)
+*   **Zero Work (சுழி வேலை, $\\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion. (விசை இடப்பெயர்ச்சிக்கு செங்குத்தாக உள்ளது. எ.கா., சீரான வட்ட இயக்கத்தில் மையநோக்கு விசையால் செய்யப்படும் வேலை.)
 
 #### Work Done by a Variable Force (மாறும் விசையால் செய்யப்பட்ட வேலை)
 If the force is not constant, we find the work done by integrating the force over the path. (விசை மாறிலியாக இல்லையென்றால், பாதையின் மீது விசையை தொகையீடு செய்வதன் மூலம் செய்யப்பட்ட வேலையைக் காண்கிறோம்.)
@@ -74,7 +77,7 @@ $$
 {{LIFT_ANIMATION}}
 
 #### Potential Energy (நிலை ஆற்றல் - P.E.)
-The energy stored in a body by virtue of its position or configuration. It is defined only for **[[conservative forces:பாதுகாப்பு விசைகள்]]**. (ஒரு பொருளின் நிலை அல்லது அமைப்பின் காரணமாக அதில் சேமிக்கப்படும் ஆற்றல். இது பாதுகாப்பு விசைகளுக்கு மட்டுமே வரையறுக்கப்படுகிறது.)
+The energy stored in a body by virtue of its position or configuration. It is defined only for **conservative forces (பாதுகாப்பு விசைகள்)**. (ஒரு பொருளின் நிலை அல்லது அமைப்பின் காரணமாக அதில் சேமிக்கப்படும் ஆற்றல். இது பாதுகாப்பு விசைகளுக்கு மட்டுமே வரையறுக்கப்படுகிறது.)
 *   **Gravitational Potential Energy (ஈர்ப்பு நிலை ஆற்றல்):** $P.E. = mgh$
 *   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression. (இங்கு k என்பது சுருள்வில் மாறிலி மற்றும் x என்பது நீட்சி அல்லது அமுக்கம்.)
 
@@ -101,8 +104,8 @@ The SI unit of power is the Watt (W). (1 W = 1 J/s). Another common unit is hors
 ### 5. Collisions (மோதல்கள்)
 A collision is an event in which two or more bodies exert forces on each other for a relatively short time. (மோதல் என்பது இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்கள் ஒப்பீட்டளவில் குறுகிய காலத்திற்கு ஒன்றின் மீது ஒன்று விசைகளைச் செலுத்தும் ஒரு நிகழ்வு ஆகும்.)
 *   **Total linear momentum is always conserved** in any collision if there is no external force on the system. (ஒரு அமைப்பின் மீது புற விசை இல்லாத நிலையில், எந்தவொரு மோதலிலும் மொத்த நேர்கோட்டு உந்தம் எப்போதும் பாதுகாக்கப்படுகிறது.)
-*   **[[Elastic Collision:மீள் மோதல்]]:** A collision in which both momentum and kinetic energy are conserved. (உந்தம் மற்றும் இயக்க ஆற்றல் இரண்டும் பாதுகாக்கப்படும் ஒரு மோதல்.)
-*   **[[Inelastic Collision:மீளாத மோதல்]]:** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision. (உந்தம் பாதுகாக்கப்பட்டு, ஆனால் இயக்க ஆற்றல் பாதுகாக்கப்படாத ஒரு மோதல். சில இயக்க ஆற்றல் வெப்பம், ஒலி அல்லது சிதைவாக இழக்கப்படுகிறது. மோதலுக்குப் பிறகு பொருட்கள் ஒன்றாக ஒட்டிக்கொண்டால் அது ஒரு முழுமையான மீளாத மோதல் ஆகும்.)
+*   **Elastic Collision (மீள் மோதல்):** A collision in which both momentum and kinetic energy are conserved. (உந்தம் மற்றும் இயக்க ஆற்றல் இரண்டும் பாதுகாக்கப்படும் ஒரு மோதல்.)
+*   **Inelastic Collision (மீளாத மோதல்):** A collision in which momentum is conserved, but kinetic energy is not. Some kinetic energy is lost as heat, sound, or deformation. A **perfectly inelastic collision** is one where the objects stick together after the collision. (உந்தம் பாதுகாக்கப்பட்டு, ஆனால் இயக்க ஆற்றல் பாதுகாக்கப்படாத ஒரு மோதல். சில இயக்க ஆற்றல் வெப்பம், ஒலி அல்லது சிதைவாக இழக்கப்படுகிறது. மோதலுக்குப் பிறகு பொருட்கள் ஒன்றாக ஒட்டிக்கொண்டால் அது ஒரு முழுமையான மீளாத மோதல் ஆகும்.)
 `,
     workedExamples: [
         {

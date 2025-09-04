@@ -1,5 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
+import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
+import { ActionReactionAnimation } from '@/components/exam/ActionReactionAnimation';
 
 export const rotationalMotion: NeetModule = {
     id: 'neet-physics-rotational-motion',
@@ -32,71 +34,71 @@ export const rotationalMotion: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Center of Mass (நிறை மையம்)
-The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point. [[(துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.):tamil]]
-For a system of n particles: [[(n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:):tamil]]
+The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point. (துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.)
+For a system of n particles: (n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:)
 $$
 \\vec{R}_{CM} = \\frac{m_1\\vec{r}_1 + m_2\\vec{r}_2 + ... + m_n\\vec{r}_n}{m_1 + m_2 + ... + m_n} = \\frac{\\sum m_i\\vec{r}_i}{M}
 $$
-For a continuous body, we integrate: [[(ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:):tamil]]
+For a continuous body, we integrate: (ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:)
 $$
 \\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r} \\,dm
 $$
-The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$. [[(நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.):tamil]]
+The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$. (நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.)
 
 ### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
-*   **Torque ([[\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force. [[(விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.):tamil]]
+*   **Torque (திருப்புவிசை, $\\vec{\\tau}$):** The rotational analogue of force. It is the turning effect of a force. (விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.)
 $$
 \\vec{\\tau} = \\vec{r} \\times \\vec{F}
 $$
-Magnitude: $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule. [[(எண்மதிப்பு: $\\tau = rF \\sin\\theta$. திசை வலது கை விதியால் கொடுக்கப்படுகிறது.):tamil]]
+Magnitude: $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule. (எண்மதிப்பு: $\\tau = rF \\sin\\theta$. திசை வலது கை விதியால் கொடுக்கப்படுகிறது.)
 
-*   **Angular Momentum ([[\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle: [[(நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:):tamil]]
+*   **Angular Momentum (கோண உந்தம், $\\vec{L}$):** The rotational analogue of linear momentum. For a single particle: (நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:)
 $$
 \\vec{L} = \\vec{r} \\times \\vec{p}
 $$
-where $\\vec{p}$ is the linear momentum. Magnitude: $L = rp \\sin\\theta = mvr \\sin\\theta$. [[(இங்கு $\\vec{p}$ என்பது நேர்கோட்டு உந்தம். எண்மதிப்பு: $L = rp \\sin\\theta = mvr \\sin\\theta$.):tamil]]
+where $\\vec{p}$ is the linear momentum. Magnitude: $L = rp \\sin\\theta = mvr \\sin\\theta$. (இங்கு $\\vec{p}$ என்பது நேர்கோட்டு உந்தம். எண்மதிப்பு: $L = rp \\sin\\theta = mvr \\sin\\theta$.)
 
-*   **Rotational Second Law ([[\text{சுழற்சிக்கான இரண்டாம் விதி}]])**: The net external torque on a system is equal to the rate of change of its angular momentum. [[(ஒரு அமைப்பின் மீதான நிகர வெளிப்புற திருப்புவிசை அதன் கோண உந்தத்தின் மாறுவீதத்திற்கு சமம்.):tamil]]
+*   **Rotational Second Law (சுழற்சிக்கான இரண்டாம் விதி)**: The net external torque on a system is equal to the rate of change of its angular momentum. (ஒரு அமைப்பின் மீதான நிகர வெளிப்புற திருப்புவிசை அதன் கோண உந்தத்தின் மாறுவீதத்திற்கு சமம்.)
 $$
 \\vec{\\tau}_{ext} = \\frac{d\\vec{L}}{dt}
 $$
 
 ### 3. Moment of Inertia and Rotational Dynamics (நிலைமத் திருப்புத்திறன் மற்றும் சுழற்சி இயக்கவியல்)
-*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation. [[(நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.):tamil]]
-For a system of particles: $I = \\sum m_i r_i^2$. [[(துகள் அமைப்புக்கு: $I = \\sum m_i r_i^2$):tamil]]
-For a rigid body: $I = \\int r^2 \\,dm$. [[(திண்மப் பொருளுக்கு: $I = \\int r^2 \\,dm$):tamil]]
+*   **Moment of Inertia (நிலைமத் திருப்புத்திறன், I):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation. (நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.)
+For a system of particles: $I = \\sum m_i r_i^2$. (துகள் அமைப்புக்கு: $I = \\sum m_i r_i^2$)
+For a rigid body: $I = \\int r^2 \\,dm$. (திண்மப் பொருளுக்கு: $I = \\int r^2 \\,dm$)
 
-*   **Relationship for a Rigid Body ([[\text{ஒரு திண்மப் பொருளுக்கான தொடர்பு}]])**: For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by: [[(ஒரு நிலையான அச்சைப் பற்றி சுழலும் ஒரு திண்மப் பொருளுக்கு, திருப்புவிசை, நிலைமத் திருப்புத்திறன் மற்றும் கோண முடுக்கம் (α) ஆகியவை பின்வருமாறு தொடர்புடையவை:):tamil]]
+*   **Relationship for a Rigid Body (ஒரு திண்மப் பொருளுக்கான தொடர்பு)**: For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by: (ஒரு நிலையான அச்சைப் பற்றி சுழலும் ஒரு திண்மப் பொருளுக்கு, திருப்புவிசை, நிலைமத் திருப்புத்திறன் மற்றும் கோண முடுக்கம் (α) ஆகியவை பின்வருமாறு தொடர்புடையவை:)
 $$
 \\tau = I \\alpha
 $$
-This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. [[(இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.):tamil]]
+This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. (இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.)
 
-{{INERTIA_ANIMATION}}
+{{CONSERVATION_OF_ANGULAR_MOMENTUM_ANIMATION}}
 
 #### Theorems of Moment of Inertia (நிலைமத் திருப்புத்திறன் தேற்றங்கள்):
-1.  **Parallel Axis Theorem ([[\\text{இணை அச்சுத் தேற்றம்}]])**: The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. [[(ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.):tamil]]
+1.  **Parallel Axis Theorem (இணை அச்சுத் தேற்றம்)**: The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. (ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.)
 $$
 I = I_{CM} + Md^2
 $$
-2.  **Perpendicular Axis Theorem ([[\\text{செங்குத்து அச்சுத் தேற்றம்}]])**: For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$). [[(ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).):tamil]]
+2.  **Perpendicular Axis Theorem (செங்குத்து அச்சுத் தேற்றம்)**: For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$). (ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).)
 $$
 I_z = I_x + I_y
 $$
 
 ### 4. Rolling Motion (உருளுதல் இயக்கம்)
-Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$. [[(உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.):tamil]]
-The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies. [[(ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.):tamil]]
+Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$. (உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.)
+The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies. (ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.)
 $$
 K_{total} = K_{trans} + K_{rot} = \\frac{1}{2}Mv_{CM}^2 + \\frac{1}{2}I_{CM}\\omega^2
 $$
 
 ### 5. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
-If the **net external torque** on a system is zero, its total angular momentum remains constant. [[(ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.):tamil]]
+If the **net external torque** on a system is zero, its total angular momentum remains constant. (ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.)
 $$
 \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant}
 $$
-This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase). [[(இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).):tamil]]
+This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase). (இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).)
 `,
     workedExamples: [
         {
