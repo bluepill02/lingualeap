@@ -74,8 +74,6 @@ $$
 $$
 This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. (இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.)
 
-{{CONSERVATION_OF_ANGULAR_MOMENTUM_ANIMATION}}
-
 #### Theorems of Moment of Inertia (நிலைமத் திருப்புத்திறன் தேற்றங்கள்):
 1.  **Parallel Axis Theorem (இணை அச்சுத் தேற்றம்)**: The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. (ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.)
 $$
