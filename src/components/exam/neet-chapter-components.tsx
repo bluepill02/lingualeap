@@ -64,7 +64,6 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                          p: ({node, ...props}) => {
                            const childrenArray = Children.toArray(props.children);
                            
-                           // Check for custom animation components
                            const firstChild = childrenArray[0];
                            if (typeof firstChild === 'string') {
                                if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
@@ -78,13 +77,6 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                                }
                            }
                            
-                           // Check for Block Math: paragraph with a single child that is a string starting and ending with $$
-                           if (childrenArray.length === 1 && typeof firstChild === 'string' && firstChild.trim().startsWith('$$') && firstChild.trim().endsWith('$$')) {
-                                const math = firstChild.trim().slice(2, -2).trim();
-                                return <BlockMath math={math} />;
-                           }
-                           
-                           // Default paragraph rendering with tooltip support
                            const newChildren = childrenArray.map((child, index) => {
                                if (typeof child === 'string') {
                                    return renderTextWithTooltips(child);
@@ -100,7 +92,6 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         li: ({ node, ...props }) => {
                             const childrenArray = Children.toArray(props.children);
                             const newChildren = childrenArray.map((child, index) => {
-                                // Handle cases where list items are wrapped in <p> tags by markdown parser
                                 if (React.isValidElement(child) && child.type === 'p') {
                                      const pChildren = Children.toArray(child.props.children);
                                      return pChildren.map((pChild, pIndex) => typeof pChild === 'string' ? renderTextWithTooltips(pChild) : pChild);
