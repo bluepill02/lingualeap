@@ -20,6 +20,7 @@ const chapterGroups = {
         { id: 'motion-in-a-plane', title: 'Physics - Motion in a Plane (தளத்தில் இயக்கம்)', quirkyFact: "From cricket balls to planets." },
         { id: 'laws-of-motion', title: 'Physics - Laws of Motion (இயக்க விதிகள்)', quirkyFact: "Why apples fall and rockets fly." },
         { id: 'work-energy-and-power', title: 'Physics - Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)', quirkyFact: "The currency of the universe." },
+        { id: 'rotational-motion', title: 'Physics - System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)', quirkyFact: "Why spinning makes things stable." },
     ],
     bridge: []
 }
@@ -122,7 +123,7 @@ export default function NeetPhysicsPage() {
                 <p className="text-sm text-muted-foreground">Completed</p>
             </div>
             <div>
-                <p className="text-2xl font-bold">6</p>
+                <p className="text-2xl font-bold">7</p>
                 <p className="text-sm text-muted-foreground">Total Chapters</p>
             </div>
              <div>
