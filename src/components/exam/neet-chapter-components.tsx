@@ -139,7 +139,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <p className="font-bold mb-2">Solution:</p>
                             <ol className="list-decimal list-inside space-y-2">
                                 {example.solutionSteps.map((step, stepIndex) => (
-                                    <li key={stepIndex}>{step}</li>
+                                    <li key={stepIndex}>{step.toString()}</li>
                                 ))}
                             </ol>
                         </div>
@@ -425,5 +425,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
+
+    
 
     
