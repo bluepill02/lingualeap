@@ -24,7 +24,8 @@ export const physicsAndMeasurement: NeetModule = {
             topic: 'Units, Dimensions, Errors',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 1: Nature of Physical World and Measurement',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 2: Units and Measurement',
-            notes: 'A guaranteed source of at least one question in NEET. Dimensional analysis problems are very common. Error propagation is another high-yield area.'
+            notes: 'A guaranteed source of at least one question in NEET. Dimensional analysis problems are very common. Error propagation is another high-yield area.',
+            mappingDescription: ''
         }
     ],
     conceptNotes: `### 1. Units and Systems of Units (அலகுகளும் அலகு முறைகளும்)
@@ -43,13 +44,13 @@ export const physicsAndMeasurement: NeetModule = {
 
 ### 2. Dimensional Analysis (பரிமாணப் பகுப்பாய்வு)
 Dimensions of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. We denote them with square brackets, e.g., [L], [M], [T].
-*   **Dimensional Formula:** An expression showing how a derived quantity depends on fundamental ones. E.g., Force = Mass × Acceleration = M × (L/T²) => [MLT⁻²].
+*   **Dimensional Formula:** An expression showing how a derived quantity depends on fundamental ones. E.g., Force = Mass × Acceleration = M × (L/T²) => \`[MLT⁻²]\`.
 
 #### Applications:
 1.  **Principle of Homogeneity (பரிமாணங்களின் ஒருபடித்தான நெறிமுறை):** An equation is dimensionally correct only if the dimensions of all the terms on both sides are the same. You can only add or subtract quantities that have the same dimensions.
 2.  **Checking Correctness of Equations:** Verify if the dimensions on the LHS equal the dimensions on the RHS.
 3.  **Deriving Relationships:** If you know a quantity depends on others, you can find the relationship between them. E.g., if Time period T depends on length (l) and gravity (g), we can say T ∝ lᵃgᵇ and solve for a and b using dimensional analysis.
-4.  **Converting Units:** Converting a quantity from one system of units to another. The principle is *n₁u₁ = n₂u₂*, where n is the numerical value and u is the unit.
+4.  **Converting Units:** Converting a quantity from one system of units to another. The principle is \`n₁u₁ = n₂u₂\`, where n is the numerical value and u is the unit.
 
 ### 3. Significant Figures (முக்கிய எண்ணுருக்கள்)
 Significant figures in a measurement are the reliable digits plus the first uncertain digit. They indicate the precision of a measurement.
@@ -68,8 +69,8 @@ Significant figures in a measurement are the reliable digits plus the first unce
 *   **Accuracy (துல்லியம்):** How close a measured value is to the true value.
 *   **Precision (நுட்பம்):** How close repeated measurements are to each other (resolution of the measurement).
 *   **Absolute Error (தனிப்பிழை):** Magnitude of the difference between the true value and the measured value.
-*   **Relative Error (ஒப்புப்பிழை):** Ratio of the mean absolute error to the mean value.  *δa_mean / a_mean*.
-*   **Percentage Error (சதவீதப் பிழை):** Relative error expressed in percent. * (δa_mean / a_mean) × 100%*.
+*   **Relative Error (ஒப்புப்பிழை):** Ratio of the mean absolute error to the mean value.  \`δa_mean / a_mean\`.
+*   **Percentage Error (சதவீதப் பிழை):** Relative error expressed in percent. \`(δa_mean / a_mean) × 100%\`.
 
 #### Combination of Errors (பிழைகளின் பரவல்):
 If \`Z = A ± B\`, then the absolute error is \`ΔZ = ΔA + ΔB\`.
@@ -175,7 +176,7 @@ If \`Z = Aⁿ\`, then \`ΔZ/Z = n(ΔA/A)\`.
         { text: "For sig figs in Addition/Subtraction, think 'Decimal Places'. For Multiplication/Division, think 'Total Figures'.", tamil: "கூட்டல்/கழித்தலுக்கு 'தசம இடங்கள்'. பெருக்கல்/வகுத்தலுக்கு 'மொத்த இலக்கங்கள்' என நினைவில் கொள்க." }
     ],
     neetTips: [
-        { text: "Questions asking to find which quantity cannot be the result of a formula can often be solved quickly using dimensional analysis.", tamil: "ஒரு சூத்திரத்தின் விளைவாக இருக்க முடியாத அளவைக் கேட்கும் கேள்விகளைப் பரிமாணப் பகுப்பாய்வு மூலம் விரைவாகத் தீர்க்கலாம்." },
+        { text: "Questions asking to find which quantity cannot be the result of a formula can often be solved quickly using dimensional analysis.", tamil: "ஒரு சூத்திரத்தின் விளைவாக இருக்க முடியாத அளவைக் கேட்கும் கேள்விகளைப் பரிமாணப் பகுாய்வு மூலம் விரைவாகத் தீர்க்கலாம்." },
         { text: "In error analysis, always add the errors, even if the formula involves subtraction or division.", tamil: "பிழைப் பகுப்பாய்வில், சூத்திரத்தில் கழித்தல் அல்லது வகுத்தல் இருந்தாலும், பிழைகளை எப்போதும் கூட்ட வேண்டும்." }
     ],
     mcqs: [

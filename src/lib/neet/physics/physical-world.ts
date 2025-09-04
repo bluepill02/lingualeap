@@ -33,7 +33,7 @@ Physics is the most fundamental of all sciences, aiming to understand the basic 
 
 ### 2. Scope and Excitement of Physics (இயற்பியலின் வீச்சு மற்றும் உற்சாகம்)
 The scope of Physics is vast, covering two main domains:
-*   **Macroscopic (பேரியல்):** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of [[Classical Physics:செவ்வியல் இயற்பியல்]], which includes:
+*   **Macroscopic (பேரியல்):** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **[[Classical Physics:செவ்வியல் இயற்பியல்]]**, which includes:
     *   Mechanics (இயக்கவியல்): Deals with the motion of objects (Newton's Laws, etc.).
     *   Electrodynamics (மின்னியக்கவியல்): Deals with electric and magnetic phenomena.
     *   Optics (ஒளியியல்): Deals with the phenomena involving light.
@@ -162,7 +162,7 @@ Gravitational Force (1)
     ],
     neetTips: [
         { text: "Relative strengths of forces are often asked. Remember the order: Strong > EM > Weak > Gravity.", tamil: "விசைகளின் சார்பு வலிமை அடிக்கடி கேட்கப்படுகிறது. வரிசையை நினைவில் கொள்க: வலுவான > மின்காந்த > மெலிந்த > ஈர்ப்பு." },
-        { text: "Conservation laws are powerful tools for solving problems where details of the forces are unknown.", tamil: "விசைகளின் விவரங்கள் தெரியாத கணக்குகளைத் தீர்க்க, பாதுகாப்பு விதிகள் சக்திவாய்ந்த கருவிகளாகும்." },
+        { text: "Conservation laws are powerful tools for solving problems where details of the forces are unknown.", tamil: "விசைகளின் விவரங்கள் தெரியாத கணக்குகளைத் தீர்க்க, பாதுகாப்பு விதிகள் சக்திவாய்ந்த கருவிகளாகும்." }
     ],
     mcqs: [
         {
