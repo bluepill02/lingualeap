@@ -40,7 +40,7 @@ export default function TetExamPrepPage() {
       ).length;
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 p-4 md:p-0">
+    <div className="max-w-4xl mx-auto space-y-8 p-4">
       <header>
         <h1 className="text-3xl font-bold font-headline">{module.title}</h1>
         <p className="text-muted-foreground">
@@ -182,3 +182,5 @@ export default function TetExamPrepPage() {
     </div>
   );
 }
+
+    
