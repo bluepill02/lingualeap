@@ -34,6 +34,8 @@ import { InertiaAnimation } from './InertiaAnimation';
 import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { TamilTooltip } from './TamilTooltip';
+import { BlockMath, InlineMath } from 'react-katex';
+
 
 const renderTextWithTooltips = (text: string) => {
     const parts = text.split(/(\[\[.*?\]\])/g);
@@ -61,9 +63,16 @@ export function ConceptNotesCard({ content }: { content: string }) {
                     remarkPlugins={[remarkGfm, remarkMath]}
                     rehypePlugins={[rehypeKatex]}
                     components={{
-                         p: ({node, ...props}) => {
+                        p: ({node, ...props}) => {
                            const childrenArray = Children.toArray(props.children);
                            
+                           // Check for block math
+                           if (childrenArray.length === 1 && typeof childrenArray[0] === 'string' && (childrenArray[0] as string).startsWith('$$') && (childrenArray[0] as string).endsWith('$$')) {
+                                const math = (childrenArray[0] as string).slice(2, -2);
+                                return <BlockMath math={math} />;
+                           }
+
+                           // Check for special animations
                            const firstChild = childrenArray[0];
                            if (typeof firstChild === 'string') {
                                if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
@@ -92,9 +101,9 @@ export function ConceptNotesCard({ content }: { content: string }) {
                         li: ({ node, ...props }) => {
                             const childrenArray = Children.toArray(props.children);
                             const newChildren = childrenArray.map((child, index) => {
-                                if (React.isValidElement(child) && child.type === 'p') {
+                                if (React.isValidElement(child) && child.props.node?.tagName === 'p') {
                                      const pChildren = Children.toArray(child.props.children);
-                                     return pChildren.map((pChild, pIndex) => typeof pChild === 'string' ? renderTextWithTooltips(pChild) : pChild);
+                                     return pChildren.map((pChild) => typeof pChild === 'string' ? renderTextWithTooltips(pChild) : pChild);
                                 }
                                 if (typeof child === 'string') {
                                    return renderTextWithTooltips(child);
@@ -107,6 +116,14 @@ export function ConceptNotesCard({ content }: { content: string }) {
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
                         em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
+                        code: ({ node, className, children, ...props }) => {
+                            const match = /language-math/.exec(className || '');
+                            const inline = !className;
+                            if (inline) {
+                                return <InlineMath math={String(children)} />;
+                            }
+                            return <BlockMath math={String(children)} />;
+                        }
                     }}
                 >
                     {content}
