@@ -11,7 +11,6 @@ import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { ProjectileAnimation } from './ProjectileAnimation';
 import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
-import { cn } from '@/lib/utils';
 
 // This is a simplified and somewhat unsafe way to get text content from children.
 // A more robust solution might traverse the tree properly.
@@ -97,15 +96,6 @@ export const MarkdownRenderer: React.FC<{ children: string | null | undefined }>
                     });
 
                     return <p {...props}>{childrenWithBilingual}</p>;
-                },
-                 // Add any other custom component renderings here if needed
-                code({node, className, children, ...props}) {
-                    const match = /language-(\w+)/.exec(className || '')
-                    // This is a workaround for LaTeX block rendering
-                    if (className === 'language-math' && typeof children === 'string' && !children.startsWith('$$')) {
-                        return <code>{`$$${children}$$`}</code>
-                    }
-                    return <code className={className} {...props}>{children}</code>
                 },
                  li({ node, ...props }) {
                     const childrenWithBilingual = React.Children.map(props.children, child => {
