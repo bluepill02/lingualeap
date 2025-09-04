@@ -17,15 +17,15 @@ export interface QAChecklistItem {
 export const contentStrategyGuidelines: Record<string, ContentStrategy> = {
   coreChapters: {
     guideline: "Core Chapters (High-Yield + TN Board Overlap)",
-    description: "Prioritize bilingual clarity, abundant worked examples, and a comprehensive set of MCQs to ensure mastery.",
+    description: "These are heavily tested and align well with TN Board curriculum. Prioritize bilingual clarity, worked examples, and MCQ mastery here.",
   },
   bridgeChapters: {
     guideline: "Bridge Chapters (NEET-heavy but TN-light)",
-    description: "Provide extra scaffolding, culturally relevant analogies, and Tamil-first summaries to ease onboarding and bridge curriculum gaps for Tamil Nadu students.",
+    description: "These need extra scaffolding and analogies to bridge gaps for TN students.",
   },
   foundationChapters: {
     guideline: "Foundation Chapters (Conceptual but less weightage)",
-    description: "Focus on clear conceptual explanations, highlighting how these ideas (like units and dimensional analysis) link across different chapters.",
+    description: "Still important for dimensional analysis, units, and linking ideas across chapters.",
   },
 };
 

@@ -2,11 +2,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, Clock, BookOpen, ChevronRight, Atom, Lightbulb, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowLeft, BookOpen, Atom, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { neetContent } from '@/lib/neet/content-loader';
 import { Separator } from '@/components/ui/separator';
 
@@ -27,8 +26,8 @@ const chapterGroups = {
         { id: 'thermal-properties-of-matter', title: 'Thermal Properties of Matter'},
         { id: 'thermodynamics', title: 'Thermodynamics (வெப்ப இயக்கவியல்)'},
         { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)'},
-        { id: 'oscillations', title: 'Oscillations'},
-        { id: 'waves', title: 'Waves'},
+        { id: 'oscillations', title: 'Oscillations (அலைவுகள்)'},
+        { id: 'waves', title: 'Waves (அலைகள்)'},
         { id: 'electrostatics', title: 'Electrostatics (நிலைமின்னியல்)'},
         { id: 'current-electricity', title: 'Current Electricity'},
         { id: 'moving-charges-and-magnetism', title: 'Moving Charges and Magnetism'},
@@ -51,17 +50,17 @@ const chapterGroups = {
 const groupInfo = {
     foundation: {
         title: 'Foundation Chapters',
-        description: 'Build a rock-solid base. These chapters are the pillars of your physics knowledge.',
+        description: 'Conceptual but less weightage. Important for dimensional analysis, units, and linking ideas across chapters.',
         icon: ShieldCheck
     },
     core: {
         title: 'Core Chapters',
-        description: 'High-weightage topics that form the heart of the NEET syllabus. Master these for a top score.',
+        description: 'High-Yield + TN Board Overlap. These are heavily tested and align well with TN Board curriculum. Prioritize bilingual clarity, worked examples, and MCQ mastery here.',
         icon: GraduationCap
     },
     bridge: {
         title: 'Bridge Chapters',
-        description: 'Connect concepts and explore specialized topics. These chapters bridge different areas of physics.',
+        description: 'NEET-heavy but TN-light. These need extra scaffolding and analogies to bridge gaps for TN students.',
         icon: Link2
     }
 }
@@ -117,12 +116,12 @@ export default function NeetPhysicsPage() {
                                             <h3 className="text-lg font-bold font-headline pr-4">{item.title}</h3>
                                             <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                         </div>
-                                        <Alert className="bg-primary/5 border-primary/20 mt-auto">
-                                            <BookOpen className="h-4 w-4 text-primary/80" />
-                                            <AlertDescription className="text-primary/80 text-xs">
-                                                TN Board Mapping: {mappingDescription}
-                                            </AlertDescription>
-                                        </Alert>
+                                        <div className="mt-auto bg-primary/5 border-primary/20 p-2 rounded-md">
+                                            <div className="flex items-center gap-2 text-primary/80 text-xs">
+                                              <BookOpen className="h-4 w-4" />
+                                              <span>TN Board Mapping: {mappingDescription}</span>
+                                            </div>
+                                        </div>
                                     </CardContent>
                                 </Card>
                             </Link>
