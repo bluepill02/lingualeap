@@ -33,23 +33,8 @@ import { FbdBuilder } from './FbdBuilder';
 import { InertiaAnimation } from './InertiaAnimation';
 import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
-import { TamilTooltip } from './TamilTooltip';
 import { BlockMath, InlineMath } from 'react-katex';
 import { ProjectileAnimation } from './ProjectileAnimation';
-
-
-const renderTextWithTooltips = (text: string) => {
-    const parts = text.split(/(\[\[.*?\]\])/g);
-    return parts.map((part, index) => {
-        const match = part.match(/\[\[(.*?)\]\]/);
-        if (match) {
-            const [fullMatch, content] = match;
-            const [term, translation] = content.split(':');
-            return <TamilTooltip key={index} term={term} translation={translation} />;
-        }
-        return <Fragment key={index}>{part}</Fragment>;
-    });
-};
 
 
 export function ConceptNotesCard({ content }: { content: string }) {
@@ -65,17 +50,14 @@ export function ConceptNotesCard({ content }: { content: string }) {
                     rehypePlugins={[rehypeKatex]}
                     components={{
                         p: ({node, ...props}) => {
-                           const childrenArray = Children.toArray(props.children);
-                           let hasTooltip = false;
-                           
                            // Check for block math
-                           if (childrenArray.length === 1 && typeof childrenArray[0] === 'string' && (childrenArray[0] as string).startsWith('$$') && (childrenArray[0] as string).endsWith('$$')) {
-                                const math = (childrenArray[0] as string).slice(2, -2);
+                           if (props.children.length === 1 && typeof props.children[0] === 'string' && (props.children[0] as string).startsWith('$$') && (props.children[0] as string).endsWith('$$')) {
+                                const math = (props.children[0] as string).slice(2, -2);
                                 return <BlockMath math={math} />;
                            }
 
                            // Check for special animations
-                           const firstChild = childrenArray[0];
+                           const firstChild = Children.toArray(props.children)[0];
                            if (typeof firstChild === 'string') {
                                if (firstChild.trim() === '{{INERTIA_ANIMATION}}') {
                                     return <div className="not-prose my-4"><InertiaAnimation /></div>;
@@ -89,45 +71,15 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
                                     return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                                }
-                               if (firstChild.includes('[[') && firstChild.includes(']]')) {
-                                   hasTooltip = true;
-                               }
                            }
                            
-                           const newChildren = childrenArray.map((child, index) => {
-                               if (typeof child === 'string') {
-                                   return renderTextWithTooltips(child);
-                               }
-                               if (React.isValidElement(child) && child.type === TamilTooltip) {
-                                   hasTooltip = true;
-                               }
-                               return child;
-                           });
-
-                           // If the paragraph contains a tooltip, render a div instead to avoid invalid HTML
-                           if (hasTooltip) {
-                               return <div className="my-4 leading-relaxed text-muted-foreground">{newChildren}</div>;
-                           }
-
-                           return <p className="my-4 leading-relaxed text-muted-foreground">{newChildren}</p>
+                           return <p className="my-4 leading-relaxed text-muted-foreground">{props.children}</p>
                         },
                         h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
                         h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         ul: ({node, ...props}) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
-                            const childrenArray = Children.toArray(props.children);
-                            const newChildren = childrenArray.map((child, index) => {
-                                if (React.isValidElement(child) && child.props.node?.tagName === 'p') {
-                                     const pChildren = Children.toArray(child.props.children);
-                                     return pChildren.map((pChild) => typeof pChild === 'string' ? renderTextWithTooltips(pChild) : pChild);
-                                }
-                                if (typeof child === 'string') {
-                                   return renderTextWithTooltips(child);
-                                }
-                                return child;
-                            });
-
-                           return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{newChildren}</span></li>;
+                           return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{props.children}</span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
@@ -164,8 +116,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             example.difficulty === 'Easy' ? 'default' : 
                             example.difficulty === 'Medium' ? 'secondary' : 'destructive'
                         } className={
-                            example.difficulty === 'Easy' ? 'bg-green-500/20 text-green-400 border-green-500/30' : 
-                            example.difficulty === 'Medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' : 'bg-red-500/20 text-red-400 border-red-500/30'
+                            example.difficulty === 'Easy' ? 'bg-green-500/20 text-green-300 border-green-500/30' : 
+                            example.difficulty === 'Medium' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : 'bg-red-500/20 text-red-300 border-red-500/30'
                         }>
                             {example.difficulty}
                         </Badge>
@@ -185,7 +137,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-sm">Step {stepIndex + 1}: {step.explanation}</p>
+                                        <p className="font-semibold text-sm">{step.explanation}</p>
                                         {step.explanationTamil && <p className="text-xs text-primary/80 italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-muted p-2 rounded-md mt-1 overflow-x-auto">
@@ -497,5 +449,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     );
 }
 
+
+    
 
     
