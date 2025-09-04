@@ -97,5 +97,9 @@ export const qaChecklist: QAChecklistItem[] = [
   {
     check: "Check LaTeX errors thoroughly and carefully, every letter of code",
     details: "All LaTeX code must be meticulously verified to ensure it renders correctly without any syntax errors. This includes checking every single character and command."
+  },
+  {
+    check: "Verify Color Scheme Application",
+    details: "Ensure that colors for all UI elements, including text, backgrounds, and icons, are consistent with the established theme and meet WCAG contrast requirements."
   }
 ];
