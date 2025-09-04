@@ -32,40 +32,46 @@ export const electrostaticsModule: NeetModule = {
             mappingDescription: '12th Std Physics - Vol 1, Chapter 1 maps to NEET Physics Unit 11'
         }
     ],
-    conceptNotes: `### 1. Electric Charge and Coulomb's Law (மின்னூட்டம் மற்றும் கூலூம் விதி)
+    conceptNotes: [
+        {
+            english: `### 1. Electric Charge and Coulomb's Law (மின்னூட்டம் மற்றும் கூலூம் விதி)
 *   **Electric Charge (மின்னூட்டம்):** The fundamental property of matter that causes it to experience a force when placed in an electromagnetic field. It is quantized ($q=ne$) and conserved.
 *   **Coulomb's Law (கூலூம் விதி):** The force of attraction or repulsion between two stationary point charges is directly proportional to the product of the magnitudes of the charges and inversely proportional to the square of the distance between them.
 $$
 \\vec{F} = \\frac{1}{4\\pi\\epsilon_0} \\frac{q_1 q_2}{r^2} \\hat{r}
 $$
     *   $\epsilon_0$ is the permittivity of free space.
-    *   The force is attractive for unlike charges and repulsive for like charges.
-
-### 2. Electric Field (மின்புலம்)
-The electric field ($\vec{E}$) at a point is the force experienced by a unit positive test charge placed at that point. It is a vector field.
+    *   The force is attractive for unlike charges and repulsive for like charges.`
+        },
+        {
+            english: `### 2. Electric Field (மின்புலம்)
+The electric field ($\\vec{E}$) at a point is the force experienced by a unit positive test charge placed at that point. It is a vector field.
 $$
 \\vec{E} = \\frac{\\vec{F}}{q_0}
 $$
 *   **Electric Field due to a Point Charge q:** $\\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r^2} \\hat{r}$
-*   **Electric Field Lines (மின்புலக் கோடுகள்):** Imaginary lines drawn in an electric field along which a positive test charge would move. They originate from positive charges and terminate on negative charges. The tangent to a field line at any point gives the direction of the electric field at that point.
-
-### 3. Electric Dipole (மின் இருமுனை)
+*   **Electric Field Lines (மின்புலக் கோடுகள்):** Imaginary lines drawn in an electric field along which a positive test charge would move. They originate from positive charges and terminate on negative charges. The tangent to a field line at any point gives the direction of the electric field at that point.`
+        },
+        {
+            english: `### 3. Electric Dipole (மின் இருமுனை)
 An electric dipole consists of two equal and opposite charges separated by a small distance (2a).
 *   **Dipole Moment (இருமுனைத் திருப்புத்திறன், $\\vec{p}$):** A vector quantity with magnitude $p = q(2a)$, directed from the negative to the positive charge.
 *   **Electric Field on Axial Line:** $E_{axial} = \\frac{1}{4\\pi\\epsilon_0} \\frac{2p}{r^3}$ (for r >> a)
 *   **Electric Field on Equatorial Line:** $E_{equatorial} = \\frac{1}{4\\pi\\epsilon_0} \\frac{p}{r^3}$ (for r >> a)
 *   **Torque on a Dipole in a Uniform Electric Field:** $\\vec{\\tau} = \\vec{p} \\times \\vec{E}$
-*   **Potential Energy of a Dipole:** $U = -\\vec{p} \\cdot \\vec{E}$
-
-### 4. Gauss's Law (காஸ் விதி)
+*   **Potential Energy of a Dipole:** $U = -\\vec{p} \\cdot \\vec{E}$`
+        },
+        {
+            english: `### 4. Gauss's Law (காஸ் விதி)
 Gauss's law provides a powerful way to calculate the electric field for symmetric charge distributions.
 *   **Electric Flux (மின்பாயம், $\\Phi_E$):** The number of electric field lines passing normally through a surface. $\\Phi_E = \\int \\vec{E} \\cdot d\\vec{A}$.
 *   **Gauss's Law Statement:** The total electric flux through any closed surface (Gaussian surface) is equal to $1/\\epsilon_0$ times the net charge enclosed by the surface.
 $$
 \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{enclosed}}{\\epsilon_0}
-$$
-
-### 5. Electrostatic Potential and Capacitance (நிலைமின்னழுத்தம் மற்றும் மின்தேக்குத்திறன்)
+$$`
+        },
+        {
+            english: `### 5. Electrostatic Potential and Capacitance (நிலைமின்னழுத்தம் மற்றும் மின்தேக்குத்திறன்)
 *   **Electric Potential (V) (மின்னழுத்தம்):** Work done per unit charge in bringing a charge from infinity to a point in the electric field. $V = W/q$. It is a scalar quantity.
 *   **Potential due to a Point Charge:** $V = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r}$
 *   **Relation between E and V:** The electric field is the negative gradient of the potential. $E = -dV/dr$.
@@ -74,8 +80,9 @@ $$
 *   **Effect of Dielectric:** When a dielectric material of dielectric constant K is inserted, capacitance increases: $C' = KC$.
 *   **Capacitors in Series:** $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2} + ...$
 *   **Capacitors in Parallel:** $C_p = C_1 + C_2 + ...$
-*   **Energy Stored in a Capacitor:** $U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} = \\frac{1}{2}QV$
-`,
+*   **Energy Stored in a Capacitor:** $U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} = \\frac{1}{2}QV`
+        }
+    ],
     workedExamples: [],
     mcqs: [],
     assertionReasons: [],

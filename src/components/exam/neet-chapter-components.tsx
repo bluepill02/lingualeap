@@ -31,6 +31,19 @@ import { BilingualText } from './bilingual-text';
 
 
 export function ConceptNotesCard({ content }: { content: BilingualContent[] }) {
+    if (!Array.isArray(content)) {
+        return (
+             <Card>
+                <CardHeader>
+                    <CardTitle>Concept Notes</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p>Notes are being updated for this chapter.</p>
+                </CardContent>
+            </Card>
+        );
+    }
+
     return (
         <Card>
             <CardHeader>

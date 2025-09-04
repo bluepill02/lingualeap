@@ -32,7 +32,9 @@ export const oscillationsAndWavesModule: NeetModule = {
             mappingDescription: '11th Std Physics - Vol 2, Chapters 10 & 11 map to NEET Physics Unit 10'
         }
     ],
-    conceptNotes: `### Part A: Oscillations (அலைவுகள்)
+    conceptNotes: [
+        {
+            english: `### Part A: Oscillations (அலைவுகள்)
 
 #### 1. Simple Harmonic Motion (SHM) (தனிச் சீரிசை இயக்கம்)
 SHM is a special type of periodic motion where the restoring force is directly proportional to the displacement from the mean position and is always directed towards the mean position.
@@ -44,9 +46,10 @@ Since $F=ma$, we have $ma = -kx$, so the acceleration is $a = -(k/m)x$. We write
 $$
 a = -\\omega^2 x
 $$
-where $\\omega = \\sqrt{k/m}$ is the **angular frequency (கோண அதிர்வெண்)**. This is the defining equation for SHM.
-
-#### 2. Equation of SHM (SHM-இன் சமன்பாடு)
+where $\\omega = \\sqrt{k/m}$ is the **angular frequency (கோண அதிர்வெண்)**. This is the defining equation for SHM.`
+        },
+        {
+            english: `#### 2. Equation of SHM (SHM-இன் சமன்பாடு)
 The displacement of a particle executing SHM at any time 't' is given by:
 $$
 x(t) = A \\sin(\\omega t + \\phi)
@@ -54,44 +57,50 @@ $$
 *   **A (Amplitude - வீச்சு):** Maximum displacement from the mean position.
 *   **ω (Angular Frequency):** $\\omega = 2\\pi f = 2\\pi/T$.
 *   **$\\phi$ (Phase Constant or Epoch - கட்ட மாறிலி):** Determines the initial position of the particle at t=0.
-*   **($\\omega t + \\phi$) (Phase - கட்டம்):** The state of the particle at time t.
-
-#### 3. Velocity and Acceleration in SHM (SHM-இல் திசைவேகம் மற்றும் முடுக்கம்)
+*   **($\\omega t + \\phi$) (Phase - கட்டம்):** The state of the particle at time t.`
+        },
+        {
+            english: `#### 3. Velocity and Acceleration in SHM (SHM-இல் திசைவேகம் மற்றும் முடுக்கம்)
 *   **Velocity (v):** $v = \\frac{dx}{dt} = A\\omega \\cos(\\omega t + \\phi) = \\pm\\omega\\sqrt{A^2 - x^2}$
     *   Velocity is maximum at the mean position (x=0): $v_{max} = A\\omega$.
     *   Velocity is zero at the extreme positions (x=±A).
 *   **Acceleration (a):** $a = \\frac{dv}{dt} = -A\\omega^2 \\sin(\\omega t + \\phi) = -\\omega^2 x$
     *   Acceleration is zero at the mean position (x=0).
-    *   Acceleration is maximum at the extreme positions (x=±A): $a_{max} = A\\omega^2$.
-
-#### 4. Energy in SHM (SHM-இல் ஆற்றல்)
+    *   Acceleration is maximum at the extreme positions (x=±A): $a_{max} = A\\omega^2$.`
+        },
+        {
+            english: `#### 4. Energy in SHM (SHM-இல் ஆற்றல்)
 *   **Kinetic Energy (K.E.):** $K.E. = \\frac{1}{2}mv^2 = \\frac{1}{2}m\\omega^2(A^2 - x^2)$
 *   **Potential Energy (P.E.):** $P.E. = \\frac{1}{2}kx^2 = \\frac{1}{2}m\\omega^2x^2$
 *   **Total Energy (E):** $E = K.E. + P.E. = \\frac{1}{2}m\\omega^2A^2 = \\frac{1}{2}kA^2$.
-    The total energy in SHM is constant and proportional to the square of the amplitude.
-
-### Part B: Waves (அலைகள்)
+    The total energy in SHM is constant and proportional to the square of the amplitude.`
+        },
+        {
+            english: `### Part B: Waves (அலைகள்)
 
 #### 1. Wave Motion (அலை இயக்கம்)
 A wave is a disturbance that propagates through a medium, transporting energy and momentum without the net transport of the medium itself.
 *   **Transverse Waves (குறுக்கலைகள்):** Particle oscillation is perpendicular to the direction of wave propagation. E.g., Waves on a string, light waves.
-*   **Longitudinal Waves (நெட்டலைகள்):** Particle oscillation is parallel to the direction of wave propagation. E.g., Sound waves.
-
-#### 2. Equation of a Progressive Wave (ஒரு முன்னேறு அலையின் சமன்பாடு)
+*   **Longitudinal Waves (நெட்டலைகள்):** Particle oscillation is parallel to the direction of wave propagation. E.g., Sound waves.`
+        },
+        {
+            english: `#### 2. Equation of a Progressive Wave (ஒரு முன்னேறு அலையின் சமன்பாடு)
 A wave traveling in the +x direction can be represented by:
 $$
 y(x, t) = A \\sin(kx - \\omega t + \\phi)
 $$
 *   **k (Angular Wave Number - கோண அலை எண்):** $k = 2\\pi/\\lambda$, where λ is the **wavelength (அலைநீளம்)**.
-*   **Wave Speed (அலை வேகம்):** $v = f\\lambda = \\frac{\\omega}{k}$.
-
-#### 3. Superposition Principle (மேற்பொருந்துதல் தத்துவம்)
+*   **Wave Speed (அலை வேகம்):** $v = f\\lambda = \\frac{\\omega}{k}$.`
+        },
+        {
+            english: `#### 3. Superposition Principle (மேற்பொருந்துதல் தத்துவம்)
 When two or more waves overlap, the resultant displacement at any point and at any instant is the vector sum of the displacements due to individual waves. This leads to:
 *   **Interference (குறுக்கீட்டு விளைவு):** Modification in the distribution of intensity in the region of superposition. Constructive (ஆக்க) and destructive (அழிவுக்) interference depend on the phase difference.
 *   **Standing Waves (நிலையான அலைகள்):** Formed by the superposition of two identical waves traveling in opposite directions. There are points of zero amplitude called **nodes (கணுக்கள்)** and points of maximum amplitude called **antinodes (எதிர்க்கணுக்கள்)**.
-*   **Beats (விம்மல்கள்):** The periodic variation in the intensity of sound due to the superposition of two sound waves of slightly different frequencies. Beat frequency = $|f_1 - f_2|$.
-
-#### 4. Doppler Effect (டாப்ளர் விளைவு)
+*   **Beats (விம்மல்கள்):** The periodic variation in the intensity of sound due to the superposition of two sound waves of slightly different frequencies. Beat frequency = $|f_1 - f_2|$.`
+        },
+        {
+            english: `#### 4. Doppler Effect (டாப்ளர் விளைவு)
 The apparent change in the frequency of a wave due to relative motion between the source, the observer, and the medium.
 The general formula for the apparent frequency ($f'$) is:
 $$
@@ -101,8 +110,9 @@ where:
 *   f = actual frequency
 *   v = speed of sound
 *   v_o = speed of observer (+ if moving towards the source)
-*   v_s = speed of source (+ if moving away from the observer)
-`,
+*   v_s = speed of source (+ if moving away from the observer)`
+        }
+    ],
     workedExamples: [
         {
             title: "NEET Level: Energy in SHM",

@@ -31,15 +31,18 @@ export const kineticTheoryOfGasesModule: NeetModule = {
             mappingDescription: '11th Std Physics - Vol 2, Chapter 9 maps to NEET Physics Unit 9'
         }
     ],
-    conceptNotes: `### 1. Postulates of Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கையின் எடுகோள்கள்)
+    conceptNotes: [
+        {
+            english: `### 1. Postulates of Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கையின் எடுகோள்கள்)
 1.  A gas consists of a very large number of identical molecules which are perfect spheres.
 2.  The molecules are in continuous, random motion.
 3.  The volume of the molecules themselves is negligible compared to the volume of the container.
 4.  There are no intermolecular forces of attraction or repulsion.
 5.  Collisions between molecules and with the walls of the container are perfectly elastic.
-6.  The time taken for a collision is negligible compared to the time between successive collisions.
-
-### 2. Pressure of an Ideal Gas (நல்லியல்பு வாயுவின் அழுத்தம்)
+6.  The time taken for a collision is negligible compared to the time between successive collisions.`
+        },
+        {
+            english: `### 2. Pressure of an Ideal Gas (நல்லியல்பு வாயுவின் அழுத்தம்)
 The pressure exerted by a gas is due to the continuous collisions of its molecules with the walls of the container. The expression for pressure is:
 $$
 P = \\frac{1}{3} \\frac{nM}{V} v_{rms}^2 = \\frac{1}{3} \\rho v_{rms}^2
@@ -49,9 +52,10 @@ where,
 *   M = Molar mass
 *   V = Volume
 *   ρ = density of the gas
-*   $v_{rms}$ = **Root Mean Square (RMS) speed** of the gas molecules. (மூல சராசரி வர்க்க வேகம்)
-
-### 3. Kinetic Interpretation of Temperature (வெப்பநிலையின் இயக்கவியற் விளக்கம்)
+*   $v_{rms}$ = **Root Mean Square (RMS) speed** of the gas molecules. (மூல சராசரி வர்க்க வேகம்)`
+        },
+        {
+            english: `### 3. Kinetic Interpretation of Temperature (வெப்பநிலையின் இயக்கவியற் விளக்கம்)
 The average translational kinetic energy of a gas molecule is directly proportional to the absolute temperature (T) of the gas.
 $$
 \\text{Average K.E. per molecule} = \\frac{1}{2}m v_{rms}^2 = \\frac{3}{2} k_B T
@@ -62,24 +66,27 @@ From this, we can find the RMS speed:
 $$
 v_{rms} = \\sqrt{\\frac{3k_B T}{m}} = \\sqrt{\\frac{3RT}{M}}
 $$
-where R is the universal gas constant and M is the molar mass.
-
-### 4. Degrees of Freedom (சுதந்திர இயக்கக்கூறுகள், f)
+where R is the universal gas constant and M is the molar mass.`
+        },
+        {
+            english: `### 4. Degrees of Freedom (சுதந்திர இயக்கக்கூறுகள், f)
 The total number of independent ways in which a system can possess energy is called its degrees of freedom.
 *   **Monoatomic Gas (ஓரணு வாயு, e.g., He, Ne, Ar):** Has 3 translational degrees of freedom. So, f = 3.
 *   **Diatomic Gas (ஈரணு வாயு, e.g., O₂, N₂, H₂):** Has 3 translational and 2 rotational degrees of freedom at normal temperatures. So, f = 5. At very high temperatures, it also has 2 vibrational degrees of freedom (f=7).
 *   **Triatomic Gas (மூவணு வாயு):**
     *   Linear (e.g., CO₂): f = 5 (3 trans + 2 rot).
-    *   Non-linear (e.g., H₂O): f = 6 (3 trans + 3 rot).
-
-### 5. Law of Equipartition of Energy (ஆற்றல் சம பங்கீட்டு விதி)
+    *   Non-linear (e.g., H₂O): f = 6 (3 trans + 3 rot).`
+        },
+        {
+            english: `### 5. Law of Equipartition of Energy (ஆற்றல் சம பங்கீட்டு விதி)
 For a system in thermal equilibrium, the total energy is equally distributed among all its degrees of freedom, and the energy associated with each degree of freedom per molecule is $\\frac{1}{2}k_B T$.
 *   **Total Internal Energy of n moles of a gas:**
 $$
 U = n \\times N_A \\times (f \\times \\frac{1}{2}k_B T) = \\frac{f}{2} n (N_A k_B) T = \\frac{f}{2} nRT
-$$
-
-### 6. Specific Heats of Gases (வாயுக்களின் தன்வெப்ப ஏற்புத்திறன்கள்)
+$$`
+        },
+        {
+            english: `### 6. Specific Heats of Gases (வாயுக்களின் தன்வெப்ப ஏற்புத்திறன்கள்)
 *   **Molar specific heat at constant volume ($C_v$):**
 $$ C_v = \\frac{dU}{dT} = \\frac{d}{dT} (\\frac{f}{2} nRT) = \\frac{f}{2}R $$
 *   **Molar specific heat at constant pressure ($C_p$):** Using Mayer's relation ($C_p - C_v = R$):
@@ -92,7 +99,9 @@ $$ \\gamma = \\frac{C_p}{C_v} = \\frac{(\\frac{f}{2} + 1)R}{\\frac{f}{2}R} = 1 +
 | Monoatomic | 3 | $\\frac{3}{2}R$ | $\\frac{5}{2}R$ | 5/3 ≈ 1.67 |
 | Diatomic | 5 | $\\frac{5}{2}R$ | $\\frac{7}{2}R$ | 7/5 = 1.4 |
 | Polyatomic | 6 (non-linear) | 3R | 4R | 4/3 ≈ 1.33 |
-`,
+`
+        }
+    ],
     workedExamples: [
         {
             title: "NEET Level: RMS Speed Calculation",
@@ -251,6 +260,3 @@ $$ \\gamma = \\frac{C_p}{C_v} = \\frac{(\\frac{f}{2} + 1)R}{\\frac{f}{2}R} = 1 +
         }
     ]
 };
-
-
-    

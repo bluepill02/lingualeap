@@ -28,10 +28,13 @@ export const physicalWorldModule: NeetModule = {
             mappingDescription: '11th Std Physics - Vol 1, Chapter 1 maps to NEET Physics Unit 1'
         }
     ],
-    conceptNotes: `### 1. What is Physics? (இயற்பியல் என்றால் என்ன?)
-Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is unification (ஒருங்கிணைத்தல்)—explaining diverse physical phenomena with a few concepts and laws—and reductionism (குறைத்தல்வாதம்), which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.
-
-### 2. Scope and Excitement of Physics (இயற்பியலின் வீச்சு மற்றும் உற்சாகம்)
+    conceptNotes: [
+        {
+            english: `### 1. What is Physics? (இயற்பியல் என்றால் என்ன?)
+Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is unification (ஒருங்கிணைத்தல்)—explaining diverse physical phenomena with a few concepts and laws—and reductionism (குறைத்தல்வாதம்), which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.`
+        },
+        {
+            english: `### 2. Scope and Excitement of Physics (இயற்பியலின் வீச்சு மற்றும் உற்சாகம்)
 The scope of Physics is vast, covering two main domains:
 *   **Macroscopic (பேரியல்):** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **Classical Physics (செவ்வியல் இயற்பியல்)**, which includes:
     *   Mechanics (இயக்கவியல்): Deals with the motion of objects (Newton's Laws, etc.).
@@ -40,25 +43,30 @@ The scope of Physics is vast, covering two main domains:
     *   Thermodynamics (வெப்ப இயக்கவியல்): Deals with heat, temperature, and the bulk properties of matter.
 *   **Microscopic (நுண்ணியல்):** Includes phenomena at the atomic, molecular, and nuclear scales. This is the realm of **Quantum Mechanics (குவாண்டம் இயக்கவியல்)**.
 
-The excitement of Physics comes from uncovering the secrets of nature, predicting future events based on its laws, and applying this knowledge for societal benefit.
-
-### 3. The Four Fundamental Forces in Nature (இயற்கையின் நான்கு அடிப்படை விசைகள்)
-All the forces we observe in the macroscopic and microscopic worlds can be traced back to four fundamental forces.
-
+The excitement of Physics comes from uncovering the secrets of nature, predicting future events based on its laws, and applying this knowledge for societal benefit.`
+        },
+        {
+            english: `### 3. The Four Fundamental Forces in Nature (இயற்கையின் நான்கு அடிப்படை விசைகள்)
+All the forces we observe in the macroscopic and microscopic worlds can be traced back to four fundamental forces.`
+        },
+        {
+            english: `
 | Force (விசை) | Relative Strength (சார்பு வலிமை) | Range (வீச்சு) | Operates Among (செயல்படும் துகள்கள்) |
 | :--- | :--- | :--- | :--- |
 | **Gravitational Force (ஈர்ப்பியல் விசை)** | 1 | Infinite (முடிவற்றது) | All objects in the universe (அனைத்து பொருட்கள்) |
 | **Weak Nuclear Force (மெலிந்த அணுக்கரு விசை)** | $10^{25}$ | Very short, sub-nuclear size (~$10^{-16}$ m) | Some elementary particles (சில அடிப்படை துகள்கள்) |
 | **Electromagnetic Force (மின்காந்த விசை)** | $10^{36}$ | Infinite (முடிவற்றது) | Charged particles (மின்னூட்டத் துகள்கள்) |
-| **Strong Nuclear Force (வலுவான அணுக்கரு விசை)** | $10^{38}$ | Short, nuclear size (~$10^{-15}$ m) | Nucleons (protons, neutrons) (நியூக்ளியான்கள்) |
-
-### 4. Fundamental Conservation Laws (அடிப்படைப் பாதுகாப்பு விதிகள்)
+| **Strong Nuclear Force (வலுவான அணுக்கரு விசை)** | $10^{38}$ | Short, nuclear size (~$10^{-15}$ m) | Nucleons (protons, neutrons) (நியூக்ளியான்கள்) |`
+        },
+        {
+            english: `### 4. Fundamental Conservation Laws (அடிப்படைப் பாதுகாப்பு விதிகள்)
 In any physical process, certain quantities remain unchanged over time. These are called conserved quantities. These laws are fundamental and cannot be proven; they are verified by observation and experiment.
 *   **Law of Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி):** Energy can neither be created nor destroyed; it can only be transformed from one form to another. The total energy of an isolated system remains constant.
 *   **Law of Conservation of Linear Momentum (நேர்கோட்டு உந்தப் பாதுகாப்பு விதி):** If no external force acts on a system, its total linear momentum remains constant.
 *   **Law of Conservation of Angular Momentum (கோண உந்தப் பாதுகாப்பு விதி):** If no external torque acts on a system, its total angular momentum remains constant.
-*   **Law of Conservation of Charge (மின்னூட்டப் பாதுகாப்பு விதி):** The total electric charge in an isolated system never changes.
-`,
+*   **Law of Conservation of Charge (மின்னூட்டப் பாதுகாப்பு விதி):** The total electric charge in an isolated system never changes.`
+        }
+    ],
     workedExamples: [
         {
             title: "Conceptual Example 1: The Unification of Forces",
@@ -493,5 +501,3 @@ Gravitational Force (1)
         }
     ]
 };
-
-    
