@@ -26,19 +26,22 @@ export const lawsOfMotionModule: NeetModule = {
             topic: 'Newton\'s Laws & Applications',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 3: Laws of Motion',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Crucial for both NEET & JEE. The key is to master the problem-solving strategy (FBD -> Equations) rather than memorizing solutions for specific scenarios.'
+            notes: 'Crucial for both NEET & JEE. The key is to master the problem-solving strategy (FBD -> Equations) rather than memorizing solutions for specific scenarios.',
+            mappingDescription: '11th Std Physics - Vol 1, Chapter 3: Laws of Motion maps to NEET Physics Unit 2'
         },
         {
             topic: 'Friction',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 3: Laws of Motion',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Questions often mix friction with other concepts like circular motion or block systems. Understanding the self-adjusting nature of static friction is vital.'
+            notes: 'Questions often mix friction with other concepts like circular motion or block systems. Understanding the self-adjusting nature of static friction is vital.',
+            mappingDescription: '11th Std Physics - Vol 1, Chapter 3: Laws of Motion maps to NEET Physics Unit 2'
         },
         {
             topic: 'Momentum & Collisions',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 5: Laws of Motion',
-            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.'
+            notes: 'Conservation of Linear Momentum is a fundamental principle. For variable mass systems (like rockets), using F=dp/dt is more fundamental than F=ma.',
+            mappingDescription: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power maps to NEET Physics Unit 6'
         }
     ],
     conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology (விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை)

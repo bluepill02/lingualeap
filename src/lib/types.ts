@@ -1,5 +1,4 @@
 
-
 export interface User {
   id: string;
   name: string;
@@ -119,6 +118,7 @@ export interface SyllabusMapping {
     tnBoardChapter: string;
     ncertReference: string;
     notes: string;
+    mappingDescription: string;
 }
 
 export interface FBDstep {
@@ -252,5 +252,3 @@ export interface LiveClass {
   startTime: string;
   endTime: string;
 }
-
-    

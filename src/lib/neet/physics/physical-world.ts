@@ -24,7 +24,8 @@ export const physicalWorldModule: NeetModule = {
             topic: 'Scope of Physics & Fundamental Forces',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 1: Nature of Physical World and Measurement',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 1: Physical World',
-            notes: 'This is a foundational chapter. Read it once to get a broad perspective. Focus on understanding the relative strengths and ranges of the fundamental forces.'
+            notes: 'This is a foundational chapter. Read it once to get a broad perspective. Focus on understanding the relative strengths and ranges of the fundamental forces.',
+            mappingDescription: '11th Std Physics - Vol 1, Chapter 1 maps to NEET Physics Unit 1'
         }
     ],
     conceptNotes: `### 1. What is Physics? (இயற்பியல் என்றால் என்ன?)
@@ -72,7 +73,7 @@ In any physical process, certain quantities remain unchanged over time. These ar
                 {
                     step: 2,
                     explanation: "Note the key scientific contributions that linked them. Scientists like Oersted, Faraday, and Ampere showed that electric currents could create magnetic fields and changing magnetic fields could create electric currents.",
-                    explanationTamil: "அவற்றை இணைத்த முக்கிய விஞ்ஞான பங்களிப்புகளைக் கவனிக்கவும். ஓர்ஸ்டெட், ఫారడే மற்றும் ஆம்பியர் போன்ற விஞ்ஞானிகள் மின்னோட்டங்கள் காந்தப்புலங்களை உருவாக்க முடியும் என்றும், மாறும் காந்தப்புலங்கள் மின்னோட்டங்களை உருவாக்க முடியும் என்றும் காட்டினர்."
+                    explanationTamil: "அவற்றை இணைத்த முக்கிய விஞ்ஞான பங்களிப்புகளைக் கவனிக்கவும். ஓர்ஸ்டெட், ஃபாரடே மற்றும் ஆம்பியர் போன்ற விஞ்ஞானிகள் மின்னோட்டங்கள் காந்தப்புலங்களை உருவாக்க முடியும் என்றும், மாறும் காந்தப்புலங்கள் மின்னோட்டங்களை உருவாக்க முடியும் என்றும் காட்டினர்."
                 },
                 {
                     step: 3,

@@ -129,7 +129,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     </Alert>}
                     {syllabusMapping && syllabusMapping.length > 0 && <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
                         <AlertTitle>TN Board Mapping</AlertTitle>
-                        <AlertDescription>{syllabusMapping?.[0]?.tnBoardChapter} maps to NEET Physics Unit 2</AlertDescription>
+                        <AlertDescription>{syllabusMapping?.[0]?.mappingDescription}</AlertDescription>
                     </Alert>}
                 </CardContent>
             </Card>
