@@ -78,19 +78,19 @@ export default function DashboardPage() {
       icon: Trophy,
       value: mockUser.streak,
       label: 'Day Streak',
-      color: 'text-yellow-400',
+      color: 'text-warning',
     },
     {
       icon: BrainCircuit,
       value: masteredWords,
       label: 'Words Mastered',
-      color: 'text-green-400',
+      color: 'text-success',
     },
     {
       icon: Target,
       value: cefrLevel,
       label: 'CEFR Level',
-      color: 'text-sky-400',
+      color: 'text-blue-400',
     },
     {
       icon: Clock,
@@ -325,8 +325,8 @@ export default function DashboardPage() {
                                   <span className="font-medium">{member.name}</span>
                               </div>
                               {member.id === leader.id && (
-                                  <Badge variant="secondary" className="flex items-center gap-1">
-                                      <Crown className="h-3 w-3 text-yellow-500" />
+                                  <Badge variant="secondary" className="flex items-center gap-1 text-warning-foreground bg-warning/80">
+                                      <Crown className="h-3 w-3" />
                                       Leader
                                   </Badge>
                               )}
@@ -357,7 +357,7 @@ export default function DashboardPage() {
                     {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
                 </h1>
                 <div className="flex items-center gap-2 text-muted-foreground">
-                    <Star className="w-4 h-4 text-yellow-400" />
+                    <Star className="w-4 h-4 text-warning" />
                     <span>Level {currentLevel}</span>
                 </div>
             </div>
@@ -399,3 +399,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    

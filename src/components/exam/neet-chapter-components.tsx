@@ -39,17 +39,7 @@ import { ProjectileAnimation } from './ProjectileAnimation';
 
 export function ConceptNotesCard({ content }: { content: string }) {
     const renderTextWithTooltips = (text: string) => {
-        const parts = text.split(/(\(.*?\))/g);
-        return parts.map((part, index) => {
-            if (part.match(/\(.*?\)/)) {
-                const term = part.slice(1, -1);
-                const [english, tamil] = term.split(':');
-                if (english && tamil) {
-                    return <span key={index} className="text-accent">{`${english} (${tamil})`}</span>;
-                }
-            }
-            return part;
-        });
+        return text;
     };
 
     return (
@@ -77,13 +67,18 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                     if (firstChild.trim() === '{{LIFT_ANIMATION}}') {
                                         return <div className="not-prose my-4"><LiftAnimation /></div>;
                                     }
-                                    if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
+                                     if (firstChild.trim() === '{{PROJECTILE_ANIMATION}}') {
                                         return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                                     }
                                 }
                             }
+                            
+                            // Check for tooltip syntax and render a div if it exists
+                            if (typeof textContent === 'string' && /\[\[.*?\]\]/.test(textContent)) {
+                                return <div className="my-4 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent)}</div>;
+                            }
 
-                            return <div className="my-4 leading-relaxed text-muted-foreground">{renderTextWithTooltips(textContent)}</div>;
+                            return <p className="my-4 leading-relaxed text-muted-foreground">{props.children}</p>;
                         },
                         h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
@@ -126,8 +121,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             example.difficulty === 'Easy' ? 'default' : 
                             example.difficulty === 'Medium' ? 'secondary' : 'destructive'
                         } className={
-                            example.difficulty === 'Easy' ? 'bg-green-500/20 text-green-300 border-green-500/30' : 
-                            example.difficulty === 'Medium' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : 'bg-red-500/20 text-red-300 border-red-500/30'
+                            example.difficulty === 'Easy' ? 'bg-success/20 text-success-foreground border-success/30' : 
+                            example.difficulty === 'Medium' ? 'bg-warning/20 text-warning-foreground border-warning/30' : 'bg-destructive/20 text-destructive-foreground border-destructive/30'
                         }>
                             {example.difficulty}
                         </Badge>
@@ -272,7 +267,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
-            className={`w-3 h-3 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`}
+            className={`w-3 h-3 ${i < count ? 'text-warning fill-warning' : 'text-muted-foreground/30'}`}
           />
         ))}
       </div>
@@ -461,5 +456,8 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
 
 
     
+
+    
+
 
     

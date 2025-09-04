@@ -36,7 +36,7 @@ export default function LandingPage() {
                     alt="Abstract background of a modern library, symbolizing learning."
                     data-ai-hint="professional learning"
                     fill
-                    className="object-cover opacity-10"
+                    className="object-cover opacity-5"
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
@@ -67,3 +67,5 @@ export default function LandingPage() {
     </div>
   );
 }
+
+    
