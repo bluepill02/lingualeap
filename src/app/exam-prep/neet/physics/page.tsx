@@ -11,6 +11,14 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const physicsChapters = [
     {
+        id: 'physical-world',
+        chapter: 0,
+        title: 'Physics - Physical World (பௌதிக உலகம்)',
+        difficulty: 'Easy',
+        estimatedTime: '20-30 min',
+        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 1: Nature of Physical World'
+    },
+    {
         id: 'motion-in-one-dimension',
         chapter: 1,
         title: 'Physics - Motion in One Dimension (ஒரு பரிமாண இயக்கம்)',
@@ -51,7 +59,7 @@ export default function NeetPhysicsPage() {
       </header>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {physicsChapters.map((item) => (
+        {physicsChapters.sort((a,b) => a.chapter - b.chapter).map((item) => (
             <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
                 <Card className="hover:border-primary transition-colors h-full flex flex-col">
                     <CardContent className="p-6 space-y-4 flex-grow">
@@ -89,7 +97,7 @@ export default function NeetPhysicsPage() {
                 <p className="text-sm text-muted-foreground">Completed</p>
             </div>
             <div>
-                <p className="text-2xl font-bold">2</p>
+                <p className="text-2xl font-bold">3</p>
                 <p className="text-sm text-muted-foreground">Total Chapters</p>
             </div>
              <div>
