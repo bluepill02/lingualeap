@@ -19,7 +19,17 @@ interface NeetChapterClientPageProps {
 
 function ChapterContent({ content }: NeetChapterClientPageProps) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
-  const [progress, setProgress] = useState(16); // 1/6th of the way
+  const [completedSections, setCompletedSections] = useState<string[]>([]);
+  const totalSections = 6;
+
+  const handleCompleteSection = (section: string) => {
+    if (!completedSections.includes(section)) {
+        setCompletedSections([...completedSections, section]);
+    }
+  }
+
+  const progress = (completedSections.length / totalSections) * 100;
+
 
   const summaryPoints = [
     "First Law: Inertia - objects resist change in motion",
@@ -60,19 +70,19 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       <div>
         <div className="flex justify-between items-center mb-1 text-sm">
             <span className="text-muted-foreground">Study Progress</span>
-            <span>1/6 sections completed</span>
+            <span>{completedSections.length}/{totalSections} sections completed</span>
         </div>
         <Progress value={progress} className="h-2" />
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="learn">Learn</TabsTrigger>
-          <TabsTrigger value="examples">Examples</TabsTrigger>
-          <TabsTrigger value="formulas">Formulas</TabsTrigger>
-          <TabsTrigger value="practice">Practice</TabsTrigger>
-          <TabsTrigger value="summary">Summary</TabsTrigger>
+          <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+          <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+          <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+          <TabsTrigger value="formulas">Formulas {completedSections.includes('formulas') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+          <TabsTrigger value="practice">Practice {completedSections.includes('practice') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
+          <TabsTrigger value="summary">Summary {completedSections.includes('summary') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="mt-6 space-y-6">
              <Card>
@@ -115,7 +125,9 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
             </Card>
             
             <div className="flex justify-center">
-                <Button>Mark as Completed</Button>
+                <Button onClick={() => handleCompleteSection('overview')} disabled={completedSections.includes('overview')}>
+                    {completedSections.includes('overview') ? 'Completed' : 'Mark as Completed'}
+                </Button>
             </div>
 
         </TabsContent>
@@ -124,25 +136,33 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                  {conceptNotes}
             </ConceptNotesCard>
             <div className="flex justify-center">
-                <Button>Mark as Completed</Button>
+                <Button onClick={() => handleCompleteSection('learn')} disabled={completedSections.includes('learn')}>
+                     {completedSections.includes('learn') ? 'Completed' : 'Mark as Completed'}
+                </Button>
             </div>
         </TabsContent>
         <TabsContent value="examples" className="mt-6 space-y-6">
             <WorkedExamplesCard examples={workedExamples} />
              <div className="flex justify-center">
-                <Button>Mark as Completed</Button>
+                <Button onClick={() => handleCompleteSection('examples')} disabled={completedSections.includes('examples')}>
+                    {completedSections.includes('examples') ? 'Completed' : 'Mark as Completed'}
+                </Button>
             </div>
         </TabsContent>
         <TabsContent value="formulas" className="mt-6 space-y-6">
             <KeyFormulasCard content={keyFormulasAndDiagrams} />
              <div className="flex justify-center">
-                <Button>Mark as Completed</Button>
+                <Button onClick={() => handleCompleteSection('formulas')} disabled={completedSections.includes('formulas')}>
+                    {completedSections.includes('formulas') ? 'Completed' : 'Mark as Completed'}
+                </Button>
             </div>
         </TabsContent>
         <TabsContent value="practice" className="mt-6 space-y-6">
             <PracticeSectionCard mcqs={mcqs} assertionReasons={assertionReasons} matchTheColumns={matchTheColumns} />
              <div className="flex justify-center">
-                <Button>Mark as Completed</Button>
+                <Button onClick={() => handleCompleteSection('practice')} disabled={completedSections.includes('practice')}>
+                    {completedSections.includes('practice') ? 'Completed' : 'Mark as Completed'}
+                </Button>
             </div>
         </TabsContent>
         <TabsContent value="summary" className="mt-6 space-y-6">
@@ -194,11 +214,16 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     </Alert>
                 </CardContent>
             </Card>
+             <div className="flex justify-center">
+                <Button onClick={() => handleCompleteSection('summary')} disabled={completedSections.includes('summary')}>
+                    {completedSections.includes('summary') ? 'Completed' : 'Mark as Completed'}
+                </Button>
+            </div>
         </TabsContent>
       </Tabs>
       
        <div className="flex justify-center mt-8">
-            <Button size="lg">Complete Chapter</Button>
+            <Button size="lg" disabled={completedSections.length < totalSections}>Complete Chapter</Button>
        </div>
 
        <Button variant="outline" size="icon" className="fixed bottom-8 right-8 rounded-full h-12 w-12 shadow-lg">
@@ -218,5 +243,3 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
-
-    
