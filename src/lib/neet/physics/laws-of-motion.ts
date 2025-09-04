@@ -41,7 +41,27 @@ export const lawsOfMotionModule: NeetModule = {
             notes: 'Centripetal force is a high-yield topic. Understand its application in banking of roads and motion in vertical circles. Problems are often formula-based.'
         }
     ],
-    conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)\nஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.\n\n` + '`FORMULA_START\n`\n' + `\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.\n` + '`\nFORMULA_END`\n\n' + '`DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)\n    +---------+\n    |         |\n    |---------|  <-- Needs large force to overcome inertia\n    |_________|\n    /         \\\n   o           o\n<-- F (Applied Force)\n\nHeavy chariot resists change in motion due to inertia\nபெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது\nDIAGRAM_END`' + `\n\n### Newton's Second Law - F = ma (இரண்டாம் விதி)\nஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.\n\n` + '`FORMULA_START\n`\n' + `\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்\n` + '`\nFORMULA_END`\n\n`' + '`FORMULA_START\n`\n' + `\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்\n` + '`\nFORMULA_END`\n\n' + `### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)\nஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.\n\n` + '`FORMULA_START\n`\n' + `\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)\n` + '`\nFORMULA_END`\n\n',
+    conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
+ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
+
+` + '`FORMULA_START\n`\n' + `\\sum F = 0 \\Rightarrow a = 0 # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.\n` + '`\nFORMULA_END`\n\n' + `DIAGRAM_START: Temple Chariot and Inertia (கோவில் தேர் மற்றும் செயலற்றதன்மை)
+    +---------+
+    |         |
+    |---------|  <-- Needs large force to overcome inertia
+    |_________|
+    /         \\
+   o           o
+<-- F (Applied Force)
+
+Heavy chariot resists change in motion due to inertia
+பெரிய தேர் செயலற்ற தன்மையால் இயக்க மாற்றத்தை எதிர்க்கிறது
+DIAGRAM_END` + `\n\n### Newton's Second Law - F = ma (இரண்டாம் விதி)
+ஒரு பொருளின் மீது செயல்படும் நிகர விசை, அதன் நிறைக்கும் முடுக்கத்திற்கும் பெருக்கற்பலனுக்கு சமம். The net force acting on an object equals mass times acceleration. This explains why it's harder to push a loaded bullock cart than an empty one in rural Tamil Nadu.
+
+` + '`FORMULA_START\n`\n' + `\\vec{F} = m\\vec{a} # Force equals mass times acceleration (vector form) - விசை = நிறை × முடுக்கம்\n` + '`\nFORMULA_END`\n\n`' + `` + '`FORMULA_START\n`\n' + `\\vec{F} = \\frac{d\\vec{p}}{dt} # Force equals rate of change of momentum - விசை = உந்த மாற்ற விகிதம்\n` + '`\nFORMULA_END`\n\n' + `### Newton's Third Law - Action-Reaction (மூன்றாம் விதி - செயல்-எதிர்செயல்)
+ஒவ்வொரு செயலுக்கும் சமமான மற்றும் எதிர் திசையிலான எதிர்செயல் உண்டு. For every action, there is an equal and opposite reaction. When we walk on Marina Beach sand, our feet push backward on sand, and sand pushes forward on our feet - that's how we move forward.
+
+` + '`FORMULA_START\n`\n' + `\\vec{F}_{AB} = -\\vec{F}_{BA} # Action-reaction forces are equal and opposite - செயல் விசை = -(எதிர்செயல் விசை)\n` + '`\nFORMULA_END`\n\n',
     workedExamples: [
         {
             title: "Solved Example 1",
@@ -292,24 +312,6 @@ Heavy chariot resists change in motion due to inertia
             "options": ["A. PM / (M+m)", "B. Pm / (M+m)", "C. P", "D. P(M-m) / (M+m)"],
             "answer": "A. PM / (M+m)",
             "explanation": "The acceleration of the system is a = P / (M+m). The force exerted by the rope on the block is what accelerates the block. F_block = M * a = M * (P / (M+m)) = PM / (M+m)."
-        },
-        {
-            "question": "Which of the following statements is incorrect?",
-            "options": ["A. Friction is a self-adjusting force.", "B. Coefficient of friction can be greater than 1.", "C. Rolling friction is smaller than sliding friction.", "D. Frictional force is always opposite to the direction of motion."],
-            "answer": "D. Frictional force is always opposite to the direction of motion.",
-            "explanation": "Frictional force opposes the relative motion (or tendency of relative motion) between surfaces in contact. For a rolling body like a wheel accelerating a car forward, the static friction on the wheel actually points in the forward direction of motion."
-        },
-        {
-            "question": "A person is standing in an elevator. In which of the following situations does he find his weight less than his actual weight?",
-            "options": ["A. The elevator moves upward with constant acceleration.", "B. The elevator moves downward with constant acceleration.", "C. The elevator moves upward with uniform velocity.", "D. The elevator moves downward with uniform velocity."],
-            "answer": "B. The elevator moves downward with constant acceleration.",
-            "explanation": "Apparent weight is R = m(g-a) when moving downward with acceleration 'a'. Since R < mg, the person finds his weight to be less. In cases C and D, a=0, so R=mg."
-        },
-        {
-            "question": "A 1 kg body explodes into three fragments. The ratio of their masses is 1:1:3. The two pieces of equal mass fly off perpendicular to each other with a speed of 30 m/s each. What is the velocity of the heavier fragment?",
-            "options": ["A. 10√2 m/s", "B. 20√2 m/s", "C. 30√2 m/s", "D. 40√2 m/s"],
-            "answer": "A. 10√2 m/s",
-            "explanation": "Masses are 0.2kg, 0.2kg, 0.6kg. Momentum of first two are p₁=0.2*30=6, p₂=0.2*30=6. Their resultant is √(6²+6²)=6√2. By momentum conservation, the third fragment must have equal and opposite momentum. p₃=6√2. m₃v₃=6√2. 0.6*v₃=6√2. v₃ = 10√2 m/s."
         }
     ],
     assertionReasons: [
@@ -344,12 +346,6 @@ Heavy chariot resists change in motion due to inertia
             "explanation": "Newton's second law directly states that a constant net force (F) on a constant mass (m) will produce a constant acceleration (a). The reason is the direct explanation for the assertion."
         },
         {
-            "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
-            "reason": "The net external force on the system of particles is zero during the collision.",
-            "answer": "D",
-            "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation."
-        },
-        {
             "assertion": "The centripetal force and centrifugal force are action-reaction pairs.",
             "reason": "Centrifugal force is a pseudo force which has to be applied on a body to make it an inertial frame.",
             "answer": "E",
@@ -374,8 +370,8 @@ Heavy chariot resists change in motion due to inertia
             "explanation": "Both statements are true and the reason is the correct explanation. When brakes are applied, the wheels lock and slide, creating sliding friction, which is much greater than the rolling friction present when the wheels are rolling freely. This makes it difficult to move the cycle."
         },
         {
-            "assertion": "The assertion is false that in a collision, the total linear momentum of the system of particles is always conserved because the correct reason that momentum is conserved only if the net external force on the system is zero, as in many collisions, external forces like friction or gravity are present and can't be ignored.",
-            "reason": "momentum is conserved only if the net external force on the system is zero, as in many collisions, external forces like friction or gravity are present and can't be ignored.",
+            "assertion": "In a collision, the total linear momentum of the system of particles is always conserved.",
+            "reason": "The net external force on the system of particles is zero during the collision.",
             "answer": "D",
             "explanation": "Assertion is false. Momentum is conserved only if the net external force on the system is zero. In many collisions, external forces like friction or gravity are present and can't be ignored. The reason correctly states the condition for momentum conservation."
         }
