@@ -20,33 +20,40 @@ import {
 import { Button } from '@/components/ui/button';
 import { CheckCircle, XCircle } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample } from '@/lib/types';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
-function renderContent(content: string | object) {
+function renderContent(content: string) {
     if (typeof content !== 'string') {
         // Fallback for safety, though the data source should be fixed.
         return <pre>{JSON.stringify(content, null, 2)}</pre>;
     }
     const sections = content.split('\n').map((line, index) => {
         if (line.startsWith('### ')) {
-            return <h3 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(4)}</h3>;
+            return <h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>;
         }
         if (line.startsWith('#### ')) {
-             return <h4 key={index} className="text-md font-semibold mt-3 mb-1">{line.substring(5)}</h4>;
+             return <h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>;
         }
         if (line.startsWith('*   **')) {
              const parts = line.split('**');
              return <p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>
         }
         if (line.trim().startsWith('`')) {
-             return <pre key={index} className="bg-muted p-2 rounded-md text-sm font-mono my-2 overflow-x-auto"><code>{line.replace(/`/g, '')}</code></pre>
+             return (
+                <div key={index} className="bg-muted p-4 rounded-lg my-4 text-center">
+                    <BlockMath math={line.replace(/`/g, '')} />
+                     <p className="text-sm text-muted-foreground mt-2">{line.split('#')[1]?.trim()}</p>
+                </div>
+             );
         }
         if (line.trim().startsWith('-')) {
              return <li key={index} className="ml-5 list-disc my-1">{line.substring(line.indexOf('-') + 1).trim()}</li>;
         }
         if (line.trim() === '') {
-            return <div key={index} className="h-2" />;
+            return <div key={index} className="h-4" />;
         }
-        return <p key={index} className="my-2 leading-relaxed">{line}</p>;
+        return <p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>;
     });
     return <>{sections}</>;
 }
@@ -226,7 +233,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         <div>
                                             <h4 className="font-semibold mb-2">Column II</h4>
                                             <ul className="list-disc list-inside">
-                                                {item.column2.map(c2 => <li key={c2}>{c2}</li>)}
+                                                {item.column2.map(c2 => <li key={c2}</li>)}
                                             </ul>
                                         </div>
                                     </div>

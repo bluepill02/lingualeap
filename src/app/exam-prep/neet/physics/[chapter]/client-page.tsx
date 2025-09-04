@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { SyllabusMappingCard, WorkedExamplesCard } from '@/components/exam/exam-components';
+import { ConceptNotesCard } from '@/components/exam/neet-chapter-components';
 
 
 interface NeetChapterClientPageProps {
@@ -19,7 +19,7 @@ interface NeetChapterClientPageProps {
 }
 
 export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes } = content;
   const [progress, setProgress] = useState(16); // 1/6th of the way
 
   return (
@@ -105,6 +105,9 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
                 <Button>Mark as Completed</Button>
             </div>
 
+        </TabsContent>
+        <TabsContent value="learn" className="mt-6">
+            <ConceptNotesCard content={conceptNotes} />
         </TabsContent>
         {/* Other Tabs Content can be added here */}
       </Tabs>

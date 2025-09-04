@@ -41,17 +41,14 @@ export const lawsOfMotionModule: NeetModule = {
             notes: 'Centripetal force is a high-yield topic. Understand its application in banking of roads and motion in vertical circles. Problems are often formula-based.'
         }
     ],
-    conceptNotes: `
-# Concept Overview
+    conceptNotes: `### Newton's First Law - Law of Inertia (முதல் விதி - செயலற்ற தன்மை விதி)
+ஒரு பொருள் ஓய்வில் இருந்தால் ஓய்விலேயே இருக்கும், இயக்கத்தில் இருந்தால் அதே வேகத்தில் நேர் கோட்டில் இயங்கிக் கொண்டே இருக்கும், வெளி விசை செயல்படாத வரை. An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by a net external force. This is why passengers in a Chennai bus lurch forward when brakes are applied suddenly.
 
-This chapter is the foundation of mechanics. We explore how forces interact with objects to cause motion. Imagine pulling a heavy temple chariot (தேர்) during a festival. The force you apply, the friction from the ground, and the chariot's mass all determine its acceleration. That's Newton's second law in action!
+` + '`\\sum F = 0 \\Rightarrow a = 0` # When net force is zero, acceleration is zero. விசை இல்லை என்றால் முடுக்கம் இல்லை.' + `
 
-### Key Topics:
-*   **Newton's First Law (நிலைமம் - Inertia):** An object stays at rest or in uniform motion unless a net external force acts on it.
-*   **Newton's Second Law (விசை - Force):** The rate of change of momentum of an object is directly proportional to the force applied. Formula: F = ma.
-*   **Newton's Third Law (செயலும் எதிர்ச்செயலும் - Action & Reaction):** For every action, there is an equal and opposite reaction.
-*   **Friction (உராய்வு):** A force that opposes motion between surfaces in contact.
-*   **Circular Motion (வட்ட இயக்கம்):** Motion of an object in a circular path, requiring a centripetal force.
+#### Temple Chariot and Inertia
+Massive chariot at rest needs large force to start moving
+` + '```\nTemple Chariot (கோவில் தேர்)\n|         |\n|---------|  <-- Needs large force to overcome inertia\n|_________|\n```' + `
 `,
     workedExamples: [
         {
