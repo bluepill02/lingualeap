@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,6 +21,14 @@ interface NeetChapterClientPageProps {
 export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns } = content;
   const [progress, setProgress] = useState(16); // 1/6th of the way
+
+  const summaryPoints = [
+    "First Law: Inertia - objects resist change in motion",
+    "Second Law: F = ma - force causes acceleration",
+    "Third Law: Action-Reaction pairs are equal and opposite",
+    "Always draw free body diagrams before solving"
+  ];
+
 
   return (
     <div className="space-y-6">
@@ -52,7 +60,7 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
         <Progress value={progress} className="h-2" />
       </div>
 
-      <Tabs defaultValue="practice" className="w-full">
+      <Tabs defaultValue="summary" className="w-full">
         <TabsList className="grid w-full grid-cols-6">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="learn">Learn</TabsTrigger>
@@ -129,6 +137,39 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
              <div className="flex justify-center">
                 <Button>Mark as Completed</Button>
             </div>
+        </TabsContent>
+        <TabsContent value="summary" className="mt-6 space-y-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">விசை நிறை முடுக்க விதி - F = ma (Visai Nirai Mudukka Vithi)</Button>
+                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">செயல் எதிர்செயல் சமம் - Action-Reaction equal (Seyal Ethirseyal Samam)</Button>
+                    <Button variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">ஓய்வு இயக்கம் மாறாது - Rest and motion unchanged (Oyvu Iyakkam Maradu)</Button>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <CardTitle>Chapter Summary</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    {summaryPoints.map((point, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                            <Trophy className="w-5 h-5 text-yellow-500"/>
+                            <p>{point}</p>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <CardTitle>Next Steps & NEET Tips</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">Coming soon...</p>
+                </CardContent>
+            </Card>
         </TabsContent>
       </Tabs>
       
