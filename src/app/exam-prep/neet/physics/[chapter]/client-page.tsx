@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -28,6 +28,13 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
     "Third Law: Action-Reaction pairs are equal and opposite",
     "Always draw free body diagrams before solving"
   ];
+
+  const neetTips = [
+      { text: "Time-Saver: For connected objects, always find system acceleration first: a = F_net/m_total", tamil: "இணைக்கப்பட்ட பொருட்களுக்கு முதலில் கூட்டு முடுக்கம் கண்டுபிடிக்கவும்" },
+      { text: "Mnemonic: Remember FMA: Force = Mass × Acceleration. Like 'Famous Madras Academy'", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
+      { text: "Pitfall: Weight is mg, not mass. Weight changes with g, mass doesn't!", tamil: "எடை = mg, நிறை அல்ல. எடை g யுடன் மாறும், நிறை மாறாது" },
+      { text: "Strategy: Draw free body diagrams for EVERY object in the problem. This prevents mistakes.", tamil: "எல்லா பொருட்களுக்கும் விசை படம் வரையவும்" }
+  ]
 
 
   return (
@@ -155,8 +162,8 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
                 </CardHeader>
                 <CardContent className="space-y-4">
                     {summaryPoints.map((point, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                            <Trophy className="w-5 h-5 text-yellow-500"/>
+                        <div key={index} className="flex items-start gap-3">
+                            <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
                             <p>{point}</p>
                         </div>
                     ))}
@@ -166,13 +173,34 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
                 <CardHeader>
                     <CardTitle>Next Steps & NEET Tips</CardTitle>
                 </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">Coming soon...</p>
+                <CardContent className="space-y-4">
+                    <h3 className="font-semibold text-green-400">NEET Hacks & Tips:</h3>
+                    {neetTips.map((tip, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                            <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
+                            <div>
+                                <p>{tip.text}</p>
+                                <p className="text-sm text-yellow-400/80">{tip.tamil}</p>
+                            </div>
+                        </div>
+                    ))}
+                    <Alert className="bg-primary/10 border-primary/20">
+                         <Info className="h-4 w-4" />
+                         <AlertTitle>Next Module: Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)</AlertTitle>
+                         <AlertDescription className="mt-2 space-y-2">
+                            <p><strong>Student Tip:</strong> நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்! (Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!)</p>
+                            <p><strong>Peer Discussion:</strong> உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்.</p>
+                         </AlertDescription>
+                    </Alert>
                 </CardContent>
             </Card>
         </TabsContent>
       </Tabs>
       
+       <div className="flex justify-center mt-8">
+            <Button size="lg">Complete Chapter</Button>
+       </div>
+
        <Button variant="outline" size="icon" className="fixed bottom-8 right-8 rounded-full h-12 w-12 shadow-lg">
             <HelpCircle className="w-6 h-6" />
        </Button>
