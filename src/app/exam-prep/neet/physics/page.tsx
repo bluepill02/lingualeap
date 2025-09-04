@@ -79,7 +79,7 @@ export default function NeetPhysicsPage() {
                             <Alert className="bg-primary/5 border-primary/20">
                                 <BookOpen className="h-4 w-4 text-primary/80" />
                                 <AlertDescription className="text-primary/80 text-xs">
-                                    {mappingDescription}
+                                    TN Board Mapping: {mappingDescription}
                                 </AlertDescription>
                             </Alert>
                         </CardContent>
