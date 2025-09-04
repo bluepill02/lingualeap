@@ -102,6 +102,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
     workedExamples: [
         {
             title: "NEET Level: Center of Mass",
+            titleTamil: "நீட் நிலை: நிறை மையம்",
             difficulty: 'Easy',
             problem: "Three point masses of 1 kg, 2 kg, and 3 kg are placed at the vertices of an equilateral triangle of side 1 m. Find the coordinates of the center of mass, assuming the 1 kg mass is at the origin and the 2 kg mass is on the x-axis.",
             solutionSteps: [
@@ -116,6 +117,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         },
         {
             title: "JEE Level: Conservation of Angular Momentum",
+            titleTamil: "ஜே.இ.இ நிலை: கோண உந்த அழிவின்மை",
             difficulty: 'Medium',
             problem: "A circular platform is rotating with an angular velocity of 10 rad/s. A man of mass 80 kg is standing on the edge. If he walks to the center of the platform, what will be the new angular velocity? The moment of inertia of the platform is 400 kg m² and its radius is 2 m.",
             solutionSteps: [
@@ -131,6 +133,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         },
         {
             title: "NEET Level: Parallel Axis Theorem",
+            titleTamil: "நீட் நிலை: இணை அச்சுத் தேற்றம்",
             difficulty: 'Medium',
             problem: "Find the moment of inertia of a solid sphere of mass M and radius R about a tangent to the sphere.",
             solutionSteps: [
@@ -146,6 +149,7 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         },
         {
             title: "JEE Level: Rolling without Slipping",
+            titleTamil: "ஜே.இ.இ நிலை: நழுவாமல் உருளுதல்",
             difficulty: 'Hard',
             problem: "A solid sphere rolls down an inclined plane of height 'h' without slipping. What is its velocity at the bottom?",
             solutionSteps: [
@@ -159,13 +163,14 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         },
         {
             title: "NEET Level: Torque Calculation",
+            titleTamil: "நீட் நிலை: திருப்புவிசை கணக்கீடு",
             difficulty: 'Easy',
             problem: "A force $\\vec{F} = (2\\hat{i} + 3\\hat{j} - \\hat{k})$ N acts at a point with position vector $\\vec{r} = (\\hat{i} - \\hat{j} + 2\\hat{k})$ m from the origin. Find the torque.",
             solutionSteps: [
                 { step: 1, explanation: "Use the formula for torque, which is the cross product of the position vector and the force vector: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$.", explanationTamil: "திருப்புவிசைக்கான சூத்திரத்தைப் பயன்படுத்தவும், இது நிலை வெக்டர் மற்றும் விசை வெக்டரின் குறுக்குப் பெருக்கல் ஆகும்: $\\vec{\\tau} = \\vec{r} \\times \\vec{F}$." },
                 { step: 2, explanation: "Set up the determinant for the cross product.", explanationTamil: "குறுக்குப் பெருக்கலுக்கான அணிக்கோவையை அமைக்கவும்.", calculation: "\\vec{\\tau} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ 1 & -1 & 2 \\\\ 2 & 3 & -1 \\end{vmatrix}" },
                 { step: 3, explanation: "Calculate the determinant.", explanationTamil: "அணிக்கோவையைக் கணக்கிடவும்.", calculation: "\\vec{\\tau} = \\hat{i}((-1)(-1) - (2)(3)) - \\hat{j}((1)(-1) - (2)(2)) + \\hat{k}((1)(3) - (-1)(2))" },
-                { step: 4, explanation: "Simplify the components to get the final torque vector.", explanationTamil: "இறுதி திருப்புவிசை வெக்டரைப் பெற கூறுகளை எளிமைப்படுத்தவும்.", calculation: "\\vec{\\tau} = \\hat{i}(1 - 6) - \\hat{j}(-1 - 4) + \\hat{k}(3 + 2) = -5\\hat{i} + 5\\hat{j} + 5\\hat{k} \\text{ N} \\cdot \\text{m}" }
+                { step: 4, explanation: "Simplify the components to get the final torque vector.", explanationTamil: "இறுதி திருப்புவிசை வெக்டரைப் பெற கூறுகளை எளிமைப்படுத்தவும்.", calculation: "\\vec{\\tau} = \\hat{i}(1 - 6) - \\hat{j}(-1 - 4) + \\hat{k}(3 + 2) = -5\\hat{i} + 5\\hat{j} + 5\\hat{k} \\text{ N}\\cdot\\text{m}" }
             ],
             neetHack: "When calculating cross products, be meticulous with the determinant signs. A small mistake here can flip the direction of the resulting vector.",
             neetHackTamil: "குறுக்குப் பெருக்கல்களைக் கணக்கிடும்போது, அணிக்கோவை குறிகளில் கவனமாக இருங்கள். இங்கு ஒரு சிறிய தவறு, விளைவான வெக்டரின் திசையை மாற்றிவிடும்.",

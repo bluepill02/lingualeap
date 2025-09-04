@@ -44,7 +44,7 @@ const BilingualText = ({ english, tamil }: { english?: string, tamil?: string })
     return (
         <span>
             <span className="text-foreground">{english}</span>
-            {tamil && <span className="text-muted-foreground italic"> ({tamil})</span>}
+            {tamil && <span style={{ color: '#FFB74D' }} className="italic"> ({tamil})</span>}
         </span>
     );
 };
@@ -82,11 +82,17 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                     }
                                 }
                             }
-                            const match = textContent.match(/^(.*?) \((.*?)\)$/);
-                            if (match) {
-                                return <p className="my-4 leading-relaxed"><BilingualText english={match[1]} tamil={match[2]} /></p>;
-                            }
-                            return <p className="my-4 leading-relaxed">{props.children}</p>;
+                             const childrenArray = Children.toArray(props.children);
+                            const processedChildren = childrenArray.map((child, index) => {
+                                if (typeof child === 'string') {
+                                    const match = child.match(/^(.*?) \((.*?)\)$/);
+                                    if (match) {
+                                        return <BilingualText key={index} english={match[1]} tamil={match[2]} />;
+                                    }
+                                }
+                                return child;
+                            });
+                            return <p className="my-4 leading-relaxed">{processedChildren}</p>;
                         },
                         h3: ({ node, ...props }) => {
                              const textContent = Children.toArray(props.children).join('');
@@ -96,12 +102,17 @@ export function ConceptNotesCard({ content }: { content: string }) {
                         },
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         li: ({ node, ...props }) => {
-                           const textContent = Children.toArray(props.children).join('');
-                           const match = textContent.match(/^(.*?) \((.*?)\)$/);
-                           if (match) {
-                               return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText english={match[1]} tamil={match[2]} /></span></li>;
-                           }
-                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span>{props.children}</span></li>;
+                           const childrenArray = Children.toArray(props.children);
+                            const processedChildren = childrenArray.map((child, index) => {
+                                if (typeof child === 'string') {
+                                    const match = child.match(/^(.*?) \((.*?)\)$/);
+                                    if (match) {
+                                        return <BilingualText key={index} english={match[1]} tamil={match[2]} />;
+                                    }
+                                }
+                                return child;
+                            });
+                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span>{processedChildren}</span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
@@ -133,7 +144,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
                             <CardTitle>{example.title}</CardTitle>
-                            {example.titleTamil && <p className="text-muted-foreground italic">{example.titleTamil}</p>}
+                            {example.titleTamil && <p style={{color: '#FFB74D'}} className="italic">{example.titleTamil}</p>}
                         </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
@@ -144,10 +155,10 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
-                            <p className="font-bold text-lg mb-2 text-primary-foreground">Problem:</p>
+                            <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
                             <div className="prose prose-sm dark:prose-invert max-w-none text-foreground">
                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
-                                {example.problemTamil && <p className="text-muted-foreground italic mt-2">{example.problemTamil}</p>}
+                                {example.problemTamil && <p style={{color: '#FFB74D'}} className="italic mt-2">{example.problemTamil}</p>}
                             </div>
                         </div>
 
@@ -156,12 +167,12 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         ))}
 
                         <div>
-                            <p className="font-bold text-lg mb-2 text-primary-foreground">Solution:</p>
+                            <p className="font-bold text-lg mb-2 text-foreground">Solution:</p>
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
                                         <p className="font-semibold text-base text-foreground">{step.explanation}</p>
-                                        {step.explanationTamil && <p className="text-sm text-muted-foreground italic mt-1">{step.explanationTamil}</p>}
+                                        {step.explanationTamil && <p style={{color: '#FFB74D'}} className="text-sm italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
                                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${step.calculation}\n$$`}</ReactMarkdown>
@@ -176,7 +187,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
                                 <p className="text-foreground">{example.neetHack}</p>
-                                {example.neetHackTamil && <p className="text-xs text-muted-foreground italic mt-1">{example.neetHackTamil}</p>}
+                                {example.neetHackTamil && <p style={{color: '#FFB74D'}} className="text-xs italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -185,7 +196,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
                                     <p className="text-foreground">{example.commonPitfall}</p>
-                                    {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
+                                    {example.commonPitfallTamil && <p style={{color: '#FFB74D'}} className="text-xs italic mt-1">{example.commonPitfallTamil}</p>}
                                 </AlertDescription>
                             </Alert>
                         )}

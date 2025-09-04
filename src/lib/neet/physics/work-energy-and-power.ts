@@ -111,7 +111,7 @@ A collision is an event in which two or more bodies exert forces on each other f
         {
             title: "NEET Level: Work-Energy Theorem",
             titleTamil: "நீட் நிலை: வேலை-ஆற்றல் தேற்றம்",
-            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground?",
+            problem: "A block of mass 2 kg is dropped from a height of 10 m. What is the work done by the gravitational force and the final velocity of the block just before it hits the ground? (g = 10 m/s²)",
             problemTamil: "2 கிகி நிறையுள்ள ஒரு கட்டை 10 மீ உயரத்திலிருந்து கீழே விடப்படுகிறது. புவியீர்ப்பு விசையால் செய்யப்பட்ட வேலை மற்றும் தரையைத் தொடும் முன் கட்டையின் இறுதி திசைவேகம் என்ன? (g = 10 மீ/வி² எனக் கொள்க)",
             difficulty: 'Medium',
             solutionSteps: [
@@ -321,6 +321,7 @@ A collision is an event in which two or more bodies exert forces on each other f
         }
     ]
 };
+
 
 
 
