@@ -23,7 +23,7 @@ export function TamilTooltip({ term, translation }: TamilTooltipProps) {
           </span>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{translation}</p>
+          {translation}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
