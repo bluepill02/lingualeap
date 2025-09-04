@@ -27,6 +27,7 @@ import {
   Camera,
   Bot,
   Radio,
+  Megaphone,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -80,6 +81,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/live-classes',
       label: 'Live Classes',
       icon: Radio,
+    },
+    {
+      href: '/peer-teaching',
+      label: 'Peer Teaching',
+      icon: Megaphone,
     },
     {
       href: '/settings',

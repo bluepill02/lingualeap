@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Atom } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Atom, Megaphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -239,6 +239,21 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     </Alert>
                 </CardContent>
             </Card>
+
+            <Card className="bg-accent/10 border-accent">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-accent"><Megaphone />Peer-Teaching Mission</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground mb-4">You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers.</p>
+                    <Link href="/peer-teaching">
+                        <Button variant="outline" className="w-full">
+                            Start Your First Mission
+                        </Button>
+                    </Link>
+                </CardContent>
+            </Card>
+
              <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('summary')}>
                     {completedSections.includes('summary') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
@@ -266,5 +281,3 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : null}</>
 }
-
-    
