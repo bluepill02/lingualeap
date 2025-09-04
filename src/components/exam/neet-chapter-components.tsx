@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { useState, Fragment, Children, ReactNode } from 'react';
+import { useState, Fragment, Children } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Accordion,
@@ -24,10 +24,10 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, Info } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
-import { BlockMath, InlineMath } from 'react-katex';
 import { Separator } from '../ui/separator';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { FbdBuilder } from './FbdBuilder';
 import { InertiaAnimation } from './InertiaAnimation';
@@ -49,7 +49,7 @@ const renderTextWithTooltips = (text: string) => {
 };
 
 
-export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
+export function ConceptNotesCard({ content }: { content: string }) {
     return (
         <Card>
             <CardHeader>
@@ -58,7 +58,7 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
             </CardHeader>
             <CardContent className="prose dark:prose-invert max-w-none">
                 <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
+                    remarkPlugins={[remarkGfm, remarkMath]}
                     rehypePlugins={[rehypeKatex]}
                     components={{
                          p: ({node, ...props}) => {
@@ -109,7 +109,7 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                         em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
                     }}
                 >
-                    {children?.toString()}
+                    {content}
                 </ReactMarkdown>
             </CardContent>
         </Card>
@@ -140,7 +140,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardContent className="space-y-4">
                         <div className="bg-primary/10 p-4 rounded-md">
                             <p className="font-bold">Problem:</p>
-                            <p className="whitespace-pre-line">{example.problem}</p>
+                            <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
                         </div>
 
                         {example.fbd && example.fbd.map((fbdItem, fbdIndex) => (
@@ -156,7 +156,9 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                         {step.explanationTamil && <p className="text-xs text-primary/80 italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-muted p-2 rounded-md mt-1 overflow-x-auto">
-                                                <BlockMath math={step.calculation} />
+                                                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$
+${step.calculation}
+$$`}</ReactMarkdown>
                                             </div>
                                         )}
                                     </div>
@@ -208,7 +210,9 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         {formulas.map((item, index) => (
                             <TableRow key={index}>
                                 <TableCell className="font-mono text-base">
-                                    <BlockMath math={item.formula} />
+                                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$
+${item.formula}
+$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
                                     <p className="whitespace-pre-line">{item.description}</p>
@@ -459,14 +463,3 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
-
-
-
-    
-
-    
-
-
-
-
-    

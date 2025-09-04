@@ -38,7 +38,10 @@ import {
 } from '@/lib/types';
 import { ConfettiBurst } from '@/components/ui/confetti-burst';
 import { ShareableAchievementCard } from '@/components/ui/shareable-achievement-card';
-
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 function VocabularyTable({
   vocabulary,
@@ -253,7 +256,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
                 </Button>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{lesson.culturalTip}</p>
+                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.culturalTip}</ReactMarkdown>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -271,7 +274,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <CardTitle>Next Steps</CardTitle>
         </CardHeader>
         <CardContent>
-          <p>{lesson.followUp}</p>
+          <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.followUp}</ReactMarkdown>
         </CardContent>
       </Card>
 

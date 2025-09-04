@@ -5,3 +5,11 @@ runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+
+headers:
+  # Apply CORS headers to font files to ensure they can be loaded across origins.
+  # This is often necessary for KaTeX rendering in various environments.
+  - source: '**/*.{woff,woff2,gif,png,jpg,jpeg,svg,js,css}'
+    headers:
+      - key: 'Access-Control-Allow-Origin'
+        value: '*'
