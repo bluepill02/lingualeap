@@ -235,9 +235,11 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
         </TabsContent>
       </Tabs>
       
-       <div className="flex justify-center mt-8">
-            <Button size="lg" disabled={completedSections.length < totalSections}>Complete Chapter</Button>
-       </div>
+       <Card className="mt-8">
+        <CardContent className="p-4 text-center">
+            <Button size="lg" disabled={completedSections.length < totalSections}>Complete Chapter & Claim XP</Button>
+        </CardContent>
+       </Card>
     </div>
   );
 }
