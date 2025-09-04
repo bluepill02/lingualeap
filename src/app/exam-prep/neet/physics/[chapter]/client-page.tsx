@@ -74,17 +74,20 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
         </div>
       </header>
 
-      <div>
-        <div className="flex justify-between items-center mb-1 text-sm">
-            <span className="text-muted-foreground">Study Progress</span>
-            <span>{completedSections.length}/{totalSections} sections completed</span>
-        </div>
-        <Progress value={progress} className="h-2" />
-      </div>
+      <Card>
+        <CardContent className="p-4">
+            <div className="flex justify-between items-center mb-1 text-sm">
+                <span className="text-muted-foreground">Study Progress</span>
+                <span>{completedSections.length}/{totalSections} sections completed</span>
+            </div>
+            <Progress value={progress} className="h-2" />
+        </CardContent>
+      </Card>
 
       <Tabs defaultValue="overview" className="w-full">
         <div className="flex justify-center">
-            <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full md:w-auto">
+          <ScrollArea className="w-full pb-2 md:w-auto">
+            <TabsList className="grid grid-cols-3 h-auto md:h-10 md:grid-cols-6 w-full md:w-auto">
             <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
@@ -92,6 +95,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
             <TabsTrigger value="practice">Practice {completedSections.includes('practice') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="summary">Summary {completedSections.includes('summary') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             </TabsList>
+          </ScrollArea>
         </div>
         <TabsContent value="overview" className="mt-6 space-y-6">
              <Card>
