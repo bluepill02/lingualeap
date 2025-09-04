@@ -236,7 +236,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
   const progress = 50;
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8">
+    <div className="mx-auto max-w-4xl space-y-8 p-4 md:p-8">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => router.back()}>
@@ -255,8 +255,10 @@ export default function LessonPage({ params }: { params: { id: string } }) {
                   <Lightbulb className="text-yellow-400" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>
-                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.culturalTip}</ReactMarkdown>
+              <TooltipContent className="max-w-xs">
+                <div className="prose dark:prose-invert max-w-none text-popover-foreground">
+                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.culturalTip}</ReactMarkdown>
+                </div>
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -273,7 +275,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
         <CardHeader>
           <CardTitle>Next Steps</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="prose dark:prose-invert max-w-none">
           <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.followUp}</ReactMarkdown>
         </CardContent>
       </Card>

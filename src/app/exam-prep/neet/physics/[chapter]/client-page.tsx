@@ -184,9 +184,11 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                 <CardContent className="space-y-2">
                     {mnemonics.map((mnemonic, index) => (
                          <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
-                            <div>
+                            <div className="prose dark:prose-invert max-w-none text-foreground">
                                 <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{mnemonic.text || ''}</ReactMarkdown>
-                                <p className="text-xs text-primary/80"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{mnemonic.tamil || ''}</ReactMarkdown></p>
+                                <div className="text-xs text-primary/80">
+                                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{mnemonic.tamil || ''}</ReactMarkdown>
+                                </div>
                             </div>
                          </Button>
                     ))}
@@ -200,7 +202,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     {keyTakeaways.map((point, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
-                            <p><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{point || ''}</ReactMarkdown></p>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{point || ''}</ReactMarkdown></div>
                         </div>
                     ))}
                 </CardContent>
@@ -213,9 +215,9 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     {neetTips.map((tip, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
-                            <div>
-                                <p><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.text || ''}</ReactMarkdown></p>
-                                <p className="text-sm text-yellow-400/80"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.tamil || ''}</ReactMarkdown></p>
+                            <div className="prose dark:prose-invert max-w-none">
+                                <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.text || ''}</ReactMarkdown>
+                                <div className="text-sm text-yellow-400/80"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{tip.tamil || ''}</ReactMarkdown></div>
                             </div>
                         </div>
                     ))}
@@ -223,8 +225,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                          <Info className="h-4 w-4" />
                          <AlertTitle>Next Module: Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)</AlertTitle>
                          <AlertDescription className="mt-2 space-y-2">
-                            <p><strong>Student Tip:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்! (Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!)"}</ReactMarkdown></p>
-                            <p><strong>Peer Discussion:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}</ReactMarkdown></p>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><strong>Student Tip:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்! (Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!)"}</ReactMarkdown></div>
+                            <div className="prose dark:prose-invert max-w-none text-muted-foreground"><strong>Peer Discussion:</strong> <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்."}</ReactMarkdown></div>
                          </AlertDescription>
                     </Alert>
                 </CardContent>
@@ -235,7 +237,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                     <CardTitle className="flex items-center gap-2 text-accent"><Megaphone />Peer-Teaching Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-muted-foreground mb-4"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers."}</ReactMarkdown></p>
+                    <div className="prose dark:prose-invert max-w-none text-muted-foreground mb-4"><ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{"You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers."}</ReactMarkdown></div>
                     <Link href="/peer-teaching">
                         <Button variant="outline" className="w-full">
                             Start Your First Mission
