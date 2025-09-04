@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const experimentalSkills: NeetModule = {
+export const experimentalSkillsModule: NeetModule = {
     id: 'neet-physics-experimental-skills',
     title: 'Physics - Experimental Skills',
     chapter: 'Experimental Skills',

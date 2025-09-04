@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const oscillationsAndWaves: NeetModule = {
+export const oscillationsAndWavesModule: NeetModule = {
     id: 'neet-physics-oscillations-and-waves',
     title: 'Physics - Oscillations and Waves',
     chapter: 'Oscillations and Waves',

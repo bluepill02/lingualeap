@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const electromagneticWaves: NeetModule = {
+export const electromagneticWavesModule: NeetModule = {
     id: 'neet-physics-electromagnetic-waves',
     title: 'Physics - Electromagnetic Waves',
     chapter: 'Electromagnetic Waves',

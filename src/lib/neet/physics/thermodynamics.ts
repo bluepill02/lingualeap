@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const thermodynamics: NeetModule = {
+export const thermodynamicsModule: NeetModule = {
     id: 'neet-physics-thermodynamics',
     title: 'Physics - Thermodynamics',
     chapter: 'Thermodynamics',

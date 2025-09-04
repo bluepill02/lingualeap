@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const kineticTheoryOfGases: NeetModule = {
+export const kineticTheoryOfGasesModule: NeetModule = {
     id: 'neet-physics-kinetic-theory-of-gases',
     title: 'Physics - Kinetic Theory of Gases',
     chapter: 'Kinetic Theory of Gases',

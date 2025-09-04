@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const electromagneticInductionAndAlternatingCurrents: NeetModule = {
+export const electromagneticInductionAndAlternatingCurrentsModule: NeetModule = {
     id: 'neet-physics-electromagnetic-induction-and-alternating-currents',
     title: 'Physics - Electromagnetic Induction and Alternating Currents',
     chapter: 'Electromagnetic Induction and Alternating Currents',

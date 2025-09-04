@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const optics: NeetModule = {
+export const opticsModule: NeetModule = {
     id: 'neet-physics-optics',
     title: 'Physics - Optics',
     chapter: 'Optics',

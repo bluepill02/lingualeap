@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const gravitation: NeetModule = {
+export const gravitationModule: NeetModule = {
     id: 'neet-physics-gravitation',
     title: 'Physics - Gravitation',
     chapter: 'Gravitation',

@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const electrostatics: NeetModule = {
+export const electrostaticsModule: NeetModule = {
     id: 'neet-physics-electrostatics',
     title: 'Physics - Electrostatics',
     chapter: 'Electrostatics',

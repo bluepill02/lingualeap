@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const currentElectricity: NeetModule = {
+export const currentElectricityModule: NeetModule = {
     id: 'neet-physics-current-electricity',
     title: 'Physics - Current Electricity',
     chapter: 'Current Electricity',

@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const magneticEffectsOfCurrentAndMagnetism: NeetModule = {
+export const magneticEffectsOfCurrentAndMagnetismModule: NeetModule = {
     id: 'neet-physics-magnetic-effects-of-current-and-magnetism',
     title: 'Physics - Magnetic Effects of Current and Magnetism',
     chapter: 'Magnetic Effects of Current and Magnetism',
