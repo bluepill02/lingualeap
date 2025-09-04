@@ -59,22 +59,22 @@ The single most important skill in solving mechanics problems is drawing a Free-
 ### 2. Newton's Laws of Motion: The Core Principles (நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்)
 
 #### First Law (The Law of Inertia - நிலைம விதி)
-An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
+An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If F_net = 0, then a = 0 (which means v = constant).
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
 \`\`\`
-Since momentum *p = mv*, if mass 'm' is constant, this simplifies to the famous equation:
+Since momentum p = mv, if mass 'm' is constant, this simplifies to the famous equation:
 \`\`\`
 \\vec{F}_{net} = m\\vec{a}
 \`\`\`
-This is a vector equation. It can be broken down into components: *ΣF_x = ma_x* and *ΣF_y = ma_y*. The core of problem-solving is applying these component equations after drawing an FBD.
+This is a vector equation. It can be broken down into components: ΣF_x = ma_x and ΣF_y = ma_y. The core of problem-solving is applying these component equations after drawing an FBD.
 
 #### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
-*   Forces always occur in pairs (*F_AB = -F_BA*).
+*   Forces always occur in pairs (F_AB = -F_BA).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
@@ -87,14 +87,14 @@ When the motion of two or more bodies is interdependent (e.g., connected by a st
 #### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
 *   **Pseudo Force (F_p):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
-*   **Magnitude:** *F_p = ma₀*, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
+*   **Magnitude:** F_p = ma₀, where 'm' is the mass of the object being observed, and 'a₀' is the acceleration of the frame.
 *   **Direction:** It acts in the direction **opposite** to the acceleration of the frame.
-Once you add the pseudo force, you can apply *ΣF_real + F_pseudo = ma_relative* as if it were an inertial frame.
+Once you add the pseudo force, you can apply ΣF_real + F_pseudo = ma_relative as if it were an inertial frame.
 
 **Classic Example: The Lift Problem (மின் தூக்கி கணக்கு)**
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
-*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, *N = mg + ma = m(g+a)*. The person feels heavier (தோற்ற எடை அதிகம்).
-*   **Lift Accelerating Downwards:** The pseudo force *F_p = ma* is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, *N + ma = mg*, so *N = m(g-a)*. The person feels lighter (தோற்ற எடை குறைவு).
+*   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, N = mg + ma = m(g+a). The person feels heavier (தோற்ற எடை அதிகம்).
+*   **Lift Accelerating Downwards:** The pseudo force F_p = ma is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, N + ma = mg, so N = m(g-a). The person feels lighter (தோற்ற எடை குறைவு).
 `,
     workedExamples: [
         {
@@ -131,6 +131,61 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             ],
             neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
             commonPitfall: "The most common error is forgetting to add the pseudo force, or adding it in the wrong direction. The second mistake is resolving the components incorrectly. Remember `mg` gets a `sin(θ)` component along the incline, while the horizontal force `mA` gets a `cos(θ)` component."
+        },
+        {
+            title: "NEET Level: Block on an Incline with Friction",
+            difficulty: 'Medium',
+            problem: "A block of mass 5 kg is placed on a rough inclined plane making an angle of 30° with the horizontal. The coefficient of static friction is 0.6. Will the block slide down? What is the frictional force acting on it? (g = 10 m/s²)",
+            solutionSteps: [
+                "Strategy: To determine if the block slides, we must compare the component of gravity pulling it down the incline with the maximum possible static frictional force that can oppose it.",
+                "Step 1: Calculate the force pulling the block down the incline. This is the component of its weight parallel to the slope: F_down = mg sin(θ).",
+                "F_down = 5 kg * 10 m/s² * sin(30°) = 50 * 0.5 = 25 N.",
+                "Step 2: Calculate the normal force (N) acting on the block. This is the component of its weight perpendicular to the slope: N = mg cos(θ).",
+                "N = 5 kg * 10 m/s² * cos(30°) = 50 * (√3 / 2) ≈ 43.3 N.",
+                "Step 3: Calculate the maximum possible static friction (f_s_max). f_s_max = μs * N.",
+                "f_s_max = 0.6 * 43.3 N ≈ 25.98 N.",
+                "Step 4: Compare the forces. The force pulling the block down is F_down = 25 N. The maximum friction available to stop it is f_s_max ≈ 25.98 N.",
+                "Step 5: Conclude. Since F_down (25 N) is less than f_s_max (25.98 N), the block will NOT slide. Because it is in equilibrium, the actual static frictional force acting on it is exactly equal to the downward force. f_s = 25 N."
+            ],
+            neetHack: "The critical comparison is between tan(θ) and μs. If tan(θ) ≤ μs, the block will not slide. Here, tan(30°) ≈ 0.577, which is less than μs = 0.6. So, it won't slide. This is a quick check.",
+            commonPitfall: "The most common mistake is to assume the frictional force is f = μsN = 25.98 N. This is incorrect. Static friction is a self-adjusting force; it is only as large as it needs to be to prevent motion, up to its maximum value. Since only 25 N is needed, the friction is 25 N."
+        },
+        {
+            title: "NEET Level: The Classic Atwood Machine",
+            difficulty: 'Medium',
+            problem: "Two masses, m₁ = 10 kg and m₂ = 5 kg, are connected by a massless, inextensible string passing over a frictionless pulley. Find the acceleration of the system and the tension in the string when they are released. (g = 10 m/s²)",
+            solutionSteps: [
+                "Strategy: Identify the net force driving the system's motion and divide by the total mass to find acceleration. Then, analyze one of the masses individually to find the tension.",
+                "Step 1: Identify the forces. The heavier mass (m₁) is pulled down by gravity (m₁g). The lighter mass (m₂) is pulled down by its own gravity (m₂g), but this force opposes the system's primary motion. The tension (T) is an internal force.",
+                "Step 2: Calculate the net external force on the system. The force causing the motion is m₁g, and the force opposing it is m₂g. So, F_net = m₁g - m₂g.",
+                "F_net = (10 * 10) - (5 * 10) = 100 N - 50 N = 50 N.",
+                "Step 3: Calculate the total mass being accelerated. M_total = m₁ + m₂ = 10 kg + 5 kg = 15 kg.",
+                "Step 4: Calculate the acceleration using Newton's second law for the system. a = F_net / M_total.",
+                "a = 50 N / 15 kg = 10/3 m/s² ≈ 3.33 m/s².",
+                "Step 5: Find the tension by creating an equation for one mass. Let's use m₂ (it is accelerating upwards). The net force on m₂ is T - m₂g = m₂a.",
+                "T = m₂g + m₂a = m₂(g + a) = 5 * (10 + 10/3) = 5 * (40/3) = 200/3 N ≈ 66.7 N."
+            ],
+            neetHack: "A shortcut formula for acceleration in an Atwood machine is a = g * (m₁-m₂) / (m₁ + m₂). And for tension, T = 2m₁m₂g / (m₁ + m₂). Plugging in the values gives the same results instantly. It's worth memorizing these for speed.",
+            commonPitfall: "A frequent error is calculating the net force incorrectly (e.g., just using m₁g) or using the wrong total mass. Remember that both masses are part of the accelerating system. Another mistake is assuming tension equals one of the weights; tension is the same throughout the string but is not equal to either weight unless the system is in equilibrium."
+        },
+        {
+            title: "JEE Level: Centripetal Force and Friction",
+            difficulty: 'Hard',
+            problem: "A car of mass 1000 kg is moving at a speed of 10 m/s on a flat, circular road of radius 50 m. What is the minimum coefficient of static friction (μs) between the tires and the road required to prevent the car from slipping?",
+            solutionSteps: [
+                "Strategy: The force causing the car to turn in a circle (the centripetal force) is provided entirely by the static friction between the tires and the road. We need to calculate the required centripetal force and set it equal to the maximum possible static friction force.",
+                "Step 1: Calculate the required centripetal force (Fc). The formula is Fc = mv²/r.",
+                "Fc = (1000 kg) * (10 m/s)² / 50 m = 1000 * 100 / 50 = 2000 N.",
+                "Step 2: This 2000 N force must be provided by static friction. So, the required frictional force is f_s = 2000 N.",
+                "Step 3: The maximum possible static friction is given by f_s_max = μs * N. On a flat road, the normal force (N) is equal to the car's weight (mg).",
+                "N = mg = 1000 kg * 10 m/s² = 10000 N.",
+                "Step 4: To prevent slipping, the required frictional force must be less than or equal to the maximum available frictional force. The minimum coefficient is when they are equal: f_s = f_s_max.",
+                "2000 N = μs * 10000 N.",
+                "Step 5: Solve for the minimum coefficient of static friction (μs).",
+                "μs = 2000 / 10000 = 0.2."
+            ],
+            neetHack: "For any object moving in a flat circle, the condition is mv²/r ≤ μs * mg. Notice that the mass 'm' cancels out. The condition simplifies to v²/rg ≤ μs. You can quickly calculate v²/rg = 100 / (50 * 10) = 0.2. So, μs must be at least 0.2.",
+            commonPitfall: "Confusing centripetal and centrifugal forces. Centripetal force is the *real* force (in this case, friction) that points inward, causing the circular motion. Centrifugal force is a fictitious pseudo force that you would only consider if you were analyzing the situation from the non-inertial frame of the car itself. For most problems, stick to the inertial (ground) frame."
         }
     ],
     keyFormulasAndDiagrams: {
