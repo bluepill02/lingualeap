@@ -87,11 +87,15 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "Perform a final, comprehensive review of the entire module file to catch any content errors, logical flaws, or empty sections. Ensure every part of the module is complete and accurate."
   },
   {
-    check: "Tamil parts for bilingual support should be in colored brackets",
+    check: "The Tamil parts for the bilingual support should always be within coloured brackets",
     details: "The Tamil translations in bilingual sections should be enclosed in colored brackets to visually distinguish them from the English text, enhancing readability."
   },
   {
     check: "Thorough and careful check of every single letter of code",
     details: "Always do a thorough and careful check of every single letter of code, with no leniency."
+  },
+  {
+    check: "Check LaTeX errors thoroughly and carefully, every letter of code",
+    details: "All LaTeX code must be meticulously verified to ensure it renders correctly without any syntax errors. This includes checking every single character and command."
   }
 ];
