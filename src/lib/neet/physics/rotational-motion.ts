@@ -32,71 +32,71 @@ export const rotationalMotion: NeetModule = {
         }
     ],
     conceptNotes: `### 1. Center of Mass (நிறை மையம்)
-The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point. (துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.)
-For a system of n particles: (n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:)
+The center of mass (CM) of a system of particles is a point that moves as though all the mass of the system were concentrated at that point and all external forces were applied at that point. [[(துகள் அமைப்பின் நிறை மையம் (CM) என்பது, அமைப்பின் மொத்த நிறையும் அந்தப் புள்ளியில் செறிவூட்டப்பட்டது போலவும், அனைத்து வெளிப்புற விசைகளும் அந்தப் புள்ளியில் பயன்படுத்தப்பட்டது போலவும் நகரும் ஒரு புள்ளியாகும்.):tamil]]
+For a system of n particles: [[(n துகள்களைக் கொண்ட ஒரு அமைப்புக்கு:):tamil]]
 $$
 \\vec{R}_{CM} = \\frac{m_1\\vec{r}_1 + m_2\\vec{r}_2 + ... + m_n\\vec{r}_n}{m_1 + m_2 + ... + m_n} = \\frac{\\sum m_i\\vec{r}_i}{M}
 $$
-For a continuous body, we integrate: (ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:)
+For a continuous body, we integrate: [[(ஒரு தொடர்ச்சியான பொருளுக்கு, நாம் தொகையீடு செய்கிறோம்:):tamil]]
 $$
 \\vec{R}_{CM} = \\frac{1}{M} \\int \\vec{r} \\,dm
 $$
-The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$. (நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.)
+The velocity of the center of mass is $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$. Newton's second law for a system is $\\vec{F}_{ext} = M \\vec{A}_{CM}$. [[(நிறை மையத்தின் திசைவேகம் $\\vec{V}_{CM} = \\frac{\\sum m_i\\vec{v}_i}{M}$ ஆகும். ஒரு அமைப்புக்கான நியூட்டனின் இரண்டாம் விதி $\\vec{F}_{ext} = M \\vec{A}_{CM}$ ஆகும்.):tamil]]
 
 ### 2. Torque and Angular Momentum (திருப்புவிசை மற்றும் கோண உந்தம்)
-*   **Torque ([[\\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force. (விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.)
+*   **Torque ([[\vec{\\tau}:திருப்புவிசை]]):** The rotational analogue of force. It is the turning effect of a force. [[(விசையின் சுழற்சி ஒப்புமை. இது ஒரு விசையின் சுழற்சி விளைவு ஆகும்.):tamil]]
 $$
 \\vec{\\tau} = \\vec{r} \\times \\vec{F}
 $$
-Magnitude (எண்மதிப்பு): $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule. (திசை வலது கை விதியால் கொடுக்கப்படுகிறது.)
+Magnitude: $\\tau = rF \\sin\\theta$. Direction is given by the right-hand rule. [[(எண்மதிப்பு: $\\tau = rF \\sin\\theta$. திசை வலது கை விதியால் கொடுக்கப்படுகிறது.):tamil]]
 
-*   **Angular Momentum ([[\\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle: (நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:)
+*   **Angular Momentum ([[\vec{L}:கோண உந்தம்]]):** The rotational analogue of linear momentum. For a single particle: [[(நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:):tamil]]
 $$
 \\vec{L} = \\vec{r} \\times \\vec{p}
 $$
-where $\\vec{p}$ is the linear momentum. Magnitude (எண்மதிப்பு): $L = rp \\sin\\theta = mvr \\sin\\theta$.
+where $\\vec{p}$ is the linear momentum. Magnitude: $L = rp \\sin\\theta = mvr \\sin\\theta$. [[(இங்கு $\\vec{p}$ என்பது நேர்கோட்டு உந்தம். எண்மதிப்பு: $L = rp \\sin\\theta = mvr \\sin\\theta$.):tamil]]
 
-*   **Rotational Second Law (சுழற்சிக்கான இரண்டாம் விதி):** The net external torque on a system is equal to the rate of change of its angular momentum. (ஒரு அமைப்பின் மீதான நிகர வெளிப்புற திருப்புவிசை அதன் கோண உந்தத்தின் மாறுவீதத்திற்கு சமம்.)
+*   **Rotational Second Law ([[\text{சுழற்சிக்கான இரண்டாம் விதி}]])**: The net external torque on a system is equal to the rate of change of its angular momentum. [[(ஒரு அமைப்பின் மீதான நிகர வெளிப்புற திருப்புவிசை அதன் கோண உந்தத்தின் மாறுவீதத்திற்கு சமம்.):tamil]]
 $$
 \\vec{\\tau}_{ext} = \\frac{d\\vec{L}}{dt}
 $$
 
 ### 3. Moment of Inertia and Rotational Dynamics (நிலைமத் திருப்புத்திறன் மற்றும் சுழற்சி இயக்கவியல்)
-*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation. (நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.)
-For a system of particles (துகள் அமைப்புக்கு): $I = \\sum m_i r_i^2$
-For a rigid body (திண்மப் பொருளுக்கு): $I = \\int r^2 \\,dm$
+*   **Moment of Inertia ([[I:நிலைமத் திருப்புத்திறன்]]):** The rotational analogue of mass. It is a measure of an object's resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation. [[(நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.):tamil]]
+For a system of particles: $I = \\sum m_i r_i^2$. [[(துகள் அமைப்புக்கு: $I = \\sum m_i r_i^2$):tamil]]
+For a rigid body: $I = \\int r^2 \\,dm$. [[(திண்மப் பொருளுக்கு: $I = \\int r^2 \\,dm$):tamil]]
 
-*   **Relationship for a Rigid Body (ஒரு திண்மப் பொருளுக்கான தொடர்பு):** For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by: (ஒரு நிலையான அச்சைப் பற்றி சுழலும் ஒரு திண்மப் பொருளுக்கு, திருப்புவிசை, நிலைமத் திருப்புத்திறன் மற்றும் கோண முடுக்கம் (α) ஆகியவை பின்வருமாறு தொடர்புடையவை:)
+*   **Relationship for a Rigid Body ([[\text{ஒரு திண்மப் பொருளுக்கான தொடர்பு}]])**: For a rigid body rotating about a fixed axis, the torque, moment of inertia, and angular acceleration (α) are related by: [[(ஒரு நிலையான அச்சைப் பற்றி சுழலும் ஒரு திண்மப் பொருளுக்கு, திருப்புவிசை, நிலைமத் திருப்புத்திறன் மற்றும் கோண முடுக்கம் (α) ஆகியவை பின்வருமாறு தொடர்புடையவை:):tamil]]
 $$
 \\tau = I \\alpha
 $$
-This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. (இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.)
+This is the rotational analogue of $F=ma$. Similarly, angular momentum is $L = I \\omega$. [[(இது $F=ma$-இன் சுழற்சி ஒப்புமை ஆகும். இதேபோல், கோண உந்தம் $L = I \\omega$ ஆகும்.):tamil]]
 
 {{INERTIA_ANIMATION}}
 
 #### Theorems of Moment of Inertia (நிலைமத் திருப்புத்திறன் தேற்றங்கள்):
-1.  **[[Parallel Axis Theorem:இணை அச்சுத் தேற்றம்]]:** The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. (ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.)
+1.  **Parallel Axis Theorem ([[\\text{இணை அச்சுத் தேற்றம்}]])**: The moment of inertia (I) about any axis is the sum of the moment of inertia about a parallel axis passing through the center of mass ($I_{CM}$) and the product of the total mass (M) and the square of the distance (d) between the two axes. [[(ஏதேனும் ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் (I) என்பது, நிறை மையம் வழியாகச் செல்லும் ஒரு இணை அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_{CM}$) மற்றும் மொத்த நிறை (M) மற்றும் இரண்டு அச்சுகளுக்கு இடையிலான தூரத்தின் (d) வர்க்கத்தின் பெருக்கற்பலனின் கூடுதலுக்கு சமம்.):tamil]]
 $$
 I = I_{CM} + Md^2
 $$
-2.  **[[Perpendicular Axis Theorem:செங்குத்து அச்சுத் தேற்றம்]]:** For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$). (ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).)
+2.  **Perpendicular Axis Theorem ([[\\text{செங்குத்து அச்சுத் தேற்றம்}]])**: For a planar body (lamina), the moment of inertia about an axis perpendicular to its plane ($I_z$) is the sum of the moments of inertia about two perpendicular axes in its plane and intersecting at the point where the perpendicular axis passes through it ($I_x$ and $I_y$). [[(ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).):tamil]]
 $$
 I_z = I_x + I_y
 $$
 
 ### 4. Rolling Motion (உருளுதல் இயக்கம்)
-Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$. (உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.)
-The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies. (ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.)
+Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$. [[(உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.):tamil]]
+The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies. [[(ஒரு உருளும் பொருளின் மொத்த இயக்க ஆற்றல் அதன் இடப்பெயர்வு மற்றும் சுழற்சி இயக்க ஆற்றல்களின் கூடுதலாகும்.):tamil]]
 $$
 K_{total} = K_{trans} + K_{rot} = \\frac{1}{2}Mv_{CM}^2 + \\frac{1}{2}I_{CM}\\omega^2
 $$
 
 ### 5. Conservation of Angular Momentum (கோண உந்த அழிவின்மை விதி)
-If the **net external torque** on a system is zero, its total angular momentum remains constant. (ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.)
+If the **net external torque** on a system is zero, its total angular momentum remains constant. [[(ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.):tamil]]
 $$
 \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant}
 $$
-This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase). (இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).)
+This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle explains why a spinning ice skater spins faster when she pulls her arms in (moment of inertia 'I' decreases, so angular velocity 'ω' must increase). [[(இதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் 'I' குறைகிறது, எனவே கோண திசைவேகம் 'ω' அதிகரிக்க வேண்டும்).):tamil]]
 `,
     workedExamples: [
         {
@@ -201,7 +201,13 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { question: "If the net external torque on a system is zero, then:", options: ["A. The angular velocity will be zero", "B. The angular momentum will be zero", "C. The angular momentum will be conserved", "D. The angular velocity will be conserved"], answer: "C. The angular momentum will be conserved", explanation: "This is the statement of the law of conservation of angular momentum. Angular velocity is not necessarily conserved, as the moment of inertia can change.", neetFrequency: 5 },
         { question: "A solid cylinder of mass M and radius R rolls down an inclined plane of height h. The rotational kinetic energy of the cylinder at the bottom of the plane is:", options: ["A. (1/2)Mgh", "B. (1/3)Mgh", "C. (1/4)Mgh", "D. (2/5)Mgh"], answer: "B. (1/3)Mgh", explanation: "Total K.E. = K_trans + K_rot = Mgh. For a solid cylinder, I=1/2MR², so K_trans/K_rot = (1/2)Mv² / (1/2)(1/2MR²)ω² = M(Rω)² / (1/2)MR²ω² = 2. So K_rot is 1/3 of the total energy, which is Mgh. K_rot = (1/3)Mgh.", neetFrequency: 4 },
         { question: "The center of mass of a system of particles:", options: ["A. Always coincides with one of the particles", "B. May lie where there is no mass", "C. Is always inside the body", "D. Is always outside the body"], answer: "B. May lie where there is no mass", explanation: "For example, the center of mass of a ring is at its geometric center, where there is no material.", neetFrequency: 3 },
-        { question: "The angular momentum of a particle moving with a constant velocity is:", options: ["A. Always zero", "B. Always constant", "C. Constant only if its path is a straight line passing through the origin", "D. Varies with time"], answer: "C. Constant only if its path is a straight line passing through the origin", explanation: "L = r x p. If v is constant, p is constant. L is constant only if r is also constant or the angle between r and p is constant, which happens if the line of motion passes through the origin (angle is 0 or 180).", neetFrequency: 2 },
+        {
+            question: "The angular momentum of a particle moving with a constant velocity is:",
+            options: ["A. Always zero", "B. Always constant", "C. Constant only if its path is a straight line passing through the origin", "D. Constant only if its path is a straight line"],
+            answer: "D. Constant only if its path is a straight line",
+            explanation: "L = r x p. If v is constant, p is constant. For L to be constant, the perpendicular distance from the origin to the line of motion must be constant, which is true for any straight line motion.",
+            neetFrequency: 2
+        },
         { question: "The moment of inertia of a circular ring about an axis passing through its center and perpendicular to its plane is MR². What is its moment of inertia about its diameter?", options: ["A. MR²", "B. (1/2)MR²", "C. (1/4)MR²", "D. 2MR²"], answer: "B. (1/2)MR²", explanation: "By the perpendicular axis theorem, I_z = I_x + I_y. For a ring, I_z = MR² and by symmetry, I_x = I_y. So, MR² = 2I_diameter. I_diameter = (1/2)MR².", neetFrequency: 5 },
         { question: "A man is sitting on a rotating stool with his arms outstretched. If he suddenly folds his arms, his angular velocity will:", options: ["A. Decrease", "B. Increase", "C. Remain the same", "D. Become zero"], answer: "B. Increase", explanation: "By folding his arms, he decreases his moment of inertia (I). Since angular momentum (L = Iω) is conserved, his angular velocity (ω) must increase.", neetFrequency: 4 },
         { question: "Torque has the same dimensions as:", options: ["A. Force", "B. Work", "C. Power", "D. Linear Momentum"], answer: "B. Work", explanation: "Torque (τ = rF) has dimensions [M L² T⁻²]. Work (W = Fs) also has dimensions [M L² T⁻²].", neetFrequency: 1 },
@@ -212,8 +218,14 @@ This means $L_i = L_f$, or $I_i \\omega_i = I_f \\omega_f$. This principle expla
         { question: "A solid sphere and a hollow sphere of same mass and radius are rolling down an incline. Which will reach the bottom first?", options: ["A. Solid sphere", "B. Hollow sphere", "C. Both will reach at the same time", "D. Cannot be determined"], answer: "A. Solid sphere", explanation: "The object with the smaller moment of inertia will have greater acceleration and reach first. I_solid = (2/5)MR², I_hollow = (2/3)MR². Since I_solid < I_hollow, the solid sphere reaches first.", neetFrequency: 5 },
         { question: "The vector product of two non-zero vectors is zero if they are:", options: ["A. Perpendicular to each other", "B. Parallel to each other", "C. At an angle of 45°", "D. At an angle of 60°"], answer: "B. Parallel to each other", explanation: "The magnitude of the vector product (cross product) is |A||B|sinθ. This is zero when sinθ = 0, which means θ = 0° or 180° (parallel or anti-parallel).", neetFrequency: 1 },
         { question: "The position of the center of mass of a uniform semi-circular disc of radius R from the center is:", options: ["A. 4R/3π", "B. 3R/4π", "C. 2R/π", "D. R/2"], answer: "A. 4R/3π", explanation: "This is a standard result derived from integration. It's useful to memorize the CM positions for common shapes like a semi-circular disc, ring, and cone.", neetFrequency: 3 },
-        { question: "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is halved and its kinetic energy is doubled, then the new angular momentum is:", options: ["A. L/4", "B. L/2", "C. 2L", "D. 4L"], answer: "D. 4L", explanation: "Rotational K.E. = (1/2)Iω² = (1/2)Lω. So L = 2(K.E.)/ω. New K.E' = 2(K.E.), New ω' = ω/2. New L' = 2(2*K.E.)/(ω/2) = 8(K.E./ω) = 4 * (2K.E./ω) = 4L.", neetFrequency: 3 },
-        { question: "A flywheel rotating at 300 rpm slows down to a constant rate of 180 rpm in 2 seconds. The angular deceleration is:", options: ["A. π rad/s²", "B. 2π rad/s²", "C. 3π rad/s²", "D. 4π rad/s²"], answer: "B. 2π rad/s²", explanation: "ω_i = 300 * 2π/60 = 10π rad/s. ω_f = 180 * 2π/60 = 6π rad/s. α = (ω_f - ω_i)/t = (6π - 10π)/2 = -4π/2 = -2π rad/s². The deceleration is 2π rad/s².", neetFrequency: 2 },
+        { question: "A particle performs uniform circular motion with an angular momentum L. If its angular frequency is halved and its kinetic energy is doubled, then the new angular momentum is:", options: ["A. L/4", "B. L/2", "C. 2L", "D. 4L"], answer: "D. 4L", explanation: "Rotational K.E. = (1/2)Iω² = (1/2)(Iω)ω = (1/2)Lω. So L = 2(K.E.)/ω. New K.E' = 2(K.E.), New ω' = ω/2. New L' = 2(2*K.E.)/(ω/2) = 8(K.E./ω) = 4 * (2K.E./ω) = 4L.", neetFrequency: 3 },
+        {
+            question: "A flywheel rotating at 300 rpm slows down to a constant rate of 180 rpm in 2 seconds. The angular deceleration is:",
+            options: ["A. π rad/s²", "B. 2π rad/s²", "C. 3π rad/s²", "D. 4π rad/s²"],
+            answer: "B. 2π rad/s²",
+            explanation: "ω_i = 300 rpm = 300 * 2π/60 = 10π rad/s. ω_f = 180 rpm = 180 * 2π/60 = 6π rad/s. α = (ω_f - ω_i)/t = (6π - 10π)/2 = -4π/2 = -2π rad/s². The deceleration is the magnitude, which is 2π rad/s².",
+            neetFrequency: 2
+        },
         { question: "The physical quantity in rotational motion which is analogous to mass in linear motion is:", options: ["A. Torque", "B. Angular momentum", "C. Moment of inertia", "D. Radius of gyration"], answer: "C. Moment of inertia", explanation: "Moment of inertia (I) plays the same role in rotational dynamics (τ = Iα) as mass (m) does in linear dynamics (F = ma).", neetFrequency: 1 },
         { question: "A particle is moving on a circular path with constant speed. What is the nature of its angular momentum?", options: ["A. Constant in magnitude and direction", "B. Constant in magnitude but variable in direction", "C. Variable in magnitude but constant in direction", "D. Variable in both magnitude and direction"], answer: "A. Constant in magnitude and direction", explanation: "For a particle in a circular path, L = mvr. Since m, v, and r are constant, the magnitude of L is constant. The direction of L (r x p) is perpendicular to the plane of motion, which is also constant.", neetFrequency: 3 },
         { question: "If the earth shrinks to half its radius without change in mass, the duration of the day will be:", options: ["A. 24 hours", "B. 12 hours", "C. 6 hours", "D. 48 hours"], answer: "C. 6 hours", explanation: "Angular momentum L = Iω is conserved. I_earth ∝ R². If R' = R/2, then I' = I/4. So, (I/4)ω' = Iω => ω' = 4ω. Since T = 2π/ω, T' = T/4. New day = 24/4 = 6 hours.", neetFrequency: 4 },
