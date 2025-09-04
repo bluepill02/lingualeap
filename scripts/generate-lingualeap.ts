@@ -3,6 +3,7 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { generateNeetContent } from '../src/ai/flows/neet-content-generator';
+import { validateModule } from './validate-module';
 
 // Define a specific type for the subjects and categories
 type Subject = 'physics' | 'chemistry' | 'biology';
@@ -95,13 +96,24 @@ async function run() {
         
         const result = await generateNeetContent({ subject: 'Physics', chapter, category });
         
+        console.log(`🔍 Validating module for ${chapter}...`);
+        const { isValid, errors } = await validateModule(result.markdownContent, chapter);
+
+        if (!isValid) {
+            console.error(`❌ Validation failed for ${chapter}:`);
+            errors.forEach(error => console.error(` - ${error}`));
+            continue; // Skip saving the invalid module
+        }
+
+        console.log(`✅ Validation passed for ${chapter}.`);
+        
         const safeName = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
         const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
         
         fs.mkdirSync(path.dirname(filePath), { recursive: true });
         fs.writeFileSync(filePath, result.markdownContent);
 
-        console.log(`📝 Successfully generated Physics > ${category} > ${chapter}`);
+        console.log(`📝 Successfully generated and saved Physics > ${category} > ${chapter}`);
       } catch (error) {
         console.error(`❌ Failed to generate Physics > ${category} > ${chapter}:`, error);
       }
