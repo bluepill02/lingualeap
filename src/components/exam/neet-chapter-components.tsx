@@ -32,62 +32,35 @@ function renderContent(content: string) {
     }
     const lines = content.split('\n');
     const elements: React.ReactNode[] = [];
-    let inBlock: 'diagram' | 'formula' | null = null;
-    let blockContent: string[] = [];
-    let blockTitle = '';
 
     lines.forEach((line, index) => {
-        const trimmedLine = line.trim();
-
-        if (trimmedLine.startsWith('DIAGRAM_START:')) {
-            inBlock = 'diagram';
-            blockTitle = trimmedLine.replace('DIAGRAM_START:', '').trim();
-            return;
-        } else if (trimmedLine === 'DIAGRAM_END' && inBlock === 'diagram') {
+        if (line.trim().startsWith('`')) {
+            const formulaLine = line.trim().slice(1, -1);
             elements.push(
-                <div key={`diag-${index}`} className="bg-muted p-4 rounded-lg my-4 text-sm font-mono overflow-x-auto">
-                    {blockTitle && <p className="font-sans text-foreground text-sm font-semibold mb-2">{blockTitle}</p>}
-                    <pre>{blockContent.join('\n')}</pre>
+                <div key={`formula-${index}`} className="bg-muted p-4 rounded-lg my-4">
+                    <BlockMath math={formulaLine} />
                 </div>
             );
-            inBlock = null;
-            blockContent = [];
-            blockTitle = '';
-            return;
-        } else if (trimmedLine.startsWith('FORMULA_START')) {
-            inBlock = 'formula';
-            return;
-        } else if (trimmedLine.startsWith('`')) {
-            const formulaLine = trimmedLine.slice(1, -1);
-            const [formula, description] = formulaLine.split('#').map(s => s.trim());
-            elements.push(
-                 <div key={`formula-${index}`} className="bg-muted p-4 rounded-lg my-4">
-                    <BlockMath math={formula} />
-                    {description && <p className="text-sm text-center text-muted-foreground mt-2">{description}</p>}
-                </div>
-            );
-            return;
-        }
-
-
-        if (inBlock) {
-            blockContent.push(line);
-            return;
-        }
-        
-        if (trimmedLine.startsWith('### ')) {
+        } else if (line.trim().startsWith('### ')) {
             elements.push(<h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>);
-        } else if (trimmedLine.startsWith('#### ')) {
+        } else if (line.trim().startsWith('#### ')) {
             elements.push(<h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>);
-        } else if (trimmedLine.startsWith('*   **')) {
+        } else if (line.trim().startsWith('*   **')) {
             const parts = line.split('**');
             elements.push(<p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>);
-        } else if (trimmedLine.startsWith('- ')) {
+        } else if (line.trim().startsWith('- ')) {
             elements.push(<li key={index} className="ml-5 list-disc my-1">{line.substring(2)}</li>);
-        } else if (trimmedLine === '') {
+        } else if (line.trim() === '') {
            // empty line
         } else if (line) { // Ensure the line is not empty
-            elements.push(<p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>);
+            const parts = line.split(/<b>|<\/b>/g);
+            const lineElements = parts.map((part, i) => {
+                if (i % 2 === 1) { // This part was inside <b> tags
+                    return <strong key={i} className="font-semibold">{part}</strong>;
+                }
+                return part;
+            });
+            elements.push(<p key={index} className="my-2 leading-relaxed text-muted-foreground">{lineElements}</p>);
         }
     });
     
@@ -425,7 +398,3 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
-
-    
-
-    
