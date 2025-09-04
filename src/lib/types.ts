@@ -150,7 +150,13 @@ export interface NeetModule {
     id: string;
     title: string;
     chapter: string;
-    subject: string;
+    subject: 'Physics' | 'Chemistry' | 'Biology';
+    learningObjectives: string[];
+    prerequisites: string[];
+    syllabusMapping?: SyllabusMapping[];
+    conceptOverview?: string;
+    tamilConnection?: string;
+    culturalContext?: string;
     conceptNotes: string;
     workedExamples: WorkedExample[];
     mcqs: MCQ[];

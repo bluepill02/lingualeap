@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,14 +10,16 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { SyllabusMappingCard, WorkedExamplesCard } from '@/components/exam/exam-components';
+
 
 interface NeetChapterClientPageProps {
   content: NeetModule;
 }
 
 export default function NeetChapterClientPage({ content }: NeetChapterClientPageProps) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext } = content;
   const [progress, setProgress] = useState(16); // 1/6th of the way
 
   return (
@@ -60,24 +62,7 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
           <TabsTrigger value="summary">Summary</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className="mt-6 space-y-6">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <Target className="text-primary"/>
-                        Learning Objectives
-                    </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                    {learningObjectives.map((obj, index) => (
-                        <div key={index} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5"/>
-                            <p>{obj}</p>
-                        </div>
-                    ))}
-                </CardContent>
-            </Card>
-
-            <Card>
+             <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <BookOpen className="text-primary"/>
@@ -92,10 +77,33 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
                     </ul>
                 </CardContent>
             </Card>
-            
-            <SyllabusMappingCard mapping={syllabusMapping} />
 
-            <WorkedExamplesCard examples={workedExamples} />
+            <Card>
+                <CardHeader>
+                    <CardTitle>Concept Overview</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <p className="text-muted-foreground">{conceptOverview}</p>
+                    <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
+                        <Lightbulb className="h-4 w-4 text-yellow-400" />
+                        <AlertTitle>Tamil Connection</AlertTitle>
+                        <AlertDescription>{tamilConnection}</AlertDescription>
+                    </Alert>
+                     <Alert variant="default" className="bg-green-500/10 border-green-500/30">
+                        <BookOpen className="h-4 w-4 text-green-400" />
+                        <AlertTitle>Cultural Context</AlertTitle>
+                        <AlertDescription>{culturalContext}</AlertDescription>
+                    </Alert>
+                    <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
+                        <AlertTitle>TN Board Mapping</AlertTitle>
+                        <AlertDescription>{syllabusMapping?.[0]?.tnBoardChapter} maps to NEET Physics Unit 2</AlertDescription>
+                    </Alert>
+                </CardContent>
+            </Card>
+            
+            <div className="flex justify-center">
+                <Button>Mark as Completed</Button>
+            </div>
 
         </TabsContent>
         {/* Other Tabs Content can be added here */}
