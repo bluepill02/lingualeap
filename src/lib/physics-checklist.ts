@@ -50,10 +50,6 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "Use the 'Laws of Motion' module as the definitive quality benchmark for structure and depth.",
   },
   {
-    check: "Check Summary Relevance",
-    details: "Verify that NEET Tips, Chapter Summary, and Mnemonics are highly relevant to the specific chapter's content.",
-  },
-  {
     check: '"Next Module" Accuracy',
     details: 'Ensure the "Next Module" information in the UI points to the correct subsequent chapter.',
   },
@@ -71,7 +67,7 @@ export const qaChecklist: QAChecklistItem[] = [
   },
   {
     check: "Entire learn and worked examples section should be bilingual and nothing skipped",
-    details: "Ensure that all paragraphs, headings, steps, explanations, and tips within the Concept Notes and Worked Examples sections have corresponding Tamil translations. No English-only text should be left in these bilingual sections."
+    details: "Ensure that all paragraphs, headings, steps, explanations, and tips within the Concept Notes and Worked Examples sections have corresponding Tamil translations. No English-only text should be left in these bilingual sections.",
   },
   {
     check: "Verify XML Structure",
@@ -81,4 +77,12 @@ export const qaChecklist: QAChecklistItem[] = [
     check: "Add chapter number tag to the chapter cards",
     details: "The UI for listing chapters should display a 'Chapter X' tag for clear organization."
   },
+  {
+    check: "Check if bilingual content was added uniformly to throughout the learn and worked examples section",
+    details: "Ensure every piece of text, including headers, paragraphs, list items, and tips in the 'Learn' and 'Worked Examples' sections, has a corresponding Tamil translation."
+  },
+  {
+    check: "Entire module should be double checked for errors AND nothing should be empty without suitable content",
+    details: "Perform a final, comprehensive review of the entire module file to catch any content errors, logical flaws, or empty sections. Ensure every part of the module is complete and accurate."
+  }
 ];
