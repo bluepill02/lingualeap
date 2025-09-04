@@ -43,10 +43,12 @@ function renderContent(content: string) {
              return <p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>
         }
         if (line.trim().startsWith('`')) {
+             const formula = line.replace(/`/g, '').split('#')[0].trim();
+             const description = line.split('#')[1]?.trim();
              return (
                 <div key={index} className="bg-muted p-4 rounded-lg my-4 text-center">
-                    <BlockMath math={line.replace(/`/g, '')} />
-                     <p className="text-sm text-muted-foreground mt-2">{line.split('#')[1]?.trim()}</p>
+                    <BlockMath math={formula} />
+                    {description && <p className="text-sm text-muted-foreground mt-2">{description}</p>}
                 </div>
              );
         }
@@ -55,6 +57,10 @@ function renderContent(content: string) {
         }
         if (line.trim() === '') {
             return <div key={index} className="h-4" />;
+        }
+        if (line.trim().startsWith('DIAGRAM:')) {
+            const diagramContent = line.substring(8).replace(/\\n/g, '\n');
+            return <pre key={index} className="bg-muted p-4 rounded-lg my-4 text-sm font-mono overflow-x-auto">{diagramContent}</pre>;
         }
         return <p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>;
     });
