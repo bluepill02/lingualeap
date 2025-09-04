@@ -300,22 +300,19 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             }
         ],
         diagrams: [
-            {
-                title: 'Free-Body Diagram (FBD) of a Block on an Incline',
+             {
+                title: 'Free-Body Diagram of a Block on an Incline',
                 description: 'Decomposing the weight vector `mg` into components parallel and perpendicular to the incline is the key first step.',
-                diagram: `
-        N (Normal Force) ^  /
-                          /|\\
-                         / | \\  f (friction)
-                        /  |  \\
-                       /   |   \\
-                      /....|....\\
-                     <-----mg cos(θ)--->
-                        \\  |  /
-                         \\ | /
-                          \\|/ mg sin(θ)
-                           V mg
-`
+                fbd: {
+                    body: "Block on Incline",
+                    forces: [
+                        { name: "Weight (mg)", direction: "down" },
+                        { name: "Normal (N)", direction: "up-left" },
+                        { name: "Friction (f)", direction: "up-right" }
+                    ],
+                    isAngled: true,
+                    context: "Key forces on an inclined plane."
+                }
             }
         ]
     },

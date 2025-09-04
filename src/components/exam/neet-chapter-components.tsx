@@ -161,7 +161,13 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                         <Separator className="my-4" />
                         <h4 className="font-bold text-lg">{diagram.title}</h4>
                         <p className="text-muted-foreground text-sm mb-2">{diagram.description}</p>
-                        <pre className="bg-muted p-4 rounded-lg text-sm font-mono overflow-x-auto">{diagram.diagram}</pre>
+                        {diagram.fbd ? (
+                           <div className="flex justify-center py-4">
+                             <FbdBuilder {...diagram.fbd} />
+                           </div>
+                        ) : (
+                           <pre className="bg-muted p-4 rounded-lg text-sm font-mono overflow-x-auto">{diagram.diagram}</pre>
+                        )}
                     </div>
                 ))}
             </CardContent>

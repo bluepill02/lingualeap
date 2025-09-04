@@ -173,7 +173,8 @@ export interface KeyFormula {
 export interface KeyDiagram {
     title: string;
     description: string;
-    diagram: string;
+    diagram?: string;
+    fbd?: FBDstep;
 }
 
 export interface NeetModule {
