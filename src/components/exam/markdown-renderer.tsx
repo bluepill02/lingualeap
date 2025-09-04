@@ -12,8 +12,6 @@ import { LiftAnimation } from './LiftAnimation';
 import { ProjectileAnimation } from './ProjectileAnimation';
 import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 
-// This is a simplified and somewhat unsafe way to get text content from children.
-// A more robust solution might traverse the tree properly.
 function getRawTextContent(node: React.ReactNode): string {
     let text = '';
     React.Children.forEach(node, child => {
@@ -29,37 +27,6 @@ function getRawTextContent(node: React.ReactNode): string {
 
 export const MarkdownRenderer: React.FC<{ children: string | null | undefined }> = ({ children }) => {
     if (!children) return null;
-
-    const renderBilingualText = (text: string) => {
-        const regex = /(.*?)\s*\(([^)]+)\)/g;
-        const parts = [];
-        let lastIndex = 0;
-        let match;
-
-        while ((match = regex.exec(text)) !== null) {
-            // Add the text before the match
-            if (match.index > lastIndex) {
-                parts.push(text.substring(lastIndex, match.index));
-            }
-            // Add the styled bilingual part
-            const english = match[1];
-            const tamil = match[2];
-            parts.push(
-                <React.Fragment key={match.index}>
-                    {english}
-                    <span className="text-yellow-400/90 italic text-sm ml-1">({tamil})</span>
-                </React.Fragment>
-            );
-            lastIndex = regex.lastIndex;
-        }
-
-        // Add any remaining text after the last match
-        if (lastIndex < text.length) {
-            parts.push(text.substring(lastIndex));
-        }
-
-        return <>{parts}</>;
-    };
 
     return (
         <ReactMarkdown
@@ -87,38 +54,8 @@ export const MarkdownRenderer: React.FC<{ children: string | null | undefined }>
                         }
                     }
 
-                    // Process for bilingual text
-                    const childrenWithBilingual = React.Children.map(props.children, child => {
-                        if (typeof child === 'string') {
-                            return renderBilingualText(child);
-                        }
-                        return child;
-                    });
-
-                    return <p {...props}>{childrenWithBilingual}</p>;
+                    return <p {...props}>{props.children}</p>;
                 },
-                 li({ node, ...props }) {
-                    const childrenWithBilingual = React.Children.map(props.children, child => {
-                        if (React.isValidElement(child) && child.props.children) {
-                             const childContent = getRawTextContent(child.props.children);
-                             return <p>{renderBilingualText(childContent)}</p>
-                        }
-                        if (typeof child === 'string') {
-                            return renderBilingualText(child);
-                        }
-                        return child;
-                    });
-                     return <li {...props}>{childrenWithBilingual}</li>;
-                },
-                strong({node, ...props}) {
-                     const childrenWithBilingual = React.Children.map(props.children, child => {
-                        if (typeof child === 'string') {
-                            return renderBilingualText(child);
-                        }
-                        return child;
-                    });
-                    return <strong {...props}>{childrenWithBilingual}</strong>
-                }
             }}
         >
             {children}
