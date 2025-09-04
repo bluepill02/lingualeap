@@ -135,6 +135,7 @@ export interface MCQ {
     options: string[];
     answer: string;
     explanation: string;
+    neetFrequency?: number; // 1 (low) to 5 (high)
 }
 
 export interface AssertionReason {
@@ -148,6 +149,7 @@ export interface MatchTheColumns {
     column1: string[];
     column2: string[];
     answer: string;
+    explanation?: string;
 }
 
 export interface KeyFormula {

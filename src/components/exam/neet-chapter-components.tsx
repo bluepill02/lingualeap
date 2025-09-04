@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
 import { BlockMath } from 'react-katex';
@@ -233,6 +233,17 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
     const getCorrectMcqCount = () => {
         return mcqs.filter((quiz, index) => mcqAnswers[index] === quiz.answer).length;
     }
+    
+    const FrequencyStars = ({ count }: { count: number }) => (
+      <div className="flex">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star
+            key={i}
+            className={`w-3 h-3 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`}
+          />
+        ))}
+      </div>
+    );
 
     return (
         <Card>
@@ -298,6 +309,56 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                             )}
                         </AccordionContent>
                     </AccordionItem>
+                    
+                    {/* Adaptive MCQ Practice */}
+                     <AccordionItem value="adaptive-mcqs">
+                        <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
+                           Adaptive MCQ Practice
+                        </AccordionTrigger>
+                        <AccordionContent className="pt-4 space-y-6">
+                            <Alert>
+                                <Lightbulb className="h-4 w-4" />
+                                <AlertTitle>Focus on What Matters</AlertTitle>
+                                <AlertDescription>
+                                    These questions are sorted by how frequently similar concepts have appeared in past NEET exams. High-frequency questions are marked with more stars.
+                                </AlertDescription>
+                            </Alert>
+                            {[...mcqs].sort((a,b) => (b.neetFrequency || 0) - (a.neetFrequency || 0)).map((quiz, index) => (
+                                <div key={index} className="p-4 border rounded-lg">
+                                    <div className="flex justify-between items-center mb-2">
+                                        <p className="font-medium">{index + 1}. {quiz.question}</p>
+                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                                            <FrequencyStars count={quiz.neetFrequency || 0} />
+                                            <span>({quiz.neetFrequency}/5)</span>
+                                        </div>
+                                    </div>
+                                    <Accordion type="single" collapsible className="w-full mt-2">
+                                        <AccordionItem value="solution">
+                                            <AccordionTrigger className="text-xs p-2">View Options & Solution</AccordionTrigger>
+                                            <AccordionContent className="p-2 space-y-4">
+                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                    {quiz.options.map((option) => (
+                                                        <Button
+                                                            key={option}
+                                                            variant={option === quiz.answer ? 'default' : 'outline'}
+                                                            className="w-full justify-start text-left h-auto cursor-default"
+                                                        >
+                                                            {option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
+                                                            <span className="mr-2 font-bold">{option.charAt(0)}.</span> {option.substring(2)}
+                                                        </Button>
+                                                    ))}
+                                                </div>
+                                                <div className="p-2 rounded-md bg-primary/10">
+                                                    <p className="text-sm font-semibold">Correct Answer: {quiz.answer}</p>
+                                                    <p className="text-xs text-muted-foreground mt-1">{quiz.explanation}</p>
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    </Accordion>
+                                </div>
+                            ))}
+                        </AccordionContent>
+                    </AccordionItem>
 
                     {/* Assertion-Reason Section */}
                     <AccordionItem value="assertion-reason">
@@ -350,6 +411,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
                                             <AccordionContent className="p-2 bg-primary/10 rounded-md">
                                                  <strong>Answer:</strong> {item.answer}
+                                                 {item.explanation && <p className="text-xs text-muted-foreground mt-1">{item.explanation}</p>}
                                             </AccordionContent>
                                         </AccordionItem>
                                     </Accordion>
