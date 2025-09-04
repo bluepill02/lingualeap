@@ -30,7 +30,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
 import { FbdBuilder } from './FbdBuilder';
 
-export function ConceptNotesCard({ content, children }: { content: string, children?: React.ReactNode }) {
+export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
     return (
         <Card>
             <CardHeader>
@@ -43,9 +43,12 @@ export function ConceptNotesCard({ content, children }: { content: string, child
                     rehypePlugins={[rehypeKatex]}
                     components={{
                         p: ({node, ...props}) => {
-                           // Check if this paragraph is where the animation should go
-                           if (node?.children[0]?.type === 'text' && node.children[0].value.includes('{{ANIMATION}}')) {
-                                return <div>{children}</div>;
+                           if (typeof props.children === 'object' && Array.isArray(props.children) && props.children[0]) {
+                                // Check if this paragraph is where the animation should go
+                                const childNode = props.children[0];
+                                if (typeof childNode === 'string' && childNode.includes('{{')) {
+                                    return <div className="not-prose">{children}</div>;
+                                }
                            }
                            return <p className="my-2 leading-relaxed text-muted-foreground" {...props} />
                         },
@@ -62,7 +65,7 @@ export function ConceptNotesCard({ content, children }: { content: string, child
                         }
                     }}
                 >
-                    {content}
+                    {children?.toString()}
                 </ReactMarkdown>
             </CardContent>
         </Card>

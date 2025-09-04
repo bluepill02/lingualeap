@@ -61,7 +61,7 @@ The single most important skill in solving mechanics problems is drawing a Free-
 #### First Law (The Law of Inertia - நிலைம விதி)
 An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If *F_net = 0*, then *a = 0* (which means *v = constant*).
 
-{{ANIMATION}}
+{{INERTIA_ANIMATION}}
 
 #### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
@@ -78,6 +78,8 @@ This is a vector equation. It can be broken down into components: *ΣF_x = ma_x*
 For every action, there is an equal and opposite reaction.
 *   Forces always occur in pairs (*F_AB = -F_BA*).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
+
+{{ACTION_REACTION_ANIMATION}}
 
 ### 3. Applying the Principles in Complex Scenarios (சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்)
 
@@ -97,6 +99,8 @@ Once you add the pseudo force, you can apply *ΣF_real + F_pseudo = ma_relative*
 Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
 *   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and F_p = ma (down). For equilibrium in this frame, *N = mg + ma = m(g+a)*. The person feels heavier (தோற்ற எடை அதிகம்).
 *   **Lift Accelerating Downwards:** The pseudo force *F_p = ma* is now upwards. The forces are N (up), F_p (up), and mg (down). For equilibrium, *N + ma = mg*, so *N = m(g-a)*. The person feels lighter (தோற்ற எடை குறைவு).
+
+{{LIFT_ANIMATION}}
 `,
     workedExamples: [
         {

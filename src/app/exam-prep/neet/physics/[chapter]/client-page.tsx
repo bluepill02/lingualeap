@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +13,8 @@ import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
+import { ActionReactionAnimation } from '@/components/exam/ActionReactionAnimation';
+import { LiftAnimation } from '@/components/exam/LiftAnimation';
 
 
 interface NeetChapterClientPageProps {
@@ -36,6 +38,22 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       { text: "Pitfall: Weight is mg, not mass. Weight changes with g, mass doesn't!", tamil: "எடை = mg, நிறை அல்ல. எடை g யுடன் மாறும், நிறை மாறாது" },
       { text: "Strategy: Draw free body diagrams for EVERY object in the problem. This prevents mistakes.", tamil: "எல்லா பொருட்களுக்கும் விசை படம் வரையவும்" }
   ]
+
+  const memoizedConceptNotes = useMemo(() => {
+    const parts = conceptNotes.split(/\{\{([A-Z_]+_ANIMATION)\}\}/);
+    return parts.map((part, index) => {
+      if (part === 'INERTIA_ANIMATION') {
+        return <InertiaAnimation key={index} />;
+      }
+      if (part === 'ACTION_REACTION_ANIMATION') {
+        return <ActionReactionAnimation key={index} />;
+      }
+      if (part === 'LIFT_ANIMATION') {
+        return <LiftAnimation key={index} />;
+      }
+      return part;
+    });
+  }, [conceptNotes]);
 
 
   return (
@@ -123,8 +141,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
 
         </TabsContent>
         <TabsContent value="learn" className="mt-6 space-y-6">
-            <ConceptNotesCard content={conceptNotes} >
-                 <InertiaAnimation />
+            <ConceptNotesCard>
+                 {memoizedConceptNotes}
             </ConceptNotesCard>
             <div className="flex justify-center">
                 <Button>Mark as Completed</Button>
