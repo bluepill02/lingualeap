@@ -83,8 +83,8 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
-        <ScrollArea>
-            <TabsList className="grid w-full grid-cols-none p-1 md:grid-cols-6">
+        <div className="flex justify-center">
+            <TabsList className="grid grid-cols-3 md:grid-cols-6 w-full md:w-auto">
             <TabsTrigger value="overview">Overview {completedSections.includes('overview') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="learn">Learn {completedSections.includes('learn') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="examples">Examples {completedSections.includes('examples') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
@@ -92,7 +92,7 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
             <TabsTrigger value="practice">Practice {completedSections.includes('practice') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             <TabsTrigger value="summary">Summary {completedSections.includes('summary') && <CheckCircle className="ml-2 h-4 w-4 text-green-500"/>}</TabsTrigger>
             </TabsList>
-        </ScrollArea>
+        </div>
         <TabsContent value="overview" className="mt-6 space-y-6">
              <Card>
                 <CardHeader>
