@@ -176,11 +176,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 </CardHeader>
                 <CardContent className="space-y-2">
                     {mnemonics.map((mnemonic, index) => (
-                         <Button key={index} variant="outline" className="w-full justify-start text-left h-auto bg-primary/10 border-primary/20">
+                         <div key={index} className="w-full text-left p-4 rounded-md bg-primary/10 border border-primary/20">
                             <div className="prose dark:prose-invert max-w-none">
                                 <MarkdownRenderer>{`${mnemonic.text} (${mnemonic.tamil})`}</MarkdownRenderer>
                             </div>
-                         </Button>
+                         </div>
                     ))}
                 </CardContent>
             </Card>}
