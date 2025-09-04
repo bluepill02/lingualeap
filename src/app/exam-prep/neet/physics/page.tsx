@@ -21,6 +21,7 @@ const chapterGroups = {
         { id: 'laws-of-motion', title: 'Physics - Laws of Motion (இயக்க விதிகள்)', quirkyFact: "Why apples fall and rockets fly." },
         { id: 'work-energy-and-power', title: 'Physics - Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)', quirkyFact: "The currency of the universe." },
         { id: 'rotational-motion', title: 'Physics - System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)', quirkyFact: "Why spinning makes things stable." },
+        { id: 'gravitation', title: 'Physics - Gravitation (ஈர்ப்பியல்)', quirkyFact: "The force that runs the cosmos." },
     ],
     bridge: []
 }
