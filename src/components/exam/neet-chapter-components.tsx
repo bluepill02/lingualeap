@@ -102,7 +102,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardContent className="space-y-4">
                         <div className="bg-primary/10 p-4 rounded-md">
                             <p className="font-bold">Problem:</p>
-                            <p>{example.problem}</p>
+                            <p className="whitespace-pre-line">{example.problem}</p>
                         </div>
 
                         {example.fbd && example.fbd.map((fbdItem, fbdIndex) => (
@@ -115,6 +115,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-2 border-l-2 border-primary/50 bg-primary/5 rounded-r-md">
                                         <p className="font-semibold text-sm">Step {stepIndex + 1}: {step.explanation}</p>
+                                        {step.explanationTamil && <p className="text-xs text-primary/80 italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-muted p-2 rounded-md mt-1 overflow-x-auto">
                                                 <BlockMath math={step.calculation} />
@@ -127,12 +128,18 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         <Alert variant="default" className="bg-accent/10 border-accent">
                             <Lightbulb className="h-4 w-4 text-accent" />
                             <AlertTitle>NEET Hack</AlertTitle>
-                            <AlertDescription>{example.neetHack}</AlertDescription>
+                            <AlertDescription>
+                                {example.neetHack}
+                                {example.neetHackTamil && <p className="text-xs text-accent/80 italic mt-1">{example.neetHackTamil}</p>}
+                                </AlertDescription>
                         </Alert>
                         <Alert variant="destructive" className="bg-destructive/10">
                             <AlertTriangle className="h-4 w-4" />
                             <AlertTitle>Common Pitfall</AlertTitle>
-                            <AlertDescription>{example.commonPitfall}</AlertDescription>
+                            <AlertDescription>
+                                {example.commonPitfall}
+                                {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
+                            </AlertDescription>
                         </Alert>
                     </CardContent>
                 </Card>

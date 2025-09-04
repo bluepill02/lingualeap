@@ -140,10 +140,13 @@ export interface WorkedExample {
     solutionSteps: {
         step: number;
         explanation: string;
+        explanationTamil?: string;
         calculation?: string;
     }[];
     neetHack: string;
+    neetHackTamil?: string;
     commonPitfall: string;
+    commonPitfallTamil?: string;
 }
 
 

@@ -1,8 +1,8 @@
 
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Target, HelpCircle, FileText, BarChart, FlaskConical, Atom, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -57,10 +57,6 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
           <div>
             <h1 className="text-2xl font-bold font-headline">{title}</h1>
             <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                <div className="flex items-center gap-1">
-                    <Atom className="w-4 h-4"/>
-                    <span>Physics</span>
-                </div>
                 <Badge variant="secondary">{content.chapter}</Badge>
             </div>
           </div>
@@ -107,20 +103,20 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
                 </CardHeader>
                 <CardContent className="space-y-4">
                     <p className="text-muted-foreground">{conceptOverview}</p>
-                    <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
+                    {tamilConnection && <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
                         <Lightbulb className="h-4 w-4 text-yellow-400" />
                         <AlertTitle>Tamil Connection</AlertTitle>
                         <AlertDescription>{tamilConnection}</AlertDescription>
-                    </Alert>
-                     <Alert variant="default" className="bg-green-500/10 border-green-500/30">
+                    </Alert>}
+                     {culturalContext && <Alert variant="default" className="bg-green-500/10 border-green-500/30">
                         <BookOpen className="h-4 w-4 text-green-400" />
                         <AlertTitle>Cultural Context</AlertTitle>
                         <AlertDescription>{culturalContext}</AlertDescription>
-                    </Alert>
-                    <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
+                    </Alert>}
+                    {syllabusMapping && syllabusMapping.length > 0 && <Alert variant="default" className="bg-blue-500/10 border-blue-500/30">
                         <AlertTitle>TN Board Mapping</AlertTitle>
                         <AlertDescription>{syllabusMapping?.[0]?.tnBoardChapter} maps to NEET Physics Unit 2</AlertDescription>
-                    </Alert>
+                    </Alert>}
                 </CardContent>
             </Card>
             
@@ -225,10 +221,6 @@ function ChapterContent({ content }: NeetChapterClientPageProps) {
        <div className="flex justify-center mt-8">
             <Button size="lg" disabled={completedSections.length < totalSections}>Complete Chapter</Button>
        </div>
-
-       <Button variant="outline" size="icon" className="fixed bottom-8 right-8 rounded-full h-12 w-12 shadow-lg">
-            <HelpCircle className="w-6 h-6" />
-       </Button>
     </div>
   );
 }
