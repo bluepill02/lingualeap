@@ -1,3 +1,4 @@
+
 /**
  * @fileOverview This file contains the official checklist and guidelines for creating and validating NEET Physics modules.
  * This serves as a programmatic source of truth for content strategy and quality assurance.
@@ -88,5 +89,9 @@ export const qaChecklist: QAChecklistItem[] = [
   {
     check: "Tamil parts for bilingual support should be in colored brackets",
     details: "The Tamil translations in bilingual sections should be enclosed in colored brackets to visually distinguish them from the English text, enhancing readability."
+  },
+  {
+    check: "Thorough and careful check of every single letter of code",
+    details: "Always do a thorough and careful check of every single letter of code, with no leniency."
   }
 ];
