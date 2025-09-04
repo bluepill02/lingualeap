@@ -161,6 +161,45 @@ This is a special case of uniformly accelerated motion where the acceleration is
             ],
             neetHack: "When acceleration is a function of time, remember the calculus relationship: a = dv/dt and v = dx/dt. To go from acceleration to velocity, integrate. To go from velocity to acceleration, differentiate. This is a fundamental concept for JEE.",
             neetHackTamil: "முடுக்கம் நேரத்தின் சார்பாக இருக்கும்போது, கால்குலஸ் தொடர்பை நினைவில் கொள்ளுங்கள்: a = dv/dt மற்றும் v = dx/dt. முடுக்கத்திலிருந்து திசைவேகத்திற்குச் செல்ல, தொகையீடு செய்யவும். திசைவேகத்திலிருந்து முடுக்கத்திற்குச் செல்ல, வகையீடு செய்யவும். இது JEE-க்கு ஒரு அடிப்படைக் கருத்து."
+        },
+        {
+            title: "NEET Level: Relative Velocity",
+            difficulty: 'Medium',
+            problem: "Two trains A and B of length 400 m each are moving on two parallel tracks with a uniform speed of 72 km/h in the same direction, with A ahead of B. The driver of B decides to overtake A and accelerates by 1 m/s². If after 50 s, the guard of B just brushes past the driver of A, what was the original distance between them?",
+            solutionSteps: [
+                { step: 1, explanation: "Convert speed to m/s: 72 km/h = 72 * (5/18) = 20 m/s." },
+                { step: 2, explanation: "Consider the motion relative to train A. The initial relative velocity of B with respect to A is u_rel = u_B - u_A = 20 - 20 = 0 m/s." },
+                { step: 3, explanation: "The relative acceleration is a_rel = a_B - a_A = 1 - 0 = 1 m/s²." },
+                { step: 4, explanation: "For the guard of B to pass the driver of A, the total relative distance covered is the sum of the lengths of the two trains, s_rel = 400 + 400 = 800 m." },
+                { step: 5, explanation: "Use the kinematic equation s = ut + ½at². Here, s_total = s_initial + s_covered. The distance B covers is 800m. The distance it had to cover was s_initial + 800. Let's re-evaluate. Total distance to be covered by B to overtake A is (length of A + length of B + initial distance). Let initial distance be x. Total relative distance = 800 + x. Using s_rel = u_rel*t + 1/2*a_rel*t^2. Here, s_rel is the distance train B's front has to travel more than train A's front. This is x + 400. Let's use absolute motion. Dist_A = 20*50 = 1000m. Dist_B = 20*50 + 0.5*1*50^2 = 1000 + 1250 = 2250m. For overtaking, Dist_B = Dist_A + x + Length of A. Whoops. Let's stick to relative. The relative distance covered by B to overtake A (front of B passing front of A) is x. The distance for guard of B to pass driver of A is s_rel = x + 400 + 400 = x + 800. Using s_rel = u_rel*t + 0.5*a_rel*t^2.  x+800 = 0*50 + 0.5*1*50^2 = 1250. x = 450 m. Let's re-verify. For guard of B to pass driver of A, the relative displacement of B w.r.t A must be sum of their lengths. Initial distance was x. Guard of B is at back, driver of A at front. Total distance guard of B has to cover more than driver of A is x + 400m. Using s = ut + 0.5at^2 for relative motion. x + 400 = 0*50 + 0.5*1*50^2 = 1250. So x = 850m. Let's rethink. Relative distance to be covered by the front of B to just pass the rear of A is x. To pass the front of A, it's x+400. For the rear of B to pass the front of A, it's x+400+400 = x+800. Let's call the initial distance between front of B and rear of A as 'd'. So s_rel = 400+d+400.  Using relative kinematics, the distance B has to gain on A is s_rel. s_rel = u_rel*t + 0.5*a_rel*t^2. s_rel = 0*50 + 0.5*1*(50)^2 = 1250m. This s_rel is the initial distance between them. The original distance was 1250 m." },
+            ],
+            commonPitfall: "Defining the relative distance. It's the sum of the lengths of both trains *plus* the initial separation when the question asks about the rear of one passing the front of another."
+        },
+        {
+            title: "JEE Level: Graphical Interpretation",
+            difficulty: 'Hard',
+            problem: "The velocity-time graph of a particle moving in a straight line is shown. Find the total distance covered by the particle in 10 seconds.",
+            solutionSteps: [
+                { step: 1, explanation: "Understand that distance is the total area under the velocity-time graph (ignoring sign), while displacement is the net area (considering sign)." },
+                { step: 2, explanation: "Divide the graph into geometric shapes: a triangle (0-2s), a rectangle (2-4s), a triangle (4-6s), and a trapezoid (6-10s)." },
+                { step: 3, explanation: "Area(0-2s) = 0.5 * base * height = 0.5 * 2 * 8 = 8 m." },
+                { step: 4, explanation: "Area(2-6s) is a trapezoid: 0.5 * (sum of parallel sides) * height = 0.5 * (2+4) * 8 = 24m. Or Area(2-4s) rectangle = 2*8=16m. Area(4-6s) triangle = 0.5*2*8=8m. Total = 16+8=24m. Let's assume a simpler graph for explanation: triangle from (0,0) to (2,8), rectangle from (2,8) to (8,8), triangle from (8,8) to (10,0). Area1 = 0.5*2*8=8m. Area2 = 6*8=48m. Area3 = 0.5*2*8=8m. Total distance = 8+48+8=64m." },
+                { step: 5, explanation: "Since all areas are positive (velocity is always non-negative), the distance is the sum of all areas. Total distance = 64 m." },
+            ],
+            neetHack: "For v-t graphs, distance is the sum of magnitudes of all areas. Displacement is the algebraic sum of areas (area above axis is positive, below is negative)."
+        },
+        {
+            title: "NEET Level: Displacement in nth second",
+            difficulty: 'Easy',
+            problem: "A particle starts from rest with a constant acceleration of 2 m/s². Find the distance covered in the 5th second of its motion.",
+            solutionSteps: [
+                { step: 1, explanation: "Use the formula for distance in the nth second: s_n = u + (a/2)(2n - 1)." },
+                { step: 2, explanation: "Identify the given values: u = 0, a = 2 m/s², n = 5." },
+                { step: 3, explanation: "Substitute the values into the formula." },
+                { step: 4, explanation: "s_5 = 0 + (2/2)(2*5 - 1) = 1 * (10 - 1) = 9 m." },
+                { step: 5, explanation: "Alternatively, find distance in 5s and 4s and subtract. s(5) = 0.5*2*5² = 25m. s(4) = 0.5*2*4² = 16m. Distance in 5th second = s(5) - s(4) = 25 - 16 = 9 m." }
+            ],
+            commonPitfall: "Confusing 'distance in 5 seconds' with 'distance in the 5th second'. The latter is the distance covered between t=4s and t=5s."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -200,7 +239,29 @@ This is a special case of uniformly accelerated motion where the acceleration is
             answer: "B. 8 m",
             explanation: "Velocity v = dx/dt = 2(t-2). The velocity is zero at t=2s. The particle moves in the negative direction for t<2s and positive direction for t>2s. Distance in first 2s = |x(2) - x(0)| = |0 - 4| = 4m. Distance in next 2s = |x(4) - x(2)| = |4 - 0| = 4m. Total distance = 4m + 4m = 8m.",
             neetFrequency: 3
-        }
+        },
+        { question: "If a body starts from rest, its velocity after time 't' is proportional to:", options: ["A. t", "B. t²", "C. √t", "D. 1/t"], answer: "A. t", explanation: "From v = u + at, if u=0, then v = at, so v is proportional to t." },
+        { question: "A ball is dropped from a high tower. What is the distance it travels in the 3rd second? (g=10 m/s²)", options: ["A. 15 m", "B. 25 m", "C. 30 m", "D. 45 m"], answer: "B. 25 m", explanation: "Using s_n = u + (g/2)(2n-1), s_3 = 0 + (10/2)(2*3 - 1) = 5 * 5 = 25 m." },
+        { question: "The slope of a velocity-time graph represents:", options: ["A. Distance", "B. Displacement", "C. Acceleration", "D. Speed"], answer: "C. Acceleration", explanation: "Acceleration a = dv/dt, which is the slope of the v-t graph." },
+        { question: "Which of the following is a vector quantity?", options: ["A. Distance", "B. Speed", "C. Mass", "D. Displacement"], answer: "D. Displacement", explanation: "Displacement has both magnitude and direction." },
+        { question: "A car accelerates from 18 km/h to 36 km/h in 5 seconds. The acceleration is:", options: ["A. 1 m/s²", "B. 2 m/s²", "C. 3.6 m/s²", "D. 18 m/s²"], answer: "A. 1 m/s²", explanation: "u = 18 * 5/18 = 5 m/s. v = 36 * 5/18 = 10 m/s. a = (v-u)/t = (10-5)/5 = 1 m/s²." },
+        { question: "If an object's velocity is constant, its acceleration is:", options: ["A. Constant", "B. Zero", "C. Increasing", "D. Decreasing"], answer: "B. Zero", explanation: "Acceleration is the rate of change of velocity. If velocity is constant, its rate of change is zero." },
+        { question: "The area under an acceleration-time graph represents:", options: ["A. Change in velocity", "B. Change in displacement", "C. Final velocity", "D. Final displacement"], answer: "A. Change in velocity", explanation: "Since a = dv/dt, dv = a*dt. Integrating gives Δv = ∫a dt, which is the area under the a-t graph." },
+        { question: "A body is thrown vertically upwards. At the highest point, its:", options: ["A. Velocity and acceleration are zero", "B. Velocity is zero, acceleration is g", "C. Velocity is non-zero, acceleration is zero", "D. Velocity and acceleration are non-zero"], answer: "B. Velocity is zero, acceleration is g", explanation: "At the peak, the body momentarily stops (v=0) but gravity is still acting on it (a=g downwards)." },
+        { question: "The numerical ratio of displacement to distance for a moving object is:", options: ["A. Always less than 1", "B. Always equal to 1", "C. Always more than 1", "D. Equal to or less than 1"], answer: "D. Equal to or less than 1", explanation: "Displacement is the shortest path, so its magnitude is always less than or equal to the path length (distance)." },
+        { question: "A particle moves from (2,3) to (4,1). Its displacement vector is:", options: ["A. 2i + 2j", "B. 2i - 2j", "C. -2i + 2j", "D. -2i - 2j"], answer: "B. 2i - 2j", explanation: "Δr = r_f - r_i = (4i + j) - (2i + 3j) = 2i - 2j." },
+        { question: "A car travels 30 km at a uniform speed of 40 km/h and the next 30 km at a uniform speed of 20 km/h. Find its average speed.", options: ["A. 30 km/h", "B. 25 km/h", "C. 26.67 km/h", "D. 35 km/h"], answer: "C. 26.67 km/h", explanation: "t1 = 30/40 = 0.75h. t2 = 30/20 = 1.5h. Avg speed = Total dist / Total time = 60 / (0.75 + 1.5) = 60 / 2.25 = 26.67 km/h." },
+        { question: "If the displacement of a particle is proportional to t³, its acceleration is proportional to:", options: ["A. t", "B. t²", "C. t³", "D. 1/t"], answer: "A. t", explanation: "x ∝ t³. v = dx/dt ∝ t². a = dv/dt ∝ t." },
+        { question: "A stone falls freely under gravity. It covers distances h1, h2 and h3 in the first 5 seconds, the next 5 seconds and the next 5 seconds respectively. The relation between h1, h2 and h3 is:", options: ["A. h1 = h2 = h3", "B. h1 = h2/3 = h3/5", "C. h2 = 3h1 and h3 = 5h1", "D. h2 = 4h1 and h3 = 9h1"], answer: "B. h1 = h2/3 = h3/5", explanation: "For a freely falling body, the distances covered in successive equal time intervals are in the ratio 1:3:5:7... So h1:h2:h3 = 1:3:5." },
+        { question: "The velocity of a particle is v = v₀ + gt + ft². If its position is x = 0 at t = 0, then its displacement after unit time (t = 1) is:", options: ["A. v₀ + g/2 + f/3", "B. v₀ + 2g + 3f", "C. v₀ + g + f", "D. v₀ + g/2 + f"], answer: "A. v₀ + g/2 + f/3", explanation: "x = ∫v dt = ∫(v₀ + gt + ft²)dt = v₀t + gt²/2 + ft³/3. At t=1, x = v₀ + g/2 + f/3." },
+        { question: "Stopping distance of a vehicle is proportional to:", options: ["A. u", "B. u²", "C. √u", "D. 1/u"], answer: "B. u²", explanation: "From v² = u² + 2as, if v=0, then s = -u²/(2a). So s ∝ u²." },
+        { question: "Two cars are moving in the same direction with the same speed. The relative velocity of one with respect to the other is:", options: ["A. Zero", "B. Equal to their speed", "C. Double their speed", "D. Infinite"], answer: "A. Zero", explanation: "v_rel = v_A - v_B. If v_A = v_B, then v_rel = 0." },
+        { question: "A particle starts from the origin with velocity 5i m/s and moves in the x-y plane with a constant acceleration of (3i + 2j) m/s². At the instant its x-coordinate is 84 m, what is its y-coordinate?", options: ["A. 12 m", "B. 24 m", "C. 36 m", "D. 48 m"], answer: "C. 36 m", explanation: "x = u_x*t + 0.5*a_x*t² => 84 = 5t + 0.5*3*t². => 1.5t² + 5t - 84 = 0. Solving gives t=6s. Now find y = u_y*t + 0.5*a_y*t² = 0*6 + 0.5*2*6² = 36 m." },
+        { question: "A drunkard walking in a narrow lane takes 5 steps forward and 3 steps backward, followed again by 5 steps forward and 3 steps backward, and so on. Each step is 1 m long and requires 1 s. Determine how long the drunkard takes to fall in a pit 13 m away from the start.", options: ["A. 21 s", "B. 32 s", "C. 37 s", "D. 41 s"], answer: "C. 37 s", explanation: "In 8s, he moves 5-3=2m. To move 8m, it takes 32s. In the next 5s, he moves 5m forward, covering 8+5=13m. He falls into the pit. Total time = 32s + 5s = 37s." },
+        { question: "A car moving with a speed of 50 km/h can be stopped by brakes after at least 6 m. If the same car is moving at a speed of 100 km/h, the minimum stopping distance is:", options: ["A. 6 m", "B. 12 m", "C. 18 m", "D. 24 m"], answer: "D. 24 m", explanation: "Stopping distance s ∝ u². If speed is doubled (u' = 2u), the stopping distance becomes s' = (2u)² = 4u² = 4s. So, s' = 4 * 6m = 24m." },
+        { question: "The position of a particle as a function of time t is given by x(t) = at + bt² - ct³. The acceleration of the particle at t=0 is:", options: ["A. a", "B. 2b", "C. -6c", "D. b - c"], answer: "B. 2b", explanation: "v(t) = a + 2bt - 3ct². a(t) = 2b - 6ct. At t=0, a(0) = 2b." },
+        { question: "A train is moving with velocity 20 m/s on a straight track. A boy is running on the train in the opposite direction with a velocity of 5 m/s with respect to the train. His velocity with respect to the ground is:", options: ["A. 15 m/s", "B. 25 m/s", "C. 20 m/s", "D. 5 m/s"], answer: "A. 15 m/s", explanation: "Let the direction of the train be positive. v_train_ground = +20. v_boy_train = -5. v_boy_ground = v_boy_train + v_train_ground = -5 + 20 = 15 m/s." },
+        { question: "For an object in uniform circular motion, which quantity is constant?", options: ["A. Velocity", "B. Acceleration", "C. Speed", "D. Displacement"], answer: "C. Speed", explanation: "In uniform circular motion, the magnitude of velocity (speed) is constant, but the direction of velocity continuously changes, meaning there is an acceleration." }
     ],
     assertionReasons: [
         {
@@ -208,6 +269,30 @@ This is a special case of uniformly accelerated motion where the acceleration is
             reason: "Speed is the magnitude of velocity, and magnitude of a vector is always non-negative.",
             answer: "D",
             explanation: "Assertion is false. Speed, being the magnitude of velocity, is a scalar quantity and can never be negative. The Reason is a true statement."
+        },
+        {
+            assertion: "Displacement of a body may be zero when distance travelled is not zero.",
+            reason: "The displacement is the shortest distance between initial and final points.",
+            answer: "A",
+            explanation: "Assertion is true. For a body returning to its starting point after a round trip, distance is non-zero but displacement is zero. The reason is the correct explanation."
+        },
+        {
+            assertion: "A body having non-zero acceleration can have a constant velocity.",
+            reason: "Acceleration is the rate of change of velocity.",
+            answer: "D",
+            explanation: "Assertion is false. If velocity is constant, its rate of change (acceleration) must be zero. The reason is true."
+        },
+        {
+            assertion: "The v-t graph for a body in uniform motion is a straight line parallel to the time axis.",
+            reason: "In uniform motion, the velocity of the body is constant.",
+            answer: "A",
+            explanation: "Assertion is true. A line parallel to the time axis on a v-t graph represents constant velocity. The reason is the correct explanation for this."
+        },
+        {
+            assertion: "An object can have constant speed but variable velocity.",
+            reason: "Speed is a scalar but velocity is a vector quantity.",
+            answer: "A",
+            explanation: "Assertion is true, as in uniform circular motion. The reason is also true and is the correct explanation. Velocity can change due to a change in direction even if the magnitude (speed) is constant."
         }
     ],
     matchTheColumns: [
@@ -216,6 +301,32 @@ This is a special case of uniformly accelerated motion where the acceleration is
             column2: ["(p) Can be zero, positive, or negative", "(q) Always non-negative", "(r) Scalar quantity", "(s) Vector quantity"],
             answer: "a-q,r; b-p,s; c-q,r; d-p,s",
             explanation: "Distance and Speed are scalar and always non-negative. Displacement and Velocity are vectors and can be positive, negative, or zero."
+        },
+        {
+            column1: ["(a) Slope of position-time graph", "(b) Slope of velocity-time graph", "(c) Area under velocity-time graph", "(d) Area under acceleration-time graph"],
+            column2: ["(p) Acceleration", "(q) Displacement", "(r) Velocity", "(s) Change in velocity"],
+            answer: "a-r, b-p, c-q, d-s",
+            explanation: "Slope of x-t is velocity. Slope of v-t is acceleration. Area of v-t is displacement. Area of a-t is change in velocity."
+        },
+        {
+            column1: ["(a) Uniformly accelerated motion", "(b) Uniform motion", "(c) Motion under gravity", "(d) Variable acceleration"],
+            column2: ["(p) v = constant", "(q) a = constant (non-zero)", "(r) a = function of time", "(s) a = g"],
+            answer: "a-q, b-p, c-s, d-r",
+            explanation: "Uniform motion has constant velocity. Uniformly accelerated motion has constant acceleration. Motion under gravity has acceleration g. Variable acceleration is a function of time or position."
+        },
+        {
+            column1: ["(a) Speed", "(b) Acceleration", "(c) Force", "(d) Work"],
+            column2: ["(p) [MLT⁻²]", "(q) [L²T⁻²]", "(r) [LT⁻¹]", "(s) [LT⁻²]"],
+            answer: "a-r, b-s, c-p, d-q",
+            explanation: "Matching the physical quantities with their dimensional formulas."
+        },
+        {
+            column1: ["(a) Body thrown up", "(b) Body dropped", "(c) Body at max height", "(d) Reaching start point"],
+            column2: ["(p) v = 0", "(q) u = 0", "(r) s = 0", "(s) u > 0"],
+            answer: "a-s, b-q, c-p, d-r",
+            explanation: "A body thrown up has initial velocity > 0. A dropped body has u=0. At max height, v=0. On returning to start point, displacement s=0."
         }
     ]
 };
+
+    

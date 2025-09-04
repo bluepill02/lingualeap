@@ -107,7 +107,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
 `,
     workedExamples: [
         {
-            title: "NEET/JEE Level: Connected Blocks with Friction",
+            title: "NEET Level: Connected Blocks with Friction",
             difficulty: 'Medium',
             problem: "Two blocks of masses m₁=4kg and m₂=6kg are connected by a string and placed on a rough horizontal surface (μ=0.2). A force F=50N is applied on m₂. Find the acceleration of the system and the tension in the string. (g=10 m/s²)\n\nதமிழ்: m₁=4kg மற்றும் m₂=6kg நிறையுள்ள இரண்டு கட்டைகள் ஒரு கயிற்றால் இணைக்கப்பட்டு சொரசொரப்பான கிடைத்தள பரப்பில் (μ=0.2) வைக்கப்பட்டுள்ளன. m₂ மீது F=50N விசை செலுத்தப்படுகிறது. அமைப்பின் முடுக்கம் மற்றும் கயிற்றின் இழுவிசையைக் கண்டறியவும். (g=10 m/s²)",
             fbd: [
@@ -200,6 +200,45 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             neetHack: "This is a standard result and a very common pattern in competitive exams. For a block on a smooth incline, the horizontal acceleration needed to prevent slipping is always `A = g tan(θ)`. Recognizing this pattern can save a lot of time.",
             neetHackTamil: "இது ஒரு நிலையான முடிவு மற்றும் போட்டித் தேர்வுகளில் மிகவும் பொதுவான முறை. ஒரு வழுவழுப்பான சாய்தளத்தில் உள்ள கட்டை நழுவாமல் இருக்கத் தேவையான கிடைமட்ட முடுக்கம் எப்போதும் `A = g tan(θ)` ஆகும். இந்த முறையை அறிந்துகொள்வது நேரத்தை மிச்சப்படுத்தும்."
         },
+        {
+            title: "NEET Level: Pulley System",
+            difficulty: 'Medium',
+            problem: "Two masses 2 kg and 3 kg are attached to the ends of a string passing over a frictionless pulley. Find the acceleration of the system and tension in the string. (g = 10 m/s²)",
+            solutionSteps: [
+                { step: 1, explanation: "Draw FBDs for both masses. For the 3kg mass, 3g acts down and T acts up. For the 2kg mass, 2g acts down and T acts up." },
+                { step: 2, explanation: "Assume the 3kg mass moves down and the 2kg mass moves up with acceleration 'a'. Write Newton's second law for each mass." },
+                { step: 3, explanation: "For 3kg mass: 3g - T = 3a. For 2kg mass: T - 2g = 2a." },
+                { step: 4, explanation: "Add the two equations to eliminate T: (3g - T) + (T - 2g) = (3a + 2a) => g = 5a." },
+                { step: 5, explanation: "Solve for a: a = g/5 = 10/5 = 2 m/s². Substitute 'a' back into one equation to find T: T = 2a + 2g = 2(2) + 2(10) = 24 N." }
+            ],
+            neetHack: "For a simple pulley (Atwood machine), acceleration `a` is always `((M - m) / (M + m)) * g`. Tension `T` is `(2Mm / (M + m)) * g`. Memorizing these can save minutes."
+        },
+        {
+            title: "JEE Level: Impulse and Momentum",
+            difficulty: 'Hard',
+            problem: "A ball of mass 0.5 kg moving at 10 m/s strikes a wall normally and rebounds with the same speed. If the contact time is 0.1 s, find the impulse imparted and the average force on the wall.",
+            solutionSteps: [
+                { step: 1, explanation: "Define initial and final momentum. Let the initial direction be positive. Initial momentum p_i = mv = 0.5 * 10 = 5 kg m/s." },
+                { step: 2, explanation: "Final momentum p_f = m(-v) = 0.5 * (-10) = -5 kg m/s, as it rebounds." },
+                { step: 3, explanation: "Impulse is the change in momentum: J = p_f - p_i = -5 - 5 = -10 Ns. The magnitude of impulse is 10 Ns." },
+                { step: 4, explanation: "Average force is Impulse / contact time: F_avg = J / Δt = 10 / 0.1 = 100 N." },
+                { step: 5, explanation: "The force is directed away from the wall (in the negative direction)." }
+            ],
+            commonPitfall: "A common error is forgetting that momentum is a vector. The change is p_f - p_i, not m(v-v)=0. The final velocity is in the opposite direction, hence negative."
+        },
+        {
+            title: "NEET Level: Static vs Kinetic Friction",
+            difficulty: 'Medium',
+            problem: "A 5 kg block is on a rough surface with μs=0.4 and μk=0.3. A horizontal force of 15 N is applied. Does the block move? What is the frictional force? (g = 10 m/s²)",
+            solutionSteps: [
+                { step: 1, explanation: "Calculate the maximum static friction (f_s_max) to determine the threshold for motion. f_s_max = μs * N." },
+                { step: 2, explanation: "Normal force N = mg = 5 * 10 = 50 N." },
+                { step: 3, explanation: "f_s_max = 0.4 * 50 = 20 N." },
+                { step: 4, explanation: "Compare the applied force with f_s_max. Applied force F = 15 N." },
+                { step: 5, explanation: "Since F (15N) < f_s_max (20N), the block does not move. The static friction is self-adjusting and matches the applied force. Therefore, the frictional force is 15 N." }
+            ],
+            neetHack: "Static friction is a 'lazy' force. It only does enough to prevent motion. It is not always equal to μs*N. Only if the block is *about to move* does static friction reach its maximum value."
+        }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
@@ -267,6 +306,44 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             explanation: "The net upward force is T - mg = ma. So, T = mg + ma = m(g+a) = 1000(9.8 + 1) = 1000(10.8) = 10800 N. The tension must support the weight AND provide the upward acceleration.",
             neetFrequency: 5
         },
+        {
+            question: "Action and reaction forces act on:",
+            options: ["A. The same body", "B. Different bodies", "C. The same body in opposite directions", "D. Different bodies in the same direction"],
+            answer: "B. Different bodies",
+            explanation: "Newton's third law states that action and reaction forces are equal and opposite, but they always act on two different interacting bodies."
+        },
+        {
+            question: "A man in a lift will feel his weight to be less than his actual weight when the lift is:",
+            options: ["A. Moving up with constant velocity", "B. Moving down with constant velocity", "C. Accelerating downwards", "D. Accelerating upwards"],
+            answer: "C. Accelerating downwards",
+            explanation: "Apparent weight N = m(g - a) when accelerating downwards. Since 'a' is positive, N < mg."
+        },
+        {
+            question: "A block of mass m is placed on a smooth inclined plane of inclination θ. The force exerted by the plane on the block (normal force) is:",
+            options: ["A. mg", "B. mg sin(θ)", "C. mg cos(θ)", "D. mg tan(θ)"],
+            answer: "C. mg cos(θ)",
+            explanation: "The normal force balances the component of weight perpendicular to the inclined plane, which is mg cos(θ)."
+        },
+        { question: "The coefficient of static friction is:", options: ["A. Less than the coefficient of kinetic friction", "B. Equal to the coefficient of kinetic friction", "C. Greater than the coefficient of kinetic friction", "D. Dependent on the area of contact"], answer: "C. Greater than the coefficient of kinetic friction", explanation: "It takes more force to start motion than to maintain it, so μs > μk." },
+        { question: "Impulse has the same dimensions as:", options: ["A. Force", "B. Power", "C. Work", "D. Linear Momentum"], answer: "D. Linear Momentum", explanation: "Impulse is defined as the change in linear momentum (Δp)." },
+        { question: "A rocket works on the principle of conservation of:", options: ["A. Mass", "B. Energy", "C. Linear Momentum", "D. Angular Momentum"], answer: "C. Linear Momentum", explanation: "The rocket expels gas backward (momentum), and by conservation, the rocket gains an equal and opposite momentum forward." },
+        { question: "A force of 10 N acts on a body of mass 2 kg for 3 seconds. The change in its momentum is:", options: ["A. 15 kg m/s", "B. 30 kg m/s", "C. 60 kg m/s", "D. 5 kg m/s"], answer: "B. 30 kg m/s", explanation: "Impulse (Change in momentum) = Force × time = 10 N × 3 s = 30 Ns." },
+        { question: "The force required to keep a body in uniform circular motion is:", options: ["A. Centrifugal force", "B. Frictional force", "C. Centripetal force", "D. Resistive force"], answer: "C. Centripetal force", explanation: "Centripetal force is the net force that acts on an object to keep it moving along a circular path." },
+        { question: "If the net force on a body is zero, its acceleration will be:", options: ["A. Infinite", "B. Zero", "C. Constant but non-zero", "D. Variable"], answer: "B. Zero", explanation: "According to Newton's Second Law, F_net = ma. If F_net = 0, then a must be 0." },
+        { question: "Which of the following is a self-adjusting force?", options: ["A. Kinetic friction", "B. Tension", "C. Static friction", "D. Normal force"], answer: "C. Static friction", explanation: "Static friction adjusts its magnitude to be equal and opposite to the applied force, up to its maximum limit." },
+        { question: "A 5 N force is required to keep a block of mass 10 kg moving at a constant velocity on a rough surface. The value of kinetic friction is:", options: ["A. 5 N", "B. 10 N", "C. 50 N", "D. 0.5 N"], answer: "A. 5 N", explanation: "For constant velocity, the net force is zero. So, the applied force must be equal to the kinetic friction." },
+        { question: "When a bullet is fired from a gun, the gun recoils. This is an example of:", options: ["A. Newton's first law", "B. Newton's second law", "C. Newton's third law", "D. Law of conservation of energy"], answer: "C. Newton's third law", explanation: "The gun exerts a force on the bullet (action), and the bullet exerts an equal and opposite force on the gun (reaction)." },
+        { question: "The unit of impulse is:", options: ["A. N", "B. N/s", "C. N·m", "D. N·s"], answer: "D. N·s", explanation: "Impulse = Force × time, so its unit is Newton-second." },
+        { question: "A person of mass 60 kg is in a lift. The apparent weight of the person when the lift is moving down with an acceleration of 4.9 m/s² is (g=9.8 m/s²):", options: ["A. 30 kg-wt", "B. 60 kg-wt", "C. 90 kg-wt", "D. 0"], answer: "A. 30 kg-wt", explanation: "Apparent weight N = m(g - a) = 60(9.8 - 4.9) = 60(4.9) = 294 N. Since 1 kg-wt = 9.8 N, N = 294/9.8 = 30 kg-wt." },
+        { question: "What is the angle between the frictional force and the direction of motion?", options: ["A. 0°", "B. 90°", "C. 180°", "D. 45°"], answer: "C. 180°", explanation: "Frictional force always opposes motion." },
+        { question: "If a body is in equilibrium, it means:", options: ["A. It is at rest", "B. It is moving with constant velocity", "C. The net force on it is zero", "D. All of the above"], answer: "D. All of the above", explanation: "Equilibrium means the net force is zero, which implies zero acceleration. This can mean the body is at rest or moving with constant velocity." },
+        { question: "A block is pulled along a horizontal frictionless surface by a rope. The tension in the rope will be:", options: ["A. Equal to the pulling force", "B. Less than the pulling force", "C. More than the pulling force", "D. Dependent on the mass of the rope"], answer: "A. Equal to the pulling force", explanation: "If the rope is massless and horizontal, the tension is equal to the pulling force." },
+        { question: "The measure of inertia of a body is its:", options: ["A. Weight", "B. Mass", "C. Velocity", "D. Acceleration"], answer: "B. Mass", explanation: "Mass is the quantitative measure of inertia." },
+        { question: "Two forces of 3N and 4N are acting on a body. Which of the following cannot be the resultant force?", options: ["A. 0.5 N", "B. 1 N", "C. 5 N", "D. 7 N"], answer: "A. 0.5 N", explanation: "The resultant force R must be between |F1 - F2| and |F1 + F2|. So, 1 N ≤ R ≤ 7 N. 0.5 N is not possible." },
+        { question: "A force F = (6i - 8j + 10k) N produces an acceleration of 1 m/s² in a body. The mass of the body is:", options: ["A. 10 kg", "B. 10√2 kg", "C. 20 kg", "D. 6 kg"], answer: "B. 10√2 kg", explanation: "Magnitude of F = √(6² + (-8)² + 10²) = √(36 + 64 + 100) = √200 = 10√2 N. Since F = ma, m = F/a = 10√2 / 1 = 10√2 kg." },
+        { question: "The banking of roads is done to provide:", options: ["A. Necessary frictional force", "B. Necessary centripetal force", "C. A way to increase speed", "D. A way to decrease friction"], answer: "B. Necessary centripetal force", explanation: "The horizontal component of the normal force provides the necessary centripetal force for a car to take a turn safely." },
+        { question: "If a string breaks, the tension in it becomes:", options: ["A. Infinite", "B. Maximum", "C. Zero", "D. Unchanged"], answer: "C. Zero", explanation: "Once the string breaks, it can no longer exert any pulling force, so the tension becomes zero." },
+        { question: "Which law of motion is also known as the law of inertia?", options: ["A. First Law", "B. Second Law", "C. Third Law", "D. Law of Gravitation"], answer: "A. First Law", explanation: "Newton's first law defines the concept of inertia." }
     ],
     assertionReasons: [
         {
@@ -275,6 +352,30 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             answer: "A",
             explanation: "Assertion is true. At the highest point of its trajectory, a vertically thrown ball has zero velocity but still possesses acceleration due to gravity (g). The reason correctly explains that acceleration is about the *change* in velocity, which is happening at that instant."
         },
+        {
+            assertion: "Friction is a non-conservative force.",
+            reason: "Work done by friction depends on the path taken.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the definition of a non-conservative force. The work done against friction over a closed loop is not zero, as energy is dissipated as heat."
+        },
+        {
+            assertion: "A cricketer moves his hands backward while catching a ball.",
+            reason: "This increases the time of impact, reducing the force exerted by the ball on the hands.",
+            answer: "A",
+            explanation: "The assertion is a common practice. The reason correctly explains the physics. From F = Δp/Δt, by increasing the time Δt, the force F is reduced for a given change in momentum Δp."
+        },
+        {
+            assertion: "The centripetal force and centrifugal force cancel each other out.",
+            reason: "They are equal in magnitude and opposite in direction.",
+            answer: "D",
+            explanation: "Assertion is false. They never cancel because they act on different frames of reference. Centripetal force is a real force acting on the body in an inertial frame. Centrifugal force is a pseudo force experienced by the body in its own rotating frame."
+        },
+        {
+            assertion: "Pulling a lawn roller is easier than pushing it.",
+            reason: "When pulling, the vertical component of the applied force reduces the normal reaction, thus reducing friction.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is the correct explanation. When pulling, a component of the force acts upwards, reducing the normal force and hence the friction (f = μN). When pushing, a component acts downwards, increasing the normal force and friction."
+        }
     ],
     matchTheColumns: [
         {
@@ -283,5 +384,31 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             answer: "a-s, b-p, c-r, d-q",
             explanation: "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
         },
+        {
+            column1: ["(a) Newton's First Law", "(b) Newton's Second Law", "(c) Newton's Third Law", "(d) Conservation of Momentum"],
+            column2: ["(p) F = ma", "(q) Action-Reaction", "(r) Law of Inertia", "(s) No external force"],
+            answer: "a-r, b-p, c-q, d-s",
+            explanation: "First law is the law of inertia. Second law gives the measure of force. Third law describes action-reaction pairs. Conservation of momentum applies when the net external force is zero."
+        },
+        {
+            column1: ["(a) Static Friction", "(b) Kinetic Friction", "(c) Rolling Friction", "(d) Tension"],
+            column2: ["(p) Opposes motion", "(q) Self-adjusting", "(r) Pulling force in a string", "(s) Weakest friction"],
+            answer: "a-q, b-p, c-s, d-r",
+            explanation: "Static friction is self-adjusting. Kinetic friction opposes the actual motion. Rolling friction is much weaker than sliding (kinetic) friction. Tension is the force in a string."
+        },
+        {
+            column1: ["(a) Lift accelerating up", "(b) Lift accelerating down", "(c) Lift at constant velocity", "(d) Lift in free fall"],
+            column2: ["(p) Apparent weight = m(g-a)", "(q) Apparent weight = 0", "(r) Apparent weight = mg", "(s) Apparent weight = m(g+a)"],
+            answer: "a-s, b-p, c-r, d-q",
+            explanation: "Apparent weight increases when accelerating up, decreases when accelerating down, is equal to true weight at constant velocity, and is zero in free fall (a=g)."
+        },
+        {
+            column1: ["(a) Unit of Force", "(b) Unit of Impulse", "(c) Unit of Work", "(d) Unit of Power"],
+            column2: ["(p) Joule", "(q) Newton", "(r) Watt", "(s) N·s"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "The SI units for Force, Impulse, Work, and Power are Newton, Newton-second, Joule, and Watt respectively."
+        }
     ]
 };
+
+    
