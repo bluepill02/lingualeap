@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { getNeetContent } from '@/lib/neet/content-loader';
 
 
 const physicsChapters = [
@@ -16,7 +17,6 @@ const physicsChapters = [
         title: 'Physics - Physical World (பௌதிக உலகம்)',
         difficulty: 'Easy',
         estimatedTime: '20-30 min',
-        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 1: Nature of Physical World'
     },
     {
         id: 'units-and-measurements',
@@ -24,7 +24,6 @@ const physicsChapters = [
         title: 'Physics - Units and Measurements (அலகுகளும் அளவீட்டியலும்)',
         difficulty: 'Medium',
         estimatedTime: '45-60 min',
-        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 1: Nature of Physical World and Measurement'
     },
     {
         id: 'laws-of-motion',
@@ -32,7 +31,6 @@ const physicsChapters = [
         title: 'Physics - Laws of Motion (இயக்க விதிகள்)',
         difficulty: 'Hard',
         estimatedTime: '60-90 min',
-        tnBoardMap: 'TN Board: TN Board Class 11 - Chapter 3: Laws of Motion maps to NEET Physics Unit 2'
     }
 ]
 
@@ -59,32 +57,36 @@ export default function NeetPhysicsPage() {
       </header>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {physicsChapters.sort((a,b) => a.chapter - b.chapter).map((item) => (
-            <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
-                <Card className="hover:border-primary transition-colors h-full flex flex-col">
-                    <CardContent className="p-6 space-y-4 flex-grow">
-                        <div className="flex justify-between items-center">
-                            <div className="flex items-center gap-2">
-                                <Badge variant="outline">Ch. {item.chapter}</Badge>
-                                <Badge variant="secondary">{item.difficulty}</Badge>
+        {physicsChapters.sort((a,b) => a.chapter - b.chapter).map((item) => {
+            const content = getNeetContent(item.id);
+            const mappingDescription = content?.syllabusMapping?.[0]?.mappingDescription || 'Mapping not available.';
+            return (
+                <Link href={`/exam-prep/neet/physics/${item.id}`} key={item.id}>
+                    <Card className="hover:border-primary transition-colors h-full flex flex-col">
+                        <CardContent className="p-6 space-y-4 flex-grow">
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center gap-2">
+                                    <Badge variant="outline">Ch. {item.chapter}</Badge>
+                                    <Badge variant="secondary">{item.difficulty}</Badge>
+                                </div>
+                                <ChevronRight className="w-5 h-5 text-muted-foreground" />
                             </div>
-                            <ChevronRight className="w-5 h-5 text-muted-foreground" />
-                        </div>
-                        <h3 className="text-lg font-bold font-headline">{item.title}</h3>
-                        <div className="text-sm text-muted-foreground flex items-center gap-2">
-                            <Clock className="w-4 h-4" />
-                            <span>Estimated time: {item.estimatedTime}</span>
-                        </div>
-                        <Alert className="bg-primary/5 border-primary/20">
-                            <BookOpen className="h-4 w-4 text-primary/80" />
-                            <AlertDescription className="text-primary/80 text-xs">
-                                {item.tnBoardMap}
-                            </AlertDescription>
-                        </Alert>
-                    </CardContent>
-                </Card>
-            </Link>
-        ))}
+                            <h3 className="text-lg font-bold font-headline">{item.title}</h3>
+                            <div className="text-sm text-muted-foreground flex items-center gap-2">
+                                <Clock className="w-4 h-4" />
+                                <span>Estimated time: {item.estimatedTime}</span>
+                            </div>
+                            <Alert className="bg-primary/5 border-primary/20">
+                                <BookOpen className="h-4 w-4 text-primary/80" />
+                                <AlertDescription className="text-primary/80 text-xs">
+                                    {mappingDescription}
+                                </AlertDescription>
+                            </Alert>
+                        </CardContent>
+                    </Card>
+                </Link>
+            )
+        })}
       </div>
 
       <Card>
