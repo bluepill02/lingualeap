@@ -20,7 +20,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, Info } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram } from '@/lib/types';
 import 'katex/dist/katex.min.css';
 import { BlockMath, InlineMath } from 'react-katex';
@@ -87,16 +87,18 @@ export function ConceptNotesCard({ children }: { children: React.ReactNode }) {
                                return child;
                            });
 
-                           return <p className="my-2 leading-relaxed text-muted-foreground">{newChildren}</p>
+                           return <p className="my-4 leading-relaxed text-muted-foreground">{newChildren}</p>
                         },
-                        h3: ({node, ...props}) => <h3 className="text-xl font-semibold mt-6 mb-3 text-foreground" {...props} />,
-                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-4 mb-2 text-accent" {...props} />,
+                        h3: ({node, ...props}) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
+                        h4: ({node, ...props}) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
+                        ul: ({node, ...props}) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
                             const textContent = node?.children.map(c => 'value' in c ? c.value : '').join('');
-                            return <li className="my-1 text-muted-foreground">{renderTextWithTooltips(textContent || '')}</li>;
+                            return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{renderTextWithTooltips(textContent || '')}</span></li>;
                         },
-                        strong: ({node, ...props}) => <strong className="font-semibold text-foreground" {...props} />,
-                        em: ({node, ...props}) => <i className="italic text-foreground/90" {...props} />,
+                        blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
+                        strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
+                        em: ({node, ...props}) => <em className="italic text-foreground/80" {...props} />,
                         code: ({ node, className, children, ...props }) => {
                             const match = /language-math/.exec(className || '')
                             if (match) {

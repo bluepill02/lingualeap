@@ -47,6 +47,8 @@ export const lawsOfMotionModule: NeetModule = {
     conceptNotes: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology (விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை)
 The single most important skill in solving mechanics problems is drawing a [[Free-Body Diagram:தனித்த பொருளின் விசைப் படம்]] (FBD). It is a diagram that shows ALL the [[forces:விசைகள்]] acting ON a single object.
 
+> The FBD is your map for navigating a mechanics problem. Without a correct map, you will get lost.
+
 #### The 4-Step FBD Strategy:
 1.  **Isolate the Object:** Mentally separate the object of interest from all its surroundings (other objects, surfaces, etc.).
 2.  **Represent with a Point:** Draw a dot or a small box to represent the object. This is your "body."
