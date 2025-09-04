@@ -1,4 +1,3 @@
-
 /**
  * @fileOverview This file contains the official checklist and guidelines for creating and validating NEET Physics modules.
  * This serves as a programmatic source of truth for content strategy and quality assurance.
@@ -69,6 +68,10 @@ export const qaChecklist: QAChecklistItem[] = [
   {
     check: "Ensure bilingual support in Learn and Example sections",
     details: "The Learn section (Concept Notes) and Example section (Worked Examples) should have explanations in both English and Tamil to support bilingual learning.",
+  },
+  {
+    check: "Check if bilingual content was added uniformly",
+    details: "Check if bilingual content was added uniformly to throughout the learn and worked examples section",
   },
   {
     check: "Include interactive diagrams in Learn section",
