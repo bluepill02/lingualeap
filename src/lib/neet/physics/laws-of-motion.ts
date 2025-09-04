@@ -65,7 +65,7 @@ An object continues in its state of rest or of uniform motion in a straight line
 If \\vec{F}_{net} = 0, then \\vec{a} = 0 (which means \\vec{v} = constant)
 \`\`\`
 
-#### Second Law (The Master Equation - મુખ્ય સમીકરણ)
+#### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 \`\`\`
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
@@ -257,77 +257,77 @@ Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`
         {
             question: "Consider a car of mass 'm' moving on a banked road of radius 'r' with a speed 'v'. The angle of banking is 'θ'. For safe turning without friction, the speed is given by:",
             options: ["A. √(rg tanθ)", "B. √(rg/tanθ)", "C. √(rg sinθ)", "D. √(rg/sinθ)"],
-            answer: "A. √(rg tanθ)",
+            "answer": "A. √(rg tanθ)",
             "explanation": "For safe banking, the horizontal component of the normal force provides the necessary centripetal force. Nsinθ = mv²/r and Ncosθ = mg. Dividing the two equations gives tanθ = v²/(rg), so v = √(rg tanθ).",
             neetFrequency: 5
         },
         {
             question: "If the net external force on a system of particles is zero, then which of the following must be constant?",
             options: ["A. The kinetic energy of the system", "B. The acceleration of the center of mass", "C. The velocity of the center of mass", "D. The potential energy of the system"],
-            answer: "C. The velocity of the center of mass",
+            "answer": "C. The velocity of the center of mass",
             "explanation": "If F_ext = 0, then the acceleration of the center of mass is zero (F_ext = M_total * a_cm). If the acceleration is zero, the velocity of the center of mass must be constant. Kinetic energy can change due to internal forces (e.g., in an explosion).",
             neetFrequency: 4
         },
         {
             question: "A man is standing in a spring-balance. If he jumps outside from the balance, then the reading of the spring-balance:",
             options: ["A. first increases then decreases to zero", "B. first decreases then increases to zero", "C. remains same", "D. increases"],
-            answer: "A. first increases then decreases to zero",
+            "answer": "A. first increases then decreases to zero",
             "explanation": "To jump, the man must first push down on the scale (action), which increases the reading (reaction). As he leaves the scale, he is airborne and no longer exerts a force, so the reading decreases to zero.",
             neetFrequency: 2
         },
         {
             question: "A block of mass 2 kg is resting on a floor. The coefficient of static friction is 0.5. If a force of 2.5 N is applied on the block in parallel to the floor, the force of friction between the block and the floor is: (g = 10 N/kg)",
             options: ["A. 2.5 N", "B. 10 N", "C. 5 N", "D. 0 N"],
-            answer: "A. 2.5 N",
+            "answer": "A. 2.5 N",
             "explanation": "First, calculate the maximum static friction: f_max = μs * N = μs * mg = 0.5 * 2 * 10 = 10 N. Since the applied force (2.5 N) is less than the maximum static friction (10 N), the block will not move. Static friction is a self-adjusting force, so it will be equal to the applied force to maintain equilibrium. Thus, f = 2.5 N.",
             neetFrequency: 5
         },
         {
             question: "A body of mass 5 kg is acted upon by two perpendicular forces 8 N and 6 N. The magnitude of the acceleration of the body is:",
             options: ["A. 2 m/s²", "B. 2.8 m/s²", "C. 1.4 m/s²", "D. 10 m/s²"],
-            answer: "A. 2 m/s²",
+            "answer": "A. 2 m/s²",
             "explanation": "The net force is the vector sum of the two perpendicular forces. F_net = √(8² + 6²) = √(64 + 36) = √100 = 10 N. According to Newton's second law, a = F_net / m = 10 N / 5 kg = 2 m/s².",
             neetFrequency: 4
         },
         {
             question: "A block is kept on a frictionless inclined surface with angle of inclination 'α'. The incline is given an acceleration 'a' to keep the block stationary. Then 'a' is equal to:",
             options: ["A. g tan(α)", "B. g / tan(α)", "C. g cosec(α)", "D. g"],
-            answer: "A. g tan(α)",
+            "answer": "A. g tan(α)",
             "explanation": "In the non-inertial frame of the incline, a pseudo force 'ma' acts horizontally opposite to the acceleration. For the block to be stationary, the component of this pseudo force along the incline must balance the component of gravity along the incline. ma cos(α) = mg sin(α) => a = g (sin(α)/cos(α)) = g tan(α).",
             neetFrequency: 3
         },
         {
             question: "A marble block of mass 2 kg lying on ice when given a velocity of 6 m/s is stopped by friction in 10s. Then the coefficient of friction is:",
             options: ["A. 0.02", "B. 0.03", "C. 0.06", "D. 0.01"],
-            answer: "C. 0.06",
+            "answer": "C. 0.06",
             "explanation": "First, find the deceleration: v = u + at => 0 = 6 + a(10) => a = -0.6 m/s². The frictional force is F = ma = 2 * 0.6 = 1.2 N. We also know that F = μN = μmg. So, 1.2 = μ * 2 * 10 => μ = 1.2 / 20 = 0.06.",
             neetFrequency: 3
         },
         {
             question: "The engine of a car produces an acceleration of 4 m/s² in the car. If this car pulls another car of same mass, what will be the acceleration produced?",
             options: ["A. 2 m/s²", "B. 4 m/s²", "C. 1/2 m/s²", "D. 1/4 m/s²"],
-            answer: "A. 2 m/s²",
+            "answer": "A. 2 m/s²",
             "explanation": "Let the mass of the car be 'm' and the force produced by the engine be 'F'. Initially, F = m * 4. When it pulls another car of the same mass, the total mass of the system becomes 2m. The force produced by the engine is the same. So, F = (2m) * a'. Equating the two, m * 4 = 2m * a' => a' = 4/2 = 2 m/s².",
             neetFrequency: 2
         },
         {
             question: "Swimming is possible on account of:",
             options: ["A. Newton's First Law of Motion", "B. Newton's Second Law of Motion", "C. Newton's Third Law of Motion", "D. Newton's Law of Gravitation"],
-            answer: "C. Newton's Third Law of Motion",
+            "answer": "C. Newton's Third Law of Motion",
             "explanation": "A swimmer pushes water backward (action). The water, in turn, pushes the swimmer forward with an equal and opposite force (reaction), which allows for swimming. This is a direct application of Newton's Third Law.",
             neetFrequency: 4
         },
         {
             question: "A gun of mass 10 kg fires 4 bullets per second. The mass of each bullet is 20 g and the velocity of the bullet when it leaves the gun is 300 m/s. The force required to hold the gun when firing is:",
             options: ["A. 6 N", "B. 8 N", "C. 24 N", "D. 240 N"],
-            answer: "C. 24 N",
+            "answer": "C. 24 N",
             "explanation": "The momentum of one bullet is p = mv = (0.020 kg) * (300 m/s) = 6 kg·m/s. The gun fires 4 bullets per second, so the rate of change of momentum is Δp/Δt = 4 * 6 kg·m/s / 1 s = 24 kg·m/s². By Newton's second law, this rate of change of momentum is equal to the force. So, the recoil force is 24 N.",
             neetFrequency: 3
         },
         {
             question: "The dimensions of 'impulse' are the same as that of:",
             options: ["A. Pressure", "B. Force", "C. Work", "D. Linear Momentum"],
-            answer: "D. Linear Momentum",
+            "answer": "D. Linear Momentum",
             "explanation": "Impulse is defined as the change in momentum (J = Δp). Therefore, its dimensions must be the same as that of linear momentum, which is [MLT⁻¹].",
             neetFrequency: 4
         },
@@ -448,3 +448,4 @@ Consider a person of mass \`m\` on a weighing scale in a lift accelerating at \`
         }
     ]
 };
+
