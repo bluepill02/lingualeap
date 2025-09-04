@@ -35,6 +35,7 @@ import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { BlockMath, InlineMath } from 'react-katex';
 import { ProjectileAnimation } from './ProjectileAnimation';
+import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 import { cn } from '@/lib/utils';
 
 
@@ -88,6 +89,9 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                 if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
                                     return <div className="not-prose my-4"><ProjectileAnimation /></div>;
                                 }
+                                if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
+                                    return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
+                                }
                             }
                            
                             return <p className="my-4 leading-relaxed"><BilingualText text={textContent} /></p>;
@@ -98,7 +102,12 @@ export function ConceptNotesCard({ content }: { content: string }) {
                         },
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         li: ({ node, ...props }) => {
-                           const textContent = Children.toArray(props.children).join('');
+                           const textContent = Children.toArray(props.children).map(child => {
+                                if (isValidElement(child) && child.props.children) {
+                                    return Children.toArray(child.props.children).join('');
+                                }
+                                return child;
+                           }).join('');
                            return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText text={textContent} /></span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
@@ -473,5 +482,6 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
+
 
     
