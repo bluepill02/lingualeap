@@ -59,6 +59,14 @@ export const qaChecklist: QAChecklistItem[] = [
     details: 'Ensure the "Next Module" information in the UI points to the correct subsequent chapter.',
   },
   {
+    check: "Ensure diagrams are interactive",
+    details: "Where applicable, diagrams should be interactive components rather than static text or images.",
+  },
+  {
+    check: "Ensure all content is of very high quality",
+    details: "All generated content, including notes, examples, and questions, must be accurate, clear, and pedagogically sound.",
+  },
+  {
     check: "Verify XML Structure",
     details: "All file modifications must be delivered in the strict, complete XML format.",
   },
