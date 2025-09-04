@@ -104,6 +104,13 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             solutionSteps: [
                 "Strategy: First, we find the maximum possible friction to see if the system moves. Then, we apply Newton's 2nd Law to the whole system to find acceleration, and finally to a single block to find the internal force (tension).",
                 "Step 1: Draw FBD for both blocks. For m₁, forces are Tension (T) right, friction (f₁) left, weight (m₁g) down, normal (N₁) up. For m₂, forces are F right, T left, friction (f₂) left, weight (m₂g) down, normal (N₂) up.",
+                `
+FBD for m₁:               FBD for m₂:
+      N₁ ↑                      N₂ ↑
+        [m₁] → T                  F ← [m₂] → T
+      f₁ ←                      f₂ ←
+      W₁ ↓                      W₂ ↓
+`,
                 "Step 2: Calculate maximum static friction for both. f₁_max = μN₁ = μm₁g = 0.2 * 4 * 10 = 8 N. f₂_max = μN₂ = μm₂g = 0.2 * 6 * 10 = 12 N. Total max friction = 20 N.",
                 "Step 3: Check for motion. The total driving force is F=50N. Since F (50N) > f_total_max (20N), the system will accelerate. The friction acting will be kinetic friction, f = μN.",
                 "Step 4: Apply F_net = ma to the system (m₁ + m₂). The net force is the driving force minus the opposing frictional forces. F_net = F - f₁ - f₂ = (m₁ + m₂)a.",
@@ -122,6 +129,12 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 "Strategy: This problem is best solved from the non-inertial (accelerating) frame of the wedge. We'll add a pseudo force to the block and then apply the condition for equilibrium (no slipping).",
                 "Step 1: Consider the wedge as our frame of reference. This frame is accelerating to the right with acceleration `A`.",
                 "Step 2: Draw the FBD of block 'm' as seen from the wedge. The real forces are: weight `mg` (vertically down) and the Normal force `N` (perpendicular to the incline, upwards).",
+                `
+FBD of 'm' in wedge's frame:
+          N ↖
+           [m]
+  F_p=mA ←  ↓ mg
+`,
                 "Step 3: Add the Pseudo Force. Because the frame (wedge) is accelerating to the right with `A`, we must add a pseudo force `F_p = mA` on the block, directed to the left.",
                 "Step 4: Apply equilibrium conditions. For the block not to slip, the net force parallel to the incline must be zero. We must resolve all forces into components parallel and perpendicular to the incline.",
                 "The component of gravity pulling the block down the incline is `mg sin(θ)`.",
@@ -138,7 +151,14 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             problem: "A block of mass 5 kg is placed on a rough inclined plane making an angle of 30° with the horizontal. The coefficient of static friction is 0.6. Will the block slide down? What is the frictional force acting on it? (g = 10 m/s²)",
             solutionSteps: [
                 "Strategy: To determine if the block slides, we must compare the component of gravity pulling it down the incline with the maximum possible static frictional force that can oppose it.",
-                "Step 1: Calculate the force pulling the block down the incline. This is the component of its weight parallel to the slope: F_down = mg sin(θ).",
+                `Step 1: Draw FBD and calculate the force pulling the block down the incline (F_down = mg sin(θ)).
+FBD of block on incline:
+        N ↖  ↗ f_s (friction)
+           [m]
+           ↙   ↘
+  mg sin(θ)     mg cos(θ)
+          (component along incline) (component perp. to incline)
+`,
                 "F_down = 5 kg * 10 m/s² * sin(30°) = 50 * 0.5 = 25 N.",
                 "Step 2: Calculate the normal force (N) acting on the block. This is the component of its weight perpendicular to the slope: N = mg cos(θ).",
                 "N = 5 kg * 10 m/s² * cos(30°) = 50 * (√3 / 2) ≈ 43.3 N.",
@@ -156,7 +176,13 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             problem: "Two masses, m₁ = 10 kg and m₂ = 5 kg, are connected by a massless, inextensible string passing over a frictionless pulley. Find the acceleration of the system and the tension in the string when they are released. (g = 10 m/s²)",
             solutionSteps: [
                 "Strategy: Identify the net force driving the system's motion and divide by the total mass to find acceleration. Then, analyze one of the masses individually to find the tension.",
-                "Step 1: Identify the forces. The heavier mass (m₁) is pulled down by gravity (m₁g). The lighter mass (m₂) is pulled down by its own gravity (m₂g), but this force opposes the system's primary motion. The tension (T) is an internal force.",
+                `Step 1: Draw FBDs. For m₁, forces are T (up) and m₁g (down). For m₂, forces are T (up) and m₂g (down). Since m₁ > m₂, m₁ accelerates down and m₂ accelerates up.
+FBD for m₁:     FBD for m₂:
+     T ↑             T ↑
+      [m₁]            [m₂]
+     W₁=m₁g ↓        W₂=m₂g ↓
+     (a ↓)           (a ↑)
+`,
                 "Step 2: Calculate the net external force on the system. The force causing the motion is m₁g, and the force opposing it is m₂g. So, F_net = m₁g - m₂g.",
                 "F_net = (10 * 10) - (5 * 10) = 100 N - 50 N = 50 N.",
                 "Step 3: Calculate the total mass being accelerated. M_total = m₁ + m₂ = 10 kg + 5 kg = 15 kg.",
@@ -174,10 +200,15 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             problem: "A car of mass 1000 kg is moving at a speed of 10 m/s on a flat, circular road of radius 50 m. What is the minimum coefficient of static friction (μs) between the tires and the road required to prevent the car from slipping?",
             solutionSteps: [
                 "Strategy: The force causing the car to turn in a circle (the centripetal force) is provided entirely by the static friction between the tires and the road. We need to calculate the required centripetal force and set it equal to the maximum possible static friction force.",
-                "Step 1: Calculate the required centripetal force (Fc). The formula is Fc = mv²/r.",
+                `Step 1: Draw FBD. The side view shows Normal force (N) up and weight (mg) down. The top-down view shows the frictional force (f_s) pointing towards the center of the circular path. This friction provides the centripetal force.
+Side View:       Top-Down View:
+   N ↑
+  [car]                 [car] → v
+   mg ↓                  ↑ f_s (towards center)
+`,
+                "Step 2: Calculate the required centripetal force (Fc). The formula is Fc = mv²/r.",
                 "Fc = (1000 kg) * (10 m/s)² / 50 m = 1000 * 100 / 50 = 2000 N.",
-                "Step 2: This 2000 N force must be provided by static friction. So, the required frictional force is f_s = 2000 N.",
-                "Step 3: The maximum possible static friction is given by f_s_max = μs * N. On a flat road, the normal force (N) is equal to the car's weight (mg).",
+                "Step 3: This 2000 N force must be provided by static friction. So, the required frictional force is f_s = 2000 N. The maximum possible static friction is given by f_s_max = μs * N. On a flat road, the normal force (N) is equal to the car's weight (mg).",
                 "N = mg = 1000 kg * 10 m/s² = 10000 N.",
                 "Step 4: To prevent slipping, the required frictional force must be less than or equal to the maximum available frictional force. The minimum coefficient is when they are equal: f_s = f_s_max.",
                 "2000 N = μs * 10000 N.",
