@@ -60,16 +60,10 @@ function renderContent(content: string) {
             currentDiagram.push(line);
             return;
         }
-
-        if (line.startsWith('### ')) {
-            elements.push(<h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>);
-        } else if (line.startsWith('#### ')) {
-            elements.push(<h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>);
-        } else if (line.startsWith('*   **')) {
-            const parts = line.split('**');
-            elements.push(<p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>);
-        } else if (line.trim().startsWith('`') && line.trim().endsWith('`')) {
-            const formulaContent = line.replace(/`/g, '').trim();
+        
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith('`') && trimmedLine.endsWith('`')) {
+            const formulaContent = trimmedLine.slice(1, -1).trim();
             const [formula, description] = formulaContent.split('#').map(s => s.trim());
             elements.push(
                 <div key={index} className="bg-muted p-4 rounded-lg my-4">
@@ -77,11 +71,19 @@ function renderContent(content: string) {
                     {description && <p className="text-sm text-center text-muted-foreground mt-2">{description}</p>}
                 </div>
             );
-        } else if (line.trim().startsWith('- ')) {
+        } else if (line.startsWith('### ')) {
+            elements.push(<h3 key={index} className="text-xl font-semibold mt-6 mb-3">{line.substring(4)}</h3>);
+        } else if (line.startsWith('#### ')) {
+            elements.push(<h4 key={index} className="text-lg font-semibold mt-4 mb-2">{line.substring(5)}</h4>);
+        } else if (line.startsWith('*   **')) {
+            const parts = line.split('**');
+            elements.push(<p key={index} className="my-2"><strong className="font-semibold">{parts[1]}</strong>{parts[2]}</p>);
+        } else if (trimmedLine.startsWith('- ')) {
             elements.push(<li key={index} className="ml-5 list-disc my-1">{line.substring(2)}</li>);
-        } else if (line.trim() === '') {
-            elements.push(<div key={index} className="h-4" />);
-        } else {
+        } else if (trimmedLine === '') {
+            // This handles empty lines for spacing, you might not need a div.
+            // elements.push(<div key={index} className="h-4" />);
+        } else if (line) { // Ensure the line is not empty
             elements.push(<p key={index} className="my-2 leading-relaxed text-muted-foreground">{line}</p>);
         }
     });
@@ -367,5 +369,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         </Card>
     );
 }
+
+    
 
     
