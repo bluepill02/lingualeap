@@ -10,58 +10,51 @@ import { neetContent } from '@/lib/neet/content-loader';
 import { Separator } from '@/components/ui/separator';
 
 const chapterGroups = {
-    foundation: [
-        { id: 'physical-world', title: 'Physical World (பௌதிக உலகம்)'},
-        { id: 'units-and-measurements', title: 'Units and Measurements (அலகுகளும் அளவீட்டியலும்)'},
-    ],
     core: [
-        { id: 'motion-in-a-straight-line', title: 'Motion in a Straight Line (நேர்கோட்டு இயக்கம்)'},
-        { id: 'motion-in-a-plane', title: 'Motion in a Plane (தளத்தில் இயக்கம்)'},
         { id: 'laws-of-motion', title: 'Laws of Motion (இயக்க விதிகள்)'},
         { id: 'work-energy-and-power', title: 'Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)'},
-        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)'},
-        { id: 'gravitation', title: 'Gravitation (ஈர்ப்பியல்)'},
-        { id: 'mechanical-properties-of-solids', title: 'Mechanical Properties of Solids'},
-        { id: 'mechanical-properties-of-fluids', title: 'Mechanical Properties of Fluids'},
-        { id: 'thermal-properties-of-matter', title: 'Thermal Properties of Matter'},
+        { id: 'motion-in-a-straight-line', title: 'Motion in a Straight Line (நேர்கோட்டு இயக்கம்)'},
         { id: 'thermodynamics', title: 'Thermodynamics (வெப்ப இயக்கவியல்)'},
-        { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)'},
-        { id: 'oscillations', title: 'Oscillations (அலைவுகள்)'},
-        { id: 'waves', title: 'Waves (அலைகள்)'},
-        { id: 'electrostatics', title: 'Electrostatics (நிலைமின்னியல்)'},
-        { id: 'current-electricity', title: 'Current Electricity'},
-        { id: 'moving-charges-and-magnetism', title: 'Moving Charges and Magnetism'},
-        { id: 'magnetism-and-matter', title: 'Magnetism and Matter'},
-        { id: 'electromagnetic-induction', title: 'Electromagnetic Induction'},
-        { id: 'alternating-current', title: 'Alternating Current'},
-        { id: 'electromagnetic-waves', title: 'Electromagnetic Waves'},
         { id: 'ray-optics-and-optical-instruments', title: 'Ray Optics and Optical Instruments'},
-        { id: 'wave-optics', title: 'Wave Optics'},
-        { id: 'dual-nature-of-radiation-and-matter', title: 'Dual Nature of Radiation and Matter'},
+        { id: 'current-electricity', title: 'Current Electricity'},
+        { id: 'electrostatics', title: 'Electrostatics (நிலைமின்னியல்)'},
         { id: 'atoms', title: 'Atoms'},
         { id: 'nuclei', title: 'Nuclei'},
         { id: 'semiconductor-electronics', title: 'Semiconductor Electronics'},
     ],
     bridge: [
-        { id: 'communication-systems', title: 'Communication Systems'}
+        { id: 'communication-systems', title: 'Communication Systems'},
+        { id: 'electromagnetic-waves', title: 'Electromagnetic Waves'},
+        { id: 'wave-optics', title: 'Wave Optics'},
+        { id: 'magnetism-and-matter', title: 'Magnetism and Matter'},
+        { id: 'dual-nature-of-radiation-and-matter', title: 'Dual Nature of Radiation and Matter'},
+        { id: 'mechanical-properties-of-fluids', title: 'Mechanical Properties of Fluids'},
+    ],
+    foundation: [
+        { id: 'physical-world', title: 'Physical World (பௌதிக உலகம்)'},
+        { id: 'units-and-measurements', title: 'Units and Measurements (அலகுகளும் அளவீட்டியலும்)'},
+        { id: 'kinetic-theory-of-gases', title: 'Kinetic Theory of Gases (வாயுக்களின் இயக்கவியற் கொள்கை)'},
+        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion (துகள்களின் அமைப்பு மற்றும் சுழற்சி இயக்கம்)'},
+        { id: 'gravitation', title: 'Gravitation (ஈர்ப்பியல்)'},
+        { id: 'mechanical-properties-of-solids', title: 'Mechanical Properties of Solids'},
     ]
 }
 
 const groupInfo = {
-    foundation: {
-        title: 'Foundation Chapters',
-        description: 'Conceptual but less weightage. Important for dimensional analysis, units, and linking ideas across chapters.',
-        icon: ShieldCheck
-    },
     core: {
-        title: 'Core Chapters',
-        description: 'High-Yield + TN Board Overlap. These are heavily tested and align well with TN Board curriculum. Prioritize bilingual clarity, worked examples, and MCQ mastery here.',
+        title: 'Core Chapters (High-Yield + TN Board Overlap)',
+        description: 'These are heavily tested and align well with TN Board curriculum. Prioritize bilingual clarity, worked examples, and MCQ mastery here.',
         icon: GraduationCap
     },
     bridge: {
-        title: 'Bridge Chapters',
-        description: 'NEET-heavy but TN-light. These need extra scaffolding and analogies to bridge gaps for TN students.',
+        title: 'Bridge Chapters (NEET-heavy but TN-light)',
+        description: 'These need extra scaffolding and analogies to bridge gaps for TN students.',
         icon: Link2
+    },
+    foundation: {
+        title: 'Foundation Chapters (Conceptual but less weightage)',
+        description: 'Still important for dimensional analysis, units, and linking ideas across chapters.',
+        icon: ShieldCheck
     }
 }
 
