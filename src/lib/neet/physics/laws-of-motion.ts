@@ -60,19 +60,13 @@ The single most important skill in solving mechanics problems is drawing a Free-
 
 #### First Law (Law of Inertia)
 An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by an external force. This law defines an **Inertial Frame of Reference** - a frame where this law holds true.
-\`\`\`
-\\text{If } \\vec{F}_{net} = 0, \\text{ then } \\vec{v} = \\text{constant} \\quad (\\text{i.e., } \\vec{a} = 0)
-\`\`\`
+\`\\text{If } \\vec{F}_{net} = 0, \\text{ then } \\vec{v} = \\text{constant} \\quad (\\text{i.e., } \\vec{a} = 0)\`
 
 #### Second Law (The "Real" Law)
 The rate of change of linear momentum of a body is directly proportional to the net external force applied on the body, and this change takes place in the direction of the applied force.
-\`\`\`
-\\vec{F}_{net} = \\frac{d\\vec{p}}{dt} = \\frac{d(m\\vec{v})}{dt}
-\`\`\`
+\`\\vec{F}_{net} = \\frac{d\\vec{p}}{dt} = \\frac{d(m\\vec{v})}{dt}\`
 If mass \`m\` is constant, this simplifies to the famous equation:
-\`\`\`
-\\vec{F}_{net} = m\\frac{d\\vec{v}}{dt} = m\\vec{a}
-\`\`\`
+\`\\vec{F}_{net} = m\\frac{d\\vec{v}}{dt} = m\\vec{a}\`
 This is a vector equation. It can be broken down into components: \`ΣF_x = ma_x\`, \`ΣF_y = ma_y\`, \`ΣF_z = ma_z\`.
 
 #### Third Law (Action-Reaction)
@@ -80,9 +74,7 @@ For every action, there is an equal and opposite reaction. \`Action = -Reaction\
 *   Forces always occur in pairs.
 *   Action and reaction forces act on **different bodies**.
 *   They are equal in magnitude and opposite in direction.
-\`\`\`
-\\vec{F}_{AB} = -\\vec{F}_{BA}
-\`\`\`
+\`\\vec{F}_{AB} = -\\vec{F}_{BA}\`
 
 ### 3. Advanced Concepts for JEE
 
@@ -314,12 +306,6 @@ After applying the pseudo force, we can treat the non-inertial frame as if it we
             options: ["A. Pressure", "B. Force", "C. Work", "D. Linear Momentum"],
             answer: "D. Linear Momentum",
             explanation: "Impulse is defined as the change in momentum (J = Δp). Therefore, its dimensions must be the same as that of linear momentum, which is [MLT⁻¹]."
-        },
-        {
-            question: "An object is in equilibrium under three concurrent forces. The resultant of any two forces:",
-            options: ["A. is equal and opposite to the third force", "B. is perpendicular to the third force", "C. has the same magnitude as the third force", "D. is zero"],
-            answer: "A. is equal and opposite to the third force",
-            explanation: "For the object to be in equilibrium, the net force must be zero (F₁ + F₂ + F₃ = 0). This implies that the resultant of any two forces (e.g., F₁ + F₂) must be equal in magnitude and opposite in direction to the third force (F₁ + F₂ = -F₃)."
         }
     ],
     assertionReasons: [
@@ -417,3 +403,5 @@ After applying the pseudo force, we can treat the non-inertial frame as if it we
         }
     ]
 };
+
+    
