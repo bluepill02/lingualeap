@@ -18,7 +18,7 @@ export const motionInAStraightLineModule: NeetModule = {
         "Fundamental concepts of differentiation and integration for understanding instantaneous values."
     ],
     conceptOverview: "Kinematics is the branch of mechanics that describes the motion of objects without considering the forces that cause the motion. This chapter lays the foundation by focusing on the simplest case: motion along a straight line. By defining and analyzing concepts like displacement, velocity, and acceleration, we develop a set of powerful equations—the kinematic equations—that allow us to predict the future position and velocity of any object undergoing constant acceleration. Mastering these fundamentals is non-negotiable for success in any competitive physics exam.",
-    tamilConnection: "'வேகம்', 'முடுக்கம்', 'இடப்பெயர்ச்சி' - இந்த வார்த்தைகளை நாம் தினமும் பயன்படுத்தினாலும், அதன் இயற்பியல் அர்த்தம் ஆழமானது. ஒரு பேருந்து நிலையத்திலிருந்து புறப்படுவது முதல், மேலே எறிந்த கல் கீழே வருவது வரை அனைத்தையும் இந்த நேர்கோட்டு இயக்க விதிகள் விளக்குகின்றன. இந்த அடிப்படைகளைப் புரிந்துகொள்வது, சிக்கலான இயக்கங்களையும் எளிதாகப் பகுப்பாய்வு செய்ய உதவும்.",
+    tamilConnection: "வேகம் (Speed), முடுக்கம் (acceleration), இடப்பெயர்ச்சி (displacement) - இந்த வார்த்தைகளை நாம் தினமும் பயன்படுத்தினாலும், அதன் இயற்பியல் அர்த்தம் ஆழமானது. ஒரு பேருந்து நிலையத்திலிருந்து புறப்படுவது முதல், மேலே எறிந்த கல் கீழே வருவது வரை அனைத்தையும் இந்த நேர்கோட்டு இயக்க விதிகள் விளக்குகின்றன. இந்த அடிப்படைகளைப் புரிந்துகொள்வது, சிக்கலான இயக்கங்களையும் எளிதாகப் பகுப்பாய்வு செய்ய உதவும்.",
     culturalContext: "Imagine the precision of an athlete running in a Silambam competition, moving back and forth in a straight line. Their ability to control their velocity and acceleration is key. This chapter provides the tools to scientifically describe and predict that motion.",
     syllabusMapping: [
          {
@@ -100,12 +100,12 @@ This is a special case of uniformly accelerated motion where the acceleration is
         "For motion under gravity, acceleration 'a' is replaced by 'g' (usually -9.8 m/s²), and a clear sign convention is essential."
     ],
     mnemonics: [
-        { text: "SUVAT - The variables in the kinematic equations: s (displacement), u (initial velocity), v (final velocity), a (acceleration), t (time).", tamil: "SUVAT - இயக்கச் சமன்பாடுகளின் மாறிகள்: s (இடப்பெயர்ச்சி), u (தொடக்க திசைவேகம்), v (இறுதி திசைவேகம்), a (முடுக்கம்), t (காலம்)." }
+        { text: "SUVAT - The variables in the kinematic equations: s (displacement), u (initial velocity), v (final velocity), a (acceleration), t (time). (SUVAT - இயக்கச் சமன்பாடுகளின் மாறிகள்: s (இடப்பெயர்ச்சி), u (தொடக்க திசைவேகம்), v (இறுதி திசைவேகம்), a (முடுக்கம்), t (காலம்).)", tamil: "" }
     ],
     neetTips: [
-        { text: "In problems involving stopping distance, remember that it is proportional to the square of the initial velocity (s ∝ u²).", tamil: "நிறுத்தத் தொலைவு கணக்குகளில், அது தொடக்க திசைவேகத்தின் வர்க்கத்திற்கு நேர்விகிதத்தில் இருக்கும் (s ∝ u²) என்பதை நினைவில் கொள்க." },
-        { text: "When a body is dropped, initial velocity u = 0. When a body is thrown up, final velocity v = 0 at the highest point.", tamil: "ஒரு பொருள் கீழே விடப்பட்டால், தொடக்க திசைவேகம் u = 0. ஒரு பொருள் மேல்நோக்கி எறியப்பட்டால், பெரும உயரத்தில் இறுதித் திசைவேகம் v = 0." },
-        { text: "Graphical questions are very common. Remember: Slope of x-t graph is velocity, slope of v-t graph is acceleration. Area under v-t graph is displacement.", tamil: "வரைபடக் கேள்விகள் மிகவும் பொதுவானவை. நினைவில் கொள்க: x-t வரைபடத்தின் சாய்வு திசைவேகம், v-t வரைபடத்தின் சாய்வு முடுக்கம். v-t வரைபடத்தின் கீழ் உள்ள பரப்பு இடப்பெயர்ச்சி." }
+        { text: "In problems involving stopping distance, remember that it is proportional to the square of the initial velocity (s ∝ u²). (நிறுத்தத் தொலைவு கணக்குகளில், அது தொடக்க திசைவேகத்தின் வர்க்கத்திற்கு நேர்விகிதத்தில் இருக்கும் (s ∝ u²) என்பதை நினைவில் கொள்க.)", tamil: "" },
+        { text: "When a body is dropped, initial velocity u = 0. When a body is thrown up, final velocity v = 0 at the highest point. (ஒரு பொருள் கீழே விடப்பட்டால், தொடக்க திசைவேகம் u = 0. ஒரு பொருள் மேல்நோக்கி எறியப்பட்டால், பெரும உயரத்தில் இறுதித் திசைவேகம் v = 0.)", tamil: "" },
+        { text: "Graphical questions are very common. Remember: Slope of x-t graph is velocity, slope of v-t graph is acceleration. Area under v-t graph is displacement. (வரைபடக் கேள்விகள் மிகவும் பொதுவானவை. நினைவில் கொள்க: x-t வரைபடத்தின் சாய்வு திசைவேகம், v-t வரைபடத்தின் சாய்வு முடுக்கம். v-t வரைபடத்தின் கீழ் உள்ள பரப்பு இடப்பெயர்ச்சி.)", tamil: "" }
     ],
     workedExamples: [
         {
@@ -115,33 +115,30 @@ This is a special case of uniformly accelerated motion where the acceleration is
             solutionSteps: [
                 {
                     step: 1,
-                    explanation: "Part (a): Find the maximum height reached from the top of the building. At the maximum height, the final velocity `v` is 0.",
-                    explanationTamil: "பகுதி (a): கட்டிடத்தின் உச்சியிலிருந்து அடையும் பெரும உயரத்தைக் கண்டறியவும். பெரும உயரத்தில், இறுதித் திசைவேகம் `v` சுழியாகும்."
+                    explanation: "Part (a): Find the maximum height reached from the top of the building. At the maximum height, the final velocity `v` is 0. (பகுதி (a): கட்டிடத்தின் உச்சியிலிருந்து அடையும் பெரும உயரத்தைக் கண்டறியவும். பெரும உயரத்தில், இறுதித் திசைவேகம் `v` சுழியாகும்.)"
                 },
                 {
                     step: 2,
-                    explanation: "Use the position-velocity relation: v² = u² + 2as. Here, a = -g.",
-                    explanationTamil: "நிலை-திசைவேகத் தொடர்பைப் பயன்படுத்தவும்: v² = u² + 2as. இங்கு, a = -g.",
+                    explanation: "Use the position-velocity relation: v² = u² + 2as. Here, a = -g. (நிலை-திசைவேகத் தொடர்பைப் பயன்படுத்தவும்: v² = u² + 2as. இங்கு, a = -g.)",
                     calculation: "0² = (20)² + 2(-10)s \\implies 0 = 400 - 20s \\implies 20s = 400 \\implies s = 20 m"
                 },
                 {
                     step: 3,
-                    explanation: "Part (b): Calculate the total time of flight. We can use the position-time relation: s = ut + ½at². Here, the net displacement `s` is -25 m (since it ends up 25 m *below* the starting point).",
-                    explanationTamil: "பகுதி (b): மொத்தப் பயண நேரத்தைக் கணக்கிடவும். நிலை-காலத் தொடர்பைப் பயன்படுத்தலாம்: s = ut + ½at². இங்கு, நிகர இடப்பெயர்ச்சி `s` என்பது -25 மீ (ஏனெனில் அது தொடக்கப் புள்ளிக்கு *கீழே* 25 மீ தொலைவில் முடிவடைகிறது)."
+                    explanation: "Part (b): Calculate the total time of flight. We can use the position-time relation: s = ut + ½at². Here, the net displacement `s` is -25 m (since it ends up 25 m *below* the starting point). (பகுதி (b): மொத்தப் பயண நேரத்தைக் கணக்கிடவும். நிலை-காலத் தொடர்பைப் பயன்படுத்தலாம்: s = ut + ½at². இங்கு, நிகர இடப்பெயர்ச்சி `s` என்பது -25 மீ (ஏனெனில் அது தொடக்கப் புள்ளிக்கு *கீழே* 25 மீ தொலைவில் முடிவடைகிறது).)"
                 },
                 {
                     step: 4,
-                    explanation: "Substitute the values into the quadratic equation and solve for t.",
+                    explanation: "Substitute the values into the quadratic equation and solve for t. (மதிப்புகளை இருபடிச் சமன்பாட்டில் பிரதியிட்டு t-க்கு தீர்க்கவும்.)",
                     calculation: "-25 = 20t + \\frac{1}{2}(-10)t² \\implies -25 = 20t - 5t² \\implies 5t² - 20t - 25 = 0 \\implies t² - 4t - 5 = 0"
                 },
                 {
                     step: 5,
-                    explanation: "Factor the quadratic equation: (t-5)(t+1) = 0. Since time cannot be negative, we take the positive root.",
+                    explanation: "Factor the quadratic equation: (t-5)(t+1) = 0. Since time cannot be negative, we take the positive root. (இருபடிச் சமன்பாட்டைக் காரணிப்படுத்தவும்: (t-5)(t+1) = 0. நேரம் எதிர்மறையாக இருக்க முடியாது என்பதால், நேர்மறை மூலத்தை எடுத்துக்கொள்கிறோம்.)",
                     calculation: "t = 5 s or t = -1 s. Therefore, the time taken to hit the ground is 5 seconds."
                 }
             ],
-            neetHack: "For motion under gravity, always establish a clear sign convention (e.g., up is positive). The most common mistake is mixing up signs for displacement, velocity, and acceleration. The displacement 's' is about the *net change* in position, not the total distance traveled.",
-            neetHackTamil: "ஈர்ப்பின் கீழ் இயக்கத்தில், எப்போதும் ஒரு தெளிவான குறியீட்டு மரபை (எ.கா., மேல்நோக்கி நேர்க்குறி) அமைக்கவும். இடப்பெயர்ச்சி, திசைவேகம் மற்றும் முடுக்கம் ஆகியவற்றிற்கான குறியீடுகளைக் குழப்பிக் கொள்வது மிகவும் பொதுவான தவறு. இடப்பெயர்ச்சி 's' என்பது மொத்தப் பயண தூரம் அல்ல, அது நிலையில் ஏற்படும் *நிகர மாற்றம்* ஆகும்."
+            neetHack: "For motion under gravity, always establish a clear sign convention (e.g., up is positive). The most common mistake is mixing up signs for displacement, velocity, and acceleration. The displacement 's' is about the *net change* in position, not the total distance traveled. (ஈர்ப்பின் கீழ் இயக்கத்தில், எப்போதும் ஒரு தெளிவான குறியீட்டு மரபை (எ.கா., மேல்நோக்கி நேர்க்குறி) அமைக்கவும். இடப்பெயர்ச்சி, திசைவேகம் மற்றும் முடுக்கம் ஆகியவற்றிற்கான குறியீடுகளைக் குழப்பிக் கொள்வது மிகவும் பொதுவான தவறு. இடப்பெயர்ச்சி 's' என்பது மொத்தப் பயண தூரம் அல்ல, அது நிலையில் ஏற்படும் *நிகர மாற்றம்* ஆகும்.)",
+            commonPitfall: "Forgetting to consider the work done by *all* forces when applying the theorem. If friction were present, W_net would be W_gravity + W_friction."
         },
         {
             title: "JEE Level: Motion with Variable Acceleration",
@@ -150,32 +147,31 @@ This is a special case of uniformly accelerated motion where the acceleration is
             solutionSteps: [
                 {
                     step: 1,
-                    explanation: "Understand the relationship between acceleration and velocity. Since acceleration is the rate of change of velocity, we can find the change in velocity by integrating acceleration with respect to time.",
-                    explanationTamil: "முடுக்கம் மற்றும் திசைவேகத்திற்கு இடையேயான தொடர்பைப் புரிந்து கொள்ளுங்கள். முடுக்கம் என்பது திசைவேகத்தின் மாறுவீதம் என்பதால், நேரத்தைப் பொறுத்து முடுக்கத்தை தொகையீடு செய்வதன் மூலம் திசைவேகத்தில் ஏற்படும் மாற்றத்தைக் காணலாம்."
+                    explanation: "Understand the relationship between acceleration and velocity. Since acceleration is the rate of change of velocity, we can find the change in velocity by integrating acceleration with respect to time. (முடுக்கம் மற்றும் திசைவேகத்திற்கு இடையேயான தொடர்பைப் புரிந்து கொள்ளுங்கள். முடுக்கம் என்பது திசைவேகத்தின் மாறுவீதம் என்பதால், நேரத்தைப் பொறுத்து முடுக்கத்தை தொகையீடு செய்வதன் மூலம் திசைவேகத்தில் ஏற்படும் மாற்றத்தைக் காணலாம்.)"
                 },
                 {
                     step: 2,
-                    explanation: "Set up the integral. We know a = dv/dt, so dv = a dt. We integrate both sides.",
+                    explanation: "Set up the integral. We know a = dv/dt, so dv = a dt. We integrate both sides. (தொகையீட்டை அமைக்கவும். a = dv/dt என നമുക്ക് അറിയാം, எனவே dv = a dt. இருபுறமும் தொகையீடு செய்கிறோம்.)",
                     calculation: "\\int_{u}^{v} dv = \\int_{0}^{t} a \\,dt"
                 },
                 {
                     step: 3,
-                    explanation: "Substitute the given expression for 'a' and the initial condition u=0 at t=0.",
+                    explanation: "Substitute the given expression for 'a' and the initial condition u=0 at t=0. ('a' க்கான கொடுக்கப்பட்ட கோவையையும், t=0 இல் u=0 என்ற ஆரம்ப நிபந்தனையையும் பிரதியிடவும்.)",
                     calculation: "\\int_{0}^{v} dv = \\int_{0}^{t} (3t^2 + 2t + 2) \\,dt"
                 },
                 {
                     step: 4,
-                    explanation: "Perform the integration to find the expression for velocity 'v' as a function of time 't'.",
+                    explanation: "Perform the integration to find the expression for velocity 'v' as a function of time 't'. (நேரம் 't' இன் சார்பாக திசைவேகம் 'v' க்கான கோவையைக் கண்டறிய தொகையீடு செய்யவும்.)",
                     calculation: "v = [\\frac{3t^3}{3} + \\frac{2t^2}{2} + 2t]_0^t \\implies v = t^3 + t^2 + 2t"
                 },
                 {
                     step: 5,
-                    explanation: "Substitute t = 2 seconds into the velocity expression to find the final velocity.",
+                    explanation: "Substitute t = 2 seconds into the velocity expression to find the final velocity. (இறுதி திசைவேகத்தைக் கண்டறிய திசைவேகக் கோவையில் t = 2 வினாடிகளைப் பிரதியிடவும்.)",
                     calculation: "v = (2)^3 + (2)^2 + 2(2) = 8 + 4 + 4 = 16 m/s"
                 }
             ],
-            neetHack: "When acceleration is a function of time, remember the calculus relationship: `a = dv/dt` and `v = dx/dt`. To go from acceleration to velocity, integrate. To go from velocity to acceleration, differentiate. This is a fundamental concept for JEE.",
-            neetHackTamil: "முடுக்கம் நேரத்தின் சார்பாக இருக்கும்போது, கால்குலஸ் தொடர்பை நினைவில் கொள்ளுங்கள்: `a = dv/dt` மற்றும் `v = dx/dt`. முடுக்கத்திலிருந்து திசைவேகத்திற்குச் செல்ல, தொகையீடு செய்யவும். திசைவேகத்திலிருந்து முடுக்கத்திற்குச் செல்ல, வகையீடு செய்யவும். இது JEE-க்கு ஒரு அடிப்படைக் கருத்து."
+            neetHack: "When acceleration is a function of time, remember the calculus relationship: `a = dv/dt` and `v = dx/dt`. To go from acceleration to velocity, integrate. To go from velocity to acceleration, differentiate. This is a fundamental concept for JEE. (முடுக்கம் நேரத்தின் சார்பாக இருக்கும்போது, கால்குலஸ் தொடர்பை நினைவில் கொள்ளுங்கள்: `a = dv/dt` மற்றும் `v = dx/dt`. முடுக்கத்திலிருந்து திசைவேகத்திற்குச் செல்ல, தொகையீடு செய்யவும். திசைவேகத்திலிருந்து முடுக்கத்திற்குச் செல்ல, வகையீடு செய்யவும். இது JEE-க்கு ஒரு அடிப்படைக் கருத்து.)",
+            commonPitfall: "Assuming constant acceleration. If power is constant and velocity is increasing, then the force (F = P/v) must be decreasing. So, acceleration is not constant."
         },
         {
             title: "NEET Level: Relative Velocity",

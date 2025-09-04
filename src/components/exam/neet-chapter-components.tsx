@@ -35,6 +35,26 @@ import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { BlockMath, InlineMath } from 'react-katex';
 import { ProjectileAnimation } from './ProjectileAnimation';
+import { cn } from '@/lib/utils';
+
+
+// Helper component to render bilingual text with distinct colors
+const BilingualText = ({ children }: { children: React.ReactNode }) => {
+    const textContent = Children.toArray(children).join('');
+    const match = textContent.match(/^(.*?) \((.*?)\)$/);
+
+    if (match) {
+        const [, english, tamil] = match;
+        return (
+            <span>
+                <span className="text-foreground">{english}</span>
+                <span className="text-muted-foreground"> ({tamil})</span>
+            </span>
+        );
+    }
+
+    return <span className="text-foreground">{textContent}</span>;
+};
 
 
 export function ConceptNotesCard({ content }: { content: string }) {
@@ -70,13 +90,13 @@ export function ConceptNotesCard({ content }: { content: string }) {
                                 }
                             }
                             
-                            return <p className="my-4 leading-relaxed text-muted-foreground">{props.children}</p>;
+                            return <p className="my-4 leading-relaxed"><BilingualText>{props.children}</BilingualText></p>;
                         },
                         h3: ({ node, ...props }) => <h3 className="text-xl font-bold mt-8 mb-4 text-foreground border-b-2 border-primary pb-2" {...props} />,
                         h4: ({ node, ...props }) => <h4 className="text-lg font-semibold mt-6 mb-3 text-accent" {...props} />,
                         ul: ({ node, ...props }) => <ul className="list-none p-0 space-y-2" {...props} />,
                         li: ({ node, ...props }) => {
-                           return <li className="flex items-start gap-3 my-2 text-muted-foreground"><CheckCircle className="w-5 h-5 text-primary/70 mt-1 shrink-0"/><span>{props.children}</span></li>;
+                           return <li className="flex items-start gap-3 my-2"><CheckCircle className="w-5 h-5 text-success mt-1 shrink-0"/><span><BilingualText>{props.children}</BilingualText></span></li>;
                         },
                         blockquote: ({node, ...props}) => <blockquote className="not-prose border-l-4 border-accent bg-accent/10 p-4 my-4 rounded-r-lg text-accent-foreground italic" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-semibold text-foreground/90" {...props} />,
@@ -107,9 +127,9 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                 <Card key={index}>
                     <CardHeader className="flex flex-row justify-between items-start">
                         <div>
-                            <CardTitle>{example.title}</CardTitle>
+                            <CardTitle><BilingualText>{example.title}</BilingualText></CardTitle>
                         </div>
-                        <Badge variant={
+                         <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
                             example.difficulty === 'Medium' ? 'warning' : 'destructive'
                         }>
@@ -118,8 +138,8 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
-                            <p className="font-bold text-lg mb-2">Problem:</p>
-                            <div className="prose prose-sm dark:prose-invert max-w-none">
+                            <p className="font-bold text-lg mb-2 text-primary-foreground">Problem:</p>
+                            <div className="prose prose-sm dark:prose-invert max-w-none text-foreground">
                                 <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} className="whitespace-pre-line">{example.problem}</ReactMarkdown>
                             </div>
                         </div>
@@ -129,11 +149,11 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                         ))}
 
                         <div>
-                            <p className="font-bold text-lg mb-2">Solution:</p>
+                            <p className="font-bold text-lg mb-2 text-primary-foreground">Solution:</p>
                              <div className="space-y-4">
                                 {example.solutionSteps.map((step, stepIndex) => (
                                     <div key={stepIndex} className="p-3 border-l-2 border-primary/30 bg-primary/5 rounded-r-md">
-                                        <p className="font-semibold text-base text-foreground">{step.step}: {step.explanation}</p>
+                                        <p className="font-semibold text-base text-foreground">{step.step}: <BilingualText>{step.explanation}</BilingualText></p>
                                         {step.explanationTamil && <p className="text-sm text-muted-foreground italic mt-1">{step.explanationTamil}</p>}
                                         {step.calculation && (
                                             <div className="text-sm font-mono bg-background p-3 rounded-md mt-2 overflow-x-auto border">
@@ -144,11 +164,11 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 ))}
                             </div>
                         </div>
-                        <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30 text-yellow-100">
+                         <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
                             <Lightbulb className="h-4 w-4 text-yellow-400" />
                             <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
                             <AlertDescription>
-                                {example.neetHack}
+                                <BilingualText>{example.neetHack}</BilingualText>
                                 {example.neetHackTamil && <p className="text-xs text-muted-foreground italic mt-1">{example.neetHackTamil}</p>}
                                 </AlertDescription>
                         </Alert>
@@ -157,7 +177,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                    {example.commonPitfall}
+                                    <BilingualText>{example.commonPitfall}</BilingualText>
                                     {example.commonPitfallTamil && <p className="text-xs text-destructive/80 italic mt-1">{example.commonPitfallTamil}</p>}
                                 </AlertDescription>
                             </Alert>
@@ -192,7 +212,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                                     <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{`$$\n${item.formula}\n$$`}</ReactMarkdown>
                                 </TableCell>
                                 <TableCell>
-                                    <p className="whitespace-pre-line">{item.description}</p>
+                                    <p className="whitespace-pre-line"><BilingualText>{item.description}</BilingualText></p>
                                 </TableCell>
                             </TableRow>
                         ))}
@@ -202,8 +222,8 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                 {diagrams && diagrams.map((diagram, index) => (
                     <div key={index}>
                         <Separator className="my-4" />
-                        <h4 className="font-bold text-lg">{diagram.title}</h4>
-                        <p className="text-muted-foreground text-sm mb-2">{diagram.description}</p>
+                        <h4 className="font-bold text-lg"><BilingualText>{diagram.title}</BilingualText></h4>
+                        <p className="text-muted-foreground text-sm mb-2"><BilingualText>{diagram.description}</BilingualText></p>
                         {diagram.fbd ? (
                            <div className="flex justify-center py-4">
                              <FbdBuilder {...diagram.fbd} />
@@ -254,7 +274,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
         {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
-            className={`w-4 h-4 ${i < count ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`}
+            className={cn('w-4 h-4', i < count ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')}
           />
         ))}
       </div>
@@ -293,7 +313,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                             >
                                                 {submittedMcqs && option === quiz.answer && <CheckCircle className="mr-2 h-4 w-4" />}
                                                 {submittedMcqs && mcqAnswers[index] === option && option !== quiz.answer && <XCircle className="mr-2 h-4 w-4" />}
-                                                <span className="mr-2 font-bold">{option.charAt(0)}.</span> {option.substring(2)}
+                                                <span className={cn("mr-2 font-bold", mcqAnswers[index] === option && !submittedMcqs && "text-primary-foreground")}>{option.charAt(0)}.</span> {option.substring(2)}
                                             </Button>
                                         ))}
                                     </div>
@@ -330,9 +350,9 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                            Adaptive MCQ Practice
                         </AccordionTrigger>
                         <AccordionContent className="pt-4 space-y-6">
-                            <Alert variant="warning" className="bg-yellow-500/10">
-                                <Lightbulb className="h-4 w-4" />
-                                <AlertTitle>Focus on What Matters</AlertTitle>
+                            <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
+                                <Lightbulb className="h-4 w-4 text-yellow-400" />
+                                <AlertTitle className="text-yellow-300">Focus on What Matters</AlertTitle>
                                 <AlertDescription>
                                     These questions are sorted by how frequently similar concepts have appeared in past NEET exams. High-frequency questions are marked with more stars.
                                 </AlertDescription>
