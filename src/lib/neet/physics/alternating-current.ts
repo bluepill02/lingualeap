@@ -43,8 +43,8 @@ export const alternatingCurrentModule: NeetModule = {
     ],
     workedExamples: [
         {
-            title: "NEET Level: RMS Value Calculation",
-            titleTamil: "நீட் நிலை: RMS மதிப்பு கணக்கீடு",
+            title: "RMS Value Calculation",
+            titleTamil: "RMS மதிப்பு கணக்கீடு",
             difficulty: 'Easy',
             problem: "The peak voltage of an AC supply is 300 V. What is the RMS voltage?",
             problemTamil: "ஒரு AC மின்வழங்கலின் பெரும மின்னழுத்தம் 300 V. RMS மின்னழுத்தம் என்ன?",
@@ -70,6 +70,61 @@ export const alternatingCurrentModule: NeetModule = {
             ],
             neetHack: "Most household AC voltage values given in problems (like 220V) are RMS values unless specified as 'peak' or 'maximum'.",
             neetHackTamil: "கணக்குகளில் கொடுக்கப்பட்டுள்ள பெரும்பாலான வீட்டு AC மின்னழுத்த மதிப்புகள் (220V போன்றவை) 'பெரும' அல்லது 'அதிகபட்ச' என்று குறிப்பிடப்படாவிட்டால் RMS மதிப்புகளாகும்."
+        },
+        {
+            title: "LCR Circuit Impedance",
+            titleTamil: "LCR சுற்று மின்மறுப்பு",
+            difficulty: 'Medium',
+            problem: "A series LCR circuit has R = 10 Ω, and impedance Z = 20 Ω. The phase difference between voltage and current is:",
+            problemTamil: "ஒரு தொடர் LCR சுற்றில் R = 10 Ω, மற்றும் மின்மறுப்பு Z = 20 Ω உள்ளது. மின்னழுத்தம் மற்றும் மின்னோட்டத்திற்கு இடையேயான கட்ட வேறுபாடு என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "The power factor, cos(φ), relates resistance (R) and impedance (Z).", calculation: "cos(φ) = R / Z" },
+                { step: 2, explanation: "Substitute the given values for R and Z.", calculation: "cos(φ) = 10 / 20 = 0.5" },
+                { step: 3, explanation: "Find the angle φ for which cos(φ) = 0.5.", calculation: "φ = cos⁻¹(0.5) = 60° or π/3 radians" }
+            ],
+            neetHack: "The impedance triangle is a right-angled triangle with base R, height (X_L - X_C), and hypotenuse Z. cos(φ) is adjacent/hypotenuse = R/Z."
+        },
+        {
+            title: "Resonant Frequency",
+            titleTamil: "ஒத்ததிர்வு அதிர்வெண்",
+            difficulty: 'Easy',
+            problem: "A series LCR circuit has L = 8 H, C = 0.5 μF, and R = 100 Ω. What is the resonant frequency (ω_r) of the circuit?",
+            problemTamil: "ஒரு தொடர் LCR சுற்றில் L = 8 H, C = 0.5 μF, மற்றும் R = 100 Ω உள்ளது. சுற்றின் ஒத்ததிர்வு அதிர்வெண் (ω_r) என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "The resonant frequency for a series LCR circuit is given by the formula where inductive reactance equals capacitive reactance.", calculation: "ω_r = 1 / √(LC)" },
+                { step: 2, explanation: "Convert all units to SI. C = 0.5 μF = 0.5 x 10⁻⁶ F.", explanationTamil: "அனைத்து அலகுகளையும் SI முறைக்கு மாற்றவும்." },
+                { step: 3, explanation: "Substitute the values of L and C into the formula.", calculation: "ω_r = 1 / √(8 * 0.5 * 10⁻⁶) = 1 / √(4 * 10⁻⁶)" },
+                { step: 4, explanation: "Calculate the final value.", calculation: "ω_r = 1 / (2 * 10⁻³) = 1000 / 2 = 500 rad/s" }
+            ],
+            commonPitfall: "Note that resonance depends only on L and C, not on the resistance R."
+        },
+        {
+            title: "Transformer Calculation",
+            titleTamil: "மின்மாற்றி கணக்கீடு",
+            difficulty: 'Medium',
+            problem: "A transformer is used to light a 100 W and 110 V lamp from a 220 V main. If the main current is 0.5 A, the efficiency of the transformer is:",
+            problemTamil: "ஒரு 220 V மெயின்ஸிலிருந்து 100 W மற்றும் 110 V விளக்கை ஒளிரச் செய்ய ஒரு மின்மாற்றி பயன்படுத்தப்படுகிறது. மெயின் மின்னோட்டம் 0.5 A எனில், மின்மாற்றியின் திறன் என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "Efficiency (η) is the ratio of output power to input power.", calculation: "η = (Power_output / Power_input) * 100%" },
+                { step: 2, explanation: "The output power is the power consumed by the lamp, which is given as 100 W.", explanationTamil: "வெளியீடு திறன் என்பது விளக்கால் நுகரப்படும் திறன், இது 100 W என கொடுக்கப்பட்டுள்ளது." },
+                { step: 3, explanation: "The input power is the product of the input voltage and input current.", calculation: "Power_input = V_input * I_input = 220 V * 0.5 A = 110 W" },
+                { step: 4, explanation: "Calculate the efficiency.", calculation: "η = (100 W / 110 W) * 100% ≈ 90.9%" }
+            ],
+            neetHack: "Efficiency is always less than 100%. If your calculation gives a value greater than 100%, you have likely swapped the input and output power values."
+        },
+        {
+            title: "Power Factor",
+            titleTamil: "திறன் காரணி",
+            difficulty: 'Medium',
+            problem: "In a series LCR circuit, the voltage across R, L, and C are 40 V, 50 V, and 20 V respectively. Find the power factor of the circuit.",
+            problemTamil: "ஒரு தொடர் LCR சுற்றில், R, L, மற்றும் C முழுவதும் உள்ள மின்னழுத்தங்கள் முறையே 40 V, 50 V, மற்றும் 20 V ஆகும். சுற்றின் திறன் காரணியைக் கண்டறியவும்.",
+            solutionSteps: [
+                { step: 1, explanation: "Power factor is cos(φ) = R/Z. We can also express this in terms of voltages: cos(φ) = V_R / V_total.", explanationTamil: "திறன் காரணி cos(φ) = R/Z. இதை மின்னழுத்தங்களின் அடிப்படையில் எழுதலாம்: cos(φ) = V_R / V_total." },
+                { step: 2, explanation: "First, find the total voltage (V_total) using the phasor sum. V_total = √(V_R² + (V_L - V_C)²).", explanationTamil: "முதலில், கட்ட összegezés மூலம் மொத்த மின்னழுத்தத்தைக் (V_total) கண்டறியவும்." },
+                { step: 3, explanation: "Substitute the given voltage values.", calculation: "V_total = √(40² + (50 - 20)²) = √(1600 + 30²) = √(1600 + 900) = √2500 = 50 V" },
+                { step: 4, explanation: "Now calculate the power factor.", calculation: "cos(φ) = V_R / V_total = 40 V / 50 V = 0.8" }
+            ],
+            commonPitfall: "Adding the voltages arithmetically (40+50+20). Voltages in a series AC circuit must be added as phasors (vectors)."
         }
     ],
     mcqs: [
@@ -125,23 +180,5 @@ export const alternatingCurrentModule: NeetModule = {
     neetTips: [
         { text: "Phasor diagrams are a powerful visual tool for solving complex LCR circuit problems. Practice drawing them to find resultant voltage and phase angles.", tamil: "சிக்கலான LCR சுற்று கணக்குகளைத் தீர்க்க கட்ட வரைபடங்கள் ஒரு சக்திவாய்ந்த காட்சி கருவியாகும். விளைவு மின்னழுத்தம் மற்றும் கட்ட கோணங்களைக் கண்டறிய அவற்றை வரைந்து பயிற்சி செய்யுங்கள்." },
         { text: "Remember that the voltages across L, C, and R in a series circuit do not add up arithmetically. They must be added as vectors (phasors).", tamil: "ஒரு தொடர் சுற்றில் L, C, மற்றும் R முழுவதும் உள்ள மின்னழுத்தங்கள் எண்கணித ரீதியாகக் கூட்டப்படுவதில்லை என்பதை நினைவில் கொள்க. அவற்றை வெக்டர்களாக (கட்டங்கள்) கூட்ட வேண்டும்." }
-    ],
-    validationReport: [
-        { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
-        { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
-        { check: 'Confirm Content Completeness', status: 'pass', message: 'OK' },
-        { check: 'Validate Module Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Maintain Quality Parity', status: 'pass', message: 'OK' },
-        { check: '"Next Module" Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Check for interactive elements like virtual labs and 3D diagrams', status: 'pass', message: 'OK' },
-        { check: 'Include interactive diagrams in Learn section', status: 'pass', message: 'OK' },
-        { check: 'Entire learn and worked examples section should be bilingual and nothing skipped', status: 'pass', message: 'OK' },
-        { check: 'Verify XML Structure', status: 'pass', message: 'OK' },
-        { check: 'Add chapter number tag to the chapter cards', status: 'pass', message: 'OK' },
-        { check: 'Check if bilingual content was added uniformly to throughout the learn and worked examples section', status: 'pass', message: 'OK' },
-        { check: 'Entire module should be double checked for errors AND nothing should be empty without suitable content', status: 'pass', message: 'OK' },
-        { check: 'Check LaTeX errors thoroughly and carefully, every letter of code', status: 'pass', message: 'OK' },
-        { check: 'Verify Color Scheme Application', status: 'pass', message: 'OK' },
-        { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
 };
