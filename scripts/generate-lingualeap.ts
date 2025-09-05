@@ -9,6 +9,8 @@ import { validateModule } from './validate-module';
 type Subject = 'physics' | 'chemistry' | 'biology';
 type PhysicsCategory = 'core' | 'bridge' | 'foundation';
 
+const MAX_RETRIES = 3;
+
 // NEET UG 2025 syllabus based on strategic categorization
 const neetSyllabus: {
   physics: Record<PhysicsCategory, string[]>;
@@ -98,32 +100,49 @@ async function run() {
   for (const category of Object.keys(neetSyllabus.physics) as PhysicsCategory[]) {
     const chapters = neetSyllabus.physics[category];
     for (const chapter of chapters) {
-      try {
-        console.log(`🚀 Generating Physics > ${category} > ${chapter}...`);
-        
-        const result = await generateNeetContent({ subject: 'Physics', chapter, category });
-        
-        console.log(`🔍 Validating module for ${chapter}...`);
-        const { isValid, errors } = await validateModule(result.markdownContent, chapter);
+        let lastErrors: string[] = [];
+        let success = false;
 
-        if (!isValid) {
-            console.error(`❌ Validation failed for ${chapter}:`);
-            errors.forEach(error => console.error(` - ${error}`));
-            continue; // Skip saving the invalid module
+        for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+            try {
+                console.log(`🚀 [Attempt ${attempt}/${MAX_RETRIES}] Generating Physics > ${category} > ${chapter}...`);
+                
+                const result = await generateNeetContent({ 
+                    subject: 'Physics', 
+                    chapter, 
+                    category,
+                    previousErrors: lastErrors.length > 0 ? lastErrors : undefined,
+                });
+                
+                console.log(`🔍 Validating module for ${chapter}...`);
+                const { isValid, errors } = await validateModule(result.markdownContent, chapter);
+
+                if (!isValid) {
+                    console.error(`❌ Validation failed for ${chapter} on attempt ${attempt}:`);
+                    errors.forEach(error => console.error(` - ${error}`));
+                    lastErrors = errors; // Store errors for the next attempt
+                    if (attempt === MAX_RETRIES) {
+                        console.error(`❌ All ${MAX_RETRIES} attempts failed for ${chapter}. Moving on.`);
+                    }
+                    continue; 
+                }
+
+                console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
+                
+                const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
+                const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
+                
+                fs.mkdirSync(path.dirname(filePath), { recursive: true });
+                fs.writeFileSync(filePath, result.markdownContent);
+
+                console.log(`📝 Successfully generated and saved Physics > ${category} > ${chapter}`);
+                success = true;
+                break; // Exit the retry loop on success
+            } catch (error) {
+                console.error(`❌ Failed to generate Physics > ${category} > ${chapter} on attempt ${attempt}:`, error);
+                lastErrors = [String(error)];
+            }
         }
-
-        console.log(`✅ Validation passed for ${chapter}.`);
-        
-        const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-        const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
-        
-        fs.mkdirSync(path.dirname(filePath), { recursive: true });
-        fs.writeFileSync(filePath, result.markdownContent);
-
-        console.log(`📝 Successfully generated and saved Physics > ${category} > ${chapter}`);
-      } catch (error) {
-        console.error(`❌ Failed to generate Physics > ${category} > ${chapter}:`, error);
-      }
     }
   }
 

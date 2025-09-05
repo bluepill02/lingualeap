@@ -16,6 +16,7 @@ export const NeetContentGeneratorInputSchema = z.object({
   subject: z.string().describe('The subject, e.g., "Physics".'),
   chapter: z.string().describe('The name of the chapter, e.g., "Laws of Motion".'),
   category: z.string().optional().describe('The strategic category of the chapter (Core, Bridge, or Foundation).'),
+  previousErrors: z.array(z.string()).optional().describe('A list of validation errors from a previous attempt to fix.'),
 });
 export type NeetContentGeneratorInput = z.infer<typeof NeetContentGeneratorInputSchema>;
 
@@ -45,6 +46,14 @@ const prompt = ai.definePrompt({
 
 You must generate the content as a single, complete TypeScript file containing a \`NeetModule\` object. The output must be enclosed in a single markdown code block (e.g., \`\`\`ts ... \`\`\`).
 
+{{#if previousErrors}}
+**IMPORTANT: This is a second attempt. The previous generation failed validation with the following errors. You MUST correct these specific errors in this new version.**
+**Previous Errors:**
+{{#each previousErrors}}
+- {{{this}}}
+{{/each}}
+{{/if}}
+
 **CRITICAL: ADHERENCE TO THE QUALITY CHECKLIST**
 The generated module MUST strictly adhere to every single item on the following Quality Assurance (QA) checklist. This is not optional.
 
@@ -53,7 +62,7 @@ The generated module MUST strictly adhere to every single item on the following 
 ${checklistString}
 ---
 
-Now, generate the complete TypeScript module file content for the chapter "{{{chapter}}}" based on these rigorous instructions.
+Now, generate the complete TypeScript module file content for the chapter "{{{chapter}}}" based on these rigorous instructions. Ensure all previous errors are fixed.
 `,
 });
 
