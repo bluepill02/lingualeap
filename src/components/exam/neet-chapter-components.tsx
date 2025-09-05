@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -22,7 +23,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
-import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram, BilingualContent } from '@/lib/types';
+import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram, BilingualContent, ConceptNote } from '@/lib/types';
 import { Separator } from '../ui/separator';
 import { FbdBuilder } from './FbdBuilder';
 import { cn } from '@/lib/utils';
@@ -30,8 +31,8 @@ import { MarkdownRenderer } from './markdown-renderer';
 import { BilingualText } from './bilingual-text';
 
 
-export function ConceptNotesCard({ content }: { content: (BilingualContent | { english: string; tamil?: undefined; })[] }) {
-    if (!Array.isArray(content)) {
+export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
+    if (!Array.isArray(content) || content.length === 0) {
         return (
              <Card>
                 <CardHeader>
@@ -50,9 +51,14 @@ export function ConceptNotesCard({ content }: { content: (BilingualContent | { e
                 <CardTitle>Concept Notes</CardTitle>
                 <CardDescription>Detailed explanations of key topics.</CardDescription>
             </CardHeader>
-            <CardContent className="prose dark:prose-invert max-w-none">
-                {content.map((item, index) => (
-                    <BilingualText key={index} english={item.english} tamil={item.tamil} />
+            <CardContent className="space-y-6">
+                {content.map((note, index) => (
+                    <div key={index} className="prose dark:prose-invert max-w-none">
+                        <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
+                        {note.content.map((item, itemIndex) => (
+                            <BilingualText key={itemIndex} english={item.english} tamil={item.tamil} />
+                        ))}
+                    </div>
                 ))}
             </CardContent>
         </Card>
@@ -129,7 +135,6 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
     if (!content) return null;
     const { formulas, diagrams } = content;
 
-    // Check if there's anything to render
     const hasFormulas = formulas && formulas.length > 0;
     const hasDiagrams = diagrams && diagrams.length > 0;
 

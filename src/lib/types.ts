@@ -196,6 +196,12 @@ export interface BilingualContent {
     tamil?: string;
 }
 
+export interface ConceptNote {
+    heading: BilingualContent;
+    content: BilingualContent[];
+}
+
+
 export interface ValidationReport {
   check: string;
   status: 'pass' | 'fail';
@@ -213,7 +219,7 @@ export interface NeetModule {
     conceptOverview?: string;
     tamilConnection?: string;
     culturalContext?: string;
-    conceptNotes: (BilingualContent | { english: string; tamil?: undefined; })[];
+    conceptNotes: ConceptNote[];
     workedExamples: WorkedExample[];
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];
