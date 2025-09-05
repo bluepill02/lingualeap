@@ -29,17 +29,21 @@ function validateModule(module: NeetModule): ValidationReport[] {
     });
 
     // 2. Content Completeness
-    const isComplete = Array.isArray(module.learningObjectives) && module.learningObjectives.length > 0 &&
-                       !!module.conceptOverview &&
-                       !!module.tamilConnection &&
-                       !!module.culturalContext &&
-                       Array.isArray(module.conceptNotes) && module.conceptNotes.length > 0 &&
-                       Array.isArray(module.keyTakeaways) && module.keyTakeaways.length > 0 &&
-                       Array.isArray(module.neetTips) && module.neetTips.length > 0;
+    const requiredSections: (keyof NeetModule)[] = [
+        'learningObjectives', 'prerequisites', 'syllabusMapping', 'conceptOverview',
+        'tamilConnection', 'culturalContext', 'conceptNotes', 'workedExamples',
+        'mcqs', 'assertionReasons', 'matchTheColumns', 'keyFormulasAndDiagrams',
+        'keyTakeaways', 'mnemonics', 'neetTips'
+    ];
+    const missingSections = requiredSections.filter(section => {
+        const value = module[section];
+        return value === undefined || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim());
+    });
+
     checks.push({
         check: 'Content Completeness',
-        status: isComplete ? 'pass' : 'fail',
-        message: isComplete ? 'All key fields are populated.' : 'One or more key text fields are empty.'
+        status: missingSections.length === 0 ? 'pass' : 'fail',
+        message: missingSections.length === 0 ? 'All 15 sections are populated.' : `Missing: ${missingSections.join(', ')}`
     });
 
     // 3. Bilingual Support
@@ -94,15 +98,16 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: 'Page loaded, so no build-breaking syntax errors.'
     });
     
-    // 9. Content Accuracy Check (Proxy)
+    // 9. Content Accuracy (Proxy)
+    const isAccurate = !!module.conceptOverview && Array.isArray(module.mcqs) && module.mcqs.length > 0;
     checks.push({
         check: 'Content Accuracy',
-        status: isComplete ? 'pass' : 'fail',
-        message: isComplete ? 'Key fields are populated.' : 'Missing content in key fields.'
+        status: isAccurate ? 'pass' : 'fail',
+        message: isAccurate ? 'Key fields are populated.' : 'Missing content in key fields.'
     });
 
     // 10. All Sections Checked
-    const allSectionsPresent = module.learningObjectives && module.prerequisites && module.syllabusMapping && module.conceptOverview && module.tamilConnection && module.culturalContext && module.conceptNotes && module.workedExamples && module.mcqs && module.assertionReasons && module.matchTheColumns && module.keyFormulasAndDiagrams && module.keyTakeaways && module.mnemonics && module.neetTips;
+    const allSectionsPresent = requiredSections.every(section => module.hasOwnProperty(section));
     checks.push({
         check: 'All Sections Checked',
         status: allSectionsPresent ? 'pass' : 'fail',
