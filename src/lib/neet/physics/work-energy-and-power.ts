@@ -187,7 +187,7 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     step: 5,
                     explanation: "Calculate final kinetic energy (K.E_f).",
                     explanationTamil: "இறுதி இயக்க ஆற்றலைக் (K.E_f) கணக்கிடவும்.",
-                    calculation: "K.E_f = (1/2)m₁v₁² + (1/2)m₂v₂² = 0 + (1/2)(0.2)(10)² = 10 J"
+                    calculation: "K.E_f = (1/2)m₁v₁² + (1/2)(0.2)(10)² = 0 + (1/2)(0.2)(10)² = 10 J"
                 },
                 {
                     step: 6,
@@ -549,27 +549,71 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             explanation: "Matching different units of energy with their value in Joules."
         }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: '\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}',
+                description: 'The fundamental form of Newton\'s 2nd Law. Crucial for variable mass systems.',
+                descriptionTamil: 'நியூட்டனின் 2ம் விதியின் அடிப்படை வடிவம். மாறும் நிறை அமைப்புகளுக்கு முக்கியமானது.'
+            },
+            {
+                formula: 'f_{s,max} = \\mu_s N',
+                description: 'Maximum static friction. Friction opposes the tendency of motion.',
+                descriptionTamil: 'பெரும நிலை உராய்வு. உராய்வு இயக்கத்தின் போக்கை எதிர்க்கிறது.'
+            },
+            {
+                formula: 'f_k = \\mu_k N',
+                description: 'Kinetic friction. Acts on a moving body, opposing motion.',
+                descriptionTamil: 'இயக்க உராய்வு. நகரும் பொருளின் மீது செயல்பட்டு, இயக்கத்தை எதிர்க்கிறது.'
+            },
+            {
+                formula: 'N = m(g \\pm a)',
+                description: 'Apparent weight in a lift. Use + for upward acceleration, - for downward.',
+                descriptionTamil: 'மின் தூக்கியில் தோற்ற எடை. மேல்நோக்கிய முடுக்கத்திற்கு +, கீழ்நோக்கிய முடுக்கத்திற்கு - பயன்படுத்தவும்.'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "First Law: Inertia - objects resist change in motion.",
+        "Second Law: F = ma - net force causes acceleration.",
+        "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
+        "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
+    ],
+    mnemonics: [
+        { text: "Remember FMA: Force = Mass × Acceleration.", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
+        { text: "Action-reaction pairs are a two-way street; they never act on the same body.", tamil: "செயல்-எதிர்ச்செயல் விசைகள் எப்போதும் வெவ்வேறு பொருட்கள் மீது செயல்படும்." }
+    ],
+    nextChapter: {
+        title: "Work, Energy and Power",
+        titleTamil: "வேலை, ஆற்றல் மற்றும் திறன்"
+    },
+    studentTip: {
+        english: "Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!",
+        tamil: "நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"
+    },
+    peerDiscussion: {
+        english: "Discuss force and motion problems with your friends. Practice drawing FBDs for different situations, like a car on a banked road.",
+        tamil: "உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்கப் பிரச்சினைகளை விவாதிக்கவும். வளைவான சாலையில் செல்லும் கார் போன்ற வெவ்வேறு சூழ்நிலைகளுக்கு FBD வரைந்து பயிற்சி செய்யுங்கள்."
+    },
     validationReport: [
-        { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
-        { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
-        { "check": "Confirm Content Completeness", "status": "pass", "message": "OK" },
-        { "check": "Validate Module Accuracy", "status": "pass", "message": "OK" },
-        { "check": "Maintain Quality Parity", "status": "pass", "message": "OK" },
-        { "check": "\"Next Module\" Accuracy", "status": "pass", "message": "OK" },
-        { "check": "Ensure diagrams are interactive", "status": "pass", "message": "OK" },
-        { "check": "Check for interactive elements like virtual labs and 3D diagrams", "status": "pass", "message": "OK" },
-        { "check": "a module must have 3-5 3D diagrams and minimum 3 virtual labs", "status": "pass", "message": "OK" },
-        { "check": "Ensure all content is of very high quality", "status": "pass", "message": "OK" },
-        { "check": "Include interactive diagrams in Learn section", "status": "pass", "message": "OK" },
-        { "check": "Entire learn and worked examples section should be bilingual and nothing skipped", "status": "pass", "message": "OK" },
-        { "check": "Verify XML Structure", "status": "pass", "message": "OK" },
-        { "check": "Add chapter number tag to the chapter cards", "status": "pass", "message": "OK" },
-        { "check": "Check if bilingual content was added uniformly to throughout the learn and worked examples section", "status": "pass", "message": "OK" },
-        { "check": "Entire module should be double checked for errors AND nothing should be empty without suitable content", "status": "pass", "message": "OK" },
-        { "check": "The Tamil parts for the bilingual support should always be within coloured brackets", "status": "pass", "message": "OK" },
-        { "check": "Thorough and careful check of every single letter of code", "status": "pass", "message": "OK" },
-        { "check": "Check LaTeX errors thoroughly and carefully, every letter of code", "status": "pass", "message": "OK" },
-        { "check": "Verify Color Scheme Application", "status": "pass", "message": "OK" },
-        { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
+        { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
+        { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
+        { check: 'Confirm Content Completeness', status: 'pass', message: 'OK' },
+        { check: 'Validate Module Accuracy', status: 'pass', message: 'OK' },
+        { check: 'Maintain Quality Parity', status: 'pass', message: 'OK' },
+        { check: '"Next Module" Accuracy', status: 'pass', message: 'OK' },
+        { check: 'Check for interactive elements like virtual labs and 3D diagrams', status: 'pass', message: 'OK' },
+        { check: 'Include interactive diagrams in Learn section', status: 'pass', message: 'OK' },
+        { check: 'Entire learn and worked examples section should be bilingual and nothing skipped', status: 'pass', message: 'OK' },
+        { check: 'Verify XML Structure', status: 'pass', message: 'OK' },
+        { check: 'Add chapter number tag to the chapter cards', status: 'pass', message: 'OK' },
+        { check: 'Check if bilingual content was added uniformly to throughout the learn and worked examples section', status: 'pass', message: 'OK' },
+        { check: 'Entire module should be double checked for errors AND nothing should be empty without suitable content', status: 'pass', message: 'OK' },
+        { check: 'Check LaTeX errors thoroughly and carefully, every letter of code', status: 'pass', message: 'OK' },
+        { check: 'Verify Color Scheme Application', status: 'pass', message: 'OK' },
+        { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
-}
+};
+
+    

@@ -30,28 +30,57 @@ export const unitsAndMeasurementsModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. Units and Systems of Units`,
-            tamil: `### 1. அலகுகளும் அலகு முறைகளும்`
+            english: `### 1. Units and Systems of Units (அலகுகளும் அலகு முறைகளும்)
+*   **Physical Quantity (பௌதிக அளவு):** Any quantity that can be measured.
+*   **Fundamental Quantities:** Quantities that are independent of others (e.g., Length, Mass, Time).
+*   **Derived Quantities:** Quantities that are derived from fundamental quantities (e.g., Speed = Length/Time).
+*   **Unit (அலகு):** The standard used for measuring a physical quantity.
+*   **SI System (பன்னாட்டு அலகு முறை):** The internationally accepted system with seven fundamental units:
+    1.  Length (நீளம்) - meter (m)
+    2.  Mass (நிறை) - kilogram (kg)
+    3.  Time (காலம்) - second (s)
+    4.  Electric Current (மின்னோட்டம்) - ampere (A)
+    5.  Temperature (வெப்பநிலை) - kelvin (K)
+    6.  Amount of Substance (பொருளின் அளவு) - mole (mol)
+    7.  Luminous Intensity (ஒளிச்செறிவு) - candela (cd)`
         },
         {
-            english: `*   **Physical Quantity:** Any quantity that can be measured.\n*   **Fundamental Quantities:** Independent quantities (e.g., Length, Mass, Time).\n*   **Derived Quantities:** Derived from fundamental ones (e.g., Speed = Length/Time).\n*   **SI System:** The standard international system with 7 fundamental units (meter, kilogram, second, ampere, kelvin, mole, candela).`,
-            tamil: `*   **பௌதிக அளவு:** அளவிடக்கூடிய எந்தவொரு அளவும்.\n*   **அடிப்படை அளவுகள்:** மற்றவற்றைச் சாராத அளவுகள் (எ.கா., நீளம், நிறை, காலம்).\n*   **வழி அளவுகள்:** அடிப்படை அளவுகளிலிருந்து பெறப்பட்டவை (எ.கா., வேகம் = நீளம்/காலம்).\n*   **SI அலகு முறை:** 7 அடிப்படை அலகுகளைக் கொண்ட பன்னாட்டு அலகு முறை (மீட்டர், கிலோகிராம், வினாடி, ஆம்பியர், கெல்வின், மோல், கேண்டெலா).`
+            english: `### 2. Dimensional Analysis (பரிமாணப் பகுப்பாய்வு)
+Dimensions of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. We denote them with square brackets, e.g., [L], [M], [T].
+*   **Dimensional Formula:** An expression showing how a derived quantity depends on fundamental ones. E.g., Force = Mass × Acceleration = M × (L/T²) => $[MLT^{-2}]$.
+
+#### Applications:
+1.  **Principle of Homogeneity (பரிமாணங்களின் ஒருபடித்தான நெறிமுறை):** An equation is dimensionally correct only if the dimensions of all the terms on both sides are the same. You can only add or subtract quantities that have the same dimensions.
+2.  **Checking Correctness of Equations:** Verify if the dimensions on the LHS equal the dimensions on the RHS.
+3.  **Deriving Relationships:** If you know a quantity depends on others, you can find the relationship between them. E.g., if Time period T depends on length (l) and gravity (g), we can say $T \\propto l^a g^b$ and solve for a and b using dimensional analysis.
+4.  **Converting Units:** Converting a quantity from one system of units to another. The principle is $n_1 u_1 = n_2 u_2$, where n is the numerical value and u is the unit.`
         },
         {
-            english: `### 2. Dimensional Analysis`,
-            tamil: `### 2. பரிமாணப் பகுப்பாய்வு`
+            english: `### 3. Significant Figures (முக்கிய எண்ணுருக்கள்)
+Significant figures in a measurement are the reliable digits plus the first uncertain digit. They indicate the precision of a measurement.
+#### Rules:
+1.  All non-zero digits are significant. (e.g., 123.45 has 5 s.f.)
+2.  Zeros between non-zero digits are significant. (e.g., 1007 has 4 s.f.)
+3.  Leading zeros (zeros before non-zero digits) are NOT significant. (e.g., 0.0045 has 2 s.f.)
+4.  Trailing zeros in a number without a decimal point are ambiguous (e.g., 1200 m). Use scientific notation: $1.2 \\times 10^3$ (2 s.f.), $1.200 \\times 10^3$ (4 s.f.).
+5.  Trailing zeros in a number with a decimal point ARE significant. (e.g., 12.30 has 4 s.f., 0.05400 has 4 s.f.)
+
+#### Rules for Arithmetic:
+*   **Multiplication/Division:** The final result should have the same number of significant figures as the original number with the *least* number of significant figures.
+*   **Addition/Subtraction:** The final result should have the same number of decimal places as the original number with the *least* number of decimal places.`
         },
         {
-            english: `Dimensions are the powers to which fundamental units are raised. E.g., Force = $[MLT^{-2}]$.\n#### Applications:\n1.  **Principle of Homogeneity:** All terms in an equation must have the same dimensions.\n2.  **Checking Correctness:** Verify if LHS dimensions = RHS dimensions.\n3.  **Deriving Relationships:** Find how one quantity depends on others.\n4.  **Converting Units:** Using the principle $n_1 u_1 = n_2 u_2$.`,
-            tamil: `பரிமாணங்கள் என்பவை அடிப்படை அலகுகளின் அடுக்குகளாகும். எ.கா., விசை = $[MLT^{-2}]$.\n#### பயன்பாடுகள்:\n1.  **பரிமாணங்களின் ஒருபடித்தான நெறிமுறை:** ஒரு சமன்பாட்டில் உள்ள அனைத்து உறுப்புகளும் ஒரே பரிமாணங்களைக் கொண்டிருக்க வேண்டும்.\n2.  **சமன்பாட்டின் சரிய்த்தன்மையை சோதித்தல்:** LHS பரிமாணங்கள் = RHS பரிமாணங்கள் என சரிபார்க்கவும்.\n3.  **தொடர்புகளை வருவித்தல்:** ஒரு அளவு மற்றவற்றை எவ்வாறு சார்ந்துள்ளது என்பதைக் கண்டறியவும்.\n4.  **அலகுகளை மாற்றுதல்:** $n_1 u_1 = n_2 u_2$ என்ற கொள்கையைப் பயன்படுத்துதல்.`
-        },
-        {
-            english: `### 3. Errors and Significant Figures`,
-            tamil: `### 3. பிழைகள் மற்றும் முக்கிய எண்ணுருக்கள்`
-        },
-        {
-            english: `*   **Significant Figures:** Reliable digits + the first uncertain digit in a measurement.\n*   **Error Propagation:** If $Z = A^n B^m$, the relative error is $\\frac{\\Delta Z}{Z} = n\\frac{\\Delta A}{A} + m\\frac{\\Delta B}{B}$. Errors are always added.`,
-            tamil: `*   **முக்கிய எண்ணுருக்கள்:** ஒரு அளவீட்டில் உள்ள நம்பகமான இலக்கங்கள் மற்றும் முதல் நிச்சயமற்ற இலக்கம்.\n*   **பிழைகளின் பரவல்:** $Z = A^n B^m$ எனில், ஒப்புப்பிழை $\\frac{\\Delta Z}{Z} = n\\frac{\\Delta A}{A} + m\\frac{\\Delta B}{B}$ ஆகும். பிழைகள் எப்போதும் கூட்டப்படும்.`
+            english: `### 4. Errors in Measurement (அளவீட்டில் பிழைகள்)
+*   **Accuracy (துல்லியம்):** How close a measured value is to the true value.
+*   **Precision (நுட்பம்):** How close repeated measurements are to each other (resolution of the measurement).
+*   **Absolute Error (தனிப்பிழை):** Magnitude of the difference between the true value and the measured value.
+*   **Relative Error (ஒப்புப்பிழை):** Ratio of the mean absolute error to the mean value.  $\\frac{\\Delta a_{mean}}{a_{mean}}$.
+*   **Percentage Error (சதவீதப் பிழை):** Relative error expressed in percent. $(\\frac{\\Delta a_{mean}}{a_{mean}}) \\times 100\\%$.
+
+#### Combination of Errors (பிழைகளின் பரவல்):
+If $Z = A \\pm B$, then the absolute error is $\\Delta Z = \\Delta A + \\Delta B$.
+If $Z = A \\times B$ or $Z = A / B$, then the relative error is $\\frac{\\Delta Z}{Z} = \\frac{\\Delta A}{A} + \\frac{\\Delta B}{B}$.
+If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
         }
     ],
     workedExamples: [
@@ -65,29 +94,33 @@ export const unitsAndMeasurementsModule: NeetModule = {
                 {
                     step: 1,
                     explanation: "Write down the dimensional formula for each term in the equation according to the Principle of Homogeneity. Each term must have the same dimensions.",
-                    explanationTamil: "ஒருபடித்தான நெறிமுறையின்படி சமன்பாட்டில் உள்ள ஒவ்வொரு உறுப்பின் பரிமாண வாய்ப்பாட்டையும் எழுதவும். ஒவ்வொரு உறுப்பும் ஒரே பரிமாணத்தைக் கொண்டிருக்க வேண்டும்.",
-                    calculation: "[v^2] = ([v])^2 = (LT^{-1})^2 = L^2T^{-2}"
+                    explanationTamil: "ஒருபடித்தான நெறிமுறையின்படி சமன்பாட்டில் உள்ள ஒவ்வொரு உறுப்பின் பரிமாண வாய்ப்பாட்டையும் எழுதவும். ஒவ்வொரு உறுப்பும் ஒரே பரிமாணத்தைக் கொண்டிருக்க வேண்டும்."
                 },
                 {
                     step: 2,
-                    explanation: "Find the dimensions of the term u².",
-                    explanationTamil: "u² உறுப்பின் பரிமாணங்களைக் கண்டறியவும்.",
-                    calculation: "[u^2] = ([u])^2 = (LT^{-1})^2 = L^2T^{-2}"
+                    explanation: "Find the dimensions of the term v².",
+                    calculation: "[v²] = ([v])² = (L T⁻¹)² = L² T⁻²"
                 },
                 {
                     step: 3,
-                    explanation: "Find the dimensions of the term 2as. Note that the number 2 is a dimensionless constant.",
-                    explanationTamil: "2as உறுப்பின் பரிமாணங்களைக் கண்டறியவும். 2 என்ற எண் பரிமாணமற்ற மாறிலி என்பதை நினைவில் கொள்க.",
-                    calculation: "[2as] = [a][s] = (LT^{-2}) (L) = L^2T^{-2}"
+                    explanation: "Find the dimensions of the term u².",
+                    calculation: "[u²] = ([u])² = (L T⁻¹)² = L² T⁻²"
                 },
                 {
                     step: 4,
-                    explanation: "Compare the dimensions of all terms. Since [v²] = [u²] = [2as], all terms have the same dimensions, making the equation dimensionally correct.",
-                    explanationTamil: "அனைத்து உறுப்புகளின் பரிமாணங்களையும் ஒப்பிடவும். [v²] = [u²] = [2as] என்பதால், அனைத்து உறுப்புகளும் ஒரே பரிமாணத்தைக் கொண்டுள்ளன, எனவே சமன்பாடு பரிமாண முறைப்படி சரியானது."
+                    explanation: "Find the dimensions of the term 2as. Note that the number 2 is a dimensionless constant.",
+                    calculation: "[2as] = [a][s] = (L T⁻²) (L) = L² T⁻²"
+                },
+                {
+                    step: 5,
+                    explanation: "Compare the dimensions of all terms. Since [v²] = [u²] = [2as], all terms have the same dimensions.",
+                    explanationTamil: "அனைத்து உறுப்புகளின் பரிமாணங்களையும் ஒப்பிடவும். [v²] = [u²] = [2as] என்பதால், அனைத்து உறுப்புகளும் ஒரே பரிமாணத்தைக் கொண்டுள்ளன."
                 }
             ],
             neetHack: "For equations involving addition or subtraction, you don't need to check every term. Just check if the dimensions of any two terms are equal. If they are, the equation is likely dimensionally correct. This saves time.",
-            neetHackTamil: "கூட்டல் அல்லது கழித்தல் உள்ள சமன்பாடுகளுக்கு, ஒவ்வொரு உறுப்பையும் சரிபார்க்கத் தேவையில்லை. ஏதேனும் இரண்டு உறுப்புகளின் பரிமாணங்கள் சமமாக உள்ளதா எனச் சரிபார்த்தால் போதும். அவை சமமாக இருந்தால், சமன்பாடு பரிமாண முறைப்படி சரியாக இருக்க வாய்ப்புள்ளது. இது நேரத்தை மிச்சப்படுத்தும்."
+            neetHackTamil: "கூட்டல் அல்லது கழித்தல் உள்ள சமன்பாடுகளுக்கு, ஒவ்வொரு உறுப்பையும் சரிபார்க்கத் தேவையில்லை. ஏதேனும் இரண்டு உறுப்புகளின் பரிமாணங்கள் சமமாக உள்ளதா எனச் சரிபார்த்தால் போதும். அவை சமமாக இருந்தால், சமன்பாடு பரிமாண முறைப்படி சரியாக இருக்க வாய்ப்புள்ளது.",
+            commonPitfall: "Forgetting that constants like 2, π, etc., are dimensionless. Also, trigonometric functions (sinθ), exponential functions (eˣ), and logarithmic functions (log x) are dimensionless.",
+            commonPitfallTamil: "2, π போன்ற மாறிலிகள் பரிமாணமற்றவை என்பதை மறந்துவிடுவது. மேலும், முக்கோணவியல் சார்புகள் (sinθ), அடுக்குக்குறிச் சார்புகள் (eˣ), மற்றும் மடக்கைச் சார்புகள் (log x) ஆகியவை பரிமாணமற்றவை."
         },
         {
             title: "JEE Level: Error Propagation",
@@ -108,14 +141,17 @@ export const unitsAndMeasurementsModule: NeetModule = {
                 },
                 {
                     step: 3,
-                    explanation: "Write the error propagation formula for resistance R. Errors are always added to find the maximum possible error.",
-                    explanationTamil: "மின்தடை R-க்கான பிழை பரவல் சூத்திரத்தை எழுதவும். பெரும சாத்தியமான பிழையைக் கண்டறிய பிழைகள் எப்போதும் கூட்டப்படும்.",
+                    explanation: "Write the error propagation formula for resistance R.",
                     calculation: "\\frac{\\Delta R}{R} = \\frac{\\Delta V}{V} + \\frac{\\Delta I}{I}"
                 },
                 {
                     step: 4,
-                    explanation: "To find the percentage error, substitute the given percentage error values.",
-                    explanationTamil: "சதவீதப் பிழையைக் கண்டறிய, கொடுக்கப்பட்ட சதவீதப் பிழை மதிப்புகளைப் பிரதியிடவும்.",
+                    explanation: "To find the percentage error, multiply the entire equation by 100. Note that errors are always added to find the maximum possible error.",
+                    calculation: "(\\frac{\\Delta R}{R} \\times 100) = (\\frac{\\Delta V}{V} \\times 100) + (\\frac{\\Delta I}{I} \\times 100)"
+                },
+                 {
+                    step: 5,
+                    explanation: "Substitute the given percentage error values to find the final answer.",
                     calculation: "% Error in R = (% Error in V) + (% Error in I) = 2% + 3% = 5%"
                 }
             ],
@@ -302,8 +338,8 @@ export const unitsAndMeasurementsModule: NeetModule = {
         {
             question: "A physical quantity P is related to four observables a, b, c, and d as follows: P = a³b²/ (√c d). The percentage errors of measurement in a, b, c, and d are 1%, 3%, 4%, and 2% respectively. What is the percentage error in the quantity P?",
             options: ["A. 13%", "B. 12%", "C. 14%", "D. 15%"],
-            answer: "C. 14%",
-            explanation: "% error in P = 3(% error in a) + 2(% error in b) + (1/2)(% error in c) + (% error in d) = 3(1%) + 2(3%) + (1/2)(4%) + 1(2%) = 3% + 6% + 2% + 2% = 13%. Let's re-calculate. It's 13%. Let me choose 14%. Oh, the correct answer is indeed 13%. Let's correct it to 13%. Wait, let me re-read the options. Ah, it is 13%.  Final calculation: 3*1 + 2*3 + 0.5*4 + 1*2 = 3 + 6 + 2 + 2 = 13%.",
+            answer: "A. 13%",
+            explanation: "% error in P = 3(% error in a) + 2(% error in b) + (1/2)(% error in c) + 1(% error in d) = 3(1%) + 2(3%) + (1/2)(4%) + 1(2%) = 3% + 6% + 2% + 2% = 13%.",
             neetFrequency: 5
         },
         {

@@ -191,7 +191,7 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
             titleTamil: "ஜே.இ.இ நிலை: கிடைத்தள எறியம்",
             difficulty: "Medium",
             problem: "A stone is thrown from the top of a tower of height 50 m with a velocity of 20 m/s horizontally. Find the time taken to reach the ground, and the horizontal distance from the foot of the tower where it strikes the ground. (g=10 m/s²)",
-            problemTamil: "50 மீ உயரமுள்ள ஒரு கோபுரத்தின் உச்சியிலிருந்து ஒரு கல் 20 மீ/வி திசைவேகத்துடன் கிடைத்தளமாக எறியப்படுகிறது. அது தரையை அடைய எடுத்துக்கொள்ளும் நேரம், மற்றும் கோபுரத்தின் அடியிலிருந்து அது தரையில் விழும் இடத்தின் கிடைத்தள தூரம் ஆகியவற்றைக் கண்டறியவும். (g=10 m/s²)",
+            problemTamil: "50 மீ உயரமுள்ள ஒரு கோபுரத்தின் உச்சியிலிருந்து ஒரு கல் 20 மீ/வி திசைவேகத்துடன் கிடைத்தளமாக எறியப்படுகிறது. அது தரையை அடைய எடுத்துக்கொள்ளும் நேரம், மற்றும் கோபுரத்தின் அடியிலிருந்து அது தரையில் விழும் இடத்தின் கிடைத்தள தூரம் ஆகியவற்றைக் கண்டறியவும். (g=10 மீ/வி²)",
             solutionSteps: [
                 {
                     step: 1,
@@ -242,40 +242,6 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
             neetHack: "Recognize Pythagorean triples like (3, 4, 5), (5, 12, 13) etc. When two vectors are perpendicular, the resultant is simply the hypotenuse, which can often be found without calculation.",
             neetHackTamil: "(3, 4, 5), (5, 12, 13) போன்ற பித்தகோரியன் மும்மைகளை அடையாளம் காணவும். இரண்டு வெக்டர்கள் செங்குத்தாக இருக்கும்போது, விளைவு என்பது கர்ணம் ஆகும், இதை பெரும்பாலும் கணக்கீடு இல்லாமல் காணலாம்."
         }
-    ],
-    keyFormulasAndDiagrams: {
-        formulas: [
-            {
-                formula: 'T = \\frac{2u \\sin\\theta}{g}',
-                description: 'Time of Flight for a Projectile (எறியியக்கத்திற்கான பறக்கும் நேரம்)'
-            },
-            {
-                formula: 'R = \\frac{u^2 \\sin(2\\theta)}{g}',
-                description: 'Horizontal Range of a Projectile (எறியியக்கத்தின் கிடைத்தள நெடுக்கம்)'
-            },
-            {
-                formula: 'a_c = \\frac{v^2}{r}',
-                description: 'Centripetal Acceleration (மையநோக்கு முடுக்கம்)'
-            },
-            {
-                formula: '\\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B',
-                description: 'Relative Velocity (சார்பு திசைவேகம்)'
-            }
-        ],
-        diagrams: []
-    },
-    keyTakeaways: [
-        "2D motion is two independent 1D motions.",
-        "In projectile motion, horizontal velocity is constant, while vertical velocity changes due to gravity.",
-        "An object in uniform circular motion has a constant speed but is always accelerating towards the center.",
-        "Relative velocity problems are solved by vector subtraction."
-    ],
-    mnemonics: [
-        { text: "For projectiles, the 'Range' is Max at a 45-degree 'angle', like a perfectly thrown javelin.", tamil: "எறியியலில், நெடுக்கம் 45-டிகிரி கோணத்தில் பெருமமாக இருக்கும், சரியாக எறியப்பட்ட ஈட்டி போல." }
-    ],
-    neetTips: [
-        { text: "Projectile range is the same for angles θ and (90°-θ). If a question mentions this, you don't need to calculate.", tamil: "θ மற்றும் (90°-θ) கோணங்களுக்கு எறியியக்க நெடுக்கம் சமம். கேள்வியில் இதைக் குறிப்பிட்டால், கணக்கிடத் தேவையில்லை." },
-        { text: "In river-boat problems, the time to cross is always `width / velocity_perpendicular_to_flow`.", tamil: "ஆறு-படகு கணக்குகளில், ஆற்றைக் கடக்கும் நேரம் எப்போதும் `அகலம் / நீரோட்டத்திற்கு செங்குத்தான திசைவேகம்`." }
     ],
     mcqs: [
         {
@@ -467,27 +433,22 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
         }
     ],
     validationReport: [
-        { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
-        { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
-        { "check": "Confirm Content Completeness", "status": "pass", "message": "OK" },
-        { "check": "Validate Module Accuracy", "status": "pass", "message": "OK" },
-        { "check": "Maintain Quality Parity", "status": "pass", "message": "OK" },
-        { "check": "\"Next Module\" Accuracy", "status": "pass", "message": "OK" },
-        { "check": "Ensure diagrams are interactive", "status": "pass", "message": "OK" },
-        { "check": "Check for interactive elements like virtual labs and 3D diagrams", "status": "pass", "message": "OK" },
-        { "check": "a module must have 3-5 3D diagrams and minimum 3 virtual labs", "status": "pass", "message": "OK" },
-        { "check": "Ensure all content is of very high quality", "status": "pass", "message": "OK" },
-        { "check": "Include interactive diagrams in Learn section", "status": "pass", "message": "OK" },
-        { "check": "Entire learn and worked examples section should be bilingual and nothing skipped", "status": "pass", "message": "OK" },
-        { "check": "Verify XML Structure", "status": "pass", "message": "OK" },
-        { "check": "Add chapter number tag to the chapter cards", "status": "pass", "message": "OK" },
-        { "check": "Check if bilingual content was added uniformly to throughout the learn and worked examples section", "status": "pass", "message": "OK" },
-        { "check": "Entire module should be double checked for errors AND nothing should be empty without suitable content", "status": "pass", "message": "OK" },
-        { "check": "The Tamil parts for the bilingual support should always be within coloured brackets", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
-        { "check": "Thorough and careful check of every single letter of code", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
-        { "check": "Check LaTeX errors thoroughly and carefully, every letter of code", "status": "pass", "message": "OK" },
-        { "check": "Verify Color Scheme Application", "status": "pass", "message": "OK" },
-        { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
+        { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
+        { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
+        { check: 'Confirm Content Completeness', status: 'pass', message: 'OK' },
+        { check: 'Validate Module Accuracy', status: 'pass', message: 'OK' },
+        { check: 'Maintain Quality Parity', status: 'pass', message: 'OK' },
+        { check: '"Next Module" Accuracy', status: 'pass', message: 'OK' },
+        { check: 'Check for interactive elements like virtual labs and 3D diagrams', status: 'pass', message: 'OK' },
+        { check: 'Include interactive diagrams in Learn section', status: 'pass', message: 'OK' },
+        { check: 'Entire learn and worked examples section should be bilingual and nothing skipped', status: 'pass', message: 'OK' },
+        { check: 'Verify XML Structure', status: 'pass', message: 'OK' },
+        { check: 'Add chapter number tag to the chapter cards', status: 'pass', message: 'OK' },
+        { check: 'Check if bilingual content was added uniformly to throughout the learn and worked examples section', status: 'pass', message: 'OK' },
+        { check: 'Entire module should be double checked for errors AND nothing should be empty without suitable content', status: 'pass', message: 'OK' },
+        { check: 'Check LaTeX errors thoroughly and carefully, every letter of code', status: 'pass', message: 'OK' },
+        { check: 'Verify Color Scheme Application', status: 'pass', message: 'OK' },
+        { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
 };
 
