@@ -186,7 +186,7 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 1,
                     explanation: "Calculate the work done by gravity. Work = Force × displacement × cos(θ). Here, Force = mg, displacement = h, and the angle θ between force and displacement is 0°.",
                     explanationTamil: "ஈர்ப்பு விசையால் செய்யப்பட்ட வேலையைக் கணக்கிடவும். வேலை = விசை × இடப்பெயர்ச்சி × cos(θ). இங்கு, விசை = mg, இடப்பெயர்ச்சி = h, மற்றும் விசைக்கும் இடப்பெயர்ச்சிக்கும் இடையிலான கோணம் θ = 0°.",
-                    calculation: "W_g = (mg) * h * cos(0°) = (2 * 10) * 10 * 1 = 200 J"
+                    calculation: "W_g = (mg) * h * \\cos(0^\\circ) = (2 * 10) * 10 * 1 = 200 J"
                 },
                 {
                     step: 2,
@@ -197,13 +197,13 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 3,
                     explanation: "The only force doing work is gravity, so W_net = W_g. The initial kinetic energy K.E_i is 0 since the block is dropped from rest.",
                     explanationTamil: "இங்கு வேலை செய்யும் ஒரே விசை ஈர்ப்பு விசை மட்டுமே, எனவே W_net = W_g. கட்டை ஓய்விலிருந்து விடப்படுவதால் ஆரம்ப இயக்க ஆற்றல் K.E_i சுழியாகும்.",
-                    calculation: "200 = (1/2)mv_f² - 0"
+                    calculation: "200 = (1/2)mv_f^2 - 0"
                 },
                 {
                     step: 4,
                     explanation: "Solve for the final velocity v_f.",
                     explanationTamil: "இறுதி திசைவேகம் v_f-ஐக் கண்டறியவும்.",
-                    calculation: "200 = (1/2) * 2 * v_f² => v_f² = 200 => v_f = \\sqrt{200} = 10\\sqrt{2} m/s"
+                    calculation: "200 = \\frac{1}{2} * 2 * v_f^2 \\implies v_f^2 = 200 \\implies v_f = \\sqrt{200} = 10\\sqrt{2} m/s"
                 }
             ],
             neetHack: "Work-Energy Theorem is often faster than kinematics for problems involving forces, distances and speeds. If time is not asked, think 'Energy' first!",
@@ -227,13 +227,13 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 2,
                     explanation: "Set F = 0 to find the equilibrium positions.",
                     explanationTamil: "சமநிலை நிலைகளைக் கண்டறிய F = 0 என அமைக்கவும்.",
-                    calculation: "F = -(3x² - 12x) = 12x - 3x². \\implies 12x - 3x² = 0 => 3x(4 - x) = 0 => x = 0, x = 4"
+                    calculation: "F = -(3x^2 - 12x) = 12x - 3x^2. \\implies 12x - 3x^2 = 0 \\implies 3x(4 - x) = 0 \\implies x = 0, x = 4"
                 },
                 {
                     step: 3,
                     explanation: "To determine stability, check the second derivative of the potential energy, d²U/dx². If d²U/dx² > 0, it's stable equilibrium. If d²U/dx² < 0, it's unstable equilibrium.",
                     explanationTamil: "நிலைப்புத்தன்மையை தீர்மானிக்க, நிலை ஆற்றலின் இரண்டாம் வகைக்கெழுவை, d²U/dx²-ஐ சரிபார்க்கவும். d²U/dx² > 0 எனில், அது நிலையான சமநிலை. d²U/dx² < 0 எனில், அது நிலையற்ற சமநிலை.",
-                    calculation: "d²U/dx² = d/dx(3x² - 12x) = 6x - 12"
+                    calculation: "\\frac{d^2U}{dx^2} = \\frac{d}{dx}(3x^2 - 12x) = 6x - 12"
                 },
                 {
                     step: 4,
@@ -260,19 +260,19 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 2,
                     explanation: "Calculate the final velocity of the second block in terms of the initial velocity of the first block.",
                     explanationTamil: "முதல் கட்டையின் ஆரம்ப திசைவேகத்தின் அடிப்படையில் இரண்டாவது கட்டையின் இறுதி திசைவேகத்தைக் கணக்கிடவும்.",
-                    calculation: "v₂' = (2 * 2 / (2 + 8)) * v₁ = (4 / 10) * v₁ = 0.4v₁"
+                    calculation: "v_2' = (\\frac{2m_1}{m_1 + m_2}) v_1 = (\\frac{2 \\times 2}{2 + 8}) v_1 = \\frac{4}{10} v_1 = 0.4v_1"
                 },
                 {
                     step: 3,
                     explanation: "Calculate the initial kinetic energy (K.E₁) and the final kinetic energy of the second block (K.E₂').",
                     explanationTamil: "ஆரம்ப இயக்க ஆற்றல் (K.E₁) மற்றும் இரண்டாவது கட்டையின் இறுதி இயக்க ஆற்றல் (K.E₂') ஆகியவற்றைக் கணக்கிடவும்.",
-                    calculation: "K.E₁ = (1/2)m₁v₁² = (1/2)(2)v₁² = v₁². \\\\ K.E₂' = (1/2)m₂(v₂')² = (1/2)(8)(0.4v₁)² = 4 * 0.16v₁² = 0.64v₁²"
+                    calculation: "K.E_1 = \\frac{1}{2}m_1v_1^2 = \\frac{1}{2}(2)v_1^2 = v_1^2. \\\\ K.E_2' = \\frac{1}{2}m_2(v_2')^2 = \\frac{1}{2}(8)(0.4v_1)^2 = 4 \\times 0.16v_1^2 = 0.64v_1^2"
                 },
                 {
                     step: 4,
                     explanation: "Find the fraction of energy transferred by calculating the ratio K.E₂' / K.E₁.",
                     explanationTamil: "K.E₂' / K.E₁ என்ற விகிதத்தைக் கணக்கிடுவதன் மூலம் மாற்றப்பட்ட ஆற்றலின் பின்னத்தைக் கண்டறியவும்.",
-                    calculation: "Fraction = (0.64v₁²) / v₁² = 0.64"
+                    calculation: "Fraction = \\frac{0.64v_1^2}{v_1^2} = 0.64"
                 }
             ],
             neetHack: "The fraction of kinetic energy transferred in a 1D elastic collision from a projectile of mass m₁ to a stationary target of mass m₂ is given by (4m₁m₂) / (m₁ + m₂)². Memorizing this can save a lot of steps.",
@@ -294,19 +294,19 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 2,
                     explanation: "Express Force F as ma = m(dv/dt).",
                     explanationTamil: "விசையை F = ma = m(dv/dt) என எழுதவும்.",
-                    calculation: "m(dv/dt) * v = k"
+                    calculation: "m(\\frac{dv}{dt}) \\cdot v = k"
                 },
                 {
                     step: 3,
                     explanation: "Separate the variables (v and t) and integrate both sides. m∫v dv = k∫dt.",
                     explanationTamil: "மாறிகளை (v மற்றும் t) பிரித்து இருபுறமும் தொகையீடு செய்யவும். m∫v dv = k∫dt.",
-                    calculation: "m(v²/2) = kt => v = \\sqrt{2kt/m}"
+                    calculation: "m(\\frac{v^2}{2}) = kt \\implies v = \\sqrt{\\frac{2kt}{m}}"
                 },
                 {
                     step: 4,
                     explanation: "Now that we have velocity as a function of time, find the force F = k/v.",
                     explanationTamil: "இப்போது நம்மிடம் நேரத்தின் சார்பாக திசைவேகம் இருப்பதால், விசை F = k/v ஐக் கண்டறியவும்.",
-                    calculation: "F = k / \\sqrt{2kt/m} = \\sqrt{k² / (2kt/m)} = \\sqrt{mk/2t}"
+                    calculation: "F = \\frac{k}{\\sqrt{2kt/m}} = \\sqrt{\\frac{k^2m}{2kt}} = \\sqrt{\\frac{mk}{2t}}"
                 }
             ],
             neetHack: "For constant power, remember these proportionalities: v ∝ t¹/², and since a = dv/dt, a ∝ t⁻¹/². Also, displacement x ∝ t³/².",
@@ -333,13 +333,13 @@ A collision is an event in which two or more bodies exert forces on each other f
                     step: 3,
                     explanation: "Set up the energy conservation equation. Convert all units to SI (h=0.4 m).",
                     explanationTamil: "ஆற்றல் அழிவின்மை சமன்பாட்டை அமைக்கவும். அனைத்து அலகுகளையும் SI ஆக மாற்றவும் (h=0.4 m).",
-                    calculation: "mg(h+x) = \\frac{1}{2}kx² \\implies (2)(9.8)(0.4+x) = \\frac{1}{2}(1960)x²"
+                    calculation: "mg(h+x) = \\frac{1}{2}kx^2 \\implies (2)(9.8)(0.4+x) = \\frac{1}{2}(1960)x^2"
                 },
                 {
                     step: 4,
                     explanation: "Simplify the equation into a quadratic form.",
                     explanationTamil: "சமன்பாட்டை ஒரு இருபடி வடிவத்தில் எளிதாக்கவும்.",
-                    calculation: "19.6(0.4+x) = 980x² \\implies 7.84 + 19.6x = 980x² \\implies 980x² - 19.6x - 7.84 = 0"
+                    calculation: "19.6(0.4+x) = 980x^2 \\implies 7.84 + 19.6x = 980x^2 \\implies 980x^2 - 19.6x - 7.84 = 0"
                 },
                 {
                     step: 5,
@@ -395,9 +395,9 @@ A collision is an event in which two or more bodies exert forces on each other f
         },
         {
             question: "If the kinetic energy of a body is doubled, its momentum will be:",
-            options: ["A. Doubled", "B. Halved", "C. √2 times the original", "D. Unchanged"],
-            answer: "C. √2 times the original",
-            explanation: "Momentum p = √(2mK). If K' = 2K, then p' = √(2m(2K)) = √2 * √(2mK) = √2 * p.",
+            options: ["A. Doubled", "B. Halved", "C. \\sqrt{2} times the original", "D. Unchanged"],
+            answer: "C. \\sqrt{2} times the original",
+            explanation: "Momentum p = \\sqrt{2mK}. If K' = 2K, then p' = \\sqrt{2m(2K)} = \\sqrt{2} * \\sqrt{2mK} = \\sqrt{2} * p.",
             neetFrequency: 4
         },
         {
@@ -424,7 +424,7 @@ A collision is an event in which two or more bodies exert forces on each other f
         { question: "Work done is a:", options: ["A. Scalar", "B. Vector", "C. Tensor", "D. Sometimes scalar, sometimes vector"], answer: "A. Scalar", explanation: "Work is the dot product of two vectors (Force and Displacement), which results in a scalar quantity.", neetFrequency: 1 },
         { question: "In a perfectly inelastic collision, which of the following is conserved?", options: ["A. Only Kinetic Energy", "B. Only Momentum", "C. Both Momentum and Kinetic Energy", "D. Neither Momentum nor Kinetic Energy"], answer: "B. Only Momentum", explanation: "In any collision without external forces, momentum is conserved. In a perfectly inelastic collision, kinetic energy is lost.", neetFrequency: 4 },
         { question: "A spring of force constant 800 N/m has an extension of 5 cm. The work done in extending it from 5 cm to 15 cm is:", options: ["A. 16 J", "B. 8 J", "C. 32 J", "D. 24 J"], answer: "B. 8 J", explanation: "Work done = Change in P.E. = (1/2)k(x₂² - x₁²) = (1/2) * 800 * (0.15² - 0.05²) = 400 * (0.0225 - 0.0025) = 400 * 0.02 = 8 J.", neetFrequency: 5 },
-        { question: "Two bodies of masses m and 4m are moving with equal kinetic energies. The ratio of their linear momenta is:", options: ["A. 1:1", "B. 1:2", "C. 1:4", "D. 4:1"], answer: "B. 1:2", explanation: "Since p = √(2mK), the ratio p₁/p₂ = √(2mK) / √(2(4m)K) = √m / √4m = 1/2.", neetFrequency: 4 },
+        { question: "Two bodies of masses m and 4m are moving with equal kinetic energies. The ratio of their linear momenta is:", options: ["A. 1:1", "B. 1:2", "C. 1:4", "D. 4:1"], answer: "B. 1:2", explanation: "Since p = \\sqrt{2mK}, the ratio p₁/p₂ = \\sqrt{2mK} / \\sqrt{2(4m)K} = \\sqrt{m} / \\sqrt{4m} = 1/2.", neetFrequency: 4 },
         { question: "A particle moves under a force F = kx (k is a positive constant). The work done in displacing it from x=0 to x=d is:", options: ["A. kd", "B. kd²/2", "C. kd²", "D. k²d"], answer: "B. kd²/2", explanation: "Work done by a variable force is W = ∫F dx = ∫₀ᵈ kx dx = k[x²/2] from 0 to d = kd²/2.", neetFrequency: 3 },
         { question: "The work done by a centripetal force in a uniform circular motion is:", options: ["A. Positive", "B. Negative", "C. Zero", "D. Depends on the radius"], answer: "C. Zero", explanation: "The centripetal force is always perpendicular to the direction of displacement (which is tangential). Since θ=90°, W = Fs cos(90°) = 0.", neetFrequency: 2 },
         { question: "If the momentum of a body is increased by 50%, its kinetic energy will increase by:", options: ["A. 50%", "B. 100%", "C. 125%", "D. 150%"], answer: "C. 125%", explanation: "New momentum p' = 1.5p. New K.E' = (p')²/2m = (1.5p)²/2m = 2.25 * (p²/2m) = 2.25 * K.E. The increase is 1.25 * K.E, which is a 125% increase.", neetFrequency: 5 },
@@ -477,7 +477,7 @@ A collision is an event in which two or more bodies exert forces on each other f
     matchTheColumns: [
         {
             column1: ["(a) Work-Energy Theorem", "(b) Conservative Force", "(c) Inelastic Collision", "(d) Power"],
-            column2: ["(p) Kinetic energy not conserved", "(q) Rate of doing work", "(r) Work done independent of path", "(s) `W_net = ΔK.E.`"],
+            column2: ["(p) Kinetic energy not conserved", "(q) Rate of doing work", "(r) Work done independent of path", "(s) `W_{net} = \\Delta K.E.`"],
             answer: "a-s, b-r, c-p, d-q",
             explanation: "Matching the terms with their correct definitions or associated principles."
         },
