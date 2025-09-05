@@ -112,6 +112,7 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
                 { step: 4, explanation: "The power of the combination is -5 D.", explanationTamil: "இணைப்பின் திறன் -5 D." },
                 { step: 5, explanation: "Since the power is negative, the combination behaves like a concave (diverging) lens.", explanationTamil: "திறன் எதிர்மறையாக இருப்பதால், இணைப்பு ஒரு குழி (விரிக்கும்) லென்ஸைப் போல செயல்படுகிறது." }
             ],
+            neetHack: "Always convert focal lengths to meters before calculating power in Dioptres.",
             commonPitfall: "Forgetting to convert focal lengths from cm to meters when calculating power in Dioptres."
         },
         {
@@ -126,7 +127,9 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
                 { step: 3, explanation: "Solve for the sine term.", calculation: "\\sin(30^\\circ + D_m/2) = \\sqrt{2} \\times \\frac{1}{2} = \\frac{1}{\\sqrt{2}}" },
                 { step: 4, explanation: "We know that sin(45°) = 1/√2.", calculation: "30^\\circ + D_m/2 = 45^\\circ" },
                 { step: 5, explanation: "Solve for D_m.", calculation: "D_m/2 = 15^\\circ \\implies D_m = 30^\\circ" }
-            ]
+            ],
+            neetHack: "For equilateral prisms, A=60°, so sin(A/2) is always sin(30°) = 1/2. This simplifies the prism formula significantly.",
+            commonPitfall: "Forgetting to divide the angles by 2 inside the sine functions."
         },
         {
             title: "JEE Level: Microscope Magnification",
@@ -140,7 +143,9 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
                 { step: 3, explanation: "The image formed by the objective acts as the object for the eyepiece. The distance between lenses is L = |v_o| + |u_e|.", calculation: "15 = v_o + 5 \\implies v_o = 10 \\text{ cm}" },
                 { step: 4, explanation: "Now, consider the objective lens. We have v_o = +10 cm and f_o = +2.0 cm. Use the lens formula to find u_o.", calculation: "\\frac{1}{f_o} = \\frac{1}{v_o} - \\frac{1}{u_o} \\implies \\frac{1}{2} = \\frac{1}{10} - \\frac{1}{u_o}" },
                 { step: 5, explanation: "Solve for u_o.", calculation: "\\frac{1}{u_o} = \\frac{1}{10} - \\frac{1}{2} = \\frac{1-5}{10} = -\\frac{4}{10} \\implies u_o = -2.5 \\text{ cm}" }
-            ]
+            ],
+            neetHack: "For microscope problems, always start with the eyepiece and work backwards to the objective.",
+            commonPitfall: "Incorrectly applying the sign convention for the eyepiece image distance (v_e is negative as it's a virtual image on the same side as the object for the eyepiece)."
         },
         {
             title: "NEET Level: Total Internal Reflection",
@@ -152,7 +157,9 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
                 { step: 1, explanation: "Light travels from denser medium (glass, n_g=1.5) to rarer medium (water, n_w=1.33).", explanationTamil: "ஒளி அடர்மிகு ஊடகத்திலிருந்து (கண்ணாடி, n_g=1.5) அடர்குறை ஊடகத்திற்கு (நீர், n_w=1.33) பயணிக்கிறது." },
                 { step: 2, explanation: "Use the formula for critical angle: sin(c) = n_rarer / n_denser.", calculation: "\\sin(c) = n_w / n_g = (4/3) / (3/2) = 4/3 \\times 2/3 = 8/9" },
                 { step: 3, explanation: "The critical angle is c = sin⁻¹(8/9).", calculation: "c = \\sin^{-1}(8/9)" }
-            ]
+            ],
+            neetHack: "Critical angle only exists when light goes from Denser to Rarer (Remember 'D to R').",
+            commonPitfall: "Calculating sin(c) as n_denser / n_rarer, which would give a value greater than 1."
         }
     ],
     mcqs: [
@@ -160,19 +167,41 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
         { question: "The phenomenon of mirage is due to:", options: ["A. Reflection of light", "B. Refraction of light", "C. Total internal reflection", "D. Diffraction of light"], answer: "C. Total internal reflection", explanation: "Mirage is caused by the bending of light rays due to varying refractive indices of air layers and total internal reflection.", neetFrequency: 4 },
         { question: "A red flower kept in green light will appear:", options: ["A. Red", "B. Green", "C. Yellow", "D. Black"], answer: "D. Black", explanation: "A red flower reflects red light and absorbs other colors. When only green light falls on it, it absorbs the green light and reflects nothing, so it appears black.", neetFrequency: 3 },
         { question: "The magnifying power of an astronomical telescope in normal adjustment is:", options: ["A. f_o + f_e", "B. f_o / f_e", "C. f_e / f_o", "D. f_o * f_e"], answer: "B. f_o / f_e", explanation: "For normal adjustment (final image at infinity), the magnifying power is the ratio of the focal length of the objective to the focal length of the eyepiece.", neetFrequency: 5 },
-        { question: "The cause of dispersion of light is:", options: ["A. Different wavelengths have different speeds in a medium", "B. Light is a transverse wave", "C. Light is an electromagnetic wave", "D. Light travels in straight lines"], answer: "A. Different wavelengths have different speeds in a medium", explanation: "Dispersion occurs because the refractive index of a medium (like glass) is slightly different for each color (wavelength), causing them to bend at slightly different angles.", neetFrequency: 4 }
+        { question: "The cause of dispersion of light is:", options: ["A. Different wavelengths have different speeds in a medium", "B. Light is a transverse wave", "C. Light is an electromagnetic wave", "D. Light travels in straight lines"], answer: "A. Different wavelengths have different speeds in a medium", explanation: "Dispersion occurs because the refractive index of a medium (like glass) is slightly different for each color (wavelength), causing them to bend at slightly different angles.", neetFrequency: 4 },
+        { question: "An object is placed between two parallel plane mirrors. The number of images formed is:", options: ["A. 2", "B. 1", "C. 4", "D. Infinite"], answer: "D. Infinite", explanation: "Parallel plane mirrors form an infinite number of images due to multiple reflections.", neetFrequency: 2 },
+        { question: "For a real image, the magnification of a concave mirror is:", options: ["A. Positive", "B. Negative", "C. Always greater than 1", "D. Always less than 1"], answer: "B. Negative", explanation: "Real images formed by a single concave mirror are always inverted, so the magnification m = -v/u is negative.", neetFrequency: 3 },
+        { question: "A bubble in water shines because of:", options: ["A. Dispersion", "B. Interference", "C. Diffraction", "D. Total Internal Reflection"], answer: "D. Total Internal Reflection", explanation: "Light traveling from water (denser) to air (rarer) inside the bubble can undergo total internal reflection if the angle of incidence is greater than the critical angle, making the bubble appear shiny.", neetFrequency: 4 },
+        { question: "The power of a lens is -2D. What is its focal length and nature?", options: ["A. -50 cm, Concave", "B. +50 cm, Convex", "C. -20 cm, Concave", "D. +20 cm, Convex"], answer: "A. -50 cm, Concave", explanation: "f = 1/P = 1/(-2) = -0.5 m = -50 cm. A negative focal length indicates a concave (diverging) lens.", neetFrequency: 5 },
+        { question: "In a compound microscope, the final image formed is:", options: ["A. Real and inverted", "B. Virtual and erect", "C. Real and erect", "D. Virtual and inverted"], answer: "D. Virtual and inverted", explanation: "The objective lens forms a real, inverted image. The eyepiece then acts as a simple microscope to form a final, magnified virtual image which is still inverted with respect to the original object.", neetFrequency: 4 },
+        { question: "Critical angle for light going from glass (n=1.5) to air (n=1) is:", options: ["A. sin⁻¹(1/1.5)", "B. sin⁻¹(1.5)", "C. tan⁻¹(1.5)", "D. 90°"], answer: "A. sin⁻¹(1/1.5)", explanation: "sin(c) = n_rarer / n_denser = 1 / 1.5.", neetFrequency: 3 },
+        { question: "A convex lens acts as a diverging lens if:", options: ["A. It is placed in water", "B. It is placed in a medium with a higher refractive index", "C. It is placed in a medium with a lower refractive index", "D. It is never possible"], answer: "B. It is placed in a medium with a higher refractive index", explanation: "From the lens maker's formula, if the lens (n_l) is placed in a medium (n_m) where n_m > n_l, the term (n_l/n_m - 1) becomes negative, reversing the nature of the lens.", neetFrequency: 3 },
+        { question: "The length of an astronomical telescope for normal adjustment is:", options: ["A. f_o - f_e", "B. f_o + f_e", "C. f_o * f_e", "D. f_o / f_e"], answer: "B. f_o + f_e", explanation: "In normal adjustment, the final image is at infinity. The image from the objective is at its focus (f_o) and this must coincide with the focus of the eyepiece (f_e). So, the length L = f_o + f_e.", neetFrequency: 2 },
+        { question: "The formula 1/f = 1/v - 1/u is valid for:", options: ["A. Concave lens only", "B. Convex lens only", "C. Both concave and convex lenses", "D. Mirrors only"], answer: "C. Both concave and convex lenses", explanation: "This is the thin lens formula and is applicable to both types of lenses, provided the sign convention is used correctly.", neetFrequency: 1 },
+        { question: "A prism splits white light into its constituent colors. This phenomenon is called:", options: ["A. Reflection", "B. Refraction", "C. Diffraction", "D. Dispersion"], answer: "D. Dispersion", explanation: "Dispersion is the splitting of white light into its spectrum of colors.", neetFrequency: 2 },
+        { question: "An object is placed 20 cm from a convex mirror of radius of curvature 40 cm. The image formed is at:", options: ["A. 10 cm behind the mirror", "B. 10 cm in front of the mirror", "C. 20 cm behind the mirror", "D. 20 cm in front of the mirror"], answer: "A. 10 cm behind the mirror", explanation: "R=+40cm, so f=+20cm. u=-20cm. 1/f = 1/v + 1/u => 1/20 = 1/v + 1/(-20) => 1/v = 1/20 + 1/20 = 2/20 = 1/10. v = +10 cm. Positive v means behind the mirror.", neetFrequency: 4 },
+        { question: "The resolving power of an optical instrument depends on:", options: ["A. The focal length", "B. The magnification", "C. The wavelength of light used", "D. The intensity of light"], answer: "C. The wavelength of light used", explanation: "Resolving power is inversely proportional to the wavelength of light (RP ∝ 1/λ). Using shorter wavelengths (like blue light) improves resolution.", neetFrequency: 3 },
+        { question: "In a compound microscope, the focal length of the objective lens compared to the eyepiece is:", options: ["A. Larger", "B. Smaller", "C. Equal", "D. Can be larger or smaller"], answer: "B. Smaller", explanation: "To achieve high magnification, the objective lens must have a very short focal length to form a highly magnified intermediate image.", neetFrequency: 2 },
+        { question: "Rainbow is formed due to:", options: ["A. Dispersion and reflection", "B. Dispersion and total internal reflection", "C. Refraction and scattering", "D. Dispersion, refraction, and total internal reflection"], answer: "D. Dispersion, refraction, and total internal reflection", explanation: "A rainbow is a complex phenomenon involving refraction of light entering the raindrop, dispersion of colors, total internal reflection inside the drop, and refraction as it exits.", neetFrequency: 3 },
+        { question: "Two thin lenses of power +5D and -3D are in contact. The focal length of the combination is:", options: ["A. +50 cm", "B. -50 cm", "C. +20 cm", "D. -20 cm"], answer: "A. +50 cm", explanation: "Equivalent power P = P₁ + P₂ = 5 - 3 = +2 D. Equivalent focal length F = 1/P = 1/2 = +0.5 m = +50 cm.", neetFrequency: 5 },
+        { question: "An air bubble in glass slab (n=1.5) appears to be at 6 cm from one side and 4 cm from the other side. The thickness of the slab is:", options: ["A. 10 cm", "B. 6.67 cm", "C. 15 cm", "D. 12 cm"], answer: "C. 15 cm", explanation: "Apparent depth = Real depth / n. Real depth₁ = 6 * 1.5 = 9 cm. Real depth₂ = 4 * 1.5 = 6 cm. Total thickness = 9 + 6 = 15 cm.", neetFrequency: 3 },
+        { question: "A microscope is focused on a mark on a piece of paper and then a slab of glass of thickness 3 cm and refractive index 1.5 is placed over the mark. How should the microscope be moved to get the mark in focus again?", options: ["A. 1 cm upward", "B. 1 cm downward", "C. 2 cm upward", "D. 2 cm downward"], answer: "A. 1 cm upward", explanation: "The apparent shift = t(1 - 1/n) = 3(1 - 1/1.5) = 3(1 - 2/3) = 3(1/3) = 1 cm. The image shifts up, so the microscope must be moved up by 1 cm.", neetFrequency: 4 },
+        { question: "The sky appears blue because:", options: ["A. The atmosphere absorbs blue light", "B. The atmosphere scatters blue light more than red light", "C. The sun primarily emits blue light", "D. Our eyes are more sensitive to blue"], answer: "B. The atmosphere scatters blue light more than red light", explanation: "This is due to Rayleigh scattering, where the amount of scattering is inversely proportional to the fourth power of the wavelength (1/λ⁴). Blue light has a shorter wavelength, so it is scattered much more.", neetFrequency: 2 },
+        { question: "A convex lens is used to form a real image which is twice the size of the object. If the focal length is 20 cm, the object distance is:", options: ["A. -10 cm", "B. -20 cm", "C. -30 cm", "D. -60 cm"], answer: "C. -30 cm", explanation: "Magnification for a real image m = -2. m = v/u. So, v = -2u. Using lens formula 1/f = 1/v - 1/u => 1/20 = 1/(-2u) - 1/u = (-1-2)/2u = -3/2u. 2u = -60 => u = -30 cm.", neetFrequency: 4 },
+        { question: "The power of a plane glass plate is:", options: ["A. Zero", "B. Infinite", "C. 1 D", "D. Depends on thickness"], answer: "A. Zero", explanation: "A plane glass plate has an infinite focal length, so its power P = 1/f is zero.", neetFrequency: 1 }
     ],
     assertionReasons: [
-        { assertion: "The sky appears blue.", reason: "Light is scattered by air molecules, and blue light is scattered more than red light.", answer: "A", explanation: "Reason is the correct explanation (Rayleigh scattering). Shorter wavelengths (blue) are scattered much more effectively than longer wavelengths (red).", neetFrequency: 3 },
-        { assertion: "A diamond shines brightly.", reason: "A diamond has a very high refractive index, leading to a small critical angle and total internal reflection.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains why. Light entering the diamond undergoes multiple total internal reflections before exiting, causing it to sparkle.", neetFrequency: 4 },
         { assertion: "A concave mirror is used as a shaving mirror.", reason: "When an object is placed between the pole and focus of a concave mirror, it forms a magnified, erect, and virtual image.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation for its use as a shaving/makeup mirror.", neetFrequency: 3 },
-        { assertion: "Myopia is corrected by using a concave lens.", reason: "A concave lens diverges the light rays before they enter the eye, allowing the eye lens to focus them on the retina.", answer: "A", explanation: "Assertion is true. Reason is also true and is the correct explanation. In myopia, the eye focuses light in front of the retina. A concave lens diverges the rays to shift the focal point back onto the retina.", neetFrequency: 4 },
-        { assertion: "The resolving power of a telescope increases when the aperture of the objective lens is increased.", reason: "The resolving power is proportional to the diameter of the objective lens.", answer: "A", explanation: "Both statements are true and the reason correctly explains the assertion. Resolving power is given by D/(1.22λ).", neetFrequency: 2 }
+        { assertion: "The refractive index of a diamond is high, and this is the reason for its brilliance.", reason: "A high refractive index leads to a small critical angle, causing most light to undergo total internal reflection.", answer: "A", explanation: "Assertion is true. Reason is also true and is the correct explanation. The trapped light undergoing multiple TIRs gives a diamond its sparkle.", neetFrequency: 4 },
+        { assertion: "A convex mirror cannot form a real image for a real object.", reason: "A convex mirror always forms a virtual, erect, and diminished image.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation for the assertion.", neetFrequency: 3 },
+        { assertion: "The resolving power of a telescope increases when the aperture of the objective lens is increased.", reason: "The resolving power is proportional to the diameter of the objective lens.", answer: "A", explanation: "Both statements are true and the reason correctly explains the assertion. Resolving power is given by D/(1.22λ).", neetFrequency: 2 },
+        { assertion: "An empty test tube dipped in water in a beaker appears silvery when viewed from a suitable direction.", reason: "This is due to the phenomenon of dispersion.", answer: "C", explanation: "The assertion is true. The silvery appearance is due to total internal reflection of light at the glass-air interface inside the test tube. The reason is false.", neetFrequency: 2 }
     ],
     matchTheColumns: [
         { column1: ["(a) Simple Microscope", "(b) Compound Microscope", "(c) Astronomical Telescope", "(d) Myopia"], column2: ["(p) To see distant objects", "(q) Concave lens", "(r) To see small, nearby objects", "(s) Two convex lenses (objective with short focal length)"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching optical instruments/defects with their purpose or key component.", neetFrequency: 5 },
         { column1: ["(a) Reflection", "(b) Refraction", "(c) Dispersion", "(d) Total Internal Reflection"], column2: ["(p) Prism", "(q) Optical Fiber", "(r) Mirror", "(s) Lens"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching optical phenomena with the primary device or example associated with it.", neetFrequency: 4 },
-        { column1: ["(a) Power of lens", "(b) Magnification", "(c) Refractive index", "(d) Critical angle"], column2: ["(p) Dimensionless", "(q) Dioptre", "(r) Meter"], answer: "a-q, b-p, c-p, d-p", explanation: "Matching physical quantities with their units or dimensional nature. M, n, and c are all dimensionless ratios.", neetFrequency: 3 }
+        { column1: ["(a) Power of lens", "(b) Magnification", "(c) Refractive index", "(d) Critical angle"], column2: ["(p) Dimensionless", "(q) Dioptre", "(r) Meter"], answer: "a-q, b-p, c-p, d-p", explanation: "Matching physical quantities with their units or dimensional nature. M, n, and c are all dimensionless ratios.", neetFrequency: 3 },
+        { column1: ["(a) Mirage", "(b) Rainbow", "(c) Blue sky", "(d) Twinkling of stars"], column2: ["(p) Scattering", "(q) Atmospheric Refraction", "(r) Dispersion", "(s) Total Internal Reflection"], answer: "a-s, b-r, c-p, d-q", explanation: "Matching natural phenomena with the primary optical principle responsible.", neetFrequency: 4 },
+        { column1: ["(a) Convex Lens", "(b) Concave Lens", "(c) Convex Mirror", "(d) Concave Mirror"], column2: ["(p) Can form magnified virtual image", "(q) Always forms diminished virtual image"], answer: "a-p, b-q, c-q, d-p", explanation: "Concave mirrors and convex lenses can form magnified virtual images (e.g., shaving mirror, magnifier). Concave lenses and convex mirrors always form diminished virtual images.", neetFrequency: 3 }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
@@ -195,5 +224,18 @@ Dispersion is the splitting of white light into its constituent colors (VIBGYOR)
     neetTips: [
         { text: "Problems combining multiple lenses or a lens and a mirror are common. Solve them step-by-step: the image from the first element becomes the object for the second.", tamil: "பல லென்சுகள் அல்லது ஒரு லென்ஸ் மற்றும் ஆடியை இணைக்கும் கணக்குகள் பொதுவானவை. அவற்றை படிப்படியாக தீர்க்கவும்: முதல் உறுப்பின் பிம்பம் இரண்டாவது உறுப்பின் பொருளாக மாறும்." },
         { text: "Master the ray diagrams for all types of mirrors and lenses for different object positions. This helps in quickly predicting the nature of the image.", tamil: "அனைத்து வகையான ஆடிகள் மற்றும் லென்சுகளுக்கான கதிர் வரைபடங்களை வெவ்வேறு பொருள் நிலைகளுக்கு வரைந்து தேர்ச்சி பெறவும். இது பிம்பத்தின் தன்மையை விரைவாகக் கணிக்க உதவுகிறது." }
-    ]
+    ],
+    studentTip: {
+        english: "Practice sign convention relentlessly. Almost 50% of errors in this chapter are due to incorrect signs.",
+        tamil: "குறியீட்டு மரபை இடைவிடாமல் பயிற்சி செய்யுங்கள். இந்த அத்தியாயத்தில் உள்ள பிழைகளில் கிட்டத்தட்ட 50% தவறான குறிகளால் ஏற்படுகின்றன."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Why is the secondary rainbow fainter and inverted compared to the primary rainbow? This involves two total internal reflections.",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: முதன்மை வானவில்லுடன் ஒப்பிடும்போது இரண்டாம் நிலை வானவில் ஏன் மங்கலாகவும் தலைகீழாகவும் உள்ளது? இது இரண்டு முழு அக எதிரொளிப்புகளை உள்ளடக்கியது."
+    },
+    nextChapter: {
+        title: "Wave Optics",
+        titleTamil: "அலை ஒளியியல்"
+    },
+    validationReport: []
 };

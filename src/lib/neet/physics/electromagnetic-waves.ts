@@ -113,6 +113,51 @@ The orderly arrangement of EM waves according to their wavelength or frequency. 
             ],
             neetHack: "For points inside the capacitor plates, the magnetic field is B = (μ₀Ir)/(2πR²), which shows B is proportional to r. This is different from the field outside a wire (B ∝ 1/r).",
             commonPitfall: "Forgetting that the displacement current enclosed by the Amperian loop is only a fraction of the total displacement current."
+        },
+        {
+            title: "NEET Level: Identifying EM Waves",
+            titleTamil: "நீட் நிலை: மின்காந்த அலைகளை அடையாளம் காணுதல்",
+            difficulty: 'Easy',
+            problem: "An electromagnetic wave has a wavelength of 10⁻³ m. To which part of the electromagnetic spectrum does it belong?",
+            problemTamil: "ஒரு மின்காந்த அலையின் அலைநீளம் 10⁻³ மீ ஆகும். இது மின்காந்த நிறமாலையின் எந்தப் பகுதிக்குச் சொந்தமானது?",
+            solutionSteps: [
+                { step: 1, explanation: "Recall the approximate wavelength ranges for different parts of the EM spectrum.", explanationTamil: "மின்காந்த நிறமாலையின் வெவ்வேறு பகுதிகளுக்கான தோராயமான அலைநீள வரம்புகளை நினைவுகூர்க." },
+                { step: 2, explanation: "Radio waves have wavelengths > 0.1 m. Microwaves range from 0.1 m to 1 mm (10⁻³ m). Infrared ranges from 1 mm to 700 nm.", explanationTamil: "ரேடியோ அலைகள் > 0.1 மீ. நுண்ணலைகள் 0.1 மீ முதல் 1 மிமீ (10⁻³ மீ) வரை. அகச்சிவப்பு 1 மிமீ முதல் 700 nm வரை." },
+                { step: 3, explanation: "The given wavelength of 10⁻³ m (which is 1 mm) falls in the microwave region.", explanationTamil: "கொடுக்கப்பட்ட அலைநீளம் 10⁻³ மீ (1 மிமீ) நுண்ணலைப் பகுதியில் விழுகிறது." }
+            ],
+            neetHack: "Memorize key boundary wavelengths: 1mm (Micro-IR), 700nm (IR-Visible Red), 400nm (Visible Violet-UV).",
+            commonPitfall: "Confusing the order of the spectrum with respect to wavelength and frequency. Wavelength increases from Gamma to Radio, while frequency decreases."
+        },
+        {
+            title: "JEE Level: Energy Density",
+            titleTamil: "ஜே.இ.இ நிலை: ஆற்றல் அடர்த்தி",
+            difficulty: "Medium",
+            problem: "An electromagnetic wave has an electric field amplitude of 120 V/m and a frequency of 50 MHz. Find the average energy density of the magnetic field.",
+            problemTamil: "ஒரு மின்காந்த அலையின் மின்புல வீச்சு 120 V/m மற்றும் அதிர்வெண் 50 MHz ஆகும். காந்தப்புலத்தின் சராசரி ஆற்றல் அடர்த்தியைக் கண்டறியவும்.",
+            solutionSteps: [
+                { step: 1, explanation: "In an electromagnetic wave, the energy is shared equally between the electric and magnetic fields. So, the average magnetic energy density (u_B) is equal to the average electric energy density (u_E).", explanationTamil: "ஒரு மின்காந்த அலையில், ஆற்றல் மின் மற்றும் காந்தப்புலங்களுக்கு இடையில் சமமாகப் பகிரப்படுகிறது. எனவே, சராசரி காந்த ஆற்றல் அடர்த்தி (u_B) சராசரி மின் ஆற்றல் அடர்த்திக்கு (u_E) சமம்." },
+                { step: 2, explanation: "The average electric energy density is given by u_E = (1/4)ε₀E₀², where E₀ is the amplitude of the electric field.", calculation: "u_E = \\frac{1}{4} \\epsilon_0 E_0^2" },
+                { step: 3, explanation: "Substitute the given values. ε₀ ≈ 8.85 × 10⁻¹² C²/(N·m²).", calculation: "u_B = u_E = \\frac{1}{4} (8.85 \\times 10^{-12}) (120)^2" },
+                { step: 4, explanation: "Calculate the final value.", calculation: "u_B = \\frac{1}{4} (8.85 \\times 10^{-12}) (14400) \\approx 3.18 \\times 10^{-8} J/m³" }
+            ],
+            neetHack: "The total average energy density is u = (1/2)ε₀E₀². The magnetic part is half of this, so u_B = (1/4)ε₀E₀².",
+            commonPitfall: "Forgetting the factor of 1/2 or 1/4 in the energy density formulas. The instantaneous energy density is (1/2)ε₀E², but the average over a cycle is (1/4)ε₀E₀²."
+        },
+        {
+            title: "NEET Level: Poynting Vector",
+            titleTamil: "நீட் நிலை: பாயிண்டிங் வெக்டர்",
+            difficulty: "Easy",
+            problem: "An electromagnetic wave is propagating along the positive z-axis. The electric field is along the positive x-axis. What is the direction of the magnetic field?",
+            problemTamil: "ஒரு மின்காந்த அலை நேர் z-அச்சு வழியே பரவுகிறது. மின்புலம் நேர் x-அச்சு வழியே உள்ளது. காந்தப்புலத்தின் திசை என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "The direction of propagation of an EM wave is given by the direction of the Poynting vector, S, which is proportional to E x B.", explanationTamil: "மின்காந்த அலை பரவும் திசை பாயிண்டிங் வெக்டர் S-இன் திசையால் கொடுக்கப்படுகிறது, இது E x B க்கு விகிதாசாரமாகும்." },
+                { step: 2, explanation: "We are given that the direction of propagation is +z (k̂) and the direction of the electric field is +x (î).", calculation: "\\vec{v} \\text{ is in } \\hat{k} \\text{ direction} \\\\ \\vec{E} \\text{ is in } \\hat{i} \\text{ direction}" },
+                { step: 3, explanation: "We need to find the direction of B (let's say b̂) such that E x B is in the direction of propagation. So, î x b̂ = k̂.", explanationTamil: "E x B பரவும் திசையில் இருக்கும்படி B-இன் திசையைக் (b̂) கண்டுபிடிக்க வேண்டும். எனவே, î x b̂ = k̂." },
+                { step: 4, explanation: "From the properties of vector cross products, we know that î x ĵ = k̂.", explanationTamil: "வெக்டர் குறுக்குப் பெருக்கத்தின் பண்புகளிலிருந்து, î x ĵ = k̂ என நாம் அறிவோம்." },
+                { step: 5, explanation: "Therefore, the magnetic field must be along the positive y-axis (ĵ).", explanationTamil: "எனவே, காந்தப்புலம் நேர் y-அச்சு (ĵ) வழியே இருக்க வேண்டும்." }
+            ],
+            neetHack: "Use the right-hand rule. Point your fingers in the direction of E (+x), and curl them towards B. Your thumb must point in the direction of propagation (+z). This only works if your fingers curl towards the +y direction.",
+            commonPitfall: "Making an error in the vector cross product rules (e.g., ĵ x î = -k̂)."
         }
     ],
     mcqs: [
@@ -125,7 +170,22 @@ The orderly arrangement of EM waves according to their wavelength or frequency. 
         { question: "In an electromagnetic wave, the ratio of the amplitude of the electric field to the magnetic field is:", options: ["A. c", "B. 1/c", "C. c²", "D. 1"], answer: "A. c", explanation: "The relationship is E = cB, so the ratio E/B = c (the speed of light).", neetFrequency: 5 },
         { question: "Which of the following is NOT an electromagnetic wave?", options: ["A. Cosmic rays", "B. Gamma rays", "C. Beta rays", "D. X-rays"], answer: "C. Beta rays", explanation: "Beta rays are high-energy electrons or positrons, which are particles. The others are all forms of electromagnetic radiation.", neetFrequency: 4 },
         { question: "The energy of an electromagnetic wave is shared equally between:", options: ["A. Electric and gravitational fields", "B. Magnetic and gravitational fields", "C. Electric and magnetic fields", "D. The wave and the medium"], answer: "C. Electric and magnetic fields", explanation: "The energy density of the electric field (1/2 ε₀E²) is equal to the energy density of the magnetic field (B²/2μ₀) in an EM wave.", neetFrequency: 3 },
-        { question: "The ozone layer absorbs which part of the electromagnetic spectrum?", options: ["A. Infrared", "B. Microwaves", "C. X-rays", "D. Ultraviolet"], answer: "D. Ultraviolet", explanation: "The ozone layer in the stratosphere is crucial for absorbing most of the harmful ultraviolet radiation from the sun.", neetFrequency: 2 }
+        { question: "The ozone layer absorbs which part of the electromagnetic spectrum?", options: ["A. Infrared", "B. Microwaves", "C. X-rays", "D. Ultraviolet"], answer: "D. Ultraviolet", explanation: "The ozone layer in the stratosphere is crucial for absorbing most of the harmful ultraviolet radiation from the sun.", neetFrequency: 2 },
+        { question: "Which waves are used in radar systems?", options: ["A. Radio waves", "B. Microwaves", "C. Infrared waves", "D. Ultraviolet waves"], answer: "B. Microwaves", explanation: "Microwaves are used for radar because of their short wavelength, which allows them to detect small objects.", neetFrequency: 3 },
+        { question: "The Maxwell's equation ∮ E⋅dA = Q/ε₀ is based on:", options: ["A. Ampere's law", "B. Faraday's law", "C. Gauss's law for magnetism", "D. Gauss's law for electricity"], answer: "D. Gauss's law for electricity", explanation: "This is the integral form of Gauss's law for electricity.", neetFrequency: 2 },
+        { question: "The dimension of (1/μ₀ε₀) is:", options: ["A. [L T⁻¹]", "B. [L² T⁻²]", "C. [L⁻² T²]", "D. [L T]"], answer: "B. [L² T⁻²]", explanation: "The speed of light c = 1/√(μ₀ε₀). So, 1/(μ₀ε₀) = c². The dimensions of c² are (LT⁻¹)² = L²T⁻².", neetFrequency: 3 },
+        { question: "Which of the following have the same wavelength?", options: ["A. X-rays and Gamma rays", "B. Infrared and Ultraviolet rays", "C. Microwaves and Radio waves", "D. None of the above"], answer: "D. None of the above", explanation: "All parts of the electromagnetic spectrum have distinct, although sometimes overlapping, wavelength ranges. No two named regions are identical.", neetFrequency: 1 },
+        { question: "The source of displacement current is:", options: ["A. Flow of charge", "B. Changing magnetic field", "C. Changing electric field", "D. Accelerated protons"], answer: "C. Changing electric field", explanation: "Displacement current I_d = ε₀(dΦ_E/dt) is produced by a time-varying electric flux.", neetFrequency: 4 },
+        { question: "The energy of a photon of an EM wave is of the order of 15 keV. To which part of the spectrum does it belong?", options: ["A. X-rays", "B. Infrared", "C. Ultraviolet", "D. Gamma rays"], answer: "A. X-rays", explanation: "Photon energies in the range of keV correspond to the X-ray part of the spectrum.", neetFrequency: 3 },
+        { question: "The nature of electromagnetic waves is:", options: ["A. Longitudinal", "B. Transverse", "C. Both A and B", "D. Neither A nor B"], answer: "B. Transverse", explanation: "The electric and magnetic fields oscillate perpendicular to the direction of wave propagation.", neetFrequency: 2 },
+        { question: "Which radiation is used in the treatment of cancer?", options: ["A. Infrared", "B. Gamma rays", "C. Microwaves", "D. Radio waves"], answer: "B. Gamma rays", explanation: "High-energy gamma rays are used in radiotherapy to destroy cancerous cells.", neetFrequency: 2 },
+        { question: "The Maxwell's equation ∮ B⋅dl = μ₀I is a statement of:", options: ["A. Faraday's Law", "B. Ampere's Law (uncorrected)", "C. Gauss's Law", "D. Biot-Savart Law"], answer: "B. Ampere's Law (uncorrected)", explanation: "This is the original form of Ampere's law before Maxwell added the displacement current term.", neetFrequency: 1 },
+        { question: "An EM wave travels in vacuum along the z-direction: E = (E₁î + E₂ĵ) cos(kz - ωt). The wave is:", options: ["A. Linearly polarized", "B. Circularly polarized", "C. Elliptically polarized", "D. Unpolarized"], answer: "A. Linearly polarized", explanation: "Since E₁ and E₂ are constants, the tip of the E vector oscillates along a straight line in the x-y plane. If E₁=E₂ and there was a π/2 phase difference, it would be circularly polarized.", neetFrequency: 2 },
+        { question: "The quantity E/B has the dimensions of:", options: ["A. Speed", "B. Force", "C. Energy", "D. Acceleration"], answer: "A. Speed", explanation: "For an EM wave, E = cB, so E/B = c, which is speed.", neetFrequency: 3 },
+        { question: "Which of the following is used to study crystal structure?", options: ["A. Ultraviolet rays", "B. Infrared rays", "C. X-rays", "D. Microwaves"], answer: "C. X-rays", explanation: "X-ray diffraction is a standard technique used to determine the atomic and molecular structure of a crystal, as their wavelengths are comparable to interatomic distances.", neetFrequency: 3 },
+        { question: "A plane electromagnetic wave of frequency 25 MHz travels in free space along the x-direction. At a particular point in space and time, E = 6.3 ĵ V/m. What is B at this point?", options: ["A. 2.1 x 10⁻⁸ k̂ T", "B. 2.1 x 10⁻⁸ ĵ T", "C. 3.1 x 10⁻⁸ î T", "D. 3.1 x 10⁻⁸ k̂ T"], answer: "A. 2.1 x 10⁻⁸ k̂ T", explanation: "Magnitude B = E/c = 6.3 / (3x10⁸) = 2.1 x 10⁻⁸ T. Direction of propagation is î. Direction of E is ĵ. Since E x B must be in the direction of propagation, î x k̂ = -ĵ, ĵ x î = -k̂, so ĵ x k̂ = î. This means B must be in the k̂ direction.", neetFrequency: 4 },
+        { question: "Which of the following statements about EM waves is false?", options: ["A. They carry energy", "B. They carry momentum", "C. They require a medium to travel", "D. They are transverse waves"], answer: "C. They require a medium to travel", explanation: "Electromagnetic waves are unique in that they do not require a material medium for propagation and can travel through a vacuum.", neetFrequency: 2 },
+        { question: "The phenomenon which proves that light waves are transverse is:", options: ["A. Interference", "B. Diffraction", "C. Polarization", "D. Reflection"], answer: "C. Polarization", explanation: "Polarization involves restricting the plane of oscillation. This is only possible for transverse waves, where oscillations are perpendicular to the direction of propagation. Longitudinal waves cannot be polarized.", neetFrequency: 5 }
     ],
     assertionReasons: [
         { assertion: "Electromagnetic waves are transverse in nature.", reason: "The electric and magnetic fields are perpendicular to each other and to the direction of wave propagation.", answer: "A", explanation: "The reason is the definition of a transverse wave and correctly explains the assertion." , neetFrequency: 4},
@@ -137,7 +197,9 @@ The orderly arrangement of EM waves according to their wavelength or frequency. 
     matchTheColumns: [
         { column1: ["(a) Radio waves", "(b) Microwaves", "(c) X-rays", "(d) Infrared"], column2: ["(p) Medical diagnosis", "(q) TV remote", "(r) Radio broadcast", "(s) Radar systems"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching the type of EM wave with its common application.", neetFrequency: 5 },
         { column1: ["(a) Highest frequency", "(b) Highest wavelength", "(c) Used for sterilization", "(d) Causes greenhouse effect"], column2: ["(p) Infrared", "(q) Ultraviolet", "(r) Gamma rays", "(s) Radio waves"], answer: "a-r, b-s, c-q, d-p", explanation: "Matching properties or uses with the correct part of the EM spectrum.", neetFrequency: 4 },
-        { column1: ["(a) Speed of EM wave", "(b) Energy of photon", "(c) Displacement current", "(d) Poynting vector"], column2: ["(p) E = hν", "(q) S = (1/μ₀)(E x B)", "(r) c = 1/√(μ₀ε₀)", "(s) I_d = ε₀(dΦ_E/dt)"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching the concepts with their corresponding formulas.", neetFrequency: 3 }
+        { column1: ["(a) Speed of EM wave", "(b) Energy of photon", "(c) Displacement current", "(d) Poynting vector"], column2: ["(p) E = hν", "(q) S = (1/μ₀)(E x B)", "(r) c = 1/√(μ₀ε₀)", "(s) I_d = ε₀(dΦ_E/dt)"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching the concepts with their corresponding formulas.", neetFrequency: 3 },
+        { column1: ["(a) Hertz", "(b) Maxwell", "(c) Faraday", "(d) Newton"], column2: ["(p) Law of Gravitation", "(q) Law of Induction", "(r) Displacement Current", "(s) Production of EM waves"], answer: "a-s, b-r, c-q, d-p", explanation: "Matching scientists with their key discoveries related to EM waves.", neetFrequency: 2 },
+        { column1: ["(a) Visible Light", "(b) Ultraviolet", "(c) Infrared", "(d) Gamma Rays"], column2: ["(p) Sunburn", "(q) Night vision", "(r) Photosynthesis", "(s) Radiotherapy"], answer: "a-r, b-p, c-q, d-s", explanation: "Matching types of radiation with their biological or technological effects.", neetFrequency: 3 }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
@@ -157,5 +219,18 @@ The orderly arrangement of EM waves according to their wavelength or frequency. 
     ],
     neetTips: [
         { text: "The properties and uses of different parts of the EM spectrum are very frequently asked. Memorize the order and at least one key use for each.", tamil: "மின்காந்த நிறமாலையின் வெவ்வேறு பகுதிகளின் பண்புகள் மற்றும் பயன்கள் அடிக்கடி கேட்கப்படுகின்றன. வரிசை மற்றும் ஒவ்வொன்றிற்கும் ஒரு முக்கிய பயன்பாட்டை மனப்பாடம் செய்யுங்கள்." }
-    ]
+    ],
+    studentTip: {
+        english: "Focus on memorizing the order of the EM spectrum. Many questions are based on simply knowing whether X-rays have more energy than microwaves.",
+        tamil: "மின்காந்த நிறமாலையின் வரிசையை மனப்பாடம் செய்வதில் கவனம் செலுத்துங்கள். நுண்ணலைகளை விட எக்ஸ்-கதிர்களுக்கு அதிக ஆற்றல் உள்ளதா என்பதை அறிவதை அடிப்படையாகக் கொண்டு பல கேள்விகள் கேட்கப்படுகின்றன."
+    },
+    peerDiscussion: {
+        english: "Discuss why mobile phones use microwaves while TV remotes use infrared. What are the advantages of each for their specific application?",
+        tamil: "மொபைல் போன்கள் ஏன் நுண்ணலைகளையும், டிவி ரிமோட்டுகள் அகச்சிவப்புக் கதிர்களையும் பயன்படுத்துகின்றன என்று விவாதிக்கவும். அவற்றின் குறிப்பிட்ட பயன்பாட்டிற்கு ஒவ்வொன்றின் நன்மைகள் என்ன?"
+    },
+    nextChapter: {
+        title: "Ray Optics and Optical Instruments",
+        titleTamil: "கதிர் ஒளியியல் மற்றும் ஒளியியல் கருவிகள்"
+    },
+    validationReport: []
 };
