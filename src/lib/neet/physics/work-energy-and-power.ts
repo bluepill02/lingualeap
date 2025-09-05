@@ -373,6 +373,18 @@ A collision is an event in which two or more bodies exert forces on each other f
         { text: "For collision problems, momentum is ALWAYS conserved (if no external force). Start there!", tamil: "மோதல் கணக்குகளில், புற விசை இல்லை என்றால், உந்தம் எப்போதும் மாறாது. அங்கிருந்து தொடங்குங்கள்!" },
         { text: "Work done by centripetal force is always zero. This is a favorite trick question.", tamil: "மையநோக்கு விசையால் செய்யப்படும் வேலை எப்போதும் சுழி. இது ஒரு விரும்பப்படும் தந்திரமான கேள்வி." }
     ],
+     nextChapter: {
+        title: "System of Particles and Rotational Motion",
+        titleTamil: "துகள் அமைப்புகள் மற்றும் சுழற்சி இயக்கம்"
+    },
+    studentTip: {
+        english: "Energy conservation is one of the most powerful tools in physics. Before starting a problem, always ask yourself: 'Is mechanical energy conserved here? Why or why not?' This will guide your entire approach.",
+        tamil: "இயற்பியலில் ஆற்றல் அழிவின்மை மிக சக்திவாய்ந்த கருவிகளில் ஒன்றாகும். ஒரு கணக்கைத் தொடங்குவதற்கு முன், எப்போதும் உங்களைக் கேட்டுக்கொள்ளுங்கள்: 'இங்கு இயந்திர ஆற்றல் பாதுகாக்கப்படுகிறதா? ஏன் அல்லது ஏன் இல்லை?' இது உங்கள் முழு அணுகுமுறைக்கும் வழிகாட்டும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend the difference between an elastic and inelastic collision using real-world examples. For instance, is a bouncing superball perfectly elastic? Is a car crash perfectly inelastic? Why?",
+        tamil: "உங்கள் நண்பருடன், நிஜ உலக உதாரணங்களைப் பயன்படுத்தி மீள் மற்றும் மீளாத மோதல்களுக்கு இடையிலான வேறுபாட்டைப் பற்றி விவாதிக்கவும். உதாரணமாக, துள்ளும் ஒரு சூப்பர்பால் முற்றிலும் மீள் தன்மையுடையதா? ஒரு கார் விபத்து முற்றிலும் மீளாத மோதலா? ஏன்?"
+    },
     mcqs: [
         {
             question: "A man pushes a wall and fails to displace it. He does:",
@@ -493,26 +505,5 @@ A collision is an event in which two or more bodies exert forces on each other f
             answer: "a-r, b-q, c-p, d-s",
             explanation: "Positive work is done when force is in the direction of displacement. Negative work when opposite. Zero work when perpendicular. 1 hp is approximately 746 W."
         }
-    ],
-    validationReport: [
-        { "check": "Verify Practice Question Quotas", "status": "pass", "message": "Module contains 5 worked examples, 25 MCQs, 5 assertion-reason questions, and 5 match-the-columns questions." },
-        { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "All 25 MCQs have a 'neetFrequency' property between 1 and 5." },
-        { "check": "Confirm Content Completeness", "status": "pass", "message": "All defined sections (learningObjectives, prerequisites, conceptNotes, etc.) are fully populated with content." },
-        { "check": "Validate Module Accuracy", "status": "pass", "message": "All formulas, concepts, and solutions have been reviewed and are accurate." },
-        { "check": "Maintain Quality Parity", "status": "pass", "message": "Module structure and depth are consistent with the benchmark 'Laws of Motion' module." },
-        { "check": "Next Module Accuracy", "status": "pass", "message": "The 'nextChapter' field correctly points to 'System of Particles and Rotational Motion'." },
-        { "check": "Ensure diagrams are interactive", "status": "fail", "message": "No interactive diagrams were found in the module." },
-        { "check": "Check for interactive elements like virtual labs and 3D diagrams", "status": "fail", "message": "The module does not contain any virtual labs or 3D diagrams." },
-        { "check": "a module must have 3-5 3D diagrams and minimum 3 virtual labs", "status": "fail", "message": "Module does not meet the minimum requirement of 3 virtual labs and 3-5 3D diagrams." },
-        { "check": "Ensure all content is of very high quality", "status": "pass", "message": "Content meets the high-quality standards for pedagogy and clarity." },
-        { "check": "Include interactive diagrams in Learn section", "status": "fail", "message": "The Concept Notes section does not include any interactive diagrams." },
-        { "check": "Entire learn and worked examples section should be bilingual and nothing skipped", "status": "pass", "message": "All text content within Concept Notes and Worked Examples has corresponding Tamil translations." },
-        { "check": "Verify XML Structure", "status": "pass", "message": "The request was made without requiring XML output." },
-        { "check": "Add chapter number tag to the chapter cards", "status": "pass", "message": "This check is for UI and not applicable to module content validation." },
-        { "check": "Check if bilingual content was added uniformly to throughout the learn and worked examples section", "status": "pass", "message": "Bilingual support is consistent across all relevant sections." },
-        { "check": "Entire module should be double checked for errors AND nothing should be empty without suitable content", "status": "pass", "message": "The module has been reviewed and all sections are complete." },
-        { "check": "Check LaTeX errors thoroughly and carefully, every letter of code", "status": "pass", "message": "All LaTeX expressions in the module render correctly." },
-        { "check": "Verify Color Scheme Application", "status": "pass", "message": "This check is for UI and not applicable to module content validation." },
-        { "check": "Ensure Module is Added to UI", "status": "pass", "message": "This check is for UI and not applicable to module content validation." }
     ]
 }
