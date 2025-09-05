@@ -216,6 +216,9 @@ export interface NeetModule {
     keyTakeaways?: string[];
     mnemonics?: { text: string; tamil: string }[];
     neetTips?: { text: string; tamil: string }[];
+    nextChapter?: { title: string; titleTamil: string; };
+    studentTip?: { english: string; tamil: string; };
+    peerDiscussion?: { english: string; tamil: string; };
 }
 
 

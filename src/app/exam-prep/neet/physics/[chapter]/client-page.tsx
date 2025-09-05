@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
+import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard, VirtualLabsCard, ThreeDDiagramsCard } from '@/components/exam/neet-chapter-components';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
@@ -21,7 +21,7 @@ import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { BilingualText } from '@/components/exam/bilingual-text';
 
 function ChapterContent({ content }: { content: NeetModule }) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
   const totalSections = 6;
 
   const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
@@ -139,7 +139,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
 
         </TabsContent>
         <TabsContent value="learn" className="mt-6 space-y-6">
-            <ConceptNotesCard content={conceptNotes || ''} />
+            <ConceptNotesCard content={conceptNotes || []} />
             <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('learn')}>
                      {completedSections.includes('learn') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
@@ -196,9 +196,9 @@ function ChapterContent({ content }: { content: NeetModule }) {
                     ))}
                 </CardContent>
             </Card>}
-             {neetTips && neetTips.length > 0 && <Card>
+             {neetTips && (nextChapter || studentTip || peerDiscussion) && <Card>
                 <CardHeader>
-                    <CardTitle>NEET Tips</CardTitle>
+                    <CardTitle>NEET Tips & Next Steps</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                     {neetTips.map((tip, index) => (
@@ -207,20 +207,22 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             <BilingualText english={tip.text} tamil={tip.tamil} />
                         </div>
                     ))}
+                    {(nextChapter || studentTip || peerDiscussion) && 
                     <Alert className="bg-primary/10 border-primary/20">
                          <Info className="h-4 w-4" />
-                         <AlertTitle>Next Module: Work, Energy and Power (வேலை, ஆற்றல் மற்றும் திறன்)</AlertTitle>
+                         {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
                          <AlertDescription className="mt-2 space-y-2">
-                            <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                            {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Student Tip:</strong> 
-                                <BilingualText english="Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!" tamil="நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!" />
-                            </div>
-                            <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
+                            </div>}
+                            {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Peer Discussion:</strong> 
-                                 <BilingualText english="Discuss force and motion problems with your friends. Practice drawing FBDs." tamil="உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்க பிரச்சினைகளை விவாதிக்கவும். விசை படங்கள் வரைந்து பார்க்கவும்." />
-                           </div>
+                                 <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
+                           </div>}
                          </AlertDescription>
                     </Alert>
+                    }
                 </CardContent>
             </Card>}
 

@@ -1,5 +1,8 @@
 
 import type { NeetModule } from '@/lib/types';
+import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
+import { ActionReactionAnimation } from '@/components/exam/ActionReactionAnimation';
+import { LiftAnimation } from '@/components/exam/LiftAnimation';
 
 export const lawsOfMotionModule: NeetModule = {
     id: 'neet-physics-laws-of-motion',
@@ -295,6 +298,18 @@ Once you add the pseudo force, you can apply $\\Sigma \\mathbf{F}_{real} + \\mat
         { text: "Pitfall: Weight is mg, not mass. Weight changes with g, mass doesn't!", tamil: "எடை = mg, நிறை அல்ல. எடை g யுடன் மாறும், நிறை மாறாது." },
         { text: "Strategy: Draw FBDs for EVERY object in the problem. This prevents mistakes.", tamil: "எல்லா பொருட்களுக்கும் விசை படம் வரையவும்." }
     ],
+    nextChapter: {
+        title: "Work, Energy and Power",
+        titleTamil: "வேலை, ஆற்றல் மற்றும் திறன்"
+    },
+    studentTip: {
+        english: "Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!",
+        tamil: "நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"
+    },
+    peerDiscussion: {
+        english: "Discuss force and motion problems with your friends. Practice drawing FBDs for different situations, like a car on a banked road.",
+        tamil: "உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்கப் பிரச்சினைகளை விவாதிக்கவும். வளைவான சாலையில் செல்லும் கார் போன்ற வெவ்வேறு சூழ்நிலைகளுக்கு FBD வரைந்து பயிற்சி செய்யுங்கள்."
+    },
     mcqs: [
         {
             question: "A car suddenly starts from rest. Passengers feel pushed backward due to:",
