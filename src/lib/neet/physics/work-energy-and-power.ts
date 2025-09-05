@@ -152,6 +152,155 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             ],
             neetHack: "Work-Energy Theorem is often faster than kinematics for problems involving forces, distances and speeds. If time is not asked, think 'Energy' first!",
             neetHackTamil: "விசைகள், தூரங்கள் மற்றும் வேகங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, இயக்கவியலை விட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் வேகமானது. நேரம் கேட்கப்படவில்லை என்றால், முதலில் 'ஆற்றல்' முறையை சிந்திக்கவும்!"
+        },
+        {
+            title: "JEE Level: Conservation of Momentum in Collisions",
+            titleTamil: "ஜே.இ.இ நிலை: மோதல்களில் உந்த அழிவின்மை",
+            difficulty: 'Medium',
+            problem: "A ball of mass 0.1 kg moving with a velocity of 20 m/s strikes another ball of mass 0.2 kg which is at rest. After the collision, the first ball comes to rest. Find the velocity of the second ball after the collision and determine if the collision is elastic.",
+            problemTamil: "20 மீ/வி திசைவேகத்துடன் நகரும் 0.1 கிகி நிறையுள்ள ஒரு பந்து, ஓய்வில் உள்ள 0.2 கிகி நிறையுள்ள மற்றொரு பந்தின் மீது மோதுகிறது. மோதலுக்குப் பிறகு, முதல் பந்து ஓய்வுக்கு வருகிறது. மோதலுக்குப் பிறகு இரண்டாவது பந்தின் திசைவேகத்தைக் கண்டறிந்து, மோதல் மீள்தன்மை கொண்டதா என்பதைத் தீர்மானிக்கவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Apply the law of conservation of linear momentum. m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂.",
+                    explanationTamil: "நேர்கோட்டு உந்த அழிவின்மை விதியைப் பயன்படுத்தவும். m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂.",
+                    calculation: "(0.1)(20) + (0.2)(0) = (0.1)(0) + (0.2)v₂"
+                },
+                {
+                    step: 2,
+                    explanation: "Solve for the velocity of the second ball, v₂.",
+                    explanationTamil: "இரண்டாவது பந்தின் திசைவேகம் v₂ ஐக் கண்டறியவும்.",
+                    calculation: "2 = 0.2v₂ => v₂ = 10 m/s"
+                },
+                {
+                    step: 3,
+                    explanation: "To check if the collision is elastic, compare the initial and final kinetic energies.",
+                    explanationTamil: "மோதல் மீள்தன்மை கொண்டதா என்பதைச் சரிபார்க்க, ஆரம்ப மற்றும் இறுதி இயக்க ஆற்றல்களை ஒப்பிடவும்."
+                },
+                {
+                    step: 4,
+                    explanation: "Calculate initial kinetic energy (K.E_i).",
+                    explanationTamil: "ஆரம்ப இயக்க ஆற்றலைக் (K.E_i) கணக்கிடவும்.",
+                    calculation: "K.E_i = (1/2)m₁u₁² + (1/2)m₂u₂² = (1/2)(0.1)(20)² + 0 = 20 J"
+                },
+                {
+                    step: 5,
+                    explanation: "Calculate final kinetic energy (K.E_f).",
+                    explanationTamil: "இறுதி இயக்க ஆற்றலைக் (K.E_f) கணக்கிடவும்.",
+                    calculation: "K.E_f = (1/2)m₁v₁² + (1/2)m₂v₂² = 0 + (1/2)(0.2)(10)² = 10 J"
+                },
+                {
+                    step: 6,
+                    explanation: "Compare the energies. Since K.E_f < K.E_i, some kinetic energy is lost. Therefore, the collision is inelastic.",
+                    explanationTamil: "ஆற்றல்களை ஒப்பிடவும். K.E_f < K.E_i என்பதால், சில இயக்க ஆற்றல் இழக்கப்பட்டுள்ளது. எனவே, மோதல் மீள்தன்மையற்றது."
+                }
+            ],
+            commonPitfall: "Assuming every collision is elastic. Always check the kinetic energy unless the problem explicitly states it's an elastic collision."
+        },
+        {
+            title: "NEET Level: Power Calculation",
+            titleTamil: "நீட் நிலை: திறன் கணக்கீடு",
+            difficulty: 'Easy',
+            problem: "A pump is required to lift 600 kg of water per minute from a well 25 m deep and to eject it with a speed of 50 m/s. Calculate the power required to perform the above task. (g = 10 m/s²)",
+            problemTamil: "ஒரு கிணற்றிலிருந்து நிமிடத்திற்கு 600 கிகி தண்ணீரை 25 மீ ஆழத்திலிருந்து மேலேற்றி, அதை 50 மீ/வி வேகத்தில் வெளியேற்ற ஒரு பம்ப் தேவைப்படுகிறது. மேலே உள்ள பணியைச் செய்யத் தேவையான திறனைக் கணக்கிடுக. (g = 10 மீ/வி² எனக் கொள்க)",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Power is the rate of doing work or supplying energy. Here, the power must supply potential energy to lift the water and kinetic energy to eject it.",
+                    explanationTamil: "திறன் என்பது வேலை செய்யப்படும் வீதம் அல்லது ஆற்றல் வழங்கப்படும் வீதம் ஆகும். இங்கு, திறன் தண்ணீரை மேலேற்ற நிலை ஆற்றலையும், அதை வெளியேற்ற இயக்க ஆற்றலையும் வழங்க வேண்டும்."
+                },
+                {
+                    step: 2,
+                    explanation: "Calculate the work done against gravity (to provide potential energy) per second. Mass per second = 600 kg / 60 s = 10 kg/s.",
+                    explanationTamil: "ஈர்ப்பு விசைக்கு எதிராக செய்யப்பட்ட வேலையை (நிலை ஆற்றலை வழங்க) வினாடிக்கு கணக்கிடவும். வினாடிக்கு நிறை = 600 கிகி / 60 வி = 10 கிகி/வி.",
+                    calculation: "Power_potential = (m/t)gh = (10 kg/s) * (10 m/s²) * (25 m) = 2500 W"
+                },
+                {
+                    step: 3,
+                    explanation: "Calculate the kinetic energy supplied per second.",
+                    explanationTamil: "வினாடிக்கு வழங்கப்படும் இயக்க ஆற்றலைக் கணக்கிடவும்.",
+                    calculation: "Power_kinetic = (1/2)(m/t)v² = (1/2)(10 kg/s)(50 m/s)² = 5 * 2500 = 12500 W"
+                },
+                {
+                    step: 4,
+                    explanation: "The total power required is the sum of the power for potential and kinetic energy.",
+                    explanationTamil: "தேவைப்படும் மொத்த திறன், நிலை மற்றும் இயக்க ஆற்றலுக்கான திறன்களின் கூடுதலாகும்.",
+                    calculation: "P_total = P_potential + P_kinetic = 2500 W + 12500 W = 15000 W = 15 kW"
+                }
+            ]
+        },
+        {
+            title: "JEE Level: Conservative vs Non-Conservative Forces",
+            titleTamil: "ஜே.இ.இ நிலை: ஆற்றல் மாற்றா மற்றும் ஆற்றல் மாற்றும் விசைகள்",
+            difficulty: 'Medium',
+            problem: "A block of mass 1 kg is pushed up a rough inclined plane of inclination 30° and length 2 m with a constant speed. The coefficient of kinetic friction is 0.1. Find the work done by (a) the applied force, (b) the gravitational force, and (c) the frictional force. (g=10 m/s²)",
+            problemTamil: "1 கிகி நிறையுள்ள ஒரு கட்டை, 30° சாய்வும் 2 மீ நீளமும் கொண்ட ஒரு சொரசொரப்பான சாய்தளத்தின் மீது மாறா வேகத்துடன் மேல்நோக்கி தள்ளப்படுகிறது. இயக்க உராய்வுக் குணகம் 0.1 ஆகும். (a) செலுத்தப்பட்ட விசை, (b) ஈர்ப்பு விசை, மற்றும் (c) உராய்வு விசையால் செய்யப்பட்ட வேலையைக் கண்டறியவும். (g=10 மீ/வி² எனக் கொள்க)",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Calculate the forces acting on the block. The block moves with constant speed, so the net force is zero. The applied force F must balance the downward component of gravity and the frictional force.",
+                    explanationTamil: "கட்டையின் மீது செயல்படும் விசைகளைக் கணக்கிடவும். கட்டை மாறா வேகத்தில் நகர்வதால், நிகர விசை சுழியாகும். செலுத்தப்பட்ட விசை F, ஈர்ப்பின் கீழ்நோக்கிய கூறு மற்றும் உராய்வு விசை ஆகியவற்றை சமன் செய்ய வேண்டும்."
+                },
+                {
+                    step: 2,
+                    explanation: "Gravitational component down the incline = mg sin(θ) = 1 * 10 * sin(30°) = 5 N. Frictional force f_k = μN = μ(mg cos(θ)) = 0.1 * (1 * 10 * cos(30°)) = 0.1 * 10 * (√3/2) = 0.5√3 ≈ 0.866 N.",
+                    explanationTamil: "சாய்தளத்தில் கீழ்நோக்கிய ஈர்ப்பு கூறு = mg sin(θ) = 5 N. உராய்வு விசை f_k = μN = μ(mg cos(θ)) ≈ 0.866 N."
+                },
+                {
+                    step: 3,
+                    explanation: "The applied force F = mg sin(θ) + f_k = 5 + 0.866 = 5.866 N.",
+                    explanationTamil: "செலுத்தப்பட்ட விசை F = mg sin(θ) + f_k = 5.866 N."
+                },
+                {
+                    step: 4,
+                    explanation: "(a) Work by applied force: W_F = F * s * cos(0) = 5.866 * 2 * 1 = 11.732 J.",
+                    explanationTamil: "(a) செலுத்தப்பட்ட விசையால் செய்யப்பட்ட வேலை: W_F = 11.732 J."
+                },
+                {
+                    step: 5,
+                    explanation: "(b) Work by gravitational force: W_g = (mg sinθ) * s * cos(180°) = -5 * 2 = -10 J.",
+                    explanationTamil: "(b) ஈர்ப்பு விசையால் செய்யப்பட்ட வேலை: W_g = -10 J."
+                },
+                {
+                    step: 6,
+                    explanation: "(c) Work by frictional force: W_f = f_k * s * cos(180°) = -0.866 * 2 = -1.732 J.",
+                    explanationTamil: "(c) உராய்வு விசையால் செய்யப்பட்ட வேலை: W_f = -1.732 J."
+                }
+            ],
+            neetHack: "Check your answer using the Work-Energy Theorem. Since speed is constant, ΔK.E. = 0. So, W_net = 0. W_F + W_g + W_f = 11.732 - 10 - 1.732 = 0. The calculation is correct.",
+            commonPitfall: "Ignoring the signs in work calculation. Work done by forces opposing motion (gravity component, friction) is negative."
+        },
+        {
+            title: "NEET Level: Elastic Potential Energy",
+            titleTamil: "நீட் நிலை: மீட்சி நிலை ஆற்றல்",
+            difficulty: 'Easy',
+            problem: "A spring with spring constant 5 x 10³ N/m is stretched initially by 5 cm from the unstretched position. Then, it is stretched further by another 5 cm. Calculate the work done in the second stretching.",
+            problemTamil: "5 x 10³ N/m சுருள்வில் மாறிலி கொண்ட ஒரு சுருள்வில், அதன் நீட்டப்படாத நிலையிலிருந்து ஆரம்பத்தில் 5 செ.மீ நீட்டப்படுகிறது. பின்னர், அது மேலும் 5 செ.மீ நீட்டப்படுகிறது. இரண்டாவது நீட்டலில் செய்யப்பட்ட வேலையைக் கணக்கிடுக.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Work done in stretching a spring is equal to the change in its potential energy. U = (1/2)kx².",
+                    explanationTamil: "ஒரு சுருள்வில்லை நீட்டுவதில் செய்யப்படும் வேலை, அதன் நிலை ஆற்றலில் ஏற்படும் மாற்றத்திற்குச் சமம். U = (1/2)kx²."
+                },
+                {
+                    step: 2,
+                    explanation: "Calculate the initial potential energy (U_i) when stretched by x₁ = 5 cm = 0.05 m.",
+                    explanationTamil: "x₁ = 5 செ.மீ = 0.05 மீ நீட்டப்பட்டபோது ஆரம்ப நிலை ஆற்றலைக் (U_i) கணக்கிடவும்.",
+                    calculation: "U_i = (1/2) * (5 x 10³) * (0.05)² = 2500 * 0.0025 = 6.25 J"
+                },
+                {
+                    step: 3,
+                    explanation: "Calculate the final potential energy (U_f) when stretched by x₂ = 5 + 5 = 10 cm = 0.1 m.",
+                    explanationTamil: "x₂ = 5 + 5 = 10 செ.மீ = 0.1 மீ நீட்டப்பட்டபோது இறுதி நிலை ஆற்றலைக் (U_f) கணக்கிடவும்.",
+                    calculation: "U_f = (1/2) * (5 x 10³) * (0.1)² = 2500 * 0.01 = 25 J"
+                },
+                {
+                    step: 4,
+                    explanation: "The work done in the second stretching is the change in potential energy, W = U_f - U_i.",
+                    explanationTamil: "இரண்டாவது நீட்டலில் செய்யப்பட்ட வேலை நிலை ஆற்றலில் ஏற்படும் மாற்றம், W = U_f - U_i.",
+                    calculation: "W = 25 J - 6.25 J = 18.75 J"
+                }
+            ]
         }
     ],
     mcqs: [
@@ -189,6 +338,146 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             answer: "A. 4.9 kW",
             explanation: "Work done W = mgh = 100 * 9.8 * 50 = 49000 J. Power P = W/t = 49000 J / 10 s = 4900 W = 4.9 kW.",
             neetFrequency: 3
+        },
+        {
+            question: "In an elastic collision of two particles, which of the following is conserved?",
+            options: ["A. Speed of each particle", "B. Kinetic energy of each particle", "C. Total kinetic energy of the system", "D. Total potential energy of the system"],
+            answer: "C. Total kinetic energy of the system",
+            explanation: "In an elastic collision, both the total momentum and the total kinetic energy of the system are conserved. The kinetic energy of individual particles can change.",
+            neetFrequency: 5
+        },
+        {
+            question: "The potential energy of a spring increases by 10 J when it is stretched by 2 cm. If it is stretched by 8 cm, the potential energy stored in it will be:",
+            options: ["A. 40 J", "B. 80 J", "C. 160 J", "D. 320 J"],
+            answer: "C. 160 J",
+            explanation: "Potential energy U = (1/2)kx². So, U ∝ x². If the stretch increases by 4 times (from 2 cm to 8 cm), the energy increases by 4² = 16 times. So, new P.E. = 16 * 10 J = 160 J.",
+            neetFrequency: 4
+        },
+        {
+            question: "A bullet of mass m hits a block of mass M and gets embedded in it. This is an example of:",
+            options: ["A. Perfectly elastic collision", "B. Perfectly inelastic collision", "C. Oblique collision", "D. A non-collision event"],
+            answer: "B. Perfectly inelastic collision",
+            explanation: "In a perfectly inelastic collision, the two bodies stick together after the collision and move with a common velocity. Maximum kinetic energy is lost in this type of collision.",
+            neetFrequency: 3
+        },
+        {
+            question: "Work done by a centripetal force is always:",
+            options: ["A. Positive", "B. Negative", "C. Zero", "D. Dependent on the path"],
+            answer: "C. Zero",
+            explanation: "The centripetal force is always perpendicular to the direction of displacement (which is tangential). Since θ=90°, W = Fs cos(90°) = 0.",
+            neetFrequency: 2
+        },
+        {
+            question: "The relationship between kinetic energy (K) and linear momentum (p) is:",
+            options: ["A. K = p²/2m", "B. K = 2mp²", "C. K = p/2m", "D. K = 2m/p²"],
+            answer: "A. K = p²/2m",
+            explanation: "K = (1/2)mv². Multiplying and dividing by m gives K = (1/2m)(m²v²) = p²/2m.",
+            neetFrequency: 4
+        },
+        {
+            question: "A light body and a heavy body have the same momentum. Which one has greater kinetic energy?",
+            options: ["A. The light body", "B. The heavy body", "C. Both have same kinetic energy", "D. Data insufficient"],
+            answer: "A. The light body",
+            explanation: "From K = p²/2m, if momentum p is constant, then kinetic energy K is inversely proportional to mass (K ∝ 1/m). The lighter body (smaller m) will have greater kinetic energy.",
+            neetFrequency: 5
+        },
+        {
+            question: "The unit of power is Watt. One Watt is equal to:",
+            options: ["A. 1 Joule", "B. 1 Joule / second", "C. 1 Newton / second", "D. 1 Newton-meter"],
+            answer: "B. 1 Joule / second",
+            explanation: "Power is the rate of doing work or transferring energy. 1 Watt = 1 Joule per second.",
+            neetFrequency: 1
+        },
+        {
+            question: "If a force F = (5i + 3j + 2k) N is applied to a body which is displaced from r₁ = (2i - j) m to r₂ = (4i + 2j - k) m, the work done is:",
+            options: ["A. 9 J", "B. 12 J", "C. 15 J", "D. 17 J"],
+            answer: "D. 17 J",
+            explanation: "Displacement s = r₂ - r₁ = (2i + 3j - k). Work W = F · s = (5)(2) + (3)(3) + (2)(-1) = 10 + 9 - 2 = 17 J.",
+            neetFrequency: 3
+        },
+        {
+            question: "In a one-dimensional elastic collision, the coefficient of restitution (e) is:",
+            options: ["A. 0", "B. 1", "C. -1", "D. Between 0 and 1"],
+            answer: "B. 1",
+            explanation: "The coefficient of restitution e = (relative velocity of separation) / (relative velocity of approach). For a perfectly elastic collision, e=1. For a perfectly inelastic collision, e=0.",
+            neetFrequency: 2
+        },
+        {
+            question: "If the momentum of a body is increased by 50%, its kinetic energy will increase by:",
+            options: ["A. 50%", "B. 100%", "C. 125%", "D. 225%"],
+            answer: "C. 125%",
+            explanation: "New momentum p' = p + 0.5p = 1.5p. Since K ∝ p², new K' ∝ (1.5p)² = 2.25 p². So K' = 2.25K. The increase is (2.25K - K)/K = 1.25, which is 125%.",
+            neetFrequency: 4
+        },
+        {
+            question: "Work done by a variable force is measured by:",
+            options: ["A. The area under the F-t graph", "B. The area under the P-t graph", "C. The area under the F-s graph", "D. The slope of the F-s graph"],
+            answer: "C. The area under the F-s graph",
+            explanation: "Work W = ∫F ds, which represents the area under the force-displacement graph.",
+            neetFrequency: 2
+        },
+        {
+            question: "The potential energy of a system increases if work is done:",
+            options: ["A. By the system against a conservative force", "B. By a conservative force", "C. Upon the system by a non-conservative force", "D. By the system against a non-conservative force"],
+            answer: "A. By the system against a conservative force",
+            explanation: "The change in potential energy is defined as the negative of the work done by the conservative force (ΔU = -W_c). Work done *against* a conservative force (e.g., lifting an object against gravity) increases its potential energy.",
+            neetFrequency: 3
+        },
+        {
+            question: "A ball is dropped from a height h. After striking the ground, it rebounds to a height h/2. The coefficient of restitution (e) is:",
+            options: ["A. 1/2", "B. 1/√2", "C. √2", "D. 1/4"],
+            answer: "B. 1/√2",
+            explanation: "The velocity before impact is v₁ = √(2gh). The velocity after impact is v₂ = √(2g(h/2)). The coefficient of restitution e = v₂/v₁ = √(2g(h/2)) / √(2gh) = √((h/2)/h) = √(1/2) = 1/√2.",
+            neetFrequency: 3
+        },
+        {
+            question: "Which of the following is the unit of energy?",
+            options: ["A. Watt", "B. Newton", "C. Kilowatt-hour", "D. Pascal"],
+            answer: "C. Kilowatt-hour",
+            explanation: "Kilowatt-hour is a unit of energy (Power × Time). 1 kWh = 3.6 x 10⁶ J. Watt is power, Newton is force, Pascal is pressure.",
+            neetFrequency: 1
+        },
+        {
+            question: "An engine pumps water continuously through a hose. If the speed with which water passes through the hose nozzle is doubled, the kinetic energy imparted to the water:",
+            options: ["A. Doubles", "B. Becomes four times", "C. Becomes eight times", "D. Is halved"],
+            answer: "C. Becomes eight times",
+            explanation: "Power for K.E. = (1/2)(dm/dt)v². Mass flow rate dm/dt = Aρv. So, Power ∝ v³. If velocity is doubled, power becomes 2³ = 8 times.",
+            neetFrequency: 2
+        },
+        {
+            question: "The work done in holding a 15 kg suitcase while waiting for a bus for 15 minutes is:",
+            options: ["A. 225 J", "B. 1500 J", "C. 15 J", "D. 0"],
+            answer: "D. 0",
+            explanation: "In physics, work is done only when there is a displacement. Since the suitcase is not displaced, no work is done.",
+            neetFrequency: 1
+        },
+        {
+            question: "A spring of force constant 800 N/m has an extension of 5 cm. The work done in extending it from 5 cm to 15 cm is:",
+            options: ["A. 16 J", "B. 8 J", "C. 32 J", "D. 24 J"],
+            answer: "B. 8 J",
+            explanation: "Work done = U_f - U_i = (1/2)k(x₂² - x₁²) = (1/2)(800)((0.15)² - (0.05)²) = 400(0.0225 - 0.0025) = 400(0.02) = 8 J.",
+            neetFrequency: 4
+        },
+        {
+            question: "If the force applied is F and the velocity gained is v, then the power is:",
+            options: ["A. F/v", "B. Fv", "C. Fv²", "D. F/v²"],
+            answer: "B. Fv",
+            explanation: "Instantaneous power is given by the dot product of force and velocity, P = F · v.",
+            neetFrequency: 1
+        },
+        {
+            question: "When a body moves with a constant speed in a circle:",
+            options: ["A. No work is done on it", "B. No force acts on it", "C. Its velocity remains constant", "D. Its acceleration is zero"],
+            answer: "A. No work is done on it",
+            explanation: "The centripetal force is always perpendicular to the displacement, so the work done by it is zero.",
+            neetFrequency: 2
+        },
+        {
+            question: "In a perfectly inelastic collision, the relative velocity of separation is:",
+            options: ["A. 1", "B. 0", "C. -1", "D. Infinity"],
+            answer: "B. 0",
+            explanation: "In a perfectly inelastic collision, the bodies stick together after impact, so their relative velocity of separation is zero. The coefficient of restitution e=0.",
+            neetFrequency: 3
         }
     ],
     assertionReasons: [
@@ -196,13 +485,36 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             assertion: "When a body is moving up at a constant velocity, the net work done on it is zero.",
             reason: "For constant velocity, the net force on the body is zero.",
             answer: "A",
-            explanation: "Reason is correct (F_net = ma = 0 for constant v). Assertion is also correct because according to the Work-Energy theorem, W_net = ΔK.E. For constant velocity, ΔK.E = 0. The reason correctly explains the assertion."
+            explanation: "Reason is correct (F_net = ma = 0 for constant v). Assertion is also correct because according to the Work-Energy theorem, W_net = ΔK.E. For constant velocity, ΔK.E = 0. The reason correctly explains the assertion.",
+            neetFrequency: 4
         },
         {
             assertion: "The work done by friction is always negative.",
-            reason: "Frictional force is always opposite to the direction of motion.",
+            reason: "Frictional force is always opposite to the direction of motion (or tendency of motion).",
             answer: "A",
-            explanation: "Assertion and Reason are both true. The angle between frictional force and displacement is 180°, and cos(180°) = -1, making the work done negative. The reason is the correct explanation."
+            explanation: "Assertion is generally true for kinetic friction. The reason is correct. The angle between kinetic frictional force and displacement is 180°, and cos(180°) = -1, making the work done negative. The reason correctly explains the assertion.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "Kinetic energy is conserved in all types of collisions.",
+            reason: "Momentum is conserved in all types of collisions.",
+            answer: "D",
+            explanation: "Assertion is false. Kinetic energy is only conserved in perfectly elastic collisions. The reason is true (for isolated systems), but it does not justify the false assertion.",
+            neetFrequency: 5
+        },
+        {
+            assertion: "A body can have energy without having momentum.",
+            reason: "A body at rest at a certain height above the ground has potential energy but no momentum.",
+            answer: "A",
+            explanation: "Assertion is true. The reason is also true and is a perfect example. A stationary object (p=0) can possess potential energy.",
+            neetFrequency: 2
+        },
+        {
+            assertion: "The work done by a conservative force around a closed path is zero.",
+            reason: "Conservative forces depend only on the initial and final positions, not on the path taken.",
+            answer: "A",
+            explanation: "Assertion is the definition of a conservative force. The reason is also the definition of a conservative force and correctly explains why the work done in a closed loop is zero (since initial and final points are the same).",
+            neetFrequency: 3
         }
     ],
     matchTheColumns: [
@@ -211,23 +523,32 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             column2: ["(p) Kinetic energy not conserved", "(q) Rate of doing work", "(r) Work done independent of path", "(s) `W_{net} = \\Delta K.E.`"],
             answer: "a-s, b-r, c-p, d-q",
             explanation: "Matching the terms with their correct definitions or associated principles."
+        },
+        {
+            column1: ["(a) Elastic Collision", "(b) Inelastic Collision", "(c) Perfectly Inelastic Collision", "(d) Work done by friction"],
+            column2: ["(p) e = 0", "(q) e = 1", "(r) Negative", "(s) 0 < e < 1"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "Matching collision types with their coefficient of restitution (e) and work done by friction."
+        },
+        {
+            column1: ["(a) Kinetic Energy", "(b) Potential Energy", "(c) Work", "(d) Power"],
+            column2: ["(p) F · v", "(q) mgh", "(r) F · s", "(s) p²/2m"],
+            answer: "a-s, b-q, c-r, d-p",
+            explanation: "Matching physical quantities with their formulas."
+        },
+        {
+            column1: ["(a) Spring force", "(b) Gravitational force", "(c) Frictional force", "(d) Viscous force"],
+            column2: ["(p) Conservative", "(q) Non-conservative"],
+            answer: "a-p, b-p, c-q, d-q",
+            explanation: "Classifying forces as conservative or non-conservative. Spring and gravity forces are conservative. Friction and viscous drag are non-conservative."
+        },
+        {
+            column1: ["(a) `1 kWh`", "(b) `1 eV`", "(c) `1 Calorie`", "(d) `1 erg`"],
+            column2: ["(p) `4.184 J`", "(q) `1.6 x 10⁻¹⁹ J`", "(r) `10⁻⁷ J`", "(s) `3.6 x 10⁶ J`"],
+            answer: "a-s, b-q, c-p, d-r",
+            explanation: "Matching different units of energy with their value in Joules."
         }
     ],
-    keyTakeaways: [
-        "Work is energy transfer via a force.",
-        "The Work-Energy Theorem connects the net work done to the change in kinetic energy.",
-        "Mechanical energy is conserved only when all acting forces are conservative.",
-        "Power is the rate of energy transfer."
-    ],
-    mnemonics: [
-        { text: "Remember 'CON'servative forces 'CON'serve energy. Friction is a 'NON'-CONservative force.", tamil: "பாதுகாப்பு (Conservative) விசைகள் ஆற்றலைப் பாதுகாக்கும். உராய்வு ஒரு பாதுகாப்பற்ற (Non-Conservative) விசை." }
-    ],
-    neetTips: [
-        { text: "For collision problems, momentum is ALWAYS conserved (if no external force). Start there!", tamil: "மோதல் கணக்குகளில், புற விசை இல்லை என்றால், உந்தம் எப்போதும் மாறாது. அங்கிருந்து தொடங்குங்கள்!" },
-        { text: "Work done by centripetal force is always zero. This is a favorite trick question.", tamil: "மையநோக்கு விசையால் செய்யப்படும் வேலை எப்போதும் சுழி. இது ஒரு விரும்பப்படும் தந்திரமான கேள்வி." }
-    ],
-    studentTip:{english:"",tamil:""},
-    peerDiscussion:{english:"",tamil:""},
     validationReport: [
         { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
         { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
@@ -252,5 +573,3 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
         { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
     ]
 }
-
-    
