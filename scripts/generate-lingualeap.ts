@@ -21,27 +21,34 @@ const neetSyllabus: {
       'Work, Energy & Power',
       'Motion in a Straight Line',
       'Thermodynamics',
-      'Ray Optics',
+      'Ray Optics & Optical Instruments',
       'Current Electricity',
       'Electrostatics',
-      'Atoms & Nuclei',
-      'Semiconductor Electronics',
+      'Atoms',
+      'Nuclei',
+      'Semiconductor Electronics'
     ],
     bridge: [
-      'Communication Systems',
       'Electromagnetic Waves',
       'Wave Optics',
+      'Moving Charges and Magnetism',
       'Magnetism and Matter',
-      'Dual Nature of Radiation',
-      'Mechanical Properties of Fluids',
+      'Electromagnetic Induction',
+      'Dual Nature of Radiation and Matter'
     ],
     foundation: [
       'Physical World',
       'Units and Measurements',
-      'Kinetic Theory',
-      'System of Particles',
+      'Kinetic Theory of Gases',
+      'System of Particles and Rotational Motion',
       'Gravitation',
       'Mechanical Properties of Solids',
+      'Mechanical Properties of Fluids',
+      'Thermal Properties of Matter',
+      'Oscillations',
+      'Waves',
+      'Alternating Current',
+      'Communication Systems'
     ],
   },
   chemistry: [
@@ -107,7 +114,7 @@ async function run() {
 
         console.log(`✅ Validation passed for ${chapter}.`);
         
-        const safeName = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
+        const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
         const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
         
         fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -130,7 +137,7 @@ async function run() {
         
         const result = await generateNeetContent({ subject, chapter });
         
-        const safeName = chapter.replace(/[\/:]/g, '').replace(/\s+/g, '-').toLowerCase();
+        const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
         const filePath = path.resolve(__dirname, '../content/neet', subject, `${safeName}.md`);
         
         fs.mkdirSync(path.dirname(filePath), { recursive: true });

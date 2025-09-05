@@ -29,24 +29,29 @@ export async function validateModule(content: string, chapterName: string): Prom
     // The content is expected to be a string representation of a JS object.
     const objectString = content.substring(content.indexOf('{'), content.lastIndexOf('}') + 1);
     moduleObject = (new Function(`return ${objectString}`))();
-  } catch (e) {
+  } catch (e: any) {
     return {
       isValid: false,
-      errors: ['Failed to parse the generated module content into a valid object. Check for syntax errors.'],
+      errors: [`Failed to parse the generated module content into a valid object. Check for syntax errors: ${e.message}`],
     };
   }
 
   // Check 2: Verify content completeness
-  const requiredKeys: (keyof NeetModule)[] = ['id', 'title', 'chapter', 'subject', 'learningObjectives', 'prerequisites', 'conceptNotes', 'workedExamples', 'mcqs', 'assertionReasons', 'matchTheColumns'];
+  const requiredKeys: (keyof NeetModule)[] = [
+      'id', 'title', 'chapter', 'subject', 'learningObjectives', 'prerequisites', 
+      'conceptOverview', 'tamilConnection', 'culturalContext', 'conceptNotes', 
+      'workedExamples', 'mcqs', 'assertionReasons', 'matchTheColumns', 
+      'keyFormulasAndDiagrams', 'keyTakeaways', 'mnemonics', 'neetTips'
+    ];
   for (const key of requiredKeys) {
     const value = moduleObject[key];
-    if (value === undefined || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim())) {
+    if (value === undefined || value === null || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim())) {
       errors.push(`ContentCompleteness: The '${key}' section is missing or empty.`);
     }
   }
   
   // Check 3: Verify Practice Question Quotas
-  if(moduleObject.workedExamples?.length < 5) errors.push(`Question Quotas: Expected 5 Worked Examples, but found ${moduleObject.workedExamples?.length || 0}.`);
+  if(moduleObject.workedExamples?.length < 5) errors.push(`Question Quotas: Expected 5+ Worked Examples, but found ${moduleObject.workedExamples?.length || 0}.`);
   if(moduleObject.mcqs?.length < 25) errors.push(`Question Quotas: Expected 25 MCQs, but found ${moduleObject.mcqs?.length || 0}.`);
   if(moduleObject.assertionReasons?.length < 5) errors.push(`Question Quotas: Expected 5 Assertion-Reason questions, but found ${moduleObject.assertionReasons?.length || 0}.`);
   if(moduleObject.matchTheColumns?.length < 5) errors.push(`Question Quotas: Expected 5 Match-the-Columns questions, but found ${moduleObject.matchTheColumns?.length || 0}.`);
@@ -57,7 +62,7 @@ export async function validateModule(content: string, chapterName: string): Prom
   let match;
   while((match = latexRegex.exec(content)) !== null) {
       const latexContent = match[1] || match[2] || match[3] || match[4];
-      if (latexContent.match(/(?<!\\)\\(?![\\{}])/)) {
+      if (latexContent && latexContent.match(/(?<!\\)\\(?![\\{}])/)) {
           errors.push(`LaTeX Errors: Found a potential unescaped backslash in a LaTeX block: ${latexContent.substring(0, 30)}...`);
       }
   }
