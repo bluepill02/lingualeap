@@ -168,18 +168,24 @@ This is a special case of uniformly accelerated motion where the acceleration is
                 },
                 {
                     step: 4,
-                    explanation: "The relative distance covered by train B with respect to train A is given by s_rel = u_rel*t + (1/2)*a_rel*t². Let the initial distance between the front of train A and the guard (back) of train B be x.",
-                    explanationTamil: "A ரயிலைப் பொறுத்து B ரயில் கடந்த சார்பு தூரம் s_rel = u_rel*t + (1/2)*a_rel*t² ஆகும். A ரயிலின் முன்பகுதிக்கும் B ரயிலின் காப்பாளருக்கும் (பின்புறம்) இடையே உள்ள ஆரம்ப தூரம் x ஆக இருக்கட்டும்."
+                    explanation: "The relative distance covered for the guard of B to pass the driver of A is the original distance (x) plus the length of train A (400m) and the length of train B (400m). Total relative distance s_rel = x + 400 + 400 = x + 800.",
+                    explanationTamil: "B-இன் காப்பாளர் A-இன் ஓட்டுநரைக் கடக்க கடந்த சார்பு தூரம் என்பது அசல் தூரம் (x) மற்றும் ரயில் A-இன் நீளம் (400மீ) மற்றும் ரயில் B-இன் நீளம் (400மீ) ஆகியவற்றின் கூடுதலாகும். மொத்த சார்பு தூரம் s_rel = x + 800."
                 },
                 {
                     step: 5,
-                    explanation: "For the guard of B to pass the driver of A, the relative distance covered is x. So, x = s_rel.",
-                    explanationTamil: "B-இன் காப்பாளர் A-இன் ஓட்டுநரைக் கடக்க, கடந்த சார்பு தூரம் x ஆகும். எனவே, x = s_rel.",
-                    calculation: "x = (0)(50) + \\frac{1}{2}(1)(50)² = 0.5 * 2500 = 1250 m"
+                    explanation: "Use the relative kinematic equation: s_rel = u_rel*t + (1/2)*a_rel*t².",
+                    explanationTamil: "சார்பு இயக்கவியல் சமன்பாட்டைப் பயன்படுத்தவும்: s_rel = u_rel*t + (1/2)*a_rel*t².",
+                    calculation: "x + 800 = (0)(50) + \\frac{1}{2}(1)(50)² = 0.5 * 2500 = 1250 m"
+                },
+                 {
+                    step: 6,
+                    explanation: "Solve for the original distance x.",
+                    explanationTamil: "அசல் தூரம் x-ஐக் கண்டறியவும்.",
+                    calculation: "x = 1250 - 800 = 450 m"
                 }
             ],
-            commonPitfall: "The most difficult part of such problems is correctly identifying the 'relative displacement'. Drawing a clear diagram showing the initial and final positions of the relevant points (driver and guard) is essential.",
-            commonPitfallTamil: "இத்தகைய கணக்குகளில் மிகவும் கடினமான பகுதி, 'சார்பு இடப்பெயர்ச்சியை' சரியாக அடையாளம் காண்பதுதான். ஆரம்ப மற்றும் இறுதி நிலைகளைக் காட்டும் தெளிவான வரைபடத்தை வரைவது அவசியம்."
+            commonPitfall: "The most difficult part of such problems is correctly identifying the 'relative displacement'. It's the total distance that needs to be covered in the relative frame. Here, it includes the initial separation plus the lengths of both trains.",
+            commonPitfallTamil: "இத்தகைய கணக்குகளில் மிகவும் கடினமான பகுதி, 'சார்பு இடப்பெயர்ச்சியை' சரியாக அடையாளம் காண்பதுதான். இது சார்பு குறிப்பாயத்தில் கடக்க வேண்டிய மொத்த தூரம் ஆகும். இங்கு, இது ஆரம்பப் பிரிப்பு மற்றும் இரண்டு ரயில்களின் நீளங்களையும் உள்ளடக்கியது."
         },
         {
             title: "NEET Level: Average Speed",
@@ -250,8 +256,8 @@ This is a special case of uniformly accelerated motion where the acceleration is
             title: "NEET Level: Graphical Interpretation",
             titleTamil: "நீட் நிலை: வரைபட விளக்கம்",
             difficulty: 'Medium',
-            problem: "The velocity-time graph of a particle moving in a straight line is shown. Find the total displacement of the particle in 6 seconds.",
-            problemTamil: "ஒரு நேர்கோட்டில் நகரும் ஒரு துகளின் திசைவேக-கால வரைபடம் காட்டப்பட்டுள்ளது. 6 வினாடிகளில் துகளின் மொத்த இடப்பெயர்ச்சியைக் கண்டறியவும்.",
+            problem: "The velocity-time graph of a particle moving in a straight line is shown in a diagram (triangle from t=0 to t=4 with peak v=2, and an inverted triangle from t=4 to t=6 with bottom v=-2). Find the total displacement of the particle in 6 seconds.",
+            problemTamil: "ஒரு நேர்கோட்டில் நகரும் ஒரு துகளின் திசைவேக-கால வரைபடம் காட்டப்பட்டுள்ளது (t=0 முதல் t=4 வரை முக்கோணம், உச்சி v=2, மற்றும் t=4 முதல் t=6 வரை தலைகீழ் முக்கோணம், அடி v=-2). 6 வினாடிகளில் துகளின் மொத்த இடப்பெயர்ச்சியைக் கண்டறியவும்.",
             solutionSteps: [
                 {
                     step: 1,
@@ -278,6 +284,39 @@ This is a special case of uniformly accelerated motion where the acceleration is
                 }
             ]
         }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'v = u + at',
+                description: 'Velocity-Time Relation',
+                descriptionTamil: 'திசைவேக-கால தொடர்பு'
+            },
+            {
+                formula: 's = ut + \\frac{1}{2}at^2',
+                description: 'Position-Time Relation',
+                descriptionTamil: 'நிலை-கால தொடர்பு'
+            },
+            {
+                formula: 'v^2 = u^2 + 2as',
+                description: 'Position-Velocity Relation',
+                descriptionTamil: 'நிலை-திசைவேகத் தொடர்பு'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Displacement can be zero, but distance traveled cannot (for a moving body).",
+        "The three kinematic equations are only valid for constant acceleration.",
+        "Motion under gravity is a case of constant acceleration (a = -g or +g depending on convention).",
+        "The slope and area of kinematic graphs (x-t, v-t, a-t) have important physical meanings."
+    ],
+    mnemonics: [
+        { text: "Remember SUVAT for the kinematic variables: s (displacement), u (initial velocity), v (final velocity), a (acceleration), t (time).", tamil: "SUVAT: s (இடப்பெயர்ச்சி), u (தொடக்க திசைவேகம்), v (இறுதி திசைவேகம்), a (முடுக்கம்), t (காலம்) - இயக்கவியல் மாறிகளை நினைவில் கொள்க." }
+    ],
+    neetTips: [
+        { text: "For questions involving ratios of distances in free fall, remember the 1:3:5:7... rule for successive time intervals.", tamil: "தடையின்றி விழும் பொருளின் தூர விகிதங்கள் சம்பந்தப்பட்ட கேள்விகளுக்கு, அடுத்தடுத்த நேர இடைவெளிகளுக்கான 1:3:5:7... விதியை நினைவில் கொள்க." },
+        { text: "When average speed is asked for a journey split into two equal distances, always use the harmonic mean formula: 2v₁v₂/(v₁ + v₂).", tamil: "இரண்டு சம தூரங்களாகப் பிரிக்கப்பட்ட பயணத்திற்கு சராசரி வேகம் கேட்கப்பட்டால், எப்போதும் இசைச் சராசரி சூத்திரத்தைப் பயன்படுத்தவும்: 2v₁v₂/(v₁ + v₂)." }
     ],
     mcqs: [
         {
@@ -393,7 +432,7 @@ This is a special case of uniformly accelerated motion where the acceleration is
             neetFrequency: 3
         },
         {
-            question: "A particle starts from rest. Its acceleration (a) versus time (t) is as shown. The maximum speed of the particle will be:",
+            question: "A particle starts from rest. Its acceleration (a) versus time (t) is as shown (triangle from t=0 to t=11 with peak a=10). The maximum speed of the particle will be:",
             options: ["A. 110 m/s", "B. 55 m/s", "C. 550 m/s", "D. 660 m/s"],
             answer: "B. 55 m/s",
             explanation: "Maximum speed is the total area under the a-t graph. Area = (1/2) * base * height = (1/2) * 11 * 10 = 55 m/s.",
@@ -512,55 +551,5 @@ This is a special case of uniformly accelerated motion where the acceleration is
             answer: "a-r, b-q, c-p, d-s",
             explanation: "Matching the names of the kinematic equations with their formulas."
         }
-    ],
-    keyFormulasAndDiagrams: {
-        formulas: [
-            {
-                formula: 'v = u + at',
-                description: 'Velocity-Time Relation'
-            },
-            {
-                formula: 's = ut + \\frac{1}{2}at^2',
-                description: 'Position-Time Relation'
-            },
-            {
-                formula: 'v^2 = u^2 + 2as',
-                description: 'Position-Velocity Relation'
-            }
-        ],
-        diagrams: []
-    },
-    keyTakeaways: [
-        "Displacement can be zero, but distance traveled cannot (for a moving body).",
-        "The three kinematic equations are only valid for constant acceleration.",
-        "Motion under gravity is a case of constant acceleration (a = -g or +g depending on convention).",
-        "The slope and area of kinematic graphs (x-t, v-t, a-t) have important physical meanings."
-    ],
-    mnemonics: [
-        { text: "Remember SUVAT for the kinematic variables: s (displacement), u (initial velocity), v (final velocity), a (acceleration), t (time).", tamil: "SUVAT: s (இடப்பெயர்ச்சி), u (தொடக்க திசைவேகம்), v (இறுதி திசைவேகம்), a (முடுக்கம்), t (காலம்) - இயக்கவியல் மாறிகளை நினைவில் கொள்க." }
-    ],
-    neetTips: [
-        { text: "For questions involving ratios of distances in free fall, remember the 1:3:5:7... rule for successive time intervals.", tamil: "தடையின்றி விழும் பொருளின் தூர விகிதங்கள் சம்பந்தப்பட்ட கேள்விகளுக்கு, அடுத்தடுத்த நேர இடைவெளிகளுக்கான 1:3:5:7... விதியை நினைவில் கொள்க." },
-        { text: "When average speed is asked for a journey split into two equal distances, always use the harmonic mean formula: 2v₁v₂/(v₁ + v₂).", tamil: "இரண்டு சம தூரங்களாகப் பிரிக்கப்பட்ட பயணத்திற்கு சராசரி வேகம் கேட்கப்பட்டால், எப்போதும் இசைச் சராசரி சூத்திரத்தைப் பயன்படுத்தவும்: 2v₁v₂/(v₁ + v₂)." }
-    ],
-    validationReport: [
-        { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
-        { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
-        { check: 'Confirm Content Completeness', status: 'pass', message: 'OK' },
-        { check: 'Validate Module Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Maintain Quality Parity', status: 'pass', message: 'OK' },
-        { check: '"Next Module" Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Check for interactive elements like virtual labs and 3D diagrams', status: 'pass', message: 'OK' },
-        { check: 'Include interactive diagrams in Learn section', status: 'pass', message: 'OK' },
-        { check: 'Entire learn and worked examples section should be bilingual and nothing skipped', status: 'pass', message: 'OK' },
-        { check: 'Verify XML Structure', status: 'pass', message: 'OK' },
-        { check: 'Add chapter number tag to the chapter cards', status: 'pass', message: 'OK' },
-        { check: 'Check if bilingual content was added uniformly to throughout the learn and worked examples section', status: 'pass', message: 'OK' },
-        { check: 'Entire module should be double checked for errors AND nothing should be empty without suitable content', status: 'pass', message: 'OK' },
-        { check: 'Check LaTeX errors thoroughly and carefully, every letter of code', status: 'pass', message: 'OK' },
-        { check: 'Verify Color Scheme Application', status: 'pass', message: 'OK' },
-        { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
 };
-
-    
