@@ -129,34 +129,42 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
     if (!content) return null;
     const { formulas, diagrams } = content;
 
+    // Check if there's anything to render
+    const hasFormulas = formulas && formulas.length > 0;
+    const hasDiagrams = diagrams && diagrams.length > 0;
+
+    if (!hasFormulas && !hasDiagrams) return null;
+
     return (
         <Card>
             <CardHeader>
                 <CardTitle className="flex items-center gap-2"><FileText />Key Formulas &amp; Diagrams</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Formula</TableHead>
-                            <TableHead>Description</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {formulas.map((item, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="font-mono text-base">
-                                    <MarkdownRenderer>{`$$${item.formula}$$`}</MarkdownRenderer>
-                                </TableCell>
-                                <TableCell>
-                                    <BilingualText english={item.description} tamil={item.descriptionTamil} />
-                                </TableCell>
+                {hasFormulas && (
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Formula</TableHead>
+                                <TableHead>Description</TableHead>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                        </TableHeader>
+                        <TableBody>
+                            {formulas.map((item, index) => (
+                                <TableRow key={index}>
+                                    <TableCell className="font-mono text-base">
+                                        <MarkdownRenderer>{`$$${item.formula}$$`}</MarkdownRenderer>
+                                    </TableCell>
+                                    <TableCell>
+                                        <BilingualText english={item.description} tamil={item.descriptionTamil} />
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                )}
                 
-                {diagrams && diagrams.map((diagram, index) => (
+                {hasDiagrams && diagrams.map((diagram, index) => (
                     <div key={index}>
                         <Separator className="my-4" />
                         <h4 className="font-bold text-lg"><MarkdownRenderer>{diagram.title}</MarkdownRenderer></h4>
