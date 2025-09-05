@@ -353,10 +353,10 @@ A collision is an event in which two or more bodies exert forces on each other f
     ],
     keyFormulasAndDiagrams: {
         formulas: [
-            { formula: "W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta", description: "Work done by a constant force (மாறா விசையால் செய்யப்பட்ட வேலை)" },
-            { formula: "K.E. = \\frac{1}{2}mv^2 = \\frac{p^2}{2m}", description: "Kinetic Energy and its relation to momentum (இயக்க ஆற்றல் மற்றும் அதன் உந்தத்துடனான தொடர்பு)" },
-            { formula: "W_{net} = \\Delta K.E.", description: "Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)" },
-            { formula: "P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v}", description: "Power definition and instantaneous power (திறன் வரையறை மற்றும் உடனடி திறன்)" }
+            { formula: "W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta", description: "Work done by a constant force", descriptionTamil: "மாறா விசையால் செய்யப்பட்ட வேலை" },
+            { formula: "K.E. = \\frac{1}{2}mv^2 = \\frac{p^2}{2m}", description: "Kinetic Energy and its relation to momentum", descriptionTamil: "இயக்க ஆற்றல் மற்றும் அதன் உந்தத்துடனான தொடர்பு" },
+            { formula: "W_{net} = \\Delta K.E.", description: "Work-Energy Theorem", descriptionTamil: "வேலை-ஆற்றல் தேற்றம்" },
+            { formula: "P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v}", description: "Power definition and instantaneous power", descriptionTamil: "திறன் வரையறை மற்றும் உடனடி திறன்" }
         ],
         diagrams: []
     },
