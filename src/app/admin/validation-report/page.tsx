@@ -33,7 +33,8 @@ function validateModule(module: NeetModule): ValidationReport[] {
                        module.prerequisites?.length > 0 &&
                        !!module.conceptOverview &&
                        !!module.tamilConnection &&
-                       !!module.conceptNotes && (typeof module.conceptNotes === 'string' ? module.conceptNotes.length > 0 : module.conceptNotes.length > 0) &&
+                       !!module.culturalContext &&
+                       module.conceptNotes?.length > 0 &&
                        module.keyTakeaways?.length > 0 &&
                        module.neetTips?.length > 0;
     checks.push({
@@ -44,9 +45,8 @@ function validateModule(module: NeetModule): ValidationReport[] {
 
     // 3. Bilingual Support
     const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.every(note => 'tamil' in note && note.tamil);
-    const hasBilingualExamples = module.workedExamples?.every(ex => 
+     const hasBilingualExamples = module.workedExamples?.every(ex => 
         !!ex.titleTamil && 
-        !!ex.problemTamil && 
         ex.solutionSteps.every(step => !!step.explanationTamil) &&
         !!ex.neetHackTamil
     );
@@ -62,6 +62,25 @@ function validateModule(module: NeetModule): ValidationReport[] {
         check: 'Adaptive MCQ Data',
         status: hasNeetFrequency ? 'pass' : 'fail',
         message: hasNeetFrequency ? 'All MCQs have frequency rating.' : 'Missing `neetFrequency` in MCQs.'
+    });
+    
+    // 5. High Quality Check
+    const isHighQuality = !!module.validationReport && module.validationReport.every(r => r.status === 'pass');
+    checks.push({
+        check: 'High Quality',
+        status: isHighQuality ? 'pass' : 'fail',
+        message: isHighQuality ? 'Module passed self-validation.' : 'Module failed self-validation or report is missing.'
+    });
+
+    // 6. LaTeX Rendering Check
+    // This is a heuristic check for common errors like unescaped backslashes.
+    const moduleString = JSON.stringify(module);
+    const latexRegex = /(\$\$|\\\[|\\\(|\$).*?(?<!\\)\\(\w+)(.*?)(\$\$|\\\]|\\\)|\$)/g;
+    const hasLatexError = moduleString.includes('\\\\'); // A rough check for unescaped sequences
+    checks.push({
+        check: 'LaTeX Rendering',
+        status: !hasLatexError ? 'pass' : 'fail',
+        message: !hasLatexError ? 'No obvious LaTeX errors found.' : 'Potential unescaped backslash errors found.'
     });
 
 
@@ -93,11 +112,14 @@ export default function ValidationReportPage() {
                                 <TableHead>Completeness</TableHead>
                                 <TableHead>Bilingual</TableHead>
                                 <TableHead>Adaptive Data</TableHead>
+                                <TableHead>High Quality</TableHead>
+                                <TableHead>LaTeX Rendering</TableHead>
                                 <TableHead>Overall Status</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             {allModules.map(module => {
+                                if (!module || !module.id) return null;
                                 const validationResults = validateModule(module);
                                 const isOverallPass = validationResults.every(r => r.status === 'pass');
 
@@ -113,6 +135,8 @@ export default function ValidationReportPage() {
                                         <TableCell>{getStatusIcon(validationResults[1].status)}</TableCell>
                                         <TableCell>{getStatusIcon(validationResults[2].status)}</TableCell>
                                         <TableCell>{getStatusIcon(validationResults[3].status)}</TableCell>
+                                        <TableCell>{getStatusIcon(validationResults[4].status)}</TableCell>
+                                        <TableCell>{getStatusIcon(validationResults[5].status)}</TableCell>
                                         <TableCell>
                                             <Badge variant={isOverallPass ? 'success' : 'destructive'}>
                                                 {isOverallPass ? 'Pass' : 'Fail'}

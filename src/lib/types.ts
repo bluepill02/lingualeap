@@ -222,7 +222,7 @@ export interface NeetModule {
     nextChapter?: { title: string; titleTamil: string; };
     studentTip?: { english: string; tamil: string; };
     peerDiscussion?: { english: string; tamil: string; };
-    validationReport?: { check: string; status: 'pass' | 'fail'; message: string }[];
+    validationReport?: ValidationReport[];
 }
 
 export interface ValidationReport {
