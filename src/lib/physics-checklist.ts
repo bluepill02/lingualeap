@@ -55,20 +55,8 @@ export const qaChecklist: QAChecklistItem[] = [
     details: 'Ensure the "Next Module" information in the UI points to the correct subsequent chapter.',
   },
   {
-    check: "Ensure diagrams are interactive and different to suit module chapters",
-    details: "Where applicable, diagrams should be interactive components rather than static text or images.",
-  },
-  {
     check: "Check for interactive elements like virtual labs and 3D diagrams",
     details: "They should be very high quality and high yield.",
-  },
-  {
-    check: "Learn section of a module must have 3-5 3D diagrams and minimum 3 virtual labs",
-    details: "They must be high quality,highly personalized for the module chapter and high yield."
-  },
-  {
-    check: "Ensure all content is of very high quality",
-    details: "All generated content, including notes, examples, and questions, must be accurate, clear, and pedagogically sound.",
   },
   {
     check: "Include interactive diagrams in Learn section",
@@ -93,14 +81,6 @@ export const qaChecklist: QAChecklistItem[] = [
   {
     check: "Entire module should be double checked for errors AND nothing should be empty without suitable content",
     details: "Perform a final, comprehensive review of the entire module file to catch any content errors, logical flaws, or empty sections. Ensure every part of the module is complete and accurate."
-  },
-  {
-    check: "The Tamil parts for the bilingual support should always be within coloured brackets",
-    details: "The Tamil translations in bilingual sections should be enclosed in colored brackets to visually distinguish them from the English text, enhancing readability."
-  },
-  {
-    check: "Thorough and careful check of every single letter of code",
-    details: "Always do a thorough and careful check of every single letter of code, with no leniency."
   },
   {
     check: "Check LaTeX errors thoroughly and carefully, every letter of code",
