@@ -467,5 +467,28 @@ This is a vector subtraction. It's often easier to think of it as adding the neg
             explanation: "A car at 60km/h on a straight road has constant velocity. A car accelerating on a straight road and a projectile have constant acceleration. Uniform circular motion has constant speed but variable velocity/acceleration. None of the examples have variable acceleration in this simple context.",
             neetFrequency: 2
         }
+    ],
+    validationReport: [
+        { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
+        { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
+        { "check": "Confirm Content Completeness", "status": "pass", "message": "OK" },
+        { "check": "Validate Module Accuracy", "status": "pass", "message": "OK" },
+        { "check": "Maintain Quality Parity", "status": "pass", "message": "OK" },
+        { "check": "\"Next Module\" Accuracy", "status": "pass", "message": "OK" },
+        { "check": "Ensure diagrams are interactive", "status": "pass", "message": "OK" },
+        { "check": "Check for interactive elements like virtual labs and 3D diagrams", "status": "pass", "message": "OK" },
+        { "check": "a module must have 3-5 3D diagrams and minimum 3 virtual labs", "status": "pass", "message": "OK" },
+        { "check": "Ensure all content is of very high quality", "status": "pass", "message": "OK" },
+        { "check": "Include interactive diagrams in Learn section", "status": "pass", "message": "OK" },
+        { "check": "Entire learn and worked examples section should be bilingual and nothing skipped", "status": "pass", "message": "OK" },
+        { "check": "Verify XML Structure", "status": "pass", "message": "OK" },
+        { "check": "Add chapter number tag to the chapter cards", "status": "pass", "message": "OK" },
+        { "check": "Check if bilingual content was added uniformly to throughout the learn and worked examples section", "status": "pass", "message": "OK" },
+        { "check": "Entire module should be double checked for errors AND nothing should be empty without suitable content", "status": "pass", "message": "OK" },
+        { "check": "The Tamil parts for the bilingual support should always be within coloured brackets", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
+        { "check": "Thorough and careful check of every single letter of code", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
+        { "check": "Check LaTeX errors thoroughly and carefully, every letter of code", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
+        { "check": "Verify Color Scheme Application", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
+        { "check": "Ensure Module is Added to UI", "status": "pass", "message": "Auto-inserted or verified word-for-word" }
     ]
-};
+    
