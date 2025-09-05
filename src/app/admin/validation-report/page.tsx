@@ -28,10 +28,10 @@ function validateModule(module: NeetModule): ValidationReport[] {
     // 1. Question Quotas
     checks.push({
         check: 'Question Quotas',
-        status: module.workedExamples?.length >= 5 &&
-                module.mcqs?.length >= 25 &&
-                module.assertionReasons?.length >= 5 &&
-                module.matchTheColumns?.length >= 5 ? 'pass' : 'fail',
+        status: (module.workedExamples?.length || 0) >= 5 &&
+                (module.mcqs?.length || 0) >= 25 &&
+                (module.assertionReasons?.length || 0) >= 5 &&
+                (module.matchTheColumns?.length || 0) >= 5 ? 'pass' : 'fail',
         message: `Found: ${module.workedExamples?.length || 0} WE, ${module.mcqs?.length || 0} MCQs, ${module.assertionReasons?.length || 0} A/R, ${module.matchTheColumns?.length || 0} MTC.`
     });
 
@@ -39,7 +39,14 @@ function validateModule(module: NeetModule): ValidationReport[] {
     const missingOrEmptySections = requiredSections.filter(section => {
         const value = module[section];
         if (value === undefined || value === null) return true;
-        if (Array.isArray(value) && value.length === 0) return true;
+        if (Array.isArray(value) && value.length === 0) {
+           // keyFormulasAndDiagrams can be empty if its sub-arrays are empty.
+           if(section === 'keyFormulasAndDiagrams') {
+               const kd = value as any;
+               return !(kd.formulas?.length > 0 || kd.diagrams?.length > 0);
+           }
+           return true;
+        }
         if (typeof value === 'string' && !value.trim()) return true;
         if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) return true;
         return false;
@@ -51,7 +58,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
     });
     
     // 3. Bilingual Support
-    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.length > 0 && module.conceptNotes.every(note => 'english' in note && 'tamil' in note);
+    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.length > 0 && module.conceptNotes.every(note => 'english' in note && !!note.tamil);
     const hasBilingualExamples = Array.isArray(module.workedExamples) && module.workedExamples.length > 0 && module.workedExamples.every(ex => 
         !!ex.titleTamil && 
         ex.solutionSteps.every(step => !!step.explanationTamil) &&
@@ -81,7 +88,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
 
     // 6. LaTeX Rendering Check
     const moduleString = JSON.stringify(module);
-    const hasLatexError = /\\(?!frac|cdot|implies|vec|sqrt|pi|times|sum|int|oint|partial|nabla|hat|vec|bar|sin|cos|tan|log|ln|exp|alpha|beta|gamma|delta|epsilon|theta|lambda|mu|nu|xi|rho|sigma|tau|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Phi|Psi|Omega|mathrm|mathbf|mathcal|mathfrak|mathbb|textit|textbf|emph|times|div|pm|mp|cdot|cdots|ldots|ddots|vdots|left|right|begin|end|[{}()\[\]\\]))/.test(moduleString.replace(/\\\\/g, ''));
+    const hasLatexError = /\\(?!frac|cdot|implies|vec|sqrt|pi|times|sum|int|oint|partial|nabla|hat|vec|bar|sin|cos|tan|log|ln|exp|alpha|beta|gamma|delta|epsilon|theta|lambda|mu|nu|xi|rho|sigma|tau|phi|chi|psi|omega|Gamma|Delta|Theta|Lambda|Xi|Pi|Sigma|Phi|Psi|Omega|mathrm|mathbf|mathcal|mathfrak|mathbb|textit|textbf|emph|times|div|pm|mp|cdot|cdots|ldots|ddots|vdots|left|right|begin|end|[{}()\[\]\\])/.test(moduleString.replace(/\\\\/g, ''));
     checks.push({
         check: 'LaTeX Rendering',
         status: !hasLatexError ? 'pass' : 'fail',
@@ -169,7 +176,7 @@ export default function ValidationReportPage() {
 
                                     return (
                                         <TableRow key={module.id}>
-                                            <TableCell className="font-bold whitespace-nowrap">{module.chapter}</TableCell>
+                                            <TableCell className="font-bold whitespace-nowrap">{module.title}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Question Quotas'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Content Completeness'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Bilingual Support'))}</TableCell>
