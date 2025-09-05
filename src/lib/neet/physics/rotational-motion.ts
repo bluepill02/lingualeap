@@ -1,5 +1,6 @@
 
 import type { NeetModule } from '@/lib/types';
+import { IceSkaterAnimation } from '@/components/exam/IceSkaterAnimation';
 
 export const rotationalMotion: NeetModule = {
     id: 'neet-physics-rotational-motion',
@@ -89,7 +90,6 @@ export const rotationalMotion: NeetModule = {
                 { step: 3, explanation: "Calculate the final moment of inertia (I_f) after pulling the arms in.", calculation: "I_f = I_{man} + 2 * (m_{mass} * r_f^2) = 3 + 2 * (5 * (0.2)^2) = 3 + 10 * (0.04) = 3 + 0.4 = 3.4 \\text{ kg·m²}" },
                 { step: 4, explanation: "Use the conservation equation to find the final angular speed ω_f.", calculation: "13 * 2 = 3.4 * ω_f \\implies ω_f = 26 / 3.4 ≈ 7.65 \\text{ rad/s}" }
             ],
-            neetHack: "This is a classic problem. Remember that when mass moves closer to the axis of rotation, 'I' decreases, and 'ω' must increase to conserve angular momentum.",
             commonPitfall: "Forgetting to include the moment of inertia of the man/turntable, or only accounting for one of the two masses."
         },
         {
@@ -116,18 +116,63 @@ export const rotationalMotion: NeetModule = {
         { question: "The center of mass of a system of three particles of masses 1kg, 2kg, and 3kg located at (1,1), (2,2), and (3,3) respectively is:", options: ["A. (2,2)", "B. (3,3)", "C. (7/3, 7/3)", "D. (14/3, 14/3)"], answer: "C. (7/3, 7/3)", explanation: "X_cm = (1*1 + 2*2 + 3*3)/(1+2+3) = (1+4+9)/6 = 14/6 = 7/3. By symmetry, Y_cm is also 7/3.", neetFrequency: 3 }
     ],
     assertionReasons: [
-        { assertion: "The center of mass of a body may lie where there is no mass.", reason: "The center of mass of a uniform ring is at its geometric center.", answer: "A", explanation: "The assertion is true, and the reason provides a perfect example (a ring or a hollow sphere). The reason correctly explains the assertion.", neetFrequency: 3 },
-        { assertion: "The moment of inertia of a body is a measure of its rotational inertia.", reason: "A body with a larger moment of inertia is easier to rotate.", answer: "C", explanation: "The assertion is true, that's the definition of rotational inertia. The reason is false. A larger moment of inertia means more resistance to rotation, so it is harder, not easier, to rotate.", neetFrequency: 4 },
-        { assertion: "If no external torque acts on a system, its angular velocity remains constant.", reason: "Conservation of angular momentum means Iω = constant.", answer: "D", explanation: "The assertion is false. Angular *momentum* (L=Iω) remains constant, not necessarily angular velocity (ω). If I changes, ω will change. The reason is a true statement.", neetFrequency: 5 },
-        { assertion: "A rolling solid sphere will reach the bottom of an incline faster than a rolling hollow sphere of the same mass and radius.", reason: "The solid sphere has a smaller moment of inertia.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation. Acceleration down an incline for a rolling object is a = g sin(θ) / (1 + I/MR²). Since I is smaller for a solid sphere, its acceleration is greater.", neetFrequency: 4 },
-        { assertion: "Torque is a vector quantity and its direction is perpendicular to both the position vector and the force vector.", reason: "Torque is defined as the cross product of the position vector and the force vector.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation. The direction of a cross product is perpendicular to the plane containing the two vectors.", neetFrequency: 2 }
+        {
+            assertion: "The center of mass of a body may lie where there is no mass.",
+            reason: "The center of mass of a uniform ring is at its geometric center.",
+            answer: "A",
+            explanation: "The assertion is true, and the reason provides a perfect example (a ring or a hollow sphere). The reason correctly explains the assertion."
+        },
+        {
+            assertion: "The moment of inertia of a body is a measure of its rotational inertia.",
+            reason: "A body with a larger moment of inertia is easier to rotate.",
+            answer: "C",
+            explanation: "The assertion is true, that's the definition of rotational inertia. The reason is false. A larger moment of inertia means more resistance to rotation, so it is harder, not easier, to rotate."
+        },
+        {
+            assertion: "If no external torque acts on a system, its angular velocity remains constant.",
+            reason: "Conservation of angular momentum means Iω = constant.",
+            answer: "D",
+            explanation: "The assertion is false. Angular *momentum* (L=Iω) remains constant, not necessarily angular velocity (ω). If I changes, ω will change. The reason is a true statement."
+        },
+        {
+            assertion: "A rolling solid sphere will reach the bottom of an incline faster than a rolling hollow sphere of the same mass and radius.",
+            reason: "The solid sphere has a smaller moment of inertia.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. Acceleration down an incline for a rolling object is a = g sin(θ) / (1 + I/MR²). Since I is smaller for a solid sphere, its acceleration is greater."
+        },
+        {
+            assertion: "Torque is a vector quantity and its direction is perpendicular to both the position vector and the force vector.",
+            reason: "Torque is defined as the cross product of the position vector and the force vector.",
+            answer: "A",
+            explanation: "Assertion is true. The reason is also true and is the correct explanation. The direction of a cross product is perpendicular to the plane containing the two vectors."
+        }
     ],
     matchTheColumns: [
-        { column1: ["(a) Center of Mass", "(b) Torque", "(c) Angular Momentum", "(d) Moment of Inertia"], column2: ["(p) `Iω`", "(q) `Σmr²`", "(r) `Σmᵢrᵢ / Σmᵢ`", "(s) `r x F`"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching rotational quantities with their definitions or formulas." },
-        { column1: ["(a) Rolling a ring", "(b) Rolling a disc", "(c) Rolling a solid sphere", "(d) Sliding without friction"], column2: ["(p) K_rot / K_trans = 1/2", "(q) K_rot / K_trans = 1", "(r) K_rot / K_trans = 2/5", "(s) K_rot / K_trans = 0"], answer: "a-q, b-p, c-r, d-s", explanation: "Matching rolling bodies with the ratio of their rotational to translational kinetic energy." },
-        { column1: ["(a) Moment of inertia of a ring about diameter", "(b) Moment of inertia of a disc about diameter", "(c) Moment of inertia of a solid sphere about diameter", "(d) Moment of inertia of a ring about tangent in plane"], column2: ["(p) (1/4)MR²", "(q) (1/2)MR²", "(r) (3/2)MR²", "(s) (2/5)MR²"], answer: "a-q, b-p, c-s, d-r", explanation: "Matching objects with their moments of inertia about specified axes." },
-        { column1: ["(a) Linear Velocity", "(b) Linear Acceleration", "(c) Force", "(d) Mass"], column2: ["(p) Torque", "(q) Moment of Inertia", "(r) Angular Velocity", "(s) Angular Acceleration"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching linear motion quantities with their rotational analogues." },
-        { column1: ["(a) `I = I_cm + Md²`", "(b) `L = Iω`", "(c) `τ = Iα`", "(d) `L = constant`"], column2: ["(p) Newton's second law for rotation", "(q) Conservation of angular momentum", "(r) Parallel axis theorem", "(s) Relation for angular momentum"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching equations with the names of the laws or theorems they represent." }
+        {
+            column1: ["(a) Center of Mass", "(b) Torque", "(c) Angular Momentum", "(d) Moment of Inertia"],
+            column2: ["(p) `Iω`", "(q) `Σmr²`", "(r) `Σmᵢrᵢ / Σmᵢ`", "(s) `r x F`"],
+            answer: "a-r, b-s, c-p, d-q"
+        },
+        {
+            column1: ["(a) Rolling a ring", "(b) Rolling a disc", "(c) Rolling a solid sphere", "(d) Sliding without friction"],
+            column2: ["(p) K_rot / K_trans = 1/2", "(q) K_rot / K_trans = 1", "(r) K_rot / K_trans = 2/5", "(s) K_rot / K_trans = 0"],
+            answer: "a-q, b-p, c-r, d-s"
+        },
+        {
+            column1: ["(a) Moment of inertia of a ring about diameter", "(b) Moment of inertia of a disc about diameter", "(c) Moment of inertia of a solid sphere about diameter", "(d) Moment of inertia of a ring about tangent in plane"],
+            column2: ["(p) (1/4)MR²", "(q) (1/2)MR²", "(r) (3/2)MR²", "(s) (2/5)MR²"],
+            answer: "a-q, b-p, c-s, d-r"
+        },
+        {
+            column1: ["(a) Linear Velocity", "(b) Linear Acceleration", "(c) Force", "(d) Mass"],
+            column2: ["(p) Torque", "(q) Moment of Inertia", "(r) Angular Velocity", "(s) Angular Acceleration"],
+            answer: "a-r, b-s, c-p, d-q"
+        },
+        {
+            column1: ["(a) `I = I_cm + Md²`", "(b) `L = Iω`", "(c) `τ = Iα`", "(d) `L = constant`"],
+            column2: ["(p) Newton's second law for rotation", "(q) Conservation of angular momentum", "(r) Parallel axis theorem", "(s) Relation for angular momentum"],
+            answer: "a-r, b-s, c-p, d-q"
+        }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
