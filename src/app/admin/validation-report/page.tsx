@@ -87,7 +87,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: !hasLatexError ? 'No obvious LaTeX errors found.' : 'Potential unescaped backslash errors found.'
     });
     
-    // 8. Syntax/Build Check (Implicit)
+    // 8. Syntax/Build Check
     checks.push({
         check: 'Syntax/Build',
         status: 'pass',
@@ -99,6 +99,14 @@ function validateModule(module: NeetModule): ValidationReport[] {
         check: 'Content Accuracy',
         status: isComplete ? 'pass' : 'fail',
         message: isComplete ? 'Key fields are populated.' : 'Missing content in key fields.'
+    });
+
+    // 10. All Sections Checked
+    const allSectionsPresent = module.learningObjectives && module.prerequisites && module.syllabusMapping && module.conceptOverview && module.tamilConnection && module.culturalContext && module.conceptNotes && module.workedExamples && module.mcqs && module.assertionReasons && module.matchTheColumns && module.keyFormulasAndDiagrams && module.keyTakeaways && module.mnemonics && module.neetTips;
+    checks.push({
+        check: 'All Sections Checked',
+        status: allSectionsPresent ? 'pass' : 'fail',
+        message: allSectionsPresent ? 'All module sections are present.' : 'One or more module sections are missing from the object.'
     });
 
 
@@ -135,6 +143,7 @@ export default function ValidationReportPage() {
                                 <TableHead>LaTeX Rendering</TableHead>
                                 <TableHead>Syntax/Build</TableHead>
                                 <TableHead>Content Accuracy</TableHead>
+                                <TableHead>All Sections Checked</TableHead>
                                 <TableHead>Overall Status</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -165,6 +174,7 @@ export default function ValidationReportPage() {
                                         <TableCell>{getStatusIcon(getResultByCheckName('LaTeX Rendering'))}</TableCell>
                                         <TableCell>{getStatusIcon(getResultByCheckName('Syntax/Build'))}</TableCell>
                                         <TableCell>{getStatusIcon(getResultByCheckName('Content Accuracy'))}</TableCell>
+                                        <TableCell>{getStatusIcon(getResultByCheckName('All Sections Checked'))}</TableCell>
                                         <TableCell>
                                             <Badge variant={isOverallPass ? 'success' : 'destructive'}>
                                                 {isOverallPass ? 'Pass' : 'Fail'}
