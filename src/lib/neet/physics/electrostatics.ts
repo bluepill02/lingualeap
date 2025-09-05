@@ -126,7 +126,9 @@ $$`
                 { step: 2, explanation: "Calculate the total flux. ε₀ ≈ 8.85 x 10⁻¹² C²/N·m².", calculation: "Φ_total = (10 × 10⁻⁶ C) / (8.85 × 10⁻¹² C²/N·m²) ≈ 1.13 × 10⁶ N·m²/C" },
                 { step: 3, explanation: "A cube has 6 identical faces. Since the charge is at the center, the flux is distributed symmetrically through all faces.", explanationTamil: "ஒரு கனசதுரத்திற்கு 6 ஒத்த முகங்கள் உள்ளன. மின்னூட்டம் மையத்தில் இருப்பதால், பாயம் அனைத்து முகங்களிலும் சமச்சீராக விநியோகிக்கப்படுகிறது." },
                 { step: 4, explanation: "The flux through one face is the total flux divided by 6.", calculation: "Φ_face = Φ_total / 6 = (1.13 × 10⁶) / 6 ≈ 1.88 × 10⁵ N·m²/C" }
-            ]
+            ],
+            neetHack: "This is a standard problem. The shape or size of the symmetrical surface (cube, sphere) does not matter for the total flux, only the enclosed charge does.",
+            commonPitfall: "Forgetting to divide by 6 for a single face, or thinking the size of the cube affects the total flux."
         },
         {
             title: "Capacitor Network",
@@ -159,7 +161,8 @@ $$`
                 { step: 5, explanation: "Calculate the final energy U_f = (1/2)C_eq * V_common².", calculation: "U_f = (1/2)(30 × 10⁻⁶)(\\frac{1000}{3})² = 15 \\times 10^{-6} \\times \\frac{10^6}{9} = \\frac{15}{9} \\approx 1.67 J" },
                 { step: 6, explanation: "The loss of energy is ΔU = U_i - U_f.", calculation: "ΔU = 2.5 J - 1.67 J = 0.83 J" }
             ],
-            neetHack: "The formula for energy loss when connecting a charged capacitor C₁ to an uncharged C₂ is ΔU = (1/2) * (C₁C₂ / (C₁+C₂)) * V₁². This is faster than calculating initial and final energies separately."
+            neetHack: "The formula for energy loss when connecting a charged capacitor C₁ to an uncharged C₂ is ΔU = (1/2) * (C₁C₂ / (C₁+C₂)) * V₁². This is faster than calculating initial and final energies separately.",
+            commonPitfall: "Assuming energy is conserved. Charge is conserved, but energy is lost as heat in the connecting wires when the charge redistributes."
         }
     ],
     mcqs: [
@@ -228,16 +231,22 @@ $$`
         ],
         diagrams: []
     },
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
-    studentTip:{
-        english:"Master the sign conventions for mirrors and lenses early. It is the most common source of errors. Practice drawing ray diagrams to build intuition.",
-        tamil:"ஆடிகள் மற்றும் லென்சுகளுக்கான குறியீட்டு மரபுகளை ஆரம்பத்திலேயே நன்கு கற்றுக்கொள்ளுங்கள். இதுவே பிழைகளின் மிகவும் பொதுவான மூலமாகும். உள்ளுணர்வை வளர்க்க கதிர் வரைபடங்களை வரைந்து பயிற்சி செய்யுங்கள்."
+    keyTakeaways: [
+        "Like charges repel, and unlike charges attract (Coulomb's Law).",
+        "The electric field inside a conductor in electrostatic equilibrium is zero.",
+        "Gauss's law simplifies electric field calculations for symmetric charge distributions.",
+        "Capacitors store energy in the electric field between their plates."
+    ],
+    mnemonics: [
+      { text: "For capacitor combinations, remember they are the *opposite* of resistors. Series capacitors add like parallel resistors (1/C_s = 1/C₁ + ...), and parallel capacitors add directly (C_p = C₁ + ...).", tamil: "மின்தேக்கி இணைப்புகளுக்கு, அவை மின்தடையாக்கிகளுக்கு *எதிரானது* என்பதை நினைவில் கொள்க. தொடர் மின்தேக்கிகள் பக்க இணைப்பு மின்தடையாக்கிகள் போலக் கூட்டப்படும், மற்றும் பக்க இணைப்பு மின்தேக்கிகள் நேரடியாகக் கூட்டப்படும்." }
+    ],
+    studentTip: {
+        english: "Master the sign conventions for potential and potential energy. Work done by the electric field decreases potential energy.",
+        tamil: "மின்னழுத்தம் மற்றும் நிலை ஆற்றலுக்கான குறியீட்டு மரபுகளை நன்கு கற்றுக்கொள்ளுங்கள். மின்புலத்தால் செய்யப்படும் வேலை நிலை ஆற்றலைக் குறைக்கிறது."
     },
-    peerDiscussion:{
-        english:"Discuss with a friend why the sky appears blue but clouds appear white. It involves understanding Rayleigh scattering and the size of the scattering particles.",
-        tamil:"வானம் ஏன் நீல நிறமாகத் தோன்றுகிறது, ஆனால் மேகங்கள் வெண்மையாகத் தோன்றுகின்றன என்று உங்கள் நண்பருடன் விவாதிக்கவும். இது ராலே சிதறல் மற்றும் சிதறல் துகள்களின் அளவைப் புரிந்துகொள்வதை உள்ளடக்கியது."
+    peerDiscussion: {
+        english: "Discuss with a friend why a comb run through dry hair can pick up small pieces of paper. What are the roles of induction and polarization in this?",
+        tamil: "உலர்ந்த தலைமுடியில் சீவிய ஒரு சீப்பு ஏன் சிறிய காகிதத் துண்டுகளை எடுக்க முடிகிறது என்று உங்கள் நண்பருடன் விவாதிக்கவும். இதில் தூண்டல் மற்றும் தளவிளைவின் பங்குகள் என்ன?"
     },
     validationReport: []
 }
