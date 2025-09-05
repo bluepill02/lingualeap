@@ -27,6 +27,7 @@ import {
   Bot,
   Radio,
   Megaphone,
+  ShieldCheck,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -70,6 +71,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/exam-prep',
       label: 'Exam Module',
       icon: ClipboardCheck,
+    },
+     {
+      href: '/admin/validation-report',
+      label: 'Validation Report',
+      icon: ShieldCheck,
     },
     {
       href: '/ar-immersion',

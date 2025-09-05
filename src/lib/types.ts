@@ -225,6 +225,12 @@ export interface NeetModule {
     validationReport?: { check: string; status: 'pass' | 'fail'; message: string }[];
 }
 
+export interface ValidationReport {
+  check: string;
+  status: 'pass' | 'fail';
+  message: string;
+}
+
 
 export interface ExamModule {
     id: string;
