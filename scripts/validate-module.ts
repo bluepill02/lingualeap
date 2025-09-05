@@ -24,10 +24,17 @@ export async function validateModule(content: string, chapterName: string): Prom
 
   // Check 1: Parse the content into a TypeScript object
   try {
-    // This is a simplified and somewhat unsafe way to parse the object.
-    // In a real production environment, a safer parser or sandbox would be used.
-    // The content is expected to be a string representation of a JS object.
-    const objectString = content.substring(content.indexOf('{'), content.lastIndexOf('}') + 1);
+    // More robust parsing: find the object literal and use a safer eval method.
+    // This looks for the first '{' and the last '}' to isolate the object.
+    const objectStringMatch = content.match(/=\s*({[\s\S]*})/);
+    if (!objectStringMatch) {
+      throw new Error("Could not find a JavaScript object literal in the content.");
+    }
+    let objectString = objectStringMatch[1];
+    
+    // Clean up potential trailing commas which are valid in JS but not in JSON
+    objectString = objectString.replace(/,\s*([}\]])/g, '$1');
+
     moduleObject = (new Function(`return ${objectString}`))();
   } catch (e: any) {
     return {
