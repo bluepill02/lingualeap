@@ -3,6 +3,7 @@
 
 import * as React from 'react';
 import { MarkdownRenderer } from './markdown-renderer';
+import { cn } from '@/lib/utils';
 
 interface BilingualTextProps {
   english: string;
@@ -12,12 +13,12 @@ interface BilingualTextProps {
 
 export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, className }) => {
   return (
-    <div className={className}>
+    <div className={cn('prose dark:prose-invert max-w-none text-foreground', className)}>
       <MarkdownRenderer>{english}</MarkdownRenderer>
       {tamil && (
-        <div className="italic text-sm mt-1 !text-accent">
+        <span className="italic text-accent ml-1">
             <MarkdownRenderer>{`(${tamil})`}</MarkdownRenderer>
-        </div>
+        </span>
       )}
     </div>
   );

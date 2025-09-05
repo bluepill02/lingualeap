@@ -55,7 +55,7 @@ export const qaChecklist: QAChecklistItem[] = [
     details: 'Ensure the "Next Module" information in the UI points to the correct subsequent chapter.',
   },
   {
-    check: "Ensure diagrams are interactive",
+    check: "Ensure diagrams are interactive and different to suit module chapters",
     details: "Where applicable, diagrams should be interactive components rather than static text or images.",
   },
   {
@@ -63,8 +63,8 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "They should be very high quality and high yield.",
   },
   {
-    check: "a module must have 3-5 3D diagrams and minimum 3 virtual labs",
-    details: "They must be high quality and high yield."
+    check: "Learn section of a module must have 3-5 3D diagrams and minimum 3 virtual labs",
+    details: "They must be high quality,highly personalized for the module chapter and high yield."
   },
   {
     check: "Ensure all content is of very high quality",
