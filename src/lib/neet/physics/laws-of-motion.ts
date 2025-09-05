@@ -318,7 +318,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                 {
                     step: 6,
                     explanation: "Substitute the value of 'a' back into equation (2) to find the tension T.",
-                    explanationTamil: "இழுவிசை T ஐக் கண்டுபிடிக்க 'a' இன் மதிப்பை சமன்பாடு (2) இல் மீண்டும் பிரதியிடவும்.",
+                    explanationTamil: "இழுவிசை T ஐக் கண்டறிய 'a' இன் மதிப்பை சமன்பாடு (2) இல் மீண்டும் பிரதியிடவும்.",
                     calculation: "T = m₁g + m₁a = 5(10) + 5(\\frac{10}{3}) = 50 + \\frac{50}{3} = \\frac{150+50}{3} = \\frac{200}{3} N"
                 }
             ],
@@ -398,68 +398,6 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             neetHackTamil: "சமதள சாலைகளுக்கு, v_max = √(μgR). உராய்வு இல்லாத சாய்தள சாலைகளுக்கு, v_optimal = √(Rg tanθ). ஒற்றுமையைக் கவனியுங்கள். உராய்வுக்கு பதிலாக சாய்வு மையநோக்கு விசையை வழங்கும்போது 'μ' என்ற பதம் 'tanθ' ஆல் மாற்றப்படுகிறது."
         }
     ],
-    keyFormulasAndDiagrams: {
-        formulas: [
-            {
-                formula: '\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}',
-                description: 'The fundamental form of Newton\'s 2nd Law. Crucial for variable mass systems.',
-                descriptionTamil: 'நியூட்டனின் 2ம் விதியின் அடிப்படை வடிவம். மாறும் நிறை அமைப்புகளுக்கு முக்கியமானது.'
-            },
-            {
-                formula: 'f_{s,max} = \\mu_s N',
-                description: 'Maximum static friction. Friction opposes the tendency of motion.',
-                descriptionTamil: 'பெரும நிலை உராய்வு. உராய்வு இயக்கத்தின் போக்கை எதிர்க்கிறது.'
-            },
-            {
-                formula: 'f_k = \\mu_k N',
-                description: 'Kinetic friction. Acts on a moving body, opposing motion.',
-                descriptionTamil: 'இயக்க உராய்வு. நகரும் பொருளின் மீது செயல்பட்டு, இயக்கத்தை எதிர்க்கிறது.'
-            },
-            {
-                formula: 'N = m(g \\pm a)',
-                description: 'Apparent weight in a lift. Use + for upward acceleration, - for downward.',
-                descriptionTamil: 'மின் தூக்கியில் தோற்ற எடை. மேல்நோக்கிய முடுக்கத்திற்கு +, கீழ்நோக்கிய முடுக்கத்திற்கு - பயன்படுத்தவும்.'
-            }
-        ],
-        diagrams: [
-             {
-                title: 'Free-Body Diagram of a Block on an Incline (சாய்தளத்தில் உள்ள கட்டையின் தனித்த பொருளின் விசைப் படம்)',
-                description: 'Decomposing the weight vector `mg` into components parallel and perpendicular to the incline is the key first step. (`mg` எடை வெக்டரை சாய்தளத்திற்கு இணையாகவும் செங்குத்தாகவும் கூறுகளாகப் பிரிப்பது முதல் முக்கிய படியாகும்.)',
-                fbd: {
-                    body: "Block",
-                    forces: [
-                        { name: "mg", direction: "down", showComponents: true },
-                        { name: "N", direction: "up-left" },
-                        { name: "f", direction: "up-right" }
-                    ],
-                    isAngled: true,
-                    context: "Key forces on an inclined plane."
-                }
-            }
-        ]
-    },
-    keyTakeaways: [
-        "First Law: Inertia - objects resist change in motion.",
-        "Second Law: F = ma - net force causes acceleration.",
-        "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
-        "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
-    ],
-    mnemonics: [
-        { text: "Remember FMA: Force = Mass × Acceleration.", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
-        { text: "Action-reaction pairs are a two-way street; they never act on the same body.", tamil: "செயல்-எதிர்ச்செயல் விசைகள் எப்போதும் வெவ்வேறு பொருட்கள் மீது செயல்படும்." }
-    ],
-    nextChapter: {
-        title: "Work, Energy and Power",
-        titleTamil: "வேலை, ஆற்றல் மற்றும் திறன்"
-    },
-    studentTip: {
-        english: "Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!",
-        tamil: "நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"
-    },
-    peerDiscussion: {
-        english: "Discuss force and motion problems with your friends. Practice drawing FBDs for different situations, like a car on a banked road.",
-        tamil: "உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்கப் பிரச்சினைகளை விவாதிக்கவும். வளைவான சாலையில் செல்லும் கார் போன்ற வெவ்வேறு சூழ்நிலைகளுக்கு FBD வரைந்து பயிற்சி செய்யுங்கள்."
-    },
     mcqs: [
         {
             question: "A car suddenly starts from rest. Passengers feel pushed backward due to:",
@@ -701,6 +639,78 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
             explanation: "a->No displacement, no work. b->Work done by centripetal force is zero. c->Work done by gravity is positive. d->Work done by friction is negative."
         }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: '\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}',
+                description: 'The fundamental form of Newton\'s 2nd Law. Crucial for variable mass systems.',
+                descriptionTamil: 'நியூட்டனின் 2ம் விதியின் அடிப்படை வடிவம். மாறும் நிறை அமைப்புகளுக்கு முக்கியமானது.'
+            },
+            {
+                formula: 'f_{s,max} = \\mu_s N',
+                description: 'Maximum static friction. Friction opposes the tendency of motion.',
+                descriptionTamil: 'பெரும நிலை உராய்வு. உராய்வு இயக்கத்தின் போக்கை எதிர்க்கிறது.'
+            },
+            {
+                formula: 'f_k = \\mu_k N',
+                description: 'Kinetic friction. Acts on a moving body, opposing motion.',
+                descriptionTamil: 'இயக்க உராய்வு. நகரும் பொருளின் மீது செயல்பட்டு, இயக்கத்தை எதிர்க்கிறது.'
+            },
+            {
+                formula: 'N = m(g \\pm a)',
+                description: 'Apparent weight in a lift. Use + for upward acceleration, - for downward.',
+                descriptionTamil: 'மின் தூக்கியில் தோற்ற எடை. மேல்நோக்கிய முடுக்கத்திற்கு +, கீழ்நோக்கிய முடுக்கத்திற்கு - பயன்படுத்தவும்.'
+            }
+        ],
+        diagrams: [
+             {
+                title: 'Free-Body Diagram of a Block on an Incline (சாய்தளத்தில் உள்ள கட்டையின் தனித்த பொருளின் விசைப் படம்)',
+                description: 'Decomposing the weight vector `mg` into components parallel and perpendicular to the incline is the key first step. (`mg` எடை வெக்டரை சாய்தளத்திற்கு இணையாகவும் செங்குத்தாகவும் கூறுகளாகப் பிரிப்பது முதல் முக்கிய படியாகும்.)',
+                fbd: {
+                    body: "Block",
+                    forces: [
+                        { name: "mg", direction: "down", showComponents: true },
+                        { name: "N", direction: "up-left" },
+                        { name: "f", direction: "up-right" }
+                    ],
+                    isAngled: true,
+                    context: "Key forces on an inclined plane."
+                }
+            }
+        ]
+    },
+    keyTakeaways: [
+        "First Law: Inertia - objects resist change in motion.",
+        "Second Law: F = ma - net force causes acceleration.",
+        "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
+        "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
+    ],
+    mnemonics: [
+        { text: "Remember FMA: Force = Mass × Acceleration.", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
+        { text: "Action-reaction pairs are a two-way street; they never act on the same body.", tamil: "செயல்-எதிர்ச்செயல் விசைகள் எப்போதும் வெவ்வேறு பொருட்கள் மீது செயல்படும்." }
+    ],
+    neetTips: [
+        {
+            text: "For connected blocks, always treat them as a single system to find acceleration first: a = Fₙₑₜ₋ₑₓₜₑᵣₙₐₗ / Mₜₒₜₐₗ. Then isolate one block (usually the one with fewer forces) to find internal forces like tension.",
+            tamil: "இணைக்கப்பட்ட கட்டைகளுக்கு, முதலில் முடுக்கத்தைக் கண்டுபிடிக்க முழு அமைப்பையும் ஒரே பொருளாகக் கருதுங்கள்: a = Fₙₑₜ₋ₑₓₜₑᵣₙₐₗ / Mₜₒₜₐₗ. பிறகு, இழுவிசை போன்ற அக விசைகளைக் கண்டுபிடிக்க, குறைவான விசைகள் கொண்ட ஒரு கட்டையைத் தனிமைப்படுத்தவும்."
+        },
+        {
+            text: "In problems involving lifts (non-inertial frames), drawing the FBD from the ground frame and from the lift frame (with pseudo force) are two valid approaches. Choose whichever you find more intuitive.",
+            tamil: "மின் தூக்கி சம்பந்தப்பட்ட கணக்குகளில் (நிலைமமற்ற குறிப்பாயங்கள்), தரை குறிப்பாயத்திலிருந்தும், மின் தூக்கி குறிப்பாயத்திலிருந்தும் (போலி விசையுடன்) FBD வரைவது இரண்டு சரியான அணுகுமுறைகள் ஆகும். உங்களுக்கு எது எளிதாகத் தோன்றுகிறதோ அதைத் தேர்வு செய்யவும்."
+        }
+    ],
+    nextChapter: {
+        title: "Work, Energy and Power",
+        titleTamil: "வேலை, ஆற்றல் மற்றும் திறன்"
+    },
+    studentTip: {
+        english: "Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!",
+        tamil: "நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"
+    },
+    peerDiscussion: {
+        english: "Discuss force and motion problems with your friends. Practice drawing FBDs for different situations, like a car on a banked road.",
+        tamil: "உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்கப் பிரச்சினைகளை விவாதிக்கவும். வளைவான சாலையில் செல்லும் கார் போன்ற வெவ்வேறு சூழ்நிலைகளுக்கு FBD வரைந்து பயிற்சி செய்யுங்கள்."
+    },
     validationReport: [
         { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
         { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
@@ -724,4 +734,4 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
         { "check": "Verify Color Scheme Application", "status": "pass", "message": "OK" },
         { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
     ]
-};
+}
