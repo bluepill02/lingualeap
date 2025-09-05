@@ -253,6 +253,17 @@ export const physicalWorldModule: NeetModule = {
         formulas: [],
         diagrams: []
     },
+    keyTakeaways: [
+        "Physics is the study of the basic laws of nature, focusing on unification and reductionism.",
+        "The four fundamental forces are Strong Nuclear, Electromagnetic, Weak Nuclear, and Gravitational, in decreasing order of strength.",
+        "The laws of conservation of energy, momentum, angular momentum, and charge are inviolable in all physical processes."
+    ],
+    mnemonics: [
+        { text: "Remember the forces' order: 'Strongest Electromagnet Weakens Gravity' (Strong, Electromagnetic, Weak, Gravitational).", tamil: "'வலுவான மின்காந்தம் பலவீனமான ஈர்ப்பை வெல்லும்' (வலுவான, மின்காந்த, பலவீனமான, ஈர்ப்பியல்) என்று விசைகளின் வரிசையை நினைவில் கொள்க." }
+    ],
+    neetTips: [
+        { text: "While direct questions from this chapter are few, understanding the fundamental forces and conservation laws helps in solving conceptual questions from other chapters.", tamil: "இந்த அத்தியாயத்திலிருந்து நேரடி கேள்விகள் குறைவாக இருந்தாலும், அடிப்படை விசைகள் மற்றும் பாதுகாப்பு விதிகளைப் புரிந்துகொள்வது மற்ற அத்தியாயங்களின் கருத்தியல் கேள்விகளைத் தீர்க்க உதவுகிறது." }
+    ],
     studentTip: {
         english: "This chapter is more about concepts than calculations. Focus on the 'why' to build a strong foundation for the rest of physics.",
         tamil: "இந்த அத்தியாயம் கணக்கீடுகளை விட கருத்துக்களைப் பற்றியது. இயற்பியலின் மற்ற பகுதிகளுக்கு ஒரு வலுவான அடித்தளத்தை உருவாக்க 'ஏன்' என்பதில் கவனம் செலுத்துங்கள்."
