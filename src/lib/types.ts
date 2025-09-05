@@ -1,4 +1,5 @@
 
+
 export interface User {
   id: string;
   name: string;
@@ -166,6 +167,7 @@ export interface AssertionReason {
     reason: string;
     answer: 'A' | 'B' | 'C' | 'D' | 'E';
     explanation: string;
+    neetFrequency?: number;
 }
 
 export interface MatchTheColumns {
@@ -173,6 +175,7 @@ export interface MatchTheColumns {
     column2: string[];
     answer: string;
     explanation?: string;
+    neetFrequency?: number;
 }
 
 export interface KeyFormula {
@@ -204,7 +207,7 @@ export interface NeetModule {
     conceptOverview?: string;
     tamilConnection?: string;
     culturalContext?: string;
-    conceptNotes: BilingualContent[];
+    conceptNotes: (BilingualContent | { english: string; tamil?: undefined; })[];
     workedExamples: WorkedExample[];
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];
@@ -219,6 +222,7 @@ export interface NeetModule {
     nextChapter?: { title: string; titleTamil: string; };
     studentTip?: { english: string; tamil: string; };
     peerDiscussion?: { english: string; tamil: string; };
+    validationReport?: { check: string; status: 'pass' | 'fail'; message: string }[];
 }
 
 

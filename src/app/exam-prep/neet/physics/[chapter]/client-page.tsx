@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard, VirtualLabsCard, ThreeDDiagramsCard } from '@/components/exam/neet-chapter-components';
+import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';

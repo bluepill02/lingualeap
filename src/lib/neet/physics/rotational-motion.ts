@@ -1,8 +1,5 @@
 
 import type { NeetModule } from '@/lib/types';
-import { InertiaAnimation } from '@/components/exam/InertiaAnimation';
-import { ActionReactionAnimation } from '@/components/exam/ActionReactionAnimation';
-import { LiftAnimation } from '@/components/exam/LiftAnimation';
 
 export const rotationalMotion: NeetModule = {
     id: 'neet-physics-rotational-motion',
@@ -77,9 +74,6 @@ export const rotationalMotion: NeetModule = {
             tamil: '(எண்மதிப்பு: $\\tau = rF \\sin\\theta$. திசை வலது கை விதியால் கொடுக்கப்படுகிறது.)'
         },
         {
-            english: '{{VIRTUAL_LAB_TORQUE}}',
-        },
-        {
             english: '*   **Angular Momentum ($\\vec{L}$):** The rotational analogue of linear momentum. For a single particle:',
             tamil: '*(**கோண உந்தம் ($\\vec{L}$):** நேர்கோட்டு உந்தத்தின் சுழற்சி ஒப்புமை. ஒரு துகளுக்கு:)*'
         },
@@ -104,9 +98,6 @@ export const rotationalMotion: NeetModule = {
         {
             english: '*   **Moment of Inertia (I):** The rotational analogue of mass. It is a measure of an object\'s resistance to changes in its rotational motion. It depends not only on the mass but also on how the mass is distributed about the axis of rotation.',
             tamil: '*(**நிலைமத் திருப்புத்திறன் (I):** நிறையின் சுழற்சி ஒப்புமை. இது ஒரு பொருளின் சுழற்சி இயக்கத்தில் ஏற்படும் மாற்றங்களுக்கு அதன் எதிர்ப்பின் அளவீடு ஆகும். இது நிறையை மட்டுமல்லாமல், சுழற்சி அச்சைப் பற்றி நிறை எவ்வாறு விநியோகிக்கப்படுகிறது என்பதையும் சார்ந்துள்ளது.)*'
-        },
-        {
-            english: '{{3D_DIAGRAM_MOMENT_OF_INERTIA}}',
         },
         {
             english: 'For a system of particles: $I = \\sum m_i r_i^2$. For a rigid body: $I = \\int r^2 \\,dm$.',
@@ -135,9 +126,6 @@ export const rotationalMotion: NeetModule = {
             tamil: '(2.  **செங்குத்து அச்சுத் தேற்றம்**: ஒரு தளப் பொருளுக்கு (lamina), அதன் தளத்திற்கு செங்குத்தான ஒரு அச்சைப் பற்றிய நிலைமத் திருப்புத்திறன் ($I_z$) என்பது, அதன் தளத்தில் உள்ள இரண்டு செங்குத்து அச்சுகளைப் பற்றிய நிலைமத் திருப்புத்திறன்களின் கூடுதலுக்கு சமம், அவை செங்குத்து அச்சு அதன் வழியாகச் செல்லும் புள்ளியில் வெட்டுகின்றன ($I_x$ மற்றும் $I_y$).)'
         },
         {
-            english: '{{VIRTUAL_LAB_AXIS_THEOREMS}}',
-        },
-        {
             english: '$$ I_z = I_x + I_y $$'
         },
         {
@@ -147,9 +135,6 @@ export const rotationalMotion: NeetModule = {
         {
             english: 'Rolling motion is a combination of translational motion and rotational motion. For a body rolling without slipping, the condition is $v_{CM} = R\\omega$.',
             tamil: '(உருளுதல் இயக்கம் என்பது இடப்பெயர்வு இயக்கம் மற்றும் சுழற்சி இயக்கத்தின் கலவையாகும். நழுவாமல் உருளும் ஒரு பொருளுக்கு, நிபந்தனை $v_{CM} = R\\omega$ ஆகும்.)'
-        },
-        {
-            english: '{{3D_DIAGRAM_ROLLING_MOTION}}',
         },
         {
             english: 'The total kinetic energy of a rolling body is the sum of its translational and rotational kinetic energies.',
@@ -165,9 +150,6 @@ export const rotationalMotion: NeetModule = {
         {
             english: 'If the **net external torque** on a system is zero, its total angular momentum remains constant.',
             tamil: '(ஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.)'
-        },
-        {
-            english: '{{VIRTUAL_LAB_ANGULAR_MOMENTUM}}',
         },
         {
             english: '$$ \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant} $$',

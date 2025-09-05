@@ -30,7 +30,7 @@ import { MarkdownRenderer } from './markdown-renderer';
 import { BilingualText } from './bilingual-text';
 
 
-export function ConceptNotesCard({ content }: { content: BilingualContent[] }) {
+export function ConceptNotesCard({ content }: { content: (BilingualContent | { english: string; tamil?: undefined; })[] }) {
     if (!Array.isArray(content)) {
         return (
              <Card>
