@@ -4,12 +4,41 @@
  * It programmatically checks the generated content against the QA checklist.
  */
 
-import { qaChecklist } from '../src/lib/physics-checklist';
-import type { NeetModule } from '../src/lib/types';
+import { qaChecklist } from '../lib/physics-checklist';
+import type { NeetModule } from '../lib/types';
 
 interface ValidationResult {
   isValid: boolean;
   errors: string[];
+}
+
+/**
+ * Recursively checks an object for placeholder strings.
+ * @param obj The object or value to check.
+ * @param path The current path for error reporting.
+ * @returns An array of error strings found.
+ */
+function checkForPlaceholders(obj: any, path: string = 'module'): string[] {
+    let errors: string[] = [];
+    if (obj === null || obj === undefined) return errors;
+
+    if (typeof obj === 'string') {
+        const lowerCaseObj = obj.toLowerCase();
+        if (lowerCaseObj.includes('placeholder') || lowerCaseObj.includes('to be filled')) {
+            errors.push(`Placeholder Content: Found placeholder text in '${path}': "${obj.substring(0, 50)}..."`);
+        }
+    } else if (Array.isArray(obj)) {
+        obj.forEach((item, index) => {
+            errors = errors.concat(checkForPlaceholders(item, `${path}[${index}]`));
+        });
+    } else if (typeof obj === 'object') {
+        for (const key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                errors = errors.concat(checkForPlaceholders(obj[key], `${path}.${key}`));
+            }
+        }
+    }
+    return errors;
 }
 
 /**
@@ -43,17 +72,26 @@ export async function validateModule(content: string, chapterName: string): Prom
     };
   }
 
-  // Check 2: Verify content completeness
+  // Check 2: Verify content completeness - ALL keys are now required.
   const requiredKeys: (keyof NeetModule)[] = [
       'id', 'title', 'chapter', 'subject', 'learningObjectives', 'prerequisites', 
       'conceptOverview', 'tamilConnection', 'culturalContext', 'conceptNotes', 
       'workedExamples', 'mcqs', 'assertionReasons', 'matchTheColumns', 
       'keyFormulasAndDiagrams', 'keyTakeaways', 'mnemonics', 'neetTips',
-      'studentTip', 'peerDiscussion' // Added these to ensure summary is complete
+      'studentTip', 'peerDiscussion', 'syllabusMapping', 'nextChapter',
+      'validationReport'
     ];
   for (const key of requiredKeys) {
     const value = moduleObject[key];
-    if (value === undefined || value === null || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim())) {
+    if (value === undefined || value === null || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim()) || (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) ) {
+        // Special check for keyFormulasAndDiagrams which can be an object with empty arrays
+        if (key === 'keyFormulasAndDiagrams') {
+            const kd = value as any;
+            if (!kd || (!kd.formulas?.length && !kd.diagrams?.length)) {
+                 errors.push(`ContentCompleteness: The '${key}' section is missing or empty.`);
+            }
+            continue;
+        }
       errors.push(`ContentCompleteness: The '${key}' section is missing or empty.`);
     }
   }
@@ -76,6 +114,12 @@ export async function validateModule(content: string, chapterName: string): Prom
       if (latexContent && latexContent.match(/(?<!\\)\\(?![\\{}])/)) {
           errors.push(`LaTeX Errors: Found a potential unescaped backslash in a LaTeX block: ${latexContent.substring(0, 30)}...`);
       }
+  }
+
+  // Check 5: Placeholder Content Check
+  const placeholderErrors = checkForPlaceholders(moduleObject);
+  if (placeholderErrors.length > 0) {
+      errors.push(...placeholderErrors);
   }
 
   // Final result
