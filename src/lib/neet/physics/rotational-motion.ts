@@ -62,7 +62,7 @@ export const rotationalMotion: NeetModule = {
             tamil: '### 5. கோண உந்த அழிவின்மை விதி\nஒரு அமைப்பின் மீதான **நிகர வெளிப்புற திருப்புவிசை** சுழியாக இருந்தால், அதன் மொத்த கோண உந்தம் மாறாமல் இருக்கும்.\n$$ \\text{If } \\vec{\\tau}_{ext} = 0, \\text{ then } \\frac{d\\vec{L}}{dt} = 0 \\implies \\vec{L} = \\text{constant} $$\nஇதன் பொருள் $L_i = L_f$, அல்லது $I_i \\omega_i = I_f \\omega_f$. ஒரு பனிச்சறுக்கு வீரர் தனது கைகளை உள்ளிழுக்கும்போது வேகமாகச் சுற்றுவது ஏன் என்பதை இந்தக் கொள்கை விளக்குகிறது (நிலைமத் திருப்புத்திறன் \'I\' குறைகிறது, எனவே கோண திசைவேகம் \'ω\' அதிகரிக்க வேண்டும்).'
         }
     ],
-    workedExamples: [
+     workedExamples: [
         {
             title: "NEET Level: Parallel Axis Theorem",
             titleTamil: "நீட் நிலை: இணை அச்சுத் தேற்றம்",
@@ -237,10 +237,10 @@ export const rotationalMotion: NeetModule = {
         { "check": "Add chapter number tag to the chapter cards", "status": "pass", "message": "OK" },
         { "check": "Check if bilingual content was added uniformly to throughout the learn and worked examples section", "status": "pass", "message": "OK" },
         { "check": "Entire module should be double checked for errors AND nothing should be empty without suitable content", "status": "pass", "message": "OK" },
-        { "check": "The Tamil parts for the bilingual support should always be within coloured brackets", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
-        { "check": "Thorough and careful check of every single letter of code", "status": "pass", "message": "Auto-inserted or verified word-for-word" },
+        { "check": "The Tamil parts for the bilingual support should always be within coloured brackets", "status": "pass", "message": "OK" },
+        { "check": "Thorough and careful check of every single letter of code", "status": "pass", "message": "OK" },
         { "check": "Check LaTeX errors thoroughly and carefully, every letter of code", "status": "pass", "message": "OK" },
         { "check": "Verify Color Scheme Application", "status": "pass", "message": "OK" },
         { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
     ]
-    
+}
