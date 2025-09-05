@@ -267,8 +267,7 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     explanationTamil: "(c) உராய்வு விசையால் செய்யப்பட்ட வேலை: W_f = -1.732 J."
                 }
             ],
-            neetHack: "Check your answer using the Work-Energy Theorem. Since speed is constant, ΔK.E. = 0. So, W_net = 0. W_F + W_g + W_f = 11.732 - 10 - 1.732 = 0. The calculation is correct.",
-            commonPitfall: "Ignoring the signs in work calculation. Work done by forces opposing motion (gravity component, friction) is negative."
+            neetHack: "Check your answer using the Work-Energy Theorem. Since speed is constant, ΔK.E. = 0. So, W_net = 0. W_F + W_g + W_f = 11.732 - 10 - 1.732 = 0. The calculation is correct."
         },
         {
             title: "NEET Level: Elastic Potential Energy",
@@ -485,36 +484,31 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             assertion: "When a body is moving up at a constant velocity, the net work done on it is zero.",
             reason: "For constant velocity, the net force on the body is zero.",
             answer: "A",
-            explanation: "Reason is correct (F_net = ma = 0 for constant v). Assertion is also correct because according to the Work-Energy theorem, W_net = ΔK.E. For constant velocity, ΔK.E = 0. The reason correctly explains the assertion.",
-            neetFrequency: 4
+            explanation: "Reason is correct (F_net = ma = 0 for constant v). Assertion is also correct because according to the Work-Energy theorem, W_net = ΔK.E. For constant velocity, ΔK.E = 0. The reason correctly explains the assertion."
         },
         {
             assertion: "The work done by friction is always negative.",
             reason: "Frictional force is always opposite to the direction of motion (or tendency of motion).",
             answer: "A",
-            explanation: "Assertion is generally true for kinetic friction. The reason is correct. The angle between kinetic frictional force and displacement is 180°, and cos(180°) = -1, making the work done negative. The reason correctly explains the assertion.",
-            neetFrequency: 3
+            explanation: "Assertion is generally true for kinetic friction. The reason is correct. The angle between kinetic frictional force and displacement is 180°, and cos(180°) = -1, making the work done negative. The reason correctly explains the assertion."
         },
         {
             assertion: "Kinetic energy is conserved in all types of collisions.",
             reason: "Momentum is conserved in all types of collisions.",
             answer: "D",
-            explanation: "Assertion is false. Kinetic energy is only conserved in perfectly elastic collisions. The reason is true (for isolated systems), but it does not justify the false assertion.",
-            neetFrequency: 5
+            explanation: "Assertion is false. Kinetic energy is only conserved in perfectly elastic collisions. The reason is true (for isolated systems), but it does not justify the false assertion."
         },
         {
             assertion: "A body can have energy without having momentum.",
             reason: "A body at rest at a certain height above the ground has potential energy but no momentum.",
             answer: "A",
-            explanation: "Assertion is true. The reason is also true and is a perfect example. A stationary object (p=0) can possess potential energy.",
-            neetFrequency: 2
+            explanation: "Assertion is true. The reason is also true and is a perfect example. A stationary object (p=0) can possess potential energy."
         },
         {
             assertion: "The work done by a conservative force around a closed path is zero.",
             reason: "Conservative forces depend only on the initial and final positions, not on the path taken.",
             answer: "A",
-            explanation: "Assertion is the definition of a conservative force. The reason is also the definition of a conservative force and correctly explains why the work done in a closed loop is zero (since initial and final points are the same).",
-            neetFrequency: 3
+            explanation: "Assertion is the definition of a conservative force. The reason is also the definition of a conservative force and correctly explains why the work done in a closed loop is zero (since initial and final points are the same)."
         }
     ],
     matchTheColumns: [
@@ -581,20 +575,22 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
         "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
     ],
     mnemonics: [
-        { text: "Remember FMA: Force = Mass × Acceleration.", tamil: "விசை-நிறை-முடுக்கம் - 'விநாயகர் நல்ல முருகன்' என்று நினைவில் வைக்கவும்" },
-        { text: "Action-reaction pairs are a two-way street; they never act on the same body.", tamil: "செயல்-எதிர்ச்செயல் விசைகள் எப்போதும் வெவ்வேறு பொருட்கள் மீது செயல்படும்." }
+        { text: "Remember C-G-E-S (CGS) for Conservative forces: Conservative Guards Elite Springs. (Conservative, Gravitational, Electrostatic, Spring forces). All others, like friction, are non-conservative.", tamil: "ஆற்றல் மாற்றா விசைகளை நினைவில் கொள்ள: C-G-E-S (CGS) - Conservative Guards Elite Springs. (ஆற்றல் மாற்றா, ஈர்ப்பு, நிலைமின்னியல், சுருள்வில் விசைகள்). மற்றவை, உராய்வு போன்றவை, ஆற்றல் மாற்றும் விசைகள்." }
     ],
-    nextChapter: {
-        title: "Work, Energy and Power",
-        titleTamil: "வேலை, ஆற்றல் மற்றும் திறன்"
-    },
+    neetTips: [
+        { text: "For problems involving ratios of kinetic energy and momentum, the formulas K=p²/2m and p=√(2mK) are your best friends.", tamil: "இயக்க ஆற்றல் மற்றும் உந்தத்தின் விகிதங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, K=p²/2m மற்றும் p=√(2mK) சூத்திரங்கள் உங்கள் சிறந்த நண்பர்கள்." }
+    ],
     studentTip: {
-        english: "Connect Newton's laws with real-life examples you observe - that's when you'll truly understand!",
-        tamil: "நியூட்டன் விதிகளை வாழ்க்கையில் காணும் உதாரணங்களுடன் இணைத்து படிங்கள் - அப்போது தான் நன்கு புரியும்!"
+        english: "If a problem asks for speed or height and doesn't involve time, always think of using the Conservation of Energy or the Work-Energy Theorem first! It's often much faster than using kinematics.",
+        tamil: "ஒரு கணக்கில் நேரம் கேட்கப்படாமல், வேகம் அல்லது உயரம் மட்டும் கேட்கப்பட்டால், முதலில் ஆற்றல் அழிவின்மை விதி அல்லது வேலை-ஆற்றல் தேற்றத்தைப் பயன்படுத்த சிந்தியுங்கள்! இது இயக்கவியல் சமன்பாடுகளை விட மிக வேகமானது."
     },
     peerDiscussion: {
-        english: "Discuss force and motion problems with your friends. Practice drawing FBDs for different situations, like a car on a banked road.",
-        tamil: "உங்கள் நண்பர்களுடன் விசை மற்றும் இயக்கப் பிரச்சினைகளை விவாதிக்கவும். வளைவான சாலையில் செல்லும் கார் போன்ற வெவ்வேறு சூழ்நிலைகளுக்கு FBD வரைந்து பயிற்சி செய்யுங்கள்."
+        english: "Discuss with a friend: In a real-world car crash (an inelastic collision), where does the 'lost' kinetic energy go? List at least three different forms of energy it transforms into.",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு நிஜ உலக கார் விபத்தில் (மீளாத மோதல்), 'இழக்கப்பட்ட' இயக்க ஆற்றல் எங்கே செல்கிறது? அது மாறும் ஆற்றலின் மூன்று வெவ்வேறு வடிவங்களையாவது பட்டியலிடுங்கள்."
+    },
+    nextChapter: {
+        title: "System of Particles and Rotational Motion",
+        titleTamil: "துகள் அமைப்புகள் மற்றும் சுழற்சி இயக்கம்"
     },
     validationReport: [
         { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
@@ -615,5 +611,3 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
         { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
 };
-
-    
