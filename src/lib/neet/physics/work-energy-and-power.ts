@@ -38,9 +38,10 @@ export const workEnergyAndPowerModule: NeetModule = {
     conceptNotes: [
         {
             english: `### 1. Work (வேலை)
-Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a scalar quantity (ஸ்கேலார் அளவு).
-
-#### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
+Work is said to be done by a force when it produces a displacement in the body on which it acts. It is a scalar quantity (ஸ்கேலார் அளவு).`
+        },
+        {
+            english: `#### Work Done by a Constant Force (மாறா விசையால் செய்யப்பட்ட வேலை)
 If a constant force $\\vec{F}$ acts on a body producing a displacement $\\vec{s}$, the work done is the dot product of the force and displacement vectors.
 $$
 W = \\vec{F} \\cdot \\vec{s} = Fs \\cos\\theta
@@ -48,9 +49,10 @@ $$
 where $\\theta$ is the angle between the force and displacement vectors.
 *   **Positive Work (நேர் வேலை, $\\theta < 90^\\circ$):** Force has a component in the direction of displacement. E.g., Work done by gravity on a falling body.
 *   **Negative Work (எதிர் வேலை, $\\theta > 90^\\circ$):** Force has a component opposite to the direction of displacement. E.g., Work done by friction.
-*   **Zero Work (சுழி வேலை, $\\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion.
-
-#### Work Done by a Variable Force (மாறும் விசையால் செய்யப்பட்ட வேலை)
+*   **Zero Work (சுழி வேலை, $\\theta = 90^\\circ$):** Force is perpendicular to displacement. E.g., Work done by centripetal force in a uniform circular motion.`
+        },
+        {
+            english: `#### Work Done by a Variable Force (மாறும் விசையால் செய்யப்பட்ட வேலை)
 If the force is not constant, we find the work done by integrating the force over the path.
 $$
 W = \\int_{s_i}^{s_f} F(s) \\,ds
@@ -59,9 +61,10 @@ Graphically, the work done is the **area under the Force-Displacement (F-s) grap
         },
         {
             english: `### 2. Energy (ஆற்றல்)
-Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J).
-
-#### Kinetic Energy (இயக்க ஆற்றல் - K.E.)
+Energy is the capacity to do work. It is a scalar quantity, and its SI unit is the Joule (J).`
+        },
+        {
+            english: `#### Kinetic Energy (இயக்க ஆற்றல் - K.E.)
 The energy possessed by a body by virtue of its motion.
 $$
 K.E. = \\frac{1}{2}mv^2
@@ -69,17 +72,19 @@ $$
 The relationship between kinetic energy and linear momentum (p = mv) is:
 $$
 K.E. = \\frac{p^2}{2m}
-$$
-
-#### Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)
+$$`
+        },
+        {
+            english: `#### Work-Energy Theorem (வேலை-ஆற்றல் தேற்றம்)
 This is one of the most important theorems in mechanics. It states that the **net work done by all forces (conservative and non-conservative) on a body is equal to the change in its kinetic energy.**
 $$
 W_{net} = \\Delta K.E. = K.E._f - K.E._i
 $$
 
-{{LIFT_ANIMATION}}
-
-#### Potential Energy (நிலை ஆற்றல் - P.E.)
+{{LIFT_ANIMATION}}`
+        },
+        {
+            english: `#### Potential Energy (நிலை ஆற்றல் - P.E.)
 The energy stored in a body by virtue of its position or configuration. It is defined only for **conservative forces (பாதுகாப்பு விசைகள்)**.
 *   **Gravitational Potential Energy (ஈர்ப்பு நிலை ஆற்றல்):** $P.E. = mgh$
 *   **Elastic Potential Energy (Spring) (மீட்சி நிலை ஆற்றல் (சுருள்வில்)):** $P.E. = \\frac{1}{2}kx^2$, where k is the spring constant and x is the extension or compression.`
@@ -87,9 +92,10 @@ The energy stored in a body by virtue of its position or configuration. It is de
         {
             english: `### 3. Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி)
 *   **Conservative Force (பாதுகாப்பு விசை):** A force for which the work done is independent of the path taken and depends only on the initial and final positions. Work done in a closed loop is zero. E.g., Gravitational force, electrostatic force, spring force.
-*   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance.
-
-**Law of Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை விதி):**
+*   **Non-Conservative Force (பாதுகாப்பற்ற விசை):** A force for which the work done depends on the path taken. E.g., Friction, air resistance.`
+        },
+        {
+            english: `**Law of Conservation of Mechanical Energy (இயந்திர ஆற்றல் அழிவின்மை விதி):**
 If **only conservative forces** are doing work on a system, its total mechanical energy (Kinetic + Potential) remains constant.
 $$
 K.E._i + P.E._i = K.E._f + P.E._f
