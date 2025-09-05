@@ -361,5 +361,3 @@ Once you add the pseudo force, you can apply $\\Sigma \\mathbf{F}_{real} + \\mat
         }
     ]
 };
-
-    
