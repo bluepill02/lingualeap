@@ -209,6 +209,31 @@ The first law allows any process where energy is conserved, but the second law p
         { column1: ["(a) P-V graph area", "(b) Slope of adiabatic curve", "(c) Slope of isothermal curve", "(d) Cyclic process"], column2: ["(p) -P/V", "(q) -γP/V", "(r) Work done", "(s) ΔU = 0"], answer: "a-r, b-q, c-p, d-s", explanation: "Matching graphical properties and processes with their physical meanings." },
         { column1: ["(a) Molar specific heat at constant volume (Cv)", "(b) Molar specific heat at constant pressure (Cp)", "(c) Adiabatic exponent (γ)", "(d) Mayer's relation"], column2: ["(p) (dU/dT)_v", "(q) (dH/dT)_p", "(r) Cp/Cv", "(s) Cp - Cv = R"], answer: "a-p, b-q, c-r, d-s", explanation: "Matching thermodynamic quantities with their definitions or relations." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'ΔU = Q - W',
+                description: 'First Law of Thermodynamics',
+                descriptionTamil: 'வெப்ப இயக்கவியலின் முதல் விதி'
+            },
+            {
+                formula: 'W = nRT \\ln(V_f/V_i)',
+                description: 'Work Done in Isothermal Process',
+                descriptionTamil: 'சமவெப்பநிலைச் செயல்முறையில் செய்யப்பட்ட வேலை'
+            },
+            {
+                formula: 'PV^γ = \\text{constant}',
+                description: 'Adiabatic Process Equation',
+                descriptionTamil: 'வெப்பப் பரிமாற்றமில்லாச் செயல்முறை சமன்பாடு'
+            },
+            {
+                formula: 'η = 1 - \\frac{T_2}{T_1}',
+                description: 'Carnot Engine Efficiency',
+                descriptionTamil: 'கார்னோ இயந்திரத் திறன்'
+            }
+        ],
+        diagrams: []
+    },
     keyTakeaways: [
         "The First Law is about energy conservation; the Second Law is about the direction of energy transfer and its quality.",
         "Internal energy of an ideal gas depends only on its temperature.",
@@ -222,6 +247,18 @@ The first law allows any process where energy is conserved, but the second law p
         { text: "Be very careful with the sign convention for work and heat. Work *done by* the system is positive in physics.", tamil: "வேலை மற்றும் வெப்பத்திற்கான குறியீட்டு மரபில் மிகவும் கவனமாக இருங்கள். இயற்பியலில், அமைப்பால் *செய்யப்பட்ட* வேலை நேர்க்குறியாகும்." },
         { text: "For cyclic processes on a P-V diagram, the net work done is the area enclosed by the loop. It's positive for clockwise cycles (engine) and negative for anticlockwise cycles (refrigerator).", tamil: "ஒரு P-V வரைபடத்தில் உள்ள சுழற்சி செயல்முறைகளுக்கு, நிகர வேலை என்பது வளைவால் சூழப்பட்ட பரப்பளவு ஆகும். இது கடிகார திசை சுழற்சிகளுக்கு (இயந்திரம்) நேர்க்குறியாகவும், கடிகார எதிர் திசை சுழற்சிகளுக்கு (குளிர்சாதனப்பெட்டி) எதிர்க்குறியாகவும் இருக்கும்." }
     ],
+    studentTip: {
+        english: "Focus on understanding the P-V diagrams for each type of process. The shape of the curve (and the area under it) tells you everything you need to know about the work done.",
+        tamil: "ஒவ்வொரு வகை செயல்முறைக்குமான P-V வரைபடங்களைப் புரிந்துகொள்வதில் கவனம் செலுத்துங்கள். வளைவின் வடிவம் (மற்றும் அதன் கீழ் உள்ள பரப்பளவு) செய்யப்பட்ட வேலையைப் பற்றி நீங்கள் தெரிந்து கொள்ள வேண்டிய அனைத்தையும் கூறுகிறது."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why the efficiency of a real-world petrol engine is much lower than the Carnot efficiency calculated for the same source and sink temperatures. Where does the 'lost' energy go?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு நிஜ உலக பெட்ரோல் இயந்திரத்தின் திறன், அதே மூல மற்றும் ஏற்பி வெப்பநிலைகளுக்கு கணக்கிடப்பட்ட கார்னோ திறனை விட ஏன் மிகவும் குறைவாக உள்ளது? 'இழக்கப்பட்ட' ஆற்றல் எங்கே செல்கிறது?"
+    },
+    nextChapter: {
+        title: "Kinetic Theory of Gases",
+        titleTamil: "வாயுக்களின் இயக்கவியற் கொள்கை"
+    },
     validationReport: [
         { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
         { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
