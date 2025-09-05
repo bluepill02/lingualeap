@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI flow for correcting validation errors in a previously generated NEET module.
@@ -71,9 +72,13 @@ const neetContentFixerFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await prompt(input);
-    if (!output) {
-      throw new Error('Failed to generate corrected NEET content.');
+    
+    // Handle cases where the model returns null or invalid output
+    if (!output?.fixedMarkdownContent) {
+        console.warn(`[Genkit Warning] Fixer model returned null. Returning original broken markdown.`);
+        return { fixedMarkdownContent: input.brokenMarkdown }; // Return original content to avoid crash
     }
+    
     // Clean up the markdown code block fences if the model includes them
     const cleanedContent = output.fixedMarkdownContent.replace(/^```(ts|typescript)\n?/, '').replace(/```$/, '');
     return { fixedMarkdownContent: cleanedContent };

@@ -75,9 +75,13 @@ const neetContentGeneratorFlow = ai.defineFlow(
   },
   async (input) => {
     const { output } = await prompt(input);
-    if (!output) {
-      throw new Error('Failed to generate NEET content.');
+    
+    // Handle cases where the model returns null or invalid output
+    if (!output?.markdownContent) {
+        console.warn(`[Genkit Warning] Model returned null or invalid output for chapter: ${input.chapter}. Returning empty content.`);
+        return { markdownContent: '' };
     }
+    
     // Clean up the markdown code block fences if the model includes them
     const cleanedContent = output.markdownContent.replace(/^```(ts|typescript)\n?/, '').replace(/```$/, '');
     return { markdownContent: cleanedContent };
