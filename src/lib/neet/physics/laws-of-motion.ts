@@ -330,6 +330,146 @@ Once you add the pseudo force, you can apply $\\Sigma \\mathbf{F}_{real} + \\mat
             answer: "C. mg cos(θ)",
             explanation: "The normal force balances the component of weight perpendicular to the inclined plane, which is mg cos(θ).",
             neetFrequency: 3
+        },
+        {
+            question: "A rocket works on the principle of conservation of:",
+            options: ["A. Mass", "B. Energy", "C. Angular Momentum", "D. Linear Momentum"],
+            answer: "D. Linear Momentum",
+            explanation: "A rocket expels gas at high velocity. By conservation of momentum, the rocket gains an equal and opposite momentum, causing it to accelerate.",
+            neetFrequency: 4
+        },
+        {
+            question: "The slope of a momentum-time (p-t) graph for a particle gives:",
+            options: ["A. Acceleration", "B. Impulse", "C. Force", "D. Work"],
+            answer: "C. Force",
+            explanation: "From Newton's second law, Force F = dp/dt, which is the slope of the p-t graph.",
+            neetFrequency: 2
+        },
+        {
+            question: "A block is kept on a frictionless inclined plane of inclination θ = 30°. The plane is given a horizontal acceleration so that the block does not slip. The acceleration is:",
+            options: ["A. g", "B. g/√3", "C. g√3", "D. g/2"],
+            answer: "B. g/√3",
+            explanation: "The condition for the block not to slip is a = g tan(θ). Here, a = g tan(30°) = g/√3.",
+            neetFrequency: 4
+        },
+        {
+            question: "Static friction is a:",
+            options: ["A. Constant force", "B. Self-adjusting force", "C. Force opposing motion", "D. Contactless force"],
+            answer: "B. Self-adjusting force",
+            explanation: "Static friction adjusts its magnitude to be equal and opposite to the applied force, up to a maximum limit (μsN).",
+            neetFrequency: 3
+        },
+        {
+            question: "The coefficient of kinetic friction is generally:",
+            options: ["A. Greater than the coefficient of static friction", "B. Less than the coefficient of static friction", "C. Equal to the coefficient of static friction", "D. Zero"],
+            answer: "B. Less than the coefficient of static friction",
+            explanation: "It takes more force to start an object moving (overcome static friction) than to keep it moving (overcome kinetic friction). Therefore, μk < μs.",
+            neetFrequency: 2
+        },
+        {
+            question: "A bomb of mass 9 kg at rest explodes into two pieces of masses 3 kg and 6 kg. The velocity of the 3 kg piece is 16 m/s. The kinetic energy of the 6 kg piece is:",
+            options: ["A. 96 J", "B. 192 J", "C. 384 J", "D. 768 J"],
+            answer: "B. 192 J",
+            explanation: "By conservation of momentum, m₁v₁ + m₂v₂ = 0. So, 3*16 + 6*v₂ = 0 => v₂ = -8 m/s. K.E. of 6kg piece = (1/2)m₂v₂² = (1/2)*6*(-8)² = 3 * 64 = 192 J.",
+            neetFrequency: 4
+        },
+        {
+            question: "Which of Newton's laws is also known as the law of inertia?",
+            options: ["A. First Law", "B. Second Law", "C. Third Law", "D. Law of Gravitation"],
+            answer: "A. First Law",
+            explanation: "Newton's first law describes the property of inertia - an object's resistance to change in its state of motion.",
+            neetFrequency: 1
+        },
+        {
+            question: "Force is a ____ quantity and its SI unit is ____.",
+            options: ["A. Scalar, Joule", "B. Vector, Watt", "C. Scalar, Newton", "D. Vector, Newton"],
+            answer: "D. Vector, Newton",
+            explanation: "Force has both magnitude and direction, making it a vector. Its SI unit is the Newton (N).",
+            neetFrequency: 1
+        },
+        {
+            question: "A rope of mass m is suspended from a rigid support. The tension at the midpoint of the rope is:",
+            options: ["A. mg", "B. mg/2", "C. mg/4", "D. 3mg/4"],
+            answer: "B. mg/2",
+            explanation: "The tension at any point in the rope must support the weight of the rope below it. At the midpoint, it supports half the mass of the rope, so T = (m/2)g.",
+            neetFrequency: 3
+        },
+        {
+            question: "Two blocks of masses 2 kg and 1 kg are in contact on a frictionless table. A force of 3 N is applied on the 2 kg block. The force of contact between the two blocks will be:",
+            options: ["A. 1 N", "B. 2 N", "C. 3 N", "D. 0 N"],
+            answer: "A. 1 N",
+            explanation: "System acceleration a = F/(m₁+m₂) = 3/(2+1) = 1 m/s². The contact force on the 1 kg block is what causes it to accelerate. F_contact = m₁a = 1 * 1 = 1 N.",
+            neetFrequency: 4
+        },
+        {
+            question: "The angle of friction (θ) is related to the coefficient of static friction (μs) by:",
+            options: ["A. μs = sin(θ)", "B. μs = cos(θ)", "C. μs = tan(θ)", "D. μs = cot(θ)"],
+            answer: "C. μs = tan(θ)",
+            explanation: "The angle of friction is the angle the resultant of the normal force and the limiting friction makes with the normal force. tan(θ) = f_s(max)/N = μsN/N = μs.",
+            neetFrequency: 2
+        },
+        {
+            question: "Impulse is equal to:",
+            options: ["A. Change in force", "B. Rate of change of momentum", "C. Change in momentum", "D. Rate of change of force"],
+            answer: "C. Change in momentum",
+            explanation: "The impulse-momentum theorem states that the impulse (J = FΔt) applied to an object is equal to the change in its momentum (Δp).",
+            neetFrequency: 3
+        },
+        {
+            question: "A bullet fired from a gun, the gun recoils. This is an example of:",
+            options: ["A. Conservation of energy", "B. Newton's third law", "C. Newton's first law", "D. Conservation of charge"],
+            answer: "B. Newton's third law",
+            explanation: "The force on the bullet (action) is equal and opposite to the force on the gun (reaction). It's also an example of conservation of linear momentum.",
+            neetFrequency: 2
+        },
+        {
+            question: "A person of mass 60 kg is inside a lift of mass 940 kg. The tension in the supporting cable when the lift is accelerating upwards at 1 m/s² is:",
+            options: ["A. 11000 N", "B. 10000 N", "C. 9800 N", "D. 8800 N"],
+            answer: "A. 11000 N",
+            explanation: "Total mass M = 60 + 940 = 1000 kg. Tension T = M(g+a) = 1000(10+1) = 11000 N. (Assuming g=10 m/s²)",
+            neetFrequency: 4
+        },
+        {
+            question: "Pulling a lawn roller is easier than pushing it because:",
+            options: ["A. The normal reaction decreases", "B. The normal reaction increases", "C. Friction is reduced", "D. Both A and C"],
+            answer: "D. Both A and C",
+            explanation: "When pulling, the vertical component of the applied force is upward, which reduces the normal reaction force. Since friction (f = μN) is proportional to the normal force, friction is also reduced.",
+            neetFrequency: 3
+        },
+        {
+            question: "The unit of impulse is the same as that of:",
+            options: ["A. Force", "B. Energy", "C. Power", "D. Linear Momentum"],
+            answer: "D. Linear Momentum",
+            explanation: "From the impulse-momentum theorem (J = Δp), the units must be the same (Ns or kg·m/s).",
+            neetFrequency: 1
+        },
+        {
+            question: "When a bus suddenly takes a turn, the passengers are thrown outwards because of:",
+            options: ["A. Inertia of motion", "B. Acceleration of motion", "C. Speed of motion", "D. Centrifugal force"],
+            answer: "A. Inertia of motion",
+            explanation: "The passengers' bodies tend to continue moving in a straight line due to inertia, while the bus turns. This creates the sensation of being thrown outwards.",
+            neetFrequency: 3
+        },
+        {
+            question: "A block of mass M is pulled along a horizontal frictionless surface by a rope of mass m. A force P is applied at one end. The force which the rope exerts on the block is:",
+            options: ["A. P", "B. P(M+m)/M", "C. PM/(M+m)", "D. Pm/(M+m)"],
+            answer: "C. PM/(M+m)",
+            explanation: "System acceleration a = P/(M+m). The force on the block M is provided by the rope, F_on_block = Ma = M * P/(M+m).",
+            neetFrequency: 4
+        },
+        {
+            question: "A body of weight W is resting on a rough inclined plane. The frictional force acting on it is:",
+            options: ["A. μW", "B. μW cos(θ)", "C. W sin(θ)", "D. W tan(θ)"],
+            answer: "C. W sin(θ)",
+            explanation: "For the body at rest (in equilibrium), the static frictional force must be equal and opposite to the component of gravity pulling the block down the incline, which is W sin(θ).",
+            neetFrequency: 2
+        },
+        {
+            question: "The dimension of force is:",
+            options: ["A. [MLT⁻¹]", "B. [ML²T⁻²]", "C. [MLT⁻²]", "D. [ML⁻¹T⁻²]"],
+            answer: "C. [MLT⁻²]",
+            explanation: "Force = mass × acceleration = M × (L/T²) = [MLT⁻²].",
+            neetFrequency: 1
         }
     ],
     assertionReasons: [
@@ -350,6 +490,18 @@ Once you add the pseudo force, you can apply $\\Sigma \\mathbf{F}_{real} + \\mat
             reason: "This increases the time of impact, reducing the force exerted by the ball on the hands.",
             answer: "A",
             explanation: "The assertion is a common practice. The reason correctly explains the physics. From F = Δp/Δt, by increasing the time Δt, the force F is reduced for a given change in momentum Δp."
+        },
+        {
+            assertion: "The center of mass of a body may lie where there is no mass.",
+            reason: "The center of mass of a uniform ring is at its geometric center.",
+            answer: "A",
+            explanation: "The assertion is true, and the reason provides a perfect example (a ring or a hollow sphere). The reason correctly explains the assertion."
+        },
+        {
+            assertion: "A rocket moves forward by pushing the gases backward.",
+            reason: "This is an example of the law of conservation of linear momentum.",
+            answer: "A",
+            explanation: "The assertion describes the rocket's propulsion. The reason provides the correct physical principle. Since the system (rocket + fuel) is isolated, the backward momentum of the gases must be balanced by a forward momentum of the rocket to keep the total momentum constant (initially zero)."
         }
     ],
     matchTheColumns: [
@@ -358,6 +510,30 @@ Once you add the pseudo force, you can apply $\\Sigma \\mathbf{F}_{real} + \\mat
             column2: ["(p) `mv`", "(q) `μN`", "(r) `Δp`", "(s) Resistance to change in state"],
             answer: "a-s, b-p, c-r, d-q",
             explanation: "Inertia is the property to resist change. Momentum is mass x velocity. Impulse is the change in momentum. Frictional force is proportional to the normal force."
+        },
+        {
+            column1: ["(a) Static friction", "(b) Kinetic friction", "(c) Newton's 1st Law", "(d) Newton's 3rd Law"],
+            column2: ["(p) Law of Inertia", "(q) Self-adjusting", "(r) Action-Reaction", "(s) Constant value (μkN)"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "Matching the concepts with their key properties or alternative names."
+        },
+        {
+            column1: ["(a) Apparent weight in a lift accelerating up", "(b) Apparent weight in a lift accelerating down", "(c) Fictitious force", "(d) Conservation of momentum"],
+            column2: ["(p) m(g-a)", "(q) Used in non-inertial frames", "(r) m(g+a)", "(s) Absence of external force"],
+            answer: "a-r, b-p, c-q, d-s",
+            explanation: "Matching the physical situations with their corresponding formulas or conditions."
+        },
+        {
+            column1: ["(a) Force", "(b) Impulse", "(c) Work", "(d) Power"],
+            column2: ["(p) N·s", "(q) Joule", "(r) Watt", "(s) Newton"],
+            answer: "a-s, b-p, c-q, d-r",
+            explanation: "Matching the physical quantities with their SI units."
+        },
+        {
+            column1: ["(a) Pushing a heavy wall", "(b) A satellite in circular orbit", "(c) A falling apple", "(d) A block sliding with friction"],
+            column2: ["(p) Negative work done by a force", "(q) Zero work done by a force", "(r) Positive work done by a force", "(s) No work done"],
+            answer: "a-s, b-q, c-r, d-p",
+            explanation: "a->No displacement, no work. b->Work done by centripetal force is zero. c->Work done by gravity is positive. d->Work done by friction is negative."
         }
     ]
 };
