@@ -17,6 +17,12 @@ import { Badge } from '@/components/ui/badge';
 
 function validateModule(module: NeetModule): ValidationReport[] {
     const checks: ValidationReport[] = [];
+    const requiredSections: (keyof NeetModule)[] = [
+        'learningObjectives', 'prerequisites', 'syllabusMapping', 'conceptOverview',
+        'tamilConnection', 'culturalContext', 'conceptNotes', 'workedExamples',
+        'mcqs', 'assertionReasons', 'matchTheColumns', 'keyFormulasAndDiagrams',
+        'keyTakeaways', 'mnemonics', 'neetTips'
+    ];
 
     // 1. Practice Question Quotas
     checks.push({
@@ -28,27 +34,31 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: `Found: ${module.workedExamples?.length || 0} WE, ${module.mcqs?.length || 0} MCQs, ${module.assertionReasons?.length || 0} A/R, ${module.matchTheColumns?.length || 0} MTC.`
     });
 
-    // 2. Content Completeness
-    const requiredSections: (keyof NeetModule)[] = [
-        'learningObjectives', 'prerequisites', 'syllabusMapping', 'conceptOverview',
-        'tamilConnection', 'culturalContext', 'conceptNotes', 'workedExamples',
-        'mcqs', 'assertionReasons', 'matchTheColumns', 'keyFormulasAndDiagrams',
-        'keyTakeaways', 'mnemonics', 'neetTips'
-    ];
-    const missingSections = requiredSections.filter(section => {
+    // 2. Content Completeness (Stricter Check)
+    const missingOrEmptySections = requiredSections.filter(section => {
         const value = module[section];
-        return value === undefined || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim());
+        if (value === undefined || value === null) return true;
+        if (Array.isArray(value) && value.length === 0) return true;
+        if (typeof value === 'string' && !value.trim()) return true;
+        if (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) return true;
+        // Specifically for keyFormulasAndDiagrams
+        if (section === 'keyFormulasAndDiagrams') {
+            const formulas = (value as NeetModule['keyFormulasAndDiagrams'])?.formulas;
+            const diagrams = (value as NeetModule['keyFormulasAndDiagrams'])?.diagrams;
+            if (!formulas || formulas.length === 0) return true;
+        }
+        return false;
     });
 
     checks.push({
         check: 'Content Completeness',
-        status: missingSections.length === 0 ? 'pass' : 'fail',
-        message: missingSections.length === 0 ? 'All 15 sections are populated.' : `Missing: ${missingSections.join(', ')}`
+        status: missingOrEmptySections.length === 0 ? 'pass' : 'fail',
+        message: missingOrEmptySections.length === 0 ? 'All 15 sections are populated.' : `Missing content in: ${missingOrEmptySections.join(', ')}`
     });
 
     // 3. Bilingual Support
-    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.every(note => 'english' in note && 'tamil' in note && note.tamil);
-    const hasBilingualExamples = Array.isArray(module.workedExamples) && module.workedExamples.every(ex => 
+    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.length > 0 && module.conceptNotes.every(note => 'english' in note && 'tamil' in note && note.tamil);
+    const hasBilingualExamples = Array.isArray(module.workedExamples) && module.workedExamples.length > 0 && module.workedExamples.every(ex => 
         !!ex.titleTamil && 
         ex.solutionSteps.every(step => !!step.explanationTamil) &&
         !!ex.neetHackTamil
@@ -56,7 +66,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
      checks.push({
         check: 'Bilingual Support',
         status: hasBilingualNotes && hasBilingualExamples ? 'pass' : 'fail',
-        message: hasBilingualNotes && hasBilingualExamples ? 'Notes & Examples are bilingual.' : 'Missing Tamil translations.'
+        message: hasBilingualNotes && hasBilingualExamples ? 'Notes & Examples are bilingual.' : 'Missing Tamil translations in key areas.'
     });
     
     // 4. Adaptive MCQ Data
@@ -104,7 +114,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
     checks.push({
         check: 'All Sections Checked',
         status: allSectionsPresent ? 'pass' : 'fail',
-        message: allSectionsPresent ? 'All module sections are present.' : 'One or more module sections are missing from the object.'
+        message: allSectionsPresent ? 'All module sections are present in the object.' : `Missing sections from object: ${requiredSections.filter(s => !module.hasOwnProperty(s)).join(', ')}`
     });
 
 
