@@ -47,8 +47,8 @@ function validateModule(module: NeetModule): ValidationReport[] {
     });
 
     // 3. Bilingual Support
-    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.every(note => 'tamil' in note && note.tamil);
-     const hasBilingualExamples = Array.isArray(module.workedExamples) && module.workedExamples.every(ex => 
+    const hasBilingualNotes = Array.isArray(module.conceptNotes) && module.conceptNotes.every(note => 'english' in note && 'tamil' in note && note.tamil);
+    const hasBilingualExamples = Array.isArray(module.workedExamples) && module.workedExamples.every(ex => 
         !!ex.titleTamil && 
         ex.solutionSteps.every(step => !!step.explanationTamil) &&
         !!ex.neetHackTamil
@@ -59,14 +59,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: hasBilingualNotes && hasBilingualExamples ? 'Notes & Examples are bilingual.' : 'Missing Tamil translations.'
     });
     
-    // 4. Tamil Styling
-    checks.push({
-        check: 'Tamil Styling',
-        status: 'pass', // This is a placeholder as it's hard to check programmatically without more complex parsing
-        message: 'BilingualText component usage is assumed correct.'
-    });
-
-    // 5. Adaptive MCQ Data
+    // 4. Adaptive MCQ Data
     const hasNeetFrequency = Array.isArray(module.mcqs) && module.mcqs.length > 0 && module.mcqs.every(mcq => typeof mcq.neetFrequency === 'number' && mcq.neetFrequency > 0);
      checks.push({
         check: 'Adaptive MCQ Data',
@@ -74,7 +67,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: hasNeetFrequency ? 'All MCQs have frequency rating.' : 'Missing `neetFrequency` in some MCQs.'
     });
     
-    // 6. High Quality Check
+    // 5. High Quality Check
     const isHighQuality = !!module.validationReport && module.validationReport.every(r => r.status === 'pass');
     checks.push({
         check: 'High Quality',
@@ -82,7 +75,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: isHighQuality ? 'Module passed self-validation.' : 'Module failed self-validation or report is missing.'
     });
 
-    // 7. LaTeX Rendering Check
+    // 6. LaTeX Rendering Check
     const moduleString = JSON.stringify(module);
     const hasLatexError = /\\(frac|cdot|implies|vec)(?!\\)/g.test(moduleString) || /[^/\\]\\[^tfbd\s\\]/g.test(moduleString.replace(/\\\\/g, ''));
     checks.push({
@@ -91,14 +84,14 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: !hasLatexError ? 'No obvious LaTeX errors found.' : 'Potential unescaped backslash errors found.'
     });
     
-    // 8. Syntax/Build Check
+    // 7. Syntax/Build Check
     checks.push({
         check: 'Syntax/Build',
         status: 'pass',
         message: 'Page loaded, so no build-breaking syntax errors.'
     });
     
-    // 9. Content Accuracy (Proxy)
+    // 8. Content Accuracy (Proxy)
     const isAccurate = !!module.conceptOverview && Array.isArray(module.mcqs) && module.mcqs.length > 0;
     checks.push({
         check: 'Content Accuracy',
@@ -106,7 +99,7 @@ function validateModule(module: NeetModule): ValidationReport[] {
         message: isAccurate ? 'Key fields are populated.' : 'Missing content in key fields.'
     });
 
-    // 10. All Sections Checked
+    // 9. All Sections Checked
     const allSectionsPresent = requiredSections.every(section => module.hasOwnProperty(section));
     checks.push({
         check: 'All Sections Checked',
@@ -143,7 +136,6 @@ export default function ValidationReportPage() {
                                     <TableHead>Quotas</TableHead>
                                     <TableHead>Completeness</TableHead>
                                     <TableHead>Bilingual</TableHead>
-                                    <TableHead>Tamil Styling</TableHead>
                                     <TableHead>Adaptive Data</TableHead>
                                     <TableHead>High Quality</TableHead>
                                     <TableHead>LaTeX Rendering</TableHead>
@@ -174,7 +166,6 @@ export default function ValidationReportPage() {
                                             <TableCell>{getStatusIcon(getResultByCheckName('Question Quotas'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Content Completeness'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Bilingual Support'))}</TableCell>
-                                            <TableCell>{getStatusIcon(getResultByCheckName('Tamil Styling'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Adaptive MCQ Data'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('High Quality'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('LaTeX Rendering'))}</TableCell>
