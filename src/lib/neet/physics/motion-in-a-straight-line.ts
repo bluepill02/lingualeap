@@ -488,10 +488,10 @@ This is a special case of uniformly accelerated motion where the acceleration is
             neetFrequency: 5
         },
         {
-            question: "A train of 150 m length is going towards north direction at a speed of 10 m/s. A parrot flies at the speed of 5 m/s towards south direction parallel to the railway track. The time taken by the parrot to cross the train is:",
-            options: ["A. 12 s", "B. 8 s", "C. 10 s", "D. 15 s"],
-            answer: "C. 10 s",
-            explanation: "Relative speed of the parrot with respect to the train is v_rel = v_parrot + v_train = 5 + 10 = 15 m/s (since they are moving in opposite directions). The distance to be covered is the length of the train, 150 m. Time = Distance / Relative Speed = 150 / 15 = 10 s.",
+            question: "If a car covers 2/5th of the total distance with v₁ speed and 3/5th distance with v₂ speed, then average speed is:",
+            options: ["A. (1/2)√(v₁v₂)", "B. (v₁+v₂)/2", "C. (2v₁v₂)/(v₁+v₂)", "D. (5v₁v₂)/(3v₁+2v₂)"],
+            answer: "D. (5v₁v₂)/(3v₁+2v₂)",
+            explanation: "Let total distance be D. Time t₁ = (2D/5)/v₁. Time t₂ = (3D/5)/v₂. Total time T = t₁+t₂ = D * (2/5v₁ + 3/5v₂). Average speed = D/T = 1 / (2/5v₁ + 3/5v₂) = 5v₁v₂/(2v₂+3v₁).",
             neetFrequency: 3
         }
     ],
@@ -558,6 +558,5 @@ This is a special case of uniformly accelerated motion where the acceleration is
             answer: "a-r, b-q, c-p, d-s",
             explanation: "Matching the names of the kinematic equations with their formulas."
         }
-    ],
-    validationReport: []
+    ]
 };
