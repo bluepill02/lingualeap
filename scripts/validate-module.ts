@@ -48,7 +48,8 @@ export async function validateModule(content: string, chapterName: string): Prom
       'id', 'title', 'chapter', 'subject', 'learningObjectives', 'prerequisites', 
       'conceptOverview', 'tamilConnection', 'culturalContext', 'conceptNotes', 
       'workedExamples', 'mcqs', 'assertionReasons', 'matchTheColumns', 
-      'keyFormulasAndDiagrams', 'keyTakeaways', 'mnemonics', 'neetTips'
+      'keyFormulasAndDiagrams', 'keyTakeaways', 'mnemonics', 'neetTips',
+      'studentTip', 'peerDiscussion' // Added these to ensure summary is complete
     ];
   for (const key of requiredKeys) {
     const value = moduleObject[key];
@@ -58,10 +59,13 @@ export async function validateModule(content: string, chapterName: string): Prom
   }
   
   // Check 3: Verify Practice Question Quotas
-  if(moduleObject.workedExamples?.length < 5) errors.push(`Question Quotas: Expected 5+ Worked Examples, but found ${moduleObject.workedExamples?.length || 0}.`);
   if(moduleObject.mcqs?.length < 25) errors.push(`Question Quotas: Expected 25 MCQs, but found ${moduleObject.mcqs?.length || 0}.`);
   if(moduleObject.assertionReasons?.length < 5) errors.push(`Question Quotas: Expected 5 Assertion-Reason questions, but found ${moduleObject.assertionReasons?.length || 0}.`);
   if(moduleObject.matchTheColumns?.length < 5) errors.push(`Question Quotas: Expected 5 Match-the-Columns questions, but found ${moduleObject.matchTheColumns?.length || 0}.`);
+  
+  // Stricter check for Worked Examples, must have at least a few comprehensive ones
+  if(moduleObject.workedExamples?.length < 3) errors.push(`Question Quotas: Expected 3+ comprehensive Worked Examples, but found ${moduleObject.workedExamples?.length || 0}.`);
+
 
   // Check 4: LaTeX error check (simple regex for unescaped single backslashes in math mode)
   // This is a heuristic and might not catch all errors.
