@@ -101,7 +101,7 @@ export const currentElectricityModule: NeetModule = {
                 { step: 5, explanation: "Find I₃ using the junction rule.", explanationTamil: "சந்தி விதியைப் பயன்படுத்தி I₃ ஐக் கண்டறியவும்.", calculation: "I₃ = I₁ + I₂ ≈ 25 - 35 = -10 A." }
             ],
             neetHack: "Always be consistent with your assumed current directions and loop paths. If you get a negative current, it simply means the actual current flows in the opposite direction to your assumption.",
-            neetHackTamil: "நீங்கள் கருதும் மின்னோட்ட திசைகள் மற்றும் சுற்றுப் பாதைகளில் எப்போதும் சீராக இருங்கள். உங்களுக்கு எதிர்மறை மின்னோட்டம் கிடைத்தால், உண்மையான மின்னோட்டம் நீங்கள் கருதிய திசைக்கு எதிர் திசையில் பாய்கிறது என்று அர்த்தம்."
+            neetHackTamil: "நீங்கள் கருதும் மின்னோட்ட திசைகள் மற்றும் சுற்றுப் பாதைகளில் எப்போதும் சீராக இருங்கள். உங்களுக்கு எதிர்மறை மின்னோட்டம் கிடைத்தால், உண்மையான மின்னோட்டம் நீங்கள் கருதிய திசைக்கு எதிர் திசையில் பாய்கிறது என்று அர்த்தம்!"
         },
         {
             title: "Meter Bridge Calculation",
@@ -227,6 +227,16 @@ export const currentElectricityModule: NeetModule = {
     neetTips: [
         { text: "For complex resistor networks (like cube problems), look for symmetry to simplify the circuit. Points at the same potential can be connected together.", tamil: "சிக்கலான மின்தடை வலையமைப்புகளுக்கு (கனசதுரக் கணக்குகள் போன்றவை), சுற்றை எளிதாக்க சமச்சீர்மையைத் தேடுங்கள். ஒரே மின்னழுத்தத்தில் உள்ள புள்ளிகளை ஒன்றாக இணைக்கலாம்." },
         { text: "In potentiometer problems, the first step is always to find the potential gradient (V/L) of the wire.", tamil: "மின்னழுத்தமானி கணக்குகளில், முதல் படி எப்போதும் கம்பியின் மின்னழுத்த சரிவைக் (V/L) கண்டுபிடிப்பதுதான்." }
-    ]
+    ],
+    studentTip: {
+        english: "When solving complex circuits with Kirchhoff's laws, be very systematic. Clearly mark your assumed current directions and loop paths on the diagram. Even if your assumed current direction is wrong, the math will work out and give you a negative answer, which just means the current flows the other way!",
+        tamil: "கிர்க்காஃப் விதிகளைப் பயன்படுத்தி சிக்கலான மின்சுற்றுக்களைத் தீர்க்கும்போது, மிகவும் முறையாக இருங்கள். நீங்கள் கருதும் மின்னோட்ட திசைகளையும் சுற்றுப் பாதைகளையும் வரைபடத்தில் தெளிவாகக் குறிக்கவும். உங்கள் மின்னோட்ட திசை தவறாக இருந்தாலும், கணிதம் சரியாக வேலை செய்து உங்களுக்கு எதிர்மறை விடையைக் கொடுக்கும், அதாவது மின்னோட்டம் எதிர் திசையில் பாய்கிறது என்று அர்த்தம்!"
+    },
+    peerDiscussion: {
+        english: "Discuss with your friends: Why is household wiring done in parallel and not in series? What would happen if all your home appliances were connected in series?",
+        tamil: "உங்கள் நண்பர்களுடன் விவாதிக்கவும்: வீட்டு மின்சுற்றுகள் ஏன் தொடரிணைப்பில் இல்லாமல் பக்க இணைப்பில் செய்யப்படுகின்றன? உங்கள் வீட்டு உபகரணங்கள் அனைத்தும் தொடரிணைப்பில் இணைக்கப்பட்டால் என்ன நடக்கும்?"
+    },
+     validationReport: []
 }
+    
     
