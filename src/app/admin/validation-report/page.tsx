@@ -152,6 +152,7 @@ export default function ValidationReportPage() {
                                     <TableHead>Syntax/Build</TableHead>
                                     <TableHead>Content Accuracy</TableHead>
                                     <TableHead>All Sections Checked</TableHead>
+                                    <TableHead>Score</TableHead>
                                     <TableHead>Overall Status</TableHead>
                                 </TableRow>
                             </TableHeader>
@@ -159,7 +160,9 @@ export default function ValidationReportPage() {
                                 {allModules.map(module => {
                                     if (!module || !module.id) return null;
                                     const validationResults = validateModule(module);
-                                    const isOverallPass = validationResults.every(r => r.status === 'pass');
+                                    const passedChecks = validationResults.filter(r => r.status === 'pass').length;
+                                    const totalChecks = validationResults.length;
+                                    const isOverallPass = passedChecks === totalChecks;
 
                                     const getStatusIcon = (status: 'pass' | 'fail') => 
                                         status === 'pass' 
@@ -182,6 +185,7 @@ export default function ValidationReportPage() {
                                             <TableCell>{getStatusIcon(getResultByCheckName('Syntax/Build'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('Content Accuracy'))}</TableCell>
                                             <TableCell>{getStatusIcon(getResultByCheckName('All Sections Checked'))}</TableCell>
+                                            <TableCell className="font-semibold">{`${passedChecks} / ${totalChecks}`}</TableCell>
                                             <TableCell>
                                                 <Badge variant={isOverallPass ? 'success' : 'destructive'}>
                                                     {isOverallPass ? 'Pass' : 'Fail'}
