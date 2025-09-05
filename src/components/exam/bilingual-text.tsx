@@ -12,14 +12,14 @@ interface BilingualTextProps {
 }
 
 export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, className }) => {
+  // Combine English and Tamil text into a single string for inline rendering
+  const combinedText = tamil 
+    ? `${english} <span class="text-accent ml-2">*(${tamil})*</span>` 
+    : english;
+
   return (
-    <div className={cn('prose dark:prose-invert max-w-none text-foreground', className)}>
-      <MarkdownRenderer>{english}</MarkdownRenderer>
-      {tamil && (
-        <span className="text-accent ml-2">
-            <MarkdownRenderer>{`*(${tamil})*`}</MarkdownRenderer>
-        </span>
-      )}
+    <div className={cn('prose dark:prose-invert max-w-none text-foreground [&>p]:inline', className)}>
+      <MarkdownRenderer>{combinedText}</MarkdownRenderer>
     </div>
   );
 };
