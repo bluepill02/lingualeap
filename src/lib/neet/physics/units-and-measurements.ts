@@ -543,24 +543,17 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
             neetFrequency: 1
         }
     ],
-    validationReport: [
-        { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
-        { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },
-        { check: 'Confirm Content Completeness', status: 'pass', message: 'OK' },
-        { check: 'Validate Module Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Maintain Quality Parity', status: 'pass', message: 'OK' },
-        { check: '"Next Module" Accuracy', status: 'pass', message: 'OK' },
-        { check: 'Check for interactive elements like virtual labs and 3D diagrams', status: 'pass', message: 'OK' },
-        { check: 'Include interactive diagrams in Learn section', status: 'pass', message: 'OK' },
-        { check: 'Entire learn and worked examples section should be bilingual and nothing skipped', status: 'pass', message: 'OK' },
-        { check: 'Verify XML Structure', status: 'pass', message: 'OK' },
-        { check: 'Add chapter number tag to the chapter cards', status: 'pass', message: 'OK' },
-        { check: 'Check if bilingual content was added uniformly to throughout the learn and worked examples section', status: 'pass', message: 'OK' },
-        { check: 'Entire module should be double checked for errors AND nothing should be empty without suitable content', status: 'pass', message: 'OK' },
-        { check: 'Check LaTeX errors thoroughly and carefully, every letter of code', status: 'pass', message: 'OK' },
-        { check: 'Verify Color Scheme Application', status: 'pass', message: 'OK' },
-        { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
-    ]
+    studentTip: {
+        english: "Dimensional analysis is your best friend for checking answers. If the dimensions don't match, your formula is definitely wrong. It's a quick and powerful sanity check during the exam.",
+        tamil: "பரிமாணப் பகுப்பாய்வு உங்கள் பதில்களைச் சரிபார்க்க சிறந்த நண்பன். பரிமாணங்கள் பொருந்தவில்லை என்றால், உங்கள் சூத்திரம் நிச்சயமாகத் தவறு. இது தேர்வின் போது ஒரு விரைவான மற்றும் சக்திவாய்ந்த சரிபார்ப்பு முறையாகும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why dimensionless quantities like 'strain' or 'refractive index' are so important in physics. Can you name three more dimensionless quantities?",
+        tamil: "'திரிபு' அல்லது 'ஒளிவிலகல் எண்' போன்ற பரிமாணமற்ற அளவுகள் இயற்பியலில் ஏன் மிகவும் முக்கியமானவை என்று உங்கள் நண்பருடன் விவாதிக்கவும். மேலும் மூன்று பரிமாணமற்ற அளவுகளை உங்களால் கூற முடியுமா?"
+    },
+    nextChapter: {
+        title: "Motion in a Straight Line",
+        titleTamil: "நேர்கோட்டு இயக்கம்"
+    },
+    validationReport: []
 };
-
-    

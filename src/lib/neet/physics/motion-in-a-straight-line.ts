@@ -558,5 +558,18 @@ This is a special case of uniformly accelerated motion where the acceleration is
             answer: "a-r, b-q, c-p, d-s",
             explanation: "Matching the names of the kinematic equations with their formulas."
         }
-    ]
+    ],
+    studentTip: {
+        english: "Always establish a clear sign convention (e.g., up is positive, down is negative) at the beginning of a problem and stick to it for all vector quantities (displacement, velocity, acceleration).",
+        tamil: "ஒரு கணக்கின் தொடக்கத்தில் ஒரு தெளிவான குறியீட்டு மரபை (எ.கா., மேல்நோக்கி நேர்க்குறி, கீழ்நோக்கி எதிர்க்குறி) நிறுவி, அனைத்து வெக்டர் அளவுகளுக்கும் (இடப்பெயர்ச்சி, திசைவேகம், முடுக்கம்) அதையே கடைபிடிக்கவும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Can a body have a constant speed but still have a varying velocity? What about constant velocity and varying speed? Give examples for each case.",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு பொருள் மாறாத வேகத்தைக் கொண்டிருக்கும்போது, மாறும் திசைவேகத்தைக் கொண்டிருக்க முடியுமா? மாறாத திசைவேகம் மற்றும் மாறும் வேகம் எப்படி? ஒவ்வொரு நிலைக்கும் உதாரணங்கள் கொடுங்கள்."
+    },
+    nextChapter: {
+        title: "Motion in a Plane",
+        titleTamil: "தளத்தில் இயக்கம்"
+    },
+    validationReport: []
 };
