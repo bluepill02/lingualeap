@@ -32,39 +32,56 @@ export const atomsModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. Rutherford's Nuclear Model of Atom (ரூதர்போர்டின் அணுவின் உட்கரு மாதிரி)
-Based on the α-particle scattering experiment, Rutherford concluded:
+            heading: {
+                english: '1. Rutherford\'s Nuclear Model of Atom',
+                tamil: 'ரூதர்போர்டின் அணுவின் உட்கரு மாதிரி'
+            },
+            content: [
+                {
+                    english: `Based on the α-particle scattering experiment, Rutherford concluded:
 1.  Most of the atom is empty space.
 2.  The entire positive charge and most of the mass of the atom are concentrated in a very small region called the **nucleus**.
 3.  Electrons revolve around the nucleus in circular orbits, with the centripetal force provided by the electrostatic attraction.
 
 **Limitations:** It could not explain the stability of the atom (an accelerating electron should radiate energy and spiral into the nucleus) and the line spectrum of atoms.`,
-            tamil: `### 1. ரூதர்போர்டின் அணுவின் உட்கரு மாதிரி
-α-துகள் சிதறல் சோதனையின் அடிப்படையில், ரூதர்போர்டு பின்வரும் முடிவுகளுக்கு வந்தார்:
+                    tamil: `α-துகள் சிதறல் சோதனையின் அடிப்படையில், ரூதர்போர்டு பின்வரும் முடிவுகளுக்கு வந்தார்:
 1. அணுவின் பெரும்பகுதி வெற்றிடமாகும்.
 2. அணுவின் முழு நேர் மின்னூட்டமும், பெரும்பான்மையான நிறையும் **அணுக்கரு** எனப்படும் மிகச் சிறிய பகுதியில் செறிவூட்டப்பட்டுள்ளது.
 3. எலக்ட்ரான்கள் அணுக்கருவைச் சுற்றி வட்டப் பாதைகளில் சுற்றுகின்றன, தேவையான மையநோக்கு விசை நிலைமின்னியல் ஈர்ப்பு விசையால் வழங்கப்படுகிறது.
 
 **குறைபாடுகள்:** இது அணுவின் நிலைப்புத்தன்மையையும் (முடுக்கப்பட்ட எலக்ட்ரான் ஆற்றலைக் கதிர்வீசி அணுக்கருவில் சுருண்டு விழ வேண்டும்) மற்றும் அணுக்களின் வரி நிறமாலையையும் விளக்க முடியவில்லை.`
+                }
+            ]
         },
         {
-            english: `### 2. Bohr's Model for the Hydrogen Atom (ஹைட்ரஜன் அணுவிற்கு போரின் மாதிரி)
-Bohr combined classical and early quantum concepts and gave three postulates:
+            heading: {
+                english: '2. Bohr\'s Model for the Hydrogen Atom',
+                tamil: 'ஹைட்ரஜன் அணுவிற்கு போரின் மாதிரி'
+            },
+            content: [
+                {
+                    english: `Bohr combined classical and early quantum concepts and gave three postulates:
 1.  **First Postulate (Stationary Orbits):** An electron can revolve around the nucleus only in certain stable, circular orbits called stationary orbits, without radiating energy.
 2.  **Second Postulate (Quantization of Angular Momentum):** The angular momentum (L) of an electron in a stationary orbit is an integral multiple of h/2π.
     $$ L = mvr = n \\frac{h}{2\\pi} $$
     where n = 1, 2, 3, ... is the principal quantum number.
 3.  **Third Postulate (Frequency Condition):** An electron might make a transition from a higher energy orbit ($E_i$) to a lower energy orbit ($E_f$). The energy of the emitted photon is equal to the energy difference between the two orbits.
     $$ h\\nu = E_i - E_f $$`,
-            tamil: `### 2. ஹைட்ரஜன் அணுவிற்கு போரின் மாதிரி
-போர், செவ்வியல் மற்றும் ஆரம்ப குவாண்டம் கருத்துக்களை இணைத்து மூன்று எடுகோள்களைக் கொடுத்தார்:
+                    tamil: `போர், செவ்வியல் மற்றும் ஆரம்ப குவாண்டம் கருத்துக்களை இணைத்து மூன்று எடுகோள்களைக் கொடுத்தார்:
 1. **முதல் எடுகோள் (நிலையான சுற்றுப்பாதைகள்):** ஒரு எலக்ட்ரான் ஆற்றலைக் கதிர்வீசாமல், நிலையான சுற்றுப்பாதைகள் எனப்படும் சில நிலையான, வட்டப் பாதைகளில் மட்டுமே அணுக்கருவைச் சுற்றி வர முடியும்.
 2. **இரண்டாம் எடுகோள் (கோண உந்தத்தின் குவாண்டமாக்கல்):** ஒரு நிலையான சுற்றுப்பாதையில் உள்ள ஒரு எலக்ட்ரானின் கோண உந்தம் (L), h/2π இன் முழு எண் மடங்காகும்.
 3. **மூன்றாம் எடுகோள் (அதிர்வெண் நிபந்தனை):** ஒரு எலக்ட்ரான் உயர் ஆற்றல் சுற்றுப்பாதையிலிருந்து ($E_i$) குறைந்த ஆற்றல் சுற்றுப்பாதைக்கு ($E_f$) தாவலாம். உமிழப்பட்ட ஃபோட்டானின் ஆற்றல் இரண்டு சுற்றுப்பாதைகளுக்கு இடையிலான ஆற்றல் வேறுபாட்டிற்கு சமம்.`
+                }
+            ]
         },
         {
-            english: `### 3. Radii and Energy of Orbits (சுற்றுப்பாதைகளின் ஆரங்கள் மற்றும் ஆற்றல்கள்)
-For a hydrogen-like atom with atomic number Z:
+            heading: {
+                english: '3. Radii and Energy of Orbits',
+                tamil: 'சுற்றுப்பாதைகளின் ஆரங்கள் மற்றும் ஆற்றல்கள்'
+            },
+            content: [
+                {
+                    english: `For a hydrogen-like atom with atomic number Z:
 *   **Radius of the nth orbit ($r_n$):**
     $$ r_n = \\frac{n^2 h^2 \\epsilon_0}{\\pi m Z e^2} \\propto \\frac{n^2}{Z} $$
     For hydrogen (Z=1), the first Bohr radius is $r_1 \\approx 0.529$ Å.
@@ -73,16 +90,22 @@ For a hydrogen-like atom with atomic number Z:
 *   **Energy of the nth orbit ($E_n$):**
     $$ E_n = -\\frac{m Z^2 e^4}{8 n^2 h^2 \\epsilon_0^2} = -\\frac{13.6 Z^2}{n^2} \\text{ eV} $$
     The negative sign indicates that the electron is bound to the nucleus. Energy is zero at n=∞.`,
-            tamil: `### 3. சுற்றுப்பாதைகளின் ஆரங்கள் மற்றும் ஆற்றல்கள்
-அணு எண் Z கொண்ட ஒரு ஹைட்ரஜன் போன்ற அணுவிற்கு:
+                    tamil: `அணு எண் Z கொண்ட ஒரு ஹைட்ரஜன் போன்ற அணுவிற்கு:
 * **n-வது சுற்றுப்பாதையின் ஆரம் ($r_n$):**
 * **n-வது சுற்றுப்பாதையில் எலக்ட்ரானின் திசைவேகம் ($v_n$):**
 * **n-வது சுற்றுப்பாதையின் ஆற்றல் ($E_n$):**
 எதிர்மறை குறி எலக்ட்ரான் அணுக்கருவுடன் பிணைக்கப்பட்டுள்ளது என்பதைக் குறிக்கிறது. n=∞ இல் ஆற்றல் சுழியாகும்.`
+                }
+            ]
         },
         {
-            english: `### 4. Hydrogen Spectrum (ஹைட்ரஜன் நிறமாலை)
-When an electron jumps from a higher orbit ($n_i$) to a lower orbit ($n_f$), a spectral line is emitted. The wavelength (λ) is given by the Rydberg formula:
+            heading: {
+                english: '4. Hydrogen Spectrum',
+                tamil: 'ஹைட்ரஜன் நிறமாலை'
+            },
+            content: [
+                {
+                    english: `When an electron jumps from a higher orbit ($n_i$) to a lower orbit ($n_f$), a spectral line is emitted. The wavelength (λ) is given by the Rydberg formula:
 $$ \\frac{1}{\\lambda} = R Z^2 \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right) $$
 where R is the Rydberg constant ($R \\approx 1.097 \\times 10^7 \\text{ m}^{-1}$).
 Different series are named based on the final orbit $n_f$:
@@ -91,14 +114,15 @@ Different series are named based on the final orbit $n_f$:
 *   **Paschen Series:** $n_f = 3$ (Infrared region)
 *   **Brackett Series:** $n_f = 4$ (Infrared region)
 *   **Pfund Series:** $n_f = 5$ (Infrared region)`,
-            tamil: `### 4. ஹைட்ரஜன் நிறமாலை
-ஒரு எலக்ட்ரான் உயர் சுற்றுப்பாதையிலிருந்து ($n_i$) குறைந்த சுற்றுப்பாதைக்கு ($n_f$) தாவும்போது, ஒரு நிறமாலை வரி உமிழப்படுகிறது. அலைநீளம் (λ) ரிட்பெர்க் சூத்திரத்தால் கொடுக்கப்படுகிறது:
+                    tamil: `ஒரு எலக்ட்ரான் உயர் சுற்றுப்பாதையிலிருந்து ($n_i$) குறைந்த சுற்றுப்பாதைக்கு ($n_f$) தாவும்போது, ஒரு நிறமாலை வரி உமிழப்படுகிறது. அலைநீளம் (λ) ரிட்பெர்க் சூத்திரத்தால் கொடுக்கப்படுகிறது:
 வெவ்வேறு தொடர்கள் இறுதி சுற்றுப்பாதை $n_f$-ஐப் பொறுத்து பெயரிடப்பட்டுள்ளன:
 * **லைமன் தொடர்:** $n_f = 1$ (புற ஊதா பகுதி)
 * **பால்மர் தொடர்:** $n_f = 2$ (கண்ணுறு ஒளிப் பகுதி)
 * **பாஷன் தொடர்:** $n_f = 3$ (அகச்சிவப்பு பகுதி)
 * **பிராக்கெட் தொடர்:** $n_f = 4$ (அகச்சிவப்பு பகுதி)
 * **ஃபண்ட் தொடர்:** $n_f = 5$ (அகச்சிவப்பு பகுதி)`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -130,7 +154,7 @@ Different series are named based on the final orbit $n_f$:
                 { step: 4, explanation: "Solve for λ. Use R ≈ 1.097 x 10⁷ m⁻¹.", calculation: "λ = 36 / (5R) = 36 / (5 * 1.097 × 10⁷) ≈ 6.56 × 10⁻⁷ m = 656 nm" }
             ],
             commonPitfall: "Confusing the initial (n_i) and final (n_f) states. For emission spectra, n_i is always greater than n_f.",
-            neetHackTamil: "ஆரம்ப (n_i) மற்றும் இறுதி (n_f) நிலைகளைக் குழப்பிக் கொள்ளுதல். உமிழ்வு நிறமாலைக்கு, n_i எப்போதும் n_f-ஐ விட பெரியது."
+            commonPitfallTamil: "ஆரம்ப (n_i) மற்றும் இறுதி (n_f) நிலைகளைக் குழப்பிக் கொள்ளுதல். உமிழ்வு நிறமாலைக்கு, n_i எப்போதும் n_f-ஐ விட பெரியது."
         },
         {
             title: "NEET Level: Bohr Radius",
@@ -225,5 +249,44 @@ Different series are named based on the final orbit $n_f$:
     neetTips: [
         { text: "Problems relating the radius, velocity, and energy of different orbits or different hydrogen-like species are very common. Master the proportionality relations (r ∝ n²/Z, v ∝ Z/n, E ∝ Z²/n²).", tamil: "வெவ்வேறு சுற்றுப்பாதைகள் அல்லது வெவ்வேறு ஹைட்ரஜன் போன்ற தனிமங்களின் ஆரம், திசைவேகம் மற்றும் ஆற்றல் தொடர்பான கணக்குகள் மிகவும் பொதுவானவை. விகிதாசார உறவுகளை (r ∝ n²/Z, v ∝ Z/n, E ∝ Z²/n²) நன்கு அறிந்திருங்கள்." },
         { text: "The energy relationships K = -E and U = 2E are powerful shortcuts for solving problems about the energies of an orbiting electron.", tamil: "ஒரு சுற்றும் எலக்ட்ரானின் ஆற்றல்கள் பற்றிய கணக்குகளைத் தீர்க்க, K = -E மற்றும் U = 2E ஆகிய ஆற்றல் உறவுகள் சக்திவாய்ந்த குறுக்குவழிகள் ஆகும்." }
-    ]
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'r_n = \\frac{n^2}{Z} (0.529 \\text{ Å})',
+                description: 'Bohr Radius',
+                descriptionTamil: 'போர் ஆரம்'
+            },
+            {
+                formula: 'E_n = -13.6 \\frac{Z^2}{n^2} \\text{ eV}',
+                description: 'Energy Levels',
+                descriptionTamil: 'ஆற்றல் மட்டங்கள்'
+            },
+            {
+                formula: 'L = n \\frac{h}{2\\pi}',
+                description: 'Angular Momentum Quantization',
+                descriptionTamil: 'கோண உந்த குவாண்டமாக்கல்'
+            },
+            {
+                formula: '\\frac{1}{\\lambda} = R Z^2 \\left( \\frac{1}{n_f^2} - \\frac{1}{n_i^2} \\right)',
+                description: 'Rydberg Formula',
+                descriptionTamil: 'ரிட்பெர்க் சூத்திரம்'
+            }
+        ],
+        diagrams: []
+    },
+    studentTip: {
+        english: "Memorizing the first few energy levels of hydrogen (E₁=-13.6 eV, E₂=-3.4 eV, E₃=-1.51 eV) can save you a lot of calculation time in exams.",
+        tamil: "ஹைட்ரஜனின் முதல் சில ஆற்றல் மட்டங்களை (E₁=-13.6 eV, E₂=-3.4 eV, E₃=-1.51 eV) மனப்பாடம் செய்வது தேர்வுகளில் உங்கள் கணக்கீட்டு நேரத்தை மிச்சப்படுத்தும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why Bohr's model, despite its success with hydrogen, fails for multi-electron atoms. What specific interactions does it ignore?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: போரின் மாதிரி, ஹைட்ரஜனுடன் வெற்றி பெற்ற போதிலும், பல-எலக்ட்ரான் அணுக்களுக்கு ஏன் தோல்வியடைகிறது? அது எந்த குறிப்பிட்ட இடைவினைகளைப் புறக்கணிக்கிறது?"
+    },
+    nextChapter: {
+        title: "Nuclei",
+        titleTamil: "அணுக்கருக்கள்"
+    },
+    validationReport: []
 };
+
