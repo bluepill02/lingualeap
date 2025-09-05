@@ -486,6 +486,13 @@ This is a special case of uniformly accelerated motion where the acceleration is
             answer: "D. -9 m/s",
             explanation: "v = ds/dt = 3t² - 12t + 3. a = dv/dt = 6t - 12. Set a=0 => 6t-12=0 => t=2s. Now find v at t=2s. v(2) = 3(2)² - 12(2) + 3 = 12 - 24 + 3 = -9 m/s.",
             neetFrequency: 5
+        },
+        {
+            question: "A train of 150 m length is going towards north direction at a speed of 10 m/s. A parrot flies at the speed of 5 m/s towards south direction parallel to the railway track. The time taken by the parrot to cross the train is:",
+            options: ["A. 12 s", "B. 8 s", "C. 10 s", "D. 15 s"],
+            answer: "C. 10 s",
+            explanation: "Relative speed of the parrot with respect to the train is v_rel = v_parrot + v_train = 5 + 10 = 15 m/s (since they are moving in opposite directions). The distance to be covered is the length of the train, 150 m. Time = Distance / Relative Speed = 150 / 15 = 10 s.",
+            neetFrequency: 3
         }
     ],
     assertionReasons: [
