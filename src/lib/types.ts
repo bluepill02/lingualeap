@@ -196,6 +196,12 @@ export interface BilingualContent {
     tamil?: string;
 }
 
+export interface ValidationReport {
+  check: string;
+  status: 'pass' | 'fail';
+  message: string;
+}
+
 export interface NeetModule {
     id: string;
     title: string;
@@ -223,12 +229,6 @@ export interface NeetModule {
     studentTip?: { english: string; tamil: string; };
     peerDiscussion?: { english: string; tamil: string; };
     validationReport?: ValidationReport[];
-}
-
-export interface ValidationReport {
-  check: string;
-  status: 'pass' | 'fail';
-  message: string;
 }
 
 
