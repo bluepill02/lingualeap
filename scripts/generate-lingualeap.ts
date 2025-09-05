@@ -3,7 +3,10 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { generateNeetContent } from '../src/ai/flows/neet-content-generator';
+import { fixNeetContent } from '../src/ai/flows/neet-content-fixer';
 import { validateModule } from './validate-module';
+import type { NeetModule } from '../src/lib/types';
+
 
 // Define a specific type for the subjects and categories
 type Subject = 'physics' | 'chemistry' | 'biology';
@@ -102,25 +105,34 @@ async function run() {
     for (const chapter of chapters) {
         let lastErrors: string[] = [];
         let success = false;
+        let currentContent = '';
 
         for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
             try {
-                console.log(`🚀 [Attempt ${attempt}/${MAX_RETRIES}] Generating Physics > ${category} > ${chapter}...`);
-                
-                const result = await generateNeetContent({ 
-                    subject: 'Physics', 
-                    chapter, 
-                    category,
-                    previousErrors: lastErrors.length > 0 ? lastErrors : undefined,
-                });
+                if (attempt === 1) {
+                    console.log(`🚀 [Attempt 1/${MAX_RETRIES}] Generating Physics > ${category} > ${chapter}...`);
+                    const result = await generateNeetContent({ 
+                        subject: 'Physics', 
+                        chapter, 
+                        category,
+                    });
+                    currentContent = result.markdownContent;
+                } else {
+                    console.log(`FIXING... 🛠️ [Attempt ${attempt}/${MAX_RETRIES}] Fixing Physics > ${category} > ${chapter}...`);
+                    const result = await fixNeetContent({
+                        brokenMarkdown: currentContent,
+                        validationErrors: lastErrors,
+                    });
+                    currentContent = result.fixedMarkdownContent;
+                }
                 
                 console.log(`🔍 Validating module for ${chapter}...`);
-                const { isValid, errors } = await validateModule(result.markdownContent, chapter);
+                const { isValid, errors } = await validateModule(currentContent, chapter);
 
                 if (!isValid) {
                     console.error(`❌ Validation failed for ${chapter} on attempt ${attempt}:`);
                     errors.forEach(error => console.error(` - ${error}`));
-                    lastErrors = errors; // Store errors for the next attempt
+                    lastErrors = errors;
                     if (attempt === MAX_RETRIES) {
                         console.error(`❌ All ${MAX_RETRIES} attempts failed for ${chapter}. Moving on.`);
                     }
@@ -133,13 +145,13 @@ async function run() {
                 const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.md`);
                 
                 fs.mkdirSync(path.dirname(filePath), { recursive: true });
-                fs.writeFileSync(filePath, result.markdownContent);
+                fs.writeFileSync(filePath, currentContent);
 
                 console.log(`📝 Successfully generated and saved Physics > ${category} > ${chapter}`);
                 success = true;
                 break; // Exit the retry loop on success
             } catch (error) {
-                console.error(`❌ Failed to generate Physics > ${category} > ${chapter} on attempt ${attempt}:`, error);
+                console.error(`❌ An unexpected error occurred during attempt ${attempt} for ${chapter}:`, error);
                 lastErrors = [String(error)];
             }
         }
