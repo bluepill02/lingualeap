@@ -140,48 +140,53 @@ export const gravitationModule: NeetModule = {
             ],
             neetHack: "Knowing the proportionality of v_e is key. v_e ∝ √(M/R) and v_e ∝ R√ρ. Depending on what is kept constant, you can quickly find the ratio.",
             neetHackTamil: "v_e-இன் விகிதாசாரத்தை அறிவது முக்கியம். v_e ∝ √(M/R) மற்றும் v_e ∝ R√ρ. எது மாறிலியாக வைக்கப்படுகிறது என்பதைப் பொறுத்து, நீங்கள் விரைவாக விகிதத்தைக் கண்டறியலாம்."
+        },
+        {
+            title: "NEET Level: Kepler's Third Law",
+            titleTamil: "நீட் நிலை: கெப்ளரின் மூன்றாம் விதி",
+            difficulty: 'Easy',
+            problem: "The period of revolution of a planet A around the sun is 8 times that of B. The distance of A from the sun is how many times greater than that of B from the sun?",
+            problemTamil: "சூரியனைச் சுற்றி A என்ற கோளின் சுழற்சி காலம் B-ஐ விட 8 மடங்கு அதிகம். சூரியனிலிருந்து A-இன் தூரம், சூரியனிலிருந்து B-இன் தூரத்தை விட எத்தனை மடங்கு அதிகம்?",
+            solutionSteps: [
+                { step: 1, explanation: "State Kepler's Third Law: T² ∝ r³.", explanationTamil: "கெப்ளரின் மூன்றாம் விதியைக் கூறவும்: T² ∝ r³." },
+                { step: 2, explanation: "Set up a ratio for the two planets A and B.", calculation: "(\\frac{T_A}{T_B})^2 = (\\frac{r_A}{r_B})^3" },
+                { step: 3, explanation: "Substitute the given relation T_A = 8T_B.", calculation: "(\\frac{8T_B}{T_B})^2 = (\\frac{r_A}{r_B})^3 \\implies 8^2 = (\\frac{r_A}{r_B})^3" },
+                { step: 4, explanation: "Solve for the ratio of the distances.", calculation: "64 = (\\frac{r_A}{r_B})^3 \\implies \\frac{r_A}{r_B} = \\sqrt[3]{64} = 4" }
+            ],
+            neetHack: "For T² ∝ r³, this means T ∝ r^(3/2) and r ∝ T^(2/3). If the time period ratio is given, raise it to the power of 2/3 to get the distance ratio. Here, 8^(2/3) = (8^(1/3))² = 2² = 4.",
+            commonPitfall: "Mixing up the powers in Kepler's law. Remember 'T-squared, r-cubed'."
+        },
+        {
+            title: "JEE Level: Gravitational Field of a Shell",
+            titleTamil: "ஜே.இ.இ நிலை: ஒரு ஓட்டின் ஈர்ப்புப் புலம்",
+            difficulty: 'Medium',
+            problem: "A thin spherical shell has mass M and radius R. What is the gravitational field intensity (E_g) at a point inside the shell and at a point outside the shell?",
+            problemTamil: "M நிறை மற்றும் R ஆரம் கொண்ட ஒரு மெல்லிய கோள ஓடு உள்ளது. ஓட்டின் உள்ளே ஒரு புள்ளியிலும், ஓட்டிற்கு வெளியே ஒரு புள்ளியிலும் ஈர்ப்புப் புலச் செறிவு (E_g) என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "Apply Shell Theorem, which is derived from Gauss's Law for gravitation.", explanationTamil: "ஈர்ப்பியலுக்கான காஸ் விதியிலிருந்து பெறப்பட்ட ஓடு தேற்றத்தைப் பயன்படுத்தவும்." },
+                { step: 2, explanation: "Case 1: Inside the shell (r < R). The gravitational field inside a uniform spherical shell is zero.", calculation: "For r < R, E_g = 0" },
+                { step: 3, explanation: "This is because the gravitational forces from all the different parts of the shell cancel each other out perfectly at any point inside.", explanationTamil: "ஏனெனில், ஓட்டின் உள்ளே எந்தவொரு புள்ளியிலும் ஓட்டின் வெவ்வேறு பகுதிகளிலிருந்து வரும் ஈர்ப்பு விசைகள் ஒன்றையொன்று சரியாக நீக்குகின்றன." },
+                { step: 4, explanation: "Case 2: Outside the shell (r > R). The gravitational field outside a uniform spherical shell is the same as if the entire mass of the shell were concentrated at its center.", calculation: "For r > R, E_g = \\frac{GM}{r^2}" }
+            ],
+            commonPitfall: "Confusing the results for a solid sphere and a spherical shell. For a solid sphere, the field inside is non-zero (E_g = GMr/R³).",
+            neetHackTamil: "ஒரு திண்மக் கோளம் மற்றும் ஒரு கோள ஓட்டிற்கான முடிவுகளைக் குழப்பிக் கொள்ளுதல். ஒரு திண்மக் கோளத்திற்கு, உள்ளே புலம் சுழியற்றது (E_g = GMr/R³)."
+        },
+        {
+            title: "NEET Level: Energy of a Satellite",
+            titleTamil: "நீட் நிலை: ஒரு செயற்கைக்கோளின் ஆற்றல்",
+            difficulty: 'Medium',
+            problem: "A satellite of mass m is orbiting the Earth at a height h above its surface. Find the ratio of its kinetic energy to its potential energy.",
+            problemTamil: "m நிறையுள்ள ஒரு செயற்கைக்கோள் பூமியின் மேற்பரப்பிற்கு மேலே h உயரத்தில் சுற்றி வருகிறது. அதன் இயக்க ஆற்றலுக்கும் அதன் நிலை ஆற்றலுக்கும் உள்ள விகிதத்தைக் கண்டறியவும்.",
+            solutionSteps: [
+                { step: 1, explanation: "Write the formula for the kinetic energy of an orbiting satellite. The centripetal force is provided by gravity: mv²/r = GMm/r², so mv² = GMm/r.", calculation: "K.E. = \\frac{1}{2}mv^2 = \\frac{GMm}{2r}" },
+                { step: 2, explanation: "Write the formula for the gravitational potential energy of the satellite.", calculation: "P.E. = -\\frac{GMm}{r}" },
+                { step: 3, explanation: "Calculate the ratio K.E. / P.E.", calculation: "\\frac{K.E.}{P.E.} = \\frac{GMm/2r}{-GMm/r} = -\\frac{1}{2}" },
+                { step: 4, explanation: "The ratio of their magnitudes is |K.E./P.E.| = 1/2.", calculation: "The ratio of magnitudes is 1/2" }
+            ],
+            neetHack: "For any satellite in a circular orbit, remember these energy relations: |Total Energy| = Kinetic Energy, and |Potential Energy| = 2 * Kinetic Energy. So, |KE/PE| = 1/2.",
+            neetHackTamil: "ஒரு வட்டப் பாதையில் உள்ள எந்தவொரு செயற்கைக்கோளுக்கும், இந்த ஆற்றல் தொடர்புகளை நினைவில் கொள்க: |மொத்த ஆற்றல்| = இயக்க ஆற்றல், மற்றும் |நிலை ஆற்றல்| = 2 * இயக்க ஆற்றல். எனவே, |KE/PE| = 1/2."
         }
     ],
-    keyFormulasAndDiagrams: {
-        formulas: [
-            {
-                formula: '\\vec{F} = G \\frac{m_1 m_2}{r^2} \\hat{r}',
-                description: 'Newtons Law of Universal Gravitation',
-                descriptionTamil: 'நியூட்டனின் பொது ஈர்ப்பியல் விதி'
-            },
-            {
-                formula: 'g = \\frac{GM}{R^2}',
-                description: 'Acceleration due to gravity on Earths surface',
-                descriptionTamil: 'பூமியின் மேற்பரப்பில் ஈர்ப்பு முடுக்கம்'
-            },
-            {
-                formula: 'v_e = \\sqrt{2GM/R} = \\sqrt{2gR}',
-                description: 'Escape Velocity',
-                descriptionTamil: 'விடுபடு வேகம்'
-            },
-            {
-                formula: 'T^2 \\propto a^3',
-                description: 'Keplers Third Law',
-                descriptionTamil: 'கெப்ளரின் மூன்றாம் விதி'
-            }
-        ],
-        diagrams: []
-    },
-    keyTakeaways: [
-        "Gravity is a universal, attractive force that follows an inverse square law.",
-        "The value of 'g' decreases with both altitude and depth.",
-        "For a satellite to escape Earth's gravity, it must be given a total energy of zero or more.",
-        "Kepler's laws describe planetary motion, which is a direct result of the gravitational force."
-    ],
-    mnemonics: [
-        { text: "Remember `g` is greatest on the surface. Going up or down, it always goes down.", tamil: "g-ன் மதிப்பு தரைமட்டத்தில் தான் அதிகம். மேலே சென்றாலும், கீழே சென்றாலும் அது குறையும்." }
-    ],
-    neetTips: [
-        { text: "Problems involving ratios of g, v_e, or T for different planets are very common. Master the proportionality relationships.", tamil: "வெவ்வேறு கோள்களுக்கு g, v_e, அல்லது T விகிதங்கள் சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. விகிதாசார உறவுகளை நன்கு புரிந்து கொள்ளுங்கள்." },
-        { text: "Work-energy theorem is often the easiest way to solve problems involving change in speed of satellites or objects moving between points in a gravitational field.", tamil: "ஈர்ப்புப் புலத்தில் புள்ளிகளுக்கு இடையே நகரும் செயற்கைக்கோள்கள் அல்லது பொருட்களின் வேக மாற்றத்தைக் கணக்கிட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் எளிதான வழியாகும்." }
-    ],
-    studentTip:{english:"",tamil:""},
-    peerDiscussion:{english:"",tamil:""},
     mcqs: [
         {
             question: "The value of acceleration due to gravity (g) is maximum at the:",
@@ -217,7 +222,27 @@ export const gravitationModule: NeetModule = {
             answer: "B. Always negative",
             explanation: "The total energy of a bound system, like a satellite in orbit, is always negative. E = -GMm/(2r). A positive or zero total energy would mean the satellite escapes the orbit.",
             neetFrequency: 3
-        }
+        },
+        { question: "If the radius of the earth shrinks by 1% (mass remaining same), the acceleration due to gravity on the earth's surface would:", options: ["A. Decrease by 2%", "B. Increase by 2%", "C. Decrease by 1%", "D. Increase by 1%"], answer: "B. Increase by 2%", explanation: "g = GM/R². The percentage change in g is -2 * (% change in R) = -2 * (-1%) = +2%.", neetFrequency: 4 },
+        { question: "The time period of a geostationary satellite is:", options: ["A. 12 hours", "B. 24 hours", "C. 365 days", "D. 1 hour"], answer: "B. 24 hours", explanation: "A geostationary satellite has a time period equal to the Earth's rotational period, so it appears stationary from the ground.", neetFrequency: 2 },
+        { question: "The gravitational potential energy of a body of mass m at the surface of earth of radius R is:", options: ["A. -GMm/R", "B. GMm/R", "C. -GMm/R²", "D. 0"], answer: "A. -GMm/R", explanation: "The gravitational potential energy is defined as zero at infinity and decreases as the body gets closer to the Earth.", neetFrequency: 3 },
+        { question: "The relationship between escape velocity (vₑ) and orbital velocity (vₒ) for a satellite close to the Earth's surface is:", options: ["A. vₑ = vₒ", "B. vₑ = 2vₒ", "C. vₑ = vₒ/√2", "D. vₑ = √2 vₒ"], answer: "D. vₑ = √2 vₒ", explanation: "vₑ = √(2GM/R) and vₒ = √(GM/R). The ratio vₑ/vₒ = √2.", neetFrequency: 5 },
+        { question: "Which of the following statements is correct regarding gravitational force?", options: ["A. It is the strongest force", "B. It is a repulsive force", "C. It is a long-range force", "D. It is medium-dependent"], answer: "C. It is a long-range force", explanation: "Gravitational force has an infinite range, although it weakens with distance. It is the weakest force and is always attractive.", neetFrequency: 2 },
+        { question: "At what depth below the surface of the Earth is the acceleration due to gravity half its value at the surface?", options: ["A. R/2", "B. R/4", "C. R", "D. 2R"], answer: "A. R/2", explanation: "g_d = g(1 - d/R). We want g_d = g/2. So, g/2 = g(1 - d/R) => 1/2 = 1 - d/R => d/R = 1/2 => d = R/2.", neetFrequency: 4 },
+        { question: "Weightlessness experienced while orbiting the earth in a spaceship is the result of:", options: ["A. Zero gravity", "B. Center of mass of the spaceship", "C. Free fall of the spaceship", "D. Zero acceleration"], answer: "C. Free fall of the spaceship", explanation: "The spaceship and everything inside it are constantly falling towards the Earth under gravity, creating the sensation of weightlessness.", neetFrequency: 3 },
+        { question: "The value of G depends on:", options: ["A. The mass of the bodies", "B. The distance between the bodies", "C. The medium between the bodies", "D. None of the above"], answer: "D. None of the above", explanation: "G is the universal gravitational constant, and its value is the same throughout the universe, independent of mass, distance, or medium.", neetFrequency: 1 },
+        { question: "The work done in moving a mass from the surface of the Earth to a height h is:", options: ["A. mgh", "B. mg(R+h)", "C. GMm/h", "D. GMmh/(R(R+h))"], answer: "D. GMmh/(R(R+h))", explanation: "Work done = Change in potential energy = U_final - U_initial = (-GMm/(R+h)) - (-GMm/R) = GMm(1/R - 1/(R+h)) = GMmh/(R(R+h)).", neetFrequency: 3 },
+        { question: "A planet moves around the sun. At a point P it is closest to the sun at a distance d₁ and has speed v₁. At another point Q, when it is farthest from the sun at a distance d₂, its speed will be:", options: ["A. v₁d₂/d₁", "B. v₁d₁/d₂", "C. v₁√(d₂/d₁)", "D. v₁√(d₁/d₂)"], answer: "B. v₁d₁/d₂", explanation: "By conservation of angular momentum, m*v₁*d₁ = m*v₂*d₂. So, v₂ = v₁d₁/d₂.", neetFrequency: 5 },
+        { question: "The atmosphere is held to the earth by:", options: ["A. Winds", "B. Gravity", "C. Clouds", "D. Earth's rotation"], answer: "B. Gravity", explanation: "The Earth's gravitational pull keeps the air molecules from escaping into space.", neetFrequency: 1 },
+        { question: "If the radius of the Earth were to shrink by 1%, its mass remaining the same, the value of g would:", options: ["A. Decrease by 1%", "B. Increase by 1%", "C. Decrease by 2%", "D. Increase by 2%"], answer: "D. Increase by 2%", explanation: "g = GM/R². Taking logs and differentiating, Δg/g = -2(ΔR/R). So, % change in g = -2 * (-1%) = +2%.", neetFrequency: 4 },
+        { question: "The binding energy of a satellite of mass m in an orbit of radius r is:", options: ["A. GMm/r", "B. GMm/2r", "C. -GMm/2r", "D. -GMm/r"], answer: "B. GMm/2r", explanation: "Total energy E = -GMm/2r. The binding energy is the energy required to free the satellite, so it's the positive value of the total energy, i.e., +GMm/2r.", neetFrequency: 3 },
+        { question: "The dimensional formula for gravitational potential is:", options: ["A. [L²T⁻²]", "B. [MLT⁻²]", "C. [ML²T⁻²]", "D. [L²T⁻¹]"], answer: "A. [L²T⁻²]", explanation: "Gravitational potential is Work/mass. So its dimensions are [ML²T⁻²]/[M] = [L²T⁻²].", neetFrequency: 2 },
+        { question: "Two spheres of masses m and M are situated in air and the gravitational force between them is F. The space around the masses is now filled with a liquid of specific gravity 3. The gravitational force will now be:", options: ["A. F", "B. 3F", "C. F/3", "D. F/9"], answer: "A. F", explanation: "The gravitational force is independent of the medium between the masses.", neetFrequency: 2 },
+        { question: "Which of the following is not a unit of G?", options: ["A. Nm²/kg²", "B. m³/kg s²", "C. N m/kg", "D. cm³/g s²"], answer: "C. N m/kg", explanation: "From F=Gm₁m₂/r², G=Fr²/m². Unit is Nm²/kg². Substituting N=kg m/s² gives m³/kg s². Option C has units of potential.", neetFrequency: 1 },
+        { question: "At the center of the Earth, the weight of a body is:", options: ["A. Zero", "B. Infinite", "C. Same as on the surface", "D. Slightly less than on the surface"], answer: "A. Zero", explanation: "At the center of the Earth, g=0, so the weight W=mg is also zero.", neetFrequency: 3 },
+        { question: "What is the orbital velocity of an artificial satellite revolving close to the Earth's surface?", options: ["A. 11.2 km/s", "B. 7.92 km/s", "C. 9.8 km/s", "D. 5.6 km/s"], answer: "B. 7.92 km/s", explanation: "vₒ = √(gR) = √(9.8 * 6.4 * 10⁶) ≈ 7920 m/s or 7.92 km/s.", neetFrequency: 2 },
+        { question: "Kepler's third law relates the period of a planet's orbit to its:", options: ["A. Mass", "B. Radius of orbit (semi-major axis)", "C. Speed", "D. Temperature"], answer: "B. Radius of orbit (semi-major axis)", explanation: "The law states that the square of the period is proportional to the cube of the semi-major axis (T² ∝ r³).", neetFrequency: 3 },
+        { question: "The gravitational field inside a spherical shell of uniform density is:", options: ["A. Constant", "B. Zero", "C. Varies as 1/r", "D. Varies as 1/r²"], answer: "B. Zero", explanation: "According to the Shell Theorem, the net gravitational force exerted by a uniform spherical shell on a particle inside it is zero.", neetFrequency: 4 }
     ],
     assertionReasons: [
         {
@@ -285,6 +310,46 @@ export const gravitationModule: NeetModule = {
             explanation: "Matching locations with the approximate value of acceleration due to gravity."
         }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: '\\vec{F} = G \\frac{m_1 m_2}{r^2} \\hat{r}',
+                description: 'Newtons Law of Universal Gravitation',
+                descriptionTamil: 'நியூட்டனின் பொது ஈர்ப்பியல் விதி'
+            },
+            {
+                formula: 'g = \\frac{GM}{R^2}',
+                description: 'Acceleration due to gravity on Earths surface',
+                descriptionTamil: 'பூமியின் மேற்பரப்பில் ஈர்ப்பு முடுக்கம்'
+            },
+            {
+                formula: 'v_e = \\sqrt{2GM/R} = \\sqrt{2gR}',
+                description: 'Escape Velocity',
+                descriptionTamil: 'விடுபடு வேகம்'
+            },
+            {
+                formula: 'T^2 \\propto a^3',
+                description: 'Keplers Third Law',
+                descriptionTamil: 'கெப்ளரின் மூன்றாம் விதி'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Gravity is a universal, attractive force that follows an inverse square law.",
+        "The value of 'g' decreases with both altitude and depth.",
+        "For a satellite to escape Earth's gravity, it must be given a total energy of zero or more.",
+        "Kepler's laws describe planetary motion, which is a direct result of the gravitational force."
+    ],
+    mnemonics: [
+        { text: "Remember `g` is greatest on the surface. Going up or down, it always goes down.", tamil: "g-ன் மதிப்பு தரைமட்டத்தில் தான் அதிகம். மேலே சென்றாலும், கீழே சென்றாலும் அது குறையும்." }
+    ],
+    neetTips: [
+        { text: "Problems involving ratios of g, v_e, or T for different planets are very common. Master the proportionality relationships.", tamil: "வெவ்வேறு கோள்களுக்கு g, v_e, அல்லது T விகிதங்கள் சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. விகிதாசார உறவுகளை நன்கு புரிந்து கொள்ளுங்கள்." },
+        { text: "Work-energy theorem is often the easiest way to solve problems involving change in speed of satellites or objects moving between points in a gravitational field.", tamil: "ஈர்ப்புப் புலத்தில் புள்ளிகளுக்கு இடையே நகரும் செயற்கைக்கோள்கள் அல்லது பொருட்களின் வேக மாற்றத்தைக் கணக்கிட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் எளிதான வழியாகும்." }
+    ],
+    studentTip:{english:"",tamil:""},
+    peerDiscussion:{english:"",tamil:""},
     validationReport: [
         { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
         { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },
@@ -309,5 +374,3 @@ export const gravitationModule: NeetModule = {
         { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
     ]
 };
-
-    

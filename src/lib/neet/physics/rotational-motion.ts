@@ -106,6 +106,91 @@ export const rotationalMotion: NeetModule = {
             ],
             neetHack: "The final velocity of any object rolling down an incline is given by v = \\sqrt{2gh / (1 + k²/R²)}, where I = mk². Memorize the k²/R² values: Ring (1), Disc (1/2), Solid Sphere (2/5).",
             neetHackTamil: "ஒரு சாய்தளத்தில் உருண்டு வரும் எந்தவொரு பொருளின் இறுதி வேகம் v = \\sqrt{2gh / (1 + k²/R²)} ஆகும், இங்கு I = mk². k²/R² மதிப்புகளை மனப்பாடம் செய்யுங்கள்: வளையம் (1), வட்டு (1/2), திண்மக் கோளம் (2/5)."
+        },
+        {
+            title: "JEE Level: Center of Mass of a Semicircular Disc",
+            titleTamil: "ஜே.இ.இ நிலை: அரைவட்ட வட்டின் நிறை மையம்",
+            difficulty: 'Hard',
+            problem: "Find the position of the center of mass of a uniform semicircular disc of radius R from its center.",
+            problemTamil: "R ஆரம் கொண்ட ஒரு சீரான அரைவட்ட வட்டின் நிறை மையத்தின் நிலையை அதன் மையத்திலிருந்து கண்டறியவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "By symmetry, the center of mass must lie on the axis of symmetry (the y-axis if the disc is symmetric about it). So, X_cm = 0.",
+                    explanationTamil: "சமச்சீர்மையின்படி, நிறை மையம் சமச்சீர் அச்சில் (வட்டு y-அச்சைப் பற்றி சமச்சீராக இருந்தால் y-அச்சு) இருக்க வேண்டும். எனவே, X_cm = 0."
+                },
+                {
+                    step: 2,
+                    explanation: "We need to find Y_cm using integration. Consider an elemental semicircular ring of radius r and thickness dr.",
+                    explanationTamil: "தொகையீட்டைப் பயன்படுத்தி Y_cm ஐக் கண்டுபிடிக்க வேண்டும். r ஆரம் மற்றும் dr தடிமன் கொண்ட ஒரு அடிப்படை அரைவட்ட வளையத்தைக் கருதுங்கள்."
+                },
+                {
+                    step: 3,
+                    explanation: "The mass of this element dm can be found using the areal density σ. σ = M / (πR²/2). The area of the element dA = πr dr. So, dm = σ(πr dr) = (2M/R²)r dr.",
+                    explanationTamil: "இந்தக் கூறு dm இன் நிறையை பரப்பு அடர்த்தி σ ஐப் பயன்படுத்தி காணலாம். σ = M / (πR²/2). கூறுவின் பரப்பு dA = πr dr. எனவே, dm = σ(πr dr) = (2M/R²)r dr."
+                },
+                {
+                    step: 4,
+                    explanation: "The center of mass of a semicircular ring is at a height of 2r/π from its center. This is the y-coordinate of our elemental mass.",
+                    explanationTamil: "ஒரு அரைவட்ட வளையத்தின் நிறை மையம் அதன் மையத்திலிருந்து 2r/π உயரத்தில் உள்ளது. இது நமது கூறு நிறையின் y-ஆயம் ஆகும்."
+                },
+                {
+                    step: 5,
+                    explanation: "Now, apply the formula for the center of mass: Y_cm = (1/M) ∫ y dm.",
+                    explanationTamil: "இப்போது, நிறை மையத்திற்கான சூத்திரத்தைப் பயன்படுத்தவும்: Y_cm = (1/M) ∫ y dm."
+                },
+                {
+                    step: 6,
+                    explanation: "Substitute the expressions and integrate from r = 0 to r = R.",
+                    calculation: "Y_{cm} = \\frac{1}{M} \\int_{0}^{R} (\\frac{2r}{\\pi}) (\\frac{2M}{R^2} r \\,dr) = \\frac{4}{\\pi R^2} \\int_{0}^{R} r^2 \\,dr = \\frac{4}{\\pi R^2} [\\frac{r^3}{3}]_0^R = \\frac{4}{\\pi R^2} \\frac{R^3}{3} = \\frac{4R}{3\\pi}"
+                }
+            ],
+            commonPitfall: "Confusing the center of mass formula for a semicircular ring (2R/π) with that of a disc (4R/3π). It's best to know both but also understand the integration method.",
+            neetHackTamil: "அரைவட்ட வளையம் (2R/π) மற்றும் வட்டு (4R/3π) ஆகியவற்றின் நிறை மைய சூத்திரங்களைக் குழப்பிக் கொள்ளுதல். இரண்டையும் அறிவது சிறந்தது, ஆனால் தொகையீட்டு முறையையும் புரிந்துகொள்வது அவசியம்."
+        },
+        {
+            title: "NEET Level: Equilibrium",
+            titleTamil: "நீட் நிலை: சமநிலை",
+            difficulty: "Medium",
+            problem: "A uniform rod of length L and mass M is supported horizontally by two pivots located at distances L/4 from each end. A man of mass M stands at the center of the rod. Find the normal reactions from the two pivots.",
+            problemTamil: "L நீளம் மற்றும் M நிறையுள்ள ஒரு சீரான தடி ஒவ்வொரு முனையிலிருந்தும் L/4 தூரத்தில் அமைந்துள்ள இரண்டு தாங்கிகளால் கிடைமட்டமாக ஆதரிக்கப்படுகிறது. M நிறையுள்ள ஒரு மனிதர் தடியின் மையத்தில் நிற்கிறார். இரண்டு தாங்கிகளிலிருந்தும் செங்குத்து விசைகளைக் கண்டறியவும்.",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "For translational equilibrium, the sum of upward forces must equal the sum of downward forces.",
+                    explanationTamil: "இடப்பெயர்வு சமநிலைக்கு, மேல்நோக்கிய விசைகளின் கூடுதல் கீழ்நோக்கிய விசைகளின் கூடுதலுக்கு சமமாக இருக்க வேண்டும்."
+                },
+                {
+                    step: 2,
+                    explanation: "Upward forces are the normal reactions N₁ and N₂. Downward forces are the weight of the rod (Mg) acting at its center (L/2) and the weight of the man (Mg) also at the center.",
+                    explanationTamil: "மேல்நோக்கிய விசைகள் செங்குத்து விசைகள் N₁ மற்றும் N₂. கீழ்நோக்கிய விசைகள் தடியின் எடை (Mg) அதன் மையத்தில் (L/2) செயல்படுகிறது மற்றும் மனிதரின் எடை (Mg) மையத்தில் செயல்படுகிறது."
+                },
+                {
+                    step: 3,
+                    explanation: "Translational equilibrium equation: N₁ + N₂ = Mg + Mg = 2Mg.",
+                    explanationTamil: "இடப்பெயர்வு சமநிலை சமன்பாடு: N₁ + N₂ = Mg + Mg = 2Mg."
+                },
+                {
+                    step: 4,
+                    explanation: "For rotational equilibrium, the net torque about any point must be zero. Let's take torques about the left pivot.",
+                    explanationTamil: "சுழற்சி சமநிலைக்கு, எந்தவொரு புள்ளியைப் பற்றியும் நிகர திருப்புவிசை சுழியாக இருக்க வேண்டும். இடது தாங்கியைப் பற்றி திருப்புவிசைகளை எடுப்போம்."
+                },
+                {
+                    step: 5,
+                    explanation: "Torque due to N₁ is zero. Torque due to rod's weight: Mg * (L/2 - L/4) clockwise. Torque due to man's weight: Mg * (L/2 - L/4) clockwise. Torque due to N₂: N₂ * (L/2) counter-clockwise.",
+                    explanationTamil: "N₁ காரணமாக திருப்புவிசை சுழி. தடியின் எடை காரணமாக திருப்புவிசை: Mg * (L/4) கடிகார திசையில். மனிதரின் எடை காரணமாக திருப்புவிசை: Mg * (L/4) கடிகார திசையில். N₂ காரணமாக திருப்புவிசை: N₂ * (L/2) கடிகார எதிர் திசையில்."
+                },
+                {
+                    step: 6,
+                    explanation: "Set clockwise torques equal to counter-clockwise torques: N₂ * (L/2) = Mg(L/4) + Mg(L/4) = Mg(L/2). This gives N₂ = Mg.",
+                    explanationTamil: "கடிகார திசை திருப்புவிசைகளை கடிகார எதிர் திசை திருப்புவிசைகளுக்கு சமப்படுத்தவும்: N₂ * (L/2) = Mg(L/4) + Mg(L/4) = Mg(L/2). இது N₂ = Mg ஐக் கொடுக்கிறது."
+                },
+                {
+                    step: 7,
+                    explanation: "Substitute N₂ back into the translational equilibrium equation: N₁ + Mg = 2Mg => N₁ = Mg.",
+                    explanationTamil: "N₂ ஐ இடப்பெயர்வு சமநிலை சமன்பாட்டில் மீண்டும் பிரதியிடவும்: N₁ + Mg = 2Mg => N₁ = Mg."
+                }
+            ]
         }
     ],
     mcqs: [
@@ -113,7 +198,27 @@ export const rotationalMotion: NeetModule = {
         { question: "A solid sphere is rotating in free space. If the radius of the sphere is increased keeping its mass same, which of the following will not be affected?", options: ["A. Moment of inertia", "B. Angular momentum", "C. Angular velocity", "D. Rotational kinetic energy"], answer: "B. Angular momentum", explanation: "Since there is no external torque, the angular momentum (L) will be conserved. Moment of inertia (I) will increase, so angular velocity (ω) must decrease to keep L=Iω constant. Rotational KE will also change.", neetFrequency: 5 },
         { question: "The radius of gyration of a solid sphere of radius R about its diameter is:", options: ["A. R", "B. √(2/5)R", "C. √(3/5)R", "D. √(7/5)R"], answer: "B. √(2/5)R", explanation: "Moment of inertia I = MK², where K is the radius of gyration. For a solid sphere about a diameter, I = (2/5)MR². Equating them gives MK² = (2/5)MR², so K = √(2/5)R.", neetFrequency: 3 },
         { question: "A particle performs uniform circular motion with an angular momentum L. If its frequency of motion is doubled and its kinetic energy is halved, the angular momentum becomes:", options: ["A. L/4", "B. L/2", "C. 2L", "D. 4L"], answer: "A. L/4", explanation: "KE = Lω/2. So L = 2KE/ω. New frequency f' = 2f, so ω' = 2ω. New KE' = KE/2. New L' = 2KE'/ω' = 2(KE/2)/(2ω) = KE/(2ω) = L/4.", neetFrequency: 4 },
-        { question: "The center of mass of a system of three particles of masses 1kg, 2kg, and 3kg located at (1,1), (2,2), and (3,3) respectively is:", options: ["A. (2,2)", "B. (3,3)", "C. (7/3, 7/3)", "D. (14/3, 14/3)"], answer: "C. (7/3, 7/3)", explanation: "X_cm = (1*1 + 2*2 + 3*3)/(1+2+3) = (1+4+9)/6 = 14/6 = 7/3. By symmetry, Y_cm is also 7/3.", neetFrequency: 3 }
+        { question: "The center of mass of a system of three particles of masses 1kg, 2kg, and 3kg located at (1,1), (2,2), and (3,3) respectively is:", options: ["A. (2,2)", "B. (3,3)", "C. (7/3, 7/3)", "D. (14/3, 14/3)"], answer: "C. (7/3, 7/3)", explanation: "X_cm = (1*1 + 2*2 + 3*3)/(1+2+3) = (1+4+9)/6 = 14/6 = 7/3. By symmetry, Y_cm is also 7/3.", neetFrequency: 3 },
+        { question: "The rotational analogue of force is:", options: ["A. Moment of Inertia", "B. Angular Momentum", "C. Torque", "D. Angular Velocity"], answer: "C. Torque", explanation: "Torque is the rotational equivalent of force, as it causes angular acceleration.", neetFrequency: 2 },
+        { question: "A wheel is rolling on a horizontal plane. Its translational kinetic energy is K. What is its rotational kinetic energy if it is a solid sphere?", options: ["A. K", "B. 2K/5", "C. 5K/2", "D. K/2"], answer: "B. 2K/5", explanation: "K_trans = (1/2)Mv². K_rot = (1/2)Iω² = (1/2)(2/5)MR²(v/R)² = (1/5)Mv² = (2/5)K_trans.", neetFrequency: 4 },
+        { question: "For a body to be in complete equilibrium, the net:", options: ["A. Force must be zero", "B. Torque must be zero", "C. Force and torque must be zero", "D. Kinetic energy must be zero"], answer: "C. Force and torque must be zero", explanation: "For complete equilibrium, the body must have no linear acceleration (net force = 0) and no angular acceleration (net torque = 0).", neetFrequency: 3 },
+        { question: "The moment of inertia of a circular disc about a tangent in its own plane is:", options: ["A. (1/4)MR²", "B. (1/2)MR²", "C. (3/2)MR²", "D. (5/4)MR²"], answer: "D. (5/4)MR²", explanation: "I_diameter = (1/4)MR². Using parallel axis theorem, I_tangent = I_diameter + MR² = (1/4)MR² + MR² = (5/4)MR².", neetFrequency: 4 },
+        { question: "The angular momentum of a system is conserved when:", options: ["A. Net external force is zero", "B. Net external torque is zero", "C. Net external work is zero", "D. Net external impulse is zero"], answer: "B. Net external torque is zero", explanation: "From τ = dL/dt, if the net external torque τ is zero, then L is constant (conserved).", neetFrequency: 5 },
+        { question: "The center of mass of a uniform semi-circular wire of radius R lies at a distance of ... from its center.", options: ["A. 2R/π", "B. 4R/3π", "C. R/2", "D. 3R/8"], answer: "A. 2R/π", explanation: "This is a standard result for the center of mass of a semicircular wire.", neetFrequency: 3 },
+        { question: "The product of the moment of inertia and angular velocity is:", options: ["A. Torque", "B. Force", "C. Angular Momentum", "D. Work"], answer: "C. Angular Momentum", explanation: "Angular momentum L = Iω, analogous to linear momentum p = mv.", neetFrequency: 2 },
+        { question: "A couple produces:", options: ["A. Purely linear motion", "B. Purely rotational motion", "C. Both linear and rotational motion", "D. No motion"], answer: "B. Purely rotational motion", explanation: "A couple consists of two equal and opposite forces that do not share a line of action. The net force is zero (no translational motion), but the net torque is non-zero (causes rotational motion).", neetFrequency: 1 },
+        { question: "When a mass is rotating in a plane about a fixed point, its angular momentum is directed along:", options: ["A. The radius", "B. The tangent", "C. A line perpendicular to the plane of rotation", "D. The line making an angle of 45° to the plane"], answer: "C. A line perpendicular to the plane of rotation", explanation: "Angular momentum (L = r x p) is a cross product, and its direction is perpendicular to the plane containing the position vector (r) and momentum vector (p).", neetFrequency: 2 },
+        { question: "The moment of inertia of a thin circular ring of mass M and radius R about an axis passing through its center and perpendicular to its plane is:", options: ["A. MR²", "B. (1/2)MR²", "C. (1/4)MR²", "D. 2MR²"], answer: "A. MR²", explanation: "This is the standard formula for the moment of inertia of a ring about its central axis.", neetFrequency: 3 },
+        { question: "A cylinder rolls up an inclined plane, reaches some height, and then rolls down. The force of friction:", options: ["A. Is upwards along the incline while ascending and descending", "B. Is downwards along the incline while ascending and descending", "C. Is upwards while ascending and downwards while descending", "D. Is downwards while ascending and upwards while descending"], answer: "A. Is upwards along the incline while ascending and descending", explanation: "Friction opposes relative motion. While ascending, it prevents slipping down, so it acts up. While descending, it provides the torque to roll, opposing slipping down, so it still acts up the incline.", neetFrequency: 4 },
+        { question: "The motion of the center of mass of a system of two particles is unaffected by their:", options: ["A. Internal forces", "B. External forces", "C. Masses", "D. Positions"], answer: "A. Internal forces", explanation: "The acceleration of the center of mass is determined only by the net external force (F_ext = M*A_cm). Internal forces (like the force between the two particles) occur in equal and opposite pairs and cancel out.", neetFrequency: 3 },
+        { question: "A body is rolling without slipping. The fraction of its total kinetic energy associated with rotation is (k is radius of gyration):", options: ["A. k²/R²", "B. k²/(k²+R²)", "C. R²/(k²+R²)", "D. 1"], answer: "B. k²/(k²+R²)", explanation: "K_rot/K_total = (1/2)Iω² / ((1/2)Mv² + (1/2)Iω²) = (1/2)Mk²ω² / ((1/2)MR²ω² + (1/2)Mk²ω²) = k²/(R²+k²).", neetFrequency: 4 },
+        { question: "The relationship between torque (τ) and angular acceleration (α) is:", options: ["A. τ = I/α", "B. τ = α/I", "C. α = τI", "D. τ = Iα"], answer: "D. τ = Iα", explanation: "This is the rotational equivalent of Newton's second law, F=ma.", neetFrequency: 2 },
+        { question: "Which of the following has the largest moment of inertia for the same mass M and radius R, about its central axis?", options: ["A. A ring", "B. A disc", "C. A solid sphere", "D. A hollow sphere"], answer: "A. A ring", explanation: "Ring (MR²), Disc (MR²/2), Solid Sphere (2/5 MR²), Hollow Sphere (2/3 MR²). Since the mass of the ring is furthest from the axis, it has the largest moment of inertia.", neetFrequency: 3 },
+        { question: "The center of mass of a right circular cone of height h is at a distance of ... from the base.", options: ["A. h/2", "B. h/3", "C. h/4", "D. 3h/8"], answer: "C. h/4", explanation: "This is a standard result for the center of mass of a solid cone.", neetFrequency: 2 },
+        { question: "If the Earth were to shrink suddenly without any change in its mass, the duration of the day would:", options: ["A. Increase", "B. Decrease", "C. Remain the same", "D. Become zero"], answer: "B. Decrease", explanation: "By conservation of angular momentum (L=Iω = constant), if the radius decreases, the moment of inertia I decreases. To keep L constant, the angular velocity ω must increase, which means the time period (day) must decrease.", neetFrequency: 4 },
+        { question: "The physical quantity in rotational motion that is analogous to mass in linear motion is:", options: ["A. Torque", "B. Angular momentum", "C. Moment of inertia", "D. Radius of gyration"], answer: "C. Moment of inertia", explanation: "Moment of inertia represents the resistance to angular acceleration, just as mass represents the resistance to linear acceleration.", neetFrequency: 1 },
+        { question: "A force F = 2i + 3j - k acts at a point r = i - j + 2k. The torque τ is:", options: ["A. 5i - 5j - 5k", "B. 5i + 5j + 5k", "C. -5i + 5j + 5k", "D. i + j + k"], answer: "A. 5i - 5j - 5k", explanation: "Torque τ = r x F. This requires calculating the determinant of the matrix formed by i,j,k and the components of r and F. The result is 5i - 5j - 5k.", neetFrequency: 3 },
+        { question: "Which of the following statements is true for the center of mass?", options: ["A. It always coincides with the geometrical center", "B. It is always inside the body", "C. It can be located outside the body", "D. It is always at the origin"], answer: "C. It can be located outside the body", explanation: "The center of mass for objects like a ring or a boomerang lies outside the physical body.", neetFrequency: 2 }
     ],
     assertionReasons: [
         {
@@ -151,27 +256,32 @@ export const rotationalMotion: NeetModule = {
         {
             column1: ["(a) Center of Mass", "(b) Torque", "(c) Angular Momentum", "(d) Moment of Inertia"],
             column2: ["(p) `Iω`", "(q) `Σmr²`", "(r) `Σmᵢrᵢ / Σmᵢ`", "(s) `r x F`"],
-            answer: "a-r, b-s, c-p, d-q"
+            answer: "a-r, b-s, c-p, d-q",
+            explanation: "Matching the quantities with their defining formulas."
         },
         {
             column1: ["(a) Rolling a ring", "(b) Rolling a disc", "(c) Rolling a solid sphere", "(d) Sliding without friction"],
             column2: ["(p) K_rot / K_trans = 1/2", "(q) K_rot / K_trans = 1", "(r) K_rot / K_trans = 2/5", "(s) K_rot / K_trans = 0"],
-            answer: "a-q, b-p, c-r, d-s"
+            answer: "a-q, b-p, c-r, d-s",
+            explanation: "Matching the object with its ratio of rotational to translational kinetic energy."
         },
         {
             column1: ["(a) Moment of inertia of a ring about diameter", "(b) Moment of inertia of a disc about diameter", "(c) Moment of inertia of a solid sphere about diameter", "(d) Moment of inertia of a ring about tangent in plane"],
             column2: ["(p) (1/4)MR²", "(q) (1/2)MR²", "(r) (3/2)MR²", "(s) (2/5)MR²"],
-            answer: "a-q, b-p, c-s, d-r"
+            answer: "a-q, b-p, c-s, d-r",
+            explanation: "Matching the object and axis with its moment of inertia."
         },
         {
             column1: ["(a) Linear Velocity", "(b) Linear Acceleration", "(c) Force", "(d) Mass"],
             column2: ["(p) Torque", "(q) Moment of Inertia", "(r) Angular Velocity", "(s) Angular Acceleration"],
-            answer: "a-r, b-s, c-p, d-q"
+            answer: "a-r, b-s, c-p, d-q",
+            explanation: "Matching linear motion quantities with their rotational analogues."
         },
         {
             column1: ["(a) `I = I_cm + Md²`", "(b) `L = Iω`", "(c) `τ = Iα`", "(d) `L = constant`"],
             column2: ["(p) Newton's second law for rotation", "(q) Conservation of angular momentum", "(r) Parallel axis theorem", "(s) Relation for angular momentum"],
-            answer: "a-r, b-s, c-p, d-q"
+            answer: "a-r, b-s, c-p, d-q",
+            explanation: "Matching formulas with their corresponding physical laws or theorems."
         }
     ],
     keyFormulasAndDiagrams: {
@@ -243,4 +353,4 @@ export const rotationalMotion: NeetModule = {
         { "check": "Verify Color Scheme Application", "status": "pass", "message": "OK" },
         { "check": "Ensure Module is Added to UI", "status": "pass", "message": "OK" }
     ]
-}
+};
