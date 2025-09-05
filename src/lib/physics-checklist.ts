@@ -59,6 +59,10 @@ export const qaChecklist: QAChecklistItem[] = [
     details: "Where applicable, diagrams should be interactive components rather than static text or images.",
   },
   {
+    check: "Check for interactive elements like virtual labs and 3D diagrams",
+    details: "They should be very high quality and high yield.",
+  },
+  {
     check: "Ensure all content is of very high quality",
     details: "All generated content, including notes, examples, and questions, must be accurate, clear, and pedagogically sound.",
   },
