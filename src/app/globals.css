@@ -17,7 +17,7 @@
     --secondary-foreground: 220 15% 30%;
     --muted: 220 15% 90%;
     --muted-foreground: 220 15% 50%;
-    --accent: 30 90% 55%; /* Orange */
+    --accent: 39 100% 65%; /* #FFB74D */
     --accent-foreground: 220 20% 10%;
     --destructive: 0 80% 55%; /* Red */
     --destructive-foreground: 220 20% 98%;
@@ -44,7 +44,7 @@
     --secondary-foreground: 220 15% 80%;
     --muted: 220 15% 20%;
     --muted-foreground: 220 15% 60%;
-    --accent: 30 90% 65%; /* Lighter Orange */
+    --accent: 39 100% 65%; /* #FFB74D */
     --accent-foreground: 220 20% 10%;
     --destructive: 0 70% 60%; /* Lighter Red */
     --destructive-foreground: 220 20% 98%;
@@ -276,5 +276,3 @@
   font-weight: bold;
   font-style: italic;
 }
-
-    
