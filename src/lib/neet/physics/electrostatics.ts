@@ -84,11 +84,83 @@ $$`
         }
     ],
     workedExamples: [
-        { title: "Coulomb's Law", difficulty: 'Easy', problem: "Two point charges of +2 μC and +6 μC repel each other with a force of 12 N. If each is given an additional charge of -4 μC, what will be the new force?", solutionSteps: [], neetHack: "" },
-        { title: "Electric Field", difficulty: 'Medium', problem: "Three charges are placed at the vertices of an equilateral triangle of side 'a'. Find the electric field at the centroid.", solutionSteps: [], neetHack: "" },
-        { title: "Gauss's Law", difficulty: 'Medium', problem: "A point charge of 10 μC is at the center of a cube of side 10 cm. What is the net electric flux through the cube?", solutionSteps: [], neetHack: "" },
-        { title: "Capacitor Network", difficulty: 'Hard', problem: "Find the equivalent capacitance between points A and B in the given infinite ladder network of capacitors.", solutionSteps: [], neetHack: "" },
-        { title: "Energy Stored in Capacitor", difficulty: 'Easy', problem: "A 20 μF capacitor is charged to a potential of 500 V and then disconnected from the battery. It is then connected to another uncharged 10 μF capacitor. Find the common potential and the loss of energy.", solutionSteps: [], neetHack: "" }
+        {
+            title: "Coulomb's Law",
+            titleTamil: "கூலூம் விதி",
+            difficulty: 'Easy',
+            problem: "Two point charges of +2 μC and +6 μC repel each other with a force of 12 N. If each is given an additional charge of -4 μC, what will be the new force?",
+            problemTamil: "+2 μC மற்றும் +6 μC கொண்ட இரண்டு புள்ளி மின்னூட்டங்கள் 12 N விசையுடன் ஒன்றை ஒன்று விரட்டுகின்றன. ஒவ்வொன்றிற்கும் -4 μC கூடுதல் மின்னூட்டம் கொடுக்கப்பட்டால், புதிய விசை என்னவாக இருக்கும்?",
+            solutionSteps: [
+                { step: 1, explanation: "Initially, F = k(q₁q₂)/r². Let's find the value of k/r² from the initial conditions.", calculation: "12 = k(2μC * 6μC)/r² = 12k(μC)²/r² => k/r² = 1 N/(μC)²" },
+                { step: 2, explanation: "Calculate the new charges. q₁' = 2μC - 4μC = -2μC. q₂' = 6μC - 4μC = +2μC.", explanationTamil: "புதிய மின்னூட்டங்களைக் கணக்கிடவும்." },
+                { step: 3, explanation: "Calculate the new force F' using the new charges and the value of k/r².", calculation: "F' = k(q₁'q₂')/r² = (-2μC * 2μC) * (k/r²) = -4 (μC)² * (1 N/(μC)²) = -4 N" },
+                { step: 4, explanation: "The negative sign indicates that the force is now attractive. The magnitude is 4 N.", explanationTamil: "எதிர்மறை குறி, விசை இப்போது ஈர்க்கக்கூடியது என்பதைக் குறிக்கிறது. அதன் எண்மதிப்பு 4 N ஆகும்." }
+            ],
+            neetHack: "For ratio-based problems, you often don't need to know 'r' or the full value of 'k'. Find the constant part (k/r²) from the first condition and use it in the second.",
+            neetHackTamil: "விகித அடிப்படையிலான கணக்குகளுக்கு, உங்களுக்கு 'r' அல்லது 'k' இன் முழு மதிப்பு தேவையில்லை. முதல் நிபந்தனையிலிருந்து மாறிலிப் பகுதியைக் (k/r²) கண்டுபிடித்து, அதை இரண்டாவது நிபந்தனையில் பயன்படுத்தவும்."
+        },
+        {
+            title: "Electric Field",
+            titleTamil: "மின்புலம்",
+            difficulty: 'Medium',
+            problem: "Three charges +q, +q, and -q are placed at the vertices of an equilateral triangle of side 'a'. Find the net electric field at the centroid.",
+            problemTamil: "'a' பக்கம் கொண்ட ஒரு சமபக்க முக்கோணத்தின் முனைகளில் +q, +q, மற்றும் -q மின்னூட்டங்கள் வைக்கப்பட்டுள்ளன. மையத்தில் நிகர மின்புலத்தைக் கண்டறியவும்.",
+            solutionSteps: [
+                { step: 1, explanation: "The distance of the centroid from each vertex is the same, r = a/√3.", explanationTamil: "ஒவ்வொரு முனையிலிருந்தும் மையத்திற்கான தூரம் சமம், r = a/√3." },
+                { step: 2, explanation: "The electric field due to each charge has the same magnitude E = kq/r² = 3kq/a².", explanationTamil: "ஒவ்வொரு மின்னூட்டத்தாலும் ஏற்படும் மின்புலத்தின் எண்மதிப்பு சமம், E = kq/r² = 3kq/a²." },
+                { step: 3, explanation: "Let the fields be E₁, E₂, and E₃. The angle between any two field vectors is 120°.", explanationTamil: "புலங்கள் E₁, E₂, மற்றும் E₃ ஆக இருக்கட்டும். எந்த இரண்டு புல வெக்டர்களுக்கும் இடையிலான கோணம் 120° ஆகும்." },
+                { step: 4, explanation: "The resultant of the fields due to the two +q charges (E₁ and E₂) is E' = √(E²+E²+2E²cos120°) = E. This resultant points directly away from the -q charge.", explanationTamil: "இரண்டு +q மின்னூட்டங்களால் ஏற்படும் புலங்களின் (E₁ மற்றும் E₂) விளைவு E' = E ஆகும். இந்த விளைவு -q மின்னூட்டத்திலிருந்து நேராக வெளியே செல்கிறது." },
+                { step: 5, explanation: "The field due to the -q charge (E₃) also points in the same direction (towards -q). So the net field is the sum of E' and E₃.", calculation: "E_net = E' + E₃ = E + E = 2E = 2 * (3kq/a²) = 6kq/a²" }
+            ],
+            neetHack: "Due to symmetry, the net field of three equal positive charges at the centroid would be zero. Here, one charge is negative. The fields of the two positive charges effectively combine to act like one positive charge, which then adds to the field of the negative charge.",
+            neetHackTamil: "சமச்சீர்மையின் காரணமாக, மூன்று சமமான நேர் மின்னூட்டங்களின் நிகர புலம் மையத்தில் சுழியாக இருக்கும். இங்கு, ஒரு மின்னூட்டம் எதிர்மறையாக உள்ளது. இரண்டு நேர் மின்னூட்டங்களின் புலங்கள் ஒரு நேர் மின்னூட்டம் போல செயல்பட்டு, எதிர் மின்னூட்டத்தின் புலத்துடன் கூடுகிறது."
+        },
+        {
+            title: "Gauss's Law",
+            titleTamil: "காஸ் விதி",
+            difficulty: 'Medium',
+            problem: "A point charge of 10 μC is at the center of a cube of side 10 cm. What is the net electric flux through the cube and the flux through one face?",
+            problemTamil: "10 μC புள்ளி மின்னூட்டம் 10 செ.மீ பக்கமுள்ள ஒரு கனசதுரத்தின் மையத்தில் உள்ளது. கனசதுரத்தின் வழியே செல்லும் நிகர மின்பாயம் என்ன? ஒரு முகத்தின் வழியே செல்லும் பாயம் என்ன?",
+            solutionSteps: [
+                { step: 1, explanation: "According to Gauss's Law, the total electric flux through a closed surface depends only on the enclosed charge: Φ_total = q_enclosed / ε₀.", explanationTamil: "காஸ் விதியின்படி, ஒரு மூடிய பரப்பின் வழியே செல்லும் மொத்த மின்பாயம் உள்ளே இருக்கும் மின்னூட்டத்தை மட்டுமே சார்ந்தது." },
+                { step: 2, explanation: "Calculate the total flux. ε₀ ≈ 8.85 x 10⁻¹² C²/N·m².", calculation: "Φ_total = (10 × 10⁻⁶ C) / (8.85 × 10⁻¹² C²/N·m²) ≈ 1.13 × 10⁶ N·m²/C" },
+                { step: 3, explanation: "A cube has 6 identical faces. Since the charge is at the center, the flux is distributed symmetrically through all faces.", explanationTamil: "ஒரு கனசதுரத்திற்கு 6 ஒத்த முகங்கள் உள்ளன. மின்னூட்டம் மையத்தில் இருப்பதால், பாயம் அனைத்து முகங்களிலும் சமச்சீராக விநியோகிக்கப்படுகிறது." },
+                { step: 4, explanation: "The flux through one face is the total flux divided by 6.", calculation: "Φ_face = Φ_total / 6 = (1.13 × 10⁶) / 6 ≈ 1.88 × 10⁵ N·m²/C" }
+            ]
+        },
+        {
+            title: "Capacitor Network",
+            titleTamil: "மின்தேக்கி வலையமைப்பு",
+            difficulty: 'Hard',
+            problem: "Find the equivalent capacitance between points A and B in the given infinite ladder network of capacitors (each capacitor is C).",
+            problemTamil: "கொடுக்கப்பட்ட முடிவற்ற ஏணி வலையமைப்பு மின்தேக்கிகளில் A மற்றும் B புள்ளிகளுக்கு இடையே சமமான மின்தேக்குத்திறனைக் கண்டறியவும் (ஒவ்வொரு மின்தேக்கியும் C ஆகும்).",
+            solutionSteps: [
+                { step: 1, explanation: "In an infinite ladder, adding one more section does not change the total equivalent capacitance. Let the equivalent capacitance be C_eq.", explanationTamil: "ஒரு முடிவற்ற ஏணியில், மேலும் ஒரு பகுதியைச் சேர்ப்பது மொத்த சமமான மின்தேக்குத்திறனை மாற்றாது. சமமான மின்தேக்குத்திறன் C_eq ஆக இருக்கட்டும்." },
+                { step: 2, explanation: "The circuit can be redrawn as a single 'C' in series with the parallel combination of another 'C' and the rest of the ladder (which is also C_eq).", explanationTamil: "சுற்றை, ஒரு 'C' மற்றும் மற்றொரு 'C' மற்றும் மீதமுள்ள ஏணியின் (அதுவும் C_eq) பக்க இணைப்பு ஆகியவற்றின் தொடரிணைப்பாக மீண்டும் வரையலாம்." },
+                { step: 3, explanation: "The capacitance of the parallel part is C_p = C + C_eq.", explanationTamil: "பக்க இணைப்பின் மின்தேக்குத்திறன் C_p = C + C_eq." },
+                { step: 4, explanation: "Now this is in series with the first capacitor. The total capacitance is still C_eq.", calculation: "\\frac{1}{C_{eq}} = \\frac{1}{C} + \\frac{1}{C_p} = \\frac{1}{C} + \\frac{1}{C + C_{eq}}" },
+                { step: 5, explanation: "Solve the resulting quadratic equation for C_eq.", calculation: "C_{eq}^2 + C C_{eq} - C^2 = 0. Using the quadratic formula, C_{eq} = \\frac{-C \\pm \\sqrt{C^2 - 4(1)(-C^2)}}{2} = C (\\frac{-1 \\pm \\sqrt{5}}{2})" },
+                { step: 6, explanation: "Since capacitance cannot be negative, we take the positive root.", calculation: "C_{eq} = C (\\frac{\\sqrt{5} - 1}{2})" }
+            ],
+            neetHack: "This is a classic problem. The result C_eq = C * (golden ratio - 1) is a standard result for this type of infinite ladder.",
+            commonPitfall: "Setting up the recursion incorrectly. The key is to see that the entire ladder beyond the first section has the same capacitance as the whole ladder."
+        },
+        {
+            title: "Energy Stored in Capacitor",
+            titleTamil: "மின்தேக்கியில் சேமிக்கப்பட்ட ஆற்றல்",
+            difficulty: 'Easy',
+            problem: "A 20 μF capacitor is charged to a potential of 500 V and then disconnected from the battery. It is then connected to another uncharged 10 μF capacitor. Find the common potential and the loss of energy.",
+            problemTamil: "20 μF மின்தேக்கி 500 V மின்னழுத்தத்திற்கு மின்னேற்றப்பட்டு, பின்னர் மின்கலத்திலிருந்து துண்டிக்கப்படுகிறது. பின்னர் அது மற்றொரு மின்னேற்றப்படாத 10 μF மின்தேக்கியுடன் இணைக்கப்படுகிறது. பொதுவான மின்னழுத்தம் மற்றும் ஆற்றல் இழப்பைக் கண்டறியவும்.",
+            solutionSteps: [
+                { step: 1, explanation: "Calculate the initial charge on the first capacitor: Q₁ = C₁V₁.", calculation: "Q₁ = (20 × 10⁻⁶ F) × 500 V = 0.01 C. The second capacitor is uncharged (Q₂=0)." },
+                { step: 2, explanation: "When connected, charge is conserved. The total charge Q = Q₁ + Q₂ will be shared between them. The capacitors are in parallel, so the equivalent capacitance is C_eq = C₁ + C₂.", calculation: "Q = 0.01 C. C_eq = 20 + 10 = 30 μF." },
+                { step: 3, explanation: "Calculate the common potential V_common = Q / C_eq.", calculation: "V_{common} = \\frac{0.01 C}{30 \\times 10^{-6} F} = \\frac{1000}{3} V \\approx 333.3 V" },
+                { step: 4, explanation: "Calculate the initial energy U_i = (1/2)C₁V₁².", calculation: "U_i = (1/2)(20 × 10⁻⁶)(500)² = 2.5 J" },
+                { step: 5, explanation: "Calculate the final energy U_f = (1/2)C_eq * V_common².", calculation: "U_f = (1/2)(30 × 10⁻⁶)(\\frac{1000}{3})² = 15 \\times 10^{-6} \\times \\frac{10^6}{9} = \\frac{15}{9} \\approx 1.67 J" },
+                { step: 6, explanation: "The loss of energy is ΔU = U_i - U_f.", calculation: "ΔU = 2.5 J - 1.67 J = 0.83 J" }
+            ],
+            neetHack: "The formula for energy loss when connecting a charged capacitor C₁ to an uncharged C₂ is ΔU = (1/2) * (C₁C₂ / (C₁+C₂)) * V₁². This is faster than calculating initial and final energies separately."
+        }
     ],
     mcqs: [
         { question: "The SI unit of electric flux is:", options: ["A. N C⁻¹ m²", "B. N C m⁻²", "C. V m", "D. N C⁻¹"], answer: "A. N C⁻¹ m²", explanation: "Electric flux Φ = E⋅A. Unit of E is N/C and unit of A is m². So, unit of flux is N m²/C.", neetFrequency: 3 },
@@ -131,9 +203,41 @@ $$`
         { column1: ["(a) Conductor", "(b) Insulator", "(c) Semiconductor", "(d) Superconductor"], column2: ["(p) Very large energy gap", "(q) Zero resistance", "(r) No energy gap", "(s) Small energy gap"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching material types with their energy band gap properties." },
         { column1: ["(a) Quantization of charge", "(b) Conservation of charge", "(c) Coulomb's Law", "(d) Gauss's Law"], column2: ["(p) Force between charges", "(q) Total flux is Q/ε₀", "(r) q = ne", "(s) Total charge of an isolated system is constant"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching fundamental laws and principles with their statements." }
     ],
-    keyFormulasAndDiagrams: {},
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'F = \\frac{1}{4\\pi\\epsilon_0} \\frac{q_1 q_2}{r^2}',
+                description: 'Coulomb\'s Law',
+                descriptionTamil: 'கூலூம் விதி'
+            },
+            {
+                formula: '\\oint \\vec{E} \\cdot d\\vec{A} = \\frac{q_{enclosed}}{\\epsilon_0}',
+                description: 'Gauss\'s Law',
+                descriptionTamil: 'காஸ் விதி'
+            },
+            {
+                formula: 'C = \\frac{\\epsilon_0 A}{d}',
+                description: 'Capacitance of a Parallel Plate Capacitor',
+                descriptionTamil: 'இணைத்தட்டு மின்தேக்கியின் மின்தேக்குத்திறன்'
+            },
+            {
+                formula: 'U = \\frac{1}{2}CV^2',
+                description: 'Energy Stored in a Capacitor',
+                descriptionTamil: 'மின்தேக்கியில் சேமிக்கப்பட்ட ஆற்றல்'
+            }
+        ],
+        diagrams: []
+    },
     keyTakeaways: [],
     mnemonics: [],
     neetTips: [],
+    studentTip:{
+        english:"Master the sign conventions for mirrors and lenses early. It is the most common source of errors. Practice drawing ray diagrams to build intuition.",
+        tamil:"ஆடிகள் மற்றும் லென்சுகளுக்கான குறியீட்டு மரபுகளை ஆரம்பத்திலேயே நன்கு கற்றுக்கொள்ளுங்கள். இதுவே பிழைகளின் மிகவும் பொதுவான மூலமாகும். உள்ளுணர்வை வளர்க்க கதிர் வரைபடங்களை வரைந்து பயிற்சி செய்யுங்கள்."
+    },
+    peerDiscussion:{
+        english:"Discuss with a friend why the sky appears blue but clouds appear white. It involves understanding Rayleigh scattering and the size of the scattering particles.",
+        tamil:"வானம் ஏன் நீல நிறமாகத் தோன்றுகிறது, ஆனால் மேகங்கள் வெண்மையாகத் தோன்றுகின்றன என்று உங்கள் நண்பருடன் விவாதிக்கவும். இது ராலே சிதறல் மற்றும் சிதறல் துகள்களின் அளவைப் புரிந்துகொள்வதை உள்ளடக்கியது."
+    },
     validationReport: []
 }
