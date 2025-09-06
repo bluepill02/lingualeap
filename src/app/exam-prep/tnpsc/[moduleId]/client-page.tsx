@@ -261,10 +261,10 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
   }
 
   const EngagementTabContent = () => {
-    const lastTenYears = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).reverse();
+    const lastEightYears = Array.from({ length: 8 }, (_, i) => new Date().getFullYear() - i).reverse();
     const topics = [...new Set(module.practice.mcqs.map(mcq => mcq.context))];
 
-    const trendData = lastTenYears.map(year => {
+    const trendData = lastEightYears.map(year => {
         const yearData: { year: string, [key: string]: number | string } = { year: year.toString() };
         topics.forEach(topic => {
             yearData[topic] = 0;
@@ -544,7 +544,6 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
             <AiPracticeGenerator 
               subject={module.subject as 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science'} 
               chapter={module.title} 
-              language={language === 'english' ? 'English' : 'Tamil'} 
               generatorFn={generateTnpscQuiz}
             />
           </TabsContent>
