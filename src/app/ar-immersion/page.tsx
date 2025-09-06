@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
-import { analyzeImageForLearning, AnalyzeImageOutput } from '@/ai/flows/ar-immersion-flow';
+import { analyzeImageForLearning } from '@/ai/flows/ar-immersion-flow';
+import type { AnalyzeImageOutput } from '@/lib/types';
 
 export default function ARImmersionPage() {
   const videoRef = useRef<HTMLVideoElement>(null);

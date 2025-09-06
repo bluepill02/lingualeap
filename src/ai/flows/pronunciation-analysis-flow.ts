@@ -1,32 +1,14 @@
+
 'use server';
 /**
  * @fileOverview An AI flow for analyzing a user's pronunciation of a word.
  *
  * - analyzePronunciation - A function that handles the audio analysis and provides feedback.
- * - PronunciationAnalysisInput - The input type for the function.
- * - PronunciationAnalysisOutput - The return type for the function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-
-export const PronunciationAnalysisInputSchema = z.object({
-  audioDataUri: z
-    .string()
-    .describe(
-      "The user's spoken audio, as a data URI that must include a MIME type (e.g., 'audio/webm') and use Base64 encoding."
-    ),
-  correctWord: z.string().describe('The word the user was trying to pronounce.'),
-  language: z.string().describe('The language of the word (e.g., "Hindi").'),
-});
-export type PronunciationAnalysisInput = z.infer<typeof PronunciationAnalysisInputSchema>;
-
-export const PronunciationAnalysisOutputSchema = z.object({
-  transcribedText: z.string().describe('The text transcribed from the user\'s audio.'),
-  isCorrect: z.boolean().describe('Whether the transcribed text exactly matches the correct word (case-insensitive).'),
-  feedback: z.string().describe('Constructive, friendly feedback for the user on their pronunciation.'),
-});
-export type PronunciationAnalysisOutput = z.infer<typeof PronunciationAnalysisOutputSchema>;
+import { PronunciationAnalysisInputSchema, PronunciationAnalysisOutputSchema, PronunciationAnalysisInput, PronunciationAnalysisOutput } from '@/lib/types';
 
 
 export async function analyzePronunciation(input: PronunciationAnalysisInput): Promise<PronunciationAnalysisOutput> {

@@ -10,6 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
 import { personalTutor } from '@/ai/flows/personal-tutor-flow';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import type { PersonalTutorInput } from '@/lib/types';
 
 interface Message {
   role: 'user' | 'model';
@@ -48,11 +49,12 @@ export default function PersonalTutorPage() {
 
     try {
       const history = messages;
-      const response = await personalTutor({
+      const tutorInput: PersonalTutorInput = {
         history,
         message: input,
         language: mockUser.language,
-      });
+      };
+      const response = await personalTutor(tutorInput);
 
       const modelMessage: Message = { role: 'model', content: response.response };
       setMessages((prev) => [...prev, modelMessage]);

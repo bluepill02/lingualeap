@@ -11,7 +11,8 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { provideMissionFeedback, MissionSubmissionInput, MissionFeedbackOutput } from '@/ai/flows/mission-feedback-flow';
+import { provideMissionFeedback, } from '@/ai/flows/mission-feedback-flow';
+import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
 
 const mission = {
     title: "Mission: Explain Newton's Third Law",

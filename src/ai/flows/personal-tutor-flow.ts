@@ -4,29 +4,12 @@
  * @fileOverview A Genkit flow for an AI-powered personal language tutor.
  *
  * - personalTutor - A function that handles conversational tutoring.
- * - PersonalTutorInput - The input type for the personalTutor function.
- * - PersonalTutorOutput - The return type for the personalTutor function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import { PersonalTutorInputSchema, PersonalTutorOutputSchema, PersonalTutorInput, PersonalTutorOutput } from '@/lib/types';
 
-const ChatMessageSchema = z.object({
-  role: z.enum(['user', 'model']),
-  content: z.string(),
-});
-
-const PersonalTutorInputSchema = z.object({
-  history: z.array(ChatMessageSchema).describe('The conversation history so far.'),
-  message: z.string().describe('The latest message from the user.'),
-  language: z.string().describe('The language the user is learning.'),
-});
-export type PersonalTutorInput = z.infer<typeof PersonalTutorInputSchema>;
-
-const PersonalTutorOutputSchema = z.object({
-  response: z.string().describe('The AI tutor\'s response.'),
-});
-export type PersonalTutorOutput = z.infer<typeof PersonalTutorOutputSchema>;
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
   return personalTutorFlow(input);

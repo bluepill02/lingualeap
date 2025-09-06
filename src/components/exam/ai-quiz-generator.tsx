@@ -10,8 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { Sparkles, Loader2, CheckCircle, XCircle } from 'lucide-react';
-import { NeetModule } from '@/lib/types';
-import { generateNeetQuiz, NeetQuizGeneratorOutput } from '@/ai/flows/neet-quiz-generator';
+import { NeetModule, NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 import { MarkdownRenderer } from './markdown-renderer';
 
 interface AiQuizGeneratorProps {

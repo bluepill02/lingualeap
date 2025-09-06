@@ -4,32 +4,11 @@
  * @fileOverview An AI flow for providing feedback on a user's peer-teaching mission submission.
  *
  * - provideMissionFeedback - A function that acts as an "AI Editor" for user-created micro-lessons.
- * - MissionSubmissionInput - The input type for the function.
- * - MissionFeedbackOutput - The return type for the function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-
-export const MissionSubmissionInputSchema = z.object({
-  concept: z.string().describe('The physics concept the user is teaching (e.g., "Newton\'s Third Law").'),
-  script: z.string().describe("The user's script for a one-minute micro-lesson video."),
-  diagramDescription: z.string().describe("A description of the user's sketch or diagram."),
-  mcqs: z.array(z.object({
-    question: z.string(),
-    options: z.array(z.string()).length(4),
-    correctAnswer: z.string(),
-  })).length(2).describe("Two multiple-choice questions created by the user."),
-});
-export type MissionSubmissionInput = z.infer<typeof MissionSubmissionInputSchema>;
-
-export const MissionFeedbackOutputSchema = z.object({
-  clarityFeedback: z.string().describe("Feedback on the script's clarity, conciseness, and bilingual consistency (Tamil/English)."),
-  accuracyFeedback: z.string().describe("Feedback on the conceptual accuracy of the script, diagram, and MCQs."),
-  analogySuggestion: z.string().describe("A suggestion for a better, culturally relevant analogy for Tamil Nadu students."),
-  teachingStars: z.number().min(0).max(5).describe("A rating from 0 to 5 'Teaching Stars' for the overall quality of the submission."),
-});
-export type MissionFeedbackOutput = z.infer<typeof MissionFeedbackOutputSchema>;
+import { MissionSubmissionInputSchema, MissionFeedbackOutputSchema, MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
 
 
 export async function provideMissionFeedback(input: MissionSubmissionInput): Promise<MissionFeedbackOutput> {

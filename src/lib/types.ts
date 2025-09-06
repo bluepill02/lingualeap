@@ -1,5 +1,7 @@
 
 
+import { z } from 'genkit/zod';
+
 export interface User {
   id: string;
   name: string;
@@ -140,7 +142,7 @@ export interface WorkedExample {
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
     problemTamil?: string;
-    fbd?: FBDstep[];
+fbd?: FBDstep[];
     solutionSteps: {
         step: number;
         explanation: string;
@@ -188,7 +190,7 @@ export interface KeyDiagram {
     title: string;
     description: string;
     diagram?: string;
-    fbd?: FBDstep;
+fbd?: FBDstep;
 }
 
 export interface BilingualContent {
@@ -198,7 +200,7 @@ export interface BilingualContent {
 
 export interface ConceptNote {
     heading: BilingualContent;
-    content: BilingualContent[];
+    content: (BilingualContent | string)[];
 }
 
 
@@ -219,7 +221,7 @@ export interface NeetModule {
     conceptOverview?: string;
     tamilConnection?: string;
     culturalContext?: string;
-    conceptNotes: ConceptNote[];
+    conceptNotes: (ConceptNote | { english: string; tamil?: string; })[];
     workedExamples: WorkedExample[];
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];
@@ -279,3 +281,25 @@ export interface LiveClass {
   startTime: string;
   endTime: string;
 }
+
+// AI Related types
+export const NeetQuizQuestionSchema = z.object({
+  question: z.string().describe('The quiz question, formatted with LaTeX for equations if necessary.'),
+  options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options for the quiz.'),
+  answer: z.string().describe('The correct answer from the options.'),
+  explanation: z.string().describe('A detailed step-by-step explanation for the correct answer.'),
+});
+
+export const NeetQuizGeneratorInputSchema = z.object({
+  subject: z.enum(['Physics', 'Chemistry', 'Biology']).describe('The subject for the quiz.'),
+  chapter: z.string().describe('The specific chapter or topic for the questions.'),
+  numQuestions: z.number().min(1).max(10).describe('The number of questions to generate.'),
+  difficulty: z.enum(['Easy', 'Medium', 'Hard']).describe('The desired difficulty level of the questions.'),
+  language: z.enum(['English', 'Tamil']).describe('The language for the generated quiz.'),
+});
+export type NeetQuizGeneratorInput = z.infer<typeof NeetQuizGeneratorInputSchema>;
+
+export const NeetQuizGeneratorOutputSchema = z.object({
+    quizzes: z.array(NeetQuizQuestionSchema),
+});
+export type NeetQuizGeneratorOutput = z.infer<typeof NeetQuizGeneratorOutputSchema>;
