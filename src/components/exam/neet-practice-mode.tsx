@@ -2,7 +2,6 @@
 'use client';
 
 import * as React from 'react';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,35 +14,27 @@ import { MarkdownRenderer } from './markdown-renderer';
 
 interface PracticeModeProps {
   mcqs: MCQ[];
+  answers: (string | null)[];
+  submitted: boolean;
+  flipped: boolean[];
+  onOptionSelect: (qIndex: number, option: string) => void;
+  onSubmit: () => void;
+  onReset: () => void;
 }
 
-export function PracticeMode({ mcqs }: PracticeModeProps) {
-  const [answers, setAnswers] = useState<(string | null)[]>(Array(mcqs.length).fill(null));
-  const [submitted, setSubmitted] = useState(false);
-  const [flipped, setFlipped] = useState<boolean[]>(Array(mcqs.length).fill(false));
+export function PracticeMode({
+  mcqs,
+  answers,
+  submitted,
+  flipped,
+  onOptionSelect,
+  onSubmit,
+  onReset,
+}: PracticeModeProps) {
 
   const totalQuestions = mcqs.length;
   const answeredCount = answers.filter(a => a !== null).length;
   const progress = (answeredCount / totalQuestions) * 100;
-
-  const handleOptionSelect = (qIndex: number, option: string) => {
-    if (submitted) return;
-    const newAnswers = [...answers];
-    newAnswers[qIndex] = option;
-    setAnswers(newAnswers);
-  };
-  
-  const handleSubmit = () => {
-    setSubmitted(true);
-    setFlipped(Array(mcqs.length).fill(true));
-  };
-  
-  const handleReset = () => {
-      setAnswers(Array(mcqs.length).fill(null));
-      setSubmitted(false);
-      setFlipped(Array(mcqs.length).fill(false));
-  }
-  
   const correctAnswers = mcqs.filter((mcq, index) => answers[index] === mcq.answer).length;
 
   return (
@@ -101,7 +92,7 @@ export function PracticeMode({ mcqs }: PracticeModeProps) {
                                     key={oIndex}
                                     variant={answers[qIndex] === option ? 'secondary' : 'outline'}
                                     className="w-full h-auto justify-start text-left py-2"
-                                    onClick={() => handleOptionSelect(qIndex, option)}
+                                    onClick={() => onOptionSelect(qIndex, option)}
                                 >
                                     <span className="mr-2 font-bold">{option.charAt(0)}.</span>
                                     <div className="prose dark:prose-invert max-w-none text-sm"><MarkdownRenderer>{option.substring(2)}</MarkdownRenderer></div>
@@ -141,10 +132,10 @@ export function PracticeMode({ mcqs }: PracticeModeProps) {
         </div>
         
         <div className="flex justify-center gap-4 mt-6">
-            <Button size="lg" onClick={handleSubmit} disabled={submitted || answeredCount < totalQuestions}>
+            <Button size="lg" onClick={onSubmit} disabled={submitted || answeredCount < totalQuestions}>
                 Reveal Answers
             </Button>
-             <Button size="lg" variant="outline" onClick={handleReset} disabled={!submitted}>
+             <Button size="lg" variant="outline" onClick={onReset} disabled={!submitted}>
                 Practice Again
             </Button>
         </div>

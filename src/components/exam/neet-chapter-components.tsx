@@ -212,6 +212,28 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
             </Card>
         );
     }
+
+    const [answers, setAnswers] = useState<(string | null)[]>(Array(mcqs.length).fill(null));
+    const [submitted, setSubmitted] = useState(false);
+    const [flipped, setFlipped] = useState<boolean[]>(Array(mcqs.length).fill(false));
+
+    const handleOptionSelect = (qIndex: number, option: string) => {
+        if (submitted) return;
+        const newAnswers = [...answers];
+        newAnswers[qIndex] = option;
+        setAnswers(newAnswers);
+    };
+
+    const handleSubmit = () => {
+        setSubmitted(true);
+        setFlipped(Array(mcqs.length).fill(true));
+    };
+
+    const handleReset = () => {
+        setAnswers(Array(mcqs.length).fill(null));
+        setSubmitted(false);
+        setFlipped(Array(mcqs.length).fill(false));
+    };
    
     return (
         <Card>
@@ -224,11 +246,19 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="practice">Practice Mode</TabsTrigger>
                         <TabsTrigger value="all-questions">All Questions</TabsTrigger>
-                        <TabsTrigger value="analytics">Analytics</TabsTrigger>
+                        <TabsTrigger value="analytics">Performance</TabsTrigger>
                         <TabsTrigger value="more">More Types</TabsTrigger>
                     </TabsList>
                     <TabsContent value="practice" className="mt-4">
-                        <PracticeMode mcqs={mcqs} />
+                       <PracticeMode 
+                            mcqs={mcqs}
+                            answers={answers}
+                            submitted={submitted}
+                            flipped={flipped}
+                            onOptionSelect={handleOptionSelect}
+                            onSubmit={handleSubmit}
+                            onReset={handleReset}
+                        />
                     </TabsContent>
                     <TabsContent value="all-questions" className="mt-4">
                         <Accordion type="multiple" className="w-full space-y-4">
@@ -251,7 +281,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                         </Accordion>
                     </TabsContent>
                     <TabsContent value="analytics" className="mt-4">
-                        <PracticeAnalytics mcqs={mcqs} />
+                        <PracticeAnalytics mcqs={mcqs} answers={answers} submitted={submitted} />
                     </TabsContent>
                     <TabsContent value="more" className="mt-4">
                          <Accordion type="multiple" className="w-full space-y-4" defaultValue={['assertion-reason']}>

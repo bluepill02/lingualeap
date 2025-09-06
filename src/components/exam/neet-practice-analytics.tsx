@@ -4,15 +4,23 @@
 import * as React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { MCQ } from '@/lib/types';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { AlertCircle, TrendingUp } from 'lucide-react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { AlertCircle, TrendingUp, Check, X, HelpCircle } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 
 interface PracticeAnalyticsProps {
   mcqs: MCQ[];
+  answers: (string | null)[];
+  submitted: boolean;
 }
 
-export function PracticeAnalytics({ mcqs }: PracticeAnalyticsProps) {
+const COLORS = {
+  correct: 'hsl(var(--success))',
+  incorrect: 'hsl(var(--destructive))',
+  unanswered: 'hsl(var(--muted-foreground))',
+};
+
+export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalyticsProps) {
   if (!mcqs || mcqs.length === 0) {
     return (
       <Card>
@@ -26,47 +34,91 @@ export function PracticeAnalytics({ mcqs }: PracticeAnalyticsProps) {
     );
   }
 
-  const frequencyData = mcqs.reduce((acc, mcq) => {
-    const freq = mcq.neetFrequency || 0;
-    const existing = acc.find(item => item.frequency === freq);
-    if (existing) {
-      existing.count += 1;
-    } else {
-      acc.push({ frequency: freq, count: 1, name: `${freq} Stars` });
-    }
-    return acc;
-  }, [] as { frequency: number; count: number, name: string }[]).sort((a, b) => a.frequency - b.frequency);
+  if (!submitted) {
+    return (
+         <Alert variant="info">
+            <AlertCircle className="h-4 w-4"/>
+            <AlertTitle>Complete the Practice Mode!</AlertTitle>
+            <AlertDescription>
+                Once you submit your answers in the 'Practice Mode' tab, your performance analytics will appear here.
+            </AlertDescription>
+        </Alert>
+    )
+  }
+
+  const totalQuestions = mcqs.length;
+  const correctCount = mcqs.filter((mcq, index) => answers[index] === mcq.answer).length;
+  const incorrectCount = mcqs.filter((mcq, index) => answers[index] !== null && answers[index] !== mcq.answer).length;
+  const unansweredCount = answers.filter(answer => answer === null).length;
+
+  const data = [
+    { name: 'Correct', value: correctCount, fill: COLORS.correct },
+    { name: 'Incorrect', value: incorrectCount, fill: COLORS.incorrect },
+    { name: 'Unanswered', value: unansweredCount, fill: COLORS.unanswered },
+  ];
 
   return (
     <Card className="bg-card/50">
         <CardHeader>
             <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="text-primary"/>
-                Question Difficulty Analytics
+                Your Performance Report
             </CardTitle>
             <CardDescription>
-                Distribution of questions based on their NEET frequency rating.
+                An overview of your accuracy in this practice session.
             </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-            <Alert variant="info">
-                <AlertCircle className="h-4 w-4"/>
-                <AlertTitle>What does this mean?</AlertTitle>
-                <AlertDescription>
-                    The 'NEET Frequency' star rating indicates how often concepts related to a question have appeared in previous NEET exams. Questions with more stars cover higher-yield topics.
-                </AlertDescription>
-            </Alert>
-            <div style={{ width: '100%', height: 300 }}>
-                <ResponsiveContainer>
-                    <BarChart data={frequencyData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis allowDecimals={false} />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="count" fill="hsl(var(--primary))" name="Number of Questions" />
-                    </BarChart>
-                </ResponsiveContainer>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div style={{ width: '100%', height: 250 }}>
+                    <ResponsiveContainer>
+                        <PieChart>
+                            <Pie
+                                data={data}
+                                cx="50%"
+                                cy="50%"
+                                labelLine={false}
+                                outerRadius={80}
+                                dataKey="value"
+                            >
+                                {data.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                                ))}
+                            </Pie>
+                            <Tooltip />
+                            <Legend iconType="circle" />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
+                 <div className="space-y-4">
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Total Questions</CardTitle>
+                            <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                        </CardHeader>
+                        <CardContent>
+                             <div className="text-2xl font-bold">{totalQuestions}</div>
+                        </CardContent>
+                    </Card>
+                    <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Correct Answers</CardTitle>
+                            <Check className="h-4 w-4 text-success" />
+                        </CardHeader>
+                        <CardContent>
+                             <div className="text-2xl font-bold">{correctCount}</div>
+                        </CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium">Incorrect Answers</CardTitle>
+                            <X className="h-4 w-4 text-destructive" />
+                        </CardHeader>
+                        <CardContent>
+                             <div className="text-2xl font-bold">{incorrectCount}</div>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
         </CardContent>
     </Card>
