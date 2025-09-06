@@ -1,4 +1,6 @@
 
+import type { NeetModule } from '@/lib/types';
+
 interface StrategyPoint {
   point: string;
   explanation: string;
@@ -55,6 +57,66 @@ export const strategyGuideContent: StrategyGuide = {
         ],
       },
       {
+        chapterName: 'Motion in a Straight Line',
+        chapterNameTamil: 'நேர்கோட்டு இயக்கம்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Confusing Average Speed and Average Velocity',
+                explanation: '**Mistake:** Using total displacement to calculate average speed.\n\n**How to Avoid:** Remember: **Average Speed = (Total Distance) / (Total Time)**. **Average Velocity = (Total Displacement) / (Total Time)**. They are only the same if the object moves in a straight line without changing direction.',
+                explanationTamil: '**தவறு:** சராசரி வேகத்தைக் கணக்கிட மொத்த இடப்பெயர்ச்சியப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** நினைவில் கொள்க: **சராசரி வேகம் = (மொத்த தூரம்) / (மொத்த நேரம்)**. **சராசரி திசைவேகம் = (மொத்த இடப்பெயர்ச்சி) / (மொத்த நேரம்)**. பொருள் திசை மாறாமல் ஒரு நேர்க்கோட்டில் சென்றால் மட்டுமே இவை சமமாக இருக்கும்.',
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "Harmonic Mean for Average Speed",
+                explanation: "If a body covers the first half of the distance with speed v₁ and the second half with speed v₂, the average speed is the harmonic mean, not the arithmetic mean. **Average Speed = 2v₁v₂ / (v₁ + v₂)**. This is a very common NEET question pattern.",
+                explanationTamil: "ஒரு பொருள் முதல் பாதி தூரத்தை v₁ வேகத்திலும், இரண்டாம் பாதி தூரத்தை v₂ வேகத்திலும் கடந்தால், சராசரி வேகம் இசைச் சராசரி ஆகும், கூட்டுச் சராசரி அல்ல. **சராசரி வேகம் = 2v₁v₂ / (v₁ + v₂)**. இது மிகவும் பொதுவான நீட் கேள்வி முறை.",
+              }
+            ]
+          }
+        ],
+      },
+      {
+        chapterName: 'Motion in a Plane',
+        chapterNameTamil: 'தளத்தில் இயக்கம்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Forgetting Independence of Motion",
+                explanation: "**Mistake:** Mixing up horizontal and vertical components in projectile motion. For example, using gravity in horizontal calculations.\n\n**How to Avoid:** Always treat the x (horizontal) and y (vertical) motions completely separately. Horizontal motion has **zero acceleration**. Vertical motion has **constant acceleration g**. Time is the only quantity that connects them.",
+                explanationTamil: "**தவறு:** எறியியக்க இயக்கத்தில் கிடைமட்ட மற்றும் செங்குத்து கூறுகளைக் குழப்பிக் கொள்வது. உதாரணமாக, கிடைமட்ட கணக்கீடுகளில் ஈர்ப்பைப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** எப்போதும் x (கிடைமட்ட) மற்றும் y (செங்குத்து) இயக்கங்களை முற்றிலும் தனித்தனியாகக் கையாளவும். கிடைமட்ட இயக்கத்திற்கு **சுழி முடுக்கம்**. செங்குத்து இயக்கத்திற்கு **மாறிலி முடுக்கம் g**. நேரம் மட்டுமே அவற்றை இணைக்கும் ஒரே அளவு.",
+              },
+            ]
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "Complementary Angles in Projectile Motion",
+                explanation: "The horizontal range of a projectile is the same for two angles of projection that are complementary (e.g., 30° and 60°, or 15° and 75°). If a question asks for a ratio of ranges for complementary angles, the answer is always 1:1.",
+                explanationTamil: "ஒரு எறிபொருளின் கிடைத்தள நெடுக்கம், நிரப்பு கோணங்களாக உள்ள இரண்டு எறிகோணங்களுக்கு (எ.கா., 30° மற்றும் 60°, அல்லது 15° மற்றும் 75°) சமமாக இருக்கும். நிரப்பு கோணங்களுக்கான நெடுக்கங்களின் விகிதத்தைக் கேட்கும் கேள்விக்கு, விடை எப்போதும் 1:1 ஆகும்.",
+              }
+            ]
+          }
+        ]
+      },
+      {
         chapterName: 'Laws of Motion',
         chapterNameTamil: 'இயக்க விதிகள்',
         sections: [
@@ -72,6 +134,36 @@ export const strategyGuideContent: StrategyGuide = {
                 point: 'Atwood Machine Shortcut',
                 explanation: 'For a simple Atwood machine with masses m₁ and m₂, the acceleration is always **$a = \\frac{\\text{(Difference of masses)}}{\\text{(Sum of masses)}} g$**. The tension is **$T = \\frac{\\text{2 * (Product of masses)}}{\\text{(Sum of masses)}} g$**. Memorizing these two formulas bypasses solving simultaneous equations.',
                 explanationTamil: 'ஒரு எளிய அட்வுட் இயந்திரத்திற்கு, முடுக்கம் எப்போதும் **$a = \\frac{\\text{(நிறைகளின் வேறுபாடு)}}{\\text{(நிறைகளின் கூடுதல்)}} g$** ஆகும். இழுவிசை **$T = \\frac{\\text{2 * (நிறைகளின் பெருக்கற்பலன்)}}{\\text{(நிறைகளின் கூடுதல்)}} g$** ஆகும். இந்த இரண்டு சூத்திரங்களையும் மனப்பாடம் செய்வது ஒரே நேரத்தில் சமன்பாடுகளைத் தீர்ப்பதைத் தவிர்க்கிறது.',
+              },
+            ],
+          },
+        ],
+      },
+       {
+        chapterName: 'Work, Energy and Power',
+        chapterNameTamil: 'வேலை, ஆற்றல் மற்றும் திறன்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Work-Energy Theorem vs Conservation of Energy",
+                explanation: "**Mistake:** Confusing when to use which principle.\n\n**How to Avoid:** The **Work-Energy Theorem ($W_{net} = \\Delta K.E.$)** is *always* true, it includes work done by all forces (conservative and non-conservative). The **Conservation of Mechanical Energy ($K_i + U_i = K_f + U_f$)** is a special case that is true *only when* all forces doing work are conservative (like gravity and spring force). If friction is present, you must use the Work-Energy Theorem.",
+                explanationTamil: "**தவறு:** எந்தக் கொள்கையை எப்போது பயன்படுத்த வேண்டும் என்று குழப்பிக் கொள்வது.\n\n**தவிர்ப்பது எப்படி:** **வேலை-ஆற்றல் தேற்றம் ($W_{net} = \\Delta K.E.$)** *எப்போதும்* உண்மை, இது அனைத்து விசைகளாலும் (ஆற்றல் மாற்றா மற்றும் ஆற்றல் மாற்றும்) செய்யப்பட்ட வேலையை உள்ளடக்கியது. **இயந்திர ஆற்றல் அழிவின்மை ($K_i + U_i = K_f + U_f$)** என்பது வேலை செய்யும் அனைத்து விசைகளும் ஆற்றல் மாற்றா விசைகளாக (ஈர்ப்பு விசை மற்றும் சுருள்வில் விசை போன்றவை) இருக்கும்போது *மட்டுமே* உண்மையான ஒரு சிறப்பு நிகழ்வு ஆகும். உராய்வு இருந்தால், நீங்கள் வேலை-ஆற்றல் தேற்றத்தைப் பயன்படுத்த வேண்டும்.",
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Comparing K.E. and Momentum',
+                explanation: 'Use the relation $K = p^2 / 2m$. If two bodies have the same momentum (p), the lighter body (smaller m) has higher kinetic energy. If they have the same kinetic energy (K), the heavier body (larger m) has higher momentum. This is a very common conceptual question.',
+                explanationTamil: 'K = p²/2m என்ற தொடர்பைப் பயன்படுத்தவும். இரண்டு பொருட்கள் ஒரே உந்தத்தைக் (p) கொண்டிருந்தால், இலகுவான பொருள் (சிறிய m) அதிக இயக்க ஆற்றலைக் கொண்டிருக்கும். அவை ஒரே இயக்க ஆற்றலைக் (K) கொண்டிருந்தால், கனமான பொருள் (பெரிய m) அதிக உந்தத்தைக் கொண்டிருக்கும். இது மிகவும் பொதுவான கருத்தியல் கேள்வி.',
               },
             ],
           },
@@ -109,11 +201,233 @@ export const strategyGuideContent: StrategyGuide = {
       },
     ]
   },
-  'electromagnetism-optics': {
+  propertiesOfMatter: {
+    title: "Properties of Bulk Matter",
+    titleTamil: "பருப்பொருட்களின் பண்புகள்",
+    chapters: [
+      {
+        chapterName: 'Mechanical Properties of Solids',
+        chapterNameTamil: 'திண்மங்களின் இயந்திரப் பண்புகள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Confusing Elasticity with Stretchability',
+                explanation: "**Mistake:** Thinking rubber is more elastic than steel.\n\n**How to Avoid:** In physics, **elasticity** is the resistance to deformation. A material with a high Young\'s modulus (Y) is more elastic. Steel has a much higher Y than rubber, so it resists deformation more and returns to its original shape more forcefully. Therefore, steel is more elastic than rubber.',
+                explanationTamil: '**தவறு:** ரப்பர் எஃகை விட அதிக மீட்சித்தன்மை கொண்டது என்று நினைப்பது.\n\n**தவிர்ப்பது எப்படி:** இயற்பியலில், **மீட்சித்தன்மை** என்பது உருக்குலைவிற்கு எதிரான எதிர்ப்பு. அதிக யங் குணகம் (Y) கொண்ட ஒரு பொருள் அதிக மீட்சித்தன்மை கொண்டது. எஃகு ரப்பரை விட மிக அதிக Y மதிப்பைக் கொண்டுள்ளது, எனவே அது உருக்குலைவை அதிகமாக எதிர்க்கிறது மற்றும் அதன் அசல் வடிவத்திற்கு அதிக விசையுடன் திரும்புகிறது. எனவே, எஃகு ரப்பரை விட அதிக மீட்சித்தன்மை கொண்டது.',
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Mechanical Properties of Fluids',
+        chapterNameTamil: 'பாய்மங்களின் இயந்திரப் பண்புகள்',
+        sections: [
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Bernoulli\'s Principle Insight',
+                explanation: "Think of Bernoulli\'s principle as a trade-off: **'Where speed is high, pressure is low'.** This single concept explains the lift on an airplane wing (air travels faster over the top), the swing of a spinning cricket ball, and the working of an atomizer.",
+                explanationTamil: "பெர்னூலியின் தத்துவத்தை ஒரு வர்த்தகமாக நினைத்துப் பாருங்கள்: **'வேகம் அதிகம் உள்ள இடத்தில், அழுத்தம் குறைவு'.** இந்த ஒற்றைக் கருத்து ஒரு விமான இறக்கையின் மீதான தூக்கு விசை, சுழலும் கிரிக்கெட் பந்தின் ஊஞ்சலாட்டம் மற்றும் ஒரு அணுவாக்கியின் செயல்பாடு ஆகியவற்றை விளக்குகிறது.",
+              },
+            ],
+          },
+        ]
+      },
+       {
+        chapterName: 'Thermal Properties of Matter',
+        chapterNameTamil: 'பருப்பொருளின் வெப்பப் பண்புகள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Confusing Heat and Temperature',
+                explanation: '**Mistake:** Using the terms heat and temperature interchangeably.\n\n**How to Avoid:** **Temperature** is a measure of the average kinetic energy of molecules (how hot or cold something is). **Heat** is the *transfer* of thermal energy from a hotter body to a colder one. An iceberg has a low temperature but contains a huge amount of heat energy.',
+                explanationTamil: '**தவறு:** வெப்பம் மற்றும் வெப்பநிலை என்ற சொற்களை மாறி மாறிப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** **வெப்பநிலை** என்பது மூலக்கூறுகளின் சராசரி இயக்க ஆற்றலின் ஒரு அளவீடு (ஒரு பொருள் எவ்வளவு சூடாக அல்லது குளிராக உள்ளது). **வெப்பம்** என்பது ஒரு சூடான பொருளிலிருந்து ஒரு குளிரான பொருளுக்கு வெப்ப ஆற்றலின் *பரிமாற்றம்* ஆகும். ஒரு பனிப்பாறை குறைந்த வெப்பநிலையைக் கொண்டுள்ளது ஆனால் ஒரு பெரிய அளவு வெப்ப ஆற்றலைக் கொண்டுள்ளது.',
+              },
+            ],
+          },
+        ]
+      },
+    ]
+  },
+  thermodynamics: {
+    title: "Thermodynamics & Kinetic Theory",
+    titleTamil: "வெப்ப இயக்கவியல் மற்றும் இயக்கவியற் கொள்கை",
+    chapters: [
+       {
+        chapterName: 'Thermodynamics',
+        chapterNameTamil: 'வெப்ப இயக்கவியல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Sign Conventions for W and Q',
+                explanation: '**Mistake:** Mixing up the signs. The physics convention for work (Work done BY system is positive) is opposite to the chemistry convention (Work done ON system is positive).\n\n**How to Avoid:** Stick to one convention, usually the one from your textbook. The standard physics convention is based on the First Law: **$\\Delta U = Q - W$**. Here, work done *by* the system is positive. Heat supplied *to* the system is positive.',
+                explanationTamil: '**தவறு:** குறிகளைக் குழப்பிக் கொள்வது. இயற்பியல் மரபு (அமைப்பால் செய்யப்படும் வேலை நேர்க்குறி) வேதியியல் மரபுக்கு (அமைப்பின் மீது செய்யப்படும் வேலை நேர்க்குறி) எதிரானது.\n\n**தவிர்ப்பது எப்படி:** உங்கள் பாடப்புத்தகத்தில் உள்ள ஒரு மரபைப் பின்பற்றவும். நிலையான இயற்பியல் மரபு முதல் விதியை அடிப்படையாகக் கொண்டது: **$\\Delta U = Q - W$**. இங்கு, அமைப்பால் *செய்யப்பட்ட* வேலை நேர்க்குறியாகும். அமைப்பிற்கு *வழங்கப்பட்ட* வெப்பம் நேர்க்குறியாகும்.',
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "P-V Diagram Areas",
+                explanation: "The net work done in any cyclic process is simply the **area enclosed by the loop** on the P-V diagram. If the cycle is **clockwise**, work done by the gas is positive (engine). If it is **anti-clockwise**, work done is negative (refrigerator). This is faster than calculating work for each step individually.",
+                explanationTamil: "எந்தவொரு சுழற்சி செயல்முறையிலும் செய்யப்படும் நிகர வேலை என்பது P-V வரைபடத்தில் **வளையத்தால் சூழப்பட்ட பரப்பளவு** ஆகும். சுழற்சி **கடிகார திசையில்** இருந்தால், வாயுவால் செய்யப்பட்ட வேலை நேர்மறையாகும் (இயந்திரம்). அது **கடிகார எதிர் திசையில்** இருந்தால், செய்யப்பட்ட வேலை எதிர்மறையாகும் (குளிர்சாதனப்பெட்டி). இது ஒவ்வொரு படிக்கும் தனித்தனியாக வேலை கணக்கிடுவதை விட வேகமானது.",
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Kinetic Theory of Gases',
+        chapterNameTamil: 'வாயுக்களின் இயக்கவியற் கொள்கை',
+        sections: [
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "RMS Speed Ratios",
+                explanation: "For ratio questions involving RMS speed ($v_{rms} = \\sqrt{3RT/M}$), you often don't need the value of R. Use the proportionality **$v \\propto \\sqrt{T/M}$** to quickly find the answer. For example, to compare the speeds of H₂ and O₂ at the same temperature, the ratio is just $\\sqrt{M_{O2}/M_{H2}} = \\sqrt{32/2} = 4$.",
+                explanationTamil: "RMS வேகம் ($v_{rms} = \\sqrt{3RT/M}$) சம்பந்தப்பட்ட விகிதக் கேள்விகளுக்கு, உங்களுக்கு பெரும்பாலும் R-இன் மதிப்பு தேவையில்லை. விடையை விரைவாகக் கண்டுபிடிக்க **$v \\propto \\sqrt{T/M}$** என்ற விகிதாசாரத்தைப் பயன்படுத்தவும். உதாரணமாக, ஒரே வெப்பநிலையில் H₂ மற்றும் O₂ இன் வேகங்களை ஒப்பிட, விகிதம் வெறும் $\\sqrt{M_{O2}/M_{H2}} = \\sqrt{32/2} = 4$ ஆகும்.",
+              }
+            ],
+          },
+        ]
+      },
+    ]
+  },
+   'electromagnetism-optics': {
     title: "Electromagnetism & Optics",
     titleTamil: "மின்காந்தவியல் மற்றும் ஒளியியல்",
     chapters: [
        {
+        chapterName: 'Electrostatics',
+        chapterNameTamil: 'நிலைமின்னியல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Potential vs. Potential Energy',
+                explanation: '**Mistake:** Using the terms interchangeably.\n\n**How to Avoid:** **Potential (V)** is a property of a *point in space* (Work done per unit charge). **Potential Energy (U)** is a property of a *charge placed at that point* (U = qV). Always check if the question asks for the property of the location or the property of the charge.',
+                explanationTamil: '**தவறு:** இந்த வார்த்தைகளை மாறி மாறி பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** **மின்னழுத்தம் (V)** என்பது *வெளியில் உள்ள ஒரு புள்ளியின்* பண்பு (ஓரலகு மின்னூட்டத்திற்கு செய்யப்படும் வேலை). **நிலை ஆற்றல் (U)** என்பது *அந்தப் புள்ளியில் வைக்கப்பட்டுள்ள ஒரு மின்னூட்டத்தின்* பண்பு (U = qV). கேள்வி இடத்தின் பண்பைக் கேட்கிறதா அல்லது மின்னூட்டத்தின் பண்பைக் கேட்கிறதா என்பதை எப்போதும் சரிபார்க்கவும்.',
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Current Electricity',
+        chapterNameTamil: 'மின்னோட்டவியல்',
+        sections: [
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Symmetry in Resistor Networks',
+                explanation: "For complex resistor networks (like cube problems), always look for symmetry. Points that are symmetric with respect to the input and output are at the same potential. You can mentally 'fold' the circuit along the axis of symmetry or join the points of equal potential to simplify the network drastically.",
+                explanationTamil: "சிக்கலான மின்தடை வலையமைப்புகளுக்கு (கனசதுரக் கணக்குகள் போன்றவை), எப்போதும் சமச்சீர்மையைத் தேடுங்கள். உள்ளீடு மற்றும் வெளியீட்டைப் பொறுத்து சமச்சீராக உள்ள புள்ளிகள் ஒரே மின்னழுத்தத்தில் உள்ளன. வலையமைப்பை வியக்கத்தக்க रूपத்தில் எளிதாக்க, சமச்சீர் அச்சில் சுற்றை 'மடித்து' அல்லது சம மின்னழுத்தப் புள்ளிகளை இணைக்கலாம்.",
+              },
+            ],
+          },
+        ]
+      },
+       {
+        chapterName: 'Moving Charges and Magnetism',
+        chapterNameTamil: 'இயங்கும் மின்துகள்களும் காந்தவியலும்',
+        sections: [
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "Right-Hand Rules",
+                explanation: "Don't get confused between the different right-hand rules. Dedicate time to master them:\n*   **Thumb Rule:** For a straight wire, thumb in direction of current, fingers curl in direction of B-field lines.\n*   **Palm Rule:** For force on a charge, fingers in direction of B, thumb in direction of v, palm pushes in direction of Force.\n*   **Grip Rule:** For a solenoid, fingers curl in direction of current, thumb points in direction of B-field inside.",
+                explanationTamil: "வெவ்வேறு வலது கை விதிகளைக் குழப்பிக் கொள்ளாதீர்கள். அவற்றை நன்கு கற்க நேரம் ஒதுக்குங்கள்:\n*   **கட்டைவிரல் விதி:** ஒரு நேர் கம்பிக்கு, கட்டைவிரல் மின்னோட்டத்தின் திசையில், விரல்கள் B-புலக் கோடுகளின் திசையில் சுருளும்.\n*   **உள்ளங்கை விதி:** ஒரு மின்னூட்டத்தின் மீதான விசைக்கு, விரல்கள் B-இன் திசையில், கட்டைவிரல் v-இன் திசையில், உள்ளங்கை விசையின் திசையில் தள்ளும்.\n*   **பிடி விதி:** ஒரு வரிச்சுருளுக்கு, விரல்கள் மின்னோட்டத்தின் திசையில் சுருளும், கட்டைவிரல் உள்ளே உள்ள B-புலத்தின் திசையைக் குறிக்கும்.",
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Magnetism and Matter',
+        chapterNameTamil: 'காந்தவியல் மற்றும் பருப்பொருட்கள்',
+        sections: [
+           {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Geographic vs. Magnetic Poles',
+                explanation: "**Mistake:** Confusing the Earth's geographic and magnetic poles.\n\n**How to Avoid:** Remember they are opposites! The 'north' end of a compass needle (which is a magnetic north pole) points towards the Earth's **Geographic North Pole**. This means that the Earth's magnetic pole in the northern hemisphere is actually a **magnetic South Pole**.",
+                explanationTamil: "**தவறு:** பூமியின் புவியியல் மற்றும் காந்த துருவங்களைக் குழப்பிக் கொள்வது.\n\n**தவிர்ப்பது எப்படி:** அவை எதிர்மாறானவை என்பதை நினைவில் கொள்க! ஒரு திசைகாட்டியின் 'வடக்கு' முனை (அது ஒரு காந்த வட துருவம்) பூமியின் **புவியியல் வட துருவத்தை** நோக்கிச் செல்கிறது. இதன் பொருள், வட அரைக்கோளத்தில் உள்ள பூமியின் காந்த துருவம் உண்மையில் ஒரு **காந்த தென் துருவம்** ஆகும்.",
+              },
+            ],
+          },
+        ]
+      },
+       {
+        chapterName: 'Electromagnetic Induction',
+        chapterNameTamil: 'மின்காந்தத் தூண்டல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Direction in Lenz's Law",
+                explanation: "**Mistake:** Getting the direction of the induced current wrong.\n\n**How to Avoid:** It's simple: Nature opposes change. **1. What is the change?** Is the magnetic flux increasing or decreasing? **2. Oppose the change:** If the flux is increasing, the induced current will create a magnetic field in the *opposite* direction to fight it. If the flux is decreasing, the induced current will create a magnetic field in the *same* direction to help it.",
+                explanationTamil: "**தவறு:** தூண்டப்பட்ட மின்னோட்டத்தின் திசையைத் தவறாகப் பெறுவது.\n\n**தவிர்ப்பது எப்படி:** இது எளிது: இயற்கை மாற்றத்தை எதிர்க்கிறது. **1. மாற்றம் என்ன?** காந்தப் பாயம் அதிகரிக்கிறதா அல்லது குறைகிறதா? **2. மாற்றத்தை எதிர்க்கவும்:** பாயம் அதிகரித்தால், தூண்டப்பட்ட மின்னோட்டம் அதை எதிர்த்துப் போராட *எதிர்* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும். பாயம் குறைந்தால், தூண்டப்பட்ட மின்னோட்டம் அதற்கு உதவ *அதே* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும்.",
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Alternating Current',
+        chapterNameTamil: 'மாறுதிசை மின்னோட்டம்',
+        sections: [
+           {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "ELI the ICE man",
+                explanation: "This famous mnemonic helps remember phase leads and lags.\n*   In an inductor (**L**), Voltage (**E**) leads Current (**I**). -> **ELI**\n*   In a capacitor (**C**), Current (**I**) leads Voltage (**E**). -> **ICE**",
+                explanationTamil: "இந்த புகழ்பெற்ற நினைவூட்டல் கட்ட முந்துதல் மற்றும் பிந்துதலை நினைவில் கொள்ள உதவுகிறது.\n*   ஒரு மின்தூண்டியில் (**L**), மின்னழுத்தம் (**E**) மின்னோட்டத்தை (**I**) முந்துகிறது. -> **ELI**\n*   ஒரு மின்தேக்கியில் (**C**), மின்னோட்டம் (**I**) மின்னழுத்தத்தை (**E**) முந்துகிறது. -> **ICE**",
+              },
+            ],
+          },
+        ]
+      },
+      {
         chapterName: 'Ray Optics and Optical Instruments',
         chapterNameTamil: 'கதிர் ஒளியியல் மற்றும் ஒளியியல் கருவிகள்',
         sections: [
@@ -129,18 +443,6 @@ export const strategyGuideContent: StrategyGuide = {
               },
             ],
           },
-          {
-            title: 'Tricks & Shortcuts',
-            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
-            type: 'trick',
-            points: [
-               {
-                point: 'Combination of Thin Lenses',
-                explanation: 'Instead of finding the final image step-by-step, use the equivalent power formula for lenses in contact: **$P_{eq} = P_1 + P_2 + ...$**. Remember to use the correct sign for power (+ for convex, - for concave) and that $P = 1/f$ where f is in meters. This is much faster.',
-                explanationTamil: 'இறுதி பிம்பத்தை படிப்படியாகக் கண்டுபிடிப்பதற்குப் பதிலாக, தொடர்பில் உள்ள லென்சுகளுக்கு சமமான திறன் சூத்திரத்தைப் பயன்படுத்தவும்: **$P_{eq} = P_1 + P_2 + ...$**. திறனுக்கு சரியான குறியைப் பயன்படுத்த நினைவில் கொள்ளுங்கள் (குவிக்கு +, குழிக்கு -) மற்றும் f மீட்டரில் இருக்கும்போது $P = 1/f$. இது மிக வேகமானது.',
-              },
-            ]
-          }
         ]
       },
       {
@@ -160,7 +462,7 @@ export const strategyGuideContent: StrategyGuide = {
             ]
           }
         ]
-      }
+      },
     ]
   },
   'modern-physics': {
@@ -241,3 +543,5 @@ export const strategyGuideContent: StrategyGuide = {
     ]
   }
 };
+
+    
