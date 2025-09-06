@@ -28,7 +28,7 @@ export const workEnergyAndPowerModule: NeetModule = {
             topic: 'Work, Energy, Power, Collisions',
             tnBoardChapter: '11th Std Physics - Vol 1, Chapter 4: Work, Energy and Power',
             ncertReference: 'Class 11 Physics - Part 1, Chapter 6: Work, Energy and Power',
-            notes: 'Work-Energy Theorem is a very high-yield topic. Questions involving conservation of energy on inclined planes or with springs are frequent. Elastic and inelastic collision problems are also a staple of NEET.',
+            notes: 'Work-Energy Theorem is a very high-yield topic. Collision problems are also common.',
             mappingDescription: '11th Std Physics - Vol 1, Chapter 4 maps to NEET Physics Unit 4'
         }
     ],
@@ -151,7 +151,9 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                 }
             ],
             neetHack: "Work-Energy Theorem is often faster than kinematics for problems involving forces, distances and speeds. If time is not asked, think 'Energy' first!",
-            neetHackTamil: "விசைகள், தூரங்கள் மற்றும் வேகங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, இயக்கவியலை விட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் வேகமானது. நேரம் கேட்கப்படவில்லை என்றால், முதலில் 'ஆற்றல்' முறையை சிந்திக்கவும்!"
+            neetHackTamil: "விசைகள், தூரங்கள் மற்றும் வேகங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, இயக்கவியலை விட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் வேகமானது. நேரம் கேட்கப்படவில்லை என்றால், முதலில் 'ஆற்றல்' முறையை சிந்திக்கவும்!",
+            commonPitfall: "Forgetting to consider all the forces when calculating net work. If there was air resistance, W_net would be W_g + W_air_resistance.",
+            commonPitfallTamil: "நிகர வேலையைக் கணக்கிடும்போது அனைத்து விசைகளையும் கருத்தில் கொள்ள மறப்பது. காற்றுத் தடை இருந்திருந்தால், W_net = W_g + W_air_resistance ஆக இருக்கும்."
         },
         {
             title: "JEE Level: Conservation of Momentum in Collisions",
@@ -187,7 +189,7 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     step: 5,
                     explanation: "Calculate final kinetic energy (K.E_f).",
                     explanationTamil: "இறுதி இயக்க ஆற்றலைக் (K.E_f) கணக்கிடவும்.",
-                    calculation: "K.E_f = (1/2)m₁v₁² + (1/2)(0.2)(10)² = 0 + (1/2)(0.2)(10)² = 10 J"
+                    calculation: "K.E_f = (1/2)m₁v₁² + (1/2)(0.2)(10)² = 0 + (1/2)(0.2)(100) = 10 J"
                 },
                 {
                     step: 6,
@@ -195,7 +197,10 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     explanationTamil: "ஆற்றல்களை ஒப்பிடவும். K.E_f < K.E_i என்பதால், சில இயக்க ஆற்றல் இழக்கப்பட்டுள்ளது. எனவே, மோதல் மீள்தன்மையற்றது."
                 }
             ],
-            commonPitfall: "Assuming every collision is elastic. Always check the kinetic energy unless the problem explicitly states it's an elastic collision."
+            neetHack: "The coefficient of restitution, e = (v₂-v₁)/(u₁-u₂). Here, e = (10-0)/(20-0) = 0.5. Since e is not 1, the collision is inelastic. This is often faster than calculating energies.",
+            neetHackTamil: "மீள்சீரமைப்பு குணகம், e = (v₂-v₁)/(u₁-u₂). இங்கு, e = 0.5. e=1 ஆக இல்லாததால், மோதல் மீள்தன்மையற்றது. இது ஆற்றல்களைக் கணக்கிடுவதை விட வேகமானது.",
+            commonPitfall: "Assuming every collision is elastic. Always check the kinetic energy unless the problem explicitly states it's an elastic collision.",
+            commonPitfallTamil: "ஒவ்வொரு மோதலும் மீள்தன்மை கொண்டது என்று கருதுவது. கணக்கு வெளிப்படையாக மீள் மோதல் என்று கூறாதவரை, எப்போதும் இயக்க ஆற்றலைச் சரிபார்க்கவும்."
         },
         {
             title: "NEET Level: Power Calculation",
@@ -227,7 +232,11 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     explanationTamil: "தேவைப்படும் மொத்த திறன், நிலை மற்றும் இயக்க ஆற்றலுக்கான திறன்களின் கூடுதலாகும்.",
                     calculation: "P_total = P_potential + P_kinetic = 2500 W + 12500 W = 15000 W = 15 kW"
                 }
-            ]
+            ],
+            neetHack: "Power problems can be solved by calculating the total energy required for one unit of mass and then multiplying by the mass flow rate (kg/s).",
+            neetHackTamil: "திறன் கணக்குகளை ஒரு அலகு நிறைக்கான மொத்த ஆற்றலைக் கணக்கிட்டு, பின்னர் அதை நிறை ஓட்ட விகிதத்தால் (கிகி/வி) பெருக்குவதன் மூலம் தீர்க்க முடியும்.",
+            commonPitfall: "Forgetting to convert 'mass per minute' to 'mass per second' (kg/s), which is the standard unit for rate calculations.",
+            commonPitfallTamil: "'நிமிடத்திற்கு நிறை' என்பதை 'வினாடிக்கு நிறை' (கிகி/வி) ஆக மாற்ற மறப்பது, இது விகிதக் கணக்கீடுகளுக்கான நிலையான அலகு ஆகும்."
         },
         {
             title: "JEE Level: Conservative vs Non-Conservative Forces",
@@ -258,16 +267,19 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                 },
                 {
                     step: 5,
-                    explanation: "(b) Work by gravitational force: W_g = (mg sinθ) * s * cos(180°) = -5 * 2 = -10 J.",
-                    explanationTamil: "(b) ஈர்ப்பு விசையால் செய்யப்பட்ட வேலை: W_g = -10 J."
+                    explanation: "(b) Work by gravitational force: W_g = -(mgh) = -mg(s sinθ) = -1*10*2*sin(30) = -10 J. Negative because displacement is up, gravity component is down.",
+                    explanationTamil: "(b) ஈர்ப்பு விசையால் செய்யப்பட்ட வேலை: W_g = -10 J. இடப்பெயர்ச்சி மேல்நோக்கி, ஈர்ப்பு கூறு கீழ்நோக்கி இருப்பதால் எதிர்மறை."
                 },
                 {
                     step: 6,
-                    explanation: "(c) Work by frictional force: W_f = f_k * s * cos(180°) = -0.866 * 2 = -1.732 J.",
-                    explanationTamil: "(c) உராய்வு விசையால் செய்யப்பட்ட வேலை: W_f = -1.732 J."
+                    explanation: "(c) Work by frictional force: W_f = f_k * s * cos(180°) = -0.866 * 2 ≈ -1.732 J.",
+                    explanationTamil: "(c) உராய்வு விசையால் செய்யப்பட்ட வேலை: W_f ≈ -1.732 J."
                 }
             ],
-            neetHack: "Check your answer using the Work-Energy Theorem. Since speed is constant, ΔK.E. = 0. So, W_net = 0. W_F + W_g + W_f = 11.732 - 10 - 1.732 = 0. The calculation is correct."
+            neetHack: "Check your answer using the Work-Energy Theorem. Since speed is constant, ΔK.E. = 0. So, W_net = 0. W_F + W_g + W_f ≈ 11.732 - 10 - 1.732 = 0. The calculation is correct.",
+            neetHackTamil: "வேலை-ஆற்றல் தேற்றத்தைப் பயன்படுத்தி உங்கள் விடையைச் சரிபார்க்கவும். வேகம் மாறிலி என்பதால், ΔK.E. = 0. எனவே, W_net = 0. W_F + W_g + W_f ≈ 11.732 - 10 - 1.732 = 0. கணக்கீடு சரியானது.",
+            commonPitfall: "Calculating the work done by gravity as -mgh where h is the length of the incline. h is the vertical height, which is s sin(θ).",
+            commonPitfallTamil: "ஈர்ப்பு விசையால் செய்யப்பட்ட வேலையை -mgh என கணக்கிடுவது, இங்கு h என்பது சாய்தளத்தின் நீளம். h என்பது செங்குத்து உயரம், இது s sin(θ) ஆகும்."
         },
         {
             title: "NEET Level: Elastic Potential Energy",
@@ -299,7 +311,11 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
                     explanationTamil: "இரண்டாவது நீட்டலில் செய்யப்பட்ட வேலை நிலை ஆற்றலில் ஏற்படும் மாற்றம், W = U_f - U_i.",
                     calculation: "W = 25 J - 6.25 J = 18.75 J"
                 }
-            ]
+            ],
+            neetHack: "The work done to stretch from x₁ to x₂ is (1/2)k(x₂² - x₁²). Don't calculate the work for the second 5cm stretch as (1/2)k(0.05)². The force required is not constant.",
+            neetHackTamil: "x₁ முதல் x₂ வரை நீட்டுவதற்குச் செய்யப்பட்ட வேலை (1/2)k(x₂² - x₁²). இரண்டாவது 5cm நீட்டலுக்கான வேலையை (1/2)k(0.05)² என கணக்கிட வேண்டாம். தேவைப்படும் விசை மாறிலி அல்ல.",
+            commonPitfall: "Calculating the work for the second interval as (1/2)k(Δx)², which is incorrect because the spring is already stretched and the force is not starting from zero.",
+            commonPitfallTamil: "இரண்டாவது இடைவெளிக்கான வேலையை (1/2)k(Δx)² எனக் கணக்கிடுவது தவறானது, ஏனெனில் சுருள்வில் ஏற்கனவே நீட்டப்பட்டுள்ளது மற்றும் விசை சுழியில் இருந்து தொடங்கவில்லை."
         }
     ],
     mcqs: [
@@ -312,9 +328,9 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
         },
         {
             question: "If the kinetic energy of a body is doubled, its momentum will be:",
-            options: ["A. Doubled", "B. Halved", "C. \\sqrt{2} times the original", "D. Unchanged"],
-            answer: "C. \\sqrt{2} times the original",
-            explanation: "Momentum p = \\sqrt{2mK}. If K' = 2K, then p' = \\sqrt{2m(2K)} = \\sqrt{2} * \\sqrt{2mK} = \\sqrt{2} * p.",
+            options: ["A. Doubled", "B. Halved", "C. √2 times the original", "D. Unchanged"],
+            answer: "C. √2 times the original",
+            explanation: "Momentum p = √2mK. If K' = 2K, then p' = √2m(2K) = √2 * √2mK = √2 * p.",
             neetFrequency: 4
         },
         {
@@ -437,9 +453,9 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
             neetFrequency: 1
         },
         {
-            question: "An engine pumps water continuously through a hose. If the speed with which water passes through the hose nozzle is doubled, the kinetic energy imparted to the water:",
-            options: ["A. Doubles", "B. Becomes four times", "C. Becomes eight times", "D. Is halved"],
-            answer: "C. Becomes eight times",
+            question: "An engine pumps water continuously through a hose. If the speed with which water passes through the hose nozzle is doubled, the power required to impart kinetic energy to the water becomes:",
+            options: ["A. Doubled", "B. Four times", "C. Eight times", "D. Halved"],
+            answer: "C. Eight times",
             explanation: "Power for K.E. = (1/2)(dm/dt)v². Mass flow rate dm/dt = Aρv. So, Power ∝ v³. If velocity is doubled, power becomes 2³ = 8 times.",
             neetFrequency: 2
         },
@@ -546,36 +562,36 @@ $$ P = \\frac{W}{t} = \\vec{F} \\cdot \\vec{v} $$`
     keyFormulasAndDiagrams: {
         formulas: [
             {
-                formula: '\\vec{F}_{net} = \\frac{d\\vec{p}}{dt}',
-                description: 'The fundamental form of Newton\'s 2nd Law. Crucial for variable mass systems.',
-                descriptionTamil: 'நியூட்டனின் 2ம் விதியின் அடிப்படை வடிவம். மாறும் நிறை அமைப்புகளுக்கு முக்கியமானது.'
+                formula: 'W = \\vec{F} \\cdot \\vec{s}',
+                description: 'Work Done by a Constant Force',
+                descriptionTamil: 'மாறா விசையால் செய்யப்பட்ட வேலை'
             },
             {
-                formula: 'f_{s,max} = \\mu_s N',
-                description: 'Maximum static friction. Friction opposes the tendency of motion.',
-                descriptionTamil: 'பெரும நிலை உராய்வு. உராய்வு இயக்கத்தின் போக்கை எதிர்க்கிறது.'
+                formula: 'W_{net} = \\Delta K.E.',
+                description: 'Work-Energy Theorem',
+                descriptionTamil: 'வேலை-ஆற்றல் தேற்றம்'
             },
             {
-                formula: 'f_k = \\mu_k N',
-                description: 'Kinetic friction. Acts on a moving body, opposing motion.',
-                descriptionTamil: 'இயக்க உராய்வு. நகரும் பொருளின் மீது செயல்பட்டு, இயக்கத்தை எதிர்க்கிறது.'
+                formula: 'U = mgh \\text{ or } \\frac{1}{2}kx^2',
+                description: 'Potential Energy (Gravitational or Elastic)',
+                descriptionTamil: 'நிலை ஆற்றல் (ஈர்ப்பு அல்லது மீட்சி)'
             },
             {
-                formula: 'N = m(g \\pm a)',
-                description: 'Apparent weight in a lift. Use + for upward acceleration, - for downward.',
-                descriptionTamil: 'மின் தூக்கியில் தோற்ற எடை. மேல்நோக்கிய முடுக்கத்திற்கு +, கீழ்நோக்கிய முடுக்கத்திற்கு - பயன்படுத்தவும்.'
+                formula: 'P = \\vec{F} \\cdot \\vec{v}',
+                description: 'Instantaneous Power',
+                descriptionTamil: 'உடனடித் திறன்'
             }
         ],
         diagrams: []
     },
     keyTakeaways: [
-        "First Law: Inertia - objects resist change in motion.",
-        "Second Law: F = ma - net force causes acceleration.",
-        "Third Law: Action-Reaction pairs are equal, opposite, and act on different bodies.",
-        "Always draw a Free-Body Diagram (FBD) before solving any mechanics problem."
+        "Work is energy transfer via a force.",
+        "The Work-Energy Theorem is one of the most powerful tools in mechanics.",
+        "Mechanical energy is conserved only if all acting forces are conservative.",
+        "Power is the rate at which work is done or energy is transferred."
     ],
     mnemonics: [
-        { text: "Remember C-G-E-S (CGS) for Conservative forces: Conservative Guards Elite Springs. (Conservative, Gravitational, Electrostatic, Spring forces). All others, like friction, are non-conservative.", tamil: "ஆற்றல் மாற்றா விசைகளை நினைவில் கொள்ள: C-G-E-S (CGS) - Conservative Guards Elite Springs. (ஆற்றல் மாற்றா, ஈர்ப்பு, நிலைமின்னியல், சுருள்வில் விசைகள்). மற்றவை, உராய்வு போன்றவை, ஆற்றல் மாற்றும் விசைகள்." }
+        { text: "Remember C-G-E-S for Conservative forces: Conservative Guards Elite Springs. (Conservative, Gravitational, Electrostatic, Spring forces). All others, like friction, are non-conservative.", tamil: "ஆற்றல் மாற்றா விசைகளை நினைவில் கொள்ள: C-G-E-S - Conservative Guards Elite Springs. (ஆற்றல் மாற்றா, ஈர்ப்பு, நிலைமின்னியல், சுருள்வில் விசைகள்). மற்றவை, உராய்வு போன்றவை, ஆற்றல் மாற்றும் விசைகள்." }
     ],
     neetTips: [
         { text: "For problems involving ratios of kinetic energy and momentum, the formulas K=p²/2m and p=√(2mK) are your best friends.", tamil: "இயக்க ஆற்றல் மற்றும் உந்தத்தின் விகிதங்கள் சம்பந்தப்பட்ட கணக்குகளுக்கு, K=p²/2m மற்றும் p=√(2mK) சூத்திரங்கள் உங்கள் சிறந்த நண்பர்கள்." }
