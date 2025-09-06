@@ -150,7 +150,11 @@
     }
 
     .prose .tamil-text {
-        color: hsl(164 52% 52%);
+        color: hsl(var(--warning));
+    }
+    
+    .subject-biology .prose .tamil-text {
+        color: hsl(164 52% 52%); /* Teal-400 */
     }
 }
 
