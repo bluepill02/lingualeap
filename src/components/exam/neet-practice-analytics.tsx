@@ -86,7 +86,13 @@ export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalytic
                                     <Cell key={`cell-${index}`} fill={entry.fill} />
                                 ))}
                             </Pie>
-                            <Tooltip />
+                            <Tooltip
+                                contentStyle={{
+                                    background: "hsl(var(--background) / 0.8)",
+                                    borderColor: "hsl(var(--border))",
+                                    color: "hsl(var(--foreground))"
+                                }}
+                            />
                             <Legend iconType="circle" />
                         </PieChart>
                     </ResponsiveContainer>
