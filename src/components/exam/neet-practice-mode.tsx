@@ -4,10 +4,10 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertTitle, AlertDescription as AlertDescriptionComponent } from '@/components/ui/alert';
 import type { MCQ } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { CheckCircle, HelpCircle, XCircle, Star, BrainCircuit } from 'lucide-react';
@@ -122,16 +122,16 @@ export function PracticeMode({ mcqs }: PracticeModeProps) {
                     <CardContent className="space-y-3">
                         <Alert variant={isCorrect ? 'success' : 'destructive'}>
                             <AlertTitle>{isCorrect ? "Correct!" : "Incorrect"}</AlertTitle>
-                            <AlertDescription>
+                            <AlertDescriptionComponent>
                                 {isCorrect ? "Great job!" : `Your answer: ${answers[qIndex] || 'Not answered'}. Correct answer: ${mcq.answer}`}
-                            </AlertDescription>
+                            </AlertDescriptionComponent>
                         </Alert>
                          <Alert variant="info">
                             <HelpCircle className="h-4 w-4"/>
                             <AlertTitle>Explanation</AlertTitle>
-                            <AlertDescription className="prose dark:prose-invert max-w-none text-sm">
+                            <AlertDescriptionComponent className="prose dark:prose-invert max-w-none text-sm">
                                 <MarkdownRenderer>{mcq.explanation}</MarkdownRenderer>
-                            </AlertDescription>
+                            </AlertDescriptionComponent>
                         </Alert>
                     </CardContent>
                 </Card>
