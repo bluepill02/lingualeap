@@ -152,32 +152,108 @@ export const redoxReactionsAndElectrochemistry: NeetModule = {
             ],
             neetHack: "Use the formula m = ZIt, where Z = E/F (E=equivalent weight). For Cu, E = Atomic mass / n-factor = 63.5/2. So, m = (E/F)It = (63.5 / (2 * 96500)) * 900 ≈ 0.296 g.",
             commonPitfall: "Forgetting the n-factor (number of electrons) for the deposition reaction. For Cu²⁺ it's 2, for Ag⁺ it's 1, for Al³⁺ it's 3."
+        },
+        {
+            title: "NEET Level: Balancing Redox Reactions",
+            titleTamil: "நீட் நிலை: ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகளை சமன்செய்தல்",
+            difficulty: 'Medium',
+            problem: "Balance the following redox reaction in acidic medium using the ion-electron method: MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺",
+            problemTamil: "அமில ஊடகத்தில் பின்வரும் ஆக்ஸிஜனேற்ற-ஒடுக்க வினையை அயனி-எலக்ட்ரான் முறையைப் பயன்படுத்தி சமன் செய்க: MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺",
+            solutionSteps: [
+                { step: 1, explanation: "Separate the reaction into two half-reactions: oxidation and reduction.", calculation: "Oxidation: Fe²⁺ → Fe³⁺ \\\\ Reduction: MnO₄⁻ → Mn²⁺" },
+                { step: 2, explanation: "Balance the oxidation half-reaction. Atoms are balanced. Balance charge by adding electrons.", calculation: "Fe²⁺ → Fe³⁺ + e⁻" },
+                { step: 3, explanation: "Balance the reduction half-reaction. Balance O atoms by adding H₂O. Balance H atoms by adding H⁺. Then balance charge with electrons.", calculation: "MnO₄⁻ + 8H⁺ → Mn²⁺ + 4H₂O \\\\ MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O" },
+                { step: 4, explanation: "Equalize the number of electrons in both half-reactions. Multiply the oxidation half-reaction by 5.", calculation: "5Fe²⁺ → 5Fe³⁺ + 5e⁻" },
+                { step: 5, explanation: "Add the two balanced half-reactions. The electrons will cancel out.", calculation: "MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 5Fe³⁺ + 4H₂O" }
+            ],
+            commonPitfall: "Forgetting to balance oxygen with H₂O and hydrogen with H⁺ in acidic medium (or with OH⁻ in basic medium)."
+        },
+        {
+            title: "JEE Level: Gibbs Energy and EMF",
+            titleTamil: "ஜே.இ.இ நிலை: கிப்ஸ் ஆற்றல் மற்றும் EMF",
+            difficulty: 'Medium',
+            problem: "The standard electrode potential for the Daniel cell is 1.1 V. Calculate the standard Gibbs energy for the reaction: Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s).",
+            problemTamil: "டேனியல் கலத்தின் திட்ட மின்முனை மின்னழுத்தம் 1.1 V ஆகும். Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s) என்ற வினைக்கான திட்ட கிப்ஸ் ஆற்றலைக் கணக்கிடுக.",
+            solutionSteps: [
+                { step: 1, explanation: "The relationship between standard Gibbs energy change (ΔG°) and standard cell potential (E°_cell) is ΔG° = -nFE°_cell.", explanationTamil: "திட்ட கிப்ஸ் ஆற்றல் மாற்றம் (ΔG°) மற்றும் திட்ட கல மின்னழுத்தம் (E°_cell) ஆகியவற்றுக்கு இடையேயான தொடர்பு ΔG° = -nFE°_cell ஆகும்." },
+                { step: 2, explanation: "Identify the number of moles of electrons transferred (n). In this reaction, Zn loses 2 electrons and Cu²⁺ gains 2 electrons, so n=2.", explanationTamil: "பரிமாற்றப்பட்ட எலக்ட்ரான்களின் மோல்களின் எண்ணிக்கையை (n) அடையாளம் காணவும். இந்த வினையில், Zn 2 எலக்ட்ரான்களை இழக்கிறது மற்றும் Cu²⁺ 2 எலக்ட்ரான்களை ஏற்கிறது, எனவே n=2." },
+                { step: 3, explanation: "Use the values for Faraday's constant (F ≈ 96500 C/mol) and the given E°_cell.", calculation: "ΔG° = -2 × 96500 × 1.1" },
+                { step: 4, explanation: "Calculate the final result in Joules and convert to kJ.", calculation: "ΔG° = -212300 J = -212.3 kJ" }
+            ],
+            commonPitfall: "Getting the sign wrong. A spontaneous reaction has a positive E° and a negative ΔG°, which is consistent with the formula ΔG° = -nFE°."
+        },
+        {
+            title: "NEET Level: Electrochemical Series",
+            titleTamil: "நீட் நிலை: மின்வேதித் தொடர்",
+            difficulty: 'Easy',
+            problem: "Given the standard electrode potentials: E°(Zn²⁺/Zn) = -0.76 V, E°(Fe²⁺/Fe) = -0.44 V. Can a solution of zinc sulphate be stored in an iron pot?",
+            problemTamil: "திட்ட மின்முனை மின்னழுத்தங்கள் கொடுக்கப்பட்டுள்ளன: E°(Zn²⁺/Zn) = -0.76 V, E°(Fe²⁺/Fe) = -0.44 V. துத்தநாக சல்பேட் கரைசலை ஒரு இரும்புப் பாத்திரத்தில் சேமிக்க முடியுமா?",
+            solutionSteps: [
+                { step: 1, explanation: "A more reactive metal displaces a less reactive metal from its salt solution. In the electrochemical series, a metal with a more negative standard reduction potential is more reactive.", explanationTamil: "அதிக வினைத்திறன் கொண்ட ஒரு உலோகம், குறைந்த வினைத்திறன் கொண்ட ஒரு உலோகத்தை அதன் உப்புக்கரைசலிலிருந்து இடப்பெயர்ச்சி செய்யும். மின்வேதித் தொடரில், அதிக எதிர்மறை திட்ட ஒடுக்க மின்னழுத்தம் கொண்ட ஒரு உலோகம் அதிக வினைத்திறன் கொண்டது." },
+                { step: 2, explanation: "Compare the standard potentials. E°(Zn) = -0.76 V and E°(Fe) = -0.44 V. Since Zinc has a more negative potential, it is more reactive than iron.", explanationTamil: "திட்ட மின்னழுத்தங்களை ஒப்பிடவும். ஜிங்க் இரும்பை விட அதிக வினைத்திறன் கொண்டது." },
+                { step: 3, explanation: "Since iron is less reactive than zinc, it cannot displace zinc from its salt solution (ZnSO₄).", explanationTamil: "இரும்பு துத்தநாகத்தை விட குறைந்த வினைத்திறன் கொண்டது என்பதால், அது துத்தநாகத்தை அதன் உப்புக்கரைசலிலிருந்து (ZnSO₄) இடப்பெயர்ச்சி செய்ய முடியாது." },
+                { step: 4, explanation: "Therefore, no reaction will occur, and the zinc sulphate solution can be stored in an iron pot.", explanationTamil: "எனவே, எந்த வினையும் நிகழாது, மேலும் துத்தநாக சல்பேட் கரைசலை ஒரு இரும்புப் பாத்திரத்தில் சேமிக்கலாம்." }
+            ]
         }
     ],
     mcqs: [
-        { question: "In a galvanic cell, the electrode at which oxidation occurs is called the:", options: ["A. Cathode", "B. Anode", "C. Salt bridge", "D. Electrolyte"], answer: "B. Anode", explanation: "Oxidation always occurs at the anode. Remember the mnemonic 'AN OX' (Anode Oxidation).", neetFrequency: 5 },
-        { question: "The standard electrode potential is measured at:", options: ["A. 25 K and 1 atm", "B. 298 K and 1 M concentration", "C. 0°C and 1 M concentration", "D. 273 K and 1 atm"], answer: "B. 298 K and 1 M concentration", explanation: "Standard conditions for electrochemistry are defined as 298 K (25°C), 1 atm pressure for gases, and 1 M concentration for solutions.", neetFrequency: 4 },
-        { question: "The rusting of iron is an example of:", options: ["A. Reduction", "B. Combustion", "C. An electrochemical process", "D. Hydrogenation"], answer: "C. An electrochemical process", explanation: "Rusting involves the formation of tiny electrochemical cells on the surface of the iron, where iron acts as the anode and gets oxidized.", neetFrequency: 3 },
-        { question: "One Faraday of charge is equal to the charge on:", options: ["A. One electron", "B. One mole of electrons", "C. One proton", "D. One mole of protons"], answer: "B. One mole of electrons", explanation: "One Faraday is the magnitude of charge of one mole of electrons, approximately 96500 Coulombs.", neetFrequency: 3 },
-        { question: "The value of E°_cell for a spontaneous reaction is:", options: ["A. Positive", "B. Negative", "C. Zero", "D. May be positive or negative"], answer: "A. Positive", explanation: "A spontaneous reaction has a negative ΔG. Since ΔG° = -nFE°_cell, a positive E°_cell is required for a spontaneous reaction.", neetFrequency: 5 },
-        { question: "The oxidation number of Cr in K₂Cr₂O₇ is:", options: ["A. +3", "B. +6", "C. +7", "D. +2"], answer: "B. +6", explanation: "Let the oxidation number of Cr be x. 2(+1) + 2(x) + 7(-2) = 0 => 2 + 2x - 14 = 0 => 2x = 12 => x = +6.", neetFrequency: 4 },
-        { question: "The purpose of a salt bridge is to:", options: ["A. Mix the two half-cells", "B. Provide electrons to the circuit", "C. Maintain electrical neutrality", "D. Increase the cell potential"], answer: "C. Maintain electrical neutrality", explanation: "The salt bridge allows the migration of ions to prevent the buildup of charge in the half-cells, thus maintaining neutrality and completing the circuit.", neetFrequency: 3 }
+        { question: "Oxidation is the:", options: ["A. Gain of electrons", "B. Loss of electrons", "C. Gain of hydrogen", "D. Decrease in oxidation number"], answer: "B. Loss of electrons", explanation: "Oxidation is defined as the loss of electrons, which results in an increase in oxidation number.", neetFrequency: 5 },
+        { question: "In a Daniel cell, the anode is made of:", options: ["A. Copper", "B. Zinc", "C. Platinum", "D. Carbon"], answer: "B. Zinc", explanation: "In a Daniel cell, Zinc is more reactive and gets oxidized, so it acts as the anode.", neetFrequency: 3 },
+        { question: "The standard electrode potential of an electrode is measured with respect to:", options: ["A. Calomel electrode", "B. Standard Hydrogen Electrode (SHE)", "C. Saturated calomel electrode", "D. Any electrode"], answer: "B. Standard Hydrogen Electrode (SHE)", explanation: "The potential of the Standard Hydrogen Electrode is arbitrarily defined as zero, and all other electrode potentials are measured relative to it.", neetFrequency: 4 },
+        { question: "When a lead storage battery is discharged:", options: ["A. Lead is formed at the anode", "B. Sulphuric acid is consumed", "C. Lead sulphate is consumed", "D. Water is formed at the anode"], answer: "B. Sulphuric acid is consumed", explanation: "During discharge, both electrodes are converted to lead sulphate, and sulphuric acid from the electrolyte is consumed.", neetFrequency: 3 },
+        { question: "The Nernst equation relates the cell potential to:", options: ["A. Temperature only", "B. Concentration only", "C. Both temperature and concentration", "D. Pressure only"], answer: "C. Both temperature and concentration", explanation: "The Nernst equation, E = E° - (RT/nF)lnQ, shows the dependence on both temperature (T) and concentration (in Q).", neetFrequency: 5 },
+        { question: "The oxidation number of Mn in KMnO₄ is:", options: ["A. +2", "B. +4", "C. +6", "D. +7"], answer: "D. +7", explanation: "Let x be the oxidation number of Mn. K is +1, O is -2. (+1) + x + 4(-2) = 0 => x - 7 = 0 => x = +7.", neetFrequency: 4 },
+        { question: "The unit of Faraday's constant is:", options: ["A. Coulombs", "B. Coulombs per mole", "C. Amperes", "D. Amperes per mole"], answer: "B. Coulombs per mole", explanation: "Faraday's constant is the charge of one mole of electrons.", neetFrequency: 2 },
+        { question: "The rusting of iron is an example of:", options: ["A. Reduction", "B. An electrochemical process", "C. Hydrogenation", "D. A non-redox reaction"], answer: "B. An electrochemical process", explanation: "Rusting involves the formation of tiny galvanic cells on the iron surface, where iron is oxidized.", neetFrequency: 2 },
+        { question: "An oxidizing agent is a substance which:", options: ["A. Donates electrons", "B. Increases its oxidation number", "C. Gets oxidized", "D. Accepts electrons"], answer: "D. Accepts electrons", explanation: "An oxidizing agent causes oxidation in another substance by accepting electrons and getting reduced itself.", neetFrequency: 3 },
+        { question: "The charge required to deposit one mole of silver from a solution of AgNO₃ is:", options: ["A. 1 Faraday", "B. 2 Faradays", "C. 3 Faradays", "D. 96500 Coulombs"], answer: "A. 1 Faraday", explanation: "The reaction is Ag⁺ + e⁻ → Ag. One mole of electrons is required to deposit one mole of silver. The charge of one mole of electrons is 1 Faraday.", neetFrequency: 4 },
+        { question: "In the electrolysis of molten NaCl, the product obtained at the cathode is:", options: ["A. Chlorine gas", "B. Sodium metal", "C. Sodium hydroxide", "D. Oxygen gas"], answer: "B. Sodium metal", explanation: "At the cathode, reduction occurs. Na⁺ ions gain electrons to form sodium metal: Na⁺ + e⁻ → Na.", neetFrequency: 3 },
+        { question: "The standard reduction potential of Zn is -0.76 V and that of Cu is +0.34 V. The emf of the Daniel cell is:", options: ["A. 1.10 V", "B. 0.42 V", "C. -0.42 V", "D. -1.10 V"], answer: "A. 1.10 V", explanation: "E°_cell = E°_cathode - E°_anode = E°(Cu) - E°(Zn) = 0.34 - (-0.76) = 1.10 V.", neetFrequency: 5 },
+        { question: "The relationship between standard Gibbs energy and standard cell potential is:", options: ["A. ΔG° = nFE°", "B. ΔG° = -nFE°", "C. ΔG° = -nRT ln E°", "D. E° = nFΔG°"], answer: "B. ΔG° = -nFE°", explanation: "This is the fundamental equation connecting thermodynamics and electrochemistry.", neetFrequency: 4 },
+        { question: "During the electrolysis of aqueous CuSO₄ using inert electrodes, the product at the anode is:", options: ["A. Copper metal", "B. Sulphur dioxide", "C. Hydrogen gas", "D. Oxygen gas"], answer: "D. Oxygen gas", explanation: "At the anode (oxidation), water has a lower oxidation potential than the sulphate ion, so water is oxidized: 2H₂O → O₂ + 4H⁺ + 4e⁻.", neetFrequency: 4 },
+        { question: "If the E° for a given reaction is negative, which of the following gives the correct relationships for the values of ΔG° and K_eq?", options: ["A. ΔG° > 0; K_eq < 1", "B. ΔG° < 0; K_eq > 1", "C. ΔG° < 0; K_eq < 1", "D. ΔG° > 0; K_eq > 1"], answer: "A. ΔG° > 0; K_eq < 1", explanation: "If E° is negative, ΔG° = -nFE° will be positive, indicating a non-spontaneous reaction. A non-spontaneous reaction has an equilibrium constant K_eq < 1.", neetFrequency: 3 },
+        { question: "The salt bridge in an electrochemical cell:", options: ["A. Allows the mixing of solutions", "B. Provides a path for electrons", "C. Completes the circuit and maintains neutrality", "D. Increases the cell's EMF"], answer: "C. Completes the circuit and maintains neutrality", explanation: "The primary functions are to allow ion flow to complete the circuit and to prevent charge buildup in the half-cells.", neetFrequency: 3 },
+        { question: "In the reaction 2K + F₂ → 2KF, which species is oxidized?", options: ["A. K", "B. F₂", "C. KF", "D. No oxidation occurs"], answer: "A. K", explanation: "Potassium (K) goes from an oxidation state of 0 to +1, so it is oxidized.", neetFrequency: 2 },
+        { question: "How many coulombs are required to produce 20 g of Calcium from molten CaCl₂? (Atomic mass of Ca = 40 g/mol)", options: ["A. 96500 C", "B. 48250 C", "C. 193000 C", "D. 20 C"], answer: "A. 96500 C", explanation: "Ca²⁺ + 2e⁻ → Ca. To produce 1 mole (40g) of Ca, 2 Faradays of charge are needed. To produce 0.5 mole (20g), 1 Faraday (96500 C) is needed.", neetFrequency: 4 },
+        { question: "The process of coating one metal with another using electricity is called:", options: ["A. Electro-refining", "B. Electrometallurgy", "C. Electroplating", "D. Electrolysis"], answer: "C. Electroplating", explanation: "This is the definition of electroplating.", neetFrequency: 1 },
+        { question: "A fuel cell is a device that converts:", options: ["A. Chemical energy of fuel directly into electrical energy", "B. Electrical energy into chemical energy", "C. Heat energy into electrical energy", "D. Mechanical energy into electrical energy"], answer: "A. Chemical energy of fuel directly into electrical energy", explanation: "Fuel cells, like the hydrogen-oxygen fuel cell, produce electricity directly from the chemical reaction of a fuel.", neetFrequency: 2 },
+        { question: "The oxidation number of oxygen in H₂O₂ is:", options: ["A. -2", "B. -1", "C. 0", "D. +1"], answer: "B. -1", explanation: "This is an exception to the usual -2 rule for oxygen. In peroxides, oxygen has an oxidation state of -1.", neetFrequency: 3 },
+        { question: "Which of the following is the strongest reducing agent?", options: ["A. Zn", "B. Mg", "C. Fe", "D. Cu"], answer: "B. Mg", explanation: "The strongest reducing agent is the one that is most easily oxidized. This corresponds to the metal with the most negative standard reduction potential. Mg has a more negative E° than Zn, Fe, or Cu.", neetFrequency: 4 },
+        { question: "What is the cell notation for a standard Daniel cell?", options: ["A. Zn | Zn²⁺ || Cu²⁺ | Cu", "B. Cu | Cu²⁺ || Zn²⁺ | Zn", "C. Zn | Cu²⁺ || Zn²⁺ | Cu", "D. Cu | Zn²⁺ || Cu²⁺ | Zn"], answer: "A. Zn | Zn²⁺ || Cu²⁺ | Cu", explanation: "The convention is Anode | Anode Ion || Cathode Ion | Cathode. In a Daniel cell, Zinc is the anode.", neetFrequency: 2 },
+        { question: "The units of electrochemical equivalent (Z) are:", options: ["A. g/C", "B. C/g", "C. g", "D. C"], answer: "A. g/C", explanation: "From m = ZQ, Z = m/Q. The units are grams per Coulomb.", neetFrequency: 1 },
+        { question: "According to Faraday's second law, if the same charge is passed through solutions of CuSO₄ and AgNO₃, the ratio of the mass of Cu deposited to the mass of Ag deposited is:", options: ["A. 63.5 : 108", "B. 31.75 : 108", "C. 108 : 31.75", "D. 63.5 : 216"], answer: "B. 31.75 : 108", explanation: "The masses deposited are proportional to their equivalent weights. Eq. wt. of Cu = 63.5/2 = 31.75. Eq. wt. of Ag = 108/1 = 108. The ratio is 31.75 : 108.", neetFrequency: 3 }
     ],
     assertionReasons: [
-        { assertion: "If E°_cell is positive, then the reaction is spontaneous.", reason: "The Gibbs free energy change ΔG° is related to E°_cell by ΔG° = -nFE°_cell.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation. If E°_cell is positive, ΔG° will be negative, which is the condition for spontaneity.", neetFrequency: 4 },
-        { assertion: "Copper sulphate solution can be stored in a zinc vessel.", reason: "Zinc is less reactive than copper.", answer: "D", explanation: "The assertion is false. Zinc is more reactive than copper (has a more negative standard reduction potential). It will displace copper from the CuSO₄ solution (Zn + CuSO₄ → ZnSO₄ + Cu), so it cannot be stored. The reason is also false.", neetFrequency: 3 },
-        { assertion: "In an electrolytic cell, the cathode is the negative electrode.", reason: "Reduction occurs at the cathode.", answer: "B", explanation: "Both assertion and reason are true. In an electrolytic cell, the external source drives electrons to the cathode, making it negative. Reduction (gain of electrons) occurs there. However, the reason is just a fact and does not explain why the cathode is negative.", neetFrequency: 2 }
+        { assertion: "The reaction Cu + 2Ag⁺ → Cu²⁺ + 2Ag is spontaneous.", reason: "The standard reduction potential of copper is less than that of silver.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation. Since E°(Cu) < E°(Ag), copper is more reactive and will displace silver. This results in a positive E°_cell, making the reaction spontaneous.", neetFrequency: 4 },
+        { assertion: "The conductivity of an electrolyte solution increases with dilution.", reason: "On dilution, the degree of dissociation of the electrolyte increases.", answer: "D", explanation: "Assertion is false. Conductivity (κ) decreases with dilution because the number of ions per unit volume decreases. The reason is true; molar conductivity (Λ_m) increases with dilution due to increased dissociation, but not conductivity.", neetFrequency: 3 },
+        { assertion: "For a reaction to be a redox reaction, both oxidation and reduction must occur simultaneously.", reason: "Oxidation and reduction are complementary half-reactions.", answer: "A", explanation: "Assertion is true. Reason is also true and is the correct explanation. Electrons lost in oxidation must be gained in reduction.", neetFrequency: 2 },
+        { assertion: "In the electrolysis of aqueous NaCl, H₂ gas is liberated at the cathode.", reason: "The standard reduction potential of H₂O is higher than that of Na⁺.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation. At the cathode, water is more easily reduced than sodium ions.", neetFrequency: 4 },
+        { assertion: "A salt bridge is used to maintain electrical neutrality.", reason: "The ions of the inert electrolyte in the salt bridge migrate into the two half-cells to neutralize excess charge.", answer: "A", explanation: "Both assertion and reason are true, and the reason correctly explains the function of the salt bridge.", neetFrequency: 3 }
     ],
     matchTheColumns: [
-        { column1: ["(a) Anode", "(b) Cathode", "(c) Salt Bridge", "(d) Daniel Cell"], column2: ["(p) Reduction", "(q) Maintains neutrality", "(r) Oxidation", "(s) Zn-Cu cell"], answer: "a-r, b-p, c-q, d-s", explanation: "Matching components of a galvanic cell with their function or example.", neetFrequency: 4 },
-        { column1: ["(a) Lead storage battery", "(b) Mercury cell", "(c) Fuel cell", "(d) Dry cell"], column2: ["(p) Constant voltage", "(q) High efficiency", "(r) Used in automobiles", "(s) Leclanché cell"], answer: "a-r, b-p, c-q, d-s", explanation: "Matching different types of commercial cells with their key properties.", neetFrequency: 3 }
+        { column1: ["(a) Anode", "(b) Cathode", "(c) Faraday", "(d) Nernst"], column2: ["(p) Reduction", "(q) Oxidation", "(r) Effect of concentration on EMF", "(s) 96500 C/mol"], answer: "a-q, b-p, c-s, d-r", explanation: "Matching terms with their definitions or associated concepts." },
+        { column1: ["(a) Dry Cell", "(b) Mercury Cell", "(c) Lead Storage", "(d) H₂-O₂ Fuel Cell"], column2: ["(p) Secondary Cell", "(q) Constant Voltage", "(r) Leclanché Cell", "(s) High Efficiency"], answer: "a-r, b-q, c-p, d-s", explanation: "Matching types of batteries/cells with their key characteristics." },
+        { column1: ["(a) Oxidizing Agent", "(b) Reducing Agent", "(c) Redox Reaction", "(d) Disproportionation"], column2: ["(p) Element is both oxidized and reduced", "(q) Electron acceptor", "(r) Electron donor", "(s) Change in oxidation states"], answer: "a-q, b-r, c-s, d-p", explanation: "Matching redox terminology with definitions." },
+        { column1: ["(a) Balancing in acidic medium", "(b) Balancing in basic medium", "(c) Oxidation number of O in OF₂", "(d) Oxidation number of S in H₂SO₅"], column2: ["(p) +2", "(q) +6", "(r) Use H⁺", "(s) Use OH⁻"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching concepts with their rules or values. In H₂SO₅ (Caro's acid), there is a peroxide linkage, giving S an oxidation state of +6.", neetFrequency: 3 },
+        { column1: ["(a) Strongest Oxidizing Agent", "(b) Strongest Reducing Agent", "(c) E° = 0", "(d) Used in electroplating"], column2: ["(p) Lithium (Li)", "(q) Fluorine (F₂)", "(r) Electrolytic Cell", "(s) Standard Hydrogen Electrode"], answer: "a-q, b-p, c-s, d-r", explanation: "Fluorine has the highest standard reduction potential, making it the strongest oxidizing agent. Lithium has the lowest, making it the strongest reducing agent." }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
-            { formula: "E_{cell} = E_{cathode} - E_{anode}", description: "Standard Cell Potential" },
-            { formula: "ΔG° = -nFE°_{cell}", description: "Relation between Gibbs Energy and Cell Potential" },
-            { formula: "E_{cell} = E°_{cell} - \\frac{0.0591}{n} \\log Q", description: "Nernst Equation (at 298 K)" },
-            { formula: "m = ZIt = \\frac{E}{F}It", description: "Faraday's First Law of Electrolysis" }
+            {
+                formula: '\\Delta G^\\circ = -nFE^\\circ_{cell}',
+                description: 'Gibbs Energy and Cell Potential',
+                descriptionTamil: 'கிப்ஸ் ஆற்றல் மற்றும் கல மின்னழுத்தம்'
+            },
+            {
+                formula: 'E_{cell} = E^\\circ_{cell} - \\frac{0.0591}{n} \\log Q',
+                description: 'Nernst Equation (at 298 K)',
+                descriptionTamil: 'நெர்ன்ஸ்ட் சமன்பாடு (298 K இல்)'
+            },
+            {
+                formula: 'm = ZIt = \\frac{E}{F}It',
+                description: "Faraday's First Law",
+                descriptionTamil: 'ஃபாரடே முதல் விதி'
+            }
         ],
         diagrams: []
     },
