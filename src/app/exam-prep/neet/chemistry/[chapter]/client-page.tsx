@@ -4,12 +4,12 @@
 import { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube, ChevronsRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertTitle, AlertDescription as AlertDescriptionComponent } from '@/components/ui/alert';
 import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
@@ -203,7 +203,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             <Alert className="bg-primary/10 border-primary/20">
                                 <Info className="h-4 w-4" />
                                 {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
-                                <AlertDescription className="mt-2 space-y-2">
+                                <AlertDescriptionComponent className="mt-2 space-y-2">
                                     {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                         <strong>Student Tip:</strong> 
                                         <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
@@ -212,7 +212,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                                         <strong>Peer Discussion:</strong> 
                                         <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
                                 </div>}
-                                </AlertDescription>
+                                </AlertDescriptionComponent>
                             </Alert>
                             }
                         </CardContent>
