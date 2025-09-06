@@ -7,24 +7,12 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'zod';
-import { NeetQuizGeneratorInputSchema } from '@/lib/types';
-
-const FlashcardSchema = z.object({
-  front: z.string().describe('The front of the flashcard, containing a key term, concept, or question. Should be concise.'),
-  back: z.string().describe('The back of the flashcard, containing the definition, explanation, or answer. Should be clear and detailed.'),
-});
-
-export const NeetFlashcardGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
-    numFlashcards: z.number().min(1).max(10).describe('The number of flashcards to generate.'),
-}).omit({ numQuestions: true });
-
-export type NeetFlashcardGeneratorInput = z.infer<typeof NeetFlashcardGeneratorInputSchema>;
-
-export const NeetFlashcardGeneratorOutputSchema = z.object({
-    flashcards: z.array(FlashcardSchema),
-});
-export type NeetFlashcardGeneratorOutput = z.infer<typeof NeetFlashcardGeneratorOutputSchema>;
+import {
+    NeetFlashcardGeneratorInputSchema,
+    NeetFlashcardGeneratorOutputSchema,
+    NeetFlashcardGeneratorInput,
+    NeetFlashcardGeneratorOutput
+} from '@/lib/types';
 
 
 export async function generateNeetFlashcards(input: NeetFlashcardGeneratorInput): Promise<NeetFlashcardGeneratorOutput> {
