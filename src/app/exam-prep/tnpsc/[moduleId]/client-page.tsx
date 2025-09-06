@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -22,11 +23,20 @@ import {
   TrendingUp,
   Download,
   Share2,
-  Bookmark
+  Bookmark,
+  AlertCircle
 } from 'lucide-react';
-import { type TnpscModule } from '@/lib/exam-data-tnpsc';
+import { type TnpscModule, getTnpscModuleById } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+
+
+const COLORS = {
+  correct: 'hsl(var(--success))',
+  incorrect: 'hsl(var(--destructive))',
+  unanswered: 'hsl(var(--muted-foreground))',
+};
 
 
 export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
@@ -76,6 +86,100 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   };
   
   const progressPercentage = (completedSections.size / 6) * 100;
+
+  const AnalyticsTabContent = () => {
+    if (!showAnswers) {
+        return (
+            <Alert variant="info">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Complete the Practice Section!</AlertTitle>
+                <AlertDescription>
+                    Your performance analytics will appear here after you submit your answers in the 'Practice' tab.
+                </AlertDescription>
+            </Alert>
+        )
+    }
+
+    const totalQuestions = module.practice.mcqs.length;
+    const correctCount = module.practice.mcqs.filter((mcq, index) => selectedAnswers[index] === mcq.correct).length;
+    const incorrectCount = module.practice.mcqs.filter((mcq, index) => selectedAnswers[index] !== undefined && selectedAnswers[index] !== mcq.correct).length;
+    const unansweredCount = totalQuestions - correctCount - incorrectCount;
+    
+    const chartData = [
+      { name: 'Correct', value: correctCount, fill: COLORS.correct },
+      { name: 'Incorrect', value: incorrectCount, fill: COLORS.incorrect },
+      { name: 'Unanswered', value: unansweredCount, fill: COLORS.unanswered },
+    ];
+
+
+    return (
+        <Card className="glass-card">
+            <CardHeader>
+                <CardTitle className="text-white flex items-center gap-2">
+                    <TrendingUp className="h-5 w-5" />
+                    {language === 'english' ? 'Practice Performance' : 'பயிற்சி செயல்திறன்'}
+                </CardTitle>
+            </CardHeader>
+            <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div style={{ width: '100%', height: 250 }}>
+                    <ResponsiveContainer>
+                        <PieChart>
+                            <Pie
+                                data={chartData}
+                                cx="50%"
+                                cy="50%"
+                                labelLine={false}
+                                outerRadius={80}
+                                dataKey="value"
+                            >
+                                {chartData.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                                ))}
+                            </Pie>
+                            <Tooltip
+                                contentStyle={{
+                                    background: "hsl(var(--background) / 0.8)",
+                                    borderColor: "hsl(var(--border))",
+                                    color: "hsl(var(--foreground))"
+                                }}
+                            />
+                            <Legend iconType="circle" />
+                        </PieChart>
+                    </ResponsiveContainer>
+                </div>
+                 <div className="space-y-4">
+                    <Card className="bg-white/5 border-white/10">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
+                            <CardTitle className="text-sm font-medium text-white/80">Total Questions</CardTitle>
+                            <Target className="h-4 w-4 text-white/50" />
+                        </CardHeader>
+                        <CardContent className="p-4 pt-0">
+                             <div className="text-2xl font-bold text-white">{totalQuestions}</div>
+                        </CardContent>
+                    </Card>
+                     <Card className="bg-white/5 border-white/10">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
+                            <CardTitle className="text-sm font-medium text-white/80">Correct</CardTitle>
+                            <CheckCircle className="h-4 w-4 text-green-400" />
+                        </CardHeader>
+                        <CardContent className="p-4 pt-0">
+                             <div className="text-2xl font-bold text-green-400">{correctCount}</div>
+                        </CardContent>
+                    </Card>
+                     <Card className="bg-white/5 border-white/10">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
+                            <CardTitle className="text-sm font-medium text-white/80">Incorrect</CardTitle>
+                            <XCircle className="h-4 w-4 text-red-400" />
+                        </CardHeader>
+                        <CardContent className="p-4 pt-0">
+                             <div className="text-2xl font-bold text-red-400">{incorrectCount}</div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </CardContent>
+        </Card>
+    );
+  }
 
   return (
     <div className="container mx-auto space-y-8">
@@ -227,6 +331,9 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
              <Button onClick={() => markSectionCompleted('content')} disabled={completedSections.has('content')}>
                 {completedSections.has('content') ? 'Completed' : 'Mark Content as Read'}
               </Button>
+          </TabsContent>
+          <TabsContent value="analytics" className="mt-4 space-y-6">
+            <AnalyticsTabContent />
           </TabsContent>
         </Tabs>
     </div>
