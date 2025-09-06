@@ -2,6 +2,7 @@
 import type { ExamModule as OldExamModule } from './types'; // Keep old type for existing data
 import { geographyIndiaTamilNadu } from './exam-data-geography';
 import { indianPolityAndGovernance } from './exam-data-polity';
+import { indianEconomyAndPlanning } from './exam-data-economy';
 
 // New, comprehensive data structure for TNPSC
 export interface TnpscModule {
@@ -699,6 +700,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
   },
   "geography-india-tamilnadu": geographyIndiaTamilNadu,
   "polity-governance": indianPolityAndGovernance,
+  "economy-planning": indianEconomyAndPlanning,
 };
 
 export function getTnpscModuleById(moduleId: string): TnpscModule | null {

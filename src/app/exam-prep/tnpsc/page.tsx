@@ -17,7 +17,10 @@ import {
   Download,
   Calendar,
   BarChart3,
-  Flag
+  Flag,
+  Landmark,
+  Scale,
+  Mountain,
 } from 'lucide-react'
 import { TnpscContentDatabase, getTnpscModulesBySubject, TnpscModule } from '@/lib/exam-data-tnpsc'
 import Link from 'next/link';
@@ -46,9 +49,10 @@ export default function TnpscContentScreen() {
   }, [])
 
   const subjects = [
-    { id: 'history', name: 'History & Culture', nameTamil: 'வரலாறு & பண்பாடு', icon: '🏛️', color: 'bg-amber-500' },
-    { id: 'polity', name: 'Indian Polity', nameTamil: 'இந்திய அரசியல்', icon: '⚖️', color: 'bg-blue-500' },
-    { id: 'geography', name: 'Geography', nameTamil: 'புவியியல்', icon: '🌍', color: 'bg-green-500' },
+    { id: 'history', name: 'History & Culture', nameTamil: 'வரலாறு & பண்பாடு', icon: Landmark, color: 'bg-amber-500' },
+    { id: 'polity', name: 'Indian Polity', nameTamil: 'இந்திய அரசியல்', icon: Scale, color: 'bg-blue-500' },
+    { id: 'geography', name: 'Geography', nameTamil: 'புவியியல்', icon: Mountain, color: 'bg-green-500' },
+    { id: 'economy', name: 'Economy', nameTamil: 'பொருளாதாரம்', icon: BarChart3, color: 'bg-rose-500' },
   ];
 
   const getFilteredModules = (): TnpscModule[] => {
@@ -129,6 +133,7 @@ export default function TnpscContentScreen() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
                           <Badge variant="secondary" className={`${subjectInfo?.color} text-white`}>
+                            {subjectInfo && <subjectInfo.icon className="h-3 w-3 mr-1" />}
                             {subjectInfo?.name}
                           </Badge>
                           <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
