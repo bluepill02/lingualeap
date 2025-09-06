@@ -120,8 +120,32 @@ Kingdom Monera          +-------------------+
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "The five-kingdom classification system (Monera, Protista, Fungi, Plantae, Animalia) is a fundamental framework for understanding biodiversity.",
+        "Taxonomic hierarchy (Kingdom to Species) provides a structured way to classify organisms based on shared characteristics and evolutionary relationships.",
+        "Binomial nomenclature gives a unique, two-part scientific name to every organism, avoiding confusion.",
+        "Taxonomical aids like herbaria, museums, and keys are essential tools for the study and identification of organisms."
+    ],
+    mnemonics: [
+        { text: "For the taxonomic hierarchy: 'King Philip Came Over For Good Soup' (Kingdom, Phylum, Class, Order, Family, Genus, Species).", tamil: "வகைபாட்டியல் படிநிலைகளுக்கு: 'King Philip Came Over For Good Soup'." }
+    ],
+    neetTips: [
+        { text: "Examples are key in this unit. Make lists of at least two examples for each phylum in the Animal Kingdom and each group in the Plant Kingdom.", tamil: "இந்த அலகில் எடுத்துக்காட்டுகள் மிகவும் முக்கியமானவை. விலங்கு மற்றும் தாவர உலகத்தின் ஒவ்வொரு தொகுதிக்கும் குறைந்தது இரண்டு எடுத்துக்காட்டுகளின் பட்டியலை உருவாக்கவும்." },
+        { text: "Focus on the 'basis of classification' for the Animal Kingdom (levels of organization, symmetry, coelom, etc.). Questions are often framed around these fundamental differences.", tamil: "விலங்கு உலகத்தின் 'வகைப்பாட்டின் அடிப்படை' (அமைப்பு நிலைகள், சமச்சீர், உடற்குழி போன்றவை) மீது கவனம் செலுத்துங்கள். கேள்விகள் பெரும்பாலும் இந்த அடிப்படை வேறுபாடுகளைச் சுற்றி வடிவமைக்கப்படுகின்றன." }
+    ],
+    studentTip: {
+        english: "Try to create a large flowchart or mind map that shows the five kingdoms and the major phyla/divisions within them, along with their key distinguishing features. This visual aid can be very helpful for revision.",
+        tamil: "ஐந்து உலகங்கள் மற்றும் వాటిలోని പ്രധാന ഫൈലം/വിಭಾಗങ്ങൾ, അവയുടെ முக்கிய வேறுபடுத்தும் அம்சங்களுடன் காட்டும் ஒரு பெரிய பாய்வு வரைபடம் அல்லது மன வரைபடத்தை உருவாக்க முயற்சிக்கவும். இந்த காட்சி உதவி திருத்தத்திற்கு மிகவும் உதவியாக இருக்கும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why viruses are not included in the five-kingdom classification. What arguments could be made for them being 'living' vs. 'non-living'?",
+        tamil: "ஐந்து-உலக வகைப்பாட்டில் வைரஸ்கள் ஏன் சேர்க்கப்படவில்லை என்று உங்கள் நண்பருடன் விவாதிக்கவும். அவை 'உயிருள்ளவை' என்பதற்கு எதிராகவும், 'உயிரற்றவை' என்பதற்கு ஆதரவாகவும் என்ன வாதங்களை முன்வைக்கலாம்?"
+    },
+    nextChapter: {
+        title: "Structural Organisation in Animals and Plants",
+        titleTamil: "விலங்குகள் மற்றும் தாவரங்களில் அமைப்புசார் அமைப்பு"
+    },
     validationReport: []
 };
+
+    

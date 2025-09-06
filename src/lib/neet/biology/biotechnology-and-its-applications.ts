@@ -31,8 +31,33 @@ export const biotechnologyAndItsApplications: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "Recombinant DNA (rDNA) technology is the core technique that allows us to combine DNA from different species.",
+        "Key tools of rDNA technology include restriction enzymes, cloning vectors (like plasmids), and ligase.",
+        "Polymerase Chain Reaction (PCR) is a technique used to amplify a specific segment of DNA.",
+        "Biotechnology has wide-ranging applications in agriculture (GMOs like Bt-cotton), medicine (production of insulin, gene therapy), and industry.",
+        "The use of biotechnology raises important ethical concerns that need to be addressed (e.g., via organizations like GEAC)."
+    ],
+    mnemonics: [
+        { text: "For the steps of PCR: 'Denature, Anneal, Extend' (DAE).", tamil: "PCR படிகளுக்கு: 'Denature, Anneal, Extend' (DAE)." }
+    ],
+    neetTips: [
+        { text: "Applications like Bt-cotton, RNA interference (RNAi) in pest resistance, and the production of human insulin using E. coli are extremely high-yield topics. Understand the mechanism behind each.", tamil: "Bt-பருத்தி, பூச்சி எதிர்ப்புக்கான ஆர்.என்.ஏ குறுக்கீடு (RNAi), மற்றும் ஈ.கோலியைப் பயன்படுத்தி மனித இன்சுலின் உற்பத்தி போன்ற பயன்பாடுகள் மிகவும் அதிக மகசூல் தரும் தலைப்புகள். ஒவ்வொன்றின் பின்னணியில் உள்ள பொறிமுறையைப் புரிந்து கொள்ளுங்கள்." },
+        { text: "Remember the specific restriction enzyme names and their recognition sites if mentioned in the textbook, especially EcoRI.", tamil: "குறிப்பிட்ட ரெஸ்ட்ரிக்ஷன் நொதிகளின் பெயர்கள் மற்றும் அவற்றின் அங்கீகார தளங்களை பாடப்புத்தகத்தில் குறிப்பிட்டிருந்தால், குறிப்பாக EcoRI-ஐ நினைவில் கொள்ளுங்கள்." }
+    ],
+    studentTip: {
+        english: "Try to create a simple flowchart for the process of creating a recombinant DNA molecule. This will help you visualize the roles of restriction enzymes, the vector, the foreign DNA, and ligase.",
+        tamil: "ஒரு மீள்சேர்க்கை DNA மூலக்கூறை உருவாக்கும் செயல்முறைக்கு ஒரு எளிய பாய்வு வரைபடத்தை உருவாக்க முயற்சிக்கவும். இது ரெஸ்ட்ரிக்ஷன் நொதிகள், கடத்தி, அயல் DNA, மற்றும் லைகேஸ் ஆகியவற்றின் பங்குகளைக் காட்சிப்படுத்த உதவும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend the ethical pros and cons of Genetically Modified (GM) crops. What are the potential benefits for farmers and consumers, and what are the potential risks for the environment and biodiversity?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: மரபணு மாற்றப்பட்ட (GM) பயிர்களின் நெறிமுறை சார்ந்த நன்மைகள் மற்றும் தீமைகள் என்ன? விவசாயிகள் மற்றும் நுகர்வோருக்கு ஏற்படக்கூடிய நன்மைகள் என்ன, மற்றும் சுற்றுச்சூழல் மற்றும் பல்லுயிர் பெருக்கத்திற்கு ஏற்படக்கூடிய அபாயங்கள் என்ன?"
+    },
+    nextChapter: {
+        title: "Ecology and Environment",
+        titleTamil: "சூழலியல் மற்றும் சுற்றுச்சூழல்"
+    },
     validationReport: []
 };
+
+    

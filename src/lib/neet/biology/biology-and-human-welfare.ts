@@ -31,8 +31,34 @@ export const biologyAndHumanWelfare: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "Health is a state of complete physical, mental, and social well-being, not merely the absence of disease.",
+        "The immune system provides defense against pathogens through innate (non-specific) and acquired (specific) immunity.",
+        "Vaccination is based on the property of 'memory' of the immune system.",
+        "Microbes are not always harmful; they are essential in industrial production, sewage treatment, and as biocontrol agents.",
+        "Plant breeding and animal husbandry are key strategies to meet the increasing demand for food."
+    ],
+    mnemonics: [
+        { text: "For common fungal diseases: 'Ringworm is a Fun Guy (Fungi)'.", tamil: "பொதுவான பூஞ்சை நோய்களுக்கு: 'படர்தாமரை ஒரு வேடிக்கையான பையன் (பூஞ்சை)'." },
+        { text: "For cancer detection: 'Biopsy is Best' (Biopsy and histopathological studies are the most conclusive tests for cancer).", tamil: "புற்றுநோய் கண்டறிதலுக்கு: 'பயாப்ஸி சிறந்தது'." }
+    ],
+    neetTips: [
+        { text: "Create a table for common diseases listing the causative organism, mode of transmission, and key symptoms. This is a very high-yield topic for matching questions.", tamil: "பொதுவான நோய்களுக்கு ஒரு அட்டவணையை உருவாக்கவும், அதில் நோய்க்காரணி, பரவும் முறை மற்றும் முக்கிய அறிகுறிகளைப் பட்டியலிடவும். இது பொருத்துக கேள்விகளுக்கு மிகவும் அதிக மகசூல் தரும் தலைப்பு." },
+        { text: "Understand the difference between active and passive immunity with examples. This is a frequently asked conceptual question.", tamil: "செயல்மிகு மற்றும் மந்தமான நோயெதிர்ப்பு சக்திக்கு இடையிலான வேறுபாட்டை எடுத்துக்காட்டுகளுடன் புரிந்து கொள்ளுங்கள். இது அடிக்கடி கேட்கப்படும் ஒரு கருத்தியல் கேள்வி." }
+    ],
+    studentTip: {
+        english: "This chapter has many examples. Instead of just memorizing them, try to understand the 'role' of each microbe or breeding technique. For example, 'What problem does this microbe solve?' or 'What trait is this breeding technique trying to improve?'.",
+        tamil: "இந்த அத்தியாயத்தில் பல எடுத்துக்காட்டுகள் உள்ளன. அவற்றை வெறுமனே மனப்பாடம் செய்வதற்கு பதிலாக, ஒவ்வொரு நுண்ணுயிரி அல்லது இனப்பெருக்க நுட்பத்தின் 'பங்கை' புரிந்து கொள்ள முயற்சிக்கவும். உதாரணமாக, 'இந்த நுண்ணுயிரி என்ன சிக்கலைத் தீர்க்கிறது?' அல்லது 'இந்த இனப்பெருக்க நுட்பம் எந்தப் பண்பை மேம்படுத்த முயற்சிக்கிறது?'."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Why is the overuse of antibiotics a major public health concern? Relate this to the concept of natural selection and evolution of resistant bacteria.",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: நுண்ணுயிர் எதிர்ப்பிகளின் அதிகப்படியான பயன்பாடு ஏன் ஒரு பெரிய பொது சுகாதாரக் கவலையாக உள்ளது? இதை இயற்கைத் தேர்வு மற்றும் எதிர்ப்புத்திறன் கொண்ட பாக்டீரியாக்களின் பரிணாமம் என்ற கருத்துடன் தொடர்புபடுத்துங்கள்."
+    },
+    nextChapter: {
+        title: "Biotechnology and Its Applications",
+        titleTamil: "உயிரித் தொழில்நுட்பவியல் மற்றும் அதன் பயன்பாடுகள்"
+    },
     validationReport: []
 };
+
+    

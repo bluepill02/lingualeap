@@ -30,8 +30,32 @@ export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "The morphology of a plant part is closely related to its function (e.g., root for absorption, leaf for photosynthesis).",
+        "Modifications of root, stem, and leaf are adaptations for functions like storage, support, and protection.",
+        "Animal tissues are classified into four main types—Epithelial, Connective, Muscular, and Neural—each with a specific function.",
+        "The anatomy of an organism reveals how its different organ systems are organized to carry out life processes."
+    ],
+    mnemonics: [
+        { text: "For types of aestivation in flowers: 'Vexing Twists Validate Imbrication' (Vexillary, Twisted, Valvate, Imbricate).", tamil: "பூவிதழ் அமைவு வகைகளுக்கு: 'Vexing Twists Validate Imbrication' (வெக்ஸில்லரி, திருகு, தொடு இதழ், தழுவு இதழ்)." }
+    ],
+    neetTips: [
+        { text: "Draw and label diagrams of monocot and dicot root/stem anatomy. Comparing them side-by-side is the best way to learn the differences.", tamil: "ஒருவித்திலை மற்றும் இருவித்திலை வேர்/தண்டின் உள்ளமைப்பியல் படங்களை வரைந்து பெயரிடுங்கள். அவற்றை பக்கவாட்டில் ஒப்பிடுவது வேறுபாடுகளைக் கற்றுக்கொள்ள சிறந்த வழியாகும்." },
+        { text: "Examples of root, stem, and leaf modifications are very frequently asked. Create a table with the type of modification, its function, and an example (e.g., Stem tendril - climbing - cucumber).", tamil: "வேர், தண்டு, மற்றும் இலை மாற்றங்களின் எடுத்துக்காட்டுகள் அடிக்கடி கேட்கப்படுகின்றன. மாற்றத்தின் வகை, அதன் செயல்பாடு மற்றும் ஒரு எடுத்துக்காட்டுடன் ஒரு அட்டவணையை உருவாக்கவும் (எ.கா., தண்டு பற்றுக்கம்பி - ஏறுதல் - வெள்ளரி)." }
+    ],
+    studentTip: {
+        english: "Try to find examples of the plant modifications you learn in your own garden or neighborhood. Connecting theory to real-life examples makes it much easier to remember.",
+        tamil: "உங்கள் சொந்த தோட்டத்தில் அல்லது சுற்றுப்புறத்தில் நீங்கள் கற்கும் தாவர மாற்றங்களுக்கான எடுத்துக்காட்டுகளைக் கண்டுபிடிக்க முயற்சிக்கவும். கோட்பாட்டை நிஜ வாழ்க்கை எடுத்துக்காட்டுகளுடன் இணைப்பது நினைவில் கொள்வதை மிகவும் எளிதாக்குகிறது."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Why are epithelial tissues classified based on the number of layers and the shape of cells? How does this structure relate to their function in different parts of the body (e.g., skin vs. lung alveoli)?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: எபிதீலியல் திசுக்கள் ஏன் அடுக்குகளின் எண்ணிக்கை மற்றும் செல்களின் வடிவத்தின் அடிப்படையில் வகைப்படுத்தப்படுகின்றன? இந்த அமைப்பு உடலின் வெவ்வேறு பகுதிகளில் (எ.கா., தோல் vs. நுரையீரல் காற்று நுண்ணறைகள்) அவற்றின் செயல்பாட்டுடன் எவ்வாறு தொடர்புடையது?"
+    },
+    nextChapter: {
+        title: "Cell Structure and Function",
+        titleTamil: "செல்: அமைப்பு மற்றும் பணிகள்"
+    },
     validationReport: []
 };
+
+    

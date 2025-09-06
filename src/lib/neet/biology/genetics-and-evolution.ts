@@ -32,8 +32,33 @@ export const geneticsAndEvolution: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "Mendel's laws form the foundation of classical genetics, explaining how traits are passed from parents to offspring.",
+        "The Central Dogma of Molecular Biology describes the flow of genetic information: DNA → RNA → Protein.",
+        "DNA replication is semi-conservative.",
+        "Evolution by natural selection is the cornerstone of modern biology, explaining the diversity of life on Earth.",
+        "The Hardy-Weinberg principle provides a baseline to detect evolutionary changes in a population."
+    ],
+    mnemonics: [
+        { text: "For the stop codons in the genetic code: 'U Are Annoying, U Go Away, U Are Gone' (UAA, UGA, UAG).", tamil: "மரபணு குறியீட்டில் உள்ள நிறுத்தக் குறியீடுகளுக்கு: 'U Are Annoying, U Go Away, U Are Gone' (UAA, UGA, UAG)." }
+    ],
+    neetTips: [
+        { text: "Practice Punnett squares for monohybrid, dihybrid, and test crosses until you can do them quickly and accurately. These are guaranteed marks.", tamil: "ஒருபண்பு, இருபண்பு, மற்றும் சோதனை கலப்புகளுக்கான புன்னட் கட்டங்களைப் விரைவாகவும் துல்லியமாகவும் செய்யும் வரை பயிற்சி செய்யுங்கள். இவை உறுதியான மதிப்பெண்கள்." },
+        { text: "Understand the differences between homologous and analogous structures, and convergent and divergent evolution. These are very common conceptual questions.", tamil: "செயல் ஒத்த மற்றும் அமைப்பு ஒத்த உறுப்புகள், மற்றும் குவியும் மற்றும் விரியும் பரிணாமத்திற்கு இடையேயான வேறுபாடுகளைப் புரிந்து கொள்ளுங்கள். இவை மிகவும் பொதுவான கருத்தியல் கேள்விகள்." }
+    ],
+    studentTip: {
+        english: "Genetics problems can seem like puzzles. Always write down the genotypes of the parents, list the possible gametes, and then fill out the Punnett square systematically. Don't rush!",
+        tamil: "மரபியல் கணக்குகள் புதிர்கள் போல் தோன்றலாம். எப்போதும் பெற்றோரின் மரபணு வகைகளை எழுதுங்கள், சாத்தியமான கேமட்களைப் பட்டியலிடுங்கள், பின்னர் புன்னட் கட்டத்தை முறையாக நிரப்பவும். அவசரப்பட வேண்டாம்!"
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Is a point mutation (like the one causing sickle-cell anemia) always harmful? Can you think of a scenario where it might be beneficial?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு புள்ளி சடுதி மாற்றம் (அரிவாள்-செல் சோகையை ஏற்படுத்துவது போல) எப்போதும் தீங்கு விளைவிப்பதா? அது நன்மை பயக்கும் ஒரு சூழ்நிலையை உங்களால் நினைக்க முடியுமா?"
+    },
+    nextChapter: {
+        title: "Biology and Human Welfare",
+        titleTamil: "உயிரியலும் மனித நலனும்"
+    },
     validationReport: []
 };
+
+    

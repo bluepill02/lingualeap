@@ -32,8 +32,32 @@ export const reproduction: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "Sexual reproduction involves the fusion of gametes, leading to genetic variation, while asexual reproduction does not.",
+        "In flowering plants, double fertilization is a unique process resulting in the formation of a diploid zygote and a triploid endosperm.",
+        "The human menstrual cycle is a complex interplay of hormones from the hypothalamus, pituitary gland, and ovaries.",
+        "Reproductive health involves not just the absence of disease, but also physical, emotional, and social well-being in all matters relating to the reproductive system."
+    ],
+    mnemonics: [
+        { text: "For hormones in the menstrual cycle: 'FOL(d) M(a)P' - FSH, Oestrogen, LH, Progesterone. FSH/LH from Pituitary, Oestrogen/Progesterone from Ovary.", tamil: "மாதவிடாய் சுழற்சியில் உள்ள ஹார்மோன்களுக்கு: 'FOL(d) M(a)P' - FSH, ஈஸ்ட்ரோஜன், LH, புரோஜெஸ்ட்டிரோன்." }
+    ],
+    neetTips: [
+        { text: "Draw the diagrams of the male and female reproductive systems and label all the parts. Questions often ask about the function or location of a specific part.", tamil: "ஆண் மற்றும் பெண் இனப்பெருக்க அமைப்புகளின் வரைபடங்களை வரைந்து அனைத்து பாகங்களையும் பெயரிடுங்கள். கேள்விகள் பெரும்பாலும் ஒரு குறிப்பிட்ட பகுதியின் செயல்பாடு அல்லது இருப்பிடம் பற்றிக் கேட்கின்றன." },
+        { text: "Create a flowchart for spermatogenesis and oogenesis, highlighting the key differences (e.g., equal vs. unequal cytokinesis, number of gametes produced).", tamil: "விந்தணு உருவாக்கம் மற்றும் அண்ட அணு உருவாக்கத்திற்கு ஒரு பாய்வு வரைபடத்தை உருவாக்கவும், முக்கிய வேறுபாடுகளை முன்னிலைப்படுத்தவும் (எ.கா., சமமான vs. சமமற்ற சைட்டோகைனிசிஸ், உற்பத்தி செய்யப்படும் கேமட்களின் எண்ணிக்கை)." }
+    ],
+    studentTip: {
+        english: "Understanding the hormonal control of the menstrual cycle is key. Try to draw a graph showing the levels of FSH, LH, estrogen, and progesterone over the 28-day cycle and correlate it with the events in the ovary and uterus.",
+        tamil: "மாதவிடாய் சுழற்சியின் ஹார்மோன் கட்டுப்பாட்டைப் புரிந்துகொள்வது முக்கியம். 28-நாள் சுழற்சியில் FSH, LH, ஈஸ்ட்ரோஜன், மற்றும் புரோஜெஸ்ட்டிரோன் அளவுகளைக் காட்டும் ஒரு வரைபடத்தை வரைய முயற்சிக்கவும், அதை கருப்பை மற்றும் கருப்பையில் நிகழும் நிகழ்வுகளுடன் தொடர்புபடுத்தவும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend the pros and cons of different methods of contraception (e.g., barrier methods, hormonal methods, IUDs) from a biological perspective.",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: வெவ்வேறு கருத்தடை முறைகளின் (எ.கா., தடை முறைகள், ஹார்மோன் முறைகள், IUDகள்) நன்மைகள் மற்றும் தீமைகள் என்ன?"
+    },
+    nextChapter: {
+        title: "Genetics and Evolution",
+        titleTamil: "மரபியல் மற்றும் பரிணாமம்"
+    },
     validationReport: []
 };
+
+    
