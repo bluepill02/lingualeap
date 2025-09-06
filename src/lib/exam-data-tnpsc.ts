@@ -1,5 +1,6 @@
 
 import type { ExamModule as OldExamModule } from './types'; // Keep old type for existing data
+import { geographyIndiaTamilNadu } from './exam-data-geography';
 
 // New, comprehensive data structure for TNPSC
 export interface TnpscModule {
@@ -395,7 +396,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           optionsTamil: ["தண்டி அணிவகுப்பு", "பர்டோலி சத்தியாகிரகம்", "வைக்கம் சத்தியாகிரகம்", "சௌரி சௌரா சம்பவம்"],
           correct: 2,
           explanation: "Periyar played a crucial role in the Vaikom Satyagraha in the princely state of Travancore (modern-day Kerala), which demanded the right for lower-caste individuals to use the roads around the Vaikom temple. For his role, he was given the title 'Vaikom Veerar' (Hero of Vaikom).",
-          explanationTamil: "திருவிதாங்கூர் சமஸ்தானத்தில் (இன்றைய கேரளா) வைக்கம் சத்தியாக்கிரகத்தில் பெரியார் ஒரு முக்கியப் பங்காற்றினார், இது வைக்கம் கோவிலைச் சுற்றியுள்ள சாலைகளைப் பயன்படுத்த தாழ்த்தப்பட்ட சாதியினருக்கு உரிமை கோரியது. அவரது பங்களிப்பிற்காக, அவருக்கு 'வைக்கம் வீரர்' என்ற பட்டம் வழங்கப்பட்டது.",
+          explanationTamil: "திருவிதாங்கூர் சமஸ்தானத்தில் (இன்றைய கேரளா) வைக்கம் சத்தியாகிரகத்தில் பெரியார் ஒரு முக்கியப் பங்காற்றினார், இது வைக்கம் கோவிலைச் சுற்றியுள்ள சாலைகளைப் பயன்படுத்த தாழ்த்தப்பட்ட சாதியினருக்கு உரிமை கோரியது. அவரது பங்களிப்பிற்காக, அவருக்கு 'வைக்கம் வீரர்' என்ற பட்டம் வழங்கப்பட்டது.",
           yearAsked: [2023],
           difficulty: "Medium",
           tnpscFrequency: 4,
@@ -578,7 +579,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           marks: 5,
           keyPoints: ["Urban settlement dating back to Sangam age", "Evidence of a literate society (Tamil-Brahmi script)", "Wattle-and-daub structures", "Challenges previous notions about the timeline of Tamil urbanization"],
           sampleAnswer: "The Keeladi excavations near Madurai have revealed a large-scale urban settlement dating back to at least the 6th century BCE. This pushes back the timeline of Tamil urbanization significantly. Key findings include pottery with Tamil-Brahmi inscriptions, indicating a literate society, and evidence of industries like weaving and bead-making. The discovery of brick structures and drainage systems points to a sophisticated and planned city, providing tangible proof for the descriptions found in Sangam literature.",
-          sampleAnswerTamil: "மதுரைக்கு அருகிலுள்ள கீழடி அகழ்வாராய்ச்சிகள், குறைந்தது கிமு 6 ஆம் நூற்றாண்டுக்கு முந்தைய ஒரு பெரிய அளவிலான நகர்ப்புற குடியேற்றத்தை வெளிப்படுத்தியுள்ளன. இது தமிழ் நகரமயமாக்கலின் காலவரிசையை கணிசமாக பின்னுக்குத் தள்ளுகிறது. தமிழ்-பிராமி கல்வெட்டுகளுடன் கூடிய மட்பாண்டங்கள் ஒரு எழுத்தறிவு பெற்ற சமூகத்தைக் குறிக்கின்றன, மேலும் நெசவு மற்றும் மணிகள் தயாரித்தல் போன்ற தொழில்களுக்கான சான்றுகள் ஆகியவை முக்கிய கண்டுபிடிப்புகளில் அடங்கும். செங்கல் கட்டமைப்புகள் மற்றும் வடிகால் அமைப்புகளின் கண்டுபிடிப்பு, சங்க இலக்கியத்தில் காணப்படும் വിവരണங்களுக்கு உறுதியான ஆதாரத்தை அளித்து, ஒரு மேம்பட்ட மற்றும் திட்டமிடப்பட்ட நகரத்தைக் குறிக்கிறது.",
+          sampleAnswerTamil: "மதுரைக்கு அருகிலுள்ள கீழடி அகழ்வாராய்ச்சிகள், குறைந்தது கிமு 6 ஆம் நூற்றாண்டுக்கு முந்தைய ஒரு பெரிய அளவிலான நகர்ப்புற குடியேற்றத்தை வெளிப்படுத்தியுள்ளன. இது தமிழ் நகரமயமாக்கலின் காலவரிசையை கணிசமாக பின்னுக்குத் தள்ளுகிறது. தமிழ்-பிராமி கல்வெட்டுகளுடன் கூடிய மட்பாண்டங்கள் ஒரு எழுத்தறிவு பெற்ற சமூகத்தைக் குறிக்கின்றன, மேலும் நெசவு மற்றும் மணிகள் தயாரித்தல் போன்ற தொழில்களுக்கான சான்றுகள் ஆகியவை முக்கிய கண்டுபிடிப்புகளில் அடங்கும். செங்கல் கட்டமைப்புகள் மற்றும் வடிகால் அமைப்புகளின் கண்டுபிடிப்பு, சங்க இலக்கியத்தில் காணப்படும் വിവரணங்களுக்கு உறுதியான ஆதாரத்தை அளித்து, ஒரு மேம்பட்ட மற்றும் திட்டமிடப்பட்ட நகரத்தைக் குறிக்கிறது.",
           rubric: ["Mentioning location and date", "Literacy evidence", "Urban settlement features", "Connection to Sangam literature"]
         }
       ],
@@ -592,7 +593,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           duration: 90,
           criteria: ["Clarity on the core issue", "Mention Periyar's role", "Explain the outcome"],
           prompt: "In 90 seconds, explain the Vaikom Satyagraha to a fellow student. Cover why it started, who the key leaders were (especially from Tamil Nadu), and what its long-term impact was on temple entry movements.",
-          promptTamil: "90 வினாடிகளில், வைக்கம் சத்தியாக்கிரகத்தை சக மாணவருக்கு விளக்கவும். அது ஏன் தொடங்கியது, முக்கியத் தலைவர்கள் யார் (குறிப்பாக தமிழ்நாட்டிலிருந்து), மற்றும் கோயில் நுழைவு இயக்கங்களில் அதன் நீண்டகாலத் தாக்கம் என்ன என்பதை விளக்கவும்."
+          promptTamil: "90 வினாடிகளில், வைக்கம் சத்தியாகிரகத்தை சக மாணவருக்கு விளக்கவும். அது ஏன் தொடங்கியது, முக்கியத் தலைவர்கள் யார் (குறிப்பாக தமிழ்நாட்டிலிருந்து), மற்றும் கோயில் நுழைவு இயக்கங்களில் அதன் நீண்டகாலத் தாக்கம் என்ன என்பதை விளக்கவும்."
         }
       ],
       practicalActivities: [
@@ -694,7 +695,8 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
       },
       nextModule: "unit-9"
     }
-  }
+  },
+  "geography-india-tamilnadu": geographyIndiaTamilNadu,
 };
 
 export function getTnpscModuleById(moduleId: string): TnpscModule | null {
