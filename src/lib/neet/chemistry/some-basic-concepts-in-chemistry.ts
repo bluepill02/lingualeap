@@ -1,3 +1,4 @@
+
 import type { NeetModule } from '@/lib/types';
 
 export const someBasicConceptsInChemistry: NeetModule = {
@@ -144,7 +145,7 @@ export const someBasicConceptsInChemistry: NeetModule = {
                 }
             ],
             neetHack: "A quick way to find the limiting reagent is to divide the given moles of each reactant by its stoichiometric coefficient. The reactant with the smallest ratio is the limiting reagent. For N₂: 4/1 = 4. For H₂: 10/3 = 3.33. Since 3.33 < 4, H₂ is the limiting reagent.",
-            neetHackTamil: "வரம்பு வினைப்பொருளைக் கண்டறிய ஒரு விரைவான வழி, ஒவ்வொரு வினைபொருளின் கொடுக்கப்பட்ட மோல்களை அதன் வினைக்கூறு குணகத்தால் வகுப்பதாகும். மிகக் குறைந்த விகிதத்தைக் கொண்ட வினைபொருள் வரம்பு வினைபொருள் ஆகும். N₂ க்கு: 4/1 = 4. H₂ க்கு: 10/3 = 3.33. 3.33 < 4 என்பதால், H₂ வரம்பு வினைபொருள் ஆகும்.",
+            neetHackTamil: "வரம்பு வினைபொருளைக் கண்டறிய ஒரு விரைவான வழி, ஒவ்வொரு வினைபொருளின் கொடுக்கப்பட்ட மோல்களை அதன் வினைக்கூறு குணகத்தால் வகுப்பதாகும். மிகக் குறைந்த விகிதத்தைக் கொண்ட வினைபொருள் வரம்பு வினைபொருள் ஆகும். N₂ க்கு: 4/1 = 4. H₂ க்கு: 10/3 = 3.33. 3.33 &lt; 4 என்பதால், H₂ வரம்பு வினைபொருள் ஆகும்.",
             commonPitfall: "Calculating the product based on the reactant that is not limiting. The reaction stops once the limiting reactant is fully consumed.",
             commonPitfallTamil: "வரம்பில் இல்லாத வினைப்பொருளின் அடிப்படையில் விளைபொருளைக் கணக்கிடுவது. வரம்பு வினைபொருள் முழுமையாக நுகரப்பட்டவுடன் வினை நின்றுவிடும்."
         },
@@ -186,6 +187,8 @@ export const someBasicConceptsInChemistry: NeetModule = {
                     calculation: "Molarity of H⁺ = Total mmol of H⁺ / Total Volume (mL) = 110 / 500 = 0.22 M"
                 }
             ],
+            neetHack: "Use the formula M_final = (M₁V₁n₁ + M₂V₂n₂) / (V₁ + V₂), where 'n' is the number of H⁺ ions per acid molecule. M_final = (0.2*200*2 + 0.1*300*1) / (200+300) = (80+30)/500 = 110/500 = 0.22 M.",
+            neetHackTamil: "M_இறுதி = (M₁V₁n₁ + M₂V₂n₂) / (V₁ + V₂) என்ற சூத்திரத்தைப் பயன்படுத்தவும், இங்கு 'n' என்பது ஒரு அமில மூலக்கூறுக்கான H⁺ அயனிகளின் எண்ணிக்கை. M_இறுதி = (0.2*200*2 + 0.1*300*1) / (200+300) = 110/500 = 0.22 M.",
             commonPitfall: "Forgetting that polyprotic acids like H₂SO₄ provide more than one H⁺ ion per molecule.",
             commonPitfallTamil: "H₂SO₄ போன்ற பலபுரோட்டான் அமிலங்கள் ஒரு மூலக்கூறுக்கு ஒன்றுக்கு மேற்பட்ட H⁺ அயனிகளை வழங்குகின்றன என்பதை மறத்தல்."
         },
@@ -235,7 +238,11 @@ export const someBasicConceptsInChemistry: NeetModule = {
                     explanationTamil: "மூலக்கூறு வாய்ப்பாடு n × (விகித வாய்ப்பாடு) ஆகும்.",
                     calculation: "Molecular Formula = 6 × (CH₂O) = C₆H₁₂O₆"
                 }
-            ]
+            ],
+            neetHack: "A compound with an empirical formula of CH₂O and a molar mass that is a multiple of 30 g/mol is often a carbohydrate like glucose or fructose.",
+            neetHackTamil: "CH₂O என்ற விகித வாய்ப்பாட்டையும், 30 கி/மோல்-இன் மடங்காக உள்ள மோலார் நிறையும் கொண்ட ஒரு சேர்மம் பெரும்பாலும் குளுக்கோஸ் அல்லது பிரக்டோஸ் போன்ற ஒரு கார்போஹைட்ரேட் ஆகும்.",
+            commonPitfall: "Rounding off the mole ratios too early. If the ratios are not close to whole numbers (e.g., 1.5, 2.5), multiply all ratios by a suitable integer to get whole numbers.",
+            commonPitfallTamil: "மோல் விகிதங்களை மிக விரைவில் முழுமையாக்குதல். விகிதங்கள் முழு எண்களுக்கு அருகில் இல்லை என்றால் (எ.கா., 1.5, 2.5), முழு எண்களைப் பெற அனைத்து விகிதங்களையும் பொருத்தமான முழு எண்ணால் பெருக்கவும்."
         },
         {
             title: "JEE Level: Stoichiometry with Solutions",
@@ -272,6 +279,7 @@ export const someBasicConceptsInChemistry: NeetModule = {
                 }
             ],
             neetHack: "For acid-base neutralization, use the normality equation N₁V₁ = N₂V₂. Normality = Molarity × n-factor. For H₂SO₄, n=2. For NaOH, n=1. So, N(H₂SO₄) = 0.5*2 = 1 N. N(NaOH) = 0.2*1 = 0.2 N. (1 N)*V₁ = (0.2 N)*(50 mL) => V₁ = 10 mL. This is often faster.",
+            neetHackTamil: "அமில-கார நடுநிலையாக்கலுக்கு, நார்மாலிட்டி சமன்பாடு N₁V₁ = N₂V₂ ஐப் பயன்படுத்தவும். நார்மாலிட்டி = மோலாரிட்டி × n-காரணி. H₂SO₄ க்கு, n=2. NaOH க்கு, n=1. எனவே, N(H₂SO₄) = 0.5*2 = 1 N. N(NaOH) = 0.2*1 = 0.2 N. (1 N)*V₁ = (0.2 N)*(50 mL) => V₁ = 10 mL. இது பெரும்பாலும் வேகமானது.",
             commonPitfall: "Forgetting to use the stoichiometric coefficients from the balanced equation. This is the most common error in stoichiometry problems.",
             commonPitfallTamil: "சமன்செய்யப்பட்ட சமன்பாட்டிலிருந்து வினைக்கூறு குணகங்களைப் பயன்படுத்த மறத்தல். இது வினைக்கூறு விகிதவியல் கணக்குகளில் மிகவும் பொதுவான பிழையாகும்."
         },
@@ -306,7 +314,11 @@ export const someBasicConceptsInChemistry: NeetModule = {
                     explanationTamil: "பின்னத்தை எளிதாக்கவும்.",
                     calculation: "χ_glucose = 1 / 21 ≈ 0.0476"
                 }
-            ]
+            ],
+            neetHack: "Mole fraction is a ratio of moles, so you only need the ratio of moles, not the absolute values, which can sometimes simplify calculations.",
+            neetHackTamil: "மோல் பின்னம் என்பது மோல்களின் விகிதம் ஆகும், எனவே உங்களுக்கு மோல்களின் விகிதம் மட்டுமே தேவை, தனிப்பட்ட மதிப்புகள் அல்ல, இது சில நேரங்களில் கணக்கீடுகளை எளிதாக்கலாம்.",
+            commonPitfall: "Calculating the mole fraction with masses instead of moles. Always convert to moles first.",
+            commonPitfallTamil: "மோல்களுக்குப் பதிலாக நிறைகளைக் கொண்டு மோல் பின்னத்தைக் கணக்கிடுவது. எப்போதும் முதலில் மோல்களாக மாற்றவும்."
         }
     ],
     mcqs: [
@@ -375,5 +387,61 @@ export const someBasicConceptsInChemistry: NeetModule = {
         { column1: ["(a) Law of Conservation of Mass", "(b) Law of Definite Proportions", "(c) Law of Multiple Proportions", "(d) Avogadro's Law"], column2: ["(p) Dalton", "(q) Proust", "(r) Lavoisier", "(s) V ∝ n"], answer: "a-r, b-q, c-p, d-s", explanation: "Matching laws with the scientists who proposed them or their mathematical form." },
         { column1: ["(a) Mass of 22.4 L H₂ at STP", "(b) Moles in 44g CO₂", "(c) Number of atoms in 12g C-12", "(d) Mass of 1 mole of H₂O"], column2: ["(p) 18 g", "(q) N_A", "(r) 1 mole", "(s) 2 g"], answer: "a-s, b-r, c-q, d-p", explanation: "Matching quantities with their calculated values." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: "n = \\frac{m}{M}",
+                description: "Number of moles",
+                descriptionTamil: "மோல்களின் எண்ணிக்கை"
+            },
+            {
+                formula: "M = \\frac{\\text{moles of solute}}{\\text{Volume of solution (L)}}",
+                description: "Molarity",
+                descriptionTamil: "மோலாரிட்டி"
+            },
+            {
+                formula: "m = \\frac{\\text{moles of solute}}{\\text{Mass of solvent (kg)}}",
+                description: "Molality",
+                descriptionTamil: "மோலாலிட்டி"
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "The mole concept is the central tool for converting between mass, volume, and number of particles in chemistry.",
+        "Stoichiometry and the concept of a limiting reagent allow us to predict the yield of chemical reactions.",
+        "Understanding different concentration terms (Molarity, Molality) is crucial for solution chemistry.",
+        "A balanced chemical equation represents the conservation of mass in a chemical reaction."
+    ],
+    mnemonics: [
+        {
+            text: "Remember: 'Molarity is in Liters, so it varies. Molality is in kilograms, so it's a pal.' Molarity changes with temperature (as volume changes), but molality (based on mass) does not.",
+            tamil: "நினைவில் கொள்க: 'மோலாரிட்டி லிட்டரில், எனவே அது மாறும். மோலாலிட்டி கிலோகிராமில், எனவே அது ஒரு நண்பன்.' மோலாரிட்டி வெப்பநிலையுடன் மாறுகிறது (கனஅளவு மாறுவதால்), ஆனால் மோலாலிட்டி (நிறையை அடிப்படையாகக் கொண்டது) மாறாது."
+        }
+    ],
+    neetTips: [
+        {
+            text: "In limiting reagent problems, always convert all given quantities to moles first. The entire problem should be solved in terms of moles before converting back to mass or volume at the very end.",
+            tamil: "வரம்பு வினைபொருள் கணக்குகளில், எப்போதும் கொடுக்கப்பட்ட அனைத்து அளவுகளையும் முதலில் மோல்களாக மாற்றவும். நிறை அல்லது கனஅளவிற்கு மீண்டும் மாற்றுவதற்கு முன், முழு கணக்கும் மோல்களின் அடிப்படையில் தீர்க்கப்பட வேண்டும்."
+        },
+        {
+            text: "For questions asking for the number of atoms, be careful to distinguish between atoms and molecules. For example, 1 mole of O₂ contains 1 mole of O₂ molecules but 2 moles of O atoms.",
+            tamil: "அணுக்களின் எண்ணிக்கையைக் கேட்கும் கேள்விகளுக்கு, அணுக்கள் மற்றும் மூலக்கூறுகளுக்கு இடையில் வேறுபாடு காண்பதில் கவனமாக இருங்கள். எடுத்துக்காட்டாக, 1 மோல் O₂ என்பது 1 மோல் O₂ மூலக்கூறுகளைக் கொண்டுள்ளது, ஆனால் 2 மோல் O அணுக்களைக் கொண்டுள்ளது."
+        }
+    ],
+    studentTip: {
+        english: "Stoichiometry is like a recipe. The balanced equation gives you the exact proportions. If you have too much of one ingredient (excess reagent), the amount of cake you can make is determined by the ingredient you run out of first (limiting reagent).",
+        tamil: "வினைக்கூறு விகிதவியல் ஒரு சமையல் குறிப்பு போன்றது. சமன்செய்யப்பட்ட சமன்பாடு உங்களுக்கு சரியான விகிதங்களைத் தருகிறது. உங்களிடம் ஒரு மூலப்பொருள் அதிகமாக இருந்தால் (கூடுதல் வினைபொருள்), நீங்கள் எவ்வளவு கேக் செய்ய முடியும் என்பது முதலில் தீர்ந்துவிடும் மூலப்பொருளை (வரம்பு வினைபொருள்) பொறுத்தது."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend: Why is it that the limiting reagent determines the amount of product formed, and not the excess reagent? Can you create a real-life analogy besides a recipe?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: வரம்பு வினைபொருள் மட்டுமே வினைவிளை பொருளின் அளவைத் தீர்மானிக்கிறது, கூடுதல் வினைபொருள் ஏன் இல்லை? ஒரு சமையல் குறிப்பைத் தவிர, ஒரு நிஜ வாழ்க்கை ஒப்புமையை உங்களால் உருவாக்க முடியுமா?"
+    },
+    nextChapter: {
+        title: "Atomic Structure",
+        titleTamil: "அணு அமைப்பு"
+    },
     validationReport: []
-};
+}
+
+    
