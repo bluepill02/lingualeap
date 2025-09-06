@@ -196,9 +196,245 @@ $$ K_p = \\frac{(P_C)^c(P_D)^d}{(P_A)^a(P_B)^b} $$
             ]
         }
     ],
-    mcqs: [],
-    assertionReasons: [],
-    matchTheColumns: [],
+    mcqs: [
+        {
+            question: "For the reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g), the relationship between Kp and Kc is:",
+            options: ["A. Kp = Kc(RT)", "B. Kp = Kc(RT)⁻¹", "C. Kp = Kc(RT)⁻²", "D. Kp = Kc"],
+            answer: "C. Kp = Kc(RT)⁻²",
+            explanation: "Δn_g = (moles of gaseous products) - (moles of gaseous reactants) = 2 - (1+3) = -2. So, Kp = Kc(RT)⁻².",
+            neetFrequency: 5
+        },
+        {
+            question: "According to Le Chatelier's principle, adding heat to a solid ⇌ liquid equilibrium will cause:",
+            options: ["A. Amount of solid to decrease", "B. Amount of liquid to decrease", "C. Temperature to rise", "D. Temperature to fall"],
+            answer: "A. Amount of solid to decrease",
+            explanation: "Melting (solid to liquid) is an endothermic process. Adding heat will shift the equilibrium to favor the endothermic direction, thus melting more solid.",
+            neetFrequency: 4
+        },
+        {
+            question: "Which of the following is a Lewis acid?",
+            options: ["A. NH₃", "B. H₂O", "C. BF₃", "D. Cl⁻"],
+            answer: "C. BF₃",
+            explanation: "BF₃ is electron-deficient as Boron has only 6 electrons in its valence shell. It can accept an electron pair, making it a Lewis acid.",
+            neetFrequency: 4
+        },
+        {
+            question: "The pH of a 0.001 M HCl solution is:",
+            options: ["A. 1", "B. 2", "C. 3", "D. 11"],
+            answer: "C. 3",
+            explanation: "HCl is a strong acid, so it completely dissociates. [H⁺] = 0.001 M = 10⁻³ M. pH = -log[H⁺] = -log(10⁻³) = 3.",
+            neetFrequency: 5
+        },
+        {
+            question: "A buffer solution is prepared from a weak acid HA and its salt NaA. The pH of this buffer is given by:",
+            options: ["A. pH = pKa + log([Acid]/[Salt])", "B. pH = pKa + log([Salt]/[Acid])", "C. pH = pKa - log([Salt]/[Acid])", "D. pH = Ka + log([Salt]/[Acid])"],
+            answer: "B. pH = pKa + log([Salt]/[Acid])",
+            explanation: "This is the Henderson-Hasselbalch equation for an acidic buffer.",
+            neetFrequency: 4
+        },
+        {
+            question: "For a reaction at equilibrium, the value of ΔG is:",
+            options: ["A. Positive", "B. Negative", "C. Zero", "D. May be positive or negative"],
+            answer: "C. Zero",
+            explanation: "At equilibrium, the Gibbs free energy change (ΔG) is zero, indicating no net tendency for the reaction to proceed in either direction.",
+            neetFrequency: 3
+        },
+        {
+            question: "The solubility product of Ag₂CrO₄ is 32 x 10⁻¹². What is the molar solubility (s) of this salt?",
+            options: ["A. 2 x 10⁻⁴ M", "B. 4 x 10⁻⁴ M", "C. 8 x 10⁻⁴ M", "D. 16 x 10⁻¹² M"],
+            answer: "A. 2 x 10⁻⁴ M",
+            explanation: "Ag₂CrO₄ ⇌ 2Ag⁺ + CrO₄²⁻. Ksp = [Ag⁺]²[CrO₄²⁻] = (2s)²(s) = 4s³. So, 32 x 10⁻¹² = 4s³. s³ = 8 x 10⁻¹². s = 2 x 10⁻⁴ M.",
+            neetFrequency: 4
+        },
+        {
+            question: "Which of the following is the strongest acid?",
+            options: ["A. HClO", "B. HClO₂", "C. HClO₃", "D. HClO₄"],
+            answer: "D. HClO₄",
+            explanation: "For oxoacids with the same central atom, the acidity increases with the number of oxygen atoms attached, as they withdraw electron density and stabilize the conjugate base.",
+            neetFrequency: 3
+        },
+        {
+            question: "The conjugate base of H₂PO₄⁻ is:",
+            options: ["A. H₃PO₄", "B. HPO₄²⁻", "C. PO₄³⁻", "D. H₂PO₄"],
+            answer: "B. HPO₄²⁻",
+            explanation: "A conjugate base is formed when an acid donates a proton (H⁺). When H₂PO₄⁻ donates a proton, it becomes HPO₄²⁻.",
+            neetFrequency: 3
+        },
+        {
+            question: "In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), increasing the pressure will:",
+            options: ["A. Shift equilibrium to the left", "B. Shift equilibrium to the right", "C. Have no effect", "D. Stop the reaction"],
+            answer: "B. Shift equilibrium to the right",
+            explanation: "The forward reaction has 3 moles of gas reacting to form 2 moles. Increasing pressure favors the direction with fewer moles of gas.",
+            neetFrequency: 5
+        },
+        {
+            question: "The pH of a solution is 5. The concentration of H⁺ ions is:",
+            options: ["A. 10⁻⁵ M", "B. 10⁻⁹ M", "C. 10⁵ M", "D. 5 M"],
+            answer: "A. 10⁻⁵ M",
+            explanation: "pH = -log[H⁺], so [H⁺] = 10⁻pH = 10⁻⁵ M.",
+            neetFrequency: 2
+        },
+        {
+            question: "Which of the following salt solutions will be basic?",
+            options: ["A. NH₄Cl", "B. NaCl", "C. CH₃COONa", "D. K₂SO₄"],
+            answer: "C. CH₃COONa",
+            explanation: "CH₃COONa is a salt of a weak acid (CH₃COOH) and a strong base (NaOH). The acetate ion (CH₃COO⁻) will hydrolyze water to produce OH⁻ ions, making the solution basic.",
+            neetFrequency: 4
+        },
+        {
+            question: "The value of the equilibrium constant for a reaction depends on:",
+            options: ["A. Temperature", "B. Pressure", "C. Concentration of reactants", "D. The catalyst used"],
+            answer: "A. Temperature",
+            explanation: "The equilibrium constant (K) for a given reaction is constant at a constant temperature. It is not affected by changes in pressure, concentration, or catalysts.",
+            neetFrequency: 3
+        },
+        {
+            question: "If Kp for a reaction is 1.2 x 10⁻². What will be the Kp for the reverse reaction?",
+            options: ["A. 1.2 x 10²", "B. 1 / (1.2 x 10⁻²)", "C. 1.2 x 10⁻²", "D. (1.2 x 10⁻²)²"],
+            answer: "B. 1 / (1.2 x 10⁻²)",
+            explanation: "The equilibrium constant for the reverse reaction is the reciprocal of the equilibrium constant for the forward reaction. Kp' = 1/Kp.",
+            neetFrequency: 2
+        },
+        {
+            question: "For which of the following reactions is Kp = Kc?",
+            options: ["A. 2SO₂(g) + O₂(g) ⇌ 2SO₃(g)", "B. N₂(g) + 3H₂(g) ⇌ 2NH₃(g)", "C. H₂(g) + I₂(g) ⇌ 2HI(g)", "D. PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)"],
+            answer: "C. H₂(g) + I₂(g) ⇌ 2HI(g)",
+            explanation: "Kp = Kc(RT)^Δn_g. Kp = Kc when Δn_g = 0. For reaction C, Δn_g = 2 - (1+1) = 0.",
+            neetFrequency: 4
+        },
+        {
+            question: "The pH of a buffer solution can be calculated using:",
+            options: ["A. Arrhenius equation", "B. Nernst equation", "C. Henderson-Hasselbalch equation", "D. Ostwald's dilution law"],
+            answer: "C. Henderson-Hasselbalch equation",
+            explanation: "The Henderson-Hasselbalch equation relates the pH of a buffer to the pKa of the weak acid and the ratio of the concentrations of the salt and acid.",
+            neetFrequency: 3
+        },
+        {
+            question: "Adding sodium acetate to a solution of acetic acid will:",
+            options: ["A. Increase its pH", "B. Decrease its pH", "C. Not change its pH", "D. Make it neutral"],
+            answer: "A. Increase its pH",
+            explanation: "This creates a buffer solution. The addition of the common ion (acetate) suppresses the dissociation of the weak acid (acetic acid), reducing the [H⁺] concentration and thus increasing the pH.",
+            neetFrequency: 3
+        },
+        {
+            question: "The solubility of AgCl will be minimum in:",
+            options: ["A. Pure water", "B. 0.1 M NaCl solution", "C. 0.1 M NaNO₃ solution", "D. 0.1 M BaCl₂ solution"],
+            answer: "D. 0.1 M BaCl₂ solution",
+            explanation: "Due to the common ion effect, the solubility of AgCl will be suppressed in any solution containing Cl⁻ ions. BaCl₂ provides the highest concentration of Cl⁻ ions (0.2 M) among the choices, causing the maximum suppression.",
+            neetFrequency: 4
+        },
+        {
+            question: "The conjugate acid of NH₃ is:",
+            options: ["A. NH₂⁻", "B. NH₄⁺", "C. N₂H₄", "D. N₂"],
+            answer: "B. NH₄⁺",
+            explanation: "A conjugate acid is formed when a base accepts a proton (H⁺). When NH₃ accepts a proton, it forms the ammonium ion, NH₄⁺.",
+            neetFrequency: 2
+        },
+        {
+            question: "For a reaction to be spontaneous, ΔG must be:",
+            options: ["A. Positive", "B. Negative", "C. Zero", "D. Equal to ΔH"],
+            answer: "B. Negative",
+            explanation: "A negative value for the change in Gibbs free energy (ΔG < 0) is the criterion for a spontaneous process at constant temperature and pressure.",
+            neetFrequency: 1
+        },
+        {
+            question: "If a catalyst is added to a reversible reaction in equilibrium, the equilibrium constant:",
+            options: ["A. Increases", "B. Decreases", "C. Remains unchanged", "D. First increases then decreases"],
+            answer: "C. Remains unchanged",
+            explanation: "A catalyst increases the rates of both the forward and reverse reactions equally, so it helps equilibrium to be reached faster but does not change the position of equilibrium or the value of K.",
+            neetFrequency: 3
+        },
+        {
+            question: "The pH of a 10⁻⁸ M solution of HCl in water is:",
+            options: ["A. 8", "B. 6", "C. Between 6 and 7", "D. Between 7 and 8"],
+            answer: "C. Between 6 and 7",
+            explanation: "For very dilute solutions of strong acids, the H⁺ contribution from the autoionization of water cannot be ignored. The total [H⁺] will be slightly more than 10⁻⁷ M, making the pH slightly less than 7.",
+            neetFrequency: 2
+        },
+        {
+            question: "The units of the equilibrium constant Kc for the reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g) are:",
+            options: ["A. mol L⁻¹", "B. mol² L⁻²", "C. mol⁻² L²", "D. Dimensionless"],
+            answer: "C. mol⁻² L²",
+            explanation: "Kc = [NH₃]² / ([N₂][H₂]³). Units = (mol/L)² / ((mol/L)(mol/L)³) = (mol/L)⁻² = mol⁻²L².",
+            neetFrequency: 4
+        },
+        {
+            question: "The solubility of PbCl₂ is s. Its solubility product Ksp is:",
+            options: ["A. s²", "B. s³", "C. 4s³", "D. 27s⁴"],
+            answer: "C. 4s³",
+            explanation: "PbCl₂ ⇌ Pb²⁺ + 2Cl⁻. Ksp = [Pb²⁺][Cl⁻]² = (s)(2s)² = 4s³.",
+            neetFrequency: 4
+        },
+        {
+            question: "The addition of an inert gas at constant volume to the equilibrium N₂(g) + 3H₂(g) ⇌ 2NH₃(g) will:",
+            options: ["A. Shift the equilibrium to the right", "B. Shift the equilibrium to the left", "C. Have no effect on the equilibrium", "D. Increase the value of Kp"],
+            answer: "C. Have no effect on the equilibrium",
+            explanation: "Adding an inert gas at constant volume increases the total pressure, but it does not change the partial pressures or concentrations of the reactants and products. Therefore, the equilibrium is unaffected.",
+            neetFrequency: 3
+        }
+    ],
+    assertionReasons: [
+        {
+            assertion: "The pH of a buffer solution does not change significantly on the addition of a small amount of acid or base.",
+            reason: "The buffer solution contains a weak acid and its conjugate base (or vice versa) which can neutralize the added acid or base.",
+            answer: "A",
+            explanation: "Assertion is the definition of a buffer. The reason correctly explains the mechanism of buffer action, thus correctly explaining the assertion."
+        },
+        {
+            assertion: "For the reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g), an increase in pressure favors the formation of ammonia.",
+            reason: "According to Le Chatelier's principle, an increase in pressure shifts the equilibrium in the direction of a smaller number of moles.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. The forward reaction goes from 4 moles of gas to 2 moles, so high pressure favors the product side."
+        },
+        {
+            assertion: "The solubility of AgCl in a solution of NaCl is lower than in pure water.",
+            reason: "This is due to the common ion effect.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and correctly explains the assertion. The presence of the common ion Cl⁻ from NaCl suppresses the dissolution of AgCl.",
+            neetFrequency: 4
+        },
+        {
+            assertion: "All Lewis acids are Brønsted-Lowry acids.",
+            reason: "A Brønsted-Lowry acid is a proton donor.",
+            answer: "D",
+            explanation: "Assertion is false. For example, BF₃ is a Lewis acid but has no proton to donate, so it is not a Brønsted-Lowry acid. The reason is a true statement defining a Brønsted-Lowry acid."
+        },
+        {
+            assertion: "The ionic product of water, Kw, increases with an increase in temperature.",
+            reason: "The autoionization of water is an endothermic process.",
+            answer: "A",
+            explanation: "Assertion is true (Kw ≈ 10⁻¹⁴ at 25°C and increases at higher temps). The reason is also true and is the correct explanation. Since the process is endothermic, increasing the temperature shifts the equilibrium to the right, increasing the concentrations of H⁺ and OH⁻, and thus increasing Kw."
+        }
+    ],
+    matchTheColumns: [
+        {
+            column1: ["(a) Lewis Acid", "(b) Brønsted-Lowry Base", "(c) Conjugate acid of NH₃", "(d) Conjugate base of H₂O"],
+            column2: ["(p) Proton acceptor", "(q) Electron pair acceptor", "(r) OH⁻", "(s) NH₄⁺"],
+            answer: "a-q, b-p, c-s, d-r"
+        },
+        {
+            column1: ["(a) pH < 7", "(b) pH > 7", "(c) pH = 7", "(d) pH = pKa"],
+            column2: ["(p) Neutral solution", "(q) Acidic solution", "(r) Basic solution", "(s) Half-neutralization point"],
+            answer: "a-q, b-r, c-p, d-s"
+        },
+        {
+            column1: ["(a) Kp = Kc", "(b) Kp > Kc", "(c) Kp < Kc", "(d) Catalyst added"],
+            column2: ["(p) N₂(g) + 3H₂(g) ⇌ 2NH₃(g)", "(q) H₂(g) + I₂(g) ⇌ 2HI(g)", "(r) PCl₅(g) ⇌ PCl₃(g) + Cl₂(g)", "(s) Equilibrium is reached faster"],
+            answer: "a-q, b-r, c-p, d-s"
+        },
+        {
+            column1: ["(a) Solubility of CaF₂", "(b) Solubility of Ag₂S", "(c) Solubility of Al(OH)₃", "(d) Solubility of AgCl"],
+            column2: ["(p) Ksp = 4s³", "(q) Ksp = s²", "(r) Ksp = 108s⁵ (not a choice)", "(s) Ksp = 27s⁴"],
+            answer: "a-p, b-p, c-s, d-q",
+            explanation: "Matching salts with the correct relationship between molar solubility (s) and Ksp."
+        },
+        {
+            column1: ["(a) Increase temperature", "(b) Increase pressure", "(c) Add more reactant", "(d) Add a catalyst"],
+            column2: ["(p) Shifts right", "(q) Shifts towards fewer moles", "(r) No change in equilibrium position", "(s) Shifts in endothermic direction"],
+            answer: "a-s, b-q, c-p, d-r",
+            explanation: "Matching changes with their effect on equilibrium according to Le Chatelier's principle."
+        }
+    ],
     keyFormulasAndDiagrams: {
         formulas: [
             {
@@ -237,6 +473,17 @@ $$ K_p = \\frac{(P_C)^c(P_D)^d}{(P_A)^a(P_B)^b} $$
         { text: "For buffer solutions, if the concentrations of acid/base and salt are equal, then pH = pKa or pOH = pKb. Look for this shortcut.", tamil: "தாங்கல் கரைசல்களுக்கு, அமிலம்/காரம் மற்றும் உப்பின் செறிவுகள் சமமாக இருந்தால், pH = pKa அல்லது pOH = pKb ஆகும். இந்த குறுக்குவழியைத் தேடுங்கள்." },
         { text: "In solubility problems, be careful with the stoichiometry. For a salt like CaF₂, K_sp = [Ca²⁺][F⁻]² = (s)(2s)² = 4s³.", tamil: "கரைதிறன் கணக்குகளில், வினைக்கூறு விகிதவியலில் கவனமாக இருங்கள். CaF₂ போன்ற ஒரு உப்பிற்கு, K_sp = [Ca²⁺][F⁻]² = (s)(2s)² = 4s³." }
     ],
+    studentTip: {
+        english: "Equilibrium is a dynamic concept. Even though the macroscopic properties are constant, the forward and reverse reactions are still occurring at the same rate.",
+        tamil: "சமநிலை ஒரு மாறும் கருத்து. பேரியல் பண்புகள் மாறிலியாக இருந்தாலும், முன்னோக்கு மற்றும் பின்னோக்கு வினைகள் இன்னும் அதே வேகத்தில் நிகழ்கின்றன."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why adding an inert gas at constant *pressure* shifts the equilibrium, but adding it at constant *volume* does not.",
+        tamil: "மாறா *அழுத்தத்தில்* ஒரு மந்த வாயுவைச் சேர்ப்பது ஏன் சமநிலையை மாற்றுகிறது, ஆனால் மாறா *பருமனில்* அதைச் சேர்ப்பது மாற்றாது என்று உங்கள் நண்பருடன் விவாதிக்கவும்."
+    },
+    nextChapter: {
+        title: "Redox Reactions and Electrochemistry",
+        titleTamil: "ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள் மற்றும் மின் வேதியியல்"
+    },
     validationReport: []
 };
-
