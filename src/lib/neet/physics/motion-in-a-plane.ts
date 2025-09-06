@@ -33,33 +33,47 @@ export const motionInAPlaneModule: NeetModule = {
     conceptNotes: [
         {
             heading: {
-                english: '1. Scalars and Vectors (ஸ்கேலர்கள் மற்றும் வெக்டர்கள்)',
-                tamil: ''
+                english: '1. Scalars and Vectors',
+                tamil: '1. ஸ்கேலர்கள் மற்றும் வெக்டர்கள்'
             },
             content: [
                 {
-                    english: `*   **Scalars:** Quantities with only magnitude. E.g., distance, speed, mass, time. (ஸ்கேலர்கள்: எண்மதிப்பு மட்டுமே கொண்ட அளவுகள். எ.கா., தூரம், வேகம், நிறை, காலம்.)
-*   **Vectors:** Quantities with both magnitude and direction. E.g., displacement, velocity, acceleration, force. (வெக்டர்கள்: எண்மதிப்பு மற்றும் திசை இரண்டையும் கொண்ட அளவுகள். எ.கா., இடப்பெயர்ச்சி, திசைவேகம், முடுக்கம், விசை.)
-*   **Vector Representation:** A vector $\\vec{A}$ can be written in component form as $\\vec{A} = A_x \\hat{i} + A_y \\hat{j}$, where $A_x$ and $A_y$ are the scalar components and $\\hat{i}, \\hat{j}$ are unit vectors along the x and y axes. (ஒரு வெக்டர் $\\vec{A}$ ஐ கூறு வடிவில் $\\vec{A} = A_x \\hat{i} + A_y \\hat{j}$ என எழுதலாம், இங்கு $A_x$ மற்றும் $A_y$ ஆகியவை ஸ்கேலார் கூறுகள் மற்றும் $\\hat{i}, \\hat{j}$ ஆகியவை x மற்றும் y அச்சுகள் வழியே உள்ள ஓரலகு வெக்டர்கள்.)
-*   **Magnitude:** $|\\vec{A}| = \\sqrt{A_x^2 + A_y^2}$ (எண்மதிப்பு)
-*   **Direction:** $\\theta = \\tan^{-1}(\\frac{A_y}{A_x})$ (திசை)`
+                    english: `*   **Scalars:** Quantities with only magnitude. E.g., distance, speed, mass, time.
+*   **Vectors:** Quantities with both magnitude and direction. E.g., displacement, velocity, acceleration, force.
+*   **Vector Representation:** A vector $\\vec{A}$ can be written in component form as $\\vec{A} = A_x \\hat{i} + A_y \\hat{j}$, where $A_x$ and $A_y$ are the scalar components and $\\hat{i}, \\hat{j}$ are unit vectors along the x and y axes.
+*   **Magnitude:** $|\\vec{A}| = \\sqrt{A_x^2 + A_y^2}$
+*   **Direction:** $\\theta = \\tan^{-1}(\\frac{A_y}{A_x})$`,
+                    tamil: `*   **ஸ்கேலர்கள்:** எண்மதிப்பு மட்டுமே கொண்ட அளவுகள். எ.கா., தூரம், வேகம், நிறை, காலம்.
+*   **வெக்டர்கள்:** எண்மதிப்பு மற்றும் திசை இரண்டையும் கொண்ட அளவுகள். எ.கா., இடப்பெயர்ச்சி, திசைவேகம், முடுக்கம், விசை.
+*   **வெக்டர் குறிப்பீடு:** ஒரு வெக்டர் $\\vec{A}$ ஐ கூறு வடிவில் $\\vec{A} = A_x \\hat{i} + A_y \\hat{j}$ என எழுதலாம், இங்கு $A_x$ மற்றும் $A_y$ ஆகியவை ஸ்கேலார் கூறுகள் மற்றும் $\\hat{i}, \\hat{j}$ ஆகியவை x மற்றும் y அச்சுகள் வழியே உள்ள ஓரலகு வெக்டர்கள்.
+*   **எண்மதிப்பு:** $|\\vec{A}| = \\sqrt{A_x^2 + A_y^2}$
+*   **திசை:** $\\theta = \\tan^{-1}(\\frac{A_y}{A_x})$`
                 }
             ]
         },
         {
             heading: {
-                english: '2. Projectile Motion (எறியியக்க இயக்கம்)',
-                tamil: ''
+                english: '2. Projectile Motion',
+                tamil: '2. எறியியக்க இயக்கம்'
             },
             content: [
                 {
-                    english: `Projectile motion is the motion of an object thrown or projected into the air, subject to only the acceleration of gravity. We assume air resistance is negligible. The key is to analyze the horizontal and vertical motions independently. (எறியியக்க இயக்கம் என்பது காற்றில் எறியப்பட்ட ஒரு பொருளின் இயக்கம் ஆகும், இது ஈர்ப்பு முடுக்கத்திற்கு மட்டுமே உட்பட்டது. காற்றுத் தடையை நாம் புறக்கணிக்கிறோம். இதன் முக்கிய அம்சம், கிடைமட்ட மற்றும் செங்குத்து இயக்கங்களை தனித்தனியாக பகுப்பாய்வு செய்வதாகும்.)
+                    english: `Projectile motion is the motion of an object thrown or projected into the air, subject to only the acceleration of gravity. We assume air resistance is negligible. The key is to analyze the horizontal and vertical motions independently.
 
-| Aspect (அம்சம்) | Horizontal Motion (X-axis) (கிடைமட்ட இயக்கம்) | Vertical Motion (Y-axis) (செங்குத்து இயக்கம்) |
+| Aspect | Horizontal Motion (X-axis) | Vertical Motion (Y-axis) |
 | :--- | :--- | :--- |
-| **Acceleration (முடுக்கம்)** | $a_x = 0$ | $a_y = -g$ |
-| **Velocity (திசைவேகம்)** | $v_x = u_x = u \\cos\\theta$ (Constant - மாறிலி) | $v_y = u_y - gt = u \\sin\\theta - gt$ |
-| **Displacement (இடப்பெயர்ச்சி)**| $x = (u \\cos\\theta) t$ | $y = (u \\sin\\theta) t - \\frac{1}{2}gt^2$ |
+| **Acceleration** | $a_x = 0$ | $a_y = -g$ |
+| **Velocity** | $v_x = u_x = u \\cos\\theta$ (Constant) | $v_y = u_y - gt = u \\sin\\theta - gt$ |
+| **Displacement**| $x = (u \\cos\\theta) t$ | $y = (u \\sin\\theta) t - \\frac{1}{2}gt^2$ |
+
+{{PROJECTILE_ANIMATION}}`,
+                    tamil: `எறியியக்க இயக்கம் என்பது காற்றில் எறியப்பட்ட ஒரு பொருளின் இயக்கம் ஆகும், இது ஈர்ப்பு முடுக்கத்திற்கு மட்டுமே உட்பட்டது. காற்றுத் தடையை நாம் புறக்கணிக்கிறோம். இதன் முக்கிய அம்சம், கிடைமட்ட மற்றும் செங்குத்து இயக்கங்களை தனித்தனியாக பகுப்பாய்வு செய்வதாகும்.
+
+| அம்சம் | கிடைமட்ட இயக்கம் (X-அச்சு) | செங்குத்து இயக்கம் (Y-அச்சு) |
+| :--- | :--- | :--- |
+| **முடுக்கம்** | $a_x = 0$ | $a_y = -g$ |
+| **திசைவேகம்** | $v_x = u_x = u \\cos\\theta$ (மாறிலி) | $v_y = u_y - gt = u \\sin\\theta - gt$ |
+| **இடப்பெயர்ச்சி**| $x = (u \\cos\\theta) t$ | $y = (u \\sin\\theta) t - \\frac{1}{2}gt^2$ |
 
 {{PROJECTILE_ANIMATION}}`
                 }
@@ -67,51 +81,73 @@ export const motionInAPlaneModule: NeetModule = {
         },
         {
             heading: {
-                english: `#### Key Formulas for Projectile Motion: (எறியியக்கத்திற்கான முக்கிய சூத்திரங்கள்)`
+                english: '#### Key Formulas for Projectile Motion:',
+                tamil: '#### எறியியக்கத்திற்கான முக்கிய சூத்திரங்கள்:'
             },
             content: [
                 {
-                    english: `*   **Time of Flight (பறக்கும் நேரம்), T:** The total time the projectile is in the air. (எறிபொருள் காற்றில் இருக்கும் மொத்த நேரம்.)
+                    english: `*   **Time of Flight (T):** The total time the projectile is in the air.
 $$ T = \\frac{2u \\sin\\theta}{g} $$
-*   **Maximum Height (பெரும உயரம்), H:** The highest point reached by the projectile. (எறிபொருள் அடையும் மிக உயரமான புள்ளி.)
+*   **Maximum Height (H):** The highest point reached by the projectile.
 $$ H = \\frac{u^2 \\sin^2\\theta}{2g} $$
-*   **Horizontal Range (கிடைத்தள நெடுக்கம்), R:** The total horizontal distance covered. (கடந்த மொத்த கிடைமட்ட தூரம்.)
+*   **Horizontal Range (R):** The total horizontal distance covered.
 $$ R = \\frac{u^2 \\sin(2\\theta)}{g} $$
-    *Note: The range is maximum when $\\sin(2\\theta) = 1$, which means $2\\theta = 90^\\circ$ or $\\theta = 45^\\circ$.* (குறிப்பு: நெடுக்கம் பெருமமாக இருக்க $\\sin(2\\theta) = 1$ ஆக இருக்க வேண்டும், அதாவது $2\\theta = 90^\\circ$ அல்லது $\\theta = 45^\\circ$.)`
+    *Note: The range is maximum when $\\sin(2\\theta) = 1$, which means $2\\theta = 90^\\circ$ or $\\theta = 45^\\circ$.*`,
+                    tamil: `*   **பறக்கும் நேரம் (T):** எறிபொருள் காற்றில் இருக்கும் மொத்த நேரம்.
+$$ T = \\frac{2u \\sin\\theta}{g} $$
+*   **பெரும உயரம் (H):** எறிபொருள் அடையும் மிக உயரமான புள்ளி.
+$$ H = \\frac{u^2 \\sin^2\\theta}{2g} $$
+*   **கிடைத்தள நெடுக்கம் (R):** கடந்த மொத்த கிடைமட்ட தூரம்.
+$$ R = \\frac{u^2 \\sin(2\\theta)}{g} $$
+    *குறிப்பு: நெடுக்கம் பெருமமாக இருக்க $\\sin(2\\theta) = 1$ ஆக இருக்க வேண்டும், அதாவது $2\\theta = 90^\\circ$ அல்லது $\\theta = 45^\\circ$.*`
                 }
             ]
         },
         {
             heading: {
-                english: '3. Uniform Circular Motion (சீரான வட்ட இயக்கம்)',
-                tamil: ''
+                english: '3. Uniform Circular Motion',
+                tamil: '3. சீரான வட்ட இயக்கம்'
             },
             content: [
                 {
-                    english: `This is the motion of an object traveling at a constant *speed* along a circular path. Even though the speed is constant, the *velocity* is continuously changing because its direction is changing. This change in velocity means there must be an acceleration. (இது ஒரு வட்டப் பாதையில் நிலையான *வேகத்தில்* பயணிக்கும் ஒரு பொருளின் இயக்கம் ஆகும். வேகம் நிலையானதாக இருந்தாலும், *திசைவேகம்* அதன் திசை தொடர்ந்து மாறுவதால் மாறிக்கொண்டே இருக்கிறது. இந்த திசைவேக மாற்றம் ஒரு முடுக்கம் இருக்க வேண்டும் என்பதைக் குறிக்கிறது.)
-*   **Centripetal Acceleration (மையநோக்கு முடுக்கம்), $a_c$:** This acceleration is always directed towards the center of the circle. Its magnitude is given by: (இந்த முடுக்கம் எப்போதும் வட்டத்தின் மையத்தை நோக்கியே இயக்கப்படுகிறது. அதன் எண்மதிப்பு:)
+                    english: `This is the motion of an object traveling at a constant *speed* along a circular path. Even though the speed is constant, the *velocity* is continuously changing because its direction is changing. This change in velocity means there must be an acceleration.
+*   **Centripetal Acceleration ($a_c$):** This acceleration is always directed towards the center of the circle. Its magnitude is given by:
 $$ a_c = \\frac{v^2}{r} = \\omega^2 r $$
-    where $v$ is the linear speed, $r$ is the radius of the circle, and $\\omega$ is the angular velocity. (இங்கு $v$ என்பது நேர்கோட்டு வேகம், $r$ என்பது வட்டத்தின் ஆரம், மற்றும் $\\omega$ என்பது கோண திசைவேகம்.)
-*   **Centripetal Force (மையநோக்கு விசை), $F_c$:** According to Newton's second law, this acceleration must be caused by a net force, also directed towards the center. (நியூட்டனின் இரண்டாம் விதிப்படி, இந்த முடுக்கம் ஒரு நிகர விசையால் ஏற்பட வேண்டும், அதுவும் மையத்தை நோக்கியே இயக்கப்படும்.)
+    where $v$ is the linear speed, $r$ is the radius of the circle, and $\\omega$ is the angular velocity.
+*   **Centripetal Force ($F_c$):** According to Newton's second law, this acceleration must be caused by a net force, also directed towards the center.
 $$ F_c = ma_c = \\frac{mv^2}{r} $$
-    *This is not a new kind of force. It is simply the net force (e.g., tension, gravity, friction) that is causing the circular motion.* (இது ஒரு புதிய வகை விசை அல்ல. இது வட்ட இயக்கத்தை ஏற்படுத்தும் நிகர விசை (எ.கா., இழுவிசை, ஈர்ப்பு, உராய்வு) ஆகும்.)`
+    *This is not a new kind of force. It is simply the net force (e.g., tension, gravity, friction) that is causing the circular motion.*`,
+                    tamil: `இது ஒரு வட்டப் பாதையில் நிலையான *வேகத்தில்* பயணிக்கும் ஒரு பொருளின் இயக்கம் ஆகும். வேகம் நிலையானதாக இருந்தாலும், *திசைவேகம்* அதன் திசை தொடர்ந்து மாறுவதால் மாறிக்கொண்டே இருக்கிறது. இந்த திசைவேக மாற்றம் ஒரு முடுக்கம் இருக்க வேண்டும் என்பதைக் குறிக்கிறது.
+*   **மையநோக்கு முடுக்கம் ($a_c$):** இந்த முடுக்கம் எப்போதும் வட்டத்தின் மையத்தை நோக்கியே இயக்கப்படுகிறது. அதன் எண்மதிப்பு:
+$$ a_c = \\frac{v^2}{r} = \\omega^2 r $$
+    இங்கு $v$ என்பது நேர்கோட்டு வேகம், $r$ என்பது வட்டத்தின் ஆரம், மற்றும் $\\omega$ என்பது கோண திசைவேகம்.
+*   **மையநோக்கு விசை ($F_c$):** நியூட்டனின் இரண்டாம் விதிப்படி, இந்த முடுக்கம் ஒரு நிகர விசையால் ஏற்பட வேண்டும், அதுவும் மையத்தை நோக்கியே இயக்கப்படும்.
+$$ F_c = ma_c = \\frac{mv^2}{r} $$
+    *இது ஒரு புதிய வகை விசை அல்ல. இது வட்ட இயக்கத்தை ஏற்படுத்தும் நிகர விசை (எ.கா., இழுவிசை, ஈர்ப்பு, உராய்வு) ஆகும்.*`
                 }
             ]
         },
         {
             heading: {
-                english: '4. Relative Velocity in Two Dimensions (இரு பரிமாணங்களில் சார்பு திசைவேகம்)',
-                tamil: ''
+                english: '4. Relative Velocity in Two Dimensions',
+                tamil: '4. இரு பரிமாணங்களில் சார்பு திசைவேகம்'
             },
             content: [
                 {
-                    english: `The velocity of object A relative to object B is given by: (பொருள் B ஐப் பொறுத்து பொருள் A இன் திசைவேகம்:)
+                    english: `The velocity of object A relative to object B is given by:
 $$
 \\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B
 $$
-This is a vector subtraction. It's often easier to think of it as adding the negative of $\\vec{v}_B$ to $\\vec{v}_A$: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$. (இது ஒரு வெக்டர் கழித்தல் ஆகும். இதை $\\vec{v}_A$ உடன் $\\vec{v}_B$ இன் எதிர்மறையை கூட்டுவதாக நினைப்பது பெரும்பாலும் எளிதானது: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$.)
-*   **Rain-Man Problems:** To a person running, rain that is falling vertically appears to fall at an angle. The velocity of the rain relative to the man is $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$. (ஓடும் ஒருவருக்கு, செங்குத்தாக விழும் மழை ஒரு கோணத்தில் விழுவது போல் தோன்றும். மனிதனைப் பொறுத்து மழையின் திசைவேகம் $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$ ஆகும்.)
-*   **Boat-River Problems:** To cross a river, a boat's velocity with respect to the ground is the vector sum of its velocity with respect to the water and the velocity of the water with respect to the ground. (ஒரு ஆற்றைக் கடக்க, தரையைப் பொறுத்து ஒரு படகின் திசைவேகம், நீரைப் பொறுத்து அதன் திசைவேகம் மற்றும் தரையைப் பொறுத்து நீரின் திசைவேகத்தின் வெக்டர் கூடுதலாகும்.)`
+This is a vector subtraction. It's often easier to think of it as adding the negative of $\\vec{v}_B$ to $\\vec{v}_A$: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$.
+*   **Rain-Man Problems:** To a person running, rain that is falling vertically appears to fall at an angle. The velocity of the rain relative to the man is $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$.
+*   **Boat-River Problems:** To cross a river, a boat's velocity with respect to the ground is the vector sum of its velocity with respect to the water and the velocity of the water with respect to the ground.`,
+                    tamil: `பொருள் B ஐப் பொறுத்து பொருள் A இன் திசைவேகம்:
+$$
+\\vec{v}_{AB} = \\vec{v}_A - \\vec{v}_B
+$$
+இது ஒரு வெக்டர் கழித்தல் ஆகும். இதை $\\vec{v}_A$ உடன் $\\vec{v}_B$ இன் எதிர்மறையை கூட்டுவதாக நினைப்பது பெரும்பாலும் எளிதானது: $\\vec{v}_{AB} = \\vec{v}_A + (-\\vec{v}_B)$.
+*   **மழை-மனிதன் கணக்குகள்:** ஓடும் ஒருவருக்கு, செங்குத்தாக விழும் மழை ஒரு கோணத்தில் விழுவது போல் தோன்றும். மனிதனைப் பொறுத்து மழையின் திசைவேகம் $\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m$ ஆகும்.
+*   **படகு-ஆறு கணக்குகள்:** ஒரு ஆற்றைக் கடக்க, தரையைப் பொறுத்து ஒரு படகின் திசைவேகம், நீரைப் பொறுத்து அதன் திசைவேகம் மற்றும் தரையைப் பொறுத்து நீரின் திசைவேகத்தின் வெக்டர் கூடுதலாகும்.`
                 }
             ]
         }
