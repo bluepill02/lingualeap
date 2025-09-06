@@ -115,17 +115,29 @@ function ChapterContent({ content }: { content: NeetModule }) {
                     <CardTitle>Concept Overview</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 prose dark:prose-invert max-w-none card-padding-lg">
-                    <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>
-                    <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
-                        <Lightbulb className="h-4 w-4 text-yellow-400" />
-                        <AlertTitle>Tamil Connection</AlertTitle>
-                        <AlertDescription><MarkdownRenderer>{tamilConnection}</MarkdownRenderer></AlertDescription>
-                    </Alert>
-                     <Alert variant="default" className="bg-green-500/10 border-green-500/30">
-                        <BookOpen className="h-4 w-4 text-green-400" />
-                        <AlertTitle>Cultural Context</AlertTitle>
-                        <AlertDescription><MarkdownRenderer>{culturalContext}</MarkdownRenderer></AlertDescription>
-                    </Alert>
+                    {conceptOverview && <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>}
+                    {tamilConnection && (
+                        <Card className="bg-yellow-500/10 border-yellow-500/30">
+                        <CardHeader className="flex-row items-center gap-3 space-y-0">
+                            <Lightbulb className="h-5 w-5 text-yellow-400" />
+                            <CardTitle className="text-yellow-200">Tamil Connection</CardTitle>
+                        </CardHeader>
+                        <CardContent className="card-padding-lg text-yellow-50 prose-sm">
+                            <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
+                        </CardContent>
+                        </Card>
+                    )}
+                    {culturalContext && (
+                        <Card className="bg-green-500/10 border-green-500/30">
+                        <CardHeader className="flex-row items-center gap-3 space-y-0">
+                            <BookOpen className="h-5 w-5 text-green-400" />
+                            <CardTitle className="text-green-200">Cultural Context</CardTitle>
+                        </CardHeader>
+                        <CardContent className="card-padding-lg text-green-50 prose-sm">
+                            <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
+                        </CardContent>
+                        </Card>
+                    )}
                 </CardContent>
             </Card>
 

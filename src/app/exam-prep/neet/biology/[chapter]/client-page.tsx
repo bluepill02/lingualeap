@@ -15,7 +15,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
-import { SyllabusMappingCard, WorkedExamplesCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
+import { PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { BiologyLearnCard } from '@/components/exam/neet-biology-components';
 
 function ChapterContent({ content }: { content: NeetModule }) {
