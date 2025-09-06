@@ -8,7 +8,13 @@ export const geneticsAndEvolution: NeetModule = {
     subject: 'Biology',
     learningObjectives: [],
     prerequisites: [],
-    syllabusMapping: [],
+    syllabusMapping: [{
+        topic: 'Principles of Inheritance, Molecular Basis, Evolution',
+        tnBoardChapter: '12th Std Botany Ch 2, 3, 4; 12th Std Zoology Ch 3, 4',
+        ncertReference: 'Class 12 Biology - Unit 7',
+        notes: 'A very high-yield and conceptual unit. Mendelian genetics problems, molecular basis concepts (replication, transcription, translation), and evidence for evolution are key topics.',
+        mappingDescription: 'Maps to Genetics and Evolution chapters in TN Board Std 12.'
+    }],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],

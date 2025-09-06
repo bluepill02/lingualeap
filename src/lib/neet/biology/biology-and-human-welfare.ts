@@ -8,7 +8,13 @@ export const biologyAndHumanWelfare: NeetModule = {
     subject: 'Biology',
     learningObjectives: [],
     prerequisites: [],
-    syllabusMapping: [],
+    syllabusMapping: [{
+        topic: 'Biology and Human Welfare',
+        tnBoardChapter: '12th Std Zoology Ch 6, 8; 12th Std Botany Ch 8',
+        ncertReference: 'Class 12 Biology - Unit 8',
+        notes: 'Covers Human Health and Disease, Microbes in Human Welfare. Very important and scoring unit.',
+        mappingDescription: 'Maps to various chapters in TN Board Std 12 Zoology and Botany.'
+    }],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],

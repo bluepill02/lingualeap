@@ -8,7 +8,13 @@ export const plantPhysiology: NeetModule = {
     subject: 'Biology',
     learningObjectives: [],
     prerequisites: [],
-    syllabusMapping: [],
+    syllabusMapping: [{
+        topic: 'Transport in Plants, Mineral Nutrition, Photosynthesis, Respiration, Plant Growth',
+        tnBoardChapter: '11th Std Botany Ch 9 to 13',
+        ncertReference: 'Class 11 Biology - Unit 4',
+        notes: 'A crucial unit. Photosynthesis and Respiration cycles (C3, C4, Glycolysis, Krebs) are very important. Plant hormones are also a high-yield topic.',
+        mappingDescription: 'Maps to the plant physiology section in the TN Board Std 11 Botany book.'
+    }],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],

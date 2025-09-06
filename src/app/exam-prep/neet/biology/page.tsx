@@ -53,6 +53,7 @@ export default function NeetBiologyPage() {
               const slug = getSlug(chapter);
               const content = neetContent[slug];
               if (!content) return null;
+              const mappingDescription = content.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
               return (
                   <Link href={`/exam-prep/neet/biology/${slug}`} key={slug}>
                       <Card className="hover:border-primary transition-colors h-full flex flex-col">
@@ -61,6 +62,12 @@ export default function NeetBiologyPage() {
                                   <h3 className="text-lg font-bold font-headline pr-4">{chapter}</h3>
                                   <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                               </div>
+                               <div className="mt-auto bg-primary/5 border-primary/20 card-padding-sm rounded-md">
+                                    <div className="flex items-center gap-2 text-primary/80 text-xs">
+                                      <BookOpen className="h-4 w-4" />
+                                      <span>TN Board Mapping: {mappingDescription}</span>
+                                    </div>
+                                </div>
                           </CardContent>
                       </Card>
                   </Link>
