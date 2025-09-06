@@ -65,7 +65,7 @@ export default function NeetChemistryStrategyGuidePage() {
           <Accordion type="multiple" className="w-full space-y-4">
             {sectionData.chapters.map((chapter, index) => (
               <AccordionItem value={`item-${index}`} key={index}>
-                <AccordionTrigger className="text-lg font-bold font-headline px-4 bg-muted/50 rounded-md hover:bg-muted/80">
+                <AccordionTrigger className="text-lg font-bold font-headline card-padding-md bg-muted/50 rounded-md hover:bg-muted/80">
                   <div className="text-left">
                      {chapter.chapterName}
                      <p className="text-sm font-normal text-muted-foreground">{chapter.chapterNameTamil}</p>
@@ -88,7 +88,7 @@ export default function NeetChemistryStrategyGuidePage() {
                           {section.title} ({section.titleTamil})
                         </CardTitle>
                       </CardHeader>
-                      <CardContent className="space-y-4">
+                      <CardContent className="card-padding-lg space-y-4">
                         {section.points.map((point, pointIndex) => (
                           <Alert
                             key={pointIndex}

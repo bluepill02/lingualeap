@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { ArrowLeft, BookOpen } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { neetContent } from '@/lib/neet/content-loader';
@@ -56,7 +56,7 @@ export default function NeetBiologyPage() {
               return (
                   <Link href={`/exam-prep/neet/biology/${slug}`} key={slug}>
                       <Card className="hover:border-primary transition-colors h-full flex flex-col">
-                          <CardContent className="p-6 space-y-4 flex-grow">
+                          <CardContent className="card-padding-lg space-y-4 flex-grow">
                               <div className="flex justify-between items-start">
                                   <h3 className="text-lg font-bold font-headline pr-4">{chapter}</h3>
                                   <Badge variant="secondary">Chapter {chapterCounter}</Badge>
@@ -72,7 +72,7 @@ export default function NeetBiologyPage() {
         <CardHeader>
             <CardTitle>Progress Overview</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-3 divide-x divide-border text-center">
+        <CardContent className="grid grid-cols-3 divide-x divide-border text-center card-padding-lg">
             <div>
                 <p className="text-2xl font-bold">0</p>
                 <p className="text-sm text-muted-foreground">Completed</p>

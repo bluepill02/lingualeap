@@ -30,7 +30,7 @@ export function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | 
                 <CardTitle className="flex items-center gap-2"><BookCheck className="text-primary" />Syllabus & Standards Mapping</CardTitle>
                 <CardDescription>Connecting NEET topics to TN State Board & NCERT curriculum.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="card-padding-lg">
                 <Table>
                     <TableHeader>
                         <TableRow>
@@ -65,7 +65,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] | u
                 <CardTitle className="flex items-center gap-2"><BrainCircuit className="text-primary" />Worked Examples</CardTitle>
                 <CardDescription>Step-by-step solutions to common exam-level problems.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="card-padding-lg">
                 <Accordion type="single" collapsible className="w-full">
                     {examples.map((example, index) => (
                          <AccordionItem value={`item-${index}`} key={index}>

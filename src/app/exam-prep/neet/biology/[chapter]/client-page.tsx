@@ -75,7 +75,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </header>
 
       <Card>
-        <CardContent className="p-4">
+        <CardContent className="card-padding-md">
             <div className="flex justify-between items-center mb-1 text-sm">
                 <span className="text-muted-foreground font-semibold">Study Progress</span>
                 <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
@@ -113,7 +113,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
         <TabsContent value="summary" className="mt-6 space-y-6">
             <Card>
                 <CardHeader><CardTitle>Chapter Summary</CardTitle></CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <ul className="list-disc list-inside space-y-2">
                         {content.keyTakeaways?.map((takeaway, index) => (
                             <li key={index}>{takeaway}</li>
@@ -130,7 +130,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </Tabs>
       
        <Card className="mt-8">
-        <CardContent className="p-6 text-center">
+        <CardContent className="card-padding-lg text-center">
             <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim XP</Button>
         </CardContent>
        </Card>

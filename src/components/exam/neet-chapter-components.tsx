@@ -38,7 +38,7 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
                 <CardHeader>
                     <CardTitle>Concept Notes</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <p>Notes are being updated for this chapter.</p>
                 </CardContent>
             </Card>
@@ -56,7 +56,7 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
                                 <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-4">
+                        <CardContent className="card-padding-lg space-y-4">
                             <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
                                 {note.content.map((item, itemIndex) => (
                                     <div key={itemIndex}>
@@ -93,7 +93,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             {example.difficulty}
                         </Badge>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="card-padding-lg space-y-4">
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
                             <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
                              <BilingualText english={example.problem} tamil={example.problemTamil} />
@@ -157,7 +157,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
             <CardHeader>
                 <CardTitle className="flex items-center gap-2"><FileText />Key Formulas &amp; Diagrams</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="card-padding-lg space-y-6">
                 {hasFormulas && (
                     <Table>
                         <TableHeader>
@@ -208,7 +208,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                 <CardHeader>
                     <CardTitle>Practice Section</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <p>Practice questions are not available for this chapter yet.</p>
                 </CardContent>
             </Card>
@@ -248,7 +248,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                 <CardTitle>Practice Section</CardTitle>
                 <CardDescription>Test your understanding with practice problems.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="card-padding-lg">
                 <Accordion type="multiple" className="w-full space-y-4" defaultValue={['mcqs']}>
                     
                     {/* MCQs Section */}
@@ -331,7 +331,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Options &amp; Solution</AccordionTrigger>
-                                            <AccordionContent className="p-2 space-y-4">
+                                            <AccordionContent className="card-padding-md space-y-4">
                                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                     {quiz.options.map((option) => (
                                                         <Button
@@ -369,7 +369,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="p-2 bg-secondary/30 rounded-md">
+                                            <AccordionContent className="card-padding-sm bg-secondary/30 rounded-md">
                                                 <strong>Answer:</strong> {item.explanation}
                                             </AccordionContent>
                                         </AccordionItem>
@@ -405,7 +405,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-4">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="p-2 bg-secondary/30 rounded-md">
+                                            <AccordionContent className="card-padding-sm bg-secondary/30 rounded-md">
                                                  <strong>Answer:</strong> {item.answer}
                                                  {item.explanation && <div className="text-xs text-muted-foreground mt-1"><MarkdownRenderer>{item.explanation}</MarkdownRenderer></div>}
                                             </AccordionContent>

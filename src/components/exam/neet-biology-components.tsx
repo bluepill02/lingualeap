@@ -17,7 +17,7 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
         <CardHeader>
           <CardTitle>Learn</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="card-padding-lg">
           <p>Content for this chapter is being generated. Please check back soon.</p>
         </CardContent>
       </Card>
@@ -29,7 +29,7 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
       <CardHeader>
         <CardTitle className="flex items-center gap-2"><BookOpen/> Core Concepts</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="card-padding-lg space-y-6">
         <div className="prose dark:prose-invert max-w-none">
           {conceptOverview && <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>}
         </div>

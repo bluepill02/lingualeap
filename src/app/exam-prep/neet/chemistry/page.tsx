@@ -97,7 +97,7 @@ export default function NeetChemistryPage() {
             NEET Chemistry Strategy Guide
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="card-padding-lg">
           <p className="text-muted-foreground mb-4">
             A special module focusing on common mistakes, rare concepts, and strategic tricks to boost your score across all chemistry topics.
           </p>
@@ -112,7 +112,7 @@ export default function NeetChemistryPage() {
           if (chapters.length === 0) return null;
           return (
           <div key={key} className="space-y-4">
-            <div className={`flex items-center gap-4 p-4 rounded-t-lg ${group.bg}`}>
+            <div className={`flex items-center gap-4 card-padding-md rounded-t-lg ${group.bg}`}>
                 <group.icon className={`w-8 h-8 ${group.color}`}/>
                 <div>
                     <h2 className={`text-2xl font-bold font-headline ${group.color}`}>{group.title}</h2>
@@ -130,7 +130,7 @@ export default function NeetChemistryPage() {
                     return (
                         <Link href={`/exam-prep/neet/chemistry/${slug}`} key={slug} className="group">
                             <Card className="hover:border-primary hover:shadow-md transition-all h-full flex flex-col justify-between">
-                                <CardContent className="p-4 space-y-3">
+                                <CardContent className="card-padding-md space-y-3">
                                     <div className="flex justify-between items-center">
                                       <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                       <BookOpen className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -149,7 +149,7 @@ export default function NeetChemistryPage() {
         <CardHeader>
             <CardTitle>Progress Overview</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-3 divide-x divide-border text-center">
+        <CardContent className="grid grid-cols-3 divide-x divide-border text-center card-padding-lg">
             <div>
                 <p className="text-2xl font-bold">0</p>
                 <p className="text-sm text-muted-foreground">Completed</p>

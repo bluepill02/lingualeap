@@ -71,7 +71,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </header>
 
       <Card>
-        <CardContent className="p-4">
+        <CardContent className="card-padding-md">
             <div className="flex justify-between items-center mb-1 text-sm">
                 <span className="text-muted-foreground font-semibold">Study Progress</span>
                 <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
@@ -101,7 +101,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         Prerequisites
                     </CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <ul className="list-disc list-inside space-y-2">
                        {prerequisites.map((req, index) => (
                            <li key={index}>{req}</li>
@@ -114,7 +114,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardHeader>
                     <CardTitle>Concept Overview</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
+                <CardContent className="space-y-4 prose dark:prose-invert max-w-none card-padding-lg">
                     <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>
                     <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
                         <Lightbulb className="h-4 w-4 text-yellow-400" />
@@ -175,9 +175,9 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardHeader>
                     <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4 text-center">
+                <CardContent className="space-y-4 text-center card-padding-lg">
                     {mnemonics.map((mnemonic, index) => (
-                         <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
+                         <div key={index} className="w-full text-center card-padding-md rounded-md bg-primary/10 border border-primary/20">
                            <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
                          </div>
                     ))}
@@ -187,7 +187,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardHeader>
                     <CardTitle>Chapter Summary</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 card-padding-lg">
                     {keyTakeaways.map((point, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
@@ -200,7 +200,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardHeader>
                     <CardTitle>NEET Tips & Next Steps</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 card-padding-lg">
                     {neetTips.map((tip, index) => (
                         <div key={index} className="flex items-start gap-3">
                             <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
@@ -230,7 +230,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-accent"><Megaphone />Peer-Teaching Mission</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <div className="prose dark:prose-invert max-w-none text-muted-foreground mb-4"><MarkdownRenderer>{"You've mastered the concepts, now solidify your knowledge by teaching it to others. This will test your understanding and help your peers."}</MarkdownRenderer></div>
                     <Link href="/peer-teaching">
                         <Button variant="outline" className="w-full">
@@ -249,7 +249,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </Tabs>
       
        <Card className="mt-8">
-        <CardContent className="p-6 text-center">
+        <CardContent className="card-padding-lg text-center">
             <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim XP</Button>
         </CardContent>
        </Card>

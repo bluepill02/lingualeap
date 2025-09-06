@@ -58,7 +58,7 @@ export default function NeetPrepPage() {
         {subjects.map((subject) => (
           <Link href={subject.href} key={subject.title}>
             <Card className="hover:border-primary transition-colors h-full">
-              <CardContent className="p-6 space-y-4">
+              <CardContent className="card-padding-lg space-y-4">
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center ${subject.color}`}>
                   <subject.icon className="w-6 h-6" />
                 </div>
@@ -75,7 +75,7 @@ export default function NeetPrepPage() {
       </div>
 
       <Card>
-        <CardContent className="p-6">
+        <CardContent className="card-padding-lg">
             <h2 className="text-xl font-bold font-headline mb-4">Study Tips for NEET Success</h2>
             <ul className="space-y-3">
                 {studyTips.map((tip, index) => (
