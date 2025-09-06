@@ -2,5 +2,10 @@
   "command": "npm run dev",
   "serverUrl": "http://localhost:9004",
   "authenticateProxy": false,
-  "commitMode": "commits"
+  "commitMode": "commits",
+  "aiExclusion": [
+    "src/lib/neet/physics/*",
+    "src/lib/neet/chemistry/*",
+    "src/lib/neet/biology/*"
+  ]
 }
