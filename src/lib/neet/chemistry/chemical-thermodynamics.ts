@@ -214,95 +214,156 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
         }
     ],
     mcqs: [
-        { question: "The first law of thermodynamics is a statement of the law of conservation of:", options: ["A. Mass", "B. Momentum", "C. Charge", "D. Energy"], answer: "D. Energy", explanation: "The first law, ΔU = Q - W, is a form of the law of conservation of energy.", neetFrequency: 5 },
-        { question: "For an adiabatic process, which of the following is correct?", options: ["A. ΔU = 0", "B. Q = 0", "C. W = 0", "D. ΔT = 0"], answer: "B. Q = 0", explanation: "An adiabatic process is defined as one with no heat exchange with the surroundings.", neetFrequency: 5 },
-        { question: "For a spontaneous process, the change in Gibbs free energy (ΔG) is:", options: ["A. Positive", "B. Negative", "C. Zero", "D. Always constant"], answer: "B. Negative", explanation: "A negative ΔG indicates that a process is spontaneous at constant temperature and pressure.", neetFrequency: 4 },
-        { question: "The work done during the expansion of a gas from a volume of 4 dm³ to 6 dm³ against a constant external pressure of 3 atm is:", options: ["A. -608 J", "B. +6 J", "C. -304 J", "D. +304 J"], answer: "A. -608 J", explanation: "W = -P_ext * ΔV = -3 atm * (6-4) dm³ = -6 L·atm. 1 L·atm = 101.3 J. W = -6 * 101.3 = -607.8 J ≈ -608 J.", neetFrequency: 4 },
-        { question: "Enthalpy (H) is defined as:", options: ["A. U - PV", "B. U + PV", "C. PV - U", "D. U + V"], answer: "B. U + PV", explanation: "This is the definition of enthalpy, a thermodynamic state function.", neetFrequency: 3 },
-        { question: "For the reaction 2H(g) → H₂(g), the signs of ΔH and ΔS are:", options: ["A. ΔH > 0, ΔS > 0", "B. ΔH < 0, ΔS < 0", "C. ΔH > 0, ΔS < 0", "D. ΔH < 0, ΔS > 0"], answer: "B. ΔH < 0, ΔS < 0", explanation: "Bond formation is an exothermic process (ΔH < 0). Two moles of gas are forming one mole of gas, so the disorder (entropy) decreases (ΔS < 0).", neetFrequency: 4 },
-        { question: "The unit of entropy is:", options: ["A. J K", "B. J/K", "C. J/mol", "D. K/J"], answer: "B. J/K", explanation: "Entropy S is defined as dS = dq_rev/T. Its unit is Joules per Kelvin (J/K). Molar entropy is J/K·mol.", neetFrequency: 2 },
-        { question: "In a cyclic process, the net work done is equal to:", options: ["A. ΔU", "B. Q", "C. 0", "D. ΔH"], answer: "B. Q", explanation: "For a cyclic process, the system returns to its initial state, so the change in internal energy ΔU = 0. From the first law, ΔU = Q - W, so 0 = Q - W, which means Q = W.", neetFrequency: 3 },
-        { question: "Which of the following is a state function?", options: ["A. Heat", "B. Work", "C. Enthalpy", "D. Both A and B"], answer: "C. Enthalpy", explanation: "Enthalpy, like Pressure, Volume, and Temperature, is a state function. Heat and Work are path functions.", neetFrequency: 4 },
-        { question: "The work done in an isochoric process is:", options: ["A. Zero", "B. Positive", "C. Negative", "D. Equal to the heat supplied"], answer: "A. Zero", explanation: "An isochoric process occurs at constant volume (ΔV=0). Since W = PΔV, the work done is zero.", neetFrequency: 3 },
-        { question: "According to the second law of thermodynamics, the entropy of the universe:", options: ["A. Is always decreasing", "B. Is always increasing", "C. Is always constant", "D. Can increase or decrease"], answer: "B. Is always increasing", explanation: "The second law states that for any spontaneous process, the total entropy of the universe increases.", neetFrequency: 2 },
-        { question: "The enthalpy of formation of an element in its standard state is:", options: ["A. 1", "B. 0", "C. Always positive", "D. Always negative"], answer: "B. 0", explanation: "By convention, the standard enthalpy of formation of the most stable form of any element is taken as zero.", neetFrequency: 3 },
-        { question: "For an endothermic reaction:", options: ["A. ΔH is positive", "B. ΔH is negative", "C. ΔG is always positive", "D. ΔS is always positive"], answer: "A. ΔH is positive", explanation: "An endothermic reaction is one that absorbs heat from the surroundings, so its enthalpy change ΔH is positive.", neetFrequency: 2 },
-        { question: "The condition for a reaction to be at equilibrium at constant T and P is:", options: ["A. ΔH = 0", "B. ΔS = 0", "C. ΔG = 0", "D. ΔU = 0"], answer: "C. ΔG = 0", explanation: "Gibbs free energy change (ΔG) is the criterion for spontaneity. At equilibrium, ΔG = 0.", neetFrequency: 4 },
-        { question: "Hess's Law is based on:", options: ["A. The first law of thermodynamics", "B. The second law of thermodynamics", "C. The law of conservation of mass", "D. The concept of entropy"], answer: "A. The first law of thermodynamics", explanation: "Hess's law is a direct consequence of the fact that enthalpy is a state function, which itself is derived from the first law of thermodynamics.", neetFrequency: 1 },
-        { question: "In an isothermal reversible expansion of an ideal gas:", options: ["A. w = 0, ΔU = q", "B. ΔU = 0, q = -w", "C. q = 0, ΔU = w", "D. w = 0, ΔU = 0"], answer: "B. ΔU = 0, q = -w", explanation: "For an ideal gas, internal energy depends only on temperature. In an isothermal process, T is constant, so ΔU=0. From the first law (chemist's convention), 0 = q+w, so q=-w.", neetFrequency: 5 },
-        { question: "The relation between ΔH and ΔU for a reaction involving gases is:", options: ["A. ΔH = ΔU + Δn_gRT", "B. ΔU = ΔH + Δn_gRT", "C. ΔH = ΔU - Δn_gRT", "D. ΔH = Δn_gRT"], answer: "A. ΔH = ΔU + Δn_gRT", explanation: "This is the standard relationship derived from H = U + PV.", neetFrequency: 4 },
-        { question: "When a liquid evaporates, its entropy:", options: ["A. Increases", "B. Decreases", "C. Remains the same", "D. Becomes zero"], answer: "A. Increases", explanation: "The gaseous state is much more disordered and random than the liquid state, so the entropy increases during evaporation.", neetFrequency: 3 },
-        { question: "Which of the following is an intensive property?", options: ["A. Volume", "B. Mass", "C. Enthalpy", "D. Temperature"], answer: "D. Temperature", explanation: "Intensive properties (like temperature, pressure, density) do not depend on the amount of matter. Extensive properties (like volume, mass, enthalpy) do.", neetFrequency: 2 },
-        { question: "A process is spontaneous if ΔH = -ve and ΔS = +ve at:", options: ["A. High temperature only", "B. Low temperature only", "C. All temperatures", "D. Never spontaneous"], answer: "C. All temperatures", explanation: "From ΔG = ΔH - TΔS, if ΔH is negative and ΔS is positive, the TΔS term is positive, making -TΔS negative. A negative plus a negative is always negative, so ΔG is always negative, and the reaction is spontaneous at all temperatures.", neetFrequency: 4 },
-        { question: "The heat of neutralization of a strong acid and a strong base is approximately:", options: ["A. -57.3 kJ", "B. +57.3 kJ", "C. -13.7 kJ", "D. 0"], answer: "A. -57.3 kJ", explanation: "The net reaction is H⁺(aq) + OH⁻(aq) → H₂O(l), which has a standard enthalpy change of -57.3 kJ/mol.", neetFrequency: 2 },
-        { question: "The work done in the free expansion of an ideal gas is:", options: ["A. Positive", "B. Negative", "C. Zero", "D. Maximum"], answer: "C. Zero", explanation: "Free expansion occurs against a zero external pressure (P_ext = 0). Since W = -P_ext * ΔV, the work done is zero.", neetFrequency: 3 },
-        { question: "The heat capacity of a substance is:", options: ["A. The heat required to raise its temperature by 1 K", "B. The heat required to raise the temperature of 1g by 1 K", "C. The heat required to raise the temperature of 1 mole by 1 K", "D. The work done by the substance"], answer: "A. The heat required to raise its temperature by 1 K", explanation: "This is the definition of heat capacity (C). Specific heat capacity is for unit mass, and molar heat capacity is for one mole.", neetFrequency: 1 },
-        { question: "For the reaction C(s) + O₂(g) → CO₂(g), the relation between ΔH and ΔU is:", options: ["A. ΔH > ΔU", "B. ΔH < ΔU", "C. ΔH = ΔU", "D. Cannot be predicted"], answer: "C. ΔH = ΔU", explanation: "ΔH = ΔU + Δn_gRT. Here, Δn_g = (moles of gas products) - (moles of gas reactants) = 1 - 1 = 0. Therefore, ΔH = ΔU.", neetFrequency: 4 },
-        { question: "The most disordered state of matter is:", options: ["A. Solid", "B. Liquid", "C. Gas", "D. Plasma"], answer: "C. Gas", explanation: "Gas molecules move randomly and are far apart, representing the state with the highest entropy or disorder among the common states.", neetFrequency: 1 }
+        {
+            question: "Which of the following is an intensive property?",
+            options: ["A. Volume", "B. Mass", "C. Enthalpy", "D. Temperature"],
+            answer: "D. Temperature",
+            explanation: "Intensive properties (like temperature, pressure, density) do not depend on the amount of matter. Extensive properties (like volume, mass, enthalpy) do.",
+            neetFrequency: 2
+        },
+        {
+            question: "For a cyclic process, the change in internal energy is:",
+            options: ["A. Positive", "B. Negative", "C. Zero", "D. Dependent on the path"],
+            answer: "C. Zero",
+            explanation: "In a cyclic process, the system returns to its initial state. Since internal energy is a state function, the net change over a cycle is zero.",
+            neetFrequency: 3
+        },
+        {
+            question: "The first law of thermodynamics is a statement of conservation of:",
+            options: ["A. Mass", "B. Momentum", "C. Charge", "D. Energy"],
+            answer: "D. Energy",
+            explanation: "The first law, ΔU = Q - W, is a form of the law of conservation of energy.",
+            neetFrequency: 5
+        },
+        {
+            question: "For an adiabatic process, which of the following is correct?",
+            options: ["A. ΔU = 0", "B. Q = 0", "C. W = 0", "D. ΔT = 0"],
+            answer: "B. Q = 0",
+            explanation: "An adiabatic process is defined as one with no heat exchange with the surroundings.",
+            neetFrequency: 5
+        },
+        {
+            question: "The efficiency of a Carnot engine working between 127°C and 27°C is:",
+            options: ["A. 25%", "B. 50%", "C. 75%", "D. 100%"],
+            answer: "A. 25%",
+            explanation: "First, convert temperatures to Kelvin. T₁ = 127 + 273 = 400 K. T₂ = 27 + 273 = 300 K. Efficiency η = 1 - (T₂/T₁) = 1 - (300/400) = 1 - 0.75 = 0.25, or 25%.",
+            neetFrequency: 5
+        }
     ],
     assertionReasons: [
-        { assertion: "The enthalpy of formation of diamond is not zero, though it is an allotrope of carbon.", reason: "Graphite is the most stable allotrope of carbon, and its enthalpy of formation is taken as zero.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation. The standard enthalpy of formation is zero only for the element in its most stable state.", neetFrequency: 3 },
-        { assertion: "The entropy of a crystalline solid at absolute zero is zero.", reason: "At absolute zero, there is perfect order in the crystalline solid.", answer: "A", explanation: "This is the statement of the Third Law of Thermodynamics. The reason correctly explains the assertion.", neetFrequency: 2 },
-        { assertion: "A reaction with ΔG < 0 is always a fast reaction.", reason: "The change in Gibbs free energy determines the spontaneity of a reaction, not its rate.", answer: "D", explanation: "The assertion is false. A reaction can be spontaneous (thermodynamically favorable) but very slow (kinetically unfavorable), like the rusting of iron. The reason is a true statement.", neetFrequency: 4 },
-        { assertion: "Work and heat are path functions.", reason: "Their values depend on the path followed by the system to go from an initial to a final state.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct definition/explanation for a path function.", neetFrequency: 3 },
-        { assertion: "For an isochoric process, ΔU = q.", reason: "In an isochoric process, the volume is constant, so no work is done.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains the assertion. Since W=0, the first law ΔU = q + W simplifies to ΔU = q.", neetFrequency: 4 }
+        {
+            assertion: "The efficiency of a Carnot engine is always less than 100%.",
+            reason: "The temperature of the sink can never be zero Kelvin.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. Efficiency η = 1 - T₂/T₁. To have η=1 (100%), the sink temperature T₂ would have to be 0 K, which is practically unattainable (Third Law)."
+        },
+        {
+            assertion: "Work and heat are path functions.",
+            reason: "Their values depend on the path followed by the system to go from an initial to a final state.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct definition/explanation for a path function."
+        },
+        {
+            assertion: "The internal energy of an ideal gas does not change during an isothermal process.",
+            reason: "The internal energy of an ideal gas is a function of temperature only.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation for the assertion. Since temperature is constant in an isothermal process, the internal energy of an ideal gas does not change."
+        },
+        {
+            assertion: "A refrigerator transfers heat from a cold body to a hot body.",
+            reason: "This does not violate the second law of thermodynamics.",
+            answer: "B",
+            explanation: "Both statements are true. A refrigerator does pump heat from cold to hot. This does not violate the second law because it is not happening spontaneously; external work is being done on the system to achieve this."
+        },
+        {
+            assertion: "The work done in an isochoric process is always zero.",
+            reason: "Isochoric process is a constant volume process.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. Since W=PΔV and ΔV=0, the work done is zero."
+        }
     ],
     matchTheColumns: [
-        { column1: ["(a) Isothermal Process", "(b) Adiabatic Process", "(c) Isochoric Process", "(d) Isobaric Process"], column2: ["(p) Volume constant", "(q) Temperature constant", "(r) Pressure constant", "(s) Heat constant (Q=0)"], answer: "a-q, b-s, c-p, d-r", explanation: "Matching the thermodynamic processes with their defining constant property." },
-        { column1: ["(a) Work", "(b) Internal Energy", "(c) Enthalpy", "(d) Entropy"], column2: ["(p) State function, U", "(q) Path function", "(r) State function, H", "(s) State function, S"], answer: "a-q, b-p, c-r, d-s", explanation: "Classifying thermodynamic quantities as state functions or path functions." },
-        { column1: ["(a) ΔG < 0", "(b) ΔG > 0", "(c) ΔG = 0", "(d) ΔS_total > 0"], column2: ["(p) Equilibrium", "(q) Non-spontaneous", "(r) Spontaneous"], answer: "a-r, b-q, c-p, d-r", explanation: "Matching thermodynamic criteria with the nature of the process." },
-        { column1: ["(a) Endothermic reaction", "(b) Exothermic reaction", "(c) Sublimation", "(d) Combustion"], column2: ["(p) ΔH > 0, ΔS > 0", "(q) ΔH < 0", "(r) ΔH > 0"], answer: "a-r, b-q, c-p, d-q", explanation: "Matching processes with the sign of their enthalpy change. Sublimation is endothermic and increases entropy." },
-        { column1: ["(a) First Law", "(b) Second Law", "(c) Zeroth Law", "(d) Hess's Law"], column2: ["(p) Enthalpy is a state function", "(q) Defines Temperature", "(r) ΔU = q + w", "(s) Defines Entropy"], answer: "a-r, b-s, c-q, d-p", explanation: "Matching laws with their primary contribution or equation." }
+        {
+            column1: ["(a) Isothermal process", "(b) Adiabatic process", "(c) Isochoric process", "(d) Isobaric process"],
+            column2: ["(p) ΔU = 0", "(q) Q = 0", "(r) W = 0", "(s) W = PΔV"],
+            answer: "a-p, b-q, c-r, d-s"
+        },
+        {
+            column1: ["(a) First Law", "(b) Second Law", "(c) Zeroth Law", "(d) Carnot Cycle"],
+            column2: ["(p) Concept of Temperature", "(q) Conservation of Energy", "(r) Direction of Heat Flow", "(s) Reversible Cycle"],
+            answer: "a-q, b-r, c-p, d-s"
+        },
+        {
+            column1: ["(a) Heat Engine", "(b) Refrigerator", "(c) Internal Energy", "(d) Work Done"],
+            column2: ["(p) Path function", "(q) State function", "(r) η = 1 - T₂/T₁", "(s) COP = Q₂/W"],
+            answer: "a-r, b-s, c-q, d-p"
+        },
+        {
+            column1: ["(a) P-V graph area", "(b) Slope of adiabatic curve", "(c) Slope of isothermal curve", "(d) Cyclic process"],
+            column2: ["(p) -P/V", "(q) -γP/V", "(r) Work done", "(s) ΔU = 0"],
+            answer: "a-r, b-q, c-p, d-s"
+        },
+        {
+            column1: ["(a) Molar specific heat at constant volume (Cv)", "(b) Molar specific heat at constant pressure (Cp)", "(c) Adiabatic exponent (γ)", "(d) Mayer's relation"],
+            column2: ["(p) (dU/dT)_v", "(q) (dH/dT)_p", "(r) Cp/Cv", "(s) Cp - Cv = R"],
+            answer: "a-p, b-q, c-r, d-s"
+        }
     ],
     keyFormulasAndDiagrams: {
         formulas: [
             {
-                formula: '\\Delta U = q + w',
-                description: 'First Law of Thermodynamics (Chemist\'s convention)',
-                descriptionTamil: 'வெப்ப இயக்கவியலின் முதல் விதி (வேதியியலாளர் மரபு)'
+                formula: '\\Delta U = Q - W',
+                description: 'First Law of Thermodynamics (Physics convention)',
+                descriptionTamil: 'வெப்ப இயக்கவியலின் முதல் விதி (இயற்பியல் மரபு)'
             },
             {
-                formula: '\\Delta H = \\Delta U + \\Delta n_g RT',
-                description: 'Enthalpy and Internal Energy Relation',
-                descriptionTamil: 'என்தால்பி மற்றும் அக ஆற்றல் தொடர்பு'
+                formula: 'W = nRT \\ln(V_f/V_i)',
+                description: 'Work Done in Isothermal Process',
+                descriptionTamil: 'சமவெப்பநிலைச் செயல்முறையில் செய்யப்பட்ட வேலை'
             },
             {
-                formula: '\\Delta G = \\Delta H - T\\Delta S',
-                description: 'Gibbs Free Energy Equation',
-                descriptionTamil: 'கிப்ஸ் கட்டிலா ஆற்றல் சமன்பாடு'
-            },
-            {
-                formula: 'PV^{\\gamma} = \\text{constant}',
+                formula: 'PV^\\gamma = \\text{constant}',
                 description: 'Adiabatic Process Equation',
                 descriptionTamil: 'வெப்பப் பரிமாற்றமில்லாச் செயல்முறை சமன்பாடு'
+            },
+            {
+                formula: '\\eta = 1 - \\frac{T_2}{T_1}',
+                description: 'Carnot Engine Efficiency',
+                descriptionTamil: 'கார்னோ இயந்திரத் திறன்'
             }
         ],
         diagrams: []
     },
     keyTakeaways: [
-        "The First Law is the law of conservation of energy.",
-        "The Second Law determines the direction of spontaneous change (increase in total entropy).",
-        "Gibbs free energy (ΔG) is the ultimate criterion for spontaneity of a chemical reaction at constant temperature and pressure.",
-        "Hess's Law allows for the calculation of enthalpy changes for reactions that are difficult to measure directly."
+        "The First Law is about energy conservation; the Second Law is about the direction of energy transfer and its quality.",
+        "Internal energy of an ideal gas depends only on its temperature.",
+        "No heat engine can be more efficient than a Carnot engine operating between the same two temperatures.",
+        "Work done is the area under the P-V graph."
     ],
     mnemonics: [
-        { text: "Remember the Gibbs free energy sign: 'G is Negative, Go!' (spontaneous). 'G is Positive, Postponed!' (non-spontaneous).", tamil: "கிப்ஸ் கட்டிலா ஆற்றல் குறியீட்டை நினைவில் கொள்க: 'G எதிர்மறையெனில், செல்!' (தன்னிச்சையானது). 'G நேர்மறையெனில், தள்ளிப்போடப்பட்டது!' (தன்னிச்சையற்றது)." }
+        { text: "Remember the Iso-processes: Iso'baric' (bar=pressure), Iso'choric' (volume), Iso'thermal' (temperature).", tamil: "சம-செயல்முறைகளை நினைவில் கொள்க: சம'அழுத்த' (bar=pressure), சம'பருமன்' (choric), சம'வெப்பநிலை' (thermal)." }
     ],
     neetTips: [
-        { text: "Pay close attention to the states (g, l, s) of reactants and products when calculating Δn_g. It only applies to gaseous components.", tamil: "Δn_g ஐக் கணக்கிடும்போது வினைபடு பொருட்கள் மற்றும் விளைபொருட்களின் நிலைகளில் (g, l, s) அதிக கவனம் செலுத்துங்கள். இது வாயு கூறுகளை மட்டுமே சார்ந்தது." },
-        { text: "Problems combining the Gibbs free energy equation with the equilibrium equation (ΔG° = -RTlnK) are very common in JEE and can appear in NEET.", tamil: "கிப்ஸ் கட்டிலா ஆற்றல் சமன்பாட்டை சமநிலை சமன்பாட்டுடன் (ΔG° = -RTlnK) இணைக்கும் கணக்குகள் JEE இல் மிகவும் பொதுவானவை மற்றும் NEET-லும் தோன்றலாம்." }
+        {
+            text: "Be very careful with the sign convention for work and heat. Work *done by* the system is positive in physics.",
+            tamil: "வேலை மற்றும் வெப்பத்திற்கான குறியீட்டு மரபில் மிகவும் கவனமாக இருங்கள். இயற்பியலில், அமைப்பால் *செய்யப்பட்ட* வேலை நேர்க்குறியாகும்."
+        },
+        {
+            text: "For cyclic processes on a P-V diagram, the net work done is the area enclosed by the loop. It's positive for clockwise cycles (engine) and negative for anticlockwise cycles (refrigerator).",
+            tamil: "ஒரு P-V வரைபடத்தில் உள்ள சுழற்சி செயல்முறைகளுக்கு, நிகர வேலை என்பது வளைவால் சூழப்பட்ட பரப்பளவு ஆகும். இது கடிகார திசை சுழற்சிகளுக்கு (இயந்திரம்) நேர்க்குறியாகவும், கடிகார எதிர் திசை சுழற்சிகளுக்கு (குளிர்சாதனப்பெட்டி) எதிர்க்குறியாகவும் இருக்கும்."
+        }
     ],
     studentTip: {
-        english: "Thermodynamics is built on a few very powerful laws. Focus on deeply understanding the definitions of U, H, S, and G, and their relationships, rather than just memorizing formulas.",
-        tamil: "வெப்ப இயக்கவியல் சில மிகவும் சக்திவாய்ந்த விதிகளை அடிப்படையாகக் கொண்டது. சூத்திரங்களை மனப்பாடம் செய்வதை விட, U, H, S, மற்றும் G ஆகியவற்றின் வரையறைகள் மற்றும் அவற்றின் உறவுகளை ஆழமாகப் புரிந்துகொள்வதில் கவனம் செலுத்துங்கள்."
+        english: "Focus on understanding the P-V diagrams for each type of process. The shape of the curve (and the area under it) tells you everything you need to know about the work done.",
+        tamil: "ஒவ்வொரு வகை செயல்முறைக்குமான P-V வரைபடங்களைப் புரிந்துகொள்வதில் கவனம் செலுத்துங்கள். வளைவின் வடிவம் (மற்றும் அதன் கீழ் உள்ள பரப்பளவு) செய்யப்பட்ட வேலையைப் பற்றி நீங்கள் தெரிந்து கொள்ள வேண்டிய அனைத்தையும் கூறுகிறது."
     },
     peerDiscussion: {
-        english: "Discuss with a friend: Why can a process be non-spontaneous at low temperatures but become spontaneous at high temperatures? What conditions must ΔH and ΔS satisfy for this to happen?",
-        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு செயல்முறை குறைந்த வெப்பநிலையில் தன்னிச்சையற்றதாக இருந்து, அதிக வெப்பநிலையில் தன்னிச்சையாக மாறுவது ஏன்? இது நிகழ ΔH மற்றும் ΔS என்ன நிபந்தனைகளை பூர்த்தி செய்ய வேண்டும்?"
+        english: "Discuss with a friend why the efficiency of a real-world petrol engine is much lower than the Carnot efficiency calculated for the same source and sink temperatures. Where does the 'lost' energy go?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு நிஜ உலக பெட்ரோல் இயந்திரத்தின் திறன், அதே மூல மற்றும் ஏற்பி வெப்பநிலைகளுக்கு கணக்கிடப்பட்ட கார்னோ திறனை விட ஏன் மிகவும் குறைவாக உள்ளது? 'இழக்கப்பட்ட' ஆற்றல் எங்கே செல்கிறது?"
     },
     nextChapter: {
-        title: "Equilibrium",
-        titleTamil: "சமநிலை"
+        title: "Kinetic Theory of Gases",
+        titleTamil: "வாயுக்களின் இயக்கவியற் கொள்கை"
     },
     validationReport: []
 };
