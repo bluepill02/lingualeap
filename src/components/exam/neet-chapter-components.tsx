@@ -22,7 +22,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, BookOpen, ChevronsDown } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram, BilingualContent, ConceptNote } from '@/lib/types';
 import { Separator } from '../ui/separator';
 import { FbdBuilder } from './FbdBuilder';
@@ -46,26 +46,34 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
     }
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle>Concept Notes</CardTitle>
-                <CardDescription>Detailed explanations of key topics.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-                {content.map((note, index) => (
-                    <div key={index} className="prose dark:prose-invert max-w-none">
-                        <div className="border-b pb-2 mb-4">
-                           <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
+        <div className="space-y-6">
+            {content.map((note, index) => (
+                <React.Fragment key={index}>
+                    <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-3">
+                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
+                                <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
+                            </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
+                                {note.content.map((item, itemIndex) => (
+                                    <div key={itemIndex}>
+                                        <BilingualText english={item.english} tamil={item.tamil} />
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                    {index < content.length - 1 && (
+                        <div className="flex justify-center items-center">
+                            <ChevronsDown className="h-6 w-6 text-muted-foreground" />
                         </div>
-                        <div className="space-y-2">
-                          {note.content.map((item, itemIndex) => (
-                              <BilingualText key={itemIndex} english={item.english} tamil={item.tamil} />
-                          ))}
-                        </div>
-                    </div>
-                ))}
-            </CardContent>
-        </Card>
+                    )}
+                </React.Fragment>
+            ))}
+        </div>
     );
 }
 
