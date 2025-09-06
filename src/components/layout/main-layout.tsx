@@ -168,7 +168,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main className="flex-1">
-            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-8 lg:py-10">
+            <div className="container mx-auto py-6 md:py-8 lg:py-10">
                 {children}
             </div>
         </main>
