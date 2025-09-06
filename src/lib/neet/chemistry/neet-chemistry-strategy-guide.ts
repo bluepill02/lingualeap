@@ -157,6 +157,11 @@ export const strategyGuideContent: ChapterStrategy[] = [
             explanation: '**Mistake:** Incorrectly predicting spin pairing and geometry because the ligand strength is not known.\n\n**How to Avoid:** Memorize the spectrochemical series, at least the common ligands. **Strong field (pairing occurs):** CN⁻, CO, en, NH₃. **Weak field (no pairing):** H₂O, ox, F⁻, Cl⁻, Br⁻, I⁻. This is crucial for VBT problems.',
             explanationTamil: '**தவறு:** ஈனியின் வலிமை தெரியாததால், சுழல் இணைதல் மற்றும் வடிவவியலை தவறாகக் கணித்தல்.\n\n**தவிர்ப்பது எப்படி:** நிறமாலை வேதியியல் தொடரை, குறைந்தபட்சம் பொதுவான ஈனிகளையாவது மனப்பாடம் செய்யுங்கள். **வலிமையான புலம் (இணைதல் நிகழும்):** CN⁻, CO, en, NH₃. **பலவீனமான புலம் (இணைதல் இல்லை):** H₂O, ox, F⁻, Cl⁻, Br⁻, I⁻. இது VBT கணக்குகளுக்கு மிகவும் முக்கியம்.',
           },
+          {
+            point: 'IUPAC Naming Conventions',
+            explanation: '**Mistake:** Forgetting to put "-ate" at the end of the metal name for an anionic complex, or getting the order of ligands wrong.\n\n**How to Avoid:** Always check if the coordination sphere is a cation or an anion. If it\'s an anion (e.g., [Fe(CN)₆]⁴⁻), the metal name ends in -ate (ferrate). Ligands are always named alphabetically, regardless of their charge.',
+            explanationTamil: '**தவறு:** ஒரு எதிரயனி அணைவுச் சேர்மத்திற்கு உலோகப் பெயரின் இறுதியில் "-ate" என்று சேர்க்க மறப்பது, அல்லது ஈனிகளின் வரிசையைத் தவறாகப் பெறுவது.\n\n**தவிர்ப்பது எப்படி:** அணைவு கோளம் ஒரு நேரயனியா அல்லது எதிரயனியா என்பதை எப்போதும் சரிபார்க்கவும். அது ஒரு எதிரயனியாக இருந்தால் (எ.கா., [Fe(CN)₆]⁴⁻), உலோகப் பெயர் -ate (ஃபெர்ரேட்) இல் முடியும். ஈனிகள் எப்போதும் அவற்றின் மின்னூட்டத்தைப் பொருட்படுத்தாமல் அகர வரிசைப்படி பெயரிடப்படுகின்றன.',
+          },
         ],
       },
       {
@@ -168,6 +173,46 @@ export const strategyGuideContent: ChapterStrategy[] = [
             point: "Synergic Bonding in Metal Carbonyls",
             explanation: "**Concept:** In metal carbonyls like [Ni(CO)₄], the bond consists of two components: a σ bond from the lone pair of carbon to the empty orbital of the metal, and a π bond from a filled d-orbital of the metal back to the empty π* anti-bonding orbital of CO. This back-bonding strengthens the M-C bond but weakens the C-O bond. This is called synergic bonding.",
             explanationTamil: "**கருத்து:** [Ni(CO)₄] போன்ற உலோக கார்போனைல்களில், பிணைப்பு இரண்டு கூறுகளைக் கொண்டுள்ளது: கார்பனின் தனித்த ஜோடியிலிருந்து உலோகத்தின் காலி ஆர்பிட்டாலுக்கு ஒரு σ பிணைப்பு, மற்றும் உலோகத்தின் நிரம்பிய d-ஆர்பிட்டாலிலிருந்து CO-இன் காலி π* எதிர்பிணைப்பு ஆர்பிட்டாலுக்கு ஒரு π பிணைப்பு. இந்த பின்தொடர் பிணைப்பு M-C பிணைப்பை வலுப்படுத்துகிறது ஆனால் C-O பிணைப்பை பலவீனப்படுத்துகிறது. இது ஒருங்கிணைந்த பிணைப்பு எனப்படும்.",
+          },
+          {
+            point: "Chelate Effect",
+            explanation: "**Concept:** Polydentate ligands (like ethylenediamine 'en' or oxalate 'ox') form more stable complexes than monodentate ligands. This is because they form stable ring structures with the central metal atom. This enhanced stability is known as the chelate effect.",
+            explanationTamil: "**கீலேட் விளைவு:** பாலிடென்டேட் ஈனிகள் (எத்திலினிடயமீன் 'en' அல்லது ஆக்சலேட் 'ox' போன்றவை) மோனோடென்டேட் ஈனிகளை விட நிலையான அணைவுச் சேர்மங்களை உருவாக்குகின்றன. ஏனெனில் அவை மைய உலோக அணுவுடன் நிலையான வளைய அமைப்புகளை உருவாக்குகின்றன. இந்த மேம்பட்ட நிலைப்புத்தன்மை கீலேட் விளைவு என அழைக்கப்படுகிறது.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    chapterName: 'Aldehydes, Ketones, and Carboxylic Acids',
+    chapterNameTamil: 'ஆல்டிஹைடுகள், கீட்டோன்கள் மற்றும் கார்பாக்சிலிக் அமிலங்கள்',
+    sections: [
+      {
+        title: 'Common Mistakes & Doubts',
+        titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+        type: 'mistake',
+        points: [
+          {
+            point: 'Aldol vs. Cannizzaro Reaction',
+            explanation: '**Mistake:** Applying the wrong reaction to a given aldehyde.\n\n**How to Avoid:** The key is the **α-hydrogen**. **Aldol condensation** requires at least one α-hydrogen. **Cannizzaro reaction** is for aldehydes that have **NO** α-hydrogen (like formaldehyde, benzaldehyde).',
+            explanationTamil: '**தவறு:** கொடுக்கப்பட்ட ஒரு ஆல்டிஹைடுக்கு தவறான வினையைப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** முக்கியமானது **α-ஹைட்ரஜன்** ஆகும். **ஆல்டால் குறுக்கத்திற்கு** குறைந்தது ஒரு α-ஹைட்ரஜன் தேவை. **கேனிசரோ வினை** என்பது α-ஹைட்ரஜன் **இல்லாத** ஆல்டிஹைடுகளுக்கு (ஃபார்மால்டிஹைடு, பென்சால்டிஹைடு போன்றவை) ஆகும்.',
+          },
+          {
+            point: 'Distinguishing Aldehydes and Ketones',
+            explanation: '**Mistake:** Forgetting which tests are positive for aldehydes only.\n\n**How to Avoid:** Aldehydes are easily oxidized, ketones are not. Remember: **Tollens\' test (silver mirror)** and **Fehling\'s test (red precipitate)** are positive ONLY for aldehydes. The 2,4-DNP test is positive for both.',
+            explanationTamil: '**தவறு:** எந்த சோதனைகள் ஆல்டிஹைடுகளுக்கு மட்டுமே நேர்மறையானவை என்பதை மறப்பது.\n\n**தவிர்ப்பது எப்படி:** ஆல்டிஹைடுகள் எளிதில் ஆக்ஸிஜனேற்றமடைகின்றன, கீட்டோன்கள் இல்லை. நினைவில் கொள்க: **டாலன்ஸ் சோதனை (வெள்ளி ஆடி)** மற்றும் **ஃபெலிங் சோதனை (சிவப்பு வீழ்படிவு)** ஆகியவை ஆல்டிஹைடுகளுக்கு மட்டுமே நேர்மறையானவை. 2,4-DNP சோதனை இரண்டிற்கும் நேர்மறையானது.',
+          },
+        ],
+      },
+       {
+        title: 'Rare Concepts & Problems',
+        titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+        type: 'rare',
+        points: [
+          {
+            point: "Haloform Reaction Mechanism",
+            explanation: "**Concept:** The Iodoform test (a type of Haloform reaction) works for methyl ketones or alcohols that can be oxidized to methyl ketones. The mechanism involves the repeated halogenation of the α-carbon in basic medium until a trihalo-ketone is formed, which is then cleaved by the base to form a haloform (CHI₃) and a carboxylate salt.",
+            explanationTamil: "**கருத்து:** அயோடோஃபார்ம் சோதனை (ஒரு வகை ஹாலோஃபார்ம் வினை) மெத்தில் கீட்டோன்கள் அல்லது மெத்தில் கீட்டோன்களாக ஆக்ஸிஜனேற்றப்படக்கூடிய ஆல்கஹால்களுக்கு வேலை செய்கிறது. இந்த வினைவழிமுறை கார ஊடகத்தில் α-கார்பனின் தொடர்ச்சியான ஹாலஜனேற்றத்தை உள்ளடக்கியது, இது ஒரு டிரைஹாலோ-கீட்டோன் உருவாகும் வரை தொடர்கிறது, அது பின்னர் காரத்தால் பிளக்கப்பட்டு ஒரு ஹாலோஃபார்ம் (CHI₃) மற்றும் ஒரு கார்பாக்சிலேட் உப்பை உருவாக்குகிறது.",
           },
         ],
       },
