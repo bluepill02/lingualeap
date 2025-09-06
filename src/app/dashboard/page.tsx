@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { mockUser, companionCircle, flashcards, lessons } from '@/lib/data';
+import { mockUser, companionCircles, flashcards, lessons } from '@/lib/data';
 import {
   Trophy,
   BrainCircuit,
@@ -38,6 +38,9 @@ export default function DashboardPage() {
   const [greeting, setGreeting] = useState('');
   const [joinedDate, setJoinedDate] = useState<string | null>(null);
   const [accuracy, setAccuracy] = useState<string | null>(null);
+
+  // Use the first circle from the array as the user's circle
+  const companionCircle = companionCircles[0];
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -399,5 +402,7 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    
 
     
