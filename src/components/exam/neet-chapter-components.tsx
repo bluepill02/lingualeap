@@ -112,15 +112,15 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 ))}
                             </div>
                         </div>
-                         <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
-                            <Lightbulb className="h-4 w-4 text-yellow-400" />
-                            <AlertTitle className='text-yellow-300'>NEET Hack</AlertTitle>
+                         <Alert variant="warning">
+                            <Lightbulb className="h-4 w-4" />
+                            <AlertTitle>NEET Hack</AlertTitle>
                             <AlertDescription>
                                <BilingualText english={example.neetHack} tamil={example.neetHackTamil} />
                             </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
-                            <Alert variant="destructive" className="bg-destructive/10">
+                            <Alert variant="destructive">
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
@@ -304,9 +304,9 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                            Adaptive MCQ Practice
                         </AccordionTrigger>
                         <AccordionContent className="pt-4 space-y-6">
-                            <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
-                                <Lightbulb className="h-4 w-4 text-yellow-400" />
-                                <AlertTitle className="text-yellow-300">Focus on What Matters</AlertTitle>
+                            <Alert variant="warning">
+                                <Lightbulb className="h-4 w-4" />
+                                <AlertTitle>Focus on What Matters</AlertTitle>
                                 <AlertDescription>
                                     These questions are sorted by how frequently similar concepts have appeared in past NEET exams. High-frequency questions are marked with more stars.
                                 </AlertDescription>

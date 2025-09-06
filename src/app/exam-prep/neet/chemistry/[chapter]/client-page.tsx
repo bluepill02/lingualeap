@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube, Separator } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -19,6 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 import { SyllabusMappingCard } from '@/components/exam/exam-components';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { BilingualText } from '@/components/exam/bilingual-text';
+import { Separator } from '@/components/ui/separator';
 
 function OverviewTab({
   learningObjectives,
@@ -79,13 +80,13 @@ function OverviewTab({
         </CardHeader>
         <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
           <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
-          {tamilConnection && <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
-              <Lightbulb className="h-4 w-4 text-yellow-400" />
+          {tamilConnection && <Alert variant="warning">
+              <Lightbulb className="h-4 w-4" />
               <AlertTitle>Tamil Connection</AlertTitle>
               <AlertDescription><MarkdownRenderer>{tamilConnection}</MarkdownRenderer></AlertDescription>
           </Alert>}
-           {culturalContext && <Alert variant="default" className="bg-green-500/10 border-green-500/30">
-              <BookOpen className="h-4 w-4 text-green-400" />
+           {culturalContext && <Alert variant="success">
+              <BookOpen className="h-4 w-4" />
               <AlertTitle>Cultural Context</AlertTitle>
               <AlertDescription><MarkdownRenderer>{culturalContext}</MarkdownRenderer></AlertDescription>
           </Alert>}
