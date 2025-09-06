@@ -144,9 +144,10 @@ function ChapterContent({ content }: { content: NeetModule }) {
   const progress = (completedSections.length / totalSections) * 100;
   
   const getIcon = () => {
-    if (title.toLowerCase().includes('organic')) return <TestTube className="w-6 h-6" />;
-    if (title.toLowerCase().includes('thermodynamics') || title.toLowerCase().includes('kinetics') || title.toLowerCase().includes('equilibrium')) return <FlaskConical className="w-6 h-6" />;
-    return <Atom className="w-6 h-6" />;
+    const lowerCaseTitle = title.toLowerCase();
+    if (lowerCaseTitle.includes('atomic') || lowerCaseTitle.includes('structure')) return <Atom className="w-6 h-6" />;
+    if (lowerCaseTitle.includes('thermodynamics') || lowerCaseTitle.includes('kinetics') || lowerCaseTitle.includes('equilibrium')) return <FlaskConical className="w-6 h-6" />;
+    return <TestTube className="w-6 h-6" />;
   }
 
   return (
