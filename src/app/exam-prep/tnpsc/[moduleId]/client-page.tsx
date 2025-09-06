@@ -24,12 +24,16 @@ import {
   Download,
   Share2,
   Bookmark,
-  AlertCircle
+  AlertCircle,
+  Key,
+  Landmark,
+  Megaphone
 } from 'lucide-react';
-import { type TnpscModule, getTnpscModuleById } from '@/lib/exam-data-tnpsc';
+import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { XCircle } from 'lucide-react';
 
 
 const COLORS = {
@@ -113,9 +117,9 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
 
 
     return (
-        <Card className="glass-card">
+        <Card>
             <CardHeader>
-                <CardTitle className="text-white flex items-center gap-2">
+                <CardTitle className="flex items-center gap-2">
                     <TrendingUp className="h-5 w-5" />
                     {language === 'english' ? 'Practice Performance' : 'பயிற்சி செயல்திறன்'}
                 </CardTitle>
@@ -148,31 +152,31 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                     </ResponsiveContainer>
                 </div>
                  <div className="space-y-4">
-                    <Card className="bg-white/5 border-white/10">
+                    <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
-                            <CardTitle className="text-sm font-medium text-white/80">Total Questions</CardTitle>
-                            <Target className="h-4 w-4 text-white/50" />
+                            <CardTitle className="text-sm font-medium">Total Questions</CardTitle>
+                            <Target className="h-4 w-4 text-muted-foreground" />
                         </CardHeader>
                         <CardContent className="p-4 pt-0">
-                             <div className="text-2xl font-bold text-white">{totalQuestions}</div>
+                             <div className="text-2xl font-bold">{totalQuestions}</div>
                         </CardContent>
                     </Card>
-                     <Card className="bg-white/5 border-white/10">
+                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
-                            <CardTitle className="text-sm font-medium text-white/80">Correct</CardTitle>
-                            <CheckCircle className="h-4 w-4 text-green-400" />
+                            <CardTitle className="text-sm font-medium">Correct</CardTitle>
+                            <CheckCircle className="h-4 w-4 text-green-500" />
                         </CardHeader>
                         <CardContent className="p-4 pt-0">
-                             <div className="text-2xl font-bold text-green-400">{correctCount}</div>
+                             <div className="text-2xl font-bold text-green-500">{correctCount}</div>
                         </CardContent>
                     </Card>
-                     <Card className="bg-white/5 border-white/10">
+                     <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
-                            <CardTitle className="text-sm font-medium text-white/80">Incorrect</CardTitle>
-                            <XCircle className="h-4 w-4 text-red-400" />
+                            <CardTitle className="text-sm font-medium">Incorrect</CardTitle>
+                            <XCircle className="h-4 w-4 text-destructive" />
                         </CardHeader>
                         <CardContent className="p-4 pt-0">
-                             <div className="text-2xl font-bold text-red-400">{incorrectCount}</div>
+                             <div className="text-2xl font-bold text-destructive">{incorrectCount}</div>
                         </CardContent>
                     </Card>
                 </div>
@@ -331,6 +335,63 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
              <Button onClick={() => markSectionCompleted('content')} disabled={completedSections.has('content')}>
                 {completedSections.has('content') ? 'Completed' : 'Mark Content as Read'}
               </Button>
+          </TabsContent>
+          <TabsContent value="context" className="mt-4 space-y-6">
+              <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Key className="h-5 w-5" /> {language === 'english' ? 'Key Terms' : 'முக்கிய சொற்கள்'}
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc list-inside space-y-2">
+                        {module.specificData.keyTerms.map((term, i) => <li key={i}>{term}</li>)}
+                    </ul>
+                </CardContent>
+              </Card>
+               <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Users className="h-5 w-5" /> {language === 'english' ? 'Important Figures' : 'முக்கிய ஆளுமைகள்'}
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc list-inside space-y-2">
+                        {module.specificData.importantFigures.map((figure, i) => <li key={i}>{figure}</li>)}
+                    </ul>
+                </CardContent>
+              </Card>
+               <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Megaphone className="h-5 w-5" /> {language === 'english' ? 'Significant Events' : 'குறிப்பிடத்தக்க நிகழ்வுகள்'}
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc list-inside space-y-2">
+                        {module.specificData.significantEvents.map((event, i) => <li key={i}>{event}</li>)}
+                    </ul>
+                </CardContent>
+              </Card>
+              {module.specificData.institutions && (
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Landmark className="h-5 w-5" /> {language === 'english' ? 'Relevant Institutions' : 'தொடர்புடைய நிறுவனங்கள்'}
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="list-disc list-inside space-y-2">
+                            {module.specificData.institutions.map((inst, i) => <li key={i}>{inst}</li>)}
+                        </ul>
+                    </CardContent>
+                </Card>
+              )}
+               <div className="text-center">
+                    <Button onClick={() => markSectionCompleted('context')} disabled={completedSections.has('context')}>
+                        {completedSections.has('context') ? 'Completed' : 'Mark as Completed'}
+                    </Button>
+                </div>
           </TabsContent>
           <TabsContent value="analytics" className="mt-4 space-y-6">
             <AnalyticsTabContent />
