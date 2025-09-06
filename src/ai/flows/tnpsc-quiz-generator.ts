@@ -7,15 +7,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { NeetQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema, NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
-
-// We can reuse the NEET schemas for input and output as they are structurally identical.
-// The real difference will be in the prompt content.
-export const TnpscQuizGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
-    subject: z.enum(['History', 'Polity', 'Geography', 'Economy', 'General Science']),
-});
-export type TnpscQuizGeneratorInput = z.infer<typeof TnpscQuizGeneratorInputSchema>;
-
+import { TnpscQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema, TnpscQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
 
 export async function generateTnpscQuiz(input: TnpscQuizGeneratorInput): Promise<NeetQuizGeneratorOutput> {
   return tnpscQuizGeneratorFlow(input);

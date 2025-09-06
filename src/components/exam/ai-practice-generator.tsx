@@ -10,16 +10,19 @@ import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { Sparkles, Loader2, CheckCircle, XCircle, FileQuestion, Copy, RefreshCw } from 'lucide-react';
-import type { NeetModule, NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import type { NeetModule, NeetQuizGeneratorOutput, TnpscQuizGeneratorInput } from '@/lib/types';
+import { NeetQuizQuestionSchema, NeetFlashcardGeneratorOutput, NeetFlashcardGeneratorInput, NeetQuizGeneratorInput } from '@/lib/types';
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
-import { generateNeetFlashcards, NeetFlashcardGeneratorOutput } from '@/ai/flows/neet-flashcard-generator';
+import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
+import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 import { MarkdownRenderer } from './markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from "framer-motion";
 
 interface AiPracticeGeneratorProps {
-  subject: NeetModule['subject'];
+  subject: NeetModule['subject'] | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science';
   chapter: string;
+  generatorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
 }
 
 type QuizState = {
@@ -30,7 +33,7 @@ type QuizState = {
 type Language = 'English' | 'Tamil';
 type PracticeType = 'mcq' | 'flashcards';
 
-export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorProps) {
+export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPracticeGeneratorProps) {
   const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
   const [language, setLanguage] = useState<Language>('English');
@@ -72,13 +75,14 @@ export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorPro
   };
 
   const handleGenerateMcqs = async () => {
-    const result = await generateNeetQuiz({
+    const input = {
         subject,
         chapter,
         numQuestions: numItems,
         difficulty,
         language,
-    });
+    };
+    const result = await generatorFn(input);
     if (!result.quizzes || result.quizzes.length === 0) {
         throw new Error("AI failed to generate questions. Please try again.");
     }
@@ -91,7 +95,7 @@ export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorPro
 
   const handleGenerateFlashcards = async () => {
     const result = await generateNeetFlashcards({
-        subject,
+        subject: subject as NeetQuizGeneratorInput['subject'], // Assuming flashcards are only for NEET subjects for now
         chapter,
         numFlashcards: numItems,
         difficulty,
@@ -147,7 +151,7 @@ export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorPro
          <Tabs value={practiceType} onValueChange={(value) => setPracticeType(value as PracticeType)}>
             <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="mcq"><FileQuestion className="mr-2"/> MCQs</TabsTrigger>
-                <TabsTrigger value="flashcards"><Copy className="mr-2"/> Flashcards</TabsTrigger>
+                <TabsTrigger value="flashcards" disabled={!['Physics', 'Chemistry', 'Biology'].includes(subject)}><Copy className="mr-2"/> Flashcards</TabsTrigger>
             </TabsList>
         </Tabs>
 

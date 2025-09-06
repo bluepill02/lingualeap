@@ -390,6 +390,10 @@ export const NeetQuizGeneratorOutputSchema = z.object({
 });
 export type NeetQuizGeneratorOutput = z.infer<typeof NeetQuizGeneratorOutputSchema>;
 
+export const TnpscQuizGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
+    subject: z.enum(['History', 'Polity', 'Geography', 'Economy', 'General Science']),
+});
+export type TnpscQuizGeneratorInput = z.infer<typeof TnpscQuizGeneratorInputSchema>;
 
 export const FlashcardSchema = z.object({
   front: z.string().describe('The front of the flashcard, containing a key term, concept, or question. Should be concise.'),
