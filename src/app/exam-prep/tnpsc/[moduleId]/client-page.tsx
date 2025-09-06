@@ -290,7 +290,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
         <Progress value={progressPercentage} />
 
         <Tabs value={currentTab} onValueChange={setCurrentTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6">
+          <TabsList className="grid w-full h-auto grid-cols-3 lg:grid-cols-6">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="practice">Practice</TabsTrigger>
