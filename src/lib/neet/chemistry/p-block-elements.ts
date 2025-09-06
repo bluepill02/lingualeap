@@ -95,12 +95,11 @@ export const pBlockElementsModule: NeetModule = {
             problemTamil: "பெராக்ஸோமோனோசல்பியூரிக் அமிலத்தின் (காரோவின் அமிலம்) அமைப்பை வரைந்து, கந்தகத்தின் ஆக்ஸிஜனேற்ற நிலையைக் கண்டறியவும்.",
             solutionSteps: [
                 { step: 1, explanation: "The chemical formula is H₂SO₅.", explanationTamil: "வேதியியல் வாய்ப்பாடு H₂SO₅ ஆகும்." },
-                { step: 2, explanation: "Draw the structure. Sulphur is the central atom. It is bonded to two -OH groups, two oxygen atoms with double bonds, and one oxygen atom in a peroxide linkage (-O-O-).", calculation: "Structure: HO - S(=O)₂ - O - OH" },
+                { step: 2, explanation: "Draw the structure. Sulphur is the central atom. It is bonded to one -OH group, two oxygen atoms with double bonds, and one peroxide linkage (-O-OH).", calculation: "Structure: HO - S(=O)₂ - O - OH" },
                 { step: 3, explanation: "Calculate the oxidation state from the structure. O in the peroxide linkage has an oxidation state of -1. The other three O atoms have -2. H has +1.", calculation: "Let the oxidation state of S be x. (+1) + x + 3(-2) + (-1) + (+1) = 0 => x - 6 = 0 => x = +6" },
                 { step: 4, explanation: "The oxidation state of sulphur in Caro's acid is +6.", explanationTamil: "காரோவின் அமிலத்தில் கந்தகத்தின் ஆக்ஸிஜனேற்ற நிலை +6 ஆகும்." }
             ],
-            commonPitfall: "Calculating the oxidation state algebraically from the formula H₂SO₅ (2(+1) + x + 5(-2) = 0) gives x = +8, which is incorrect as sulphur cannot have an oxidation state greater than +6. This indicates the presence of a peroxide linkage.",
-            neetHackTamil: "H₂SO₅ சூத்திரத்திலிருந்து இயற்கணித ரீதியாக ஆக்ஸிஜனேற்ற நிலையைக் கணக்கிடுவது x = +8 ஐக் கொடுக்கிறது, இது தவறானது, ஏனெனில் கந்தகம் +6 ஐ விட அதிகமான ஆக்ஸிஜனேற்ற நிலையைக் கொண்டிருக்க முடியாது. இது ஒரு பெராக்சைடு பிணைப்பு இருப்பதைக் குறிக்கிறது."
+            commonPitfall: "Calculating the oxidation state algebraically from the formula H₂SO₅ (2(+1) + x + 5(-2) = 0) gives x = +8, which is incorrect as sulphur cannot have an oxidation state greater than +6. This indicates the presence of a peroxide linkage."
         },
         {
             title: "NEET Level: Properties of Interhalogens",
@@ -145,7 +144,7 @@ export const pBlockElementsModule: NeetModule = {
         }
     ],
     mcqs: [
-        { question: "Which of the following is the correct order of acidic strength?", options: ["A. Cl₂O₇ > SO₂ > P₄O₁₀", "B. P₄O₁₀ > SO₂ > Cl₂O₇", "C. SO₂ > Cl₂O₇ > P₄O₁₀", "D. Cl₂O₇ > P₄O₁₀ > SO₂"], answer: "A. Cl₂O₇ > SO₂ > P₄O₁₀", explanation: "Across a period, the acidic character of oxides increases with increasing electronegativity of the central atom. Cl is the most electronegative, followed by S, then P.", neetFrequency: 4 },
+        { question: "Which of the following is the correct order of acidic strength?", options: ["A. Cl₂O₇ > SO₃ > P₄O₁₀", "B. P₄O₁₀ > SO₃ > Cl₂O₇", "C. SO₃ > Cl₂O₇ > P₄O₁₀", "D. Cl₂O₇ > P₄O₁₀ > SO₃"], answer: "A. Cl₂O₇ > SO₃ > P₄O₁₀", explanation: "Across a period, the acidic character of oxides increases with increasing electronegativity of the central atom. Cl is the most electronegative, followed by S, then P.", neetFrequency: 4 },
         { question: "The structure of XeF₄ is:", options: ["A. Tetrahedral", "B. Pyramidal", "C. Square planar", "D. Linear"], answer: "C. Square planar", explanation: "Xe has 8 valence electrons. 4 form bonds with F. Remaining are 4 electrons = 2 lone pairs. Total 6 electron pairs (4 BP + 2 LP) give an octahedral geometry, and the shape is square planar to minimize lone pair repulsion.", neetFrequency: 5 },
         { question: "Which of the following is known as 'inorganic benzene'?", options: ["A. Borazine (B₃N₃H₆)", "B. Diborane (B₂H₆)", "C. Boron nitride (BN)", "D. Borax (Na₂B₄O₇·10H₂O)"], answer: "A. Borazine (B₃N₃H₆)", explanation: "Borazine is isoelectronic and isostructural with benzene, hence it is called inorganic benzene.", neetFrequency: 3 },
         { question: "The oxidation state of phosphorus in H₄P₂O₇ is:", options: ["A. +3", "B. +5", "C. +4", "D. +1"], answer: "B. +5", explanation: "Let the oxidation state of P be x. 4(+1) + 2x + 7(-2) = 0 => 4 + 2x - 14 = 0 => 2x = 10 => x = +5.", neetFrequency: 4 },
