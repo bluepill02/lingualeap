@@ -48,6 +48,75 @@ export const diversityInTheLivingWorld: NeetModule = {
       "The section on Viruses, Viroids, and Lichens at the end of the 'Biological Classification' chapter is very important. Questions on the nature of viruses (inert crystalline structure outside the host) and the composition of lichens (algal and fungal components) are frequently asked. (வைரஸ்கள், வைராய்டுகள் மற்றும் லைக்கென்கள் பற்றிய பகுதி மிகவும் முக்கியமானது. அவற்றின் அமைப்பு மற்றும் கூறுகள் பற்றிய கேள்விகள் அடிக்கடி கேட்கப்படுகின்றன).",
       "For Plant and Animal Kingdoms, focus on the basis of classification and one unique feature for each group along with at least two examples. Don't try to memorize everything; focus on the distinguishing characteristics. (தாவர மற்றும் விலங்கு உலகங்களுக்கு, வகைப்பாட்டின் அடிப்படை மற்றும் ஒவ்வொரு குழுவிற்கும் ஒரு தனித்துவமான அம்சம் மற்றும் இரண்டு எடுத்துக்காட்டுகளில் கவனம் செலுத்துங்கள்)."
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [],
+        diagrams: [
+            {
+                title: 'Five Kingdom Classification',
+                description: 'A flowchart showing the Whittaker\'s five kingdoms (Monera, Protista, Fungi, Plantae, Animalia) and their basis of classification (cell structure, mode of nutrition, body organization).',
+                diagram: `
+                    Living Organisms
+                          |
+    +---------------------------------------+
+    |                                       |
+Prokaryotes                             Eukaryotes
+    |                                       |
+Kingdom Monera          +-------------------+
+                        |                   |
+                    Unicellular         Multicellular
+                        |                   |
+                Kingdom Protista    +----------------+
+                                    |                |
+                              With Cell Wall   Without Cell Wall
+                                    |                |
+                          +----------------+         Kingdom Animalia
+                          |                |
+                Photosynthetic       Non-photosynthetic
+                          |                |
+                Kingdom Plantae      Kingdom Fungi
+                `
+            },
+            {
+                title: 'Taxonomic Hierarchy',
+                description: 'The ascending or descending arrangement of taxonomic categories. Each category represents a rank and is commonly called a taxon.',
+                diagram: `
+                    Kingdom  (Highest Rank)
+                       ↑
+                    Phylum (or Division for plants)
+                       ↑
+                    Class
+                       ↑
+                    Order
+                       ↑
+                    Family
+                       ↑
+                    Genus
+                       ↑
+                    Species  (Lowest Rank)
+                `
+            },
+            {
+                title: 'Structure of a Bacteriophage',
+                description: 'A diagram showing the basic structure of a bacteriophage virus, which infects bacteria.',
+                diagram: `
+                     +----------------+
+                     |   Head (Capsid)|  <-- Contains genetic material (DNA)
+                     +----------------+
+                           | |
+                           | |  <-- Collar
+                           ---
+                            |
+                         Sheath
+                            |
+                     +--------------+
+                     | Base Plate   |
+                     +--------------+
+                       |    |    |
+                     Tail Fibers
+                `
+            }
+        ]
+    },
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
