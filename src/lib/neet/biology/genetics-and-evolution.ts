@@ -60,5 +60,3 @@ export const geneticsAndEvolution: NeetModule = {
     },
     validationReport: []
 };
-
-    

@@ -59,5 +59,3 @@ export const biotechnologyAndItsApplications: NeetModule = {
     },
     validationReport: []
 };
-
-    

@@ -257,7 +257,7 @@ Kingdom Monera          +-------------------+
     },
     peerDiscussion: {
         english: "Discuss with a friend why viruses are not included in the five-kingdom classification. What arguments could be made for them being 'living' vs. 'non-living'?",
-        tamil: "ஐந்து-உலக வகைப்பாட்டில் வைரஸ்கள் ஏன் சேர்க்கப்படவில்லை என்று உங்கள் நண்பருடன் விவாதிக்கவும். அவை 'உயிருள்ளவை' என்பதற்கு எதிராகவும், 'உயிரற்றவை' என்பதற்கு ஆதரவாகவும் என்ன வாதங்களை முன்வைக்கலாம்?"
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஐந்து-உலக வகைப்பாட்டில் வைரஸ்கள் ஏன் சேர்க்கப்படவில்லை? அவை 'உயிருள்ளவை' என்பதற்கு எதிராகவும், 'உயிரற்றவை' என்பதற்கு ஆதரவாகவும் என்ன வாதங்களை முன்வைக்கலாம்?"
     },
     nextChapter: {
         title: "Structural Organisation in Animals and Plants",

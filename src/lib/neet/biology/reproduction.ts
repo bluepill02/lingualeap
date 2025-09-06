@@ -59,5 +59,3 @@ export const reproduction: NeetModule = {
     },
     validationReport: []
 };
-
-    

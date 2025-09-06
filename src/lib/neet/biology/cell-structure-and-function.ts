@@ -59,5 +59,3 @@ export const cellStructureAndFunction: NeetModule = {
     },
     validationReport: []
 };
-
-    

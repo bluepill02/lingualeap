@@ -59,5 +59,3 @@ export const ecologyAndEnvironment: NeetModule = {
     },
     validationReport: []
 };
-
-    
