@@ -5,6 +5,7 @@ import * as React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BookOpen, AlertTriangle, Lightbulb, Target } from 'lucide-react';
 import type { NeetModule } from '@/lib/types';
+import { MarkdownRenderer } from './markdown-renderer';
 
 export function BiologyLearnCard({ content }: { content: NeetModule }) {
   const { stateBoardGaps = [], extraNeetConcepts = [], ncertReadingGuide = [] } = content;
@@ -21,11 +22,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
             Topics in this chapter that are present in NCERT but may be omitted in the TN State Board syllabus.
           </CardDescription>
         </CardHeader>
-        <CardContent className="card-padding-lg">
+        <CardContent className="card-padding-lg prose dark:prose-invert max-w-none">
           {stateBoardGaps.length > 0 ? (
             <ul className="list-disc list-outside space-y-2 pl-5">
               {stateBoardGaps.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}><MarkdownRenderer>{item}</MarkdownRenderer></li>
               ))}
             </ul>
           ) : (
@@ -44,11 +45,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
             Advanced or related topics sometimes asked in NEET that go slightly beyond the core NCERT textbook.
           </CardDescription>
         </CardHeader>
-        <CardContent className="card-padding-lg">
+        <CardContent className="card-padding-lg prose dark:prose-invert max-w-none">
           {extraNeetConcepts.length > 0 ? (
             <ul className="list-disc list-outside space-y-2 pl-5">
               {extraNeetConcepts.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}><MarkdownRenderer>{item}</MarkdownRenderer></li>
               ))}
             </ul>
           ) : (
@@ -67,11 +68,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
             Tips for reading the NCERT textbook for this chapter effectively to maximize your score.
           </CardDescription>
         </CardHeader>
-        <CardContent className="card-padding-lg">
+        <CardContent className="card-padding-lg prose dark:prose-invert max-w-none">
           {ncertReadingGuide.length > 0 ? (
             <ol className="list-decimal list-outside space-y-3 pl-5">
               {ncertReadingGuide.map((item, index) => (
-                <li key={index}>{item}</li>
+                <li key={index}><MarkdownRenderer>{item}</MarkdownRenderer></li>
               ))}
             </ol>
           ) : (
