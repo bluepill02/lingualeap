@@ -1,6 +1,6 @@
 
 /**
- * @fileOverview This file contains the official checklist and guidelines for creating and validating NEET Physics modules.
+ * @fileOverview This file contains the official checklist and guidelines for creating and validating NEET modules.
  * This serves as a programmatic source of truth for content strategy and quality assurance.
  */
 

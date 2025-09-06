@@ -4,7 +4,7 @@
  * It programmatically checks the generated content against the QA checklist.
  */
 
-import { qaChecklist } from '../lib/physics-checklist';
+import { qaChecklist } from '@/lib/qa-checklist';
 import type { NeetModule } from '../lib/types';
 
 interface ValidationResult {

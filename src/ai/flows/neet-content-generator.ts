@@ -10,7 +10,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { qaChecklist } from '@/lib/physics-checklist';
+import { qaChecklist } from '@/lib/qa-checklist';
 
 export const NeetContentGeneratorInputSchema = z.object({
   subject: z.string().describe('The subject, e.g., "Physics".'),

@@ -10,7 +10,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { qaChecklist } from '@/lib/physics-checklist';
+import { qaChecklist } from '@/lib/qa-checklist';
 
 export const NeetContentFixerInputSchema = z.object({
   brokenMarkdown: z.string().describe("The full markdown content of the module that failed validation."),
