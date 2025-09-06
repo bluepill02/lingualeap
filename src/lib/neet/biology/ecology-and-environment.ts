@@ -8,6 +8,9 @@ export const ecologyAndEnvironment: NeetModule = {
     subject: 'Biology',
     learningObjectives: [],
     prerequisites: [],
+    conceptOverview: "Ecology is the study of the interactions among organisms and between organisms and their physical environment. This unit covers various levels of organization, from organisms and populations to ecosystems and biomes. It explores concepts like population interactions, nutrient cycling, energy flow, ecological pyramids, and biodiversity. Finally, it addresses pressing environmental issues like pollution and climate change, and the importance of biodiversity conservation.",
+    tamilConnection: "சுற்றுச்சூழல் பாதுகாப்பு என்பது தமிழ் மரபில் ஆழமாக வேரூன்றியுள்ளது. 'மரம் வளர்த்தால், மழை பெறலாம்' போன்ற பழமொழிகள், சூழலியல் சமநிலையின் முக்கியத்துவத்தை உணர்த்துகின்றன. இந்த அத்தியாயம், உயிரினங்களுக்கும் அவற்றின் சுற்றுப்புறத்திற்கும் இடையிலான சிக்கலான வலைப்பின்னலை அறிவியல் ரீதியாக விளக்குகிறது.",
+    culturalContext: "The concept of 'sacred groves' (கோவில் காடுகள்) found across Tamil Nadu is a traditional form of biodiversity conservation. These patches of forest protected on religious grounds act as reservoirs for native species. This aligns with the modern ecological concepts of 'in-situ conservation' and protecting biodiversity hotspots, which are discussed in this unit.",
     syllabusMapping: [{
         topic: 'Organisms and Populations, Ecosystem, Biodiversity, Environmental Issues',
         tnBoardChapter: '12th Std Botany Ch 9, 10; 12th Std Zoology Ch 11, 12',
