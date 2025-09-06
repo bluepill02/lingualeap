@@ -5,6 +5,7 @@ import { indianPolityAndGovernance } from './exam-data-polity';
 import { indianEconomyAndPlanning } from './exam-data-economy';
 import { generalScienceAndTech } from './exam-data-science-tech';
 import { aptitudeAndMentalAbility } from './exam-data-aptitude';
+import { currentAffairsModule } from './exam-data-current-affairs';
 
 // New, comprehensive data structure for TNPSC
 export interface TnpscModule {
@@ -705,6 +706,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
   "economy-planning": indianEconomyAndPlanning,
   "science-technology": generalScienceAndTech,
   "aptitude-mental-ability": aptitudeAndMentalAbility,
+  "current-affairs": currentAffairsModule,
 };
 
 export function getTnpscModuleById(moduleId: string): TnpscModule | null {
