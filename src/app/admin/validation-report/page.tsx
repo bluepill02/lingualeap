@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/table';
 import { CheckCircle, XCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { qaChecklist } from '@/lib/physics-checklist';
+import { qaChecklist } from '@/lib/qa-checklist';
 
 function validateModule(module: NeetModule): ValidationReport[] {
     const checks: ValidationReport[] = [];
