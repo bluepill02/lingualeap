@@ -136,8 +136,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </Link>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset className="p-4 sm:p-6 md:p-8">
-        <header className="flex h-16 items-center justify-between border-b bg-card px-6">
+      <SidebarInset>
+        <header className="flex h-16 items-center justify-between border-b bg-card px-6 sticky top-0 z-10">
           <SidebarTrigger />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -167,13 +167,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </DropdownMenu>
         </header>
 
-        <main className="flex-1">
-            <div className="container mx-auto py-6 md:py-8 lg:py-10">
+        <main className="flex-1 p-4 sm:p-6 md:p-8">
+            <div className="container mx-auto">
                 {children}
             </div>
         </main>
         
-        <footer className="mt-auto p-6 text-center text-xs text-muted-foreground">
+        <footer className="p-6 text-center text-xs text-muted-foreground">
             <Separator className="my-4" />
             <div className="flex items-center justify-center gap-4">
                 <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
