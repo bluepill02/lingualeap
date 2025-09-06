@@ -29,6 +29,8 @@ import {
   Landmark,
   Megaphone,
   BarChart3,
+  Activity,
+  ClipboardList
 } from 'lucide-react';
 import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
@@ -202,41 +204,91 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
     }));
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                    <BarChart3 className="h-5 w-5" />
-                    {language === 'english' ? 'Topic Trends in Past Exams' : 'கடந்த தேர்வுகளில் தலைப்பு போக்குகள்'}
-                </CardTitle>
-                <CardDescription>
-                    {language === 'english' ? 'Number of questions from this module that appeared in recent years.' : 'சமீபத்திய ஆண்டுகளில் இந்த பாடத்திலிருந்து தோன்றிய கேள்விகளின் எண்ணிக்கை.'}
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <div style={{ width: '100%', height: 300 }}>
-                    <ResponsiveContainer>
-                        <BarChart data={chartData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="year" />
-                            <YAxis allowDecimals={false} />
-                            <Tooltip
-                                contentStyle={{
-                                    background: "hsl(var(--background) / 0.8)",
-                                    borderColor: "hsl(var(--border))",
-                                    color: "hsl(var(--foreground))"
-                                }}
-                            />
-                            <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
-                        </BarChart>
-                    </ResponsiveContainer>
-                </div>
-                 <div className="text-center mt-4">
-                     <Button onClick={() => markSectionCompleted('engagement')} disabled={completedSections.has('engagement')}>
-                        {completedSections.has('engagement') ? 'Completed' : 'Mark as Reviewed'}
-                    </Button>
-                 </div>
-            </CardContent>
-        </Card>
+        <div className="space-y-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <BarChart3 className="h-5 w-5" />
+                        {language === 'english' ? 'Topic Trends in Past Exams' : 'கடந்த தேர்வுகளில் தலைப்பு போக்குகள்'}
+                    </CardTitle>
+                    <CardDescription>
+                        {language === 'english' ? 'Number of questions from this module that appeared in recent years.' : 'சமீபத்திய ஆண்டுகளில் இந்த பாடத்திலிருந்து தோன்றிய கேள்விகளின் எண்ணிக்கை.'}
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div style={{ width: '100%', height: 300 }}>
+                        <ResponsiveContainer>
+                            <BarChart data={chartData}>
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="year" />
+                                <YAxis allowDecimals={false} />
+                                <Tooltip
+                                    contentStyle={{
+                                        background: "hsl(var(--background) / 0.8)",
+                                        borderColor: "hsl(var(--border))",
+                                        color: "hsl(var(--foreground))"
+                                    }}
+                                />
+                                <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                </CardContent>
+            </Card>
+
+            {module.engagement.peerTeaching.map((activity, index) => (
+                <Card key={`peer-${index}`}>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Megaphone className="h-5 w-5 text-primary" />
+                            {language === 'english' ? 'Peer-Teaching Challenge' : 'சக மாணவர் கற்பித்தல் சவால்'}
+                        </CardTitle>
+                        <CardDescription>{language === 'english' ? `Topic: ${activity.topic}` : `தலைப்பு: ${activity.promptTamil}`}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="mb-4">{language === 'english' ? activity.prompt : activity.promptTamil}</p>
+                        <div className="text-sm text-muted-foreground">
+                            <strong>{language === 'english' ? 'Criteria:' : 'மதிப்பீட்டு அளவுகோல்கள்:'}</strong>
+                            <ul className="list-disc list-inside ml-4">
+                                {activity.criteria.map((c, i) => <li key={i}>{c}</li>)}
+                            </ul>
+                        </div>
+                    </CardContent>
+                </Card>
+            ))}
+
+            {module.engagement.practicalActivities.map((activity, index) => (
+                <Card key={`practical-${index}`}>
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Activity className="h-5 w-5 text-accent" />
+                            {language === 'english' ? 'Practical Activity' : 'செயல்முறை செயல்பாடு'}
+                        </CardTitle>
+                        <CardDescription>{activity.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div>
+                            <strong>{language === 'english' ? 'Tasks:' : 'பணிகள்:'}</strong>
+                            <ol className="list-decimal list-inside ml-4 mt-2 space-y-1">
+                                {activity.activities.map((a, i) => <li key={i}>{a}</li>)}
+                            </ol>
+                        </div>
+                        <div className="mt-4">
+                            <strong>{language === 'english' ? 'Expected Output:' : 'எதிர்பார்க்கப்படும் வெளியீடு:'}</strong>
+                            <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+                                {activity.outputs.map((o, i) => <li key={i}>{o}</li>)}
+                            </ul>
+                        </div>
+                    </CardContent>
+                </Card>
+            ))}
+
+            <div className="text-center mt-6">
+                <Button onClick={() => markSectionCompleted('engagement')} disabled={completedSections.has('engagement')}>
+                    {completedSections.has('engagement') ? 'Activities Reviewed' : 'Mark Activities as Reviewed'}
+                </Button>
+            </div>
+        </div>
     )
   }
 

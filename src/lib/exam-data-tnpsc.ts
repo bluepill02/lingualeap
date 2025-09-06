@@ -188,15 +188,17 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
     },
     
     sections: [
-      {
+       {
         id: "sangam-age",
-        title: "Sangam Age",
-        titleTamil: "சங்க காலம்",
-        content: "## Sangam Literature & Society\n\nThe Sangam period is the period of history of ancient Tamil Nadu, spanning from c. 6th century BCE to c. 3rd century CE. It was named after the famous Sangam academies of poets and scholars centered in the city of Madurai. The literature from this period, categorized into 'Agam' (love, inner life) and 'Puram' (war, public life), provides a rich tapestry of the life, administration, and values of the ancient Tamils. The governance was primarily monarchical, led by the Chera, Chola, and Pandya dynasties. The economy was agrarian and trade-based, with significant maritime trade with Roman and Southeast Asian empires.",
-        contentTamil: "## சங்க இலக்கியம் மற்றும் சமூகம்\n\nசங்க காலம் என்பது பண்டைய தமிழ்நாட்டின் வரலாற்றுக் காலமாகும், இது கி.மு. 6 ஆம் நூற்றாண்டு முதல் கி.பி. 3 ஆம் நூற்றாண்டு வரை பரவியுள்ளது. இது மதுரையை மையமாகக் கொண்ட புகழ்பெற்ற சங்கப் புலவர் மற்றும் அறிஞர் அவைகளின் பெயரால் அழைக்கப்படுகிறது. இந்தக் காலத்து இலக்கியம், 'அகம்' (காதல், உள்வாழ்க்கை) மற்றும் 'புறம்' (போர், பொதுவாழ்க்கை) என வகைப்படுத்தப்பட்டு, பண்டைய தமிழர்களின் வாழ்க்கை, நிர்வாகம் மற்றும் விழுமியங்களின் வளமான சித்திரத்தை வழங்குகிறது. சேர, சோழ மற்றும் பாண்டிய வம்சங்களால் வழிநடத்தப்பட்ட முடியாட்சி முதன்மையாக இருந்தது. பொருளாதாரம் வேளாண்மை மற்றும் வர்த்தகத்தை அடிப்படையாகக் கொண்டது, ரோமானிய மற்றும் தென்கிழக்கு ஆசிய பேரரசுகளுடன் குறிப்பிடத்தக்க கடல் வர்த்தகம் இருந்தது.",
+        title: "Sangam Age through Thirukkural",
+        titleTamil: "சங்க காலம் மற்றும் திருக்குறள்",
+        content: "## Sangam Literature & Society\n\nThe Sangam period is the period of history of ancient Tamil Nadu, spanning from c. 6th century BCE to c. 3rd century CE. It was named after the famous Sangam academies of poets and scholars centered in the city of Madurai. The literature from this period, categorized into 'Agam' (love, inner life) and 'Puram' (war, public life), provides a rich tapestry of the life, administration, and values of the ancient Tamils. The governance was primarily monarchical, led by the Chera, Chola, and Pandya dynasties. The economy was agrarian and trade-based, with significant maritime trade with Roman and Southeast Asian empires.\n\n## Thirukkural: Significance and Philosophy\n\nThirukkural, authored by Thiruvalluvar, is a masterpiece of Tamil literature, revered for its secular nature and universal applicability. It consists of 1330 couplets (kurals) divided into 133 chapters, each containing 10 couplets. The text is structured into three parts: Aram (அறம் - Virtue), Porul (பொருள் - Wealth/Governance), and Inbam (இன்பம் - Love). Unlike many ancient texts, it is not tied to any specific religion or ruler, offering timeless ethical, social, political, and economic guidance. Its emphasis on righteousness, just governance, and human relationships makes it a foundational text for understanding Tamil cultural values.",
+        contentTamil: "## சங்க இலக்கியம் மற்றும் சமூகம்\n\nசங்க காலம் என்பது பண்டைய தமிழ்நாட்டின் வரலாற்றுக் காலமாகும், இது கி.மு. 6 ஆம் நூற்றாண்டு முதல் கி.பி. 3 ஆம் நூற்றாண்டு வரை பரவியுள்ளது. இது மதுரையை மையமாகக் கொண்ட புகழ்பெற்ற சங்கப் புலவர் மற்றும் அறிஞர் அவைகளின் பெயரால் அழைக்கப்படுகிறது. இந்தக் காலத்து இலக்கியம், 'அகம்' (காதல், உள்வாழ்க்கை) மற்றும் 'புறம்' (போர், பொதுவாழ்க்கை) என வகைப்படுத்தப்பட்டு, பண்டைய தமிழர்களின் வாழ்க்கை, நிர்வாகம் மற்றும் விழுமியங்களின் வளமான சித்திரத்தை வழங்குகிறது. சேர, சோழ மற்றும் பாண்டிய வம்சங்களால் வழிநடத்தப்பட்ட முடியாட்சி முதன்மையாக இருந்தது. பொருளாதாரம் வேளாண்மை மற்றும் வர்த்தகத்தை அடிப்படையாகக் கொண்டது, ரோமானிய மற்றும் தென்கிழக்கு ஆசிய பேரரசுகளுடன் குறிப்பிடத்தக்க கடல் வர்த்தகம் இருந்தது.\n\n## திருக்குறள்: முக்கியத்துவம் மற்றும் தத்துவம்\n\nதிருவள்ளுவரால் இயற்றப்பட்ட திருக்குறள், தமிழ் இலக்கியத்தின் ஒரு தலைசிறந்த படைப்பாகும், அதன் மதச்சார்பற்ற தன்மை மற்றும் உலகளாவிய பயன்பாட்டிற்காக போற்றப்படுகிறது. இது 133 அதிகாரங்களாகப் பிரிக்கப்பட்ட 1330 குறள்களைக் கொண்டுள்ளது, ஒவ்வொரு அதிகாரத்திலும் 10 குறள்கள் உள்ளன. இந்த நூல் மூன்று பகுதிகளாக அமைக்கப்பட்டுள்ளது: அறம், பொருள், மற்றும் இன்பம். பல பழங்கால நூல்களைப் போலல்லாமல், இது எந்தவொரு குறிப்பிட்ட மதத்துடனோ அல்லது ஆட்சியாளருடனோ பிணைக்கப்படவில்லை, காலத்தால் அழியாத நெறிமுறை, சமூக, அரசியல் மற்றும் பொருளாதார வழிகாட்டுதலை வழங்குகிறது. அதன் நீதி, நேர்மையான ஆட்சி, மற்றும் மனித உறவுகளுக்கு அளிக்கும் முக்கியத்துவம், தமிழ் கலாச்சார விழுமியங்களைப் புரிந்துகொள்வதற்கான ஒரு அடித்தள நூலாக அமைகிறது.",
         localContext: [
           "Archaeological sites like Keeladi, Adichanallur, and Kodumanal provide physical evidence for the advanced urban civilization described in Sangam texts.",
-          "The concepts of 'Thinai' (five-fold land classification) are unique to Sangam poetry and reflect a deep ecological understanding."
+          "The concepts of 'Thinai' (five-fold land classification) are unique to Sangam poetry and reflect a deep ecological understanding.",
+          "Thirukkural is frequently quoted in Tamil Nadu legislative assembly debates and official communications.",
+          "The 133-foot statue of Thiruvalluvar in Kanyakumari symbolizes the 133 chapters of the Kural."
         ],
         currentAffairs: [
           {
@@ -205,18 +207,6 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             relevance: "High probability of questions based on new archaeological discoveries about urban planning and literacy."
           }
         ]
-      },
-      {
-        id: "thirukkural",
-        title: "Thirukkural: Significance and Philosophy",
-        titleTamil: "திருக்குறள்: முக்கியத்துவம் மற்றும் தத்துவம்",
-        content: "## A Secular and Universal Text\n\nThirukkural, authored by Thiruvalluvar, is a masterpiece of Tamil literature, revered for its secular nature and universal applicability. It consists of 1330 couplets (kurals) divided into 133 chapters, each containing 10 couplets. The text is structured into three parts: Aram (அறம் - Virtue), Porul (பொருள் - Wealth/Governance), and Inbam (இன்பம் - Love). Unlike many ancient texts, it is not tied to any specific religion or ruler, offering timeless ethical, social, political, and economic guidance. Its emphasis on righteousness, just governance, and human relationships makes it a foundational text for understanding Tamil cultural values.",
-        contentTamil: "## ஒரு மதச்சார்பற்ற மற்றும் உலகளாவிய நூல்\n\nதிருவள்ளுவரால் இயற்றப்பட்ட திருக்குறள், தமிழ் இலக்கியத்தின் ஒரு தலைசிறந்த படைப்பாகும், அதன் மதச்சார்பற்ற தன்மை மற்றும் உலகளாவிய பயன்பாட்டிற்காக போற்றப்படுகிறது. இது 133 அதிகாரங்களாகப் பிரிக்கப்பட்ட 1330 குறள்களைக் கொண்டுள்ளது, ஒவ்வொரு அதிகாரத்திலும் 10 குறள்கள் உள்ளன. இந்த நூல் மூன்று பகுதிகளாக அமைக்கப்பட்டுள்ளது: அறம், பொருள், மற்றும் இன்பம். பல பழங்கால நூல்களைப் போலல்லாமல், இது எந்தவொரு குறிப்பிட்ட மதத்துடனோ அல்லது ஆட்சியாளருடனோ பிணைக்கப்படவில்லை, காலத்தால் அழியாத நெறிமுறை, சமூக, அரசியல் மற்றும் பொருளாதார வழிகாட்டுதலை வழங்குகிறது. அதன் நீதி, நேர்மையான ஆட்சி, மற்றும் மனித உறவுகளுக்கு அளிக்கும் முக்கியத்துவம், தமிழ் கலாச்சார விழுமியங்களைப் புரிந்துகொள்வதற்கான ஒரு அடித்தள நூலாக அமைகிறது.",
-        localContext: [
-          "Thirukkural is frequently quoted in Tamil Nadu legislative assembly debates and official communications.",
-          "The 133-foot statue of Thiruvalluvar in Kanyakumari symbolizes the 133 chapters of the Kural."
-        ],
-        currentAffairs: []
       },
        {
         id: "freedom-struggle-tn",
@@ -232,10 +222,10 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
       },
       {
         id: "justice-party",
-        title: "Justice Party and Self-Respect Movement",
-        titleTamil: "நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம்",
-        content: "## Social Reformation and Dravidian Ideology\n\nThe Justice Party, officially the South Indian Liberal Federation, was a political party in the Madras Presidency of British India. It was the first major backward class mobilization which created social and political awareness among the non-Brahmin people of south India. The Self-Respect Movement, led by E.V. Ramasamy (Periyar), was a radical social movement with the aim of achieving a society where backward castes have equal human rights, focusing on rationalism, abolition of the caste system, and women's rights. These movements laid the foundation for Dravidian politics in Tamil Nadu.",
-        contentTamil: "## சமூக சீர்திருத்தம் மற்றும் திராவிட சித்தாந்தம்\n\nநீதிக் கட்சி, அதிகாரப்பூர்வமாக தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, பிரிட்டிஷ் இந்தியாவின் மெட்ராஸ் பிரசிடென்சியில் ஒரு அரசியல் கட்சியாகும். இது தென்னிந்தியாவின் பிராமணர் அல்லாத மக்களிடையே சமூக மற்றும் அரசியல் விழிப்புணர்வை உருவாக்கிய முதல் பெரிய பின்தங்கிய வகுப்பு அணிதிரட்டலாகும். ஈ.வெ. ராமசாமி (பெரியார்) தலைமையிலான சுயமரியாதை இயக்கம், பின்தங்கிய சாதியினருக்கு சமமான மனித உரிமைகள் உள்ள, பகுத்தறிவு, சாதி ஒழிப்பு மற்றும் பெண்கள் உரிமைகளில் கவனம் செலுத்தும் ஒரு சமூகத்தை அடையும் நோக்கத்துடன் ஒரு தீவிர சமூக இயக்கமாக இருந்தது. இந்த இயக்கங்கள் தமிழ்நாட்டில் திராவிட அரசியலுக்கு அடித்தளமிட்டன.",
+        title: "Dravidian Movement, Justice Party and Self-Respect Movement",
+        titleTamil: "திராவிட இயக்கம், நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம்",
+        content: "## Social Reformation and Dravidian Ideology\n\nThe Dravidian Movement emerged in the late 19th and early 20th centuries as a reaction against Brahminical dominance in society. The Justice Party, officially the South Indian Liberal Federation, was a political party in the Madras Presidency of British India. It was the first major backward class mobilization which created social and political awareness among the non-Brahmin people of south India. The Self-Respect Movement, led by E.V. Ramasamy (Periyar), was a radical social movement with the aim of achieving a society where backward castes have equal human rights, focusing on rationalism, abolition of the caste system, and women's rights. These movements laid the foundation for Dravidian politics in Tamil Nadu, with significant contributions from leaders like C.N. Annadurai and Thiru. Vi. Kalyanasundaram.",
+        contentTamil: "## சமூக சீர்திருத்தம் மற்றும் திராவிட சித்தாந்தம்\n\nதிராவிட இயக்கம் 19 ஆம் நூற்றாண்டின் பிற்பகுதியிலும் 20 ஆம் நூற்றாண்டின் முற்பகுதியிலும் சமூகத்தில் பிராமண ஆதிக்கத்திற்கு எதிரான ஒரு প্রতিক্রியாக வெளிப்பட்டது. நீதிக் கட்சி, அதிகாரப்பூர்வமாக தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, பிரிட்டிஷ் இந்தியாவின் மெட்ராஸ் பிரசிடென்சியில் ஒரு அரசியல் கட்சியாகும். இது தென்னிந்தியாவின் பிராமணர் அல்லாத மக்களிடையே சமூக மற்றும் அரசியல் விழிப்புணர்வை உருவாக்கிய முதல் பெரிய பின்தங்கிய வகுப்பு அணிதிரட்டலாகும். ஈ.வெ. ராமசாமி (பெரியார்) தலைமையிலான சுயமரியாதை இயக்கம், பின்தங்கிய சாதியினருக்கு சமமான மனித உரிமைகள் உள்ள, பகுத்தறிவு, சாதி ஒழிப்பு மற்றும் பெண்கள் உரிமைகளில் கவனம் செலுத்தும் ஒரு சமூகத்தை அடையும் நோக்கத்துடன் ஒரு தீவிர சமூக இயக்கமாக இருந்தது. சி.என். அண்ணாதுரை மற்றும் திரு. வி. கல்யாணசுந்தரம் போன்ற தலைவர்களின் குறிப்பிடத்தக்க பங்களிப்புகளுடன், இந்த இயக்கங்கள் தமிழ்நாட்டில் திராவிட அரசியலுக்கு அடித்தளமிட்டன.",
         localContext: [
           "The reservation policy in Tamil Nadu is a direct outcome of these movements.",
           "Statues and memorials for Periyar are common across Tamil Nadu, reflecting his profound impact on the state."
@@ -570,8 +560,30 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
     },
     
     engagement: {
-      peerTeaching: [],
-      practicalActivities: []
+      peerTeaching: [
+        {
+          topic: "Vaikom Satyagraha's Significance",
+          duration: 90,
+          criteria: ["Clarity on the core issue", "Mention Periyar's role", "Explain the outcome"],
+          prompt: "In 90 seconds, explain the Vaikom Satyagraha to a fellow student. Cover why it started, who the key leaders were (especially from Tamil Nadu), and what its long-term impact was on temple entry movements.",
+          promptTamil: "90 வினாடிகளில், வைக்கம் சத்தியாக்கிரகத்தை சக மாணவருக்கு விளக்கவும். அது ஏன் தொடங்கியது, முக்கியத் தலைவர்கள் யார் (குறிப்பாக தமிழ்நாட்டிலிருந்து), மற்றும் கோயில் நுழைவு இயக்கங்களில் அதன் நீண்டகாலத் தாக்கம் என்ன என்பதை விளக்கவும்."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Timeline of Dravidian Movements",
+          type: "research-and-organize",
+          description: "Create a visual timeline of the Dravidian movement from the late 19th century to the formation of the DMK.",
+          activities: [
+            "Research the founding year of the South Indian Liberal Federation (Justice Party).",
+            "Identify the year the Self-Respect Movement was launched by Periyar.",
+            "Note the year C.N. Annadurai formed the DMK.",
+            "Add 2-3 key events or legislative acts for each movement on the timeline."
+          ],
+          outputs: ["A visual timeline (digital or physical).", "A one-paragraph summary explaining the evolution from social reform to political power."],
+          assessment: ["Accuracy of dates.", "Clarity of the timeline.", "Correct association of events with movements."]
+        }
+      ]
     },
     
     spacedRepetition: {
