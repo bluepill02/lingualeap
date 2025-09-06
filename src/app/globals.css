@@ -159,6 +159,11 @@
     .subject-biology .prose .bilingual-text .tamil-text {
         color: hsl(164 52% 52%); /* Teal-400 */
     }
+    
+    /* Active state for touch devices */
+    .btn:active, .card:active, [role="button"]:active, a:active > .card {
+        @apply transform scale-[0.98] brightness-95 transition-transform;
+    }
 }
 
 /* Custom KaTeX font path overrides */
