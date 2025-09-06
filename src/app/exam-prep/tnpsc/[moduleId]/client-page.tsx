@@ -11,16 +11,12 @@ import 'katex/dist/katex.min.css'
 import { 
   ArrowLeft, 
   Globe,
-  Clock,
   Users,
   BookOpen,
   Target,
   Trophy,
   Lightbulb,
   CheckCircle,
-  PlayCircle,
-  PauseCircle,
-  RotateCcw,
   Flag,
   Calendar,
   TrendingUp,
@@ -39,8 +35,6 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
 
   const [currentTab, setCurrentTab] = useState('overview');
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
-  const [studyTime, setStudyTime] = useState(0);
-  const [isTimerRunning, setIsTimerRunning] = useState(true);
   const [completedSections, setCompletedSections] = useState<Set<string>>(new Set());
   const [bookmarked, setBookmarked] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
@@ -51,17 +45,8 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
     if (savedProgress) {
       const progress = JSON.parse(savedProgress);
       setCompletedSections(new Set(progress.completedSections));
-      setStudyTime(progress.studyTime || 0);
     }
-
-    const timer = setInterval(() => {
-      if (isTimerRunning) {
-        setStudyTime(prev => prev + 1);
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [moduleId, isTimerRunning]);
+  }, [moduleId]);
   
   if (!module) {
     return (
@@ -71,25 +56,12 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
     );
   }
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  const toggleTimer = () => setIsTimerRunning(!isTimerRunning);
-  const resetTimer = () => {
-    setStudyTime(0);
-    setIsTimerRunning(true);
-  };
-
   const markSectionCompleted = (sectionId: string) => {
     const newCompleted = new Set([...completedSections, sectionId]);
     setCompletedSections(newCompleted);
     
     localStorage.setItem(`tnpsc-progress-${moduleId}`, JSON.stringify({
       completedSections: Array.from(newCompleted),
-      studyTime,
       lastAccessed: Date.now()
     }));
   };
@@ -128,10 +100,6 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                                     module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
                     {module.difficultyLevel}
                     </Badge>
-                    <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    {formatTime(studyTime)}
-                    </span>
                 </div>
                 </div>
             </div>
@@ -153,9 +121,6 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                     தமிழ்
                 </Button>
                 </div>
-                <Button size="icon" variant="ghost" onClick={toggleTimer}>
-                    {isTimerRunning ? <PauseCircle /> : <PlayCircle />}
-                </Button>
             </div>
         </header>
 
