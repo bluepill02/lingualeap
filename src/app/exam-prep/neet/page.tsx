@@ -9,8 +9,8 @@ import { Button } from '@/components/ui/button';
 const subjects = [
     {
       title: 'Physics',
-      description: 'Master fundamental concepts and problem-solving (20 Chapters)',
-      chapters: 2,
+      description: 'Master fundamental concepts and problem-solving (29 Chapters)',
+      chapters: 29,
       icon: Atom,
       color: 'bg-blue-500/20 text-blue-400',
       href: '/exam-prep/neet/physics',
@@ -18,7 +18,7 @@ const subjects = [
     {
       title: 'Chemistry',
       description: 'Understand molecular world and chemical reactions (20 Chapters)',
-      chapters: 0,
+      chapters: 20,
       icon: FlaskConical,
       color: 'bg-green-500/20 text-green-400',
       href: '/exam-prep/neet/chemistry',
@@ -26,7 +26,7 @@ const subjects = [
     {
       title: 'Biology',
       description: 'Explore life sciences and biological processes (10 Chapters)',
-      chapters: 0,
+      chapters: 10,
       icon: BookOpen,
       color: 'bg-teal-500/20 text-teal-400',
       href: '/exam-prep/neet/biology',
