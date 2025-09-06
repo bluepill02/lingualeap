@@ -109,12 +109,6 @@ export default function NeetChemistryPage() {
                                         <h3 className="text-lg font-bold font-headline pr-4">{chapter}</h3>
                                         <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                     </div>
-                                     <div className="mt-auto bg-primary/5 border-primary/20 p-2 rounded-md">
-                                        <div className={`flex items-center gap-2 ${group.color} text-xs`}>
-                                            <group.icon className="h-4 w-4" />
-                                            <span className="capitalize font-semibold">{key}</span>
-                                        </div>
-                                    </div>
                                 </CardContent>
                             </Card>
                         </Link>
