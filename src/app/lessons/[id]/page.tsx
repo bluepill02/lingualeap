@@ -236,7 +236,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
   const progress = 50;
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 p-4 md:p-8">
+    <div className="container mx-auto max-w-4xl space-y-8 p-4 sm:p-6 md:p-8">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={() => router.back()}>

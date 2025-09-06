@@ -178,7 +178,7 @@ const languages = [
 
 export default function LanguageSelectionPage() {
   return (
-    <div className="max-w-2xl mx-auto py-8 px-4">
+    <div className="container mx-auto py-8 px-4 sm:px-6 md:px-8">
       <Link href="/dashboard" className="flex items-center gap-2 text-primary mb-4">
         <ArrowLeft className="w-5 h-5" />
         <span>Back</span>
@@ -189,7 +189,7 @@ export default function LanguageSelectionPage() {
           Select a language to start learning with bite-sized lessons
         </p>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-4 max-w-2xl mx-auto">
         {languages.sort((a, b) => a.title.localeCompare(b.title)).map((lang, index) => (
           <Card key={index} className="bg-card/50">
             <CardContent className="p-6 flex items-center gap-6">
