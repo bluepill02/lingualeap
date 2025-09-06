@@ -1,6 +1,6 @@
 
 
-import { z } from 'genkit/zod';
+import { z } from 'genkit';
 
 export interface User {
   id: string;
@@ -281,6 +281,78 @@ export interface LiveClass {
   startTime: string;
   endTime: string;
 }
+
+export const AnalyzeImageInputSchema = z.object({
+  photoDataUri: z
+    .string()
+    .describe(
+      "A photo of an object, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
+    ),
+  targetLanguage: z.string().describe('The language to translate the object name into.'),
+});
+export type AnalyzeImageInput = z.infer<typeof AnalyzeImageInputSchema>;
+
+export const AnalyzeImageOutputSchema = z.object({
+    objectName: z.string().describe('The name of the identified object in English.'),
+    translatedWord: z.string().describe('The translated name of the object in the target language.'),
+    romanization: z.string().describe('A romanized (phonetic) spelling of the translated word.'),
+    quiz: z.object({
+        question: z.string().describe('A simple multiple-choice question about the object.'),
+        options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options.'),
+        answer: z.string().describe('The correct answer from the options.'),
+    }),
+    mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
+});
+export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
+
+export const PersonalTutorInputSchema = z.object({
+  history: z.array(z.object({
+    role: z.enum(['user', 'model']),
+    content: z.string(),
+  })),
+  message: z.string().describe("The user's latest message."),
+  language: z.string().describe('The language the user is learning.'),
+});
+export type PersonalTutorInput = z.infer<typeof PersonalTutorInputSchema>;
+
+export const PersonalTutorOutputSchema = z.object({
+  response: z.string(),
+});
+export type PersonalTutorOutput = z.infer<typeof PersonalTutorOutputSchema>;
+
+export const PronunciationAnalysisInputSchema = z.object({
+  audioDataUri: z.string().describe("The user's pronunciation of a word, as a data URI."),
+  correctWord: z.string().describe('The correct word the user was trying to pronounce.'),
+  language: z.string().describe('The language of the word.'),
+});
+export type PronunciationAnalysisInput = z.infer<typeof PronunciationAnalysisInputSchema>;
+
+export const PronunciationAnalysisOutputSchema = z.object({
+    transcribedText: z.string().describe("The text transcribed from the user's audio."),
+    isCorrect: z.boolean().describe('Whether the transcription exactly matches the correct word (case-insensitive).'),
+    feedback: z.string().describe('Short, encouraging, and helpful feedback for the user.'),
+});
+export type PronunciationAnalysisOutput = z.infer<typeof PronunciationAnalysisOutputSchema>;
+
+export const MissionSubmissionInputSchema = z.object({
+    concept: z.string(),
+    script: z.string(),
+    diagramDescription: z.string(),
+    mcqs: z.array(z.object({
+        question: z.string(),
+        options: z.array(z.string()),
+        correctAnswer: z.string()
+    }))
+});
+export type MissionSubmissionInput = z.infer<typeof MissionSubmissionInputSchema>;
+
+export const MissionFeedbackOutputSchema = z.object({
+    clarityFeedback: z.string(),
+    accuracyFeedback: z.string(),
+    analogySuggestion: z.string(),
+    teachingStars: z.number().min(0).max(5)
+});
+export type MissionFeedbackOutput = z.infer<typeof MissionFeedbackOutputSchema>;
 
 // AI Related types
 export const NeetQuizQuestionSchema = z.object({
