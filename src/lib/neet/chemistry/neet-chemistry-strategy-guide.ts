@@ -577,9 +577,9 @@ export const strategyGuideContent: StrategyGuide = {
           },
         ]
       },
-      {
-        chapterName: 'Aldehydes, Ketones, and Carboxylic Acids',
-        chapterNameTamil: 'ஆல்டிஹைடுகள், கீட்டோன்கள் மற்றும் கார்பாக்சிலிக் அமிலங்கள்',
+       {
+        chapterName: 'Organic Compounds Containing Oxygen',
+        chapterNameTamil: 'ஆக்ஸிஜன் கொண்ட கரிமச் சேர்மங்கள்',
         sections: [
           {
             title: 'Common Mistakes & Doubts',
@@ -622,8 +622,84 @@ export const strategyGuideContent: StrategyGuide = {
               },
             ],
           }
-        ],
-      }
+        ]
+      },
+      {
+        chapterName: 'Organic Compounds Containing Nitrogen',
+        chapterNameTamil: 'நைட்ரஜன் கொண்ட கரிமச் சேர்மங்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Basicity Order of Amines in Aqueous Solution',
+                explanation: '**Mistake:** Applying the simple inductive effect order (3° > 2° > 1°) in water. This is only true for the gaseous phase.\n\n**How to Avoid:** In aqueous solution, three factors compete: **+I effect** (increases basicity), **solvation effect** (H-bonding with H₂O stabilizes the conjugate acid, favors 1°), and **steric hindrance** (hinders solvation, disfavors 3°). For methyl groups, the combined order is **2° > 1° > 3°**. For ethyl groups, it is **2° > 3° > 1°**. Always specify the medium.',
+                explanationTamil: '**தவறு:** நீரில் தூண்டல் விளைவு வரிசையை (3° > 2° > 1°) அப்படியே பயன்படுத்துதல். இது வாயு நிலைக்கு மட்டுமே உண்மை.\n\n**தவிர்ப்பது எப்படி:** நீர்க்கரைசலில், மூன்று காரணிகள் போட்டியிடுகின்றன: **+I விளைவு** (காரத்தன்மையை அதிகரிக்கிறது), **கரைப்பானேற்ற விளைவு** (இணை அமிலத்தை நிலைப்படுத்துகிறது, 1°-க்கு சாதகமானது), மற்றும் **இடத்தடை** (கரைப்பானேற்றத்தைத் தடுக்கிறது, 3°-க்கு சாதகமற்றது). மெத்தில் குழுக்களுக்கு, ஒருங்கிணைந்த வரிசை **2° > 1° > 3°**. எத்தில் குழுக்களுக்கு, அது **2° > 3° > 1°** ஆகும்.',
+              },
+              {
+                point: "Gabriel Phthalimide Synthesis Limitation",
+                explanation: "**Mistake:** Thinking Gabriel synthesis can be used to prepare aniline (primary aromatic amine).\n\n**How to Avoid:** Remember that the second step of this synthesis is an SN2 attack by the phthalimide anion on an alkyl halide. Aryl halides (like chlorobenzene) do **not** undergo SN2 reactions because of the partial double bond character of the C-X bond. Therefore, this method is only suitable for **primary aliphatic amines**.",
+                explanationTamil: "**தவறு:** அனிலினை (முதன்மை அரோமாட்டிக் அமீன்) தயாரிக்க கேப்ரியல் தொகுப்பைப் பயன்படுத்தலாம் என்று நினைப்பது.\n\n**தவிர்ப்பது எப்படி:** இந்த தொகுப்பின் இரண்டாவது படி, தாலிமைடு அயனி ஒரு அல்கைல் ஹாலைடின் மீது SN2 தாக்குதல் நடத்துவதாகும் என்பதை நினைவில் கொள்க. அரைல் ஹாலைடுகள் (குளோரோபென்சீன் போன்றவை) C-X பிணைப்பின் பகுதி இரட்டைப் பிணைப்புத் தன்மை காரணமாக SN2 வினைகளுக்கு உட்படாது. எனவே, இந்த முறை **முதன்மை அலிபாடிக் அமீன்களுக்கு** மட்டுமே பொருத்தமானது.",
+              }
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "Diazonium Salt as the 'Hub' of Aromatic Chemistry",
+                explanation: "Think of benzenediazonium chloride (C₆H₅N₂⁺Cl⁻) as a central hub. From this single compound, you can synthesize a huge variety of other aromatic compounds with simple reagents:\n*   **CuCl/HCl (Sandmeyer):** Chlorobenzene\n*   **Cu/HBr (Gattermann):** Bromobenzene\n*   **KI:** Iodobenzene\n*   **HBF₄, then heat:** Fluorobenzene\n*   **H₃PO₂:** Benzene\n*   **H₂O, warm:** Phenol\n*   **Phenol/Aniline (Coupling):** Azo Dyes\nMemorizing this 'map' is extremely high-yield.",
+                explanationTamil: "பென்சீன்டயசோனியம் குளோரைடை (C₆H₅N₂⁺Cl⁻) ஒரு மையமாகக் கருதுங்கள். இந்த ஒற்றைச் சேர்மத்திலிருந்து, நீங்கள் பலவிதமான அரோமாட்டிக் சேர்மங்களைத் தயாரிக்கலாம்:\n*   **CuCl/HCl (சாண்ட்மேயர்):** குளோரோபென்சீன்\n*   **Cu/HBr (கேட்டர்மேன்):** புரோமோபென்சீன்\n*   **KI:** அயோடோபென்சீன்\n*   **HBF₄, பின்னர் வெப்பம்:** ஃபுளோரோபென்சீன்\n*   **H₃PO₂:** பென்சீன்\n*   **H₂O, சூடு:** ஃபீனால்\n*   **ஃபீனால்/அனிலின் (இணைப்பு):** அசோ சாயங்கள்\nஇந்த 'வரைபடத்தை' மனப்பாடம் செய்வது மிகவும் பயனுள்ளது.",
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Biomolecules',
+        chapterNameTamil: 'உயிர் மூலக்கூறுகள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Confusing Reducing vs. Non-Reducing Sugars',
+                explanation: '**Mistake:** Not being able to identify if a disaccharide is reducing or non-reducing.\n\n**How to Avoid:** It all depends on the **anomeric carbon**. A sugar is reducing if it has a free hemiacetal or hemiketal group. In a disaccharide, if the anomeric carbons of *both* monosaccharide units are locked in the glycosidic bond, it is **non-reducing**. The classic example is **Sucrose**. If at least one anomeric carbon is free, it is **reducing** (e.g., Maltose, Lactose).',
+                explanationTamil: '**தவறு:** ஒரு இரட்டை சாக்கரைடு ஒடுக்குமா அல்லது ஒடுக்காததா என்பதை அடையாளம் காண முடியாமல் இருப்பது.\n\n**தவிர்ப்பது எப்படி:** இது அனைத்தும் **அனோமெரிக் கார்பனைப்** பொறுத்தது. ஒரு சர்க்கரை ஒரு சுதந்திரமான ஹெமிஅசிட்டால் அல்லது ஹெமிக்கீட்டால் குழுவைக் கொண்டிருந்தால் அது ஒடுக்கும். ஒரு இரட்டை சாக்கரைடில், *இரண்டு* ஒற்றைச் சாக்கரைடு அலகுகளின் அனோமெரிக் கார்பன்களும் கிளைகோசைடிக் பிணைப்பில் பூட்டப்பட்டிருந்தால், அது **ஒடுக்காதது**. சிறந்த உதாரணம் **சுக்ரோஸ்**. குறைந்தது ஒரு அனோமெரிக் கார்பன் சுதந்திரமாக இருந்தால், அது **ஒடுக்கும்** (எ.கா., மால்டோஸ், லாக்டோஸ்).',
+              },
+              {
+                point: 'α-Glucose vs. β-Glucose Polymers',
+                explanation: '**Mistake:** Forgetting the structural difference between starch and cellulose.\n\n**How to Avoid:** Both are polymers of glucose, but the linkage is different. **Starch** is a polymer of **α-glucose**. The α-linkages create a helical structure that is digestible by humans. **Cellulose** is a polymer of **β-glucose**. The β-linkages create straight, rigid chains that form strong fibers, which are indigestible by humans.',
+                explanationTamil: '**தவறு:** ஸ்டார்ச் மற்றும் செல்லுலோஸ் ஆகியவற்றுக்கு இடையேயான கட்டமைப்பு வேறுபாட்டை மறப்பது.\n\n**தவிர்ப்பது எப்படி:** இரண்டும் குளுக்கோஸின் பல்படிகள், ஆனால் இணைப்பு வேறுபட்டது. **ஸ்டார்ச்** என்பது **α-குளுக்கோஸின்** ஒரு பல்படி. α-இணைப்புகள் மனிதர்களால் செரிக்கக்கூடிய ஒரு சுருள் அமைப்பை உருவாக்குகின்றன. **செல்லுலோஸ்** என்பது **β-குளுக்கோஸின்** ஒரு பல்படி. β-இணைப்புகள் வலுவான இழைகளை உருவாக்கும் நேரான, திடமான சங்கிலிகளை உருவாக்குகின்றன, இவை மனிதர்களால் செரிக்க முடியாதவை.',
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: 'Mutarotation',
+                explanation: "**Concept:** The change in the specific optical rotation observed for freshly prepared solutions of monosaccharides. \n**Reason:** When α-D-glucose (specific rotation +112°) is dissolved in water, it slowly equilibrates with its open-chain form and the β-D-glucose anomer (+19°). The final equilibrium mixture has a constant specific rotation of +52.7°. This spontaneous change in optical rotation is called mutarotation.",
+                explanationTamil: "**கருத்து:** புதிதாகத் தயாரிக்கப்பட்ட ஒற்றைச் சாக்கரைடு கரைசல்களுக்குக் காணப்படும் தன் ஒளி சுழற்சியில் ஏற்படும் மாற்றம். \n**காரணம்:** α-D-குளுக்கோஸ் (தன் ஒளி சுழற்சி +112°) நீரில் கரையும்போது, அது மெதுவாக அதன் திறந்த சங்கிலி வடிவம் மற்றும் β-D-குளுக்கோஸ் அனோமருடன் (+19°) சமநிலையை அடைகிறது. இறுதி சமநிலைக் கலவை +52.7° என்ற மாறா தன் ஒளி சுழற்சியைக் கொண்டுள்ளது. தன் ஒளி சுழற்சியில் ஏற்படும் இந்த தன்னிச்சையான மாற்றம் மியூட்டாரோட்டேஷன் எனப்படும்.",
+              },
+               {
+                point: 'Zwitterion and Isoelectric Point',
+                explanation: "**Concept:** An amino acid has both an acidic (-COOH) and a basic (-NH₂) group. In a neutral solution, the proton from the carboxyl group transfers to the amino group, forming a dipolar ion called a **zwitterion** (e.g., *NH₃⁺-CHR-COO⁻*). \n**Isoelectric Point (pI):** This is the specific pH at which the net charge on the amino acid is zero. At a pH below pI, it exists as a cation. At a pH above pI, it exists as an anion.",
+                explanationTamil: "**கருத்து:** ஒரு அமினோ அமிலம் ஒரு அமிலம் (-COOH) மற்றும் ஒரு காரம் (-NH₂) ஆகிய இரண்டு குழுக்களையும் கொண்டுள்ளது. ஒரு நடுநிலைக் கரைசலில், கார்பாக்சில் குழுவிலிருந்து ஒரு புரோட்டான் அமினோ குழுவிற்கு மாற்றப்பட்டு, **இருமுனை அயனி** எனப்படும் ஒரு இருமுனை அயனியை உருவாக்குகிறது (எ.கா., *NH₃⁺-CHR-COO⁻*).\n**சமமின் புள்ளி (pI):** இது அமினோ அமிலத்தின் நிகர மின்னூட்டம் சுழியாக இருக்கும் குறிப்பிட்ட pH ஆகும். pI-க்குக் குறைவான pH-இல், அது ஒரு நேர் அயனியாக உள்ளது. pI-க்கு அதிகமான pH-இல், அது ஒரு எதிர் அயனியாக உள்ளது.",
+              },
+            ],
+          },
+        ]
+      },
     ]
   },
 };
+
