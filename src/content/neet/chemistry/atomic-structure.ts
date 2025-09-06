@@ -8,10 +8,20 @@ export const atomicStructureModule: NeetModule = {
     subject: 'Chemistry',
     learningObjectives: [],
     prerequisites: [],
-    syllabusMapping: [],
+    syllabusMapping: [{
+        topic: 'Structure of Atom',
+        tnBoardChapter: '11th Std Chemistry - Vol 1, Chapter 2: Quantum Mechanical Model of Atom',
+        ncertReference: 'Class 11 Chemistry - Part 1, Chapter 2: Structure of Atom',
+        notes: 'Very important chapter. Quantum numbers, electronic configuration, and Bohr\'s model are key topics.',
+        mappingDescription: '11th Std Chemistry - Vol 1, Chapter 2'
+    }],
     conceptNotes: [],
     workedExamples: [],
     mcqs: [],
     assertionReasons: [],
-    matchTheColumns: []
+    matchTheColumns: [],
+    keyTakeaways: [],
+    mnemonics: [],
+    neetTips: [],
+    validationReport: []
 };

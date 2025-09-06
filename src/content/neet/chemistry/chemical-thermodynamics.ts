@@ -8,10 +8,20 @@ export const chemicalThermodynamicsModule: NeetModule = {
     subject: 'Chemistry',
     learningObjectives: [],
     prerequisites: [],
-    syllabusMapping: [],
+    syllabusMapping: [{
+        topic: 'Thermodynamics',
+        tnBoardChapter: '11th Std Chemistry - Vol 2, Chapter 7: Thermodynamics',
+        ncertReference: 'Class 11 Chemistry - Part 1, Chapter 6: Thermodynamics',
+        notes: 'Laws of thermodynamics, enthalpy, entropy, and Gibbs free energy are crucial.',
+        mappingDescription: '11th Std Chemistry - Vol 2, Chapter 7'
+    }],
     conceptNotes: [],
     workedExamples: [],
     mcqs: [],
     assertionReasons: [],
-    matchTheColumns: []
+    matchTheColumns: [],
+    keyTakeaways: [],
+    mnemonics: [],
+    neetTips: [],
+    validationReport: []
 };
