@@ -1,7 +1,7 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const PurificationAndCharacterisationOfOrganicCompounds: NeetModule = {
+export const purificationAndCharacterisationOfOrganicCompoundsModule: NeetModule = {
     id: 'neet-chemistry-purification-and-characterisation-of-organic-compounds',
     title: 'Chemistry - Purification and Characterisation of Organic Compounds (கரிமச் சேர்மங்களைத் தூய்மைப்படுத்துதல் மற்றும் பண்பறிதல்)',
     chapter: 'Purification and Characterisation of Organic Compounds',
@@ -49,11 +49,11 @@ export const PurificationAndCharacterisationOfOrganicCompounds: NeetModule = {
                 },
                 {
                     english: `**Chromatography (வண்ணப்பிரிகையியல்):** A powerful technique based on the differential adsorption of components of a mixture on a stationary phase as a mobile phase passes over it.
-                    *   **Adsorption Chromatography:** Column and Thin-Layer Chromatography (TLC).
-                    *   **Partition Chromatography:** Paper Chromatography.`,
+*   **Adsorption Chromatography:** Column and Thin-Layer Chromatography (TLC).
+*   **Partition Chromatography:** Paper Chromatography.`,
                     tamil: `**வண்ணப்பிரிகையியல்:** ஒரு கலவையின் கூறுகள் ஒரு நிலைத்த கட்டத்தின் மீது ஒரு நகரும் கட்டம் செல்லும்போது வேறுபட்ட பரப்புக் கவர்தலை அடிப்படையாகக் கொண்ட ஒரு சக்திவாய்ந்த நுட்பமாகும்.
-                    *   **பரப்புக் கவர்ச்சி வண்ணப்பிரிகை:** பத்தி மற்றும் மெல்லிய அடுக்கு வண்ணப்பிரிகை (TLC).
-                    *   **பங்கீட்டு வண்ணப்பிரிகை:** தாள் வண்ணப்பிரிகை.`
+*   **பரப்புக் கவர்ச்சி வண்ணப்பிரிகை:** பத்தி மற்றும் மெல்லிய அடுக்கு வண்ணப்பிரிகை (TLC).
+*   **பங்கீட்டு வண்ணப்பிரிகை:** தாள் வண்ணப்பிரிகை.`
                 }
             ]
         },

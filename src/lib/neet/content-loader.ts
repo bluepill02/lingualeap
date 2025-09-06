@@ -29,7 +29,7 @@ import { nucleiModule } from './physics/nuclei';
 import { semiconductorElectronicsModule } from './physics/semiconductor-electronics';
 import { communicationSystemsModule } from './physics/communication-systems';
 import { someBasicConceptsInChemistry } from './chemistry/some-basic-concepts-in-chemistry';
-import { atomicStructureModule as atomicStructure } from './chemistry/atomic-structure';
+import { atomicStructureModule } from './chemistry/atomic-structure';
 import { chemicalBondingAndMolecularStructure } from './chemistry/chemical-bonding-and-molecular-structure';
 import { chemicalThermodynamicsModule as chemicalThermodynamics } from './chemistry/chemical-thermodynamics';
 import { solutions } from './chemistry/solutions';
@@ -40,7 +40,7 @@ import { classificationOfElementsAndPeriodicityInProperties } from './chemistry/
 import { pBlockElementsModule } from './chemistry/p-block-elements';
 import { dAndFBlockElementsModule } from './chemistry/d--and-f-block-elements';
 import { coordinationCompounds } from './chemistry/coordination-compounds';
-import { PurificationAndCharacterisationOfOrganicCompounds as purificationAndCharacterisationOfOrganicCompounds } from './chemistry/purification-and-characterisation-of-organic-compounds';
+import { purificationAndCharacterisationOfOrganicCompoundsModule } from './chemistry/purification-and-characterisation-of-organic-compounds';
 import { someBasicPrinciplesOfOrganicChemistry } from './chemistry/some-basic-principles-of-organic-chemistry';
 import { hydrocarbons } from './chemistry/hydrocarbons';
 import { organicCompoundsContainingHalogens } from './chemistry/organic-compounds-containing-halogens';
@@ -97,7 +97,7 @@ export const neetContent: { [key: string]: any } = {
 
   // Chemistry
   'some-basic-concepts-in-chemistry': someBasicConceptsInChemistry,
-  'atomic-structure': atomicStructure,
+  'atomic-structure': atomicStructureModule,
   'chemical-bonding-and-molecular-structure': chemicalBondingAndMolecularStructure,
   'chemical-thermodynamics': chemicalThermodynamics,
   'solutions': solutions,
@@ -108,7 +108,7 @@ export const neetContent: { [key: string]: any } = {
   'p-block-elements': pBlockElementsModule,
   'd--and-f-block-elements': dAndFBlockElementsModule,
   'coordination-compounds': coordinationCompounds,
-  'purification-and-characterisation-of-organic-compounds': purificationAndCharacterisationOfOrganicCompounds,
+  'purification-and-characterisation-of-organic-compounds': purificationAndCharacterisationOfOrganicCompoundsModule,
   'some-basic-principles-of-organic-chemistry': someBasicPrinciplesOfOrganicChemistry,
   'hydrocarbons': hydrocarbons,
   'organic-compounds-containing-halogens': organicCompoundsContainingHalogens,
