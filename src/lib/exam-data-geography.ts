@@ -13,7 +13,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
     examPattern: {
       mcqCount: 15,
       shortAnswerCount: 0,
-      essayCount: 0
+      essayCount: 0,
     },
     
     overview: {
@@ -63,7 +63,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
       keyTerms: ["Southwest Monsoon", "Northeast Monsoon", "Deccan Plateau", "Alluvial Soil", "Black Soil", "Western Ghats", "Eastern Ghats", "Kaveri Delta", "Kharif Crop", "Rabi Crop"],
       importantFigures: ["M.S. Swaminathan (Father of the Green Revolution in India)"],
       significantEvents: ["Green Revolution", "Formation of Linguistic States"],
-      institutions: ["Indian Meteorological Department (IMD)", "Survey of India", "Geological Survey of India"]
+      institutions: ["Indian Meteorological Department (IMD)", "Survey of India", "Geological Survey of India"],
     },
     
     practice: {
@@ -171,7 +171,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
       commonMistakes: ["Confusing the direction and impact of the Southwest and Northeast monsoons.", "Mixing up the soil types with their primary crops (e.g., Alluvial for rice, Black for cotton)."],
       timeAllocation: [],
       strengthIndicators: [],
-      improvementAreas: ["Understanding the link between physical geography and economic activity.", "Memorizing the specific locations of major hill ranges and rivers in Tamil Nadu."]
+      improvementAreas: ["Understanding the link between physical geography and economic activity.", "Memorizing the specific locations of major hill ranges and rivers in Tamil Nadu."],
     },
     
     resources: {
@@ -183,5 +183,4 @@ export const geographyIndiaTamilNadu: TnpscModule = {
       },
       nextModule: "unit-4"
     }
-  }
-};
+  };
