@@ -48,6 +48,9 @@ const COLORS = {
   correct: 'hsl(var(--success))',
   incorrect: 'hsl(var(--destructive))',
   unanswered: 'hsl(var(--muted-foreground))',
+  'sangam-age': '#8884d8',
+  'justice-party': '#82ca9d',
+  'freedom-struggle-tn': '#ffc658'
 };
 
 export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
@@ -236,19 +239,22 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   }
 
   const EngagementTabContent = () => {
-    const trendData = module.practice.mcqs
-      .flatMap(mcq => mcq.yearAsked)
-      .reduce((acc, year) => {
-        acc[year] = (acc[year] || 0) + 1;
-        return acc;
-      }, {} as Record<number, number>);
-
     const lastTenYears = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).reverse();
-    
-    const chartData = lastTenYears.map(year => ({
-      year: year.toString(),
-      count: trendData[year] || 0,
-    }));
+    const topics = [...new Set(module.practice.mcqs.map(mcq => mcq.context))];
+
+    const trendData = lastTenYears.map(year => {
+        const yearData: { year: string, [key: string]: number | string } = { year: year.toString() };
+        topics.forEach(topic => {
+            yearData[topic] = 0;
+        });
+
+        module.practice.mcqs.forEach(mcq => {
+            if (mcq.yearAsked.includes(year)) {
+                (yearData[mcq.context] as number)++;
+            }
+        });
+        return yearData;
+    });
 
     return (
         <div className="space-y-6">
@@ -259,13 +265,13 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                         {language === 'english' ? 'Topic Trends in Past Exams' : 'கடந்த தேர்வுகளில் தலைப்பு போக்குகள்'}
                     </CardTitle>
                     <CardDescription>
-                        {language === 'english' ? 'Number of questions from this module that appeared in recent years.' : 'சமீபத்திய ஆண்டுகளில் இந்த பாடத்திலிருந்து தோன்றிய கேள்விகளின் எண்ணிக்கை.'}
+                        {language === 'english' ? 'Number of questions from this module that appeared in recent years, broken down by topic.' : 'சமீபத்திய ஆண்டுகளில் இந்த பாடத்திலிருந்து தோன்றிய கேள்விகளின் எண்ணிக்கை, தலைப்பு வாரியாக பிரிக்கப்பட்டுள்ளது.'}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                    <div style={{ width: '100%', height: 300 }}>
                      <ResponsiveContainer>
-                        <BarChart data={chartData}>
+                        <BarChart data={trendData}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="year" />
                             <YAxis allowDecimals={false} />
@@ -276,7 +282,10 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                                     color: "hsl(var(--foreground))"
                                 }}
                             />
-                            <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
+                            <Legend />
+                            {topics.map(topic => (
+                                <Bar key={topic} dataKey={topic} stackId="a" fill={COLORS[topic as keyof typeof COLORS] || '#8884d8'} name={module.sections.find(s => s.id === topic)?.title || topic} />
+                            ))}
                         </BarChart>
                     </ResponsiveContainer>
                    </div>
