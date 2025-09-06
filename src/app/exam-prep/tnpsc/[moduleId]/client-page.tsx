@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -11,6 +12,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import 'katex/dist/katex.min.css'
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from '@/lib/utils';
+import { AiPracticeGenerator } from '@/components/exam/ai-practice-generator';
 
 import { 
   ArrowLeft, 
@@ -495,6 +497,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                 </div>
               </CardContent>
             </Card>
+            <AiPracticeGenerator subject={module.subject as any} chapter={module.title} />
           </TabsContent>
           <TabsContent value="srs" className="mt-4 space-y-6">
               <Card>
