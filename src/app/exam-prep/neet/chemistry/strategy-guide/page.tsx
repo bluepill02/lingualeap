@@ -32,7 +32,7 @@ const sectionIcons = {
 
 export default function NeetChemistryStrategyGuidePage() {
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto space-y-8">
       <header className="flex items-center gap-4">
         <Link href="/exam-prep/neet/chemistry">
           <Button variant="ghost" size="icon" aria-label="Back to NEET Chemistry">

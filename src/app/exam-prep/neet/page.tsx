@@ -42,7 +42,7 @@ const studyTips = [
 
 export default function NeetPrepPage() {
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto space-y-8">
       <Link href="/exam-prep" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
         <ArrowLeft className="w-5 h-5" />
         <span>Back to Exam Modules</span>

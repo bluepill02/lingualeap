@@ -27,7 +27,7 @@ export default function NeetBiologyPage() {
   const getSlug = (chapterName: string) => chapterName.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
 
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto space-y-8">
       <header className="flex items-center gap-4">
         <Link href="/exam-prep/neet">
             <Button variant="ghost" size="icon" aria-label="Back to NEET Prep">
