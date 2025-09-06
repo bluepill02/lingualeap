@@ -1,5 +1,6 @@
 
 import type { NeetModule } from '@/lib/types';
+import { ProjectileAnimation } from '@/components/exam/ProjectileAnimation';
 
 export const oscillationsAndWavesModule: NeetModule = {
     id: 'neet-physics-oscillations-and-waves',
@@ -34,83 +35,104 @@ export const oscillationsAndWavesModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### Part A: Oscillations (அலைவுகள்)
-
-#### 1. Simple Harmonic Motion (SHM) (தனிச் சீரிசை இயக்கம்)
+            heading: { english: 'Part A: Oscillations', tamil: 'பகுதி A: அலைவுகள்' },
+            content: [
+                {
+                    english: `#### 1. Simple Harmonic Motion (SHM) (தனிச் சீரிசை இயக்கம்)
 SHM is a special type of periodic motion where the restoring force is directly proportional to the displacement from the mean position and is always directed towards the mean position.
-$$
-F = -kx
-$$
+$$ F = -kx $$
 Here, k is the force constant. The negative sign indicates that the force is always opposite to the displacement.
 Since $F=ma$, we have $ma = -kx$, so the acceleration is $a = -(k/m)x$. We write this as:
-$$
-a = -\\omega^2 x
-$$
-where $\\omega = \\sqrt{k/m}$ is the **angular frequency (கோண அதிர்வெண்)**. This is the defining equation for SHM.`
+$$ a = -\\omega^2 x $$
+where $\\omega = \\sqrt{k/m}$ is the **angular frequency (கோண அதிர்வெண்)**. This is the defining equation for SHM.`,
+                    tamil: ''
+                }
+            ]
         },
         {
-            english: `#### 2. Equation of SHM (SHM-இன் சமன்பாடு)
-The displacement of a particle executing SHM at any time 't' is given by:
-$$
-x(t) = A \\sin(\\omega t + \\phi)
-$$
+            heading: { english: '2. Equation of SHM (SHM-இன் சமன்பாடு)', tamil: '' },
+            content: [
+                {
+                    english: `The displacement of a particle executing SHM at any time 't' is given by:
+$$ x(t) = A \\sin(\\omega t + \\phi) $$
 *   **A (Amplitude - வீச்சு):** Maximum displacement from the mean position.
 *   **ω (Angular Frequency):** $\\omega = 2\\pi f = 2\\pi/T$.
 *   **$\\phi$ (Phase Constant or Epoch - கட்ட மாறிலி):** Determines the initial position of the particle at t=0.
 *   **($\\omega t + \\phi$) (Phase - கட்டம்):** The state of the particle at time t.`
+                }
+            ]
         },
         {
-            english: `#### 3. Velocity and Acceleration in SHM (SHM-இல் திசைவேகம் மற்றும் முடுக்கம்)
-*   **Velocity (v):** $v = \\frac{dx}{dt} = A\\omega \\cos(\\omega t + \\phi) = \\pm\\omega\\sqrt{A^2 - x^2}$
+            heading: { english: '3. Velocity and Acceleration in SHM (SHM-இல் திசைவேகம் மற்றும் முடுக்கம்)', tamil: '' },
+            content: [
+                {
+                    english: `*   **Velocity (v):** $v = \\frac{dx}{dt} = A\\omega \\cos(\\omega t + \\phi) = \\pm\\omega\\sqrt{A^2 - x^2}$
     *   Velocity is maximum at the mean position (x=0): $v_{max} = A\\omega$.
     *   Velocity is zero at the extreme positions (x=±A).
 *   **Acceleration (a):** $a = \\frac{dv}{dt} = -A\\omega^2 \\sin(\\omega t + \\phi) = -\\omega^2 x$
     *   Acceleration is zero at the mean position (x=0).
     *   Acceleration is maximum at the extreme positions (x=±A): $a_{max} = A\\omega^2$.`
+                }
+            ]
         },
         {
-            english: `#### 4. Energy in SHM (SHM-இல் ஆற்றல்)
-*   **Kinetic Energy (K.E.):** $K.E. = \\frac{1}{2}mv^2 = \\frac{1}{2}m\\omega^2(A^2 - x^2)$
+            heading: { english: '4. Energy in SHM (SHM-இல் ஆற்றல்)', tamil: '' },
+            content: [
+                {
+                    english: `*   **Kinetic Energy (K.E.):** $K.E. = \\frac{1}{2}mv^2 = \\frac{1}{2}m\\omega^2(A^2 - x^2)$
 *   **Potential Energy (P.E.):** $P.E. = \\frac{1}{2}kx^2 = \\frac{1}{2}m\\omega^2x^2$
 *   **Total Energy (E):** $E = K.E. + P.E. = \\frac{1}{2}m\\omega^2A^2 = \\frac{1}{2}kA^2$.
     The total energy in SHM is constant and proportional to the square of the amplitude.`
+                }
+            ]
         },
         {
-            english: `### Part B: Waves (அலைகள்)
-
-#### 1. Wave Motion (அலை இயக்கம்)
+            heading: { english: 'Part B: Waves', tamil: 'பகுதி B: அலைகள்' },
+            content: [
+                {
+                    english: `#### 1. Wave Motion (அலை இயக்கம்)
 A wave is a disturbance that propagates through a medium, transporting energy and momentum without the net transport of the medium itself.
 *   **Transverse Waves (குறுக்கலைகள்):** Particle oscillation is perpendicular to the direction of wave propagation. E.g., Waves on a string, light waves.
 *   **Longitudinal Waves (நெட்டலைகள்):** Particle oscillation is parallel to the direction of wave propagation. E.g., Sound waves.`
+                }
+            ]
         },
         {
-            english: `#### 2. Equation of a Progressive Wave (ஒரு முன்னேறு அலையின் சமன்பாடு)
-A wave traveling in the +x direction can be represented by:
-$$
-y(x, t) = A \\sin(kx - \\omega t + \\phi)
-$$
+            heading: { english: '2. Equation of a Progressive Wave (ஒரு முன்னேறு அலையின் சமன்பாடு)', tamil: '' },
+            content: [
+                {
+                    english: `A wave traveling in the +x direction can be represented by:
+$$ y(x, t) = A \\sin(kx - \\omega t + \\phi) $$
 *   **k (Angular Wave Number - கோண அலை எண்):** $k = 2\\pi/\\lambda$, where λ is the **wavelength (அலைநீளம்)**.
 *   **Wave Speed (அலை வேகம்):** $v = f\\lambda = \\frac{\\omega}{k}$.`
+                }
+            ]
         },
         {
-            english: `#### 3. Superposition Principle (மேற்பொருந்துதல் தத்துவம்)
-When two or more waves overlap, the resultant displacement at any point and at any instant is the vector sum of the displacements due to individual waves. This leads to:
+            heading: { english: '3. Superposition Principle (மேற்பொருந்துதல் தத்துவம்)', tamil: '' },
+            content: [
+                {
+                    english: `When two or more waves overlap, the resultant displacement at any point and at any instant is the vector sum of the displacements due to individual waves. This leads to:
 *   **Interference (குறுக்கீட்டு விளைவு):** Modification in the distribution of intensity in the region of superposition. Constructive (ஆக்க) and destructive (அழிவுக்) interference depend on the phase difference.
 *   **Standing Waves (நிலையான அலைகள்):** Formed by the superposition of two identical waves traveling in opposite directions. There are points of zero amplitude called **nodes (கணுக்கள்)** and points of maximum amplitude called **antinodes (எதிர்க்கணுக்கள்)**.
 *   **Beats (விம்மல்கள்):** The periodic variation in the intensity of sound due to the superposition of two sound waves of slightly different frequencies. Beat frequency = $|f_1 - f_2|$.`
+                }
+            ]
         },
         {
-            english: `#### 4. Doppler Effect (டாப்ளர் விளைவு)
-The apparent change in the frequency of a wave due to relative motion between the source, the observer, and the medium.
+            heading: { english: '4. Doppler Effect (டாப்ளர் விளைவு)', tamil: '' },
+            content: [
+                {
+                    english: `The apparent change in the frequency of a wave due to relative motion between the source, the observer, and the medium.
 The general formula for the apparent frequency ($f'$) is:
-$$
-f' = f \\left( \\frac{v + v_o}{v - v_s} \\right)
-$$
+$$ f' = f \\left( \\frac{v + v_o}{v - v_s} \\right) $$
 where:
 *   f = actual frequency
 *   v = speed of sound
 *   v_o = speed of observer (+ if moving towards the source)
 *   v_s = speed of source (+ if moving away from the observer)`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -189,28 +211,6 @@ where:
             commonPitfall: "Confusing the formulas for open and closed pipes. A closed pipe has a node at the closed end and an antinode at the open end (L = λ/4, 3λ/4, ...). An open pipe has antinodes at both ends (L = λ/2, λ, ...)."
         }
     ],
-    keyFormulasAndDiagrams: {
-        formulas: [
-            { formula: "x(t) = A \\sin(\\omega t + \\phi)", description: "Displacement in SHM (தனிச் சீரிசை இயக்கத்தில் இடப்பெயர்ச்சி)" },
-            { formula: "E = \\frac{1}{2}kA^2", description: "Total Energy in SHM (தனிச் சீரிசை இயக்கத்தில் மொத்த ஆற்றல்)" },
-            { formula: "v = f\\lambda = \\frac{\\omega}{k}", description: "Wave Speed (அலை வேகம்)" },
-            { formula: "f' = f \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)", description: "Doppler Effect (general form) (டாப்ளர் விளைவு)" }
-        ],
-        diagrams: []
-    },
-    keyTakeaways: [
-        "SHM is defined by the condition a = -ω²x.",
-        "Total energy in SHM is constant and depends on the square of the amplitude.",
-        "Wave motion transfers energy, not matter.",
-        "Superposition is the key to understanding interference, standing waves, and beats."
-    ],
-    mnemonics: [
-        { text: "Doppler Effect signs: 'Towards gets Higher'. If the observer or source move towards each other, the apparent frequency increases.", tamil: "டாப்ளர் விளைவு குறிகள்: 'நோக்கிச் சென்றால் அதிர்வெண் கூடும்'. பார்வையாளர் அல்லது மூலம் ஒன்றுக்கொன்று நோக்கிச் சென்றால், தோற்ற அதிர்வெண் அதிகரிக்கும்." }
-    ],
-    neetTips: [
-        { text: "Beats problems are very common. Remember beat frequency is always the positive difference: |f₁ - f₂|.", tamil: "விம்மல்கள் கணக்குகள் மிகவும் பொதுவானவை. விம்மல் அதிர்வெண் எப்போதும் நேர்மறை வேறுபாடு என்பதை நினைவில் கொள்க: |f₁ - f₂|." },
-        { text: "For standing waves in pipes, carefully note if the pipe is open at both ends or closed at one end, as the harmonic series is different (all harmonics vs. only odd harmonics).", tamil: "குழாய்களில் உள்ள நிலையான அலைகளுக்கு, குழாய் இரு முனைகளிலும் திறந்ததா அல்லது ஒரு முனையில் மூடப்பட்டதா என்பதை கவனமாகக் கவனிக்கவும், ஏனெனில் இசைவுக் தொடர் வேறுபட்டது (அனைத்து இசைவுகளும் vs. ஒற்றைப்படை இசைவுகள் மட்டும்)." }
-    ],
     mcqs: [
         { question: "Which of the following is NOT an example of simple harmonic motion?", options: ["A. Motion of a simple pendulum (small amplitude)", "B. Motion of a mass attached to a spring", "C. A ball bouncing on the floor", "D. Uniform circular motion's projection on a diameter"], answer: "C. A ball bouncing on the floor", explanation: "A bouncing ball is a periodic motion, but the restoring force (gravity) is constant, not proportional to displacement, so it's not SHM.", neetFrequency: 3 },
         { question: "In SHM, the total energy of the particle is proportional to:", options: ["A. The amplitude", "B. The square of the amplitude", "C. The square root of the amplitude", "D. The inverse of the amplitude"], answer: "B. The square of the amplitude", explanation: "The total energy E = (1/2)kA², so it is directly proportional to the square of the amplitude.", neetFrequency: 5 },
@@ -239,17 +239,97 @@ where:
         { question: "The energy of a wave is proportional to:", options: ["A. Its amplitude", "B. Its frequency", "C. The square of its amplitude", "D. Its wavelength"], answer: "C. The square of its amplitude", explanation: "The intensity (energy per unit area per unit time) of a wave is proportional to the square of its amplitude.", neetFrequency: 2 }
     ],
     assertionReasons: [
-        { assertion: "In SHM, the acceleration is always directed towards the mean position.", reason: "The restoring force in SHM is always directed towards the mean position.", answer: "A", explanation: "Assertion is true. Reason is also true and is the correct explanation. Since F = -kx and F=ma, the acceleration a = -(k/m)x is also always directed towards the mean position (x=0).", neetFrequency: 5 },
-        { assertion: "The time period of a simple pendulum on a satellite orbiting the Earth is infinite.", reason: "The satellite is in a state of free-fall, so the effective acceleration due to gravity is zero.", answer: "A", explanation: "Reason is true, g_eff = 0 inside an orbiting satellite. Assertion is also true because T = 2π√(L/g_eff). If g_eff is zero, T becomes infinite (it will not oscillate).", neetFrequency: 3 },
-        { assertion: "All periodic motions are oscillatory.", reason: "Oscillatory motion is the to and fro motion about a mean position.", answer: "D", explanation: "Assertion is false. Uniform circular motion is periodic but not oscillatory. The reason is a true statement defining oscillatory motion.", neetFrequency: 2 },
-        { assertion: "When a person talks in front of a campfire, the sound seems to tremble.", reason: "The speed of sound depends on the temperature of the medium.", answer: "A", explanation: "Assertion is a known phenomenon. The reason is true (v ∝ √T). The air above the fire has varying temperatures, causing the speed of sound to change constantly. This leads to refraction and interference, making the sound tremble. Reason explains the assertion.", neetFrequency: 1 },
-        { assertion: "Transverse waves can be polarized.", reason: "Transverse waves have oscillations perpendicular to the direction of propagation.", answer: "A", explanation: "Polarization is the restriction of oscillations to a single plane. This is only possible if the oscillations are perpendicular to the direction of motion (transverse). Longitudinal waves cannot be polarized. Reason is the correct explanation.", neetFrequency: 3 }
+        {
+            assertion: "In SHM, the acceleration is always directed towards the mean position.",
+            reason: "The restoring force in SHM is always directed towards the mean position.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. Since F = -kx and F=ma, the acceleration a = -(k/m)x is also always directed towards the mean position (x=0).",
+            neetFrequency: 5
+        },
+        {
+            assertion: "The time period of a simple pendulum on a satellite orbiting the Earth is infinite.",
+            reason: "The satellite is in a state of free-fall, so the effective acceleration due to gravity is zero.",
+            answer: "A",
+            explanation: "Reason is true, g_eff = 0 inside an orbiting satellite. Assertion is also true because T = 2π√(L/g_eff). If g_eff is zero, T becomes infinite (it will not oscillate).",
+            neetFrequency: 3
+        },
+        {
+            assertion: "All periodic motions are oscillatory.",
+            reason: "Oscillatory motion is the to and fro motion about a mean position.",
+            answer: "D",
+            explanation: "Assertion is false. Uniform circular motion is periodic but not oscillatory. The reason is a true statement defining oscillatory motion.",
+            neetFrequency: 2
+        },
+        {
+            assertion: "When a person talks in front of a campfire, the sound seems to tremble.",
+            reason: "The speed of sound depends on the temperature of the medium.",
+            answer: "A",
+            explanation: "Assertion is a known phenomenon. The reason is true (v ∝ √T). The air above the fire has varying temperatures, causing the speed of sound to change constantly. This leads to refraction and interference, making the sound tremble. Reason explains the assertion.",
+            neetFrequency: 1
+        },
+        {
+            assertion: "Transverse waves can be polarized.",
+            reason: "Transverse waves have oscillations perpendicular to the direction of propagation.",
+            answer: "A",
+            explanation: "Polarization is the restriction of oscillations to a single plane. This is only possible if the oscillations are perpendicular to the direction of motion (transverse). Longitudinal waves cannot be polarized. Reason is the correct explanation.",
+            neetFrequency: 3
+        }
     ],
     matchTheColumns: [
-        { column1: ["(a) Amplitude", "(b) Time Period", "(c) Phase", "(d) Frequency"], column2: ["(p) Reciprocal of time period", "(q) State of oscillation", "(r) Maximum displacement", "(s) Time for one oscillation"], answer: "a-r, b-s, c-q, d-p", explanation: "Matching the terms of SHM with their definitions." },
-        { column1: ["(a) Longitudinal Wave", "(b) Transverse Wave", "(c) Standing Wave", "(d) Beats"], column2: ["(p) Nodes and Antinodes", "(q) Light", "(r) Sound", "(s) Slightly different frequencies"], answer: "a-r, b-q, c-p, d-s", explanation: "Matching wave types and phenomena with their examples or characteristics." },
-        { column1: ["(a) At mean position (x=0)", "(b) At extreme position (x=A)", "(c) At x = A/√2", "(d) At all positions"], column2: ["(p) K.E. = P.E.", "(q) Max velocity, Zero acceleration", "(r) Max acceleration, Zero velocity", "(s) Total energy is constant"], answer: "a-q, b-r, c-p, d-s", explanation: "Matching positions in SHM with the state of energy, velocity, and acceleration." },
-        { column1: ["(a) Resonance", "(b) Interference", "(c) Diffraction", "(d) Polarization"], column2: ["(p) Bending of waves around obstacles", "(q) Restriction of wave vibration", "(r) Superposition of waves from coherent sources", "(s) Large amplitude oscillation at natural frequency"], answer: "a-s, b-r, c-p, d-q", explanation: "Matching wave phenomena with their definitions." },
-        { column1: ["(a) Simple Pendulum", "(b) Spring-Mass System", "(c) Open Organ Pipe", "(d) Closed Organ Pipe"], column2: ["(p) T = 2π√(m/k)", "(q) Fundamental freq = v/4L", "(r) T = 2π√(L/g)", "(s) Fundamental freq = v/2L"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching systems with their corresponding formulas for time period or fundamental frequency." }
-    ]
+        {
+            column1: ["(a) Amplitude", "(b) Time Period", "(c) Phase", "(d) Frequency"],
+            column2: ["(p) Reciprocal of time period", "(q) State of oscillation", "(r) Maximum displacement", "(s) Time for one oscillation"],
+            answer: "a-r, b-s, c-q, d-p",
+            explanation: "Matching the terms of SHM with their definitions."
+        },
+        {
+            column1: ["(a) Longitudinal Wave", "(b) Transverse Wave", "(c) Standing Wave", "(d) Beats"],
+            column2: ["(p) Nodes and Antinodes", "(q) Light", "(r) Sound", "(s) Slightly different frequencies"],
+            answer: "a-r, b-q, c-p, d-s",
+            explanation: "Matching wave types and phenomena with their examples or characteristics."
+        },
+        {
+            column1: ["(a) At mean position (x=0)", "(b) At extreme position (x=A)", "(c) At x = A/√2", "(d) At all positions"],
+            column2: ["(p) K.E. = P.E.", "(q) Max velocity, Zero acceleration", "(r) Max acceleration, Zero velocity", "(s) Total energy is constant"],
+            answer: "a-q, b-r, c-p, d-s",
+            explanation: "Matching positions in SHM with the state of energy, velocity, and acceleration."
+        },
+        {
+            column1: ["(a) Resonance", "(b) Interference", "(c) Diffraction", "(d) Polarization"],
+            column2: ["(p) Bending of waves around obstacles", "(q) Restriction of wave vibration", "(r) Superposition of waves from coherent sources", "(s) Large amplitude oscillation at natural frequency"],
+            answer: "a-s, b-r, c-p, d-q",
+            explanation: "Matching wave phenomena with their definitions."
+        },
+        {
+            column1: ["(a) Simple Pendulum", "(b) Spring-Mass System", "(c) Open Organ Pipe", "(d) Closed Organ Pipe"],
+            column2: ["(p) T = 2π√(m/k)", "(q) Fundamental freq = v/4L", "(r) T = 2π√(L/g)", "(s) Fundamental freq = v/2L"],
+            answer: "a-r, b-p, c-s, d-q",
+            explanation: "Matching systems with their corresponding formulas for time period or fundamental frequency."
+        }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            { formula: "x(t) = A \\sin(\\omega t + \\phi)", description: "Displacement in SHM (தனிச் சீரிசை இயக்கத்தில் இடப்பெயர்ச்சி)" },
+            { formula: "E = \\frac{1}{2}kA^2", description: "Total Energy in SHM (தனிச் சீரிசை இயக்கத்தில் மொத்த ஆற்றல்)" },
+            { formula: "v = f\\lambda = \\frac{\\omega}{k}", description: "Wave Speed (அலை வேகம்)" },
+            { formula: "f' = f \\left( \\frac{v \\pm v_o}{v \\mp v_s} \\right)", description: "Doppler Effect (general form) (டாப்ளர் விளைவு)" }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "SHM is defined by the condition a = -ω²x.",
+        "Total energy in SHM is constant and depends on the square of the amplitude.",
+        "Wave motion transfers energy, not matter.",
+        "Superposition is the key to understanding interference, standing waves, and beats."
+    ],
+    mnemonics: [
+        { text: "Doppler Effect signs: 'Towards gets Higher'. If the observer or source move towards each other, the apparent frequency increases.", tamil: "டாப்ளர் விளைவு குறிகள்: 'நோக்கிச் சென்றால் அதிர்வெண் கூடும்'. பார்வையாளர் அல்லது மூலம் ஒன்றுக்கொன்று நோக்கிச் சென்றால், தோற்ற அதிர்வெண் அதிகரிக்கும்." }
+    ],
+    neetTips: [
+        { text: "Beats problems are very common. Remember beat frequency is always the positive difference: |f₁ - f₂|.", tamil: "விம்மல்கள் கணக்குகள் மிகவும் பொதுவானவை. விம்மல் அதிர்வெண் எப்போதும் நேர்மறை வேறுபாடு என்பதை நினைவில் கொள்க: |f₁ - f₂|." },
+        { text: "For standing waves in pipes, carefully note if the pipe is open at both ends or closed at one end, as the harmonic series is different (all harmonics vs. only odd harmonics).", tamil: "குழாய்களில் உள்ள நிலையான அலைகளுக்கு, குழாய் இரு முனைகளிலும் திறந்ததா அல்லது ஒரு முனையில் மூடப்பட்டதா என்பதை கவனமாகக் கவனிக்கவும், ஏனெனில் இசைவுக் தொடர் வேறுபட்டது (அனைத்து இசைவுகளும் vs. ஒற்றைப்படை இசைவுகள் மட்டும்)." }
+    ],
+    studentTip:{english:"",tamil:""},
+    peerDiscussion:{english:"",tamil:""},
+    validationReport: []
 };
