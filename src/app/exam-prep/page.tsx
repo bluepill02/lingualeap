@@ -96,7 +96,7 @@ export default function ExamPrepLandingPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="responsive-card-grid">
         {examModules.sort((a,b) => {
             if (a.isNew && !b.isNew) return -1;
             if (!a.isNew && b.isNew) return 1;

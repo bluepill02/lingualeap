@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -16,7 +17,7 @@ export default function LessonsPage() {
   return (
     <div>
       <h1 className="mb-6 text-3xl font-bold font-headline">All Lessons</h1>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {lessons.map((lesson) => (
           <Card key={lesson.id} className="flex h-full flex-col">
             <CardHeader className="p-0">

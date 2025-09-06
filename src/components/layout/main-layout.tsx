@@ -28,6 +28,7 @@ import {
   Radio,
   Megaphone,
   ShieldCheck,
+  Menu
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -100,6 +101,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   ];
 
   return (
+    <div className="app-container">
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader>
@@ -137,8 +139,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 items-center justify-between border-b bg-card px-4 sm:px-6 md:px-8 sticky top-0 z-10">
-          <SidebarTrigger />
+        <header className="flex h-16 items-center justify-between border-b bg-card p-4 sm:px-6 md:px-8 sticky top-0 z-10">
+          <div className="flex items-center gap-2">
+            <SidebarTrigger className="md:hidden" />
+            <div className="hidden md:block">
+              <SidebarTrigger />
+            </div>
+          </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full" aria-label="Open user menu">
@@ -181,5 +188,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </footer>
       </SidebarInset>
     </SidebarProvider>
+    </div>
   );
 }
