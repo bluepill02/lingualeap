@@ -26,6 +26,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PracticeAnalytics } from './neet-practice-analytics';
 import { AiQuizGenerator } from './ai-quiz-generator';
 import { PracticeMode } from './neet-practice-mode';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 
 export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
@@ -203,14 +211,16 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
 
 
 export function PracticeSectionCard({ module }: { module: NeetModule }) {
-    const { mcqs, assertionReasons, matchTheColumns, subject, chapter } = module;
+    const { mcqs = [], assertionReasons = [], matchTheColumns = [], subject, chapter } = module;
+
     const [activeCardIndex, setActiveCardIndex] = React.useState<number | null>(null);
     const [individualCardFlipped, setIndividualCardFlipped] = React.useState<boolean[]>(Array(mcqs?.length || 0).fill(false));
-
+    
+    // State for Practice Mode
+    const practiceMcqs = mcqs.slice(0, 15);
     const [practiceAnswers, setPracticeAnswers] = useState<(string | null)[]>(Array(15).fill(null));
     const [isPracticeSubmitted, setIsPracticeSubmitted] = useState(false);
-    
-    const practiceMcqs = mcqs.slice(0, 15);
+    const [flipped, setFlipped] = useState<boolean[]>(Array(15).fill(false));
 
     const handleFlip = (index: number) => {
         const newFlipped = [...individualCardFlipped];
@@ -226,6 +236,16 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
         setActiveCardIndex(null);
     };
 
+    const handleSubmit = () => {
+        setIsPracticeSubmitted(true);
+        setFlipped(Array(15).fill(true));
+    };
+
+    const handleReset = () => {
+        setPracticeAnswers(Array(15).fill(null));
+        setIsPracticeSubmitted(false);
+        setFlipped(Array(15).fill(false));
+    };
 
     if (!mcqs || !assertionReasons || !matchTheColumns) {
         return (
@@ -248,26 +268,25 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
             </CardHeader>
             <CardContent className="card-padding-lg">
                 <Tabs defaultValue="practice" className="w-full">
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="practice">Practice Mode</TabsTrigger>
                         <TabsTrigger value="all-questions">All Questions</TabsTrigger>
                         <TabsTrigger value="analytics">Analytics</TabsTrigger>
+                        <TabsTrigger value="ai-practice">AI Practice</TabsTrigger>
                     </TabsList>
                     <TabsContent value="practice" className="mt-4">
                          <PracticeMode 
                             mcqs={practiceMcqs}
                             answers={practiceAnswers}
                             submitted={isPracticeSubmitted}
+                            flipped={flipped}
                             onOptionSelect={(qIndex, option) => {
                                 const newAnswers = [...practiceAnswers];
                                 newAnswers[qIndex] = option;
                                 setPracticeAnswers(newAnswers);
                             }}
-                            onSubmit={() => setIsPracticeSubmitted(true)}
-                            onReset={() => {
-                                setPracticeAnswers(Array(15).fill(null));
-                                setIsPracticeSubmitted(false);
-                            }}
+                            onSubmit={handleSubmit}
+                            onReset={handleReset}
                          />
                     </TabsContent>
                     <TabsContent value="all-questions" className="mt-4">
@@ -279,7 +298,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                 <AccordionContent className="pt-4">
                                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {mcqs.map((mcq, qIndex) => (
-                                            <Card key={qIndex} className="flex flex-col">
+                                            <Card key={qIndex} className="flex flex-col cursor-pointer hover:shadow-lg transition-shadow" onClick={() => handleCardClick(qIndex)}>
                                                 <CardHeader>
                                                     <CardTitle className="flex items-center justify-between text-base">
                                                         Question {qIndex + 1}
@@ -293,10 +312,9 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                                 <CardContent className="flex-grow">
                                                      <div className="text-sm prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcq.question}</MarkdownRenderer></div>
                                                 </CardContent>
-                                                <div className="p-4 pt-0 text-center">
-                                                    <Button variant="ghost" onClick={() => handleCardClick(qIndex)}>
-                                                        Reveal Answer
-                                                    </Button>
+                                                <div className="p-4 pt-0 text-center text-primary/80 flex items-center justify-center gap-2">
+                                                    <ChevronsRight className="h-4 w-4"/>
+                                                    <span>View Answer</span>
                                                 </div>
                                             </Card>
                                         ))}
@@ -364,6 +382,9 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                     <TabsContent value="analytics" className="mt-4">
                         <PracticeAnalytics mcqs={practiceMcqs} answers={practiceAnswers} submitted={isPracticeSubmitted} />
                     </TabsContent>
+                    <TabsContent value="ai-practice" className="mt-4">
+                       <AiQuizGenerator subject={subject} chapter={chapter} />
+                    </TabsContent>
                 </Tabs>
                  <AnimatePresence>
                 {activeCardIndex !== null && (
@@ -375,62 +396,65 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                         onClick={handleCloseCard}
                     >
                         <motion.div 
-                            className="relative w-full max-w-xl [perspective:1000px]"
-                            initial={false}
-                            animate={{ rotateY: individualCardFlipped[activeCardIndex] ? 180 : 0 }}
-                            transition={{ duration: 0.6, animationDirection: "normal" }}
-                            style={{ transformStyle: "preserve-3d" }}
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the card
+                            className="relative w-full max-w-xl"
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Front of the card */}
-                            <div className="absolute w-full h-full [backface-visibility:hidden]">
-                                <Card className="h-full flex flex-col">
-                                    <CardHeader>
-                                        <CardTitle className="flex items-center justify-between text-lg">
-                                            Question {activeCardIndex + 1}
-                                            <div className="flex">
-                                                {Array.from({ length: 5 }).map((_, i) => (
-                                                    <Star key={i} className={cn('h-4 w-4', (mcqs[activeCardIndex].neetFrequency || 0) > i ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')} />
-                                                ))}
-                                            </div>
-                                        </CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="flex-grow flex items-center">
-                                        <div className="text-base prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcqs[activeCardIndex].question}</MarkdownRenderer></div>
-                                    </CardContent>
-                                    <div className="p-4 border-t flex justify-between items-center">
-                                         <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
-                                         <Button onClick={() => handleFlip(activeCardIndex)}>Reveal Answer</Button>
-                                    </div>
-                                </Card>
-                            </div>
-                            
-                            {/* Back of the card */}
-                            <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                                <Card className="h-full flex flex-col">
-                                    <CardHeader>
-                                        <CardTitle className="text-lg">Answer & Explanation</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="flex-grow space-y-4">
-                                        <Alert variant="success">
-                                            <CheckCircle className="h-4 w-4" />
-                                            <AlertTitle>Correct Answer</AlertTitle>
-                                            <AlertDescription><MarkdownRenderer>{mcqs[activeCardIndex].answer}</MarkdownRenderer></AlertDescription>
-                                        </Alert>
-                                        <Alert>
-                                            <HelpCircle className="h-4 w-4" />
-                                            <AlertTitle>Explanation</AlertTitle>
-                                            <AlertDescription className="prose dark:prose-invert max-w-none text-sm">
-                                                <MarkdownRenderer>{mcqs[activeCardIndex].explanation}</MarkdownRenderer>
-                                            </AlertDescription>
-                                        </Alert>
-                                    </CardContent>
-                                     <div className="p-4 border-t flex justify-between items-center">
-                                         <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
-                                         <Button onClick={() => handleFlip(activeCardIndex)}>Show Question</Button>
-                                    </div>
-                                </Card>
-                            </div>
+                             <motion.div
+                                className="relative w-full h-full [transform-style:preserve-3d]"
+                                initial={false}
+                                animate={{ rotateY: individualCardFlipped[activeCardIndex] ? 180 : 0 }}
+                                transition={{ duration: 0.6, animationDirection: "normal" }}
+                             >
+                                {/* Front of the card */}
+                                <div className="absolute w-full h-full [backface-visibility:hidden]">
+                                    <Card className="h-full flex flex-col min-h-[400px]">
+                                        <CardHeader>
+                                            <CardTitle className="flex items-center justify-between text-lg">
+                                                Question {activeCardIndex + 1}
+                                                <div className="flex">
+                                                    {Array.from({ length: 5 }).map((_, i) => (
+                                                        <Star key={i} className={cn('h-4 w-4', (mcqs[activeCardIndex].neetFrequency || 0) > i ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')} />
+                                                    ))}
+                                                </div>
+                                            </CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="flex-grow flex items-center">
+                                            <div className="text-base prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcqs[activeCardIndex].question}</MarkdownRenderer></div>
+                                        </CardContent>
+                                        <div className="p-4 border-t flex justify-between items-center">
+                                            <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
+                                            <Button onClick={() => handleFlip(activeCardIndex)}>Reveal Answer</Button>
+                                        </div>
+                                    </Card>
+                                </div>
+                                
+                                {/* Back of the card */}
+                                <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                                    <Card className="h-full flex flex-col min-h-[400px]">
+                                        <CardHeader>
+                                            <CardTitle className="text-lg">Answer & Explanation</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="flex-grow space-y-4">
+                                            <Alert variant="success">
+                                                <CheckCircle className="h-4 w-4" />
+                                                <AlertTitle>Correct Answer</AlertTitle>
+                                                <AlertDescription><MarkdownRenderer>{mcqs[activeCardIndex].answer}</MarkdownRenderer></AlertDescription>
+                                            </Alert>
+                                            <Alert>
+                                                <HelpCircle className="h-4 w-4" />
+                                                <AlertTitle>Explanation</AlertTitle>
+                                                <AlertDescription className="prose dark:prose-invert max-w-none text-sm">
+                                                    <MarkdownRenderer>{mcqs[activeCardIndex].explanation}</MarkdownRenderer>
+                                                </AlertDescription>
+                                            </Alert>
+                                        </CardContent>
+                                        <div className="p-4 border-t flex justify-between items-center">
+                                            <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
+                                            <Button onClick={() => handleFlip(activeCardIndex)}>Show Question</Button>
+                                        </div>
+                                    </Card>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </motion.div>
                 )}
