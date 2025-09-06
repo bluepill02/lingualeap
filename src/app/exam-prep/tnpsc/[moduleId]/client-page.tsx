@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import 'katex/dist/katex.min.css'
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from '@/lib/utils';
 import { AiPracticeGenerator } from '@/components/exam/ai-practice-generator';
 
@@ -45,6 +45,7 @@ import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { XCircle } from 'lucide-react';
+import { tnpscQuizGenerator } from '@/ai/flows/tnpsc-quiz-generator';
 
 const COLORS = {
   correct: 'hsl(var(--success))',
@@ -55,7 +56,7 @@ const COLORS = {
   'freedom-struggle-tn': '#ffc658'
 };
 
-export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
+function TnpscModuleViewer({ module }: { module: TnpscModule }) {
   const router = useRouter();
   const { id: moduleId } = module;
   const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -540,7 +541,12 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                 </div>
               </CardContent>
             </Card>
-            <AiPracticeGenerator subject={module.subject as any} chapter={module.title} />
+            <AiPracticeGenerator 
+              subject={module.subject as 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science'} 
+              chapter={module.title} 
+              language={language === 'english' ? 'English' : 'Tamil'} 
+              generatorFn={tnpscQuizGenerator}
+            />
           </TabsContent>
           <TabsContent value="srs" className="mt-4 space-y-6">
               <Card>
@@ -688,4 +694,19 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
         </Tabs>
     </div>
   );
+}
+
+
+export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    return <div>Loading...</div>;
+  }
+  
+  return <TnpscModuleViewer module={module} />;
 }
