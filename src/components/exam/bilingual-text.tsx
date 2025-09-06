@@ -14,7 +14,7 @@ interface BilingualTextProps {
 export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, className }) => {
   // Combine English and Tamil text into a single string for inline rendering
   const combinedText = tamil 
-    ? `${english} <span class="text-accent ml-2">*(${tamil})*</span>` 
+    ? `${english} <span class="text-teal-400 ml-2">*(${tamil})*</span>` 
     : english;
 
   return (
