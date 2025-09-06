@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, FlaskConical, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, FlaskConical, GraduationCap, Link2, ShieldCheck, BookOpen } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -101,6 +101,8 @@ export default function NeetChemistryPage() {
                     const slug = getSlug(chapter);
                     const content = neetContent[slug];
                     if (!content) return null;
+                    const mappingDescription = content.syllabusMapping?.[0]?.tnBoardChapter || 'Mapping not available.';
+
                     return (
                         <Link href={`/exam-prep/neet/chemistry/${slug}`} key={slug}>
                             <Card className="hover:border-primary transition-colors h-full flex flex-col">
@@ -108,6 +110,12 @@ export default function NeetChemistryPage() {
                                     <div className="flex justify-between items-start">
                                         <h3 className="text-lg font-bold font-headline pr-4">{chapter}</h3>
                                         <Badge variant="secondary">Chapter {chapterCounter}</Badge>
+                                    </div>
+                                    <div className="mt-auto bg-primary/5 border-primary/20 p-2 rounded-md">
+                                        <div className="flex items-center gap-2 text-primary/80 text-xs">
+                                          <BookOpen className="h-4 w-4" />
+                                          <span>TN Board Mapping: {mappingDescription}</span>
+                                        </div>
                                     </div>
                                 </CardContent>
                             </Card>
