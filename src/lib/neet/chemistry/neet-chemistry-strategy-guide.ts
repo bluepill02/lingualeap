@@ -522,10 +522,20 @@ export const strategyGuideContent: StrategyGuide = {
               },
             ],
           },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Identifying Name Reactions',
+                explanation: '**Trick:** Look for the key reagent!\n*   **Aldol:** Dilute base (NaOH, KOH).\n*   **Cannizzaro:** Concentrated base (50% NaOH).\n*   **Clemmensen:** Zn-Hg, HCl.\n*   **Wolff-Kishner:** Hydrazine (NH₂NH₂), KOH, Ethylene glycol.\n*   **Rosenmund:** H₂, Pd/BaSO₄.\n*   **Stephen:** SnCl₂, HCl.\nRecognizing the reagent is half the battle in solving name reaction problems.',
+                explanationTamil: '**தந்திரம்:** முக்கிய கரணியைத் தேடுங்கள்!\n*   **ஆல்டால்:** நீர்த்த காரம் (NaOH, KOH).\n*   **கேனிசரோ:** அடர் காரம் (50% NaOH).\n*   **கிளெமென்சன்:** Zn-Hg, HCl.\n*   **வுல்ஃப்-கிஷ்ணர்:** ஹைட்ரசின் (NH₂NH₂), KOH, எத்திலீன் கிளைக்கால்.\n*   **ரோசன்மண்ட்:** H₂, Pd/BaSO₄.\n*   **ஸ்டீஃபன்:** SnCl₂, HCl.\nகரணியை அறிந்துகொள்வது பெயர் வினை கணக்குகளைத் தீர்ப்பதில் பாதி வெற்றியாகும்.',
+              },
+            ],
+          }
         ],
-      },
+      }
     ]
   },
 };
-
-    
