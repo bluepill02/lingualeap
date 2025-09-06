@@ -28,26 +28,26 @@ import { atomsModule } from './physics/atoms';
 import { nucleiModule } from './physics/nuclei';
 import { semiconductorElectronicsModule } from './physics/semiconductor-electronics';
 import { communicationSystemsModule } from './physics/communication-systems';
-import { someBasicConceptsInChemistry } from '@/content/neet/chemistry/some-basic-concepts-in-chemistry';
-import { atomicStructureModule as atomicStructure } from '@/content/neet/chemistry/atomic-structure';
-import { chemicalBondingAndMolecularStructure } from '@/content/neet/chemistry/chemical-bonding-and-molecular-structure';
-import { chemicalThermodynamicsModule as chemicalThermodynamics } from '@/content/neet/chemistry/chemical-thermodynamics';
-import { solutions } from '@/content/neet/chemistry/solutions';
-import { equilibrium } from '@/content/neet/chemistry/equilibrium';
-import { redoxReactionsAndElectrochemistry } from '@/content/neet/chemistry/redox-reactions-and-electrochemistry';
-import { chemicalKineticsModule as chemicalKinetics } from '@/content/neet/chemistry/chemical-kinetics';
-import { classificationOfElementsAndPeriodicityInProperties } from '@/content/neet/chemistry/classification-of-elements-and-periodicity-in-properties';
-import { pBlockElementsModule } from '@/content/neet/chemistry/p-block-elements';
-import { dAndFBlockElementsModule } from '@/content/neet/chemistry/d--and-f-block-elements';
-import { coordinationCompounds } from '@/content/neet/chemistry/coordination-compounds';
-import { PurificationAndCharacterisationOfOrganicCompounds as purificationAndCharacterisationOfOrganicCompounds } from '@/content/neet/chemistry/purification-and-characterisation-of-organic-compounds';
-import { someBasicPrinciplesOfOrganicChemistry } from '@/content/neet/chemistry/some-basic-principles-of-organic-chemistry';
-import { hydrocarbons } from '@/content/neet/chemistry/hydrocarbons';
-import { organicCompoundsContainingHalogens } from '@/content/neet/chemistry/organic-compounds-containing-halogens';
-import { organicCompoundsContainingOxygen } from '@/content/neet/chemistry/organic-compounds-containing-oxygen';
-import { organicCompoundsContainingNitrogen } from '@/content/neet/chemistry/organic-compounds-containing-nitrogen';
-import { biomolecules } from '@/content/neet/chemistry/biomolecules';
-import { principlesRelatedToPracticalChemistry } from '@/content/neet/chemistry/principles-related-to-practical-chemistry';
+import { someBasicConceptsInChemistry } from './chemistry/some-basic-concepts-in-chemistry';
+import { atomicStructureModule as atomicStructure } from './chemistry/atomic-structure';
+import { chemicalBondingAndMolecularStructure } from './chemistry/chemical-bonding-and-molecular-structure';
+import { chemicalThermodynamicsModule as chemicalThermodynamics } from './chemistry/chemical-thermodynamics';
+import { solutions } from './chemistry/solutions';
+import { equilibrium } from './chemistry/equilibrium';
+import { redoxReactionsAndElectrochemistry } from './chemistry/redox-reactions-and-electrochemistry';
+import { chemicalKineticsModule as chemicalKinetics } from './chemistry/chemical-kinetics';
+import { classificationOfElementsAndPeriodicityInProperties } from './chemistry/classification-of-elements-and-periodicity-in-properties';
+import { pBlockElementsModule } from './chemistry/p-block-elements';
+import { dAndFBlockElementsModule } from './chemistry/d--and-f-block-elements';
+import { coordinationCompounds } from './chemistry/coordination-compounds';
+import { PurificationAndCharacterisationOfOrganicCompounds as purificationAndCharacterisationOfOrganicCompounds } from './chemistry/purification-and-characterisation-of-organic-compounds';
+import { someBasicPrinciplesOfOrganicChemistry } from './chemistry/some-basic-principles-of-organic-chemistry';
+import { hydrocarbons } from './chemistry/hydrocarbons';
+import { organicCompoundsContainingHalogens } from './chemistry/organic-compounds-containing-halogens';
+import { organicCompoundsContainingOxygen } from './chemistry/organic-compounds-containing-oxygen';
+import { organicCompoundsContainingNitrogen } from './chemistry/organic-compounds-containing-nitrogen';
+import { biomolecules } from './chemistry/biomolecules';
+import { principlesRelatedToPracticalChemistry } from './chemistry/principles-related-to-practical-chemistry';
 
 // Biology
 import { diversityInTheLivingWorld } from '@/lib/neet/biology/diversity-in-the-living-world';
@@ -71,7 +71,7 @@ export const neetContent: { [key: string]: any } = {
   'motion-in-a-plane': motionInAPlaneModule,
   'laws-of-motion': lawsOfMotionModule,
   'work-energy-and-power': workEnergyAndPowerModule,
-  'rotational-motion': rotationalMotion,
+  'system-of-particles-and-rotational-motion': rotationalMotion,
   'gravitation': gravitationModule,
   'mechanical-properties-of-solids': mechanicalPropertiesOfSolidsModule,
   'mechanical-properties-of-fluids': mechanicalPropertiesOfFluidsModule,
@@ -118,7 +118,7 @@ export const neetContent: { [key: string]: any } = {
   'principles-related-to-practical-chemistry': principlesRelatedToPracticalChemistry,
 
   // Biology
-  'diversity-in-the-living-world': diversityInTheLivingWorld,
+  'diversity-in-living-world': diversityInTheLivingWorld,
   'structural-organisation-in-animals-and-plants': structuralOrganisationInAnimalsAndPlants,
   'cell-structure-and-function': cellStructureAndFunction,
   'plant-physiology': plantPhysiology,
