@@ -257,6 +257,8 @@ export const PurificationAndCharacterisationOfOrganicCompounds: NeetModule = {
                     explanationTamil: "இந்த செயல்முறை கலவையை மெதுவாக சூடாக்குவதை உள்ளடக்கியது. கற்பூரம் ஆவியாக மாறும், அதை சேகரித்து ஒரு தனி பரப்பில் குளிர்வித்து தூய கற்பூர படிகங்களைப் பெறலாம், மணல் பின்தங்கிவிடும்."
                 }
             ],
+            neetHack: "Remember the common sublimable substances: Naphthalene, Camphor, Iodine, Ammonium chloride.",
+            neetHackTamil: "பொதுவான பதங்கமாகும் பொருட்களை நினைவில் கொள்ளுங்கள்: நாப்தலீன், கற்பூரம், அயோடின், அம்மோனியம் குளோரைடு.",
             commonPitfall: "Considering techniques like filtration or evaporation which would not work here since both components are insoluble solids and camphor is volatile.",
             commonPitfallTamil: "வடிகட்டுதல் அல்லது ஆவியாதல் போன்ற நுட்பங்களைக் கருத்தில் கொள்வது, இங்கு இரண்டு கூறுகளும் கரையாத திண்மங்கள் மற்றும் கற்பூரம் ஆவியாகக்கூடியது என்பதால் வேலை செய்யாது."
         }
