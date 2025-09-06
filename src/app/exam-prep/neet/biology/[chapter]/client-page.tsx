@@ -1,10 +1,11 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Dna, Leaf, Bug } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -75,7 +76,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </header>
 
       <Card>
-        <CardContent className="card-padding-md">
+        <CardContent className="p-4">
             <div className="flex justify-between items-center mb-1 text-sm">
                 <span className="text-muted-foreground font-semibold">Study Progress</span>
                 <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
@@ -103,7 +104,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
             </div>
         </TabsContent>
         <TabsContent value="practice" className="mt-6 space-y-6">
-            <PracticeSectionCard mcqs={content.mcqs} assertionReasons={content.assertionReasons} matchTheColumns={content.matchTheColumns} />
+            <PracticeSectionCard module={content} />
              <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('practice')}>
                     {completedSections.includes('practice') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
@@ -130,8 +131,13 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </Tabs>
       
        <Card className="mt-8">
+        <CardHeader className="text-center">
+            <Trophy className="h-10 w-10 mx-auto text-yellow-400" />
+            <CardTitle>Finish Line</CardTitle>
+            <CardDescription>Complete all sections to unlock your XP!</CardDescription>
+        </CardHeader>
         <CardContent className="card-padding-lg text-center">
-            <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim XP</Button>
+            <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>Complete Chapter & Claim 150 XP</Button>
         </CardContent>
        </Card>
     </div>
@@ -150,5 +156,5 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
     setIsClient(true)
   }, [])
 
-  return <>{isClient ? <ChapterContent content={content} /> : null}</>
+  return <>{isClient ? <ChapterContent content={content} /> : <div>Loading...</div>}</>
 }

@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -125,11 +126,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         
                         {tamilConnection && (
                             <Card className="bg-yellow-500/10 border-yellow-500/30">
-                            <CardHeader className="flex-row items-center gap-3 space-y-0">
+                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
                                 <Lightbulb className="h-5 w-5 text-yellow-400" />
-                                <CardTitle className="text-yellow-200">Tamil Connection</CardTitle>
+                                <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
                             </CardHeader>
-                            <CardContent className="card-padding-lg text-yellow-50 prose-sm">
+                            <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
                                 <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
                             </CardContent>
                             </Card>
@@ -137,11 +138,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
 
                         {culturalContext && (
                             <Card className="bg-green-500/10 border-green-500/30">
-                            <CardHeader className="flex-row items-center gap-3 space-y-0">
+                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
                                 <BookOpen className="h-5 w-5 text-green-400" />
-                                <CardTitle className="text-green-200">Cultural Context</CardTitle>
+                                <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
                             </CardHeader>
-                            <CardContent className="card-padding-lg text-green-50 prose-sm">
+                            <CardContent className="p-4 pt-0 text-green-50 prose-sm">
                                 <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
                             </CardContent>
                             </Card>
@@ -159,7 +160,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
         case 'formulas':
             return <KeyFormulasCard content={keyFormulasAndDiagrams} />;
         case 'practice':
-            return <PracticeSectionCard mcqs={mcqs} assertionReasons={assertionReasons} matchTheColumns={matchTheColumns} />;
+            return <PracticeSectionCard module={content} />;
         case 'summary':
             return (
                 <div className="space-y-6">

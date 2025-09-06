@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -36,11 +37,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
         
         {tamilConnection && (
             <Card className="bg-yellow-500/10 border-yellow-500/30">
-            <CardHeader className="flex-row items-center gap-3 space-y-0">
+            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
                 <Lightbulb className="h-5 w-5 text-yellow-400" />
-                <CardTitle className="text-yellow-200">Tamil Connection</CardTitle>
+                <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
             </CardHeader>
-            <CardContent className="card-padding-lg text-yellow-50 prose-sm">
+            <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
                 <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
             </CardContent>
             </Card>
@@ -48,11 +49,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
 
         {culturalContext && (
             <Card className="bg-green-500/10 border-green-500/30">
-            <CardHeader className="flex-row items-center gap-3 space-y-0">
+            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
                 <BookOpen className="h-5 w-5 text-green-400" />
-                <CardTitle className="text-green-200">Cultural Context</CardTitle>
+                <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
             </CardHeader>
-            <CardContent className="card-padding-lg text-green-50 prose-sm">
+            <CardContent className="p-4 pt-0 text-green-50 prose-sm">
                 <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
             </CardContent>
             </Card>
@@ -61,11 +62,11 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
         {conceptNotes.map((note, index) => (
           <div key={index} className="p-4 border rounded-lg bg-muted/30">
             <h3 className="font-bold text-lg font-headline">
-              <MarkdownRenderer>{note.heading.english} ({note.heading.tamil})</MarkdownRenderer>
+              <MarkdownRenderer>{typeof note === 'string' ? '' : (note.heading.english + ' (' + note.heading.tamil + ')')}</MarkdownRenderer>
             </h3>
             <div className="mt-2 space-y-2 text-muted-foreground prose dark:prose-invert max-w-none">
-              {note.content.map((item, itemIndex) => (
-                 <MarkdownRenderer key={itemIndex}>{item.english} ({item.tamil})</MarkdownRenderer>
+              {typeof note !== 'string' && note.content.map((item, itemIndex) => (
+                 <MarkdownRenderer key={itemIndex}>{typeof item === 'string' ? item : (item.english + ' (' + item.tamil + ')')}</MarkdownRenderer>
               ))}
             </div>
           </div>

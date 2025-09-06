@@ -1,16 +1,17 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Atom, Megaphone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertTitle, AlertDescription as AlertDescriptionComponent } from '@/components/ui/alert';
 import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
@@ -71,7 +72,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
       </header>
 
       <Card>
-        <CardContent className="card-padding-md">
+        <CardContent className="p-4">
             <div className="flex justify-between items-center mb-1 text-sm">
                 <span className="text-muted-foreground font-semibold">Study Progress</span>
                 <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
@@ -117,25 +118,25 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <CardContent className="space-y-4 prose dark:prose-invert max-w-none card-padding-lg">
                     {conceptOverview && <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>}
                     {tamilConnection && (
-                        <Card className="bg-yellow-500/10 border-yellow-500/30">
-                        <CardHeader className="flex-row items-center gap-3 space-y-0">
-                            <Lightbulb className="h-5 w-5 text-yellow-400" />
-                            <CardTitle className="text-yellow-200">Tamil Connection</CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg text-yellow-50 prose-sm">
-                            <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
-                        </CardContent>
+                         <Card className="bg-yellow-500/10 border-yellow-500/30">
+                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
+                                <Lightbulb className="h-5 w-5 text-yellow-400" />
+                                <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
+                                <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
+                            </CardContent>
                         </Card>
                     )}
                     {culturalContext && (
                         <Card className="bg-green-500/10 border-green-500/30">
-                        <CardHeader className="flex-row items-center gap-3 space-y-0">
-                            <BookOpen className="h-5 w-5 text-green-400" />
-                            <CardTitle className="text-green-200">Cultural Context</CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg text-green-50 prose-sm">
-                            <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
-                        </CardContent>
+                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
+                                <BookOpen className="h-5 w-5 text-green-400" />
+                                <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
+                            </CardHeader>
+                            <CardContent className="p-4 pt-0 text-green-50 prose-sm">
+                                <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
+                            </CardContent>
                         </Card>
                     )}
                 </CardContent>
@@ -175,7 +176,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
             </div>
         </TabsContent>
         <TabsContent value="practice" className="mt-6 space-y-6">
-            <PracticeSectionCard mcqs={mcqs} assertionReasons={assertionReasons} matchTheColumns={matchTheColumns} />
+            <PracticeSectionCard module={content} />
              <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('practice')}>
                     {completedSections.includes('practice') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}
@@ -223,7 +224,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                     <Alert className="bg-primary/10 border-primary/20">
                          <Info className="h-4 w-4" />
                          {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
-                         <AlertDescription className="mt-2 space-y-2">
+                         <AlertDescriptionComponent className="mt-2 space-y-2">
                             {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                 <strong>Student Tip:</strong> 
                                 <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
@@ -232,7 +233,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                                 <strong>Peer Discussion:</strong> 
                                  <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
                            </div>}
-                         </AlertDescription>
+                         </AlertDescriptionComponent>
                     </Alert>
                     }
                 </CardContent>
