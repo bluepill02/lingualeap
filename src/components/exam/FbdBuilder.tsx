@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -42,14 +43,14 @@ export function FbdBuilder(props: FBDstep) {
 
   return (
     <Card className="bg-muted/50">
-      <CardHeader>
+      <CardHeader className="card-padding-lg">
         <CardTitle>Guided FBD Builder: {props.body}</CardTitle>
         <CardDescription>
           Let's build the Free-Body Diagram step-by-step. Current Step: {step > totalForces ? "Complete" : step} / {totalForces}
           {props.context && <p className="text-xs italic mt-1">{props.context}</p>}
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="card-padding-lg">
         <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
             <div className={cn("absolute w-full h-full border-2 border-dashed rounded-lg", props.isAngled && "-rotate-[30deg] bg-primary/5")}>
                 {/* Dotted lines for components */}

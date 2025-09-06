@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -89,7 +90,7 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
 
   return (
     <Card className="bg-primary/5 border-primary/20">
-      <CardHeader>
+      <CardHeader className="card-padding-lg">
         <CardTitle className="flex items-center gap-2">
           <Sparkles className="text-primary" />
           AI Practice Question Generator
@@ -98,7 +99,7 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
           Generate a custom quiz on this chapter to test your knowledge further.
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="card-padding-lg space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="md:col-span-2">
             <Label htmlFor="language-select">Language</Label>

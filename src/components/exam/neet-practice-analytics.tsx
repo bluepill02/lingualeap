@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -24,10 +25,10 @@ export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalytic
   if (!mcqs || mcqs.length === 0) {
     return (
       <Card>
-        <CardHeader>
+        <CardHeader className="card-padding-lg">
           <CardTitle>Practice Analytics</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="card-padding-lg">
           <p>No questions available for analysis.</p>
         </CardContent>
       </Card>
@@ -59,7 +60,7 @@ export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalytic
 
   return (
     <Card className="bg-card/50">
-        <CardHeader>
+        <CardHeader className="card-padding-lg">
             <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="text-primary"/>
                 Your Performance Report
@@ -68,7 +69,7 @@ export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalytic
                 An overview of your accuracy in this practice session.
             </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="card-padding-lg space-y-6">
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div style={{ width: '100%', height: 250 }}>
                     <ResponsiveContainer>
@@ -92,29 +93,29 @@ export function PracticeAnalytics({ mcqs, answers, submitted }: PracticeAnalytic
                 </div>
                  <div className="space-y-4">
                     <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 card-padding-md">
                             <CardTitle className="text-sm font-medium">Total Questions</CardTitle>
                             <HelpCircle className="h-4 w-4 text-muted-foreground" />
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="card-padding-md">
                              <div className="text-2xl font-bold">{totalQuestions}</div>
                         </CardContent>
                     </Card>
                     <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 card-padding-md">
                             <CardTitle className="text-sm font-medium">Correct Answers</CardTitle>
                             <Check className="h-4 w-4 text-success" />
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="card-padding-md">
                              <div className="text-2xl font-bold">{correctCount}</div>
                         </CardContent>
                     </Card>
                      <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 card-padding-md">
                             <CardTitle className="text-sm font-medium">Incorrect Answers</CardTitle>
                             <X className="h-4 w-4 text-destructive" />
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="card-padding-md">
                              <div className="text-2xl font-bold">{incorrectCount}</div>
                         </CardContent>
                     </Card>

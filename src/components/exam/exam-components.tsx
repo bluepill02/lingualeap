@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -26,7 +27,7 @@ export function SyllabusMappingCard({ mapping }: { mapping: SyllabusMapping[] | 
 
     return (
         <Card>
-            <CardHeader>
+            <CardHeader className="card-padding-lg">
                 <CardTitle className="flex items-center gap-2"><BookCheck className="text-primary" />Syllabus & Standards Mapping</CardTitle>
                 <CardDescription>Connecting NEET topics to TN State Board & NCERT curriculum.</CardDescription>
             </CardHeader>
@@ -61,7 +62,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] | u
 
     return (
         <Card>
-            <CardHeader>
+            <CardHeader className="card-padding-lg">
                 <CardTitle className="flex items-center gap-2"><BrainCircuit className="text-primary" />Worked Examples</CardTitle>
                 <CardDescription>Step-by-step solutions to common exam-level problems.</CardDescription>
             </CardHeader>

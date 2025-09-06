@@ -40,7 +40,7 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
     if (!Array.isArray(content) || content.length === 0) {
         return (
              <Card>
-                <CardHeader>
+                <CardHeader className="card-padding-lg">
                     <CardTitle>Concept Notes</CardTitle>
                 </CardHeader>
                 <CardContent className="card-padding-lg">
@@ -250,7 +250,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
     if (!mcqs || !assertionReasons || !matchTheColumns) {
         return (
             <Card>
-                <CardHeader>
+                <CardHeader className="card-padding-lg">
                     <CardTitle>Practice Section</CardTitle>
                 </CardHeader>
                 <CardContent className="card-padding-lg">
@@ -299,7 +299,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                         {mcqs.map((mcq, qIndex) => (
                                             <Card key={qIndex} className="flex flex-col cursor-pointer hover:shadow-lg transition-shadow" onClick={() => handleCardClick(qIndex)}>
-                                                <CardHeader>
+                                                <CardHeader className="card-padding-md">
                                                     <CardTitle className="flex items-center justify-between text-base">
                                                         Question {qIndex + 1}
                                                         <div className="flex">
@@ -309,10 +309,10 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                                         </div>
                                                     </CardTitle>
                                                 </CardHeader>
-                                                <CardContent className="flex-grow">
+                                                <CardContent className="card-padding-md flex-grow">
                                                      <div className="text-sm prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcq.question}</MarkdownRenderer></div>
                                                 </CardContent>
-                                                <div className="p-4 pt-0 text-center text-primary/80 flex items-center justify-center gap-2">
+                                                <div className="card-padding-md pt-0 text-center text-primary/80 flex items-center justify-center gap-2">
                                                     <ChevronsRight className="h-4 w-4"/>
                                                     <span>View Answer</span>
                                                 </div>
@@ -408,7 +408,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                 {/* Front of the card */}
                                 <div className="absolute w-full h-full [backface-visibility:hidden]">
                                     <Card className="h-full flex flex-col min-h-[400px]">
-                                        <CardHeader>
+                                        <CardHeader className="card-padding-lg">
                                             <CardTitle className="flex items-center justify-between text-lg">
                                                 Question {activeCardIndex + 1}
                                                 <div className="flex">
@@ -418,10 +418,10 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                                 </div>
                                             </CardTitle>
                                         </CardHeader>
-                                        <CardContent className="flex-grow flex items-center">
+                                        <CardContent className="card-padding-lg flex-grow flex items-center">
                                             <div className="text-base prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcqs[activeCardIndex].question}</MarkdownRenderer></div>
                                         </CardContent>
-                                        <div className="p-4 border-t flex justify-between items-center">
+                                        <div className="card-padding-lg border-t flex justify-between items-center">
                                             <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
                                             <Button onClick={() => handleFlip(activeCardIndex)}>Reveal Answer</Button>
                                         </div>
@@ -431,10 +431,10 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                 {/* Back of the card */}
                                 <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
                                     <Card className="h-full flex flex-col min-h-[400px]">
-                                        <CardHeader>
+                                        <CardHeader className="card-padding-lg">
                                             <CardTitle className="text-lg">Answer & Explanation</CardTitle>
                                         </CardHeader>
-                                        <CardContent className="flex-grow space-y-4">
+                                        <CardContent className="card-padding-lg flex-grow space-y-4">
                                             <Alert variant="success">
                                                 <CheckCircle className="h-4 w-4" />
                                                 <AlertTitle>Correct Answer</AlertTitle>
@@ -448,7 +448,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                                 </AlertDescription>
                                             </Alert>
                                         </CardContent>
-                                        <div className="p-4 border-t flex justify-between items-center">
+                                        <div className="card-padding-lg border-t flex justify-between items-center">
                                             <Button variant="ghost" onClick={handleCloseCard}>Back to Questions</Button>
                                             <Button onClick={() => handleFlip(activeCardIndex)}>Show Question</Button>
                                         </div>
