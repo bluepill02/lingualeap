@@ -253,7 +253,7 @@ Kingdom Monera          +-------------------+
     ],
     studentTip: {
         english: "Try to create a large flowchart or mind map that shows the five kingdoms and the major phyla/divisions within them, along with their key distinguishing features. This visual aid can be very helpful for revision.",
-        tamil: "ஐந்து உலகங்கள் மற்றும் వాటిలోని പ്രധാന ഫൈലം/വിഭാഗങ്ങൾ, അവയുടെ முக்கிய வேறுபடுத்தும் அம்சங்களுடன் காட்டும் ஒரு பெரிய பாய்வு வரைபடம் அல்லது மன வரைபடத்தை உருவாக்க முயற்சிக்கவும். இந்த காட்சி உதவி திருத்தத்திற்கு மிகவும் உதவியாக இருக்கும்."
+        tamil: "ஐந்து உலகங்கள் மற்றும் వాటిలోని പ്രധാന ഫൈലം/വിഭാഗങ്ങൾ, அவற்றுடன் அவற்றின் முக்கிய வேறுபடுத்தும் அம்சங்களுடன் காட்டும் ஒரு பெரிய பாய்வு வரைபடம் அல்லது மன வரைபடத்தை உருவாக்க முயற்சிக்கவும். இந்த காட்சி உதவி திருத்தத்திற்கு மிகவும் உதவியாக இருக்கும்."
     },
     peerDiscussion: {
         english: "Discuss with a friend why viruses are not included in the five-kingdom classification. What arguments could be made for them being 'living' vs. 'non-living'?",
