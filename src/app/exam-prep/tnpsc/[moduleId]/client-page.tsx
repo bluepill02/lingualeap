@@ -45,7 +45,7 @@ import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { XCircle } from 'lucide-react';
-import { tnpscQuizGenerator } from '@/ai/flows/tnpsc-quiz-generator';
+import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
 
 const COLORS = {
   correct: 'hsl(var(--success))',
@@ -545,7 +545,7 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
               subject={module.subject as 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science'} 
               chapter={module.title} 
               language={language === 'english' ? 'English' : 'Tamil'} 
-              generatorFn={tnpscQuizGenerator}
+              generatorFn={generateTnpscQuiz}
             />
           </TabsContent>
           <TabsContent value="srs" className="mt-4 space-y-6">
