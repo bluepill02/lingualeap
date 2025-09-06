@@ -10,15 +10,15 @@ import type { NeetModule } from '../lib/types';
 
 // Define a specific type for the subjects and categories
 type Subject = 'physics' | 'chemistry' | 'biology';
-type PhysicsCategory = 'core' | 'bridge' | 'foundation';
+type Category = 'core' | 'bridge' | 'foundation';
 
 const MAX_RETRIES = 3;
 
 // NEET UG 2025 syllabus based on strategic categorization
 const neetSyllabus: {
-  physics: Record<PhysicsCategory, string[]>;
-  chemistry: string[];
-  biology: string[];
+  physics: Record<Category, string[]>;
+  chemistry: Record<Category, string[]>;
+  biology: Record<Category, string[]>;
 } = {
   physics: {
     core: [
@@ -56,136 +56,120 @@ const neetSyllabus: {
       'Communication Systems'
     ],
   },
-  chemistry: [
-    // Physical Chemistry
-    'Some Basic Concepts in Chemistry',
-    'Atomic Structure',
-    'Chemical Bonding and Molecular Structure',
-    'Chemical Thermodynamics',
-    'Solutions',
-    'Equilibrium',
-    'Redox Reactions and Electrochemistry',
-    'Chemical Kinetics',
-
-    // Inorganic Chemistry
-    'Classification of Elements and Periodicity in Properties',
-    'p-Block Elements',
-    'd- and f-Block Elements',
-    'Coordination Compounds',
-
-    // Organic Chemistry
-    'Purification and Characterisation of Organic Compounds',
-    'Some Basic Principles of Organic Chemistry',
-    'Hydrocarbons',
-    'Organic Compounds Containing Halogens',
-    'Organic Compounds Containing Oxygen',
-    'Organic Compounds Containing Nitrogen',
-    'Biomolecules',
-    'Principles Related to Practical Chemistry',
-  ],
-  biology: [
-    'Diversity in Living World',
-    'Structural Organisation in Animals and Plants',
-    'Cell Structure and Function',
-    'Plant Physiology',
-    'Human Physiology',
-    'Reproduction',
-    'Genetics and Evolution',
-    'Biology and Human Welfare',
-    'Biotechnology and Its Applications',
-    'Ecology and Environment',
-  ],
+  chemistry: {
+    foundation: [
+        "Some Basic Concepts in Chemistry",
+        "Classification of Elements and Periodicity in Properties",
+        "Atomic Structure",
+        "Chemical Bonding and Molecular Structure",
+        "Purification and Characterisation of Organic Compounds",
+        "Some Basic Principles of Organic Chemistry"
+    ],
+    bridge: [
+        "Chemical Thermodynamics",
+        "Solutions",
+        "Equilibrium",
+        "Redox Reactions and Electrochemistry",
+        "Chemical Kinetics"
+    ],
+    core: [
+        "p-Block Elements",
+        "d- and f-Block Elements",
+        "Coordination Compounds",
+        "Hydrocarbons",
+        "Organic Compounds Containing Halogens",
+        "Organic Compounds Containing Oxygen",
+        "Organic Compounds Containing Nitrogen",
+        "Biomolecules"
+    ]
+  },
+  biology: {
+    foundation: [
+        "Diversity in Living World",
+        "Structural Organisation in Animals and Plants",
+        "Cell Structure and Function"
+    ],
+    bridge: [
+        "Plant Physiology",
+        "Human Physiology"
+    ],
+    core: [
+        "Reproduction",
+        "Genetics and Evolution",
+        "Biology and Human Welfare",
+        "Biotechnology and Its Applications",
+        "Ecology and Environment"
+    ]
+  }
 };
 
 // Batch-generate lessons
 async function run() {
-  // Generate Physics content by category
-  for (const category of Object.keys(neetSyllabus.physics) as PhysicsCategory[]) {
-    const chapters = neetSyllabus.physics[category];
-    for (const chapter of chapters) {
-        let lastErrors: string[] = [];
-        let success = false;
-        let currentContent: string | null = null;
+  const subjects: Subject[] = ['physics', 'chemistry', 'biology'];
 
-        for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-            try {
-                // If content doesn't exist (from a previous failed generation), generate it.
-                // Otherwise, try to fix the existing broken content.
-                if (currentContent === null) {
-                    console.log(`🚀 [Attempt ${attempt}/${MAX_RETRIES}] Generating Physics > ${category} > ${chapter}...`);
-                    const result = await generateNeetContent({ 
-                        subject: 'Physics', 
-                        chapter, 
-                        category,
-                        previousErrors: lastErrors, // Pass previous errors if any
-                    });
-                    currentContent = result.markdownContent;
-                } else {
-                    console.log(`FIXING... 🛠️ [Attempt ${attempt}/${MAX_RETRIES}] Fixing Physics > ${category} > ${chapter}...`);
-                    const result = await fixNeetContent({
-                        brokenMarkdown: currentContent,
-                        validationErrors: lastErrors,
-                    });
-                    currentContent = result.fixedMarkdownContent;
-                }
+  for (const subject of subjects) {
+    for (const category of Object.keys(neetSyllabus[subject]) as Category[]) {
+      const chapters = neetSyllabus[subject][category];
+      for (const chapter of chapters) {
+          let lastErrors: string[] = [];
+          let success = false;
+          let currentContent: string | null = null;
 
-                // If generation or fixing resulted in empty content, it's a failure.
-                if (!currentContent) {
-                    throw new Error("AI returned empty content.");
-                }
-                
-                console.log(`🔍 Validating module for ${chapter}...`);
-                const { isValid, errors } = await validateModule(currentContent, chapter);
+          for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+              try {
+                  const subjectTitleCase = subject.charAt(0).toUpperCase() + subject.slice(1);
+                  if (currentContent === null) {
+                      console.log(`🚀 [Attempt ${attempt}/${MAX_RETRIES}] Generating ${subjectTitleCase} > ${category} > ${chapter}...`);
+                      const result = await generateNeetContent({ 
+                          subject: subjectTitleCase, 
+                          chapter, 
+                          category,
+                          previousErrors: lastErrors,
+                      });
+                      currentContent = result.markdownContent;
+                  } else {
+                      console.log(`FIXING... 🛠️ [Attempt ${attempt}/${MAX_RETRIES}] Fixing ${subjectTitleCase} > ${category} > ${chapter}...`);
+                      const result = await fixNeetContent({
+                          brokenMarkdown: currentContent,
+                          validationErrors: lastErrors,
+                      });
+                      currentContent = result.fixedMarkdownContent;
+                  }
 
-                if (!isValid) {
-                    console.error(`❌ Validation failed for ${chapter} on attempt ${attempt}:`);
-                    errors.forEach(error => console.error(` - ${error}`));
-                    lastErrors = errors;
-                    if (attempt === MAX_RETRIES) {
-                        console.error(`❌ All ${MAX_RETRIES} attempts failed for ${chapter}. Moving on.`);
-                    }
-                    continue; 
-                }
+                  if (!currentContent) {
+                      throw new Error("AI returned empty content.");
+                  }
+                  
+                  console.log(`🔍 Validating module for ${chapter}...`);
+                  const { isValid, errors } = await validateModule(currentContent, chapter);
 
-                console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
-                
-                const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-                const filePath = path.resolve(__dirname, '../content/neet/physics', `${safeName}.ts`);
-                
-                fs.mkdirSync(path.dirname(filePath), { recursive: true });
-                fs.writeFileSync(filePath, currentContent);
+                  if (!isValid) {
+                      console.error(`❌ Validation failed for ${chapter} on attempt ${attempt}:`);
+                      errors.forEach(error => console.error(` - ${error}`));
+                      lastErrors = errors;
+                      if (attempt === MAX_RETRIES) {
+                          console.error(`❌ All ${MAX_RETRIES} attempts failed for ${chapter}. Moving on.`);
+                      }
+                      continue; 
+                  }
 
-                console.log(`📝 Successfully generated and saved Physics > ${category} > ${chapter}`);
-                success = true;
-                break; // Exit the retry loop on success
-            } catch (error: any) {
-                console.error(`❌ An unexpected error occurred during attempt ${attempt} for ${chapter}:`, error.message || error);
-                lastErrors = [String(error.message || error)];
-                currentContent = null; // Reset content so the next attempt will be a full regeneration
-            }
-        }
-    }
-  }
+                  console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
+                  
+                  const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
+                  const filePath = path.resolve(__dirname, `../content/neet/${subject}`, `${safeName}.ts`);
+                  
+                  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+                  fs.writeFileSync(filePath, currentContent);
 
-  // Generate for other subjects (unchanged)
-  const otherSubjects: Subject[] = ['chemistry', 'biology'];
-  for (const subject of otherSubjects) {
-    const chapters = neetSyllabus[subject];
-    for (const chapter of chapters) {
-       try {
-        console.log(`🚀 Generating ${subject} > ${chapter}...`);
-        
-        const result = await generateNeetContent({ subject, chapter });
-        
-        const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-        const filePath = path.resolve(__dirname, '../content/neet', subject, `${safeName}.md`);
-        
-        fs.mkdirSync(path.dirname(filePath), { recursive: true });
-        fs.writeFileSync(filePath, result.markdownContent);
-
-        console.log(`📝 Successfully generated ${subject} > ${chapter}`);
-      } catch (error) {
-        console.error(`❌ Failed to generate ${subject} > ${chapter}:`, error);
+                  console.log(`📝 Successfully generated and saved ${subjectTitleCase} > ${category} > ${chapter}`);
+                  success = true;
+                  break;
+              } catch (error: any) {
+                  console.error(`❌ An unexpected error occurred during attempt ${attempt} for ${chapter}:`, error.message || error);
+                  lastErrors = [String(error.message || error)];
+                  currentContent = null;
+              }
+          }
       }
     }
   }
