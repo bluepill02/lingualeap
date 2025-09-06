@@ -333,7 +333,7 @@ export const strategyGuideContent: StrategyGuide = {
     title: "Inorganic Chemistry",
     titleTamil: "கனிம வேதியியல்",
     chapters: [
-      {
+       {
         chapterName: 'Coordination Compounds',
         chapterNameTamil: 'அணைவுச் சேர்மங்கள்',
         sections: [
@@ -343,14 +343,14 @@ export const strategyGuideContent: StrategyGuide = {
             type: 'mistake',
             points: [
               {
-                point: 'Weak vs. Strong Field Ligands',
-                explanation: '**Mistake:** Incorrectly predicting spin pairing and geometry because the ligand strength is not known.\n\n**How to Avoid:** Memorize the spectrochemical series, at least the common ligands. **Strong field (pairing occurs):** CN⁻, CO, en, NH₃. **Weak field (no pairing):** H₂O, ox, F⁻, Cl⁻, Br⁻, I⁻. This is crucial for VBT problems.',
-                explanationTamil: '**தவறு:** ஈனியின் வலிமை தெரியாததால், சுழல் இணைதல் மற்றும் வடிவவியலை தவறாகக் கணித்தல்.\n\n**தவிர்ப்பது எப்படி:** நிறமாலை வேதியியல் தொடரை, குறைந்தபட்சம் பொதுவான ஈனிகளையாவது மனப்பாடம் செய்யுங்கள். **வலிமையான புலம் (இணைதல் நிகழும்):** CN⁻, CO, en, NH₃. **பலவீனமான புலம் (இணைதல் இல்லை):** H₂O, ox, F⁻, Cl⁻, Br⁻, I⁻. இது VBT கணக்குகளுக்கு மிகவும் முக்கியம்.',
+                point: 'Weak vs. Strong Field Ligands for VBT',
+                explanation: '**Mistake:** Incorrectly predicting spin pairing and geometry because the ligand strength is not known or misremembered.\n\n**How to Avoid:** Memorize the spectrochemical series, at least the common ligands. **Strong field (causes pairing, forms low spin/inner orbital complexes):** CN⁻, CO, NO₂, en, NH₃. **Weak field (no pairing, forms high spin/outer orbital complexes):** H₂O, ox, OH⁻, F⁻, Cl⁻, Br⁻, I⁻. This distinction is crucial for VBT hybridization problems.',
+                explanationTamil: '**தவறு:** ஈனியின் வலிமை தெரியாததால் அல்லது தவறாக நினைவில் வைத்திருப்பதால், சுழல் இணைதல் மற்றும் வடிவவியலை தவறாகக் கணித்தல்.\n\n**தவிர்ப்பது எப்படி:** நிறமாலை வேதியியல் தொடரை, குறைந்தபட்சம் பொதுவான ஈனிகளையாவது மனப்பாடம் செய்யுங்கள். **வலிமையான புலம் (இணைதல் நிகழும், குறைந்த சுழற்சி/உள் ஆர்பிட்டால் அணைவுச் சேர்மங்களை உருவாக்கும்):** CN⁻, CO, NO₂, en, NH₃. **பலவீனமான புலம் (இணைதல் இல்லை, உயர் சுழற்சி/வெளி ஆர்பிட்டால் அணைவுச் சேர்மங்களை உருவாக்கும்):** H₂O, ox, OH⁻, F⁻, Cl⁻, Br⁻, I⁻. VBT இனக்கலப்பு கணக்குகளுக்கு இந்த வேறுபாடு மிகவும் முக்கியம்.',
               },
               {
                 point: 'IUPAC Naming Conventions',
-                explanation: '**Mistake:** Forgetting to put "-ate" at the end of the metal name for an anionic complex, or getting the order of ligands wrong.\n\n**How to Avoid:** Always check if the coordination sphere is a cation or an anion. If it\'s an anion (e.g., [Fe(CN)₆]⁴⁻), the metal name ends in -ate (ferrate). Ligands are always named alphabetically, regardless of their charge.',
-                explanationTamil: '**தவறு:** ஒரு எதிரயனி அணைவுச் சேர்மத்திற்கு உலோகப் பெயரின் இறுதியில் "-ate" என்று சேர்க்க மறப்பது, அல்லது ஈனிகளின் வரிசையைத் தவறாகப் பெறுவது.\n\n**தவிர்ப்பது எப்படி:** அணைவு கோளம் ஒரு நேரயனியா அல்லது எதிரயனியா என்பதை எப்போதும் சரிபார்க்கவும். அது ஒரு எதிரயனியாக இருந்தால் (எ.கா., [Fe(CN)₆]⁴⁻), உலோகப் பெயர் -ate (ஃபெர்ரேட்) இல் முடியும். ஈனிகள் எப்போதும் அவற்றின் மின்னூட்டத்தைப் பொருட்படுத்தாமல் அகர வரிசைப்படி பெயரிடப்படுகின்றன.',
+                explanation: '**Mistake:** Forgetting to put "-ate" at the end of the metal name for an anionic complex, or getting the order of ligands wrong.\n\n**How to Avoid:** Always check if the coordination sphere is a cation, anion, or neutral. If it\'s an anion (e.g., [Fe(CN)₆]⁴⁻), the metal name ends in -ate (ferrate). Ligands are always named alphabetically, regardless of their charge. Prefixes like di-, tri- do not count for alphabetization.',
+                explanationTamil: '**தவறு:** ஒரு எதிரயனி அணைவுச் சேர்மத்திற்கு உலோகப் பெயரின் இறுதியில் "-ate" என்று சேர்க்க மறப்பது, அல்லது ஈனிகளின் வரிசையைத் தவறாகப் பெறுவது.\n\n**தவிர்ப்பது எப்படி:** அணைவு கோளம் ஒரு நேரயனியா, எதிரயனியா அல்லது நடுநிலையானதா என்பதை எப்போதும் சரிபார்க்கவும். அது ஒரு எதிரயனியாக இருந்தால் (எ.கா., [Fe(CN)₆]⁴⁻), உலோகப் பெயர் -ate (ஃபெர்ரேட்) இல் முடியும். ஈனிகள் எப்போதும் அவற்றின் மின்னூட்டத்தைப் பொருட்படுத்தாமல் அகர வரிசைப்படி பெயரிடப்படுகின்றன. டை-, டிரை- போன்ற முன்னொட்டுகள் அகர வரிசைப்படுத்துதலுக்கு கணக்கில் கொள்ளப்படாது.',
               },
             ],
           },
@@ -372,7 +372,7 @@ export const strategyGuideContent: StrategyGuide = {
             ],
           },
         ],
-      },
+      }
     ]
   },
   organic: {
