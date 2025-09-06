@@ -1,5 +1,4 @@
-.next/
-public/fonts/
-content/
-src/lib/exam-data*.ts
-lingualeap/
+# Exclude large generated content directories from the AI's context
+src/lib/neet/physics/*
+src/lib/neet/chemistry/*
+src/lib/neet/biology/*
