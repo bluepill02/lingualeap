@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, Atom, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, BookOpen, Atom, GraduationCap, Link2, ShieldCheck, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -90,6 +90,23 @@ export default function NeetPhysicsPage() {
             </div>
         </div>
       </header>
+
+      <Card className="bg-primary/10 border-primary/20 shadow-lg hover:shadow-primary/20 transition-shadow">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-3 text-primary text-xl">
+            <Star className="h-6 w-6"/>
+            NEET Physics Strategy Guide
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="card-padding-lg">
+          <p className="text-muted-foreground mb-4">
+            A special module focusing on common mistakes, rare concepts, and strategic tricks to boost your score across all physics topics.
+          </p>
+          <Link href="/exam-prep/neet/physics/strategy-guide">
+            <Button>Open Strategy Guide</Button>
+          </Link>
+        </CardContent>
+      </Card>
       
       {Object.entries(chapterGroups).map(([key, chapters]) => {
           const group = groupInfo[key as keyof typeof groupInfo];
@@ -157,3 +174,4 @@ export default function NeetPhysicsPage() {
     </div>
   );
 }
+
