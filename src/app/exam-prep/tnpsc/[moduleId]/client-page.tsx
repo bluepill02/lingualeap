@@ -27,12 +27,13 @@ import {
   AlertCircle,
   Key,
   Landmark,
-  Megaphone
+  Megaphone,
+  BarChart,
 } from 'lucide-react';
 import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { XCircle } from 'lucide-react';
 
 
@@ -183,6 +184,60 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
             </CardContent>
         </Card>
     );
+  }
+
+  const EngagementTabContent = () => {
+    const trendData = module.practice.mcqs
+      .flatMap(mcq => mcq.yearAsked)
+      .reduce((acc, year) => {
+        acc[year] = (acc[year] || 0) + 1;
+        return acc;
+      }, {} as Record<number, number>);
+
+    const lastTenYears = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).reverse();
+    
+    const chartData = lastTenYears.map(year => ({
+      year: year.toString(),
+      count: trendData[year] || 0,
+    }));
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                    <BarChart className="h-5 w-5" />
+                    {language === 'english' ? 'Topic Trends in Past Exams' : 'கடந்த தேர்வுகளில் தலைப்பு போக்குகள்'}
+                </CardTitle>
+                <CardDescription>
+                    {language === 'english' ? 'Number of questions from this module that appeared in recent years.' : 'சமீபத்திய ஆண்டுகளில் இந்த பாடத்திலிருந்து தோன்றிய கேள்விகளின் எண்ணிக்கை.'}
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <div style={{ width: '100%', height: 300 }}>
+                    <ResponsiveContainer>
+                        <BarChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="year" />
+                            <YAxis allowDecimals={false} />
+                            <Tooltip
+                                contentStyle={{
+                                    background: "hsl(var(--background) / 0.8)",
+                                    borderColor: "hsl(var(--border))",
+                                    color: "hsl(var(--foreground))"
+                                }}
+                            />
+                            <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
+                 <div className="text-center mt-4">
+                     <Button onClick={() => markSectionCompleted('engagement')} disabled={completedSections.has('engagement')}>
+                        {completedSections.has('engagement') ? 'Completed' : 'Mark as Reviewed'}
+                    </Button>
+                 </div>
+            </CardContent>
+        </Card>
+    )
   }
 
   return (
@@ -395,6 +450,9 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
           </TabsContent>
           <TabsContent value="analytics" className="mt-4 space-y-6">
             <AnalyticsTabContent />
+          </TabsContent>
+          <TabsContent value="engagement" className="mt-4 space-y-6">
+            <EngagementTabContent />
           </TabsContent>
         </Tabs>
     </div>
