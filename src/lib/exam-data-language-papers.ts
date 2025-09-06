@@ -144,6 +144,26 @@ export const languagePapersModule: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Daily reading of Tamil and English newspapers.", "Practicing précis writing with a timer.", "Revising high school level Tamil grammar rules."],
+      mnemonics: [
+        {
+          text: "To remember Tamil hard consonants (வல்லினம்), think of a tough phrase: 'கசடதபற' (Ka-Sa-Da-Tha-Pa-Ra).",
+          tamil: "தமிழ் வல்லின மெய்யெழுத்துக்களை நினைவில் கொள்ள, 'கசடதபற' என்ற கடினமான சொற்றொடரை நினையுங்கள்."
+        },
+        {
+          text: "For English précis writing, remember the 'KISS' principle: Keep It Short and Simple.",
+          tamil: "ஆங்கிலத்தில் சுருக்கி வரைவதற்கு, 'KISS' கோட்பாட்டை நினைவில் கொள்க: Keep It Short and Simple (சுருக்கமாகவும் எளிமையாகவும் வைக்கவும்)."
+        }
+      ],
+      neetTips: [
+        {
+          text: "For the Tamil paper, focus heavily on grammar rules from the Samacheer Kalvi books (6th-10th). Most questions come directly from there.",
+          tamil: "தமிழ்த் தாளுக்கு, சமச்சீர் கல்வி புத்தகங்களில் (6-10 ஆம் வகுப்பு) உள்ள இலக்கண விதிகளில் அதிக கவனம் செலுத்துங்கள். பெரும்பாலான கேள்விகள் நேரடியாக அங்கிருந்து வருகின்றன."
+        },
+        {
+          text: "In the English paper, time management is key for précis and comprehension. Allocate a fixed time for each and stick to it.",
+          tamil: "ஆங்கிலத் தாளில், சுருக்கி வரைதல் மற்றும் புரிந்துகொள்ளுதலுக்கு நேர மேலாண்மை முக்கியம். ஒவ்வொன்றிற்கும் ஒரு குறிப்பிட்ட நேரத்தை ஒதுக்கி, அதைக் கடைப்பிடிக்கவும்."
+        }
+      ]
     },
     
     resources: {

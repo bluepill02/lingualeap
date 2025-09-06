@@ -179,6 +179,26 @@ export const indianEconomyAndPlanning: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Understanding the impact of repo rate changes on the economy.", "Linking national schemes to their implementation and impact in Tamil Nadu."],
+       mnemonics: [
+        {
+          text: "Remember the key tools of RBI's Monetary Policy with 'RRR-C': Repo Rate, Reverse Repo Rate, Cash Reserve Ratio.",
+          tamil: "RBI இன் பணவியல் கொள்கையின் முக்கிய கருவிகளை 'RRR-C' என்று நினைவில் கொள்க: ரெப்போ விகிதம், ரிவர்ஸ் ரெப்போ விகிதம், ரொக்க இருப்பு விகிதம்."
+        },
+        {
+            text: "For NITI Aayog's structure, think 'Team India Hub' and 'Knowledge & Innovation Hub' - the two main wings.",
+            tamil: "நிதி ஆயோக்கின் அமைப்புக்கு, 'டீம் இந்தியா ஹப்' மற்றும் 'அறிவு மற்றும் கண்டுபிடிப்பு ஹப்' - இரண்டு முக்கியப் பிரிவுகளை நினையுங்கள்."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Focus on the objectives and target groups of recent Tamil Nadu welfare schemes. Questions are frequently direct and factual.",
+          tamil: "சமீபத்திய தமிழ்நாடு நலத்திட்டங்களின் நோக்கங்கள் மற்றும் இலக்கு குழுக்களில் கவனம் செலுத்துங்கள். கேள்விகள் அடிக்கடி நேரடியானவை மற்றும் உண்மை அடிப்படையிலானவை."
+        },
+        {
+            text: "Don't just memorize GDP numbers. Understand the difference between GDP, GNP, NNP, and NDP. Conceptual clarity is key.",
+            tamil: "GDP எண்களை மட்டும் மனப்பாடம் செய்யாதீர்கள். GDP, GNP, NNP மற்றும் NDP ஆகியவற்றுக்கு இடையேயான வேறுபாட்டைப் புரிந்து கொள்ளுங்கள். கருத்தியல் தெளிவு முக்கியம்."
+        }
+      ]
     },
     
     resources: {

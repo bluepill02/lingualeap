@@ -194,6 +194,26 @@ export const geographyIndiaTamilNadu: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Understanding the link between physical geography and economic activity.", "Memorizing the specific locations of major hill ranges and rivers in Tamil Nadu."],
+       mnemonics: [
+        {
+          text: "Remember major West-flowing rivers in India with 'Narmada Tapi Sabarmati Mahi' (NaTaSaMa).",
+          tamil: "இந்தியாவின் முக்கிய மேற்கு நோக்கிப் பாயும் நதிகளை 'நர்மதா தபி சபர்மதி மாஹி' (நதசம) என்று நினைவில் கொள்க."
+        },
+        {
+          text: "For soil types in order of area covered in India, remember 'All Red Black Laterite' (ARBL).",
+          tamil: "இந்தியாவில் பரப்பளவின் அடிப்படையில் மண் வகைகளை நினைவில் கொள்ள, 'All Red Black Laterite' (ARBL) என்று గుర్తుంచుకోండి."
+        }
+      ],
+      neetTips: [
+        {
+          text: "In TNPSC, questions on river water disputes (like Kaveri) and major irrigation projects in Tamil Nadu are very common. Pay special attention to them.",
+          tamil: "TNPSC தேர்வுகளில், காவேரி போன்ற நதிநீர் பிரச்சனைகள் மற்றும் தமிழ்நாட்டின் முக்கியப் பாசனத் திட்டங்கள் குறித்த கேள்விகள் மிகவும் பொதுவானவை. அவற்றுக்குச் சிறப்பு கவனம் செலுத்துங்கள்."
+        },
+        {
+            text: "Always link physical geography to economic activity. For example, connect black soil to the cotton industry in the Kongu belt.",
+            tamil: "எப்போதும் இயற்பியல் புவியியலை பொருளாதார நடவடிக்கையுடன் இணைக்கவும். எடுத்துக்காட்டாக, கொங்கு மண்டலத்தில் உள்ள பருத்தித் தொழிலுடன் கரிசல் மண்ணை இணைக்கவும்."
+        }
+      ]
     },
     
     resources: {

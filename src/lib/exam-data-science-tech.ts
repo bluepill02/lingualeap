@@ -187,6 +187,26 @@ export const generalScienceAndTech: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Understanding application-based questions in Biology.", "Memorizing key environmental acts and their years of enactment."],
+      mnemonics: [
+        {
+          text: "Remember the order of planets with 'My Very Educated Mother Just Served Us Noodles' (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune).",
+          tamil: "கோள்களின் வரிசையை நினைவில் கொள்ள 'My Very Educated Mother Just Served Us Noodles' என்பதைப் பயன்படுத்தவும்."
+        },
+        {
+          text: "For fat-soluble vitamins, remember 'KEDA': Vitamins K, E, D, and A.",
+          tamil: "கொழுப்பில் கரையும் வைட்டமின்களுக்கு, 'KEDA' என்று நினைவில் கொள்க: வைட்டமின்கள் K, E, D, மற்றும் A."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Focus on application-based questions, especially in biology and environment. Rote learning of definitions is not enough.",
+          tamil: "பயன்பாடு சார்ந்த கேள்விகளில் கவனம் செலுத்துங்கள், குறிப்பாக உயிரியல் மற்றும் சுற்றுச்சூழல் பிரிவுகளில். வரையறைகளை மனப்பாடம் செய்வது மட்டும் போதாது."
+        },
+        {
+            text: "ISRO's recent achievements and future missions (like Gaganyaan) are high-yield topics. Know the purpose and launch vehicle of each.",
+            tamil: "இஸ்ரோவின் சமீபத்திய சாதனைகள் மற்றும் எதிர்காலப் பயணங்கள் (ககன்யான் போன்றவை) அதிக மதிப்பெண் பெறும் தலைப்புகள். ஒவ்வொன்றின் நோக்கம் மற்றும் ஏவுகணை வாகனம் பற்றி அறிந்து கொள்ளுங்கள்."
+        }
+      ]
     },
     
     resources: {

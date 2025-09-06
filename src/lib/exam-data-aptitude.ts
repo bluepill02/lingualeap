@@ -152,6 +152,26 @@ export const aptitudeAndMentalAbility: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Practicing complex seating arrangement puzzles.", "Improving calculation speed for data interpretation."],
+       mnemonics: [
+        {
+          text: "For order of operations, remember BODMAS: Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction.",
+          tamil: "கணித செயல்பாடுகளின் வரிசைக்கு, BODMAS ஐ நினைவில் கொள்க: அடைப்புக்குறிகள், அடுக்குகள் (வர்க்கம்/வர்க்கமூலம்), வகுத்தல், பெருக்கல், கூட்டல், கழித்தல்."
+        },
+        {
+          text: "For direction-based questions, remember 'NEWS': North, East, West, South arranged clockwise.",
+          tamil: "திசை சார்ந்த கேள்விகளுக்கு, 'NEWS' ஐ நினைவில் கொள்க: வடக்கு, கிழக்கு, மேற்கு, தெற்கு கடிகார திசையில்."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Don't spend too much time on one aptitude question. If it takes more than 2 minutes, mark it for review and move on. Time management is crucial.",
+          tamil: "ஒரு திறனறி வினாவிற்கு அதிக நேரம் செலவழிக்க வேண்டாம். 2 நிமிடங்களுக்கு மேல் எடுத்தால், அதை மறுபரிசீலனைக்குக் குறித்துவிட்டு அடுத்த கேள்விக்குச் செல்லவும். நேர மேலாண்மை மிகவும் முக்கியம்."
+        },
+        {
+          text: "In Data Interpretation, first quickly scan the graph/table to understand the data, axes, and units before reading the questions. This saves time.",
+          tamil: "தரவு விளக்கத்தில், கேள்வைகளைப் படிக்கும் முன் தரவு, அச்சுகள் மற்றும் அலகுகளைப் புரிந்துகொள்ள வரைபடம்/அட்டவணையை விரைவாகப் பாருங்கள். இது நேரத்தை மிச்சப்படுத்தும்."
+        }
+      ]
     },
     
     resources: {

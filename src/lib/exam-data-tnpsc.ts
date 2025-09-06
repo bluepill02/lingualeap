@@ -147,15 +147,13 @@ export interface TnpscModule {
     timeAllocation: { section: string; minutes: number }[]
     strengthIndicators: string[]
     improvementAreas: string[]
+    neetTips?: { text: string; tamil?: string }[];
+    mnemonics?: { text: string; tamil?: string }[];
   }
   
   // Resources
   resources: {
-    offlineContent: {
-      videos: string[]
-      pdfs: string[]
-      diagrams: string[]
-    }
+    offlineContent: { videos: [], pdfs: [], diagrams: [] }
     references: {
       books: string[]
       websites: string[]
@@ -689,7 +687,27 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
       commonMistakes: ["Confusing the timelines of the Chera, Chola, and Pandya dynasties during the Sangam period.", "Misattributing social reforms between the Justice Party and the Self-Respect Movement."],
       timeAllocation: [{ section: "Sangam Age", minutes: 60 }, { section: "Justice Party and Self-Respect Movement", minutes: 45 }],
       strengthIndicators: ["Good recall of literary works.", "Understanding of major social reformers."],
-      improvementAreas: ["Connecting archaeological evidence with literary sources.", "Understanding the nuances between different Dravidian movements."]
+      improvementAreas: ["Connecting archaeological evidence with literary sources.", "Understanding the nuances between different Dravidian movements."],
+       mnemonics: [
+        {
+          text: "Remember the Five Great Epics of Tamil Literature with 'CiSiMaVaKu': Civaka Cintamani, Silappatikaram, Manimekalai, Valayapathi, Kundalakesi.",
+          tamil: "ஐம்பெருங்காப்பியங்களை 'சீசிமணிவளகு' என்று நினைவில் கொள்க: சீவக சிந்தாமணி, சிலப்பதிகாரம், மணிமேகலை, வளையாபதி, குண்டலகேசி."
+        },
+        {
+          text: "For the three parts of Tirukkural, remember 'Aram Porul Inbam' (API) - Virtue, Wealth, Love.",
+          tamil: "திருக்குறளின் முப்பால்களை 'அறம் பொருள் இன்பம்' (API) என நினைவில் கொள்க."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Focus on the social reform aspects of the Justice Party and Self-Respect Movement, as TNPSC often asks questions on their impact on society.",
+          tamil: "நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கத்தின் சமூக சீர்திருத்த அம்சங்களில் கவனம் செலுத்துங்கள், কারণ TNPSC தேர்வுகளில் அவற்றின் சமூகத் தாக்கம் குறித்த கேள்விகள் அடிக்கடி கேட்கப்படுகின்றன."
+        },
+        {
+            text: "Connect archaeological findings like Keeladi directly to descriptions in Sangam literature. This link is a favorite topic for Mains questions.",
+            tamil: "கீழடி போன்ற தொல்பொருள் கண்டுபிடிப்புகளை சங்க இலக்கிய വിവரணങ്ങളுடன் நேரடியாக இணைக்கவும். இந்த இணைப்பு முதன்மைத் தேர்வுகளில் விருப்பமான தலைப்பாகும்."
+        }
+      ]
     },
     
     resources: {

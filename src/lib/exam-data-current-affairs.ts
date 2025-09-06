@@ -143,6 +143,26 @@ export const currentAffairsModule: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Regularly reading newspapers and current affairs magazines.", "Making concise notes of important appointments, awards, and summit outcomes."],
+       mnemonics: [
+        {
+          text: "Remember the G7 countries with 'Juice-GFB': Japan, USA, Italy, Canada, England (UK), Germany, France, Brazil (Just kidding, Brazil is not in it!). The trick helps you remember the list and a common mistake.",
+          tamil: "ஜி7 நாடுகளை 'ஜூஸ்-ஜிஎஃப்பி' என்று நினைவில் கொள்க: ஜப்பான், அமெரிக்கா, இத்தாலி, கனடா, இங்கிலாந்து (யுகே), ஜெர்மனி, பிரான்ஸ், பிரேசில் (சும்மா சொன்னேன், பிரேசில் அதில் இல்லை!). இந்த தந்திரம் பட்டியலையும் பொதுவான தவறையும் நினைவில் கொள்ள உதவுகிறது."
+        },
+        {
+          text: "For Nobel Prizes, create a simple table: Prize, Person, Contribution. Review it weekly.",
+          tamil: "நோபல் பரிசுகளுக்கு, ஒரு எளிய அட்டவணையை உருவாக்கவும்: பரிசு, நபர், பங்களிப்பு. அதை வாரந்தோறும் மதிப்பாய்வு செய்யவும்."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Don't just read headlines. Read about the background and significance of an event. TNPSC asks 'why' and 'how', not just 'what'.",
+          tamil: "தலைப்புச் செய்திகளை மட்டும் படிக்காதீர்கள். ஒரு நிகழ்வின் பின்னணி மற்றும் முக்கியத்துவம் பற்றிப் படியுங்கள். TNPSC 'என்ன' என்று மட்டும் கேட்பதில்லை, 'ஏன்' மற்றும் 'எப்படி' என்றும் கேட்கிறது."
+        },
+        {
+          text: "For Tamil Nadu schemes, focus on the target beneficiaries, objectives, and any recent updates or expansions. These are frequent question areas.",
+          tamil: "தமிழ்நாடு திட்டங்களுக்கு, இலக்கு பயனாளிகள், நோக்கங்கள் மற்றும் சமீபத்திய புதுப்பிப்புகள் அல்லது விரிவாக்கங்களில் கவனம் செலுத்துங்கள். இவை அடிக்கடி கேட்கப்படும் கேள்விப் பகுதிகள்."
+        }
+      ]
     },
     
     resources: {

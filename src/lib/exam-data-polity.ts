@@ -179,6 +179,26 @@ export const indianPolityAndGovernance: TnpscModule = {
       timeAllocation: [],
       strengthIndicators: [],
       improvementAreas: ["Understanding the federal features and the division of power in the Seventh Schedule.", "Memorizing important constitutional articles and their significance."],
+       mnemonics: [
+        {
+          text: "To remember the six Fundamental Rights in order, use 'E-F-A-R-C-C': Equality, Freedom, Against Exploitation, Religion, Cultural/Educational, Constitutional Remedies.",
+          tamil: "ஆறு அடிப்படை உரிமைகளை வரிசையாக நினைவில் கொள்ள, 'E-F-A-R-C-C' என்பதைப் பயன்படுத்தவும்: சமத்துவம், சுதந்திரம், சுரண்டலுக்கு எதிராக, மதம், கலாச்சார/கல்வி, அரசியலமைப்புத் தீர்வுகள்."
+        },
+        {
+            text: "Remember the three lists in the 7th Schedule with 'U-S-C': Union List, State List, Concurrent List.",
+            tamil: "7வது அட்டவணையில் உள்ள மூன்று பட்டியல்களை 'U-S-C' என்று நினைவில் கொள்க: மத்திய பட்டியல், மாநில பட்டியல், பொதுப் பட்டியல்."
+        }
+      ],
+      neetTips: [
+        {
+          text: "TNPSC has a special focus on questions related to the Preamble, Fundamental Rights, DPSP, and Federalism. Master these chapters thoroughly.",
+          tamil: "TNPSC தேர்வுகளில் முகவுரை, அடிப்படை உரிமைகள், DPSP மற்றும் கூட்டாட்சி தொடர்பான கேள்விகளுக்கு சிறப்பு கவனம் செலுத்தப்படுகிறது. இந்த அத்தியாயங்களை முழுமையாகப் படித்து தேர்ச்சி பெறுங்கள்."
+        },
+        {
+            text: "Link current events to constitutional articles. For example, if there is a debate on a Governor's powers, immediately revise the articles related to the Governor's role.",
+            tamil: "நடப்பு நிகழ்வுகளை அரசியலமைப்புச் சரத்துகளுடன் இணைக்கவும். எடுத்துக்காட்டாக, ஆளுநரின் அதிகாரங்கள் குறித்து விவாதம் நடந்தால், ஆளுநரின் பங்கு தொடர்பான சரத்துகளை உடனடியாகத் திருத்தவும்."
+        }
+      ]
     },
     
     resources: {
