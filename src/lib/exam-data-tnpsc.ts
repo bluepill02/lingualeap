@@ -4,6 +4,7 @@ import { geographyIndiaTamilNadu } from './exam-data-geography';
 import { indianPolityAndGovernance } from './exam-data-polity';
 import { indianEconomyAndPlanning } from './exam-data-economy';
 import { generalScienceAndTech } from './exam-data-science-tech';
+import { aptitudeAndMentalAbility } from './exam-data-aptitude';
 
 // New, comprehensive data structure for TNPSC
 export interface TnpscModule {
@@ -515,8 +516,8 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             options: ["The Indian National Congress", "The Self-Respect Movement", "The Justice Party", "The Swadeshi Movement"],
             optionsTamil: ["இந்திய தேசிய காங்கிரஸ்", "சுயமரியாதை இயக்கம்", "நீதிக் கட்சி", "சுதேசி இயக்கம்"],
             correct: 2,
-            explanation: "The Justice Party, during its time in power in the Madras Presidency, passed the Communal G.O. of 1921, which was the first order to institutionalize reservation for various communities in government employment.",
-            explanationTamil: "நீதிக் கட்சி, மெட்ராஸ் பிரசிடென்சியில் ஆட்சியில் இருந்த காலத்தில், 1921 ஆம் ஆண்டின் வகுப்புவாரி அரசாணையை நிறைவேற்றியது, இது அரசாங்க வேலைவாய்ப்பில் பல்வேறு சமூகங்களுக்கு இடஒதுக்கீட்டை நிறுவனமயமாக்கிய முதல் உத்தரவாகும்.",
+            explanation: "The Justice Party, during its time in power in the Madras Presidency, passed the Communal G.O. of 1921, which was the first order to institutionalize reservation for various communities in government employment, a landmark social justice measure.",
+            explanationTamil: "நீதிக் கட்சி, மெட்ராஸ் பிரசிடென்சியில் ஆட்சியில் இருந்த காலத்தில், 1921 ஆம் ஆண்டின் வகுப்புவாரி அரசாணையை நிறைவேற்றியது, இது அரசாங்க வேலைவாய்ப்பில் பல்வேறு சமூகங்களுக்கு இடஒதுக்கீட்டை நிறுவனமயமாக்கிய முதல் உத்தரவாகும், இது ஒரு முக்கிய சமூக நீதி நடவடிக்கையாகும்.",
             yearAsked: [2022],
             difficulty: "Medium",
             tnpscFrequency: 4,
@@ -703,6 +704,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
   "polity-governance": indianPolityAndGovernance,
   "economy-planning": indianEconomyAndPlanning,
   "science-technology": generalScienceAndTech,
+  "aptitude-mental-ability": aptitudeAndMentalAbility,
 };
 
 export function getTnpscModuleById(moduleId: string): TnpscModule | null {
