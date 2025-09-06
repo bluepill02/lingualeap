@@ -130,7 +130,7 @@ export default function NeetChemistryPage() {
                     return (
                         <Link href={`/exam-prep/neet/chemistry/${slug}`} key={slug} className="group">
                             <Card className="hover:border-primary hover:shadow-md transition-all h-full flex flex-col justify-between">
-                                <CardContent className="card-padding-md space-y-3">
+                                <CardContent className="card-padding-lg space-y-3">
                                     <div className="flex justify-between items-center">
                                       <Badge variant="secondary">Chapter {chapterCounter}</Badge>
                                       <BookOpen className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />

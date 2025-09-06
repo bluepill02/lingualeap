@@ -85,7 +85,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             Learning Objectives
                         </CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="card-padding-lg">
                         <ul className="list-disc list-inside space-y-2">
                             {learningObjectives.map((obj, index) => (
                                 <li key={index}>{obj}</li>
@@ -103,7 +103,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             Prerequisites
                         </CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="card-padding-lg">
                         <ul className="list-disc list-inside space-y-2">
                             {prerequisites.map((req, index) => (
                                 <li key={index}>{req}</li>
@@ -118,7 +118,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <CardHeader>
                         <CardTitle>Concept Overview</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-6">
+                        <CardContent className="card-padding-lg space-y-6">
                         <div className="prose dark:prose-invert max-w-none">
                             <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
                         </div>
@@ -129,7 +129,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                                 <Lightbulb className="h-5 w-5 text-yellow-400" />
                                 <CardTitle className="text-yellow-200">Tamil Connection</CardTitle>
                             </CardHeader>
-                            <CardContent className="text-yellow-50 prose-sm">
+                            <CardContent className="card-padding-lg text-yellow-50 prose-sm">
                                 <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
                             </CardContent>
                             </Card>
@@ -141,7 +141,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                                 <BookOpen className="h-5 w-5 text-green-400" />
                                 <CardTitle className="text-green-200">Cultural Context</CardTitle>
                             </CardHeader>
-                            <CardContent className="text-green-50 prose-sm">
+                            <CardContent className="card-padding-lg text-green-50 prose-sm">
                                 <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
                             </CardContent>
                             </Card>
@@ -167,7 +167,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <CardHeader>
                             <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-4 text-center">
+                        <CardContent className="card-padding-lg space-y-4 text-center">
                             {mnemonics.map((mnemonic, index) => (
                                 <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
                                 <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
@@ -179,7 +179,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <CardHeader>
                             <CardTitle>Chapter Summary</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-4">
+                        <CardContent className="card-padding-lg space-y-4">
                             {keyTakeaways.map((point, index) => (
                                 <div key={index} className="flex items-start gap-3">
                                     <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
@@ -192,7 +192,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <CardHeader>
                             <CardTitle>NEET Tips & Next Steps</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-4">
+                        <CardContent className="card-padding-lg space-y-4">
                             {neetTips.map((tip, index) => (
                                 <div key={index} className="flex items-start gap-3">
                                     <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>

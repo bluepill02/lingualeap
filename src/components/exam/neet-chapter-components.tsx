@@ -46,7 +46,7 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
     }
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-4">
             {content.map((note, index) => (
                 <React.Fragment key={index}>
                     <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
@@ -331,7 +331,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Options &amp; Solution</AccordionTrigger>
-                                            <AccordionContent className="card-padding-md space-y-4">
+                                            <AccordionContent className="card-padding-lg space-y-4">
                                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                                     {quiz.options.map((option) => (
                                                         <Button
@@ -369,7 +369,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-2">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="card-padding-sm bg-secondary/30 rounded-md">
+                                            <AccordionContent className="card-padding-lg bg-secondary/30 rounded-md">
                                                 <strong>Answer:</strong> {item.explanation}
                                             </AccordionContent>
                                         </AccordionItem>
@@ -405,7 +405,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                     <Accordion type="single" collapsible className="w-full mt-4">
                                         <AccordionItem value="solution">
                                             <AccordionTrigger className="text-xs p-2">View Solution</AccordionTrigger>
-                                            <AccordionContent className="card-padding-sm bg-secondary/30 rounded-md">
+                                            <AccordionContent className="card-padding-lg bg-secondary/30 rounded-md">
                                                  <strong>Answer:</strong> {item.answer}
                                                  {item.explanation && <div className="text-xs text-muted-foreground mt-1"><MarkdownRenderer>{item.explanation}</MarkdownRenderer></div>}
                                             </AccordionContent>
