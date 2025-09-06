@@ -127,7 +127,7 @@ export default function ValidationReportPage() {
     const allModules = Object.values(neetContent);
 
     return (
-        <div className="space-y-8">
+        <div className="container mx-auto space-y-8">
             <div>
                 <h1 className="text-3xl font-bold font-headline">NEET Physics Validation Report</h1>
                 <p className="text-muted-foreground">

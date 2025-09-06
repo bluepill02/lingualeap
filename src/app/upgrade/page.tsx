@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
@@ -34,7 +35,7 @@ const plans = [
 
 export default function UpgradePage() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="container mx-auto flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold font-headline">Choose Your Plan</h1>
         <p className="mt-4 text-lg text-muted-foreground">

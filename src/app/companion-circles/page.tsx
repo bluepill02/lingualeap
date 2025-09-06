@@ -82,7 +82,7 @@ export default function CompanionCirclesPage() {
     // Sorting logic would go here based on `sortBy` state
 
     return (
-        <div className="space-y-8">
+        <div className="container mx-auto space-y-8">
             <div>
                 <h1 className="text-3xl font-bold font-headline">Companion Circles</h1>
                 <p className="text-muted-foreground">

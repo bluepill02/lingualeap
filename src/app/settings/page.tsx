@@ -19,12 +19,12 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
-import { Separator } from '../ui/separator';
+import { Separator } from '@/components/ui/separator';
 import { Calendar } from 'lucide-react';
 
 export default function SettingsPage() {
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto space-y-8">
       <div>
         <h1 className="text-3xl font-bold font-headline">Settings</h1>
         <p className="text-muted-foreground">

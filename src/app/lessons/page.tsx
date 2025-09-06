@@ -15,7 +15,7 @@ import { lessons } from '@/lib/data';
 
 export default function LessonsPage() {
   return (
-    <div>
+    <div className="container mx-auto space-y-8">
       <h1 className="mb-6 text-3xl font-bold font-headline">All Lessons</h1>
       <div className="responsive-card-grid">
         {lessons.map((lesson) => (

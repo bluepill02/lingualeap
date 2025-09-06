@@ -62,7 +62,7 @@ export default function PeerTeachingPage() {
     }
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="container mx-auto space-y-8">
       <div>
         <h1 className="text-3xl font-bold font-headline flex items-center gap-2"><Megaphone className="text-primary"/> Peer-Teaching Mission</h1>
         <p className="text-muted-foreground">Solidify your knowledge by teaching it to others.</p>
