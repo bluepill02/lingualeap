@@ -276,3 +276,8 @@
   font-weight: bold;
   font-style: italic;
 }
+
+.card-padding-sm { padding: 0.75rem; }    /* 12px - p-3 */
+.card-padding-md { padding: 1rem; }       /* 16px - p-4 */  
+.card-padding-lg { padding: 1.5rem; }     /* 24px - p-6 */
+.card-padding-xl { padding: 2rem; }       /* 32px - p-8 */
