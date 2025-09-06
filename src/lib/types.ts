@@ -1,5 +1,4 @@
 
-
 import { z } from 'genkit';
 
 export interface User {
@@ -270,12 +269,18 @@ export interface ExamModule {
 
 export interface CompanionCircle {
     id: string;
+    name: string;
+    description: string;
+    memberCount: number;
+    type: 'Mentor-led' | 'Peer Study';
+    subject: 'Physics' | 'Chemistry' | 'Biology';
+    difficulty: 'Foundation' | 'Bridge' | 'Core';
+    language: 'English' | 'Tamil';
     members: {
         id: string;
         name: string;
         avatarUrl: string;
     }[];
-    leaderId: string;
 }
 
 export interface LiveClass {

@@ -30,18 +30,75 @@ export const allUsers: User[] = [
     { id: 'user-10', name: 'Aarav', email: 'aarav@example.com', avatarUrl: 'https://picsum.photos/100/100?a=10', streak: 30, xp: 7500, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Exams'], persona: learnerPersonas[1].type },
 ];
 
+export const companionCircles: CompanionCircle[] = [
+  {
+    id: 'circle-1',
+    name: 'Physics Phantoms - Core Concepts',
+    description: 'A deep dive into core physics topics for serious NEET aspirants. We discuss tough problems and share notes.',
+    memberCount: 24,
+    type: 'Peer Study',
+    subject: 'Physics',
+    difficulty: 'Core',
+    language: 'English',
+    members: allUsers.slice(0, 8),
+  },
+  {
+    id: 'circle-2',
+    name: 'Chemistry Catalysts',
+    description: 'Mentor-led group focusing on organic chemistry reactions and mechanisms. Weekly problem-solving sessions.',
+    memberCount: 15,
+    type: 'Mentor-led',
+    subject: 'Chemistry',
+    difficulty: 'Core',
+    language: 'English',
+    members: allUsers.slice(2, 9),
+  },
+  {
+    id: 'circle-3',
+    name: 'Biology Builders (Tamil)',
+    description: 'Foundation course for biology in Tamil. We focus on clearing basic concepts and building a strong base.',
+    memberCount: 32,
+    type: 'Peer Study',
+    subject: 'Biology',
+    difficulty: 'Foundation',
+    language: 'Tamil',
+    members: allUsers.slice(4, 10),
+  },
+  {
+    id: 'circle-4',
+    name: 'Physics Bridge Builders',
+    description: 'This circle helps students bridge the gap between board exams and NEET level for "bridge" topics.',
+    memberCount: 18,
+    type: 'Peer Study',
+    subject: 'Physics',
+    difficulty: 'Bridge',
+    language: 'English',
+    members: allUsers.slice(1, 7),
+  },
+  {
+    id: 'circle-5',
+    name: 'Inorganic Chemistry Champions (Tamil)',
+    description: 'A dedicated group for mastering the nuances of p-block and d-block elements in Tamil.',
+    memberCount: 21,
+    type: 'Mentor-led',
+    subject: 'Chemistry',
+    difficulty: 'Core',
+    language: 'Tamil',
+    members: allUsers.slice(3, 8),
+  },
+  {
+    id: 'circle-6',
+    name: 'Human Physiology Pros',
+    description: 'Advanced discussion group for Human Physiology, focusing on clinical applications and complex systems.',
+    memberCount: 12,
+    type: 'Mentor-led',
+    subject: 'Biology',
+    difficulty: 'Bridge',
+    language: 'English',
+    members: allUsers.slice(0, 5),
+  },
+];
 
-export const companionCircle: CompanionCircle = {
-  id: 'circle-1',
-  members: [
-    mockUser,
-    allUsers[1],
-    allUsers[2],
-    allUsers[3],
-    allUsers[4],
-  ],
-  leaderId: 'user-2',
-}
 
 export const flashcards: Flashcard[] = [
   {
@@ -709,7 +766,7 @@ export const allMicroLessons: MicroLesson[] = [
             { word: 'ᱡᱚᱦᱟᱨ', romanization: 'Johar', definition: 'Hello/Greetings', ipa: '/dʒohar/' },
             { word: 'ᱪᱮᱞᱮᱠᱟ ᱢᱮᱱᱟᱢᱟ?', romanization: 'Cheleka menama?', definition: 'How are you?', ipa: '/tʃeleka menama/' },
             { word: 'ᱱᱟᱯᱟᱭ', romanization: 'Napai', definition: 'Fine/Good', ipa: '/napai/' },
-            { word: 'ᱥᱟᱹᱜᱩᱱ', romanization: 'Sagun', definition: 'Auspicious/Welcome', ipa: '/sagun/' },
+            { word: 'ᱥᱟᱹགᱩᱱ', romanization: 'Sagun', definition: 'Auspicious/Welcome', ipa: '/sagun/' },
             { word: 'ᱥᱟᱨᱦᱟᱣ', romanization: 'Sarhaw', definition: 'Thank you/Praise', ipa: '/sarhaw/' },
         ],
         dialogue: [

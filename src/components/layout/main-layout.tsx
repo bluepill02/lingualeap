@@ -28,7 +28,8 @@ import {
   Radio,
   Megaphone,
   ShieldCheck,
-  Menu
+  Menu,
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -67,6 +68,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/personal-tutor',
       label: 'Personal Tutor',
       icon: Bot,
+    },
+    {
+      href: '/companion-circles',
+      label: 'Companion Circles',
+      icon: Users,
     },
     {
       href: '/exam-prep',
