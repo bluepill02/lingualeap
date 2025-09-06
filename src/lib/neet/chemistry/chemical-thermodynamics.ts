@@ -146,12 +146,13 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
             problem: "A system absorbs 2 kJ of heat and does 500 J of work. Calculate the change in internal energy of the system.",
             problemTamil: "ஒரு அமைப்பு 2 kJ வெப்பத்தை உறிஞ்சி 500 J வேலையைச் செய்கிறது. அமைப்பின் அக ஆற்றல் மாற்றத்தைக் கணக்கிடுக.",
             solutionSteps: [
-                { step: 1, explanation: "Identify the heat (q) and work (w) with their correct signs. Heat is absorbed, so q = +2 kJ = +2000 J. Work is done *by* the system, so w = -500 J.", explanationTamil: "வெப்பம் (q) மற்றும் வேலை (w) ஆகியவற்றை அவற்றின் சரியான குறிகளுடன் அடையாளம் காணவும். வெப்பம் உறிஞ்சப்படுகிறது, எனவே q = +2 kJ = +2000 J. வேலை அமைப்பால் செய்யப்படுகிறது, எனவே w = -500 J." },
-                { step: 2, explanation: "Apply the First Law of Thermodynamics: ΔU = q + w.", calculation: "\\Delta U = 2000 J + (-500 J)" },
+                { step: 1, explanation: "Identify the heat (q) and work (w) with their correct signs. Heat is absorbed, so q = +2 kJ = +2000 J. Work is done *by* the system, so w = +500 J (using W_by convention).", explanationTamil: "வெப்பம் (q) மற்றும் வேலை (w) ஆகியவற்றை அவற்றின் சரியான குறிகளுடன் அடையாளம் காணவும். வெப்பம் உறிஞ்சப்படுகிறது, எனவே q = +2 kJ = +2000 J. வேலை அமைப்பால் செய்யப்படுகிறது, எனவே w = +500 J (W_by மரபின்படி)." },
+                { step: 2, explanation: "Apply the First Law of Thermodynamics: ΔU = q - w.", calculation: "\\Delta U = 2000 J - 500 J" },
                 { step: 3, explanation: "Calculate the final result.", calculation: "\\Delta U = 1500 J" }
             ],
-            neetHack: "Consistency in sign convention is the key to all First Law problems. Remember: Heat IN is positive, Work ON is positive.",
-            neetHackTamil: "முதல் விதி கணக்குகள் அனைத்திற்கும் குறியீட்டு மரபில் சீராக இருப்பது முக்கியம். நினைவில் கொள்க: வெப்பம் உள்ளே சென்றால் நேர்க்குறி, வேலை அமைப்பின் மீது செய்யப்பட்டால் நேர்க்குறி."
+            neetHack: "Consistency in sign convention is the key to all First Law problems. Remember: Heat IN is positive, Work BY the system is positive in the ΔU = Q - W convention.",
+            neetHackTamil: "முதல் விதி கணக்குகள் அனைத்திற்கும் குறியீட்டு மரபில் சீராக இருப்பது முக்கியம். நினைவில் கொள்க: வெப்பம் உள்ளே சென்றால் நேர்க்குறி, அமைப்பு வேலை *செய்தால்* நேர்க்குறி (ΔU = Q - W மரபில்).",
+            commonPitfall: "Confusing the sign conventions for work. Physics chemistry often uses w = work done ON the system (ΔU=Q+w), while physics engines often use w = work done BY the system (ΔU=Q-w). Be consistent."
         },
         {
             title: "JEE Level: Enthalpy Calculation",
@@ -205,11 +206,10 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
             problem: "2 moles of an ideal gas expand isothermally and reversibly from a volume of 10 L to 20 L at 27°C. Calculate the work done. (R = 8.314 J/mol·K)",
             problemTamil: "2 மோல் நல்லியல்பு வாயு 27°C வெப்பநிலையில் 10 L கனஅளவிலிருந்து 20 L கனஅளவிற்கு சமவெப்பநிலை மற்றும் மீள் முறையில் விரிவடைகிறது. செய்யப்பட்ட வேலையைக் கணக்கிடுக. (R = 8.314 J/mol·K)",
             solutionSteps: [
-                { step: 1, explanation: "The work done in a reversible isothermal expansion is given by W = -nRT ln(V₂/V₁).", explanationTamil: "ஒரு மீள் சமவெப்பநிலை விரிவடைதலில் செய்யப்பட்ட வேலை W = -nRT ln(V₂/V₁) ஆகும்." },
+                { step: 1, explanation: "The work done by the gas in a reversible isothermal expansion is given by W = nRT ln(V₂/V₁).", explanationTamil: "ஒரு மீள் சமவெப்பநிலை விரிவடைதலில் வாயுவால் செய்யப்பட்ட வேலை W = nRT ln(V₂/V₁) ஆகும்." },
                 { step: 2, explanation: "Convert temperature to Kelvin: T = 27 + 273 = 300 K.", explanationTamil: "வெப்பநிலையை கெல்வின் ஆக மாற்றவும்." },
-                { step: 3, explanation: "Substitute the given values into the formula.", calculation: "W = -2 * 8.314 * 300 * ln(20/10) = -2 * 8.314 * 300 * ln(2)" },
-                { step: 4, explanation: "Use the value of ln(2) ≈ 0.693.", calculation: "W = -4988.4 * 0.693 ≈ -3457 J = -3.457 kJ" },
-                { step: 5, explanation: "The work done *by* the gas is 3.457 kJ.", explanationTamil: "வாயுவால் செய்யப்பட்ட வேலை 3.457 kJ ஆகும்." }
+                { step: 3, explanation: "Substitute the given values into the formula.", calculation: "W = 2 * 8.314 * 300 * ln(20/10) = 2 * 8.314 * 300 * ln(2)" },
+                { step: 4, explanation: "Use the value of ln(2) ≈ 0.693.", calculation: "W = 4988.4 * 0.693 ≈ 3457 J = 3.457 kJ" }
             ]
         }
     ],
@@ -229,7 +229,7 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
         { question: "For an endothermic reaction:", options: ["A. ΔH is positive", "B. ΔH is negative", "C. ΔG is always positive", "D. ΔS is always positive"], answer: "A. ΔH is positive", explanation: "An endothermic reaction is one that absorbs heat from the surroundings, so its enthalpy change ΔH is positive.", neetFrequency: 2 },
         { question: "The condition for a reaction to be at equilibrium at constant T and P is:", options: ["A. ΔH = 0", "B. ΔS = 0", "C. ΔG = 0", "D. ΔU = 0"], answer: "C. ΔG = 0", explanation: "Gibbs free energy change (ΔG) is the criterion for spontaneity. At equilibrium, ΔG = 0.", neetFrequency: 4 },
         { question: "Hess's Law is based on:", options: ["A. The first law of thermodynamics", "B. The second law of thermodynamics", "C. The law of conservation of mass", "D. The concept of entropy"], answer: "A. The first law of thermodynamics", explanation: "Hess's law is a direct consequence of the fact that enthalpy is a state function, which itself is derived from the first law of thermodynamics.", neetFrequency: 1 },
-        { question: "In an isothermal reversible expansion of an ideal gas:", options: ["A. w = 0, ΔU = q", "B. ΔU = 0, q = -w", "C. q = 0, ΔU = w", "D. w = 0, ΔU = 0"], answer: "B. ΔU = 0, q = -w", explanation: "For an ideal gas, internal energy depends only on temperature. In an isothermal process, T is constant, so ΔU=0. From the first law, 0 = q+w, so q=-w.", neetFrequency: 5 },
+        { question: "In an isothermal reversible expansion of an ideal gas:", options: ["A. w = 0, ΔU = q", "B. ΔU = 0, q = -w", "C. q = 0, ΔU = w", "D. w = 0, ΔU = 0"], answer: "B. ΔU = 0, q = -w", explanation: "For an ideal gas, internal energy depends only on temperature. In an isothermal process, T is constant, so ΔU=0. From the first law (chemist's convention), 0 = q+w, so q=-w.", neetFrequency: 5 },
         { question: "The relation between ΔH and ΔU for a reaction involving gases is:", options: ["A. ΔH = ΔU + Δn_gRT", "B. ΔU = ΔH + Δn_gRT", "C. ΔH = ΔU - Δn_gRT", "D. ΔH = Δn_gRT"], answer: "A. ΔH = ΔU + Δn_gRT", explanation: "This is the standard relationship derived from H = U + PV.", neetFrequency: 4 },
         { question: "When a liquid evaporates, its entropy:", options: ["A. Increases", "B. Decreases", "C. Remains the same", "D. Becomes zero"], answer: "A. Increases", explanation: "The gaseous state is much more disordered and random than the liquid state, so the entropy increases during evaporation.", neetFrequency: 3 },
         { question: "Which of the following is an intensive property?", options: ["A. Volume", "B. Mass", "C. Enthalpy", "D. Temperature"], answer: "D. Temperature", explanation: "Intensive properties (like temperature, pressure, density) do not depend on the amount of matter. Extensive properties (like volume, mass, enthalpy) do.", neetFrequency: 2 },
@@ -245,7 +245,7 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
         { assertion: "The entropy of a crystalline solid at absolute zero is zero.", reason: "At absolute zero, there is perfect order in the crystalline solid.", answer: "A", explanation: "This is the statement of the Third Law of Thermodynamics. The reason correctly explains the assertion.", neetFrequency: 2 },
         { assertion: "A reaction with ΔG < 0 is always a fast reaction.", reason: "The change in Gibbs free energy determines the spontaneity of a reaction, not its rate.", answer: "D", explanation: "The assertion is false. A reaction can be spontaneous (thermodynamically favorable) but very slow (kinetically unfavorable), like the rusting of iron. The reason is a true statement.", neetFrequency: 4 },
         { assertion: "Work and heat are path functions.", reason: "Their values depend on the path followed by the system to go from an initial to a final state.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct definition/explanation for a path function.", neetFrequency: 3 },
-        { assertion: "For an isochoric process, ΔU = q.", reason: "In an isochoric process, the volume is constant, so no work is done.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains the assertion. Since W=0, the first law ΔU = q - W simplifies to ΔU = q.", neetFrequency: 4 }
+        { assertion: "For an isochoric process, ΔU = q.", reason: "In an isochoric process, the volume is constant, so no work is done.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains the assertion. Since W=0, the first law ΔU = q + W simplifies to ΔU = q.", neetFrequency: 4 }
     ],
     matchTheColumns: [
         { column1: ["(a) Isothermal Process", "(b) Adiabatic Process", "(c) Isochoric Process", "(d) Isobaric Process"], column2: ["(p) Volume constant", "(q) Temperature constant", "(r) Pressure constant", "(s) Heat constant (Q=0)"], answer: "a-q, b-s, c-p, d-r", explanation: "Matching the thermodynamic processes with their defining constant property." },
@@ -258,8 +258,8 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
         formulas: [
             {
                 formula: '\\Delta U = q + w',
-                description: 'First Law of Thermodynamics',
-                descriptionTamil: 'வெப்ப இயக்கவியலின் முதல் விதி'
+                description: 'First Law of Thermodynamics (Chemist\'s convention)',
+                descriptionTamil: 'வெப்ப இயக்கவியலின் முதல் விதி (வேதியியலாளர் மரபு)'
             },
             {
                 formula: '\\Delta H = \\Delta U + \\Delta n_g RT',
@@ -301,8 +301,8 @@ $$ \\Delta G = \\Delta H - T\\Delta S $$
         tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஒரு செயல்முறை குறைந்த வெப்பநிலையில் தன்னிச்சையற்றதாக இருந்து, அதிக வெப்பநிலையில் தன்னிச்சையாக மாறுவது ஏன்? இது நிகழ ΔH மற்றும் ΔS என்ன நிபந்தனைகளை பூர்த்தி செய்ய வேண்டும்?"
     },
     nextChapter: {
-        title: "Solutions",
-        titleTamil: "கரைசல்கள்"
+        title: "Equilibrium",
+        titleTamil: "சமநிலை"
     },
     validationReport: []
 };
