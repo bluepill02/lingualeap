@@ -136,7 +136,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </Link>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset>
+      <SidebarInset className="p-4 sm:p-6 md:p-8">
         <header className="flex h-16 items-center justify-between border-b bg-card px-6">
           <SidebarTrigger />
           <DropdownMenu>
