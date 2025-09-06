@@ -75,8 +75,9 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
   };
 
   const handleGenerateMcqs = async () => {
+    const formattedSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
     const input = {
-        subject,
+        subject: formattedSubject,
         chapter,
         numQuestions: numItems,
         difficulty,
