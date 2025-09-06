@@ -254,7 +254,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "திருக்குறள், சிலப்பதிகாரம், மற்றும் தொல்காப்பியம் ஆகிய மூன்றும் சங்க இலக்கியத்தின் மூலக்கற்களாகும், அவை அக்கால சமூகம், இலக்கணம், மற்றும் அறநெறிகள் பற்றிய பார்வைகளை வழங்குகின்றன. தொல்காப்பியம் பழமையானது, ஆனால் அனைத்தும் முதன்மை ஆதாரங்களே.",
           yearAsked: [2022],
           difficulty: "Medium",
-          context: "This tests the knowledge of foundational Sangam texts."
+          context: "sangam-age"
         },
         {
           question: "The Self-Respect Movement was primarily founded by whom?",
@@ -266,7 +266,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "பெரியார் ஈ.வெ. ராமசாமி சுயமரியாதை இயக்கத்தின் நிறுவனர் ஆவார், இது பகுத்தறிவு, பெண்கள் உரிமைகள் மற்றும் சாதி அமைப்பை ஒழிப்பதற்காக வாதிட்டது.",
           yearAsked: [2023],
           difficulty: "Easy",
-          context: "This tests knowledge of major leaders of social movements in Tamil Nadu."
+          context: "justice-party"
         },
         {
           question: "The Vedaranyam Salt March was led by?",
@@ -278,7 +278,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "ராஜாஜி என்று அழைக்கப்படும் சி. ராஜகோபாலாச்சாரி, தமிழ்நாட்டில் வேதாரண்யம் அணிவகுப்பை வழிநடத்தினார், இது காந்தியின் தண்டி அணிவகுப்புக்கு தெற்கில் இணையான நிகழ்வாகும்.",
           yearAsked: [2021],
           difficulty: "Medium",
-          context: "Knowledge of key events and leaders in the Tamil Nadu freedom struggle."
+          context: "freedom-struggle-tn"
         },
         {
           question: "Thirukkural is divided into how many parts?",
@@ -290,7 +290,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "திருக்குறள் அறம், பொருள், மற்றும் இன்பம் என மூன்று முக்கியப் பால்களாகப் பிரிக்கப்பட்டுள்ளது.",
           yearAsked: [2022],
           difficulty: "Easy",
-          context: "Basic structure of the foundational text, Thirukkural."
+          context: "sangam-age"
         },
         {
           question: "The Justice Party was formed to primarily represent the interests of?",
@@ -302,7 +302,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "நீதிக் கட்சி அல்லது தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, கல்வி, அரசாங்க வேலைகள் மற்றும் அரசியலில் பிராமணர் அல்லாத சமூகத்தின் நலன்களை மேம்படுத்துவதற்காக உருவாக்கப்பட்டது.",
           yearAsked: [2023],
           difficulty: "Medium",
-          context: "Understanding the origins and goals of major Dravidian movements."
+          context: "justice-party"
         },
         {
           question: "The concept of 'Agam' in Sangam literature refers to:",
@@ -314,7 +314,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "'அகம்' கவிதைகள் தனிப்பட்ட மற்றும் உணர்ச்சிப்பூர்வமான கருப்பொருள்களை, குறிப்பாக காதல் மற்றும் உறவுகளைக் கையாளுகின்றன, அதே நேரத்தில் 'புறம்' கவிதைகள் போர் மற்றும் வீரம் உள்ளிட்ட பொது வாழ்க்கையைக் கையாளுகின்றன.",
           yearAsked: [2021],
           difficulty: "Hard",
-          context: "Tests nuanced understanding of Sangam literary conventions."
+          context: "sangam-age"
         },
         {
           question: "Who is known as 'Kodikkatha Kumaran'?",
@@ -326,7 +326,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "திருப்பூர் குமரன் ஒரு போராட்ட ஊர்வலத்தின் போது இந்தியக் கொடியைப் பிடித்துக்கொண்டு இறந்தார், அதைக் கீழே விழ விட மறுத்ததால் 'கொடிகாத்த குமரன்' என்று அழைக்கப்படுகிறார்.",
           yearAsked: [2022],
           difficulty: "Easy",
-          context: "Knowledge of significant figures and their titles from the freedom struggle."
+          context: "freedom-struggle-tn"
         },
         {
           question: "The Vellore Mutiny took place in which year?",
@@ -338,7 +338,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "வேலூர் சிப்பாய் எழுச்சி 1806 ஆம் ஆண்டு ஜூலை 10 ஆம் தேதி நிகழ்ந்தது, இது பிரிட்டிஷ் கிழக்கிந்திய கம்பெனிக்கு எதிரான ஆரம்பகால பெரிய அளவிலான கிளர்ச்சிகளில் ஒன்றாகக் கருதப்படுகிறது, இது 1857 ஆம் ஆண்டு கிளர்ச்சிக்கு முந்தையது.",
           yearAsked: [2021],
           difficulty: "Medium",
-          context: "Timeline of early resistance movements against British rule."
+          context: "freedom-struggle-tn"
         },
         {
           question: "The 'Communal G.O.' which provided reservation for non-Brahmins was passed in which year?",
@@ -350,7 +350,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "நீதிக் கட்சி அரசாங்கம் 1921 இல் வகுப்புவாரி அரசாணையை (G.O.) நிறைவேற்றியது, இது அரசாங்க வேலைகளுக்கான இடஒதுக்கீட்டு ஒதுக்கீடுகளை நிறுவியது, இது ஒரு முக்கிய சமூக நீதி நடவடிக்கையாகும்.",
           yearAsked: [2023],
           difficulty: "Hard",
-          context: "Tests knowledge of key legislative actions by the Justice Party."
+          context: "justice-party"
         },
         {
           question: "V.O. Chidambaram Pillai is famously associated with:",
@@ -362,7 +362,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "வ.உ.சி. ஒரு பன்முக சுதந்திரப் போராட்ட வீரர். அவர் ஆங்கிலேயர்களுடன் போட்டியிட சுதேசி நீராவி கப்பல் நிறுவனத்தைத் தொடங்கினார், மெட்ராஸ் மகாஜன சபையுடன் தொடர்புடையவர், மற்றும் திருநெல்வேலி சதி வழக்கில் சிக்கவைக்கப்பட்டார்.",
           yearAsked: [2022],
           difficulty: "Hard",
-          context: "Comprehensive knowledge of freedom fighters' contributions."
+          context: "freedom-struggle-tn"
         },
         {
           question: "The 'Thinai' concept in Sangam literature classifies land based on:",
@@ -374,7 +374,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "திணை என்ற கருத்து நிலப்பரப்புகளை அவற்றின் தனித்துவமான புவியியல், மலர் மற்றும் விலங்கு குணாதிசயங்களின் அடிப்படையில் ஐந்து வகைகளாக (குறிஞ்சி, முல்லை, மருதம், நெய்தல், பாலை) வகைப்படுத்துகிறது, இது அங்கு வாழும் மக்களின் கலாச்சாரம் மற்றும் தொழிலை பாதித்தது.",
           yearAsked: [2021],
           difficulty: "Medium",
-          context: "Understanding the unique philosophical and ecological concepts of Sangam literature."
+          context: "sangam-age"
         },
         {
           question: "Periyar E.V. Ramasamy participated in which major protest outside of Tamil Nadu?",
@@ -386,7 +386,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "திருவிதாங்கூர் சமஸ்தானத்தில் (இன்றைய கேரளா) வைக்கம் சத்தியாக்கிரகத்தில் பெரியார் ஒரு முக்கியப் பங்காற்றினார், இது வைக்கம் கோவிலைச் சுற்றியுள்ள சாலைகளைப் பயன்படுத்த தாழ்த்தப்பட்ட சாதியினருக்கு உரிமை கோரியது. அவரது பங்களிப்பிற்காக, அவருக்கு 'வைக்கம் வீரர்' என்ற பட்டம் வழங்கப்பட்டது.",
           yearAsked: [2023],
           difficulty: "Medium",
-          context: "Tests knowledge of Periyar's national influence beyond Tamil Nadu."
+          context: "justice-party"
         },
         {
           question: "The 'Porul' section of Thirukkural primarily deals with:",
@@ -398,7 +398,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "குறளின் 'பொருள்' பகுதி அரசுமுறை, ஆட்சி, பொருளாதார விஷயங்கள் மற்றும் பொது வாழ்க்கைக்கான ஒரு விரிவான வழிகாட்டியாகும், இது அரசியல் அறிவியல் மற்றும் நிர்வாகத்தின் ஒரு அடித்தள நூலாக அமைகிறது.",
           yearAsked: [2022],
           difficulty: "Easy",
-          context: "Understanding the structure and content of Thirukkural."
+          context: "sangam-age"
         },
         {
           question: "Which Sangam-era dynasty had the Tiger as their emblem?",
@@ -410,7 +410,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "சோழர்கள் புலியை தங்கள் அரச சின்னமாக கொண்டிருந்தனர். சேரர்கள் வில் மற்றும் அம்பையும், பாண்டியர்கள் மீனையும் கொண்டிருந்தனர்.",
           yearAsked: [2021],
           difficulty: "Medium",
-          context: "Basic facts about the three major Sangam dynasties."
+          context: "sangam-age"
         },
         {
           question: "The Anti-Hindi agitations in Tamil Nadu were a major factor in the rise of which party to power?",
@@ -422,7 +422,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           explanationTamil: "இந்தி எதிர்ப்புப் போராட்டங்கள், குறிப்பாக 1965ல் நடந்த போராட்டம், திமுகவுக்கு ஆதரவைத் திரட்டுவதில் முக்கியப் பங்கு வகித்தது, இது 1967 சட்டமன்றத் தேர்தலில் அவர்களின் வரலாற்றுச் சிறப்புமிக்க வெற்றிக்கு வழிவகுத்தது.",
           yearAsked: [2023],
           difficulty: "Medium",
-          context: "Understanding the link between social movements and political change in Tamil Nadu."
+          context: "justice-party"
         },
         {
             question: "Who was the first Palaiyakkarar (Poligar) to openly rebel against the British East India Company?",
@@ -434,7 +434,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "நெற்கட்டும்செவல் பாளையக்காரரான பூலித்தேவன், தென்னிந்தியாவில் பிரிட்டிஷ் ஆட்சிக்கு எதிரான ஆரம்பகால எதிர்ப்பாளர்களில் ஒருவராக இருந்தார், 1750 களில் மற்ற புகழ்பெற்ற கிளர்ச்சிகளுக்கு முன்பே கிளர்ச்சிகளை வழிநடத்தினார்.",
             yearAsked: [2022],
             difficulty: "Hard",
-            context: "Tests specific knowledge about the chronological order of early freedom fighters."
+            context: "freedom-struggle-tn"
         },
         {
             question: "The term 'Muvendar' in Sangam literature refers to:",
@@ -446,7 +446,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "'மூவேந்தர்' என்பது 'முடிசூடிய மூன்று மன்னர்கள்' என்று மொழிபெயர்க்கப்பட்டுள்ளது, மேலும் இது பண்டைய தமிழகத்தின் அரசியல் நிலப்பரப்பில் ஆதிக்கம் செலுத்திய சேர, சோழ மற்றும் பாண்டிய வம்சங்களின் ஆட்சியாளர்களைக் கூட்டாகக் குறிக்கிறது.",
             yearAsked: [2021],
             difficulty: "Easy",
-            context: "Fundamental terminology related to Sangam age polity."
+            context: "sangam-age"
         },
         {
             question: "Which social evil did Periyar's Self-Respect Movement primarily fight against?",
@@ -458,7 +458,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "சுயமரியாதை இயக்கத்தின் முக்கிய நோக்கம் சாதி அமைப்பையும் தீண்டாமையையும் ஒழித்து, சமத்துவம் மற்றும் பகுத்தறிவு அடிப்படையில் ஒரு சமூகத்தை உருவாக்குவதாகும்.",
             yearAsked: [2023],
             difficulty: "Easy",
-            context: "Core philosophy of the Self-Respect Movement."
+            context: "justice-party"
         },
         {
             question: "The Tamil newspaper 'Kudi Arasu' was founded by:",
@@ -470,7 +470,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "'குடி அரசு' சுயமரியாதை இயக்கத்தின் அதிகாரப்பூர்வ செய்தித்தாள் ஆகும், இது அதன் கொள்கைகளைப் பரப்புவதற்காக பெரியார் ஈ.வெ. ராமசாமியால் நிறுவப்பட்டு திருத்தப்பட்டது.",
             yearAsked: [2022],
             difficulty: "Medium",
-            context: "Important publications and their founders in the Dravidian movement."
+            context: "justice-party"
         },
         {
             question: "Which of the following sites is NOT associated with the Indus Valley Civilization but is a significant Sangam Age site?",
@@ -482,7 +482,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "ஹரப்பா, மொகஞ்சதாரோ மற்றும் லோத்தல் ஆகியவை சிந்து சமவெளி நாகரிகத்தின் முக்கிய தளங்கள். கீழடி என்பது தமிழ்நாட்டில் உள்ள ஒரு முக்கிய தொல்பொருள் தளமாகும், இது சங்க காலத்தில் ஒரு நகர்ப்புற நாகரிகத்தை நிறுவியுள்ளது, இது IVC இன் பிற்கால கட்டங்களுடன் சமகாலமானது ஆனால் வேறுபட்டது.",
             yearAsked: [2023],
             difficulty: "Medium",
-            context: "Distinguishing between different ancient Indian civilizations."
+            context: "sangam-age"
         },
         {
             question: "The introduction of reservation in government jobs for non-Brahmins was a key achievement of:",
@@ -494,7 +494,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "நீதிக் கட்சி, மெட்ராஸ் பிரசிடென்சியில் ஆட்சியில் இருந்த காலத்தில், 1921 ஆம் ஆண்டின் வகுப்புவாரி அரசாணையை நிறைவேற்றியது, இது அரசாங்க வேலைவாய்ப்பில் பல்வேறு சமூகங்களுக்கு இடஒதுக்கீட்டை நிறுவனமயமாக்கிய முதல் உத்தரவாகும்.",
             yearAsked: [2022],
             difficulty: "Medium",
-            context: "Understanding the political achievements of early Dravidian parties."
+            context: "justice-party"
         },
         {
             question: "The ethical treatise Thirukkural contains couplets that are:",
@@ -506,7 +506,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "திருக்குறளின் மிகவும் கொண்டாடப்படும் அம்சங்களில் ஒன்று அதன் மதச்சார்பின்மை. அறம், ஆட்சி மற்றும் காதல் பற்றிய அதன் போதனைகள் உலகளாவிய முறையில் வழங்கப்பட்டுள்ளன, அவை மதம் அல்லது பின்னணியைப் பொருட்படுத்தாமல் அனைவருக்கும் பொருந்தும்.",
             yearAsked: [2021],
             difficulty: "Easy",
-            context: "Core philosophy and significance of Thirukkural."
+            context: "sangam-age"
         },
         {
             question: "Who among the following is a prominent Tamil poet known for his patriotic songs during the freedom struggle?",
@@ -518,7 +518,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "'மகாகவி பாரதி' என்று அடிக்கடி குறிப்பிடப்படும் சுப்பிரமணிய பாரதி, நவீன தமிழ்க் கவிதையின் முன்னோடியாகவும், இந்திய சுதந்திர இயக்கத்தின் போது தேசபக்தி மற்றும் சமூக மாற்றத்தைத் தூண்டிய கவிதைகளைக் கொண்ட ஒரு தீவிர தேசியவாதியாகவும் இருந்தார்.",
             yearAsked: [2022],
             difficulty: "Easy",
-            context: "Identifying key literary figures in the freedom movement."
+            context: "freedom-struggle-tn"
         },
         {
             question: "The ancient port city of the Pandyas, known for its pearl fisheries, was:",
@@ -530,7 +530,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "தாமிரபரணி ஆற்றின் முகத்துவாரத்தில் அமைந்துள்ள கொற்கை, ஆரம்பகால பாண்டிய இராச்சியத்தின் முக்கிய துறைமுகமாக இருந்தது, மேலும் சங்க இலக்கியம் மற்றும் கிரேக்க-ரோமானிய நூல்களில் குறிப்பிடப்பட்டுள்ளபடி, அதன் முத்து மீன்பிடிக்காக உலகப் புகழ்பெற்றது.",
             yearAsked: [2021],
             difficulty: "Hard",
-            context: "Detailed knowledge of Sangam-era geography and economy."
+            context: "sangam-age"
         },
         {
             question: "The Dravidian movement, in its essence, was a movement against:",
@@ -542,7 +542,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             explanationTamil: "அதன் மையத்தில், நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம் உள்ளிட்ட திராவிட இயக்கம், மத, சமூக மற்றும் அரசியல் துறைகளில் பிராமண சாதியின் ஆதிக்கத்திற்கு எதிரான ஒரு சமூக-அரசியல் எழுச்சியாகும், இது பிராமணர் அல்லாதவர்களின் உரிமைகளுக்காக வாதிட்டது.",
             yearAsked: [2023],
             difficulty: "Medium",
-            context: "Understanding the foundational ideology of the Dravidian movement."
+            context: "justice-party"
         }
       ],
       shortAnswer: [
@@ -603,6 +603,30 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           backTamil: "சிவகங்கை மாவட்டத்தில் உள்ள ஒரு தொல்பொருள் தளம், சங்க கால நகர்ப்புற குடியேற்றத்தை வெளிப்படுத்துகிறது.",
           category: "Archaeology",
           difficulty: 1
+        },
+        {
+          front: "Vaikom Satyagraha",
+          frontTamil: "வைக்கம் சத்தியாகிரகம்",
+          back: "A movement in Travancore (Kerala) for temple entry rights, in which Periyar played a significant role.",
+          backTamil: "கோயில் நுழைவு உரிமைகளுக்காக திருவிதாங்கூரில் (கேரளா) நடந்த ஒரு இயக்கம், இதில் பெரியார் முக்கியப் பங்காற்றினார்.",
+          category: "Freedom Struggle",
+          difficulty: 3
+        },
+        {
+          front: "Communal G.O.",
+          frontTamil: "வகுப்புவாரி அரசாணை",
+          back: "The Government Order passed by the Justice Party in 1921 to provide reservation for non-Brahmins.",
+          backTamil: "பிராமணர் அல்லாதவர்களுக்கு இடஒதுக்கீடு வழங்க 1921 இல் நீதிக் கட்சியால் நிறைவேற்றப்பட்ட அரசாணை.",
+          category: "Dravidian Movement",
+          difficulty: 3
+        },
+        {
+          front: "Agam Literature",
+          frontTamil: "அகம் இலக்கியம்",
+          back: "Sangam literature dealing with personal, inner life, especially love and relationships.",
+          backTamil: "தனிப்பட்ட, உள் வாழ்க்கை, குறிப்பாக காதல் மற்றும் உறவுகளைக் கையாளும் சங்க இலக்கியம்.",
+          category: "Literature",
+          difficulty: 2
         }
       ],
       intervals: {

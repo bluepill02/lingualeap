@@ -9,9 +9,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import 'katex/dist/katex.min.css'
+import { motion, AnimatePresence } from "framer-motion";
+
 import { 
   ArrowLeft, 
-  Globe,
   Users,
   BookOpen,
   Target,
@@ -30,7 +31,10 @@ import {
   Megaphone,
   BarChart3,
   Activity,
-  ClipboardList
+  ClipboardList,
+  Layers3,
+  BrainCircuit,
+  Link2
 } from 'lucide-react';
 import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
@@ -38,13 +42,11 @@ import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { XCircle } from 'lucide-react';
 
-
 const COLORS = {
   correct: 'hsl(var(--success))',
   incorrect: 'hsl(var(--destructive))',
   unanswered: 'hsl(var(--muted-foreground))',
 };
-
 
 export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
   const router = useRouter();
@@ -56,6 +58,8 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   const [bookmarked, setBookmarked] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [showAnswers, setShowAnswers] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [currentFlashcardIndex, setCurrentFlashcardIndex] = useState(0);
 
   useEffect(() => {
     const savedProgress = localStorage.getItem(`tnpsc-progress-${moduleId}`);
@@ -92,7 +96,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
     return Math.round((correct / mcqs.length) * 100);
   };
   
-  const progressPercentage = (completedSections.size / 6) * 100;
+  const progressPercentage = (completedSections.size / 7) * 100;
 
   const AnalyticsTabContent = () => {
     if (!showAnswers) {
@@ -117,6 +121,9 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
       { name: 'Incorrect', value: incorrectCount, fill: COLORS.incorrect },
       { name: 'Unanswered', value: unansweredCount, fill: COLORS.unanswered },
     ];
+    
+    const incorrectAnswers = module.practice.mcqs.filter((mcq, index) => selectedAnswers[index] !== undefined && selectedAnswers[index] !== mcq.correct);
+    const improvementTopics = [...new Set(incorrectAnswers.map(mcq => mcq.context))];
 
 
     return (
@@ -155,15 +162,6 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                     </ResponsiveContainer>
                 </div>
                  <div className="space-y-4">
-                    <Card>
-                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
-                            <CardTitle className="text-sm font-medium">Total Questions</CardTitle>
-                            <Target className="h-4 w-4 text-muted-foreground" />
-                        </CardHeader>
-                        <CardContent className="p-4 pt-0">
-                             <div className="text-2xl font-bold">{totalQuestions}</div>
-                        </CardContent>
-                    </Card>
                      <Card>
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
                             <CardTitle className="text-sm font-medium">Correct</CardTitle>
@@ -183,6 +181,32 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                         </CardContent>
                     </Card>
                 </div>
+                {improvementTopics.length > 0 && (
+                <div className="md:col-span-2">
+                     <Alert variant="warning">
+                        <Lightbulb className="h-4 w-4"/>
+                        <AlertTitle>Actionable Feedback: Focus Areas</AlertTitle>
+                        <AlertDescription>
+                            <p>You seem to be facing challenges in the following areas. We recommend reviewing these sections:</p>
+                            <ul className="list-disc list-inside mt-2">
+                                {improvementTopics.map(topicId => {
+                                    const section = module.sections.find(s => s.id === topicId);
+                                    return (
+                                        <li key={topicId}>
+                                            <Button variant="link" className="p-0 h-auto" onClick={() => {
+                                                const contentTab = document.querySelector('button[data-radix-collection-item][value=content]') as HTMLButtonElement | null;
+                                                if(contentTab) contentTab.click();
+                                            }}>
+                                                {language === 'english' ? section?.title : section?.titleTamil}
+                                            </Button>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </AlertDescription>
+                    </Alert>
+                </div>
+                )}
             </CardContent>
         </Card>
     );
@@ -243,7 +267,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                             <Megaphone className="h-5 w-5 text-primary" />
                             {language === 'english' ? 'Peer-Teaching Challenge' : 'சக மாணவர் கற்பித்தல் சவால்'}
                         </CardTitle>
-                        <CardDescription>{language === 'english' ? `Topic: ${activity.topic}` : `தலைப்பு: ${activity.promptTamil}`}</CardDescription>
+                        <CardDescription>{language === 'english' ? `Topic: ${activity.topic}` : `தலைப்பு: ${activity.topic}`}</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <p className="mb-4">{language === 'english' ? activity.prompt : activity.promptTamil}</p>
@@ -282,15 +306,19 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                     </CardContent>
                 </Card>
             ))}
-
-            <div className="text-center mt-6">
-                <Button onClick={() => markSectionCompleted('engagement')} disabled={completedSections.has('engagement')}>
-                    {completedSections.has('engagement') ? 'Activities Reviewed' : 'Mark Activities as Reviewed'}
-                </Button>
-            </div>
         </div>
     )
   }
+
+  const handleNextFlashcard = (knewIt: boolean) => {
+    setIsFlipped(false);
+    setTimeout(() => {
+        setCurrentFlashcardIndex((prevIndex) => (prevIndex + 1) % module.spacedRepetition.flashcards.length);
+    }, 300); // Allow time for flip-back animation
+  };
+
+  const flashcards = module.spacedRepetition.flashcards;
+  const currentFlashcard = flashcards[currentFlashcardIndex];
 
   return (
     <div className="container mx-auto space-y-8">
@@ -342,9 +370,10 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
         <Progress value={progressPercentage} />
 
         <Tabs value={currentTab} onValueChange={setCurrentTab} className="w-full">
-          <TabsList className="grid w-full h-auto grid-cols-3 lg:grid-cols-6">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 h-auto">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
+            <TabsTrigger value="srs">SRS</TabsTrigger>
             <TabsTrigger value="practice">Practice</TabsTrigger>
             <TabsTrigger value="context">Context</TabsTrigger>
             <TabsTrigger value="engagement">Activities</TabsTrigger>
@@ -427,7 +456,42 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
               </CardContent>
             </Card>
           </TabsContent>
-
+          <TabsContent value="srs" className="mt-4 space-y-6">
+              <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2"><Layers3/>Spaced Repetition Flashcards</CardTitle>
+                    <CardDescription>Review key concepts for long-term memory retention.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center gap-4">
+                     <div className="w-full max-w-md h-64 [perspective:1000px]">
+                        <motion.div
+                             key={currentFlashcardIndex}
+                             className="relative w-full h-full [transform-style:preserve-3d]"
+                             initial={{ rotateY: 0 }}
+                             animate={{ rotateY: isFlipped ? 180 : 0 }}
+                             transition={{ duration: 0.6 }}
+                             onClick={() => setIsFlipped(!isFlipped)}
+                        >
+                            {/* Front */}
+                            <div className="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center p-6 bg-secondary rounded-lg cursor-pointer">
+                                <p className="text-xl text-center font-semibold">{language === 'english' ? currentFlashcard.front : currentFlashcard.frontTamil}</p>
+                            </div>
+                            {/* Back */}
+                            <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-6 bg-primary/20 rounded-lg cursor-pointer">
+                                <p className="text-lg text-center">{language === 'english' ? currentFlashcard.back : currentFlashcard.backTamil}</p>
+                                <Badge variant="outline" className="mt-4">{currentFlashcard.category}</Badge>
+                            </div>
+                        </motion.div>
+                     </div>
+                     {isFlipped && (
+                         <div className="flex gap-4">
+                            <Button variant="destructive" onClick={() => handleNextFlashcard(false)}>Didn't Know</Button>
+                            <Button variant="success" onClick={() => handleNextFlashcard(true)}>Knew It</Button>
+                         </div>
+                     )}
+                </CardContent>
+              </Card>
+          </TabsContent>
           <TabsContent value="content" className="mt-4 space-y-6">
              {module.sections.map((section) => (
                 <Card key={section.id}>
@@ -502,9 +566,19 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
           </TabsContent>
           <TabsContent value="analytics" className="mt-4 space-y-6">
             <AnalyticsTabContent />
+             <div className="text-center">
+                <Button onClick={() => markSectionCompleted('analytics')} disabled={completedSections.has('analytics')}>
+                    {completedSections.has('analytics') ? 'Analytics Reviewed' : 'Mark Analytics as Reviewed'}
+                </Button>
+            </div>
           </TabsContent>
           <TabsContent value="engagement" className="mt-4 space-y-6">
             <EngagementTabContent />
+             <div className="text-center mt-6">
+                <Button onClick={() => markSectionCompleted('engagement')} disabled={completedSections.has('engagement')}>
+                    {completedSections.has('engagement') ? 'Activities Reviewed' : 'Mark Activities as Reviewed'}
+                </Button>
+            </div>
           </TabsContent>
         </Tabs>
     </div>
