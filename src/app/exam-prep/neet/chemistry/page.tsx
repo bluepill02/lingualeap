@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, FlaskConical, GraduationCap, Link2, ShieldCheck, BookOpen } from 'lucide-react';
+import { ArrowLeft, FlaskConical, GraduationCap, Link2, ShieldCheck, BookOpen, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -10,21 +10,6 @@ import { neetContent } from '@/lib/neet/content-loader';
 import { Separator } from '@/components/ui/separator';
 
 const chapterGroups = {
-  foundation: [
-      "Some Basic Concepts in Chemistry",
-      "Classification of Elements and Periodicity in Properties",
-      "Atomic Structure",
-      "Chemical Bonding and Molecular Structure",
-      "Purification and Characterisation of Organic Compounds",
-      "Some Basic Principles of Organic Chemistry"
-  ],
-  bridge: [
-      "Chemical Thermodynamics",
-      "Solutions",
-      "Equilibrium",
-      "Redox Reactions and Electrochemistry",
-      "Chemical Kinetics"
-  ],
   core: [
       "p-Block Elements",
       "d- and f-Block Elements",
@@ -35,6 +20,21 @@ const chapterGroups = {
       "Organic Compounds Containing Nitrogen",
       "Biomolecules",
       "Principles Related to Practical Chemistry"
+  ],
+  bridge: [
+      "Chemical Thermodynamics",
+      "Solutions",
+      "Equilibrium",
+      "Redox Reactions and Electrochemistry",
+      "Chemical Kinetics"
+  ],
+  foundation: [
+      "Some Basic Concepts in Chemistry",
+      "Classification of Elements and Periodicity in Properties",
+      "Atomic Structure",
+      "Chemical Bonding and Molecular Structure",
+      "Purification and Characterisation of Organic Compounds",
+      "Some Basic Principles of Organic Chemistry"
   ]
 };
 
@@ -83,6 +83,23 @@ export default function NeetChemistryPage() {
             </div>
         </div>
       </header>
+
+      <Card className="bg-primary/10 border-primary/20">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-primary">
+            <Star />
+            NEET Strategy Guide
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="text-muted-foreground mb-4">
+            A special module focusing on common mistakes, rare concepts, and strategic tricks to boost your score.
+          </p>
+          <Link href="/exam-prep/neet/chemistry/strategy-guide">
+            <Button>Open Strategy Guide</Button>
+          </Link>
+        </CardContent>
+      </Card>
       
       {Object.entries(chapterGroups).map(([key, chapters]) => {
           const group = groupInfo[key as keyof typeof groupInfo];
