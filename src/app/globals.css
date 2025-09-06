@@ -148,6 +148,10 @@
         position: relative;
         z-index: 1;
     }
+
+    .prose .tamil-text {
+        color: hsl(164 52% 52%);
+    }
 }
 
 /* Custom KaTeX font path overrides */

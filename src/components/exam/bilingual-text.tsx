@@ -12,9 +12,8 @@ interface BilingualTextProps {
 }
 
 export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, className }) => {
-  // Use an inline style to force the color override. The HSL value corresponds to the theme's teal color.
   const combinedText = tamil 
-    ? `${english} <span style="color: hsl(164 52% 52%)" class="ml-2">*(${tamil})*</span>` 
+    ? `${english} <span class="tamil-text ml-2">*(${tamil})*</span>` 
     : english;
 
   return (
