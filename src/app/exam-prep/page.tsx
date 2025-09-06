@@ -41,7 +41,7 @@ const examModules = [
   },
   {
     title: 'MPSC: Marathi Idioms & Phrases',
-    description: 'Master important Marathi idioms (வாक्प्रचार) and proverbs (म्हणी) for the MPSC Rajyaseva exam.',
+    description: 'Master important Marathi idioms (वाक्प्रचार) and proverbs (म्हणी) for the MPSC Rajyaseva exam.',
     href: '/exam-prep/mpsc'
   },
   {
