@@ -114,8 +114,30 @@ export const generalScienceAndTech: TnpscModule = {
     },
     
     engagement: {
-      peerTeaching: [],
-      practicalActivities: []
+      peerTeaching: [
+        {
+          topic: "PSLV vs. GSLV",
+          duration: 90,
+          criteria: ["Explain the full form of both", "Mention the primary purpose/orbit for each", "State which is more powerful"],
+          prompt: "In 90 seconds, explain the key differences between ISRO's PSLV and GSLV launch vehicles. Focus on their primary orbits and payload capacity.",
+          promptTamil: "90 வினாடிகளில், இஸ்ரோவின் பிஎஸ்எல்வி மற்றும் ஜிஎஸ்எல்வி ஏவுகணை வாகனங்களுக்கு இடையிலான முக்கிய வேறுபாடுகளை விளக்கவும். அவற்றின் முதன்மைச் சுற்றுப்பாதைகள் மற்றும் சுமைத் திறனில் கவனம் செலுத்துங்கள்."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Home Energy Audit",
+          type: "Data Collection",
+          description: "Analyze your household's electricity bill to understand consumption patterns.",
+          activities: [
+            "Find your electricity bill from the last two months.",
+            "Note down the total units consumed for each month.",
+            "Identify one appliance at home that you believe consumes the most electricity.",
+            "List two ways you could reduce your household's electricity consumption."
+          ],
+          outputs: ["A summary of units consumed.", "A list of potential energy-saving measures."],
+          assessment: ["Accurate data collection from the bill.", "Practicality of the suggested energy-saving measures."]
+        }
+      ]
     },
     
     spacedRepetition: {

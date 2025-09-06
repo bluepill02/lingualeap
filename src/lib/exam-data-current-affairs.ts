@@ -89,7 +89,32 @@ export const currentAffairsModule: TnpscModule = {
       essay: []
     },
     
-    engagement: { peerTeaching: [], practicalActivities: [] },
+    engagement: {
+      peerTeaching: [
+        {
+          topic: "India's G20 Presidency",
+          duration: 120,
+          criteria: ["Explain the theme", "Mention one key outcome (e.g., African Union's inclusion)", "State its significance for India's global standing"],
+          prompt: "In 2 minutes, explain the significance of India's G20 Presidency to a friend. Cover the official theme and one major achievement from the summit.",
+          promptTamil: "2 நிமிடங்களில், இந்தியாவின் ஜி20 தலைமையின் முக்கியத்துவத்தை ஒரு நண்பருக்கு விளக்கவும். உச்சிமாநாட்டின் அதிகாரப்பூர்வ கருப்பொருள் மற்றும் ஒரு முக்கிய சாதனையை விளக்கவும்."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Weekly Current Affairs Summary",
+          type: "Note-making",
+          description: "Create a one-page summary of the most important national, international, and Tamil Nadu-specific news from the past week.",
+          activities: [
+            "Read the weekly news summary from a reliable source (e.g., The Hindu weekly review).",
+            "Categorize the news into headings: National, International, Tamil Nadu, Sports, Awards.",
+            "Under each heading, write 2-3 bullet points on the most critical events.",
+            "For one Tamil Nadu scheme mentioned, write its objective in one line."
+          ],
+          outputs: ["A one-page PDF or handwritten note.", "A list of 5 keywords from the week's news for quick revision."],
+          assessment: ["Coverage of all categories.", "Conciseness of the notes.", "Accuracy of the scheme's objective."]
+        }
+      ]
+    },
     
     spacedRepetition: {
       flashcards: [

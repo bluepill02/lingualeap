@@ -114,8 +114,30 @@ export const indianPolityAndGovernance: TnpscModule = {
     },
     
     engagement: {
-      peerTeaching: [],
-      practicalActivities: []
+      peerTeaching: [
+        {
+          topic: "Fundamental Rights vs. DPSP",
+          duration: 90,
+          criteria: ["Explain the core purpose of each", "Highlight the key difference (justiciable vs. non-justiciable)", "Give one example for each"],
+          prompt: "In 90 seconds, explain the core difference between Fundamental Rights and Directive Principles of State Policy (DPSP) to a fellow aspirant. Emphasize why one is enforceable in court and the other is not.",
+          promptTamil: "90 வினாடிகளில், அடிப்படை உரிமைகள் மற்றும் மாநிலக் கொள்கையின் வழிகாட்டு நெறிமுறைகளுக்கு (DPSP) இடையிலான முக்கிய வேறுபாட்டை சக ஆர்வலருக்கு விளக்கவும். ஒன்று ஏன் நீதிமன்றத்தில் செயல்படுத்தக்கூடியது மற்றொன்று ஏன் இல்லை என்பதை வலியுறுத்தவும்."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Know Your Local Government",
+          type: "Field Research",
+          description: "Identify the structure of local self-government in your own area (rural or urban).",
+          activities: [
+            "Find out if your area comes under a Gram Panchayat, Municipality, or Corporation.",
+            "Identify the name of your local ward or panchayat.",
+            "Find the name of your current ward member/councillor or panchayat president.",
+            "List one key responsibility of your local body (e.g., water supply, sanitation)."
+          ],
+          outputs: ["A short summary with the identified names and responsibilities."],
+          assessment: ["Correct identification of the type of local body.", "Accuracy of the officials' names/roles."]
+        }
+      ]
     },
     
     spacedRepetition: {

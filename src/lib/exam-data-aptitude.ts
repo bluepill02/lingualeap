@@ -1,3 +1,4 @@
+
 import type { TnpscModule } from './exam-data-tnpsc';
 
 export const aptitudeAndMentalAbility: TnpscModule = {
@@ -97,7 +98,32 @@ export const aptitudeAndMentalAbility: TnpscModule = {
       essay: []
     },
     
-    engagement: { peerTeaching: [], practicalActivities: [] },
+    engagement: { 
+      peerTeaching: [
+          {
+              topic: "Time & Work Shortcuts",
+              duration: 120,
+              criteria: ["Explain the LCM method", "Solve one example problem", "Compare it with the traditional unitary method"],
+              prompt: "In 2 minutes, explain the LCM method for solving 'Time and Work' problems to a friend. Demonstrate with an example like: 'A can do a work in 10 days and B in 15 days. In how many days can they do it together?'. Explain why this is faster.",
+              promptTamil: "2 நிமிடங்களில், 'நேரம் மற்றும் வேலை' கணக்குகளைத் தீர்க்க LCM முறையை ஒரு நண்பருக்கு விளக்கவும். எடுத்துக்காட்டாக: 'A ஒரு வேலையை 10 நாட்களிலும் B 15 நாட்களிலும் செய்ய முடியும். அவர்கள் இருவரும் சேர்ந்து அதை எத்தனை நாட்களில் செய்வார்கள்?' என்பது போன்ற ஒரு எடுத்துக்காட்டுடன் விளக்கிக் காட்டுங்கள். இது ஏன் வேகமானது என்பதை விளக்கவும்."
+          }
+      ],
+      practicalActivities: [
+          {
+              title: "Daily Data Interpretation Challenge",
+              type: "Data Analysis",
+              description: "Analyze a chart/graph from a daily newspaper (like The Hindu's data point section).",
+              activities: [
+                  "Find a pie chart or bar graph in today's newspaper or a reliable online source.",
+                  "Write down three main conclusions you can draw from the data.",
+                  "Formulate one TNPSC-style MCQ based on the chart.",
+                  "Calculate a percentage change or an average from the data presented."
+              ],
+              outputs: ["A summary of conclusions.", "A self-made MCQ with options and answer.", "The calculation you performed."],
+              assessment: ["Clarity of conclusions.", "Relevance of the MCQ.", "Accuracy of the calculation."]
+          }
+      ]
+    },
     
     spacedRepetition: {
       flashcards: [

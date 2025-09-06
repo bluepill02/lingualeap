@@ -383,7 +383,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           context: "freedom-struggle-tn"
         },
         {
-          question: "The 'Thinai' concept in Sangam literature classifies land based on:",
+          question: "The concept of 'Thinai' in Sangam literature classifies land based on:",
           questionTamil: "சங்க இலக்கியத்தில் 'திணை' என்ற கருத்து நிலத்தை எதன் அடிப்படையில் வகைப்படுத்துகிறது?",
           options: ["Geographical and Ecological features", "Administrative divisions", "Caste hierarchy", "Economic productivity"],
           optionsTamil: ["புவியியல் மற்றும் சூழலியல் அம்சங்கள்", "நிர்வாகப் பிரிவுகள்", "சாதி படிநிலை", "பொருளாதார உற்பத்தித்திறன்"],

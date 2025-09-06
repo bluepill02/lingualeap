@@ -1,3 +1,4 @@
+
 import type { TnpscModule } from './exam-data-tnpsc';
 
 export const languagePapersModule: TnpscModule = {
@@ -88,7 +89,33 @@ export const languagePapersModule: TnpscModule = {
       essay: []
     },
     
-    engagement: { peerTeaching: [], practicalActivities: [] },
+    engagement: {
+      peerTeaching: [
+        {
+          topic: "Thirukkural's Secularism",
+          duration: 120,
+          criteria: ["Explain what secularism means in this context", "Give at least two examples from the Kural", "Conclude why it's considered universally applicable"],
+          prompt: "In 2 minutes, explain to a study partner why Thirukkural is considered a secular text. Use examples to show how its teachings apply to all of humanity, irrespective of religion or culture.",
+          promptTamil: "2 நிமிடங்களில், திருக்குறள் ஏன் ஒரு மதச்சார்பற்ற நூலாகக் கருதப்படுகிறது என்பதை ஒரு படிப்புத் தோழருக்கு விளக்கவும். அதன் போதனைகள் மதம் அல்லது கலாச்சாரத்தைப் பொருட்படுத்தாமல் அனைத்து மனிதகுலத்திற்கும் எவ்வாறு பொருந்தும் என்பதைக் காட்ட எடுத்துக்காட்டுகளைப் பயன்படுத்தவும்."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Précis Writing Practice",
+          type: "Writing Skill",
+          description: "Practice summarizing a newspaper editorial into one-third of its original length.",
+          activities: [
+            "Select an editorial of about 300 words from The Hindu or The Indian Express.",
+            "Read it carefully to identify the main argument and supporting points.",
+            "Write a rough draft of the summary.",
+            "Edit the draft to bring it down to approximately 100 words, ensuring it is coherent and captures the essence of the original.",
+            "Give your précis a suitable title."
+          ],
+          outputs: ["A précis of the selected editorial.", "A suitable title for the précis."],
+          assessment: ["Clarity and conciseness.", "Inclusion of all essential points.", "Adherence to the word limit."]
+        }
+      ]
+    },
     
     spacedRepetition: {
       flashcards: [

@@ -113,8 +113,30 @@ export const geographyIndiaTamilNadu: TnpscModule = {
     },
     
     engagement: {
-      peerTeaching: [],
-      practicalActivities: []
+      peerTeaching: [
+          {
+              topic: "Mechanism of Southwest Monsoon",
+              duration: 120,
+              criteria: ["Explain the role of the Tibetan Plateau's heating", "Describe the formation of the low-pressure zone", "Trace the path of the Arabian Sea branch"],
+              prompt: "In 2 minutes, explain the basic mechanism of the Southwest Monsoon to a friend. Focus on how the heating of the landmass creates a low-pressure system that draws in moisture-laden winds from the sea.",
+              promptTamil: "2 நிமிடங்களில், தென்மேற்குப் பருவமழையின் அடிப்படைச் செயல்பாட்டை ஒரு நண்பருக்கு விளக்கவும். நிலப்பரப்பு வெப்பமடைவது எப்படி ஒரு குறைந்த அழுத்த அமைப்பை உருவாக்குகிறது, அது கடலில் இருந்து ஈரப்பதமூட்டப்பட்ட காற்றை ஈர்க்கிறது என்பதில் கவனம் செலுத்துங்கள்."
+          }
+      ],
+      practicalActivities: [
+          {
+              title: "Map Your District",
+              type: "Mapping",
+              description: "Create a simple geographical profile of your own district in Tamil Nadu.",
+              activities: [
+                  "On a blank map of your district, mark the major rivers, if any.",
+                  "Identify the main soil type found in your district.",
+                  "List the top 3 agricultural crops grown in your area.",
+                  "Mark the location of any major industries or natural resources."
+              ],
+              outputs: ["A hand-drawn or digitally created map of your district with labels.", "A short paragraph summarizing your district's geographical character."],
+              assessment: ["Accuracy of map markings.", "Correct identification of local crops and industries."]
+          }
+      ]
     },
     
     spacedRepetition: {

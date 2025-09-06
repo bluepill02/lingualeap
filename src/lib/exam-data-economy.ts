@@ -114,8 +114,30 @@ export const indianEconomyAndPlanning: TnpscModule = {
     },
     
     engagement: {
-      peerTeaching: [],
-      practicalActivities: []
+      peerTeaching: [
+        {
+          topic: "Fiscal vs. Monetary Policy",
+          duration: 90,
+          criteria: ["Define both policies", "Name the implementing agency for each", "Give one example of a tool for each policy"],
+          prompt: "In 90 seconds, explain the difference between Fiscal and Monetary policy to someone new to economics. Mention who controls each and give one example of a tool they use (e.g., taxes for fiscal, repo rate for monetary).",
+          promptTamil: "90 வினாடிகளில், பொருளாதாரம் புதிதாகப் படிப்பவருக்கு நிதிக் கொள்கைக்கும் பணவியல் கொள்கைக்கும் உள்ள வேறுபாட்டை விளக்கவும். ஒவ்வொன்றையும் யார் கட்டுப்படுத்துகிறார்கள் என்பதைக் குறிப்பிட்டு, அவர்கள் பயன்படுத்தும் ஒரு கருவிக்கு ஒரு எடுத்துக்காட்டு கொடுக்கவும் (எ.கா., நிதிக்கு வரிகள், பணத்திற்கு ரெப்போ விகிதம்)."
+        }
+      ],
+      practicalActivities: [
+        {
+          title: "Analyze a Welfare Scheme",
+          type: "Case Study",
+          description: "Choose one Tamil Nadu flagship scheme (e.g., Pudhumai Penn) and create a brief analysis report.",
+          activities: [
+            "Find the official government page or a news article explaining the scheme.",
+            "Identify the target beneficiary of the scheme.",
+            "List the main objective of the scheme.",
+            "Write down one potential benefit and one potential challenge in its implementation."
+          ],
+          outputs: ["A short report (200 words) summarizing your findings."],
+          assessment: ["Correct identification of beneficiary and objective.", "Logical reasoning for benefits and challenges."]
+        }
+      ]
     },
     
     spacedRepetition: {
