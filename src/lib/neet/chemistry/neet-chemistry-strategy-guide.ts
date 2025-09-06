@@ -401,8 +401,8 @@ export const strategyGuideContent: StrategyGuide = {
               },
               {
                 point: 'Interhalogen Compounds',
-                explanation: "**Concept:** Compounds formed between two different halogens (e.g., ClF₃, BrF₅). They are generally more reactive than the parent halogens (except F₂) because the X-X' bond is weaker than the X-X bond. Their structures can be predicted using VSEPR theory (e.g., ClF₃ is T-shaped).",
-                explanationTamil: "**கருத்து:** இரண்டு வெவ்வேறு ஹாலஜன்களுக்கு இடையில் உருவாகும் சேர்மங்கள் (எ.கா., ClF₃, BrF₅). அவை பொதுவாக தாய் ஹாலஜன்களை விட (F₂ தவிர) அதிக வினைத்திறன் கொண்டவை, ஏனெனில் X-X' பிணைப்பு X-X பிணைப்பை விட பலவீனமானது. அவற்றின் அமைப்புகளை VSEPR கோட்பாட்டைப் பயன்படுத்தி கணிக்க முடியும் (எ.கா., ClF₃ T-வடிவமுடையது).",
+                explanation: "**Concept:** Compounds formed between two different halogens (e.g., ClF₃, BrF₅). They are generally more reactive than the parent halogens (except F₂) because the X-X\' bond is weaker than the X-X bond. Their structures can be predicted using VSEPR theory (e.g., ClF₃ is T-shaped).",
+                explanationTamil: "**கருத்து:** இரண்டு வெவ்வேறு ஹாலஜன்களுக்கு இடையில் உருவாகும் சேர்மங்கள் (எ.கா., ClF₃, BrF₅). அவை பொதுவாக தாய் ஹாலஜன்களை விட (F₂ தவிர) அதிக வினைத்திறன் கொண்டவை, ஏனெனில் X-X\' பிணைப்பு X-X பிணைப்பை விட பலவீனமானது. அவற்றின் அமைப்புகளை VSEPR கோட்பாட்டைப் பயன்படுத்தி கணிக்க முடியும் (எ.கா., ClF₃ T-வடிவமுடையது).",
               }
             ]
           }
@@ -489,6 +489,94 @@ export const strategyGuideContent: StrategyGuide = {
     title: "Organic Chemistry",
     titleTamil: "கரிம வேதியியல்",
     chapters: [
+      {
+        chapterName: 'Some Basic Principles of Organic Chemistry',
+        chapterNameTamil: 'கரிம வேதியியல் - சில அடிப்படைக் கோட்பாடுகள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Incorrect IUPAC Numbering',
+                explanation: '**Mistake:** Starting the numbering of the carbon chain from the wrong end, or choosing a shorter parent chain that has more substituents.\n\n**How to Avoid:** Follow the priority rules strictly: 1. Highest priority functional group gets the lowest number. 2. Then, multiple bonds (ene/yne). 3. Then, longest carbon chain. 4. Finally, lowest locant rule for substituents.',
+                explanationTamil: '**தவறு:** கார்பன் சங்கிலியைத் தவறான முனையிலிருந்து எண்ணுவது, அல்லது அதிக பதிலீடுகளைக் கொண்ட ஒரு சிறிய தாய் சங்கிலியைத் தேர்ந்தெடுப்பது.\n\n**தவிர்ப்பது எப்படி:** முன்னுரிமை விதிகளை கண்டிப்பாகப் பின்பற்றவும்: 1. அதிக முன்னுரிமை கொண்ட வினைசெயல் தொகுதிக்கு குறைந்த எண் கிடைக்கும். 2. பின்னர், பன்மடங்கு பிணைப்புகள் (ஈன்/ஐன்). 3. பின்னர், மிக நீண்ட கார்பன் சங்கிலி. 4. இறுதியாக, பதிலீடுகளுக்கு குறைந்த இட எண் விதி.',
+              },
+              {
+                point: 'Confusing Isomers',
+                explanation: '**Mistake:** Misidentifying position isomers as chain isomers, or functional isomers as metamers.\n\n**How to Avoid:** Check systematically. **Chain:** Is the parent carbon chain length different? **Position:** Is only the position of a functional group/substituent/multiple bond different? **Functional:** Is the functional group itself different? **Metamers:** Is it just the alkyl groups around a polyvalent functional group (-O-, -CO-, -NH-) that are different?',
+                explanationTamil: '**தவறு:** இட மாற்றியங்களை சங்கிலித் தொடர் மாற்றியங்களாகவோ, அல்லது வினைசெயல் தொகுதி மாற்றியங்களை மெட்டாமெர்களாகவோ தவறாக அடையாளம் காண்பது.\n\n**தவிர்ப்பது எப்படி:** முறையாகச் சரிபார்க்கவும். **சங்கிலி:** தாய் கார்பன் சங்கிலியின் நீளம் வேறுபட்டதா? **இடம்:** ஒரு வினைசெயல் தொகுதி/பதிலீடு/பன்மடங்கு பிணைப்பின் நிலை மட்டும் வேறுபட்டதா? **வினைசெயல் தொகுதி:** வினைசெயல் தொகுதியே வேறுபட்டதா? **மெட்டாமெர்கள்:** ஒரு பல்லிணைதிறன் வினைசெயல் தொகுதியைச் சுற்றியுள்ள அல்கைல் குழுக்கள் மட்டும் வேறுபட்டவையா?',
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Comparing Carbocation Stability',
+                explanation: "Remember the stability order: **3° > 2° > 1° > Methyl**. Why? Two reasons: 1. **Inductive Effect (+I):** More alkyl groups donate more electron density to the positive carbon. 2. **Hyperconjugation:** More α-hydrogens (hydrogens on the carbon next to the C⁺) means more stabilizing hyperconjugation structures. The number of α-hydrogens is the quickest way to compare stability.",
+                explanationTamil: "நிலைப்புத்தன்மை வரிசையை நினைவில் கொள்க: **3° > 2° > 1° > மெத்தில்**. ஏன்? இரண்டு காரணங்கள்: 1. **தூண்டல் விளைவு (+I):** அதிக அல்கைல் குழுக்கள் நேர்மறை கார்பனுக்கு அதிக எலக்ட்ரான் அடர்த்தியை வழங்குகின்றன. 2. **மீள்இணையுதல்:** அதிக α-ஹைட்ரஜன்கள் (C⁺ க்கு அடுத்த கார்பனில் உள்ள ஹைட்ரஜன்கள்) அதிக நிலைப்படுத்தும் மீள்இணையுதல் அமைப்புகளைக் குறிக்கிறது. α-ஹைட்ரஜன்களின் எண்ணிக்கை நிலைப்புத்தன்மையை ஒப்பிட விரைவான வழியாகும்.",
+              },
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'Hydrocarbons',
+        chapterNameTamil: 'ஹைட்ரோகார்பன்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Markovnikov vs. Anti-Markovnikov Rule',
+                explanation: '**Mistake:** Applying the wrong rule or applying it to symmetrical alkenes.\n\n**How to Avoid:** Remember the conditions. **Markovnikov** is the default for addition of H-X. **Anti-Markovnikov** addition of HBr happens *only in the presence of peroxide* (Kharasch effect). It works via a free radical mechanism. These rules only apply to *unsymmetrical* alkenes.',
+                explanationTamil: '**தவறு:** தவறான விதியைப் பயன்படுத்துதல் அல்லது சமச்சீரான ஆல்கீன்களுக்கு அதைப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** நிபந்தனைகளை நினைவில் கொள்க. H-X இன் கூட்டலுக்கு **மார்க்கோனிகாவ்** இயல்புநிலையாகும். HBr-இன் **எதிர்-மார்க்கோனிகாவ்** கூட்டல் *பெராக்சைடு முன்னிலையில் மட்டுமே* நிகழ்கிறது (கராஷ் விளைவு). இது ஒரு தனி உறுப்பு வினைவழிமுறையின் மூலம் செயல்படுகிறது. இந்த விதிகள் *சமச்சீரற்ற* ஆல்கீன்களுக்கு மட்டுமே பொருந்தும்.',
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: 'Ozonolysis Product Prediction',
+                explanation: "**Trick:** To quickly find the products of ozonolysis (O₃, then Zn/H₂O), just 'erase' the double bond of the alkene and add a '=O' to each of the two carbons that were part of the double bond. This instantly gives you the two carbonyl products (aldehydes or ketones).",
+                explanationTamil: "**தந்திரம்:** ஓசோனேற்றத்தின் (O₃, பின்னர் Zn/H₂O) விளைபொருட்களை விரைவாகக் கண்டுபிடிக்க, ஆல்கீனின் இரட்டைப் பிணைப்பை 'அழித்துவிட்டு', இரட்டைப் பிணைப்பின் பகுதியாக இருந்த இரண்டு கார்பன்களில் ஒவ்வொன்றிலும் ஒரு '=O' ஐச் சேர்க்கவும். இது உடனடியாக உங்களுக்கு இரண்டு கார்போனைல் விளைபொருட்களை (ஆல்டிஹைடுகள் அல்லது கீட்டோன்கள்) அளிக்கிறது.",
+              },
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'Organic Compounds Containing Halogens',
+        chapterNameTamil: 'ஹாலோஜன் கொண்ட கரிமச் சேர்மங்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'SN1 vs. SN2 Mechanism',
+                explanation: '**Mistake:** Not being able to decide which mechanism will be followed.\n\n**How to Avoid:** It depends on four factors, but the most important is the substrate: **Primary (1°) halides always favor SN2.** **Tertiary (3°) halides always favor SN1.** **Secondary (2°) halides can do both**, and the choice depends on the nucleophile (strong -> SN2) and solvent (polar protic -> SN1).',
+                explanationTamil: '**தவறு:** எந்த வினைவழிமுறை பின்பற்றப்படும் என்பதை முடிவு செய்ய முடியாமல் இருப்பது.\n\n**தவிர்ப்பது எப்படி:** இது நான்கு காரணிகளைச் சார்ந்தது, ஆனால் மிக முக்கியமானது வினைபடுபொருள்: **முதன்மை (1°) ஹாலைடுகள் எப்போதும் SN2-ஐ விரும்புகின்றன.** **மூன்றாம் நிலை (3°) ஹாலைடுகள் எப்போதும் SN1-ஐ விரும்புகின்றன.** **இரண்டாம் நிலை (2°) ஹாலைடுகள் இரண்டையும் செய்ய முடியும்**, மற்றும் தேர்வு கருக்கவர் பொருள் (வலிமையானது -> SN2) மற்றும் கரைப்பான் (முனைவுள்ள புரோட்டிக் -> SN1) ஆகியவற்றைப் பொறுத்தது.',
+              },
+              {
+                point: 'Aqueous vs. Alcoholic KOH',
+                explanation: '**Mistake:** Confusing the products formed with aqueous and alcoholic KOH.\n\n**How to Avoid:** Remember this rule: **Aqueous KOH gives Substitution (alcohol product).** **Alcoholic KOH gives Elimination (alkene product).** The OH⁻ in water is solvated and acts as a nucleophile. The ethoxide ion (C₂H₅O⁻) in alcohol is a much stronger base and favors elimination.',
+                explanationTamil: '**தவறு:** நீரியல் மற்றும் ஆல்கஹாலிக் KOH உடன் உருவாகும் விளைபொருட்களைக் குழப்பிக் கொள்வது.\n\n**தவிர்ப்பது எப்படி:** இந்த விதியை நினைவில் கொள்க: **நீரியல் KOH பதிலீட்டைக் (ஆல்கஹால் விளைபொருள்) கொடுக்கிறது.** **ஆல்கஹாலிக் KOH நீக்கத்தைக் (ஆல்கீன் விளைபொருள்) கொடுக்கிறது.** நீரில் உள்ள OH⁻ கரைப்பானேற்றப்பட்டு ஒரு கருக்கவர் பொருளாக செயல்படுகிறது. ஆல்கஹாலில் உள்ள எத்தாக்சைடு அயனி (C₂H₅O⁻) மிகவும் வலிமையான காரம் மற்றும் நீக்கத்தை விரும்புகிறது.',
+              },
+            ],
+          },
+        ]
+      },
       {
         chapterName: 'Aldehydes, Ketones, and Carboxylic Acids',
         chapterNameTamil: 'ஆல்டிஹைடுகள், கீட்டோன்கள் மற்றும் கார்பாக்சிலிக் அமிலங்கள்',
