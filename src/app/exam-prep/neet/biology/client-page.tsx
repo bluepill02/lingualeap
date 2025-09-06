@@ -2,14 +2,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Atom, ChevronsRight, TestTube, FlaskConical } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, Dna, Leaf, Bug, Microscope, TestTube, ChevronsRight, HeartPulse } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import type { NeetModule } from '@/lib/types';
 import { Alert, AlertTitle, AlertDescription as AlertDescriptionComponent } from '@/components/ui/alert';
-import { ConceptNotesCard, WorkedExamplesCard, KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
+import { KeyFormulasCard, PracticeSectionCard } from '@/components/exam/neet-chapter-components';
 import { useNeetChapterProgress } from '@/hooks/use-neet-chapter-progress';
 import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
@@ -17,21 +17,20 @@ import { SyllabusMappingCard } from '@/components/exam/exam-components';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { BilingualText } from '@/components/exam/bilingual-text';
 import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import { BiologyLearnCard } from '@/components/exam/neet-biology-components';
 
-type TabName = 'overview' | 'learn' | 'examples' | 'formulas' | 'practice' | 'summary';
+type TabName = 'overview' | 'learn' | 'diagrams' | 'practice' | 'summary';
 
 const TABS: { id: TabName; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Overview', icon: BookOpen },
-  { id: 'learn', label: 'Learn', icon: FlaskConical },
-  { id: 'examples', label: 'Examples', icon: TestTube },
-  { id: 'formulas', label: 'Formulas', icon: Atom },
+  { id: 'learn', label: 'Learn', icon: Dna },
+  { id: 'diagrams', label: 'Diagrams', icon: Microscope },
   { id: 'practice', label: 'Practice', icon: Brain },
   { id: 'summary', label: 'Summary', icon: Trophy },
 ];
 
 function ChapterContent({ content }: { content: NeetModule }) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, conceptOverview, tamilConnection, culturalContext, keyFormulasAndDiagrams, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
   const totalSections = TABS.length;
 
   const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
@@ -66,9 +65,10 @@ function ChapterContent({ content }: { content: NeetModule }) {
   
   const getIcon = () => {
     const lowerCaseTitle = title.toLowerCase();
-    if (lowerCaseTitle.includes('electro') || lowerCaseTitle.includes('magnetism') || lowerCaseTitle.includes('current')) return <Atom className="w-6 h-6" />;
-    if (lowerCaseTitle.includes('thermo')) return <FlaskConical className="w-6 h-6" />;
-    return <TestTube className="w-6 h-6" />;
+    if (lowerCaseTitle.includes('plant')) return <Leaf className="w-6 h-6" />;
+    if (lowerCaseTitle.includes('animal')) return <Bug className="w-6 h-6" />;
+    if (lowerCaseTitle.includes('human')) return <HeartPulse className="w-6 h-6" />;
+    return <Dna className="w-6 h-6" />;
   }
   
   const TabContent = () => {
@@ -151,10 +151,8 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 </div>
             );
         case 'learn':
-            return <ConceptNotesCard content={conceptNotes || []} />;
-        case 'examples':
-            return <WorkedExamplesCard examples={workedExamples || []} />;
-        case 'formulas':
+            return <BiologyLearnCard content={content} />;
+        case 'diagrams':
             return <KeyFormulasCard content={keyFormulasAndDiagrams} />;
         case 'practice':
             return <PracticeSectionCard module={content} />;
@@ -168,7 +166,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                         <CardContent className="card-padding-lg space-y-4 text-center">
                             {mnemonics.map((mnemonic, index) => (
                                 <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
-                                <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
+                                    <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
                                 </div>
                             ))}
                         </CardContent>
@@ -223,21 +221,21 @@ function ChapterContent({ content }: { content: NeetModule }) {
   }
 
   return (
-    <div className="container mx-auto space-y-6">
+    <div className="container mx-auto space-y-6 subject-biology">
       <header className="flex items-center justify-between">
          <div className="flex items-center gap-4">
-            <Link href="/exam-prep/neet/physics">
-                <Button variant="ghost" size="icon" aria-label="Back to NEET Physics chapters">
+            <Link href="/exam-prep/neet/biology">
+                <Button variant="ghost" size="icon" aria-label="Back to NEET Biology chapters">
                     <ArrowLeft className="w-5 h-5" />
                 </Button>
             </Link>
             <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-500/20 text-blue-400">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-teal-500/20 text-teal-400">
                     {getIcon()}
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold font-headline">{title}</h1>
-                    <p className="text-muted-foreground">Physics</p>
+                    <p className="text-muted-foreground">Biology</p>
                 </div>
             </div>
         </div>
