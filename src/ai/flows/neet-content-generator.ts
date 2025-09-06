@@ -13,7 +13,7 @@ import { z } from 'genkit';
 import { qaChecklist } from '@/lib/qa-checklist';
 
 export const NeetContentGeneratorInputSchema = z.object({
-  subject: z.string().describe('The subject, e.g., "Physics".'),
+  subject: z.enum(['Physics', 'Chemistry', 'Biology']).describe('The subject, e.g., "Physics".'),
   chapter: z.string().describe('The name of the chapter, e.g., "Laws of Motion".'),
   category: z.string().optional().describe('The strategic category of the chapter (Core, Bridge, or Foundation).'),
   previousErrors: z.array(z.string()).optional().describe('A list of validation errors from a previous attempt to fix.'),
@@ -32,11 +32,26 @@ export async function generateNeetContent(input: NeetContentGeneratorInput): Pro
 // Convert checklist to a formatted string for the prompt
 const checklistString = qaChecklist.map(item => `- **${item.check}:** ${item.details}`).join('\n');
 
+const biologySpecificInstructions = `
+**BIOLOGY-SPECIFIC INSTRUCTIONS:**
+Since the subject is Biology, the 'conceptNotes' section MUST be omitted. Instead, you MUST generate content for the following three specific sections:
+1.  **stateBoardGaps:** A bulleted list of all specific topics present in the NCERT chapter but potentially omitted or under-emphasized in the corresponding TN State Board syllabus. Be precise.
+2.  **extraNeetConcepts:** A bulleted list of topics related to the chapter that are not explicitly in NCERT but have been known to appear in past NEET exams.
+3.  **ncertReadingGuide:** A numbered list of 5-7 actionable tips on "how to read the NCERT textbook perfectly" for this specific chapter, pointing out which diagrams to focus on, which tables to memorize, and which paragraphs hold key information.
+4.  **MCQs:** You must generate exactly 50 MCQs for this Biology chapter.
+`;
+
+const physicsChemistryInstructions = `
+**PHYSICS/CHEMISTRY-SPECIFIC INSTRUCTIONS:**
+You must generate a detailed 'conceptNotes' section with bilingual (English and Tamil) explanations.
+`;
+
+
 const prompt = ai.definePrompt({
     name: 'neetContentGeneratorPrompt',
     input: { schema: NeetContentGeneratorInputSchema },
     output: { schema: NeetContentGeneratorOutputSchema },
-    prompt: `You are an expert in Physics pedagogy and content creation, specializing in preparing students from Tamil Nadu for the NEET exam. Your task is to generate a complete, high-quality educational module for the given chapter.
+    prompt: `You are an expert in {{subject}} pedagogy and content creation, specializing in preparing students from Tamil Nadu for the NEET exam. Your task is to generate a complete, high-quality educational module for the given chapter.
 
 **Chapter:** {{{chapter}}}
 **Subject:** {{{subject}}}
@@ -54,11 +69,17 @@ You must generate the content as a single, complete TypeScript file containing a
 {{/each}}
 {{/if}}
 
+{{#if (subject == 'Biology')}}
+${biologySpecificInstructions}
+{{else}}
+${physicsChemistryInstructions}
+{{/if}}
+
 **CRITICAL: ADHERENCE TO THE QUALITY CHECKLIST**
 The generated module MUST strictly adhere to every single item on the following Quality Assurance (QA) checklist. This is not optional.
 
 ---
-**LinguaLeap Physics Module QA Checklist:**
+**LinguaLeap Module QA Checklist:**
 ${checklistString}
 ---
 
@@ -87,3 +108,4 @@ const neetContentGeneratorFlow = ai.defineFlow(
     return { markdownContent: cleanedContent };
   }
 );
+

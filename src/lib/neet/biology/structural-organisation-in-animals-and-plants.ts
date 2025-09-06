@@ -9,8 +9,6 @@ export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
     learningObjectives: [],
     prerequisites: [],
     syllabusMapping: [],
-    conceptNotes: [],
-    workedExamples: [],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],

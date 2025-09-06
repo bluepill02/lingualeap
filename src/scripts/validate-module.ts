@@ -24,17 +24,12 @@ export async function validateModule(content: string, chapterName: string): Prom
 
   // Check 1: Parse the content into a TypeScript object
   try {
-    // More robust parsing: find the object literal and use a safer eval method.
-    // This looks for the first '{' and the last '}' to isolate the object.
     const objectStringMatch = content.match(/=\s*({[\s\S]*})/);
     if (!objectStringMatch) {
       throw new Error("Could not find a JavaScript object literal in the content.");
     }
     let objectString = objectStringMatch[1];
-    
-    // Clean up potential trailing commas which are valid in JS but not in JSON
     objectString = objectString.replace(/,\s*([}\]])/g, '$1');
-
     moduleObject = (new Function(`return ${objectString}`))();
   } catch (e: any) {
     return {
@@ -43,19 +38,27 @@ export async function validateModule(content: string, chapterName: string): Prom
     };
   }
 
-  // Check 2: Verify content completeness - ALL keys are now required.
-  const requiredKeys: (keyof NeetModule)[] = [
+  // Check 2: Verify content completeness
+  const baseRequiredKeys: (keyof NeetModule)[] = [
       'id', 'title', 'chapter', 'subject', 'learningObjectives', 'prerequisites', 
-      'conceptOverview', 'tamilConnection', 'culturalContext', 'conceptNotes', 
+      'conceptOverview', 'tamilConnection', 'culturalContext', 
       'workedExamples', 'mcqs', 'assertionReasons', 'matchTheColumns', 
       'keyFormulasAndDiagrams', 'keyTakeaways', 'mnemonics', 'neetTips',
       'studentTip', 'peerDiscussion', 'syllabusMapping', 'nextChapter',
       'validationReport'
-    ];
+  ];
+
+  let requiredKeys = [...baseRequiredKeys];
+  
+  if (moduleObject.subject === 'Biology') {
+      requiredKeys.push('stateBoardGaps', 'extraNeetConcepts', 'ncertReadingGuide');
+  } else {
+      requiredKeys.push('conceptNotes');
+  }
+
   for (const key of requiredKeys) {
     const value = moduleObject[key];
     if (value === undefined || value === null || (Array.isArray(value) && value.length === 0) || (typeof value === 'string' && !value.trim()) || (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0) ) {
-        // Special check for keyFormulasAndDiagrams which can be an object with empty arrays
         if (key === 'keyFormulasAndDiagrams') {
             const kd = value as any;
             if (!kd || (!kd.formulas?.length && !kd.diagrams?.length)) {
@@ -68,16 +71,13 @@ export async function validateModule(content: string, chapterName: string): Prom
   }
   
   // Check 3: Verify Practice Question Quotas
-  if(moduleObject.mcqs?.length < 25) errors.push(`Question Quotas: Expected 25 MCQs, but found ${moduleObject.mcqs?.length || 0}.`);
+  const expectedMcqs = moduleObject.subject === 'Biology' ? 50 : 25;
+  if(moduleObject.mcqs?.length < expectedMcqs) errors.push(`Question Quotas: Expected ${expectedMcqs} MCQs for ${moduleObject.subject}, but found ${moduleObject.mcqs?.length || 0}.`);
   if(moduleObject.assertionReasons?.length < 5) errors.push(`Question Quotas: Expected 5 Assertion-Reason questions, but found ${moduleObject.assertionReasons?.length || 0}.`);
   if(moduleObject.matchTheColumns?.length < 5) errors.push(`Question Quotas: Expected 5 Match-the-Columns questions, but found ${moduleObject.matchTheColumns?.length || 0}.`);
-  
-  // Stricter check for Worked Examples, must have at least a few comprehensive ones
   if(moduleObject.workedExamples?.length < 3) errors.push(`Question Quotas: Expected 3+ comprehensive Worked Examples, but found ${moduleObject.workedExamples?.length || 0}.`);
 
-
-  // Check 4: LaTeX error check (simple regex for unescaped single backslashes in math mode)
-  // This is a heuristic and might not catch all errors.
+  // Check 4: LaTeX error check
   const latexRegex = /\\\[(.*?)\\]|\\\((.*?)\\\)|\$\$(.*?)\$\$|\$(.*?)\$/gs;
   let match;
   while((match = latexRegex.exec(content)) !== null) {
@@ -87,7 +87,6 @@ export async function validateModule(content: string, chapterName: string): Prom
       }
   }
 
-  // Final result
   return {
     isValid: errors.length === 0,
     errors,

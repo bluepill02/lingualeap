@@ -149,7 +149,7 @@ fbd?: FBDstep[];
         explanationTamil?: string;
         calculation?: string;
     }[];
-    neetHack: string;
+    neetHack?: string;
     neetHackTamil?: string;
     commonPitfall?: string;
     commonPitfallTamil?: string;
@@ -221,7 +221,13 @@ export interface NeetModule {
     conceptOverview?: string;
     tamilConnection?: string;
     culturalContext?: string;
-    conceptNotes: (ConceptNote | { english: string; tamil?: string; })[];
+    
+    // Subject-specific learning content
+    conceptNotes?: (ConceptNote | { english: string; tamil?: string; })[]; // For Physics/Chem
+    stateBoardGaps?: string[];      // For Bio
+    extraNeetConcepts?: string[];   // For Bio
+    ncertReadingGuide?: string[];   // For Bio
+
     workedExamples: WorkedExample[];
     mcqs: MCQ[];
     assertionReasons: AssertionReason[];

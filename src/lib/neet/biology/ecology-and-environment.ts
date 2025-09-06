@@ -9,8 +9,6 @@ export const ecologyAndEnvironment: NeetModule = {
     learningObjectives: [],
     prerequisites: [],
     syllabusMapping: [],
-    conceptNotes: [],
-    workedExamples: [],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],

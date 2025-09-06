@@ -86,7 +86,7 @@ const neetSyllabus: {
   },
   biology: {
     foundation: [
-        "Diversity in the Living World",
+        "Diversity in Living World",
         "Structural Organisation in Animals and Plants",
         "Cell Structure and Function"
     ],
@@ -106,7 +106,7 @@ const neetSyllabus: {
 
 // Batch-generate lessons
 async function run() {
-  const subjects: Subject[] = ['chemistry', 'biology'];
+  const subjects: Subject[] = ['physics', 'chemistry', 'biology'];
 
   for (const subject of subjects) {
     for (const category of Object.keys(neetSyllabus[subject]) as Category[]) {
@@ -122,7 +122,7 @@ async function run() {
                   if (currentContent === null) {
                       console.log(`🚀 [Attempt ${attempt}/${MAX_RETRIES}] Generating ${subjectTitleCase} > ${category} > ${chapter}...`);
                       const result = await generateNeetContent({ 
-                          subject: subjectTitleCase, 
+                          subject: subjectTitleCase as 'Physics' | 'Chemistry' | 'Biology', 
                           chapter, 
                           category,
                           previousErrors: lastErrors,

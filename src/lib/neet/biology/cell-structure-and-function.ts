@@ -9,8 +9,6 @@ export const cellStructureAndFunction: NeetModule = {
     learningObjectives: [],
     prerequisites: [],
     syllabusMapping: [],
-    conceptNotes: [],
-    workedExamples: [],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
