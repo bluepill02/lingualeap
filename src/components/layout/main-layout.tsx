@@ -167,7 +167,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </DropdownMenu>
         </header>
 
-        <main className="flex-1 px-6 md:px-8 py-8 md:py-10 container mx-auto">{children}</main>
+        <main className="flex-1 px-8 md:px-12 py-8 md:py-10 container mx-auto">{children}</main>
         
         <footer className="mt-auto p-6 text-center text-xs text-muted-foreground">
             <Separator className="my-4" />
