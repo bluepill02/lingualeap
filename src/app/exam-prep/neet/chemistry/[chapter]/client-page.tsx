@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -48,6 +48,12 @@ function ChapterContent({ content }: { content: NeetModule }) {
   }
 
   const progress = (completedSections.length / totalSections) * 100;
+  
+  const getIcon = () => {
+    if (title.toLowerCase().includes('organic')) return <TestTube className="w-6 h-6" />;
+    if (title.toLowerCase().includes('thermodynamics') || title.toLowerCase().includes('kinetics') || title.toLowerCase().includes('equilibrium')) return <FlaskConical className="w-6 h-6" />;
+    return <Atom className="w-6 h-6" />;
+  }
 
   return (
     <div className="space-y-6">
@@ -60,7 +66,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
             </Link>
             <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-green-500/20 text-green-400">
-                    <FlaskConical className="w-6 h-6" />
+                    {getIcon()}
                 </div>
                 <div>
                     <h1 className="text-2xl font-bold font-headline">{title}</h1>
@@ -94,6 +100,21 @@ function ChapterContent({ content }: { content: NeetModule }) {
           </ScrollArea>
         </div>
         <TabsContent value="overview" className="mt-6 space-y-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Trophy className="text-primary"/>
+                        Learning Objectives
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc list-inside space-y-2">
+                       {learningObjectives.map((obj, index) => (
+                           <li key={index}>{obj}</li>
+                       ))}
+                    </ul>
+                </CardContent>
+            </Card>
              <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
