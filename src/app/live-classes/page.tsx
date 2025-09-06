@@ -29,7 +29,7 @@ export default function LiveClassesPage() {
                     <h2 className="text-2xl font-bold font-headline flex items-center gap-2">
                         <Zap className="text-primary animate-pulse" /> Live Now
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="responsive-card-grid">
                         {liveNowClasses.map(cls => (
                             <Card key={cls.id} className="border-primary ring-2 ring-primary flex flex-col">
                                 <CardHeader>
@@ -65,7 +65,7 @@ export default function LiveClassesPage() {
             <div className="space-y-4">
                 <h2 className="text-2xl font-bold font-headline">Upcoming Classes</h2>
                  {upcomingClasses.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="responsive-card-grid">
                         {upcomingClasses.map(cls => (
                             <Card key={cls.id} className="flex flex-col bg-card/50">
                                 <CardHeader>

@@ -380,7 +380,7 @@ export default function DashboardPage() {
             </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="responsive-card-grid">
           {stats.map((stat) => (
             <Card key={stat.label} className="text-center">
               <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
