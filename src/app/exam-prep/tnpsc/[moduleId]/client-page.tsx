@@ -28,12 +28,12 @@ import {
   Key,
   Landmark,
   Megaphone,
-  BarChart,
+  BarChart3,
 } from 'lucide-react';
 import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { XCircle } from 'lucide-react';
 
 
@@ -205,7 +205,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
         <Card>
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                    <BarChart className="h-5 w-5" />
+                    <BarChart3 className="h-5 w-5" />
                     {language === 'english' ? 'Topic Trends in Past Exams' : 'கடந்த தேர்வுகளில் தலைப்பு போக்குகள்'}
                 </CardTitle>
                 <CardDescription>
