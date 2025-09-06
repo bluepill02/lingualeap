@@ -3,7 +3,7 @@ import type { NeetModule } from '@/lib/types';
 
 export const structuralOrganisationInAnimalsAndPlants: NeetModule = {
     id: 'neet-biology-structural-organisation-in-animals-and-plants',
-    title: 'Biology - Structural Organisation in Animals and Plants',
+    title: 'Structural Organisation in Animals and Plants',
     chapter: 'Structural Organisation in Animals and Plants',
     subject: 'Biology',
     learningObjectives: [],

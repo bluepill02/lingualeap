@@ -1,16 +1,16 @@
 
-
 'use client';
 
 import * as React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { BookOpen, Lightbulb } from 'lucide-react';
-import type { NeetModule } from '@/lib/types';
+import { BookOpen } from 'lucide-react';
+import type { NeetModule, ConceptNote } from '@/lib/types';
 import { MarkdownRenderer } from './markdown-renderer';
+import { BilingualText } from './bilingual-text';
+import { ChevronsDown } from 'lucide-react';
 
 export function BiologyLearnCard({ content }: { content: NeetModule }) {
-  const { conceptNotes, conceptOverview, tamilConnection, culturalContext } = content;
+  const { conceptNotes = [] } = content;
 
   if (!conceptNotes || conceptNotes.length === 0) {
     return (
@@ -26,52 +26,40 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2"><BookOpen/> Core Concepts</CardTitle>
-      </CardHeader>
-      <CardContent className="card-padding-lg space-y-6">
-        <div className="prose dark:prose-invert max-w-none">
-          {conceptOverview && <MarkdownRenderer>{conceptOverview}</MarkdownRenderer>}
-        </div>
-        
-        {tamilConnection && (
-            <Card className="bg-yellow-500/10 border-yellow-500/30">
-            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
-                <Lightbulb className="h-5 w-5 text-yellow-400" />
-                <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
+    <div className="space-y-4">
+      {conceptNotes.map((note, index) => (
+        <React.Fragment key={index}>
+          <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
+            <CardHeader className="card-padding-lg">
+              <CardTitle className="flex items-center gap-3">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
+                <BilingualText 
+                    english={typeof note === 'string' ? '' : note.heading.english} 
+                    tamil={typeof note === 'string' ? undefined : note.heading.tamil} 
+                    className="not-prose text-xl font-bold font-headline" 
+                />
+              </CardTitle>
             </CardHeader>
-            <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
-                <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
+            <CardContent className="card-padding-lg space-y-4">
+              <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
+                {typeof note !== 'string' && note.content.map((item, itemIndex) => (
+                  <div key={itemIndex}>
+                    <BilingualText 
+                        english={typeof item === 'string' ? item : item.english} 
+                        tamil={typeof item === 'string' ? undefined : item.tamil} 
+                    />
+                  </div>
+                ))}
+              </div>
             </CardContent>
-            </Card>
-        )}
-
-        {culturalContext && (
-            <Card className="bg-green-500/10 border-green-500/30">
-            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
-                <BookOpen className="h-5 w-5 text-green-400" />
-                <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0 text-green-50 prose-sm">
-                <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
-            </CardContent>
-            </Card>
-        )}
-
-        {conceptNotes.map((note, index) => (
-          <div key={index} className="p-4 border rounded-lg bg-muted/30">
-            <h3 className="font-bold text-lg font-headline">
-              <MarkdownRenderer>{typeof note === 'string' ? '' : (note.heading.english + ' (' + note.heading.tamil + ')')}</MarkdownRenderer>
-            </h3>
-            <div className="mt-2 space-y-2 text-muted-foreground prose dark:prose-invert max-w-none">
-              {typeof note !== 'string' && note.content.map((item, itemIndex) => (
-                 <MarkdownRenderer key={itemIndex}>{typeof item === 'string' ? item : (item.english + ' (' + item.tamil + ')')}</MarkdownRenderer>
-              ))}
+          </Card>
+          {index < conceptNotes.length - 1 && (
+            <div className="flex justify-center items-center">
+              <ChevronsDown className="h-6 w-6 text-muted-foreground" />
             </div>
-          </div>
-        ))}
-      </CardContent>
-    </Card>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
   );
 }

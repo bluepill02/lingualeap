@@ -1,10 +1,10 @@
 
 import type { NeetModule } from '@/lib/types';
 
-export const humanPhysiology: NeetModule = {
-    id: 'neet-biology-human-physiology',
-    title: 'Human Physiology',
-    chapter: 'Human Physiology',
+export const diversityInTheLivingWorld: NeetModule = {
+    id: 'neet-biology-diversity-in-living-world',
+    title: 'Diversity in Living World',
+    chapter: 'Diversity in Living World',
     subject: 'Biology',
     learningObjectives: [],
     prerequisites: [],

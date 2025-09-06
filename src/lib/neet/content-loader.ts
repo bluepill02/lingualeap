@@ -50,7 +50,7 @@ import { biomolecules } from './chemistry/biomolecules';
 import { principlesRelatedToPracticalChemistry } from './chemistry/principles-related-to-practical-chemistry';
 
 // Biology
-import { diversityInTheLivingWorld } from '@/lib/neet/biology/diversity-in-the-living-world';
+import { diversityInTheLivingWorld } from '@/lib/neet/biology/diversity-in-living-world';
 import { structuralOrganisationInAnimalsAndPlants } from '@/lib/neet/biology/structural-organisation-in-animals-and-plants';
 import { cellStructureAndFunction } from '@/lib/neet/biology/cell-structure-and-function';
 import { plantPhysiology } from '@/lib/neet/biology/plant-physiology';

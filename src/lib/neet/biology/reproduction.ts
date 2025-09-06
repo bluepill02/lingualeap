@@ -3,7 +3,7 @@ import type { NeetModule } from '@/lib/types';
 
 export const reproduction: NeetModule = {
     id: 'neet-biology-reproduction',
-    title: 'Biology - Reproduction',
+    title: 'Reproduction',
     chapter: 'Reproduction',
     subject: 'Biology',
     learningObjectives: [],

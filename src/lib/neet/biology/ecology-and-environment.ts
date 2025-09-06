@@ -3,7 +3,7 @@ import type { NeetModule } from '@/lib/types';
 
 export const ecologyAndEnvironment: NeetModule = {
     id: 'neet-biology-ecology-and-environment',
-    title: 'Biology - Ecology and Environment',
+    title: 'Ecology and Environment',
     chapter: 'Ecology and Environment',
     subject: 'Biology',
     learningObjectives: [],

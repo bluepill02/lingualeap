@@ -3,7 +3,7 @@ import type { NeetModule } from '@/lib/types';
 
 export const geneticsAndEvolution: NeetModule = {
     id: 'neet-biology-genetics-and-evolution',
-    title: 'Biology - Genetics and Evolution',
+    title: 'Genetics and Evolution',
     chapter: 'Genetics and Evolution',
     subject: 'Biology',
     learningObjectives: [],
