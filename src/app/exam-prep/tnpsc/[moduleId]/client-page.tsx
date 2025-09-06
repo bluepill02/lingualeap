@@ -10,6 +10,7 @@ import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import 'katex/dist/katex.min.css'
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from '@/lib/utils';
 
 import { 
   ArrowLeft, 
@@ -34,7 +35,8 @@ import {
   ClipboardList,
   Layers3,
   BrainCircuit,
-  Link2
+  Link2,
+  Star,
 } from 'lucide-react';
 import { type TnpscModule } from '@/lib/exam-data-tnpsc';
 import { useRouter } from 'next/navigation';
@@ -240,23 +242,23 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <div style={{ width: '100%', height: 300 }}>
-                        <ResponsiveContainer>
-                            <BarChart data={chartData}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="year" />
-                                <YAxis allowDecimals={false} />
-                                <Tooltip
-                                    contentStyle={{
-                                        background: "hsl(var(--background) / 0.8)",
-                                        borderColor: "hsl(var(--border))",
-                                        color: "hsl(var(--foreground))"
-                                    }}
-                                />
-                                <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
-                            </BarChart>
-                        </ResponsiveContainer>
-                    </div>
+                   <div style={{ width: '100%', height: 300 }}>
+                     <ResponsiveContainer>
+                        <BarChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="year" />
+                            <YAxis allowDecimals={false} />
+                            <Tooltip
+                                contentStyle={{
+                                    background: "hsl(var(--background) / 0.8)",
+                                    borderColor: "hsl(var(--border))",
+                                    color: "hsl(var(--foreground))"
+                                }}
+                            />
+                            <Bar dataKey="count" fill="hsl(var(--primary))" name="Questions" />
+                        </BarChart>
+                    </ResponsiveContainer>
+                   </div>
                 </CardContent>
             </Card>
 
@@ -418,9 +420,16 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
               <CardContent className="space-y-6">
                 {module.practice.mcqs.map((mcq, index) => (
                   <div key={index} className="space-y-3 p-4 border rounded-lg">
-                    <p className="font-semibold">
-                      Q{index + 1}. {language === 'english' ? mcq.question : mcq.questionTamil}
-                    </p>
+                     <div className="flex justify-between items-start">
+                        <p className="font-semibold flex-1 pr-4">
+                          Q{index + 1}. {language === 'english' ? mcq.question : mcq.questionTamil}
+                        </p>
+                        <div className="flex" title={`Frequency: ${mcq.tnpscFrequency}/5`}>
+                           {Array.from({ length: 5 }).map((_, i) => (
+                                <Star key={i} className={cn('h-4 w-4', (mcq.tnpscFrequency || 0) > i ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')} />
+                            ))}
+                        </div>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {(language === 'english' ? mcq.options : mcq.optionsTamil).map((option, oIndex) => (
                         <Button
