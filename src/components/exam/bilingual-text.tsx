@@ -13,11 +13,11 @@ interface BilingualTextProps {
 
 export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, className }) => {
   const combinedText = tamil 
-    ? `${english} <span class="tamil-text ml-2 text-yellow-400">*(${tamil})*</span>` 
+    ? `${english} <span class="tamil-text text-amber-400">*(${tamil})*</span>` 
     : english;
 
   return (
-    <div className={cn('prose dark:prose-invert max-w-none [&>p]:inline bilingual-text', className)}>
+    <div className={cn('prose dark:prose-invert max-w-none [&>p]:inline', className)}>
       <MarkdownRenderer>{combinedText}</MarkdownRenderer>
     </div>
   );
