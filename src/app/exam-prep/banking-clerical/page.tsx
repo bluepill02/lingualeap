@@ -40,7 +40,7 @@ export default function BankingClericalExamPrepPage() {
       ).length;
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 p-4">
+    <div className="container mx-auto space-y-8">
       <header>
         <h1 className="text-3xl font-bold font-headline">{module.title}</h1>
         <p className="text-muted-foreground">
@@ -49,11 +49,11 @@ export default function BankingClericalExamPrepPage() {
       </header>
 
       <Card>
-        <CardHeader>
+        <CardHeader className="card-padding-lg">
           <CardTitle>Vocabulary List</CardTitle>
           <CardDescription>Proverbs & Sayings for Banking Clerical Exams</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="card-padding-lg">
           <Table>
             <TableHeader>
               <TableRow>
@@ -93,11 +93,11 @@ export default function BankingClericalExamPrepPage() {
       <Separator />
 
       <Card>
-        <CardHeader>
+        <CardHeader className="card-padding-lg">
           <CardTitle>Quiz Section</CardTitle>
           <CardDescription>Test your knowledge with these questions.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 card-padding-lg">
         {module.quizzes.map((quiz, index) => (
           <div key={index}>
             <p className="font-medium mb-2">{index + 1}. {quiz.question}</p>
@@ -109,9 +109,9 @@ export default function BankingClericalExamPrepPage() {
                     variant={
                       submitted && answers[index] === option
                         ? option === quiz.answer
-                          ? 'default'
+                          ? 'success'
                           : 'destructive'
-                        : 'outline'
+                        : answers[index] === option ? 'secondary' : 'outline'
                     }
                     className="w-full justify-start"
                     onClick={() => !submitted && handleOptionChange(index, option)}
@@ -144,12 +144,12 @@ export default function BankingClericalExamPrepPage() {
               />
             )}
             {submitted && answers[index]?.toLowerCase() !== quiz.answer.toLowerCase() && (
-                <p className="text-sm text-green-500 mt-1">Correct answer: {quiz.answer}</p>
+                <p className="text-sm text-green-500 mt-2">Correct answer: {quiz.answer}</p>
             )}
           </div>
         ))}
         {!submitted ? (
-          <Button onClick={handleSubmit} disabled={answers.includes(null)}>
+          <Button onClick={handleSubmit} disabled={!answers.every(a => a !== null)}>
             Submit Answers
           </Button>
         ) : (
@@ -165,11 +165,11 @@ export default function BankingClericalExamPrepPage() {
       <Separator />
 
       <Card>
-        <CardHeader>
+        <CardHeader className="card-padding-lg">
             <CardTitle className="flex items-center gap-2"><AlertTriangle className="text-yellow-500" />Error Analysis</CardTitle>
             <CardDescription>Common pitfalls and tips to avoid them.</CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 card-padding-lg">
             {module.errorAnalysis.map((item, index) => (
                 <div key={index} className="p-4 border-l-4 border-yellow-500 bg-yellow-500/10 rounded-r-md">
                     <h4 className="font-semibold">Pitfall: {item.pitfall}</h4>

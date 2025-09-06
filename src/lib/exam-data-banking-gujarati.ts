@@ -9,7 +9,7 @@ export const gujaratiBankingProverbs: ExamModule = {
     category: 'Proverbs & Sayings',
     vocabulary: [
         {
-            word: 'નાણાં વગરનો નાથિયો, નાણે નાથાલાલ (Nana vagarno nathiyo, nane nathalal)',
+            word: 'નાણાં વગરનો નાથિયો, નાણે નાથાલાલ',
             romanization: 'Nana vagarno nathiyo, nane nathalal',
             definition: 'A person without money is insignificant, but with money, they are respected (Money makes the man).',
             partOfSpeech: 'Proverb',
@@ -18,7 +18,7 @@ export const gujaratiBankingProverbs: ExamModule = {
             sentenceTranslation: 'As soon as he got a job, everyone started respecting him, truly money makes the man.'
         },
         {
-            word: 'હિંમતે મર્દા તો મદદે ખુદા (Himmate marda to madade khuda)',
+            word: 'હિંમતે મર્દા તો મદદે ખુદા',
             romanization: 'Himmate marda to madade khuda',
             definition: 'If a man has courage, God will help him (God helps those who help themselves).',
             partOfSpeech: 'Proverb',
@@ -27,7 +27,7 @@ export const gujaratiBankingProverbs: ExamModule = {
             sentenceTranslation: 'Don\'t be afraid of difficulties, God helps those who help themselves.'
         },
         {
-            word: 'લોભિયા હોય ત્યાં ધુતારા ભૂખે ન મરે (Lobhiya hoy tya dhutara bhukhe na mare)',
+            word: 'લોભિયા હોય ત્યાં ધુતારા ભૂખે ન મરે',
             romanization: 'Lobhiya hoy tya dhutara bhukhe na mare',
             definition: 'Where there are greedy people, cheaters will not starve.',
             partOfSpeech: 'Proverb',
@@ -36,7 +36,7 @@ export const gujaratiBankingProverbs: ExamModule = {
             sentenceTranslation: 'Online scams are successful because where there are greedy people, cheaters will not starve.'
         },
         {
-            word: 'ટીપે ટીપે સરોવર ભરાય (Tipe tipe sarovar bharay)',
+            word: 'ટીપે ટીપે સરોવર ભરાય',
             romanization: 'Tipe tipe sarovar bharay',
             definition: 'A lake gets filled drop by drop (many a little makes a mickle). Often used to encourage saving.',
             partOfSpeech: 'Proverb',
@@ -45,7 +45,7 @@ export const gujaratiBankingProverbs: ExamModule = {
             sentenceTranslation: 'Understand the importance of small savings, because a lake gets filled drop by drop.'
         },
         {
-            word: 'પહેલું સુખ તે જાતે નર્યા (Pahelu sukh te jaate narya)',
+            word: 'પહેલું સુખ તે જાતે નર્યા',
             romanization: 'Pahelu sukh te jaate narya',
             definition: 'The first happiness is a healthy body.',
             partOfSpeech: 'Proverb',

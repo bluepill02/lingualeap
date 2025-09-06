@@ -103,7 +103,7 @@ export default function ExamPrepLandingPage() {
             return a.title.localeCompare(b.title);
         }).map((module) => (
           <Card key={module.title} className={`flex flex-col ${module.isNew ? 'border-primary ring-2 ring-primary' : ''}`}>
-            <CardHeader>
+            <CardHeader className="card-padding-lg">
               <CardTitle className='flex items-center gap-2'>
                 {module.isNew && <Sparkles className="text-primary h-5 w-5" />}
                 {module.title}
