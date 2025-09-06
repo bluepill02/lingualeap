@@ -21,6 +21,7 @@ import {
   Landmark,
   Scale,
   Mountain,
+  FlaskConical
 } from 'lucide-react'
 import { TnpscContentDatabase, getTnpscModulesBySubject, TnpscModule } from '@/lib/exam-data-tnpsc'
 import Link from 'next/link';
@@ -53,6 +54,7 @@ export default function TnpscContentScreen() {
     { id: 'polity', name: 'Indian Polity', nameTamil: 'இந்திய அரசியல்', icon: Scale, color: 'bg-blue-500' },
     { id: 'geography', name: 'Geography', nameTamil: 'புவியியல்', icon: Mountain, color: 'bg-green-500' },
     { id: 'economy', name: 'Economy', nameTamil: 'பொருளாதாரம்', icon: BarChart3, color: 'bg-rose-500' },
+    { id: 'science', name: 'General Science', nameTamil: 'பொது அறிவியல்', icon: FlaskConical, color: 'bg-indigo-500' },
   ];
 
   const getFilteredModules = (): TnpscModule[] => {
