@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState } from 'react';
@@ -10,12 +9,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
-import { Sparkles, Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { Sparkles, Loader2, CheckCircle, XCircle, FileQuestion, Copy, RefreshCw } from 'lucide-react';
 import { NeetModule, NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
+import { generateNeetFlashcards, NeetFlashcardGeneratorOutput } from '@/ai/flows/neet-flashcard-generator';
 import { MarkdownRenderer } from './markdown-renderer';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from "framer-motion";
 
-interface AiQuizGeneratorProps {
+interface AiPracticeGeneratorProps {
   subject: NeetModule['subject'];
   chapter: string;
 }
@@ -26,48 +28,81 @@ type QuizState = {
 };
 
 type Language = 'English' | 'Tamil';
+type PracticeType = 'mcq' | 'flashcards';
 
-export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
-  const [numQuestions, setNumQuestions] = useState(5);
+export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorProps) {
+  const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
   const [language, setLanguage] = useState<Language>('English');
+  const [practiceType, setPracticeType] = useState<PracticeType>('mcq');
+  
   const [isLoading, setIsLoading] = useState(false);
+  
   const [quizData, setQuizData] = useState<NeetQuizGeneratorOutput | null>(null);
   const [quizState, setQuizState] = useState<QuizState | null>(null);
 
+  const [flashcardData, setFlashcardData] = useState<NeetFlashcardGeneratorOutput | null>(null);
+  const [flippedStates, setFlippedStates] = useState<boolean[]>([]);
+
   const { toast } = useToast();
 
-  const handleGenerateQuiz = async () => {
+  const handleGenerate = async () => {
     setIsLoading(true);
     setQuizData(null);
     setQuizState(null);
+    setFlashcardData(null);
+    setFlippedStates([]);
+
     try {
-      const result = await generateNeetQuiz({
-        subject,
-        chapter,
-        numQuestions,
-        difficulty,
-        language,
-      });
-      if (!result.quizzes || result.quizzes.length === 0) {
-        throw new Error("AI failed to generate questions. Please try again.");
-      }
-      setQuizData(result);
-      setQuizState({
-        answers: Array(result.quizzes.length).fill(null),
-        submitted: false,
-      });
+        if (practiceType === 'mcq') {
+            await handleGenerateMcqs();
+        } else {
+            await handleGenerateFlashcards();
+        }
     } catch (error: any) {
-      console.error('Error generating AI quiz:', error);
-      toast({
-        variant: 'destructive',
-        title: 'Quiz Generation Failed',
-        description: error.message || 'Could not generate the quiz. Please try a different combination.',
-      });
+        console.error(`Error generating AI ${practiceType}:`, error);
+        toast({
+            variant: 'destructive',
+            title: 'Generation Failed',
+            description: error.message || `Could not generate ${practiceType}. Please try a different combination.`,
+        });
     } finally {
-      setIsLoading(false);
+        setIsLoading(false);
     }
   };
+
+  const handleGenerateMcqs = async () => {
+    const result = await generateNeetQuiz({
+        subject,
+        chapter,
+        numQuestions: numItems,
+        difficulty,
+        language,
+    });
+    if (!result.quizzes || result.quizzes.length === 0) {
+        throw new Error("AI failed to generate questions. Please try again.");
+    }
+    setQuizData(result);
+    setQuizState({
+        answers: Array(result.quizzes.length).fill(null),
+        submitted: false,
+    });
+  }
+
+  const handleGenerateFlashcards = async () => {
+    const result = await generateNeetFlashcards({
+        subject,
+        chapter,
+        numFlashcards: numItems,
+        difficulty,
+        language,
+    });
+     if (!result.flashcards || result.flashcards.length === 0) {
+        throw new Error("AI failed to generate flashcards. Please try again.");
+    }
+    setFlashcardData(result);
+    setFlippedStates(Array(result.flashcards.length).fill(false));
+  }
 
   const handleOptionChange = (quizIndex: number, option: string) => {
     if (!quizState || quizState.submitted) return;
@@ -80,6 +115,14 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
     if (!quizState) return;
     setQuizState({ ...quizState, submitted: true });
   };
+  
+  const handleFlipCard = (index: number) => {
+      setFlippedStates(current => {
+          const newFlipped = [...current];
+          newFlipped[index] = !newFlipped[index];
+          return newFlipped;
+      })
+  }
 
   const getCorrectAnswersCount = () => {
     if (!quizData || !quizState) return 0;
@@ -93,13 +136,21 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
       <CardHeader className="card-padding-lg">
         <CardTitle className="flex items-center gap-2">
           <Sparkles className="text-primary" />
-          AI Practice Question Generator
+          AI Practice Generator
         </CardTitle>
         <CardDescription>
-          Generate a custom quiz on this chapter to test your knowledge further.
+          Generate a custom quiz or a set of flashcards on this chapter to test your knowledge further.
         </CardDescription>
       </CardHeader>
       <CardContent className="card-padding-lg space-y-6">
+        
+         <Tabs value={practiceType} onValueChange={(value) => setPracticeType(value as PracticeType)}>
+            <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="mcq"><FileQuestion className="mr-2"/> MCQs</TabsTrigger>
+                <TabsTrigger value="flashcards"><Copy className="mr-2"/> Flashcards</TabsTrigger>
+            </TabsList>
+        </Tabs>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="md:col-span-2">
             <Label htmlFor="language-select">Language</Label>
@@ -118,14 +169,14 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
             </Select>
           </div>
           <div>
-            <Label htmlFor="num-questions">Questions</Label>
+            <Label htmlFor="num-items">Quantity</Label>
             <Input
-              id="num-questions"
+              id="num-items"
               type="number"
               min="1"
               max="10"
-              value={numQuestions}
-              onChange={(e) => setNumQuestions(parseInt(e.target.value))}
+              value={numItems}
+              onChange={(e) => setNumItems(parseInt(e.target.value))}
               disabled={isLoading}
             />
           </div>
@@ -147,20 +198,20 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
             </Select>
           </div>
           <div className="md:col-span-4">
-            <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
+            <Button onClick={handleGenerate} disabled={isLoading} className="w-full">
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 animate-spin" />
-                  Generating...
+                  Generating {practiceType}...
                 </>
               ) : (
-                'Generate Quiz'
+                `Generate ${practiceType === 'mcq' ? 'MCQs' : 'Flashcards'}`
               )}
             </Button>
           </div>
         </div>
 
-        {quizData && quizState && (
+        {practiceType === 'mcq' && quizData && quizState && (
           <div className="space-y-6 mt-6">
             <h3 className="text-lg font-bold">Your Custom Quiz</h3>
             {quizData.quizzes.map((quiz, index) => (
@@ -223,13 +274,42 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
                 <p className="text-lg font-bold">
                   You got {getCorrectAnswersCount()} out of {quizData.quizzes.length} correct!
                 </p>
-                <Button onClick={handleGenerateQuiz} variant="outline" className="mt-4">
+                <Button onClick={handleGenerate} variant="outline" className="mt-4">
                   Generate Another Quiz
                 </Button>
               </div>
             )}
           </div>
         )}
+
+        {practiceType === 'flashcards' && flashcardData && (
+             <div className="space-y-6 mt-6">
+                 <h3 className="text-lg font-bold">Your Custom Flashcards</h3>
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {flashcardData.flashcards.map((card, index) => (
+                         <div key={index} className="[perspective:1000px] h-64">
+                            <motion.div
+                                className="relative w-full h-full [transform-style:preserve-3d] cursor-pointer"
+                                initial={false}
+                                animate={{ rotateY: flippedStates[index] ? 180 : 0 }}
+                                transition={{ duration: 0.6 }}
+                                onClick={() => handleFlipCard(index)}
+                            >
+                                {/* Front */}
+                                <div className="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center p-4 bg-secondary rounded-lg border">
+                                    <div className="prose dark:prose-invert text-center"><MarkdownRenderer>{card.front}</MarkdownRenderer></div>
+                                </div>
+                                {/* Back */}
+                                <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 bg-background rounded-lg border">
+                                    <div className="prose dark:prose-invert text-center text-sm"><MarkdownRenderer>{card.back}</MarkdownRenderer></div>
+                                </div>
+                            </motion.div>
+                         </div>
+                    ))}
+                 </div>
+             </div>
+        )}
+
       </CardContent>
     </Card>
   );

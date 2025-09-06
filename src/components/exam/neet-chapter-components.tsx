@@ -24,7 +24,7 @@ import { BilingualText } from './bilingual-text';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PracticeAnalytics } from './neet-practice-analytics';
-import { AiQuizGenerator } from './ai-quiz-generator';
+import { AiPracticeGenerator } from './ai-practice-generator';
 import { PracticeMode } from './neet-practice-mode';
 import {
   Table,
@@ -383,7 +383,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                         <PracticeAnalytics mcqs={practiceMcqs} answers={practiceAnswers} submitted={isPracticeSubmitted} />
                     </TabsContent>
                     <TabsContent value="ai-practice" className="mt-4">
-                       <AiQuizGenerator subject={subject} chapter={chapter} />
+                       <AiPracticeGenerator subject={subject} chapter={chapter} />
                     </TabsContent>
                 </Tabs>
                  <AnimatePresence>

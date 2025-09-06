@@ -15,6 +15,8 @@ import '@/ai/flows/neet-content-generator';
 import '@/ai/flows/neet-content-fixer';
 import '@/ai/flows/mission-feedback-flow';
 import '@/ai/flows/neet-quiz-generator';
+import '@/ai/flows/neet-flashcard-generator';
+
 
 
 
