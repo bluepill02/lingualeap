@@ -40,7 +40,7 @@ import { classificationOfElementsAndPeriodicityInProperties } from '@/content/ne
 import { pBlockElementsModule } from '@/content/neet/chemistry/p-block-elements';
 import { dAndFBlockElementsModule } from '@/content/neet/chemistry/d--and-f-block-elements';
 import { coordinationCompounds } from '@/content/neet/chemistry/coordination-compounds';
-import { PurificationAndCharacterisationOfOrganicCompounds as purificationAndCharacterisationOfOrganicCompounds } from '@/content/neet/chemistry/purification-and-characterization-of-organic-compounds';
+import { PurificationAndCharacterisationOfOrganicCompounds as purificationAndCharacterisationOfOrganicCompounds } from '@/content/neet/chemistry/purification-and-characterisation-of-organic-compounds';
 import { someBasicPrinciplesOfOrganicChemistry } from '@/content/neet/chemistry/some-basic-principles-of-organic-chemistry';
 import { hydrocarbons } from '@/content/neet/chemistry/hydrocarbons';
 import { organicCompoundsContainingHalogens } from '@/content/neet/chemistry/organic-compounds-containing-halogens';
