@@ -115,12 +115,6 @@ export const strategyGuideContent: StrategyGuide = {
           },
         ],
       },
-    ]
-  },
-  inorganic: {
-    title: "Inorganic Chemistry",
-    titleTamil: "கனிம வேதியியல்",
-    chapters: [
       {
         chapterName: 'Chemical Bonding and Molecular Structure',
         chapterNameTamil: 'வேதிப் பிணைப்பு மற்றும் மூலக்கூறு அமைப்பு',
@@ -159,8 +153,186 @@ export const strategyGuideContent: StrategyGuide = {
               },
             ],
           },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: "Fajan's Rules and Covalent Character",
+                explanation: "**Concept:** No bond is 100% ionic. Ionic bonds have some covalent character. Fajan's rules predict the extent of this character:\n1.  **Small cation, large anion** -> More covalent.\n2.  **High charge on cation/anion** -> More covalent.\n3.  **Cations with pseudo-noble gas configuration** (e.g., Cu⁺) are more polarizing than those with noble gas configuration (e.g., Na⁺).\n\n**Application:** This explains why AgCl is less soluble than NaCl. Ag⁺ is more polarizing than Na⁺.",
+                explanationTamil: "**கருத்து:** எந்தப் பிணைப்பும் 100% அயனிப் பிணைப்பு அல்ல. அயனிப் பிணைப்புகள் சில சகப் பிணைப்புத் தன்மையைக் கொண்டுள்ளன. ஃபாஜனின் விதிகள் இந்தத் தன்மையின் அளவைக் கணிக்கின்றன:\n1.  **சிறிய நேர் அயனி, பெரிய எதிர் அயனி** -> அதிக சகப் பிணைப்பு.\n2.  **நேர்/எதிர் அயனி மீது அதிக மின்னூட்டம்** -> அதிக சகப் பிணைப்பு.\n3.  **போலி மந்த வாயு அமைப்புள்ள நேர் அயனிகள்** (எ.கா., Cu⁺) மந்த வாயு அமைப்புள்ளவற்றை (எ.கா., Na⁺) விட அதிக முனைவுறுத்தும் தன்மையுடையவை.\n\n**பயன்பாடு:** NaCl-ஐ விட AgCl ஏன் குறைவாக கரைகிறது என்பதை இது விளக்குகிறது. Ag⁺, Na⁺-ஐ விட அதிக முனைவுறுத்தும் தன்மையுடையது.",
+              },
+            ]
+          }
         ],
       },
+       {
+        chapterName: 'Chemical Thermodynamics',
+        chapterNameTamil: 'வேதி வெப்ப இயக்கவியல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Sign Conventions for Q and W',
+                explanation: '**Mistake:** Mixing up the sign conventions. The physics convention for work (Work done BY system is positive) is opposite to the chemistry convention (Work done ON system is positive).\n\n**How to Avoid:** Stick to one convention, usually the one from your textbook. The standard chemistry convention is based on the First Law: **ΔU = Q + W**. Here, work done *on* the system is positive. If a gas expands, it does work on the surroundings, so W is negative.',
+                explanationTamil: '**தவறு:** குறியீட்டு மரபுகளைக் குழப்பிக் கொள்வது. இயற்பியல் மரபு (அமைப்பால் செய்யப்படும் வேலை நேர்க்குறி) வேதியியல் மரபுக்கு (அமைப்பின் மீது செய்யப்படும் வேலை நேர்க்குறி) எதிரானது.\n\n**தவிர்ப்பது எப்படி:** உங்கள் பாடப்புத்தகத்தில் உள்ள ஒரு மரபைப் பின்பற்றவும். நிலையான வேதியியல் மரபு முதல் விதியை அடிப்படையாகக் கொண்டது: **ΔU = Q + W**. இங்கு, அமைப்பின் *மீது* செய்யப்படும் வேலை நேர்க்குறியாகும். ஒரு வாயு விரிவடைந்தால், அது சூழலின் மீது வேலை செய்கிறது, எனவே W எதிர்க்குறியாகும்.',
+              },
+              {
+                point: 'Units of ΔH, ΔS, and Temperature',
+                explanation: '**Mistake:** Using ΔH in Joules while R is in kJ, or using ΔS in J/K while ΔH is in kJ, or using Temperature in Celsius in the Gibbs equation.\n\n**How to Avoid:** Always be consistent. Before using **ΔG = ΔH - TΔS**, convert ΔH and ΔS to the same energy unit (usually kJ) and ALWAYS convert Temperature to **Kelvin (K)**.',
+                explanationTamil: '**தவறு:** R kJ-ல் இருக்கும்போது ΔH-ஐ ஜூல்-ல் பயன்படுத்துதல், அல்லது ΔH kJ-ல் இருக்கும்போது ΔS-ஐ J/K-ல் பயன்படுத்துதல், அல்லது கிப்ஸ் சமன்பாட்டில் வெப்பநிலையை செல்டியஸில் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** எப்போதும் சீராக இருங்கள். **ΔG = ΔH - TΔS**-ஐப் பயன்படுத்துவதற்கு முன்பு, ΔH மற்றும் ΔS-ஐ ஒரே ஆற்றல் அலகிற்கு (வழக்கமாக kJ) மாற்றவும், மற்றும் எப்போதும் வெப்பநிலையை **கெல்வின் (K)** ஆக மாற்றவும்.',
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: "Third Law of Thermodynamics",
+                explanation: "**Concept:** The entropy of a perfectly crystalline solid at absolute zero (0 K) is zero. \n\n**Implication:** This law allows us to determine the absolute entropy of a substance at a given temperature, which is not possible for enthalpy or internal energy. It sets a rational baseline for entropy.",
+                explanationTamil: "**கருத்து:** தனிச்சுழி வெப்பநிலையில் (0 K) ஒரு hoàn hảo படிகத் திண்மத்தின் என்ட்ரோபி சுழியாகும்.\n\n**விளைவு:** இந்த விதி, ஒரு குறிப்பிட்ட வெப்பநிலையில் ஒரு பொருளின் தனித்த என்ட்ரோபியை தீர்மானிக்க அனுமதிக்கிறது, இது என்தால்பி அல்லது அக ஆற்றலுக்கு சாத்தியமில்லை. இது என்ட்ரோபிக்கு ஒரு பகுத்தறிவு அடிப்படையை அமைக்கிறது.",
+              },
+            ],
+          },
+        ]
+      },
+      {
+        chapterName: 'Solutions',
+        chapterNameTamil: 'கரைசல்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Forgetting the van't Hoff Factor (i)",
+                explanation: '**Mistake:** Calculating colligative properties for electrolytes (like NaCl, CaCl₂) without multiplying by the van\'t Hoff factor \'i\'.\n\n**How to Avoid:** Always check if the solute is an electrolyte (ionic salt, strong acid/base) or a non-electrolyte (urea, glucose, sucrose). If it is an electrolyte, use the modified formulas: **ΔT_f = i·K_f·m**, **π = i·CRT**, etc. For 100% dissociation, \'i\' is the number of ions produced (e.g., i=2 for NaCl, i=3 for CaCl₂).',
+                explanationTamil: '**தவறு:** மின்பகுளிகளுக்கு (NaCl, CaCl₂ போன்றவை) வான்ட் ஹாஃப் காரணி \'i\' ஆல் பெருக்காமல் தொகுப்பண்புகளைக் கணக்கிடுதல்.\n\n**தவிர்ப்பது எப்படி:** கரைபொருள் ஒரு மின்பகுளியா (அயனி உப்பு, வலிமையான அமிலம்/காரம்) அல்லது மின்பகுளி அல்லாததா (யூரியா, குளுக்கோஸ், சுக்ரோஸ்) என்பதை எப்போதும் சரிபார்க்கவும். அது ஒரு மின்பகுளியாக இருந்தால், மாற்றியமைக்கப்பட்ட சூத்திரங்களைப் பயன்படுத்தவும்: **ΔT_f = i·K_f·m**, **π = i·CRT**, போன்றவை. 100% பிரிகைக்கு, \'i\' என்பது உற்பத்தி செய்யப்படும் அயனிகளின் எண்ணிக்கை (எ.கா., NaCl க்கு i=2, CaCl₂ க்கு i=3).',
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+               {
+                point: "Azeotropes (Minimum and Maximum Boiling)",
+                explanation: "**Concept:** Azeotropes are binary mixtures having the same composition in liquid and vapour phase and boil at a constant temperature.\n*   **Minimum boiling azeotrope:** Formed by solutions showing large positive deviation from Raoult's law (e.g., Ethanol-water). The boiling point of the azeotrope is lower than either component.\n*   **Maximum boiling azeotrope:** Formed by solutions showing large negative deviation from Raoult's law (e.g., Nitric acid-water). The boiling point is higher than either component. \n**Key takeaway:** Components of an azeotropic mixture cannot be separated by fractional distillation.",
+                explanationTamil: "**கருத்து:** அசியோட்ரோப்கள் என்பவை திரவ மற்றும் ஆவி நிலையில் ஒரே இயைபைக் கொண்ட மற்றும் ஒரு மாறா வெப்பநிலையில் கொதிக்கும் இருகூறு கலவைகள் ஆகும்.\n*   **குறைந்தபட்ச கொதிநிலை அசியோட்ரோப்:** ரௌலட் விதியிலிருந்து பெரிய நேர்மறை விலகலைக் காட்டும் கரைசல்களால் உருவாகிறது (எ.கா., எத்தனால்-நீர்).\n*   **அதிகபட்ச கொதிநிலை அசியோட்ரோப்:** ரௌலட் விதியிலிருந்து பெரிய எதிர்மறை விலகலைக் காட்டும் கரைசல்களால் உருவாகிறது (எ.கா., நைட்ரிக் அமிலம்-நீர்).\n**முக்கிய குறிப்பு:** ஒரு அசியோட்ரோபிக் கலவையின் கூறுகளை பின்னக் காய்ச்சி வடித்தல் மூலம் பிரிக்க முடியாது.",
+              },
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'Equilibrium',
+        chapterNameTamil: 'சமநிலை',
+        sections: [
+           {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Effect of Inert Gas Addition",
+                explanation: "**Mistake:** Thinking that adding an inert gas always shifts the equilibrium.\n\n**How to Avoid:** It depends on the condition!\n*   **At constant volume:** Adding an inert gas increases the total pressure, but the partial pressures of the reactants and products do not change. So, there is **NO effect** on the equilibrium.\n*   **At constant pressure:** To keep the pressure constant, the volume must increase. This decreases the partial pressure of all gaseous species, so the equilibrium shifts towards the side with a **greater number of gaseous moles**.",
+                explanationTamil: "**தவறு:** ஒரு மந்த வாயுவைச் சேர்ப்பது எப்போதும் சமநிலையை மாற்றும் என்று நினைப்பது.\n\n**தவிர்ப்பது எப்படி:** இது நிபந்தனையைப் பொறுத்தது!\n*   **மாறா பருமனில்:** ஒரு மந்த வாயுவைச் சேர்ப்பது மொத்த அழுத்தத்தை அதிகரிக்கிறது, ஆனால் வினைபடு பொருட்கள் மற்றும் வினைவிளை பொருட்களின் பகுதி அழுத்தங்கள் மாறாது. எனவே, சமநிலையில் **எந்த விளைவும் இல்லை**.\n*   **மாறா அழுத்தத்தில்:** அழுத்தத்தை மாறிலியாக வைத்திருக்க, பருமன் அதிகரிக்க வேண்டும். இது அனைத்து வாயு சிற்றினங்களின் பகுதி அழுத்தத்தையும் குறைக்கிறது, எனவே சமநிலை **அதிக எண்ணிக்கையிலான வாயு மோல்கள்** உள்ள பக்கத்திற்கு நகரும்.",
+              },
+              {
+                point: "pH of Very Dilute Strong Acids/Bases",
+                explanation: "**Mistake:** Calculating the pH of a 10⁻⁸ M HCl solution as 8.\n\n**How to Avoid:** A solution of an acid can never have a pH > 7. For very dilute solutions, you must also consider the H⁺ ions from the autoionization of water ([H⁺]_water ≈ 10⁻⁷ M). The total [H⁺] = [H⁺]_acid + [H⁺]_water = 10⁻⁸ + 10⁻⁷ = 1.1 × 10⁻⁷ M. The pH = -log(1.1 × 10⁻⁷), which is slightly less than 7 (approx. 6.96).",
+                explanationTamil: "**தவறு:** ஒரு 10⁻⁸ M HCl கரைசலின் pH-ஐ 8 எனக் கணக்கிடுதல்.\n\n**தவிர்ப்பது எப்படி:** ஒரு அமிலத்தின் கரைசல் ஒருபோதும் pH > 7-ஐக் கொண்டிருக்க முடியாது. மிகவும் நீர்த்த கரைசல்களுக்கு, நீரின் சுய-அயனியாதலிலிருந்து வரும் H⁺ அயனிகளையும் கருத்தில் கொள்ள வேண்டும் ([H⁺]_நீர் ≈ 10⁻⁷ M). மொத்த [H⁺] = [H⁺]_அமிலம் + [H⁺]_நீர் = 10⁻⁸ + 10⁻⁷ = 1.1 × 10⁻⁷ M. pH = -log(1.1 × 10⁻⁷), இது 7-ஐ விட சற்றே குறைவானது (தோராயமாக 6.96).",
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: "Simultaneous Equilibrium",
+                explanation: "**Concept:** In some cases, two or more equilibrium reactions may occur simultaneously in the same container. For example, the dissociation of a weak diprotic acid like H₂S. \n*   H₂S ⇌ H⁺ + HS⁻  (Kₐ₁)\n*   HS⁻ ⇌ H⁺ + S²⁻  (Kₐ₂)\n**Key Idea:** The [H⁺] from the first, stronger dissociation suppresses the second dissociation due to the common ion effect. Thus, for calculations involving the second step, the [H⁺] is almost entirely determined by the first step.",
+                explanationTamil: "**கருத்து:** சில நேரங்களில், இரண்டு அல்லது அதற்கு மேற்பட்ட சமநிலை வினைகள் ஒரே கொள்கலனில் ஒரே நேரத்தில் நிகழலாம். உதாரணமாக, H₂S போன்ற ஒரு பலவீனமான இருபுரோட்டான் அமிலத்தின் பிரிகை.\n*   H₂S ⇌ H⁺ + HS⁻  (Kₐ₁)\n*   HS⁻ ⇌ H⁺ + S²⁻  (Kₐ₂)\n**முக்கிய கருத்து:** முதல், வலுவான பிரிகையிலிருந்து வரும் [H⁺], பொது அயனி விளைவு காரணமாக இரண்டாவது பிரிகையை அடக்குகிறது. எனவே, இரண்டாவது படியை உள்ளடக்கிய கணக்கீடுகளுக்கு, [H⁺] கிட்டத்தட்ட முழுமையாக முதல் படியால் தீர்மானிக்கப்படுகிறது.",
+              },
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'Redox Reactions and Electrochemistry',
+        chapterNameTamil: 'ஆக்ஸிஜனேற்ற-ஒடுக்க வினைகள் மற்றும் மின் வேதியியல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Anode/Cathode Signs in Galvanic vs. Electrolytic Cells',
+                explanation: '**Mistake:** Confusing the signs of the electrodes.\n\n**How to Avoid:** Remember **"AN OX, RED CAT"** (ANode is OXidation, REDuction at CAThode). This is always true. The *sign* changes.\n*   **Galvanic Cell (Battery):** Spontaneous reaction. Anode (oxidation) is the source of electrons, so it is the **negative** terminal. Cathode (reduction) is the destination, so it is the **positive** terminal.\n*   **Electrolytic Cell:** Non-spontaneous reaction driven by an external battery. The external battery pulls electrons from the anode, making it **positive**. It pushes electrons to the cathode, making it **negative**.',
+                explanationTamil: '**தவறு:** மின்முனைகளின் குறிகளைக் குழப்பிக் கொள்வது.\n\n**தவிர்ப்பது எப்படி:** **"AN OX, RED CAT"** என்பதை நினைவில் கொள்க (ANode-ல் OXidation, CAThode-ல் REDuction). இது எப்போதும் உண்மை. *குறி* மாறுகிறது.\n*   **கால்வானிக் கலம் (மின்கலம்):** தன்னிச்சையான வினை. நேர்முனை (ஆக்ஸிஜனேற்றம்) எலக்ட்ரான்களின் மூலம், எனவே அது **எதிர்மறை** முனையம். எதிர்முனை (ஒடுக்கம்) சேரும் இடம், எனவே அது **நேர்மறை** முனையம்.\n*   **மின்னாற்பகுப்புக் கலம்:** வெளிப்புற மின்கலத்தால் இயக்கப்படும் தன்னிச்சையற்ற வினை. வெளிப்புற மின்கலம் நேர்முனையிலிருந்து எலக்ட்ரான்களை இழுத்து, அதை **நேர்மறை** ஆக்குகிறது. அது எதிர்முனைக்கு எலக்ட்ரான்களைத் தள்ளி, அதை **எதிர்மறை** ஆக்குகிறது.',
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+               {
+                point: "Concentration Cells",
+                explanation: "**Concept:** A galvanic cell constructed from two half-cells composed of the same material but differing in the concentration of the electrolyte. \n*   Example: Zn | Zn²⁺(C₁) || Zn²⁺(C₂) | Zn, where C₁ < C₂.\n*   **How it works:** The system will spontaneously try to equalize the concentrations. Oxidation occurs at the anode (lower concentration, C₁) and reduction occurs at the cathode (higher concentration, C₂).\n*   **EMF Calculation:** Using the Nernst equation, $E_{cell} = E°_{cell} - \\frac{0.0591}{n} \\log Q$. Here, $E°_{cell}$ is zero because the electrodes are the same. $E_{cell} = - \\frac{0.0591}{n} \\log(\\frac{C_{anode}}{C_{cathode}})$.",
+                explanationTamil: "**கருத்து:** ஒரே பொருளாலான ஆனால் மின்பகுளியின் செறிவில் வேறுபடும் இரண்டு அரை-கலன்களிலிருந்து உருவாக்கப்பட்ட ஒரு கால்வானிக் கலம்.\n*   உதாரணம்: Zn | Zn²⁺(C₁) || Zn²⁺(C₂) | Zn, இங்கு C₁ < C₂.\n*   **செயல்படும் விதம்:** அமைப்பு தன்னிச்சையாக செறிவுகளை சமப்படுத்த முயற்சிக்கும். நேர்முனையில் (குறைந்த செறிவு, C₁) ஆக்ஸிஜனேற்றமும், எதிர்முனையில் (அதிக செறிவு, C₂) ஒடுக்கமும் நிகழ்கிறது.\n*   **EMF கணக்கீடு:** நெர்ன்ஸ்ட் சமன்பாட்டைப் பயன்படுத்தி, $E_{cell} = E°_{cell} - \\frac{0.0591}{n} \\log Q$. இங்கு, மின்முனைகள் ஒரே மாதிரியாக இருப்பதால் $E°_{cell}$ சுழியாகும். $E_{cell} = - \\frac{0.0591}{n} \\log(\\frac{C_{anode}}{C_{cathode}})$.",
+              },
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'Chemical Kinetics',
+        chapterNameTamil: 'வேதி வினைவேகவியல்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: "Confusing Order and Molecularity",
+                explanation: "**Mistake:** Assuming the order of a reaction is the same as the stoichiometric coefficients.\n\n**How to Avoid:** **Order** is an *experimental* quantity determined from the rate law. It can be zero, fractional, or an integer. **Molecularity** is a *theoretical* concept that applies only to a single elementary step. It is the number of molecules colliding in that step and must be an integer (usually 1, 2, or rarely 3). For complex reactions, the order is determined by the slowest step (rate-determining step) and is not related to the overall stoichiometry.",
+                explanationTamil: "**தவறு:** ஒரு வினையின் வகை அதன் வினைக்கூறு குணகங்களுக்கு சமம் என்று கருதுவது.\n\n**தவிர்ப்பது எப்படி:** **வகை** என்பது வினைவேக விதியிலிருந்து தீர்மானிக்கப்படும் ஒரு *சோதனை ரீதியான* அளவு. அது சுழி, பின்னம், அல்லது ஒரு முழு எண்ணாக இருக்கலாம். **மூலக்கூறுத்துவம்** என்பது ஒரு ஒற்றை அடிப்படைப் படிக்கு மட்டுமே பொருந்தும் ஒரு *கோட்பாட்டு* கருத்து. அது அந்தப் படியில் மோதும் மூலக்கூறுகளின் எண்ணிக்கை மற்றும் ஒரு முழு எண்ணாக இருக்க வேண்டும் (வழக்கமாக 1, 2, அல்லது அரிதாக 3). சிக்கலான வினைகளுக்கு, வகை மெதுவான படியால் (வினைவேகத்தை தீர்மானிக்கும் படி) தீர்மானிக்கப்படுகிறது மற்றும் ஒட்டுமொத்த வினைக்கூறு விகிதவியலுடன் தொடர்புடையது அல்ல.",
+              },
+            ],
+          },
+          {
+            title: 'Tricks & Shortcuts',
+            titleTamil: 'தந்திரங்கள் மற்றும் குறுக்குவழிகள்',
+            type: 'trick',
+            points: [
+              {
+                point: "Half-Life Relations for First-Order Reactions",
+                explanation: "Remember the time required for a certain percentage completion in terms of half-life (t₁/₂):\n*   **50% completion (1 half-life):** t = t₁/₂\n*   **75% completion (2 half-lives):** t = 2 × t₁/₂\n*   **87.5% completion (3 half-lives):** t = 3 × t₁/₂\n*   **90% completion:** t ≈ 3.3 × t₁/₂\n*   **99% completion:** t ≈ 6.6 × t₁/₂\n*   **99.9% completion:** t ≈ 10 × t₁/₂\nRecognizing these patterns can save a lot of calculation time.",
+                explanationTamil: "அரை ஆயுள் காலத்தின் (t₁/₂) அடிப்படையில் ஒரு குறிப்பிட்ட சதவீத நிறைவுக்கான நேரத்தை நினைவில் கொள்க:\n*   **50% நிறைவு (1 அரை ஆயுள்):** t = t₁/₂\n*   **75% நிறைவு (2 அரை ஆயுள்):** t = 2 × t₁/₂\n*   **87.5% நிறைவு (3 அரை ஆயுள்):** t = 3 × t₁/₂\n*   **90% நிறைவு:** t ≈ 3.3 × t₁/₂\n*   **99% நிறைவு:** t ≈ 6.6 × t₁/₂\n*   **99.9% நிறைவு:** t ≈ 10 × t₁/₂\nஇந்த முறைகளை அறிந்துகொள்வது கணக்கீட்டு நேரத்தை மிச்சப்படுத்தும்.",
+              },
+            ],
+          }
+        ]
+      },
+    ]
+  },
+  inorganic: {
+    title: "Inorganic Chemistry",
+    titleTamil: "கனிம வேதியியல்",
+    chapters: [
       {
         chapterName: 'Coordination Compounds',
         chapterNameTamil: 'அணைவுச் சேர்மங்கள்',
