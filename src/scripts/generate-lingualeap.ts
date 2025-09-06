@@ -85,7 +85,7 @@ const neetSyllabus: {
   },
   biology: {
     foundation: [
-        "Diversity in Living World",
+        "Diversity in the Living World",
         "Structural Organisation in Animals and Plants",
         "Cell Structure and Function"
     ],
@@ -105,7 +105,7 @@ const neetSyllabus: {
 
 // Batch-generate lessons
 async function run() {
-  const subjects: Subject[] = ['physics', 'chemistry', 'biology'];
+  const subjects: Subject[] = ['chemistry', 'biology'];
 
   for (const subject of subjects) {
     for (const category of Object.keys(neetSyllabus[subject]) as Category[]) {
@@ -156,7 +156,7 @@ async function run() {
                   console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
                   
                   const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-                  const filePath = path.resolve(__dirname, `../content/neet/${subject}`, `${safeName}.ts`);
+                  const filePath = path.resolve(__dirname, `../../content/neet/${subject}`, `${safeName}.ts`);
                   
                   fs.mkdirSync(path.dirname(filePath), { recursive: true });
                   fs.writeFileSync(filePath, currentContent);
