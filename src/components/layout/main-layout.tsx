@@ -137,7 +137,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 items-center justify-between border-b bg-card px-6 sticky top-0 z-10">
+        <header className="flex h-16 items-center justify-between border-b bg-card px-4 sm:px-6 md:px-8 sticky top-0 z-10">
           <SidebarTrigger />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -168,9 +168,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main className="flex-1 p-4 sm:p-6 md:p-8">
-            <div className="container mx-auto">
-                {children}
-            </div>
+            {children}
         </main>
         
         <footer className="p-6 text-center text-xs text-muted-foreground">
