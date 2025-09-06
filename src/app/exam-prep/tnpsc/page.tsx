@@ -1,186 +1,171 @@
 
 'use client';
 
-import { useState } from 'react';
-import { tnpscTamilVocabulary } from '@/lib/exam-data-tnpsc';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Button } from '@/components/ui/button';
-import { CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
-import { Input } from '@/components/ui/input';
+import React, { useState, useEffect } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import { Progress } from '@/components/ui/progress'
+import { 
+  ArrowLeft, 
+  BookOpen, 
+  Users, 
+  Trophy, 
+  Clock, 
+  Target,
+  Zap,
+  Download,
+  Calendar,
+  BarChart3,
+  Flag
+} from 'lucide-react'
+import { TnpscContentDatabase, getTnpscModulesBySubject, TnpscModule } from '@/lib/exam-data-tnpsc'
+import Link from 'next/link';
 
-export default function TnpscExamPrepPage() {
-    const module = tnpscTamilVocabulary;
-    const [answers, setAnswers] = useState<(string | null)[]>(
-      Array(module.quizzes.length).fill(null)
-    );
-    const [submitted, setSubmitted] = useState(false);
-  
-    const handleOptionChange = (quizIndex: number, option: string) => {
-      const newAnswers = [...answers];
-      newAnswers[quizIndex] = option;
-      setAnswers(newAnswers);
-    };
-  
-    const handleSubmit = () => {
-      setSubmitted(true);
-    };
+export default function TnpscContentScreen() {
+  const [selectedSubject, setSelectedSubject] = useState<string>('all')
+  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
+  const [isOfflineMode, setIsOfflineMode] = useState(false)
+  const [userProgress, setUserProgress] = useState<Record<string, number>>({})
+  const [studyStreak, setStudyStreak] = useState(0)
 
-    const correctAnswers = module.quizzes.filter(
-        (quiz, index) => answers[index] && answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
-      ).length;
+  useEffect(() => {
+    const savedProgress = localStorage.getItem('tnpsc-progress')
+    if (savedProgress) {
+      setUserProgress(JSON.parse(savedProgress))
+    }
+
+    const savedStreak = localStorage.getItem('tnpsc-streak')
+    if (savedStreak) {
+      setStudyStreak(parseInt(savedStreak))
+    }
+
+    if ('serviceWorker' in navigator) {
+      setIsOfflineMode(navigator.onLine === false)
+    }
+  }, [])
+
+  const subjects = [
+    { id: 'history', name: 'History & Culture', nameTamil: 'வரலாறு & பண்பாடு', icon: '🏛️', color: 'bg-amber-500' },
+    { id: 'polity', name: 'Indian Polity', nameTamil: 'இந்திய அரசியல்', icon: '⚖️', color: 'bg-blue-500' },
+    { id: 'geography', name: 'Geography', nameTamil: 'புவியியல்', icon: '🌍', color: 'bg-green-500' },
+  ];
+
+  const getFilteredModules = (): TnpscModule[] => {
+    let modules = Object.values(TnpscContentDatabase)
+    
+    if (selectedSubject !== 'all') {
+      modules = modules.filter(module => module.subject === selectedSubject)
+    }
+    
+    if (selectedDifficulty !== 'all') {
+      modules = modules.filter(module => module.difficultyLevel === selectedDifficulty)
+    }
+    
+    return modules.sort((a, b) => b.weightage - a.weightage)
+  }
+
+  const handleDownloadOfflineContent = async () => {
+    try {
+      localStorage.setItem('tnpsc-offline-content', JSON.stringify(TnpscContentDatabase))
+      setIsOfflineMode(true)
+      alert('Content downloaded for offline access!')
+    } catch (error) {
+      alert('Download failed. Please try again.')
+    }
+  };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 p-4">
-      <header>
-        <h1 className="text-3xl font-bold font-headline">{module.title}</h1>
-        <p className="text-muted-foreground">
-          Language: {module.language} | Exam: {module.examName} | Category: {module.category}
-        </p>
-      </header>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Vocabulary List</CardTitle>
-          <CardDescription>General Tamil Vocabulary for TNPSC Exams</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Word</TableHead>
-                <TableHead>POS</TableHead>
-                <TableHead>Definition</TableHead>
-                <TableHead>Sample Sentence</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {module.vocabulary.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-bold">
-                    {item.word}
-                    <span className="block text-sm font-normal text-muted-foreground">{item.romanization}</span>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="secondary">{item.partOfSpeech}</Badge>
-                  </TableCell>
-                  <TableCell>{item.definition}</TableCell>
-                  <TableCell>
-                    {item.sentence}
-                    <span className="block text-sm text-muted-foreground">
-                      ({item.sentenceRoman})
-                    </span>
-                    <span className="block text-xs italic text-muted-foreground">
-                      "{item.sentenceTranslation}"
-                    </span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-      
-      <Separator />
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Quiz Section</CardTitle>
-          <CardDescription>Test your knowledge with these questions.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-        {module.quizzes.map((quiz, index) => (
-          <div key={index}>
-            <p className="font-medium mb-2">{index + 1}. {quiz.question}</p>
-            {quiz.type === 'multiple-choice' ? (
-              <div className="space-y-2">
-                {(quiz.options ?? []).map((option) => (
-                  <Button
-                    key={option}
-                    variant={
-                      submitted && answers[index] === option
-                        ? option === quiz.answer
-                          ? 'default'
-                          : 'destructive'
-                        : 'outline'
-                    }
-                    className="w-full justify-start"
-                    onClick={() => !submitted && handleOptionChange(index, option)}
-                    disabled={submitted}
-                  >
-                    {submitted &&
-                      answers[index] === option &&
-                      (option === quiz.answer ? (
-                        <CheckCircle className="mr-2 h-4 w-4" />
-                      ) : (
-                        <XCircle className="mr-2 h-4 w-4" />
-                      ))}
-                    {option}
-                  </Button>
-                ))}
+    <div className="container mx-auto space-y-8">
+        <header className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+             <Link href="/exam-prep" aria-label="Back to Exam Modules">
+                <Button
+                variant="ghost"
+                size="icon"
+                >
+                <ArrowLeft className="h-6 w-6" />
+                </Button>
+            </Link>
+            <div>
+              <h1 className="text-3xl">TNPSC Preparation</h1>
+              <h2 className="text-muted-foreground text-lg">தேர்வுக்குத் தயாராகுங்கள்</h2>
+              <div className="flex items-center gap-4 mt-2">
+                <Badge variant="secondary">
+                  <Calendar className="h-4 w-4 mr-1" />
+                  Streak: {studyStreak} days
+                </Badge>
+                {isOfflineMode && (
+                  <Badge variant="destructive">
+                    <Download className="h-4 w-4 mr-1" />
+                    Offline Ready
+                  </Badge>
+                )}
               </div>
-            ) : (
-              <Input
-                placeholder="Your answer..."
-                value={answers[index] || ''}
-                onChange={(e) => handleOptionChange(index, e.target.value)}
-                disabled={submitted}
-                className={
-                  submitted
-                    ? answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
-                      ? 'border-green-500'
-                      : 'border-destructive'
-                    : ''
-                }
-              />
-            )}
-            {submitted && answers[index]?.toLowerCase() !== quiz.answer.toLowerCase() && (
-                <p className="text-sm text-green-500 mt-1">Correct answer: {quiz.answer}</p>
-            )}
+            </div>
           </div>
-        ))}
-        {!submitted ? (
-          <Button onClick={handleSubmit} disabled={answers.includes(null)}>
-            Submit Answers
-          </Button>
-        ) : (
-          <div className="p-4 bg-secondary rounded-lg text-center">
-            <p className="text-lg font-bold">
-              You got {correctAnswers} out of {module.quizzes.length} correct!
-            </p>
+          
+          <div className="flex gap-3">
+            <Button
+              onClick={handleDownloadOfflineContent}
+              size="sm"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download Offline
+            </Button>
           </div>
-        )}
-        </CardContent>
-      </Card>
+        </header>
 
-      <Separator />
-
-      <Card>
-        <CardHeader>
-            <CardTitle className="flex items-center gap-2"><AlertTriangle className="text-yellow-500" />Error Analysis</CardTitle>
-            <CardDescription>Common pitfalls and tips to avoid them.</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-            {module.errorAnalysis.map((item, index) => (
-                <div key={index} className="p-4 border-l-4 border-yellow-500 bg-yellow-500/10 rounded-r-md">
-                    <h4 className="font-semibold">Pitfall: {item.pitfall}</h4>
-                    <p className="text-sm text-muted-foreground mt-1"><strong>Tip:</strong> {item.tip}</p>
-                </div>
-            ))}
-        </CardContent>
-      </Card>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {getFilteredModules().map((module) => {
+            const progress = userProgress[module.id] || 0
+            const subjectInfo = subjects.find(s => s.id === module.subject)
+            
+            return (
+              <Link href={`/exam-prep/tnpsc/${module.id}`} key={module.id}>
+                <Card className="hover:border-primary transition-all cursor-pointer group h-full flex flex-col">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="secondary" className={`${subjectInfo?.color} text-white`}>
+                            {subjectInfo?.name}
+                          </Badge>
+                          <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
+                                            module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
+                            {module.difficultyLevel}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                          {module.title}
+                        </CardTitle>
+                        <CardDescription className="text-primary/80 text-sm mt-1">
+                          {module.titleTamil}
+                        </CardDescription>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-2xl text-primary font-bold">{module.weightage}%</div>
+                        <div className="text-xs text-muted-foreground">weightage</div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  
+                  <CardContent className="pt-0 flex-grow flex flex-col justify-end">
+                    <div className="space-y-4">
+                      <div>
+                        <div className="flex justify-between text-sm mb-2">
+                          <span className="text-muted-foreground">Progress</span>
+                          <span>{progress.toFixed(0)}%</span>
+                        </div>
+                        <Progress value={progress} />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            )
+          })}
+        </div>
     </div>
-  );
+  )
 }
-
-    
