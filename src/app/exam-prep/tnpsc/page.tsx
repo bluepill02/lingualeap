@@ -24,6 +24,7 @@ import {
   FlaskConical,
   Calculator,
   Newspaper,
+  Languages,
 } from 'lucide-react'
 import { TnpscContentDatabase, getTnpscModulesBySubject, TnpscModule } from '@/lib/exam-data-tnpsc'
 import Link from 'next/link';
@@ -59,6 +60,7 @@ export default function TnpscContentScreen() {
     { id: 'science', name: 'General Science', nameTamil: 'பொது அறிவியல்', icon: FlaskConical, color: 'bg-indigo-500' },
     { id: 'aptitude', name: 'Aptitude', nameTamil: 'திறனறிவு', icon: Calculator, color: 'bg-purple-500' },
     { id: 'current-affairs', name: 'Current Affairs', nameTamil: 'நடப்பு நிகழ்வுகள்', icon: Newspaper, color: 'bg-cyan-500' },
+    { id: 'language', name: 'Language Papers', nameTamil: 'மொழித் தாள்கள்', icon: Languages, color: 'bg-orange-500' },
   ];
 
   const getFilteredModules = (): TnpscModule[] => {
