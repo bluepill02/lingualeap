@@ -175,15 +175,15 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
     },
     
     overview: {
-      summary: "This unit covers the rich history of Tamil society, from ancient times to the modern era, including the Sangam period, the role of Tamil Nadu in the freedom struggle, and the evolution of socio-political movements.",
-      summaryTamil: "இந்த அலகு தமிழ் சமூகத்தின் வளமான வரலாற்றை, பண்டைய காலம் முதல் நவீன காலம் வரை உள்ளடக்கியது, இதில் சங்க காலம், சுதந்திரப் போராட்டத்தில் தமிழ்நாட்டின் பங்கு மற்றும் சமூக-அரசியல் இயக்கங்களின் பரிணாமம் ஆகியவை அடங்கும்.",
-      contextualInfo: "Understanding this unit is crucial as it forms a significant portion of the TNPSC Group 1, 2, and 4 exams, reflecting the state's emphasis on its unique heritage.",
-      contextualInfoTamil: "இந்த அலகு TNPSC குரூப் 1, 2, மற்றும் 4 தேர்வுகளில் ஒரு குறிப்பிடத்தக்க பகுதியாக இருப்பதால், இதைப் புரிந்துகொள்வது முக்கியம். இது மாநிலத்தின் தனித்துவமான பாரம்பரியத்திற்கு முக்கியத்துவம் அளிக்கிறது.",
-      relevanceToExam: "Extremely high importance; approximately 30-40 questions can be expected from this unit in the prelims.",
+      summary: "This unit offers a deep dive into the rich and ancient history of Tamil society. It begins with the classical Sangam era, exploring its literature and governance, moves through the significant contributions of Tamil Nadu to the Indian freedom struggle, and culminates in the analysis of the major socio-political movements like the Justice Party and the Self-Respect movement that have shaped the modern state. The philosophical depth of Thirukkural is also a key component, highlighting its enduring relevance.",
+      summaryTamil: "இந்த அலகு தமிழ் சமூகத்தின் வளமான மற்றும் பழங்கால வரலாற்றை ஆழமாக ஆராய்கிறது. இது செம்மொழி சங்க காலத்திலிருந்து தொடங்கி, அதன் இலக்கியம் மற்றும் நிர்வாகத்தை ஆராய்கிறது, இந்திய சுதந்திரப் போராட்டத்தில் தமிழ்நாட்டின் குறிப்பிடத்தக்க பங்களிப்புகளைக் கடந்து, நவீன மாநிலத்தை வடிவமைத்த நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம் போன்ற முக்கிய சமூக-அரசியல் இயக்கங்களின் பகுப்பாய்வில் முடிவடைகிறது. திருக்குறளின் தத்துவ ஆழமும் ஒரு முக்கிய அங்கமாகும், அதன் நீடித்த பொருத்தத்தை எடுத்துக்காட்டுகிறது.",
+      contextualInfo: "Understanding this unit is non-negotiable for any serious TNPSC aspirant. It forms the very identity of the state's administrative and social fabric. Questions are often designed to test not just factual recall but a deep, analytical understanding of how the past influences the present socio-political landscape of Tamil Nadu.",
+      contextualInfoTamil: "தீவிரமான எந்தவொரு TNPSC ஆர்வலருக்கும் இந்த அலகைப் புரிந்துகொள்வது கட்டாயமாகும். இது மாநிலத்தின் நிர்வாக மற்றும் சமூக கட்டமைப்பின் அடையாளத்தை உருவாக்குகிறது. கேள்விகள் பெரும்பாலும் உண்மைத் தகவல்களைச் சோதிப்பதற்காக மட்டுமல்லாமல், தமிழ்நாட்டின் தற்போதைய சமூக-அரசியல் நிலப்பரப்பில் கடந்த காலம் எவ்வாறு செல்வாக்கு செலுத்துகிறது என்பதைப் பற்றிய ஆழமான, பகுப்பாய்வுப் புரிதலைச் சோதிக்கும் வகையில் வடிவமைக்கப்பட்டுள்ளன.",
+      relevanceToExam: "Extremely high importance. As a cornerstone of the TNPSC syllabus (Unit-8), approximately 30-40 questions can be expected from this unit in the prelims, making it a deciding factor for qualification.",
       lastYearQuestions: [
         "2023: Explain the role of the Justice Party in the social reformation of Tamil Nadu.",
-        "2022: Describe the archaeological findings at Keeladi and their significance.",
-        "2021: Who authored the Tirukkural and what are its main teachings?"
+        "2022: Describe the archaeological findings at Keeladi and their significance for understanding the Sangam Age.",
+        "2021: Who authored the Tirukkural and what are its main teachings on 'Aram' (Virtue)?"
       ]
     },
     
@@ -192,40 +192,64 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
         id: "sangam-age",
         title: "Sangam Age",
         titleTamil: "சங்க காலம்",
-        content: "## Sangam Literature\n\nThe Sangam period is the period of history of ancient Tamil Nadu, Kerala and parts of Sri Lanka spanning from c. 6th century BCE to c. 3rd century CE. It was named after the famous Sangam academies of poets and scholars centered in the city of Madurai.",
-        contentTamil: "## சங்க இலக்கியம்\n\nசங்க காலம் என்பது பண்டைய தமிழ்நாடு, கேரளா மற்றும் இலங்கையின் சில பகுதிகளை உள்ளடக்கிய வரலாற்றுக் காலமாகும், இது கி.மு. 6 ஆம் நூற்றாண்டு முதல் கி.பி. 3 ஆம் நூற்றாண்டு வரை பரவியுள்ளது. இது மதுரையை மையமாகக் கொண்ட புகழ்பெற்ற சங்கப் புலவர் மற்றும் அறிஞர் அவைகளின் பெயரால் அழைக்கப்படுகிறது.",
+        content: "## Sangam Literature & Society\n\nThe Sangam period is the period of history of ancient Tamil Nadu, spanning from c. 6th century BCE to c. 3rd century CE. It was named after the famous Sangam academies of poets and scholars centered in the city of Madurai. The literature from this period, categorized into 'Agam' (love, inner life) and 'Puram' (war, public life), provides a rich tapestry of the life, administration, and values of the ancient Tamils. The governance was primarily monarchical, led by the Chera, Chola, and Pandya dynasties. The economy was agrarian and trade-based, with significant maritime trade with Roman and Southeast Asian empires.",
+        contentTamil: "## சங்க இலக்கியம் மற்றும் சமூகம்\n\nசங்க காலம் என்பது பண்டைய தமிழ்நாட்டின் வரலாற்றுக் காலமாகும், இது கி.மு. 6 ஆம் நூற்றாண்டு முதல் கி.பி. 3 ஆம் நூற்றாண்டு வரை பரவியுள்ளது. இது மதுரையை மையமாகக் கொண்ட புகழ்பெற்ற சங்கப் புலவர் மற்றும் அறிஞர் அவைகளின் பெயரால் அழைக்கப்படுகிறது. இந்தக் காலத்து இலக்கியம், 'அகம்' (காதல், உள்வாழ்க்கை) மற்றும் 'புறம்' (போர், பொதுவாழ்க்கை) என வகைப்படுத்தப்பட்டு, பண்டைய தமிழர்களின் வாழ்க்கை, நிர்வாகம் மற்றும் விழுமியங்களின் வளமான சித்திரத்தை வழங்குகிறது. சேர, சோழ மற்றும் பாண்டிய வம்சங்களால் வழிநடத்தப்பட்ட முடியாட்சி முதன்மையாக இருந்தது. பொருளாதாரம் வேளாண்மை மற்றும் வர்த்தகத்தை அடிப்படையாகக் கொண்டது, ரோமானிய மற்றும் தென்கிழக்கு ஆசிய பேரரசுகளுடன் குறிப்பிடத்தக்க கடல் வர்த்தகம் இருந்தது.",
         localContext: [
-          "Archaeological sites like Keeladi, Adichanallur provide physical evidence for this period.",
-          "The concepts of 'Thinai' (landscapes) are unique to Sangam poetry."
+          "Archaeological sites like Keeladi, Adichanallur, and Kodumanal provide physical evidence for the advanced urban civilization described in Sangam texts.",
+          "The concepts of 'Thinai' (five-fold land classification) are unique to Sangam poetry and reflect a deep ecological understanding."
         ],
         currentAffairs: [
           {
             year: 2024,
             topic: "Recent Keeladi findings",
-            relevance: "High probability of questions based on new archaeological discoveries."
+            relevance: "High probability of questions based on new archaeological discoveries about urban planning and literacy."
           }
         ]
+      },
+      {
+        id: "thirukkural",
+        title: "Thirukkural: Significance and Philosophy",
+        titleTamil: "திருக்குறள்: முக்கியத்துவம் மற்றும் தத்துவம்",
+        content: "## A Secular and Universal Text\n\nThirukkural, authored by Thiruvalluvar, is a masterpiece of Tamil literature, revered for its secular nature and universal applicability. It consists of 1330 couplets (kurals) divided into 133 chapters, each containing 10 couplets. The text is structured into three parts: Aram (அறம் - Virtue), Porul (பொருள் - Wealth/Governance), and Inbam (இன்பம் - Love). Unlike many ancient texts, it is not tied to any specific religion or ruler, offering timeless ethical, social, political, and economic guidance. Its emphasis on righteousness, just governance, and human relationships makes it a foundational text for understanding Tamil cultural values.",
+        contentTamil: "## ஒரு மதச்சார்பற்ற மற்றும் உலகளாவிய நூல்\n\nதிருவள்ளுவரால் இயற்றப்பட்ட திருக்குறள், தமிழ் இலக்கியத்தின் ஒரு தலைசிறந்த படைப்பாகும், அதன் மதச்சார்பற்ற தன்மை மற்றும் உலகளாவிய பயன்பாட்டிற்காக போற்றப்படுகிறது. இது 133 அதிகாரங்களாகப் பிரிக்கப்பட்ட 1330 குறள்களைக் கொண்டுள்ளது, ஒவ்வொரு அதிகாரத்திலும் 10 குறள்கள் உள்ளன. இந்த நூல் மூன்று பகுதிகளாக அமைக்கப்பட்டுள்ளது: அறம், பொருள், மற்றும் இன்பம். பல பழங்கால நூல்களைப் போலல்லாமல், இது எந்தவொரு குறிப்பிட்ட மதத்துடனோ அல்லது ஆட்சியாளருடனோ பிணைக்கப்படவில்லை, காலத்தால் அழியாத நெறிமுறை, சமூக, அரசியல் மற்றும் பொருளாதார வழிகாட்டுதலை வழங்குகிறது. அதன் நீதி, நேர்மையான ஆட்சி, மற்றும் மனித உறவுகளுக்கு அளிக்கும் முக்கியத்துவம், தமிழ் கலாச்சார விழுமியங்களைப் புரிந்துகொள்வதற்கான ஒரு அடித்தள நூலாக அமைகிறது.",
+        localContext: [
+          "Thirukkural is frequently quoted in Tamil Nadu legislative assembly debates and official communications.",
+          "The 133-foot statue of Thiruvalluvar in Kanyakumari symbolizes the 133 chapters of the Kural."
+        ],
+        currentAffairs: []
+      },
+       {
+        id: "freedom-struggle-tn",
+        title: "Role of Tamil Nadu in Freedom Struggle",
+        titleTamil: "சுதந்திரப் போராட்டத்தில் தமிழ்நாட்டின் பங்கு",
+        content: "## Early Agitations and Key Leaders\n\nTamil Nadu played a pioneering role in the struggle against British rule, with resistance dating back to the Palaiyakkarar (Poligar) revolts led by figures like Puli Thevan and Veerapandiya Kattabomman in the 18th century. The Vellore Mutiny of 1806 is considered a precursor to the 1857 Sepoy Mutiny. In the 20th century, leaders like Subramania Bharati (poet), V.O. Chidambaram Pillai (Swadeshi Steam Navigation Company), Tiruppur Kumaran (Kodikkatha Kumaran), and C. Rajagopalachari were at the forefront of the nationalist movement, participating actively in Swadeshi, Non-Cooperation, and Quit India movements.",
+        contentTamil: "## ஆரம்பகாலப் போராட்டங்கள் மற்றும் முக்கியத் தலைவர்கள்\n\nபிரிட்டிஷ் ஆட்சிக்கு எதிரான போராட்டத்தில் தமிழ்நாடு ஒரு முன்னோடிப் பங்காற்றியது, 18 ஆம் நூற்றாண்டில் பூலித்தேவன் மற்றும் வீரபாண்டிய கட்டபொம்மன் போன்ற தலைவர்களால் வழிநடத்தப்பட்ட பாளையக்காரர் கிளர்ச்சிகள் வரை இதன் எதிர்ப்பு நீண்டது. 1806 ஆம் ஆண்டு வேலூர் சிப்பாய் எழுச்சி, 1857 ஆம் ஆண்டு சிப்பாய் கலகத்திற்கு ஒரு முன்னோடியாகக் கருதப்படுகிறது. 20 ஆம் நூற்றாண்டில், சுப்பிரமணிய பாரதி (கவிஞர்), வ.உ. சிதம்பரம் பிள்ளை (சுதேசி நீராவி கப்பல் நிறுவனம்), திருப்பூர் குமரன் (கொடிகாத்த குமரன்), மற்றும் சி. ராஜகோபாலாச்சாரி போன்ற தலைவர்கள் தேசியவாத இயக்கத்தின் முன்னணியில் இருந்தனர், சுதேசி, ஒத்துழையாமை, மற்றும் வெள்ளையனே வெளியேறு இயக்கங்களில் தீவிரமாகப் பங்கேற்றனர்.",
+        localContext: [
+          "The Vedaranyam Salt March, led by C. Rajagopalachari, was the southern equivalent of the Dandi March.",
+          "Subramania Bharati's poems were a major source of inspiration for freedom fighters across the region."
+        ],
+        currentAffairs: []
       },
       {
         id: "justice-party",
         title: "Justice Party and Self-Respect Movement",
         titleTamil: "நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம்",
-        content: "## Social Reformation\n\nThe Justice Party, officially the South Indian Liberal Federation, was a political party in the Madras Presidency of British India. It was the first backward class mobilization which created social and political awareness among the non-brahmin people of south India. The Self-Respect Movement, led by E.V. Ramasamy (Periyar), was a movement with the aim of achieving a society where backward castes have equal human rights.",
-        contentTamil: "## சமூக சீர்திருத்தம்\n\nநீதிக் கட்சி, அதிகாரப்பூர்வமாக தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, பிரிட்டிஷ் இந்தியாவின் மெட்ராஸ் பிரசிடென்சியில் ஒரு அரசியல் கட்சியாகும். இது தென்னிந்தியாவின் பிராமணர் அல்லாத மக்களிடையே சமூக மற்றும் அரசியல் விழிப்புணர்வை உருவாக்கிய முதல் பின்தங்கிய வகுப்பு அணிதிரட்டலாகும். ஈ.வெ. ராமசாமி (பெரியார்) தலைமையிலான சுயமரியாதை இயக்கம், பின்தங்கிய சாதியினருக்கு சமமான மனித உரிமைகள் உள்ள ஒரு சமூகத்தை அடையும் நோக்கத்துடன் ஒரு இயக்கமாக இருந்தது.",
+        content: "## Social Reformation and Dravidian Ideology\n\nThe Justice Party, officially the South Indian Liberal Federation, was a political party in the Madras Presidency of British India. It was the first major backward class mobilization which created social and political awareness among the non-Brahmin people of south India. The Self-Respect Movement, led by E.V. Ramasamy (Periyar), was a radical social movement with the aim of achieving a society where backward castes have equal human rights, focusing on rationalism, abolition of the caste system, and women's rights. These movements laid the foundation for Dravidian politics in Tamil Nadu.",
+        contentTamil: "## சமூக சீர்திருத்தம் மற்றும் திராவிட சித்தாந்தம்\n\nநீதிக் கட்சி, அதிகாரப்பூர்வமாக தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, பிரிட்டிஷ் இந்தியாவின் மெட்ராஸ் பிரசிடென்சியில் ஒரு அரசியல் கட்சியாகும். இது தென்னிந்தியாவின் பிராமணர் அல்லாத மக்களிடையே சமூக மற்றும் அரசியல் விழிப்புணர்வை உருவாக்கிய முதல் பெரிய பின்தங்கிய வகுப்பு அணிதிரட்டலாகும். ஈ.வெ. ராமசாமி (பெரியார்) தலைமையிலான சுயமரியாதை இயக்கம், பின்தங்கிய சாதியினருக்கு சமமான மனித உரிமைகள் உள்ள, பகுத்தறிவு, சாதி ஒழிப்பு மற்றும் பெண்கள் உரிமைகளில் கவனம் செலுத்தும் ஒரு சமூகத்தை அடையும் நோக்கத்துடன் ஒரு தீவிர சமூக இயக்கமாக இருந்தது. இந்த இயக்கங்கள் தமிழ்நாட்டில் திராவிட அரசியலுக்கு அடித்தளமிட்டன.",
         localContext: [
           "The reservation policy in Tamil Nadu is a direct outcome of these movements.",
-          "Statues and memorials for Periyar are common across Tamil Nadu."
+          "Statues and memorials for Periyar are common across Tamil Nadu, reflecting his profound impact on the state."
         ],
         currentAffairs: []
       }
     ],
     
     specificData: {
-      keyTerms: ["Sangam", "Thinai", "Agam", "Puram", "Tirukkural", "Justice Party", "Self-Respect Movement", "Dravidian Movement"],
-      importantFigures: ["Thiruvalluvar", "Periyar E.V. Ramasamy", "C.N. Annadurai", "Kamarajar"],
-      significantEvents: ["First, Second, and Third Sangam", "Vaikom Satyagraha", "Anti-Hindi Agitations"],
+      keyTerms: ["Sangam", "Thinai", "Agam", "Puram", "Tirukkural", "Aram", "Porul", "Inbam", "Justice Party", "Self-Respect Movement", "Dravidian Movement", "Palaiyakkarar", "Vellore Mutiny", "Swadeshi"],
+      importantFigures: ["Thiruvalluvar", "Periyar E.V. Ramasamy", "C.N. Annadurai", "K. Kamarajar", "Puli Thevan", "Veerapandiya Kattabomman", "Subramania Bharati", "V.O. Chidambaram Pillai", "Tiruppur Kumaran"],
+      significantEvents: ["First, Second, and Third Sangam", "Vaikom Satyagraha", "Anti-Hindi Agitations of 1937 & 1965", "Vedaranyam Salt March", "Vellore Mutiny (1806)"],
       relevantLaws: ["Communal G.O. of 1921"],
-      institutions: ["Tamil Nadu Archaeological Department", "Central Institute of Classical Tamil", "Periyar Memorial Museum"]
+      institutions: ["Tamil Nadu Archaeological Department", "Central Institute of Classical Tamil", "Periyar Memorial Museum, Vaikom"]
     },
     
     practice: {
