@@ -132,38 +132,205 @@ export const hydrocarbons: NeetModule = {
             problem: "Which of the following alkanes cannot be prepared in good yield by the Wurtz reaction? (a) Hexane, (b) Butane, (c) Propane, (d) Ethane",
             problemTamil: "பின்வரும் ஆல்கேன்களில் எது வூர்ட்ஸ் வினையால் நல்ல விளைச்சலில் தயாரிக்க முடியாது? (a) ஹெக்சேன், (b) பியூட்டேன், (c) புரோப்பேன், (d) ஈத்தேன்",
             solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "The Wurtz reaction involves coupling two alkyl halides (2R-X + 2Na → R-R). It is best suited for preparing symmetrical alkanes (R-R) where the product has an even number of carbon atoms.",
-                    explanationTamil: "வூர்ட்ஸ் வினை இரண்டு அல்கைல் ஹேலைடுகளை இணைப்பதை உள்ளடக்கியது (2R-X + 2Na → R-R). சமச்சீரான ஆல்கேன்களை (R-R) தயாரிக்க இது மிகவும் பொருத்தமானது, இங்கு விளைபொருளில் இரட்டைப்படை எண்ணிக்கையிலான கார்பன் அணுக்கள் உள்ளன."
-                },
-                {
-                    step: 2,
-                    explanation: "To prepare an alkane with an odd number of carbon atoms, like propane (3 carbons), one would have to use a mixture of two different alkyl halides (e.g., methyl chloride and ethyl chloride).",
-                    explanationTamil: "புரோப்பேன் (3 கார்பன்கள்) போன்ற ஒற்றைப்படை எண்ணிக்கையிலான கார்பன் அணுக்களைக் கொண்ட ஒரு ஆல்கேனைத் தயாரிக்க, இரண்டு வெவ்வேறு அல்கைல் ஹேலைடுகளின் கலவையைப் பயன்படுத்த வேண்டும் (எ.கா., மெத்தில் குளோரைடு மற்றும் எத்தில் குளோரைடு)."
-                },
-                {
-                    step: 3,
-                    explanation: "Using a mixture of alkyl halides (R-X and R'-X) leads to a mixture of products (R-R, R'-R', and R-R'), which are difficult to separate and result in a poor yield of the desired odd-carbon alkane.",
-                    explanationTamil: "அல்கைல் ஹேலைடுகளின் கலவையைப் பயன்படுத்துவது (R-X மற்றும் R'-X) விளைபொருட்களின் கலவைக்கு (R-R, R'-R', மற்றும் R-R') வழிவகுக்கிறது, அவற்றை பிரிப்பது கடினம் மற்றும் விரும்பிய ஒற்றைப்படை-கார்பன் ஆல்கேனின் குறைந்த விளைச்சலை விளைவிக்கிறது."
-                },
-                {
-                    step: 4,
-                    explanation: "Ethane (2C), Butane (4C), and Hexane (6C) are all symmetrical alkanes with an even number of carbons and can be prepared in good yield. Propane (3C) has an odd number of carbons and cannot.",
-                    explanationTamil: "ஈத்தேன் (2C), பியூட்டேன் (4C), மற்றும் ஹெக்சேன் (6C) ஆகியவை அனைத்தும் இரட்டைப்படை எண்ணிக்கையிலான கார்பன்களைக் கொண்ட சமச்சீரான ஆல்கேன்கள் மற்றும் நல்ல விளைச்சலில் தயாரிக்கப்படலாம். புரோப்பேன் (3C) ஒற்றைப்படை எண்ணிக்கையிலான கார்பன்களைக் கொண்டுள்ளது மற்றும் தயாரிக்க முடியாது."
-                }
+                { step: 1, explanation: "The Wurtz reaction involves coupling two alkyl halides (2R-X + 2Na → R-R). It is best suited for preparing symmetrical alkanes (R-R) where the product has an even number of carbon atoms.", explanationTamil: "வூர்ட்ஸ் வினை இரண்டு அல்கைல் ஹேலைடுகளை இணைப்பதை உள்ளடக்கியது (2R-X + 2Na → R-R). சமச்சீரான ஆல்கேன்களை (R-R) தயாரிக்க இது மிகவும் பொருத்தமானது, இங்கு விளைபொருளில் இரட்டைப்படை எண்ணிக்கையிலான கார்பன் அணுக்கள் உள்ளன." },
+                { step: 2, explanation: "To prepare an alkane with an odd number of carbon atoms, like propane (3 carbons), one would have to use a mixture of two different alkyl halides (e.g., methyl chloride and ethyl chloride).", explanationTamil: "புரோப்பேன் (3 கார்பன்கள்) போன்ற ஒற்றைப்படை எண்ணிக்கையிலான கார்பன் அணுக்களைக் கொண்ட ஒரு ஆல்கேனைத் தயாரிக்க, இரண்டு வெவ்வேறு அல்கைல் ஹேலைடுகளின் கலவையைப் பயன்படுத்த வேண்டும் (எ.கா., மெத்தில் குளோரைடு மற்றும் எத்தில் குளோரைடு)." },
+                { step: 3, explanation: "Using a mixture of alkyl halides (R-X and R'-X) leads to a mixture of products (R-R, R'-R', and R-R'), which are difficult to separate and result in a poor yield of the desired odd-carbon alkane.", explanationTamil: "அல்கைல் ஹேலைடுகளின் கலவையைப் பயன்படுத்துவது (R-X மற்றும் R'-X) விளைபொருட்களின் கலவைக்கு (R-R, R'-R', மற்றும் R-R') வழிவகுக்கிறது, அவற்றை பிரிப்பது கடினம் மற்றும் விரும்பிய ஒற்றைப்படை-கார்பன் ஆல்கேனின் குறைந்த விளைச்சலை விளைவிக்கிறது." },
+                { step: 4, explanation: "Ethane (2C), Butane (4C), and Hexane (6C) are all symmetrical alkanes with an even number of carbons and can be prepared in good yield. Propane (3C) has an odd number of carbons and cannot.", explanationTamil: "ஈத்தேன் (2C), பியூட்டேன் (4C), மற்றும் ஹெக்சேன் (6C) ஆகியவை அனைத்தும் இரட்டைப்படை எண்ணிக்கையிலான கார்பன்களைக் கொண்ட சமச்சீரான ஆல்கேன்கள் மற்றும் நல்ல விளைச்சலில் தயாரிக்கப்படலாம். புரோப்பேன் (3C) ஒற்றைப்படை எண்ணிக்கையிலான கார்பன்களைக் கொண்டுள்ளது மற்றும் தயாரிக்க முடியாது." }
             ]
         }
     ],
-    mcqs: [],
-    assertionReasons: [],
-    matchTheColumns: [],
-    keyFormulasAndDiagrams: { formulas: [], diagrams: [] },
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
-    studentTip: { english: "", tamil: "" },
-    peerDiscussion: { english: "", tamil: "" },
-    nextChapter: { title: "Organic Compounds Containing Halogens", titleTamil: "ஹாலோஜன் கொண்ட கரிமச் சேர்மங்கள்" },
+    mcqs: [
+        {
+            question: "Which of the following compounds will react with NaNH₂ to form sodium salt?",
+            options: ["A. Ethene", "B. Ethane", "C. Ethyne", "D. Benzene"],
+            answer: "C. Ethyne",
+            explanation: "Ethyne is a terminal alkyne and is acidic in nature. It reacts with a strong base like sodamide (NaNH₂) to form sodium acetylide.",
+            neetFrequency: 4
+        },
+        {
+            question: "The reaction of HBr with propene in the presence of peroxide follows:",
+            options: ["A. Markovnikov's rule", "B. Anti-Markovnikov's rule", "C. Saytzeff's rule", "D. Huckel's rule"],
+            answer: "B. Anti-Markovnikov's rule",
+            explanation: "The addition of HBr to an unsymmetrical alkene in the presence of peroxide proceeds via a free-radical mechanism, leading to the Anti-Markovnikov product.",
+            neetFrequency: 5
+        },
+        {
+            question: "The number of sigma (σ) and pi (π) bonds in benzene are:",
+            options: ["A. 12σ, 3π", "B. 6σ, 6π", "C. 3σ, 12π", "D. 12σ, 6π"],
+            answer: "A. 12σ, 3π",
+            explanation: "Benzene has a planar ring structure with 6 C-C sigma bonds, 6 C-H sigma bonds (total 12σ), and 3 delocalized pi bonds.",
+            neetFrequency: 3
+        },
+        {
+            question: "Which of the following is not an electrophile?",
+            options: ["A. NO₂⁺", "B. SO₃", "C. Cl⁺", "D. H₂O"],
+            answer: "D. H₂O",
+            explanation: "H₂O has lone pairs of electrons on the oxygen atom and acts as a nucleophile (electron donor), not an electrophile.",
+            neetFrequency: 4
+        },
+        {
+            question: "Ozonolysis of 2-methylbut-2-ene will give:",
+            options: ["A. Propanone and Ethanal", "B. Propanal and Methanal", "C. Propanone and Methanal", "D. Butanone and Methanal"],
+            answer: "A. Propanone and Ethanal",
+            explanation: "2-methylbut-2-ene is (CH₃)₂C=CHCH₃. Ozonolysis cleaves the double bond, giving (CH₃)₂C=O (Propanone or Acetone) and CH₃CH=O (Ethanal or Acetaldehyde).",
+            neetFrequency: 5
+        },
+        {
+            question: "Which of the following is the most stable carbocation?",
+            options: ["A. CH₃⁺", "B. CH₃CH₂⁺", "C. (CH₃)₂CH⁺", "D. (CH₃)₃C⁺"],
+            answer: "D. (CH₃)₃C⁺",
+            explanation: "The stability of carbocations follows the order 3° > 2° > 1°. The tertiary carbocation is the most stable due to hyperconjugation and inductive effects.",
+            neetFrequency: 4
+        },
+        {
+            question: "The IUPAC name for neopentane is:",
+            options: ["A. 2-Methylbutane", "B. 2,2-Dimethylpropane", "C. Pentane", "D. Dimethylpropane"],
+            answer: "B. 2,2-Dimethylpropane",
+            explanation: "The longest carbon chain has 3 carbons (propane), and there are two methyl groups on the second carbon.",
+            neetFrequency: 2
+        },
+        {
+            question: "Benzene reacts with CH₃Cl in the presence of anhydrous AlCl₃ to form:",
+            options: ["A. Chlorobenzene", "B. Toluene", "C. Benzyl chloride", "D. Xylene"],
+            answer: "B. Toluene",
+            explanation: "This is the Friedel-Crafts alkylation reaction, which attaches the methyl group to the benzene ring, forming toluene.",
+            neetFrequency: 3
+        },
+        {
+            question: "Which of the following has the highest boiling point?",
+            options: ["A. n-pentane", "B. isopentane (2-methylbutane)", "C. neopentane (2,2-dimethylpropane)", "D. n-butane"],
+            answer: "A. n-pentane",
+            explanation: "For alkanes with the same number of carbon atoms, the boiling point decreases with increasing branching due to a smaller surface area and weaker van der Waals forces.",
+            neetFrequency: 3
+        },
+        {
+            question: "The test for unsaturation (presence of double or triple bonds) is:",
+            options: ["A. Tollen's test", "B. Fehling's test", "C. Baeyer's test (cold, dilute KMnO₄)", "D. Lassaigne's test"],
+            answer: "C. Baeyer's test (cold, dilute KMnO₄)",
+            explanation: "Alkenes and alkynes decolorize the purple color of cold, dilute, alkaline KMnO₄ solution (Baeyer's reagent).",
+            neetFrequency: 4
+        },
+        { question: "Hybridization of carbon atoms in ethyne is:", options: ["A. sp³", "B. sp²", "C. sp", "D. sp³d"], answer: "C. sp", explanation: "In ethyne (C₂H₂), there is a triple bond between the carbon atoms, which corresponds to sp hybridization.", neetFrequency: 2 },
+        { question: "Which conformation of ethane is most stable?", options: ["A. Eclipsed", "B. Skew", "C. Staggered", "D. Gauche"], answer: "C. Staggered", explanation: "The staggered conformation has the least torsional strain as the hydrogen atoms are farthest apart.", neetFrequency: 3 },
+        { question: "Saytzeff's rule predicts the major product in:", options: ["A. Addition reactions", "B. Substitution reactions", "C. Elimination reactions", "D. Rearrangement reactions"], answer: "C. Elimination reactions", explanation: "Saytzeff's rule states that in dehydrohalogenation reactions, the preferred product is the alkene which has the greater number of alkyl groups attached to the double bonded carbon atoms (i.e., the more substituted alkene).", neetFrequency: 3 },
+        { question: "Which of the following is not aromatic?", options: ["A. Benzene", "B. Cyclooctatetraene", "C. Pyridine", "D. Naphthalene"], answer: "B. Cyclooctatetraene", explanation: "Cyclooctatetraene has 8 π-electrons, which does not follow Huckel's rule (4n+2). It is also non-planar and tub-shaped.", neetFrequency: 3 },
+        { question: "The catalyst used in the hydration of alkynes to form aldehydes/ketones is:", options: ["A. H₂SO₄/HgSO₄", "B. Anhydrous AlCl₃", "C. Na/Liquid NH₃", "D. Pd/C"], answer: "A. H₂SO₄/HgSO₄", explanation: "The hydration of alkynes is catalyzed by a mixture of dilute sulfuric acid and mercuric sulphate.", neetFrequency: 4 },
+        { question: "The conversion of n-hexane into benzene by heating in the presence of a catalyst is called:", options: ["A. Isomerization", "B. Aromatization", "C. Pyrolysis", "D. Cracking"], answer: "B. Aromatization", explanation: "Aromatization is the process of converting non-aromatic hydrocarbons into aromatic ones.", neetFrequency: 2 },
+        { question: "Which of the following is an ortho, para-directing group for electrophilic substitution?", options: ["A. -NO₂", "B. -CN", "C. -COOH", "D. -OH"], answer: "D. -OH", explanation: "The -OH group is an activating, electron-donating group, which directs incoming electrophiles to the ortho and para positions.", neetFrequency: 5 },
+        { question: "Which of the following is used to distinguish between ethene and ethyne?", options: ["A. Bromine water", "B. Baeyer's reagent", "C. Ammoniacal AgNO₃", "D. Hydrogenation"], answer: "C. Ammoniacal AgNO₃", explanation: "Ethyne, being a terminal alkyne, is acidic and gives a white precipitate with Tollens' reagent (ammoniacal silver nitrate). Ethene does not react.", neetFrequency: 3 },
+        { question: "The anti-Markovnikov addition of HBr is not observed in:", options: ["A. Propene", "B. But-1-ene", "C. But-2-ene", "D. Pent-1-ene"], answer: "C. But-2-ene", explanation: "But-2-ene is a symmetrical alkene. The addition of HBr gives only one product (2-bromobutane), so Markovnikov's and anti-Markovnikov's rules do not apply.", neetFrequency: 4 },
+        { question: "Polymerization of acetylene gives:", options: ["A. Polythene", "B. Polypropene", "C. Polystyrene", "D. Benzene"], answer: "D. Benzene", explanation: "When acetylene is passed through a red-hot iron tube at 873 K, it undergoes cyclic polymerization to form benzene.", neetFrequency: 2 },
+        { question: "Which reaction is used to prepare pure alkanes?", options: ["A. Wurtz reaction", "B. Kolbe's electrolysis", "C. Hydrogenation of alkenes", "D. All of the above"], answer: "C. Hydrogenation of alkenes", explanation: "Hydrogenation of a pure alkene gives a pure alkane. Wurtz and Kolbe's reactions often produce side products.", neetFrequency: 2 },
+        { question: "The most stable free radical is:", options: ["A. Methyl", "B. Primary", "C. Secondary", "D. Tertiary"], answer: "D. Tertiary", explanation: "The stability of free radicals follows the same order as carbocations (3° > 2° > 1°) due to hyperconjugation.", neetFrequency: 3 },
+        { question: "Benzene on treatment with excess chlorine in the presence of sunlight gives:", options: ["A. Hexachlorobenzene", "B. Benzene hexachloride (BHC)", "C. Chlorobenzene", "D. o-dichlorobenzene"], answer: "B. Benzene hexachloride (BHC)", explanation: "In the presence of UV light, benzene undergoes an addition reaction with chlorine, not substitution, to form benzene hexachloride (gammexane).", neetFrequency: 2 },
+        { question: "Which reagent can be used to distinguish between alkane and alkene?", options: ["A. Conc. H₂SO₄", "B. Tollen's reagent", "C. Schiff's reagent", "D. Bromine in CCl₄"], answer: "D. Bromine in CCl₄", explanation: "Alkenes undergo an addition reaction with bromine in CCl₄, decolorizing the reddish-brown solution. Alkanes do not react under these conditions.", neetFrequency: 3 },
+        { question: "The nitrating agent for the nitration of benzene is:", options: ["A. HNO₃", "B. NO₂", "C. Conc. HNO₃ + Conc. H₂SO₄", "D. HNO₂"], answer: "C. Conc. HNO₃ + Conc. H₂SO₄", explanation: "The mixture of concentrated nitric acid and concentrated sulfuric acid generates the nitronium ion (NO₂⁺) electrophile required for the reaction.", neetFrequency: 4 }
+    ],
+    assertionReasons: [
+        {
+            assertion: "Benzene is more stable than a hypothetical cyclohexatriene.",
+            reason: "The delocalization of π-electrons in benzene gives it extra stability (resonance energy).",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation for the stability of benzene.",
+            neetFrequency: 4
+        },
+        {
+            assertion: "Terminal alkynes are acidic in nature.",
+            reason: "The hydrogen atom is attached to an sp hybridized carbon atom, which has high s-character.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. The high s-character makes the sp carbon more electronegative, polarizing the C-H bond and making the hydrogen acidic.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "The Wurtz reaction cannot be used to prepare alkanes with an odd number of carbon atoms in good yield.",
+            reason: "Using a mixture of two different alkyl halides gives a mixture of three different alkane products.",
+            answer: "A",
+            explanation: "Assertion is true. Reason is also true and correctly explains why the yield is poor due to the formation of multiple side products.",
+            neetFrequency: 2
+        },
+        {
+            assertion: "Addition of HBr to but-2-ene gives a single product.",
+            reason: "But-2-ene is a symmetrical alkene.",
+            answer: "A",
+            explanation: "Assertion is true. The product is 2-bromobutane. The reason is also true and is the correct explanation. Since the alkene is symmetrical, addition to either carbon of the double bond gives the same product.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "All C-C bonds in benzene are of equal length.",
+            reason: "Benzene has two resonance structures with alternating single and double bonds.",
+            answer: "B",
+            explanation: "Both assertion and reason are true. However, the reason is an incomplete explanation. The true structure is a resonance hybrid of these two structures, where the electron density is evenly distributed, making all C-C bonds identical and intermediate in length between a single and a double bond.",
+            neetFrequency: 4
+        }
+    ],
+    matchTheColumns: [
+        {
+            column1: ["(a) Wurtz Reaction", "(b) Friedel-Crafts Reaction", "(c) Ozonolysis", "(d) Hydrogenation"],
+            column2: ["(p) Formation of carbonyl compounds", "(q) Preparation of alkanes from alkyl halides", "(r) Addition of hydrogen", "(s) Alkylation of benzene"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "Matching the name reactions with their primary function or product type.",
+            neetFrequency: 4
+        },
+        {
+            column1: ["(a) Alkane", "(b) Alkene", "(c) Alkyne", "(d) Arene"],
+            column2: ["(p) Electrophilic addition", "(q) Electrophilic substitution", "(r) sp hybridization", "(s) Free radical substitution"],
+            answer: "a-s, b-p, c-p,r; d-q",
+            explanation: "Matching the hydrocarbon class with its characteristic reaction or property. Alkynes also undergo electrophilic addition."
+        },
+        {
+            column1: ["(a) Markovnikov's rule", "(b) Saytzeff's rule", "(c) Huckel's rule", "(d) Baeyer's test"],
+            column2: ["(p) Aromaticity", "(q) Test for unsaturation", "(r) Product of dehydrohalogenation", "(s) Product of HBr addition"],
+            answer: "a-s, b-r, c-p, d-q",
+            explanation: "Matching the rules and tests with the reactions or concepts they apply to.",
+            neetFrequency: 5
+        },
+        {
+            column1: ["(a) Ortho-para directing", "(b) Meta directing", "(c) Activating group", "(d) Deactivating group"],
+            column2: ["(p) -NO₂", "(q) -OH", "(r) Electron donating", "(s) Electron withdrawing"],
+            answer: "a-q, b-p, c-q,r; d-p,s",
+            explanation: "Matching substituent effects. -OH is an activating, o,p-directing group. -NO₂ is a deactivating, m-directing group."
+        },
+        {
+            column1: ["(a) Ethane", "(b) Ethene", "(c) Ethyne", "(d) Benzene"],
+            column2: ["(p) sp² hybridization", "(q) sp³ hybridization", "(r) C₆H₆", "(s) sp hybridization"],
+            answer: "a-q, b-p, c-s, d-p,r",
+            explanation: "Matching the compounds with their hybridization or formula. Benzene also has sp² hybridized carbons.",
+            neetFrequency: 3
+        }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            { formula: "R-X + 2Na + X-R \\xrightarrow{\\text{dry ether}} R-R + 2NaX", description: "Wurtz Reaction for preparing symmetrical alkanes.", descriptionTamil: "சமச்சீர் ஆல்கேன்களைத் தயாரிப்பதற்கான வூர்ட்ஸ் வினை." },
+            { formula: "Markovnikov's Rule: Negative part adds to carbon with fewer H's.", description: "Rule for addition of unsymmetrical reagents to unsymmetrical alkenes.", descriptionTamil: "சமச்சீரற்ற ஆல்கீன்களுடன் சமச்சீரற்ற கரணிகளைச் சேர்ப்பதற்கான விதி." },
+            { formula: "Huckel's Rule: (4n+2)π electrons", description: "The rule for determining aromaticity in a planar, cyclic, conjugated system.", descriptionTamil: "ஒரு தள, வளைய, இணைந்த அமைப்பில் அரோமாட்டிக் தன்மையைத் தீர்மானிப்பதற்கான விதி." }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Alkanes undergo substitution, while alkenes and alkynes undergo addition reactions.",
+        "Markovnikov's rule governs the addition of unsymmetrical reagents to alkenes based on carbocation stability.",
+        "Aromatic compounds like benzene are unusually stable due to electron delocalization and undergo electrophilic substitution rather than addition.",
+        "The directing influence of a substituent on a benzene ring determines the position of the next incoming electrophile."
+    ],
+    mnemonics: [
+        { text: "Remember activating groups are 'Ortho-Para Directors': 'A'ctivating 'O'r 'P'eople. Deactivating groups are 'Meta Directors'.", tamil: "கிளர்வூட்டும் குழுக்கள் 'ஆர்த்தோ-பாரா இயக்குநர்கள்' என்பதை நினைவில் கொள்க. கிளர்வு நீக்கும் குழுக்கள் 'மெட்டா இயக்குநர்கள்'." },
+        { text: "For Markovnikov: 'The rich get richer'. The carbon that already has more hydrogens gets the new hydrogen.", tamil: "மார்க்கோனிகாவ் விதிக்கு: 'பணக்காரர்கள் மேலும் பணக்காரர்கள் ஆகிறார்கள்'. ஏற்கனவே அதிக ஹைட்ரஜன்களைக் கொண்ட கார்பன் புதிய ஹைட்ரஜனைப் பெறுகிறது." }
+    ],
+    neetTips: [
+        { text: "Ozonolysis problems are very common. Practice working them backwards: identify the carbonyl products and 'glue' them back together at the carbonyl carbons to find the original alkene.", tamil: "ஓசோனேற்ற கணக்குகள் மிகவும் பொதுவானவை. அவற்றை பின்னோக்கிச் செய்யப் பயிற்சி செய்யுங்கள்: கார்போனைல் விளைபொருட்களை அடையாளம் கண்டு, அவற்றை கார்போனைல் கார்பன்களில் மீண்டும் 'ஒட்டவும்' để அசல் ஆல்கீனைக் கண்டறியவும்." },
+        { text: "Mastering the concepts of activating/deactivating and ortho-para/meta directing groups is crucial for predicting the products of aromatic substitution reactions.", tamil: "அரோமாட்டிக் பதிலீட்டு வினைகளின் விளைபொருட்களைக் கணிக்க, கிளர்வூட்டும்/கிளர்வு நீக்கும் மற்றும் ஆர்த்தோ-பாரா/மெட்டா இயக்கும் குழுக்களின் கருத்துக்களை நன்கு அறிந்திருப்பது அவசியம்." }
+    ],
+    studentTip: {
+        english: "Organic chemistry is cumulative. Make sure you have a very strong foundation in nomenclature and electronic effects from this chapter before moving on. It will make subsequent chapters much easier.",
+        tamil: "கரிம வேதியியல் ஒரு தொடர் நிகழ்வு. அடுத்த அத்தியாயங்களுக்குச் செல்வதற்கு முன், இந்த அத்தியாயத்திலிருந்து பெயரிடுதல் மற்றும் எலக்ட்ரான் விளைவுகளில் மிகவும் வலுவான அடித்தளத்தை உறுதிப்படுத்திக் கொள்ளுங்கள். இது அடுத்தடுத்த அத்தியாயங்களை மிகவும் எளிதாக்கும்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why halogens (like -Cl) are deactivating yet ortho-para directing. How do the inductive (-I) and resonance (+R) effects compete in this case?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: ஏன் ஹாலஜன்கள் (-Cl போன்றவை) கிளர்வு நீக்கும் பண்புடையதாக இருந்தாலும் ஆர்த்தோ-பாரா இயக்கும் பண்பைக் கொண்டுள்ளன? இந்த விஷயத்தில் தூண்டல் (-I) மற்றும் உடனிசைவு (+R) விளைவுகள் எவ்வாறு போட்டியிடுகின்றன?"
+    },
+    nextChapter: {
+        title: "Organic Compounds Containing Halogens",
+        titleTamil: "ஹாலோஜன் கொண்ட கரிமச் சேர்மங்கள்"
+    },
     validationReport: []
 };
