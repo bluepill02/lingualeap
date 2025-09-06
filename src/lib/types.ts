@@ -270,12 +270,15 @@ export interface ExamModule {
 export interface CompanionCircle {
     id: string;
     name: string;
+    nameTamil: string;
     description: string;
     memberCount: number;
+    posts?: number;
+    resources?: number;
     type: 'Mentor-led' | 'Peer Study';
-    subject: 'Physics' | 'Chemistry' | 'Biology';
+    subject: string;
     difficulty: 'Foundation' | 'Bridge' | 'Core';
-    language: 'English' | 'Tamil';
+    language: 'English' | 'Tamil' | 'Multi Language';
     members: {
         id: string;
         name: string;
