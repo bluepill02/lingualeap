@@ -13,7 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, BookOpen, ChevronsDown, Brain, Activity, HelpCircle } from 'lucide-react';
+import { CheckCircle, XCircle, Lightbulb, AlertTriangle, FileText, Star, BookOpen, ChevronsDown, Brain, Activity, HelpCircle, Bot } from 'lucide-react';
 import type { NeetModule, MCQ, AssertionReason, MatchTheColumns, WorkedExample, KeyFormula, KeyDiagram, BilingualContent, ConceptNote } from '@/lib/types';
 import { Separator } from '../ui/separator';
 import { FbdBuilder } from './FbdBuilder';
@@ -21,8 +21,9 @@ import { cn } from '@/lib/utils';
 import { MarkdownRenderer } from './markdown-renderer';
 import { BilingualText } from './bilingual-text';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PracticeMode } from './neet-practice-mode';
+import { motion } from 'framer-motion';
 import { PracticeAnalytics } from './neet-practice-analytics';
+import { AiQuizGenerator } from './ai-quiz-generator';
 
 
 export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
@@ -199,7 +200,11 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
 }
 
 
-export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }: { mcqs: MCQ[], assertionReasons: AssertionReason[], matchTheColumns: MatchTheColumns[] }) {
+export function PracticeSectionCard({ module }: { module: NeetModule }) {
+    const { mcqs, assertionReasons, matchTheColumns, subject, chapter } = module;
+    const [activeCardIndex, setActiveCardIndex] = React.useState<number | null>(null);
+    const [individualCardFlipped, setIndividualCardFlipped] = React.useState<boolean[]>(Array(mcqs?.length || 0).fill(false));
+
     if (!mcqs || !assertionReasons || !matchTheColumns) {
         return (
             <Card>
@@ -212,28 +217,6 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
             </Card>
         );
     }
-
-    const [answers, setAnswers] = useState<(string | null)[]>(Array(mcqs.length).fill(null));
-    const [submitted, setSubmitted] = useState(false);
-    const [flipped, setFlipped] = useState<boolean[]>(Array(mcqs.length).fill(false));
-
-    const handleOptionSelect = (qIndex: number, option: string) => {
-        if (submitted) return;
-        const newAnswers = [...answers];
-        newAnswers[qIndex] = option;
-        setAnswers(newAnswers);
-    };
-
-    const handleSubmit = () => {
-        setSubmitted(true);
-        setFlipped(Array(mcqs.length).fill(true));
-    };
-
-    const handleReset = () => {
-        setAnswers(Array(mcqs.length).fill(null));
-        setSubmitted(false);
-        setFlipped(Array(mcqs.length).fill(false));
-    };
    
     return (
         <Card>
@@ -245,47 +228,31 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                 <Tabs defaultValue="practice" className="w-full">
                     <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="practice">Practice Mode</TabsTrigger>
+                        <TabsTrigger value="ai-practice"><Bot className="mr-2 h-4 w-4"/>AI Practice</TabsTrigger>
                         <TabsTrigger value="all-questions">All Questions</TabsTrigger>
                         <TabsTrigger value="analytics">Performance</TabsTrigger>
-                        <TabsTrigger value="more">More Types</TabsTrigger>
                     </TabsList>
+                     <TabsContent value="ai-practice" className="mt-4">
+                        <AiQuizGenerator subject={subject} chapter={chapter} />
+                    </TabsContent>
                     <TabsContent value="practice" className="mt-4">
-                       <PracticeMode 
-                            mcqs={mcqs}
-                            answers={answers}
-                            submitted={submitted}
-                            flipped={flipped}
-                            onOptionSelect={handleOptionSelect}
-                            onSubmit={handleSubmit}
-                            onReset={handleReset}
-                        />
+                       <p>Practice Mode coming soon!</p>
                     </TabsContent>
                     <TabsContent value="all-questions" className="mt-4">
-                        <Accordion type="multiple" className="w-full space-y-4">
-                            {mcqs.map((mcq, index) => (
-                                <AccordionItem value={`item-${index}`} key={index}>
-                                    <AccordionTrigger className="text-left font-semibold">
-                                        <div className="flex items-start gap-3">
-                                            <span className="mt-1">{index + 1}.</span>
-                                            <div className="prose dark:prose-invert max-w-none text-left"><MarkdownRenderer>{mcq.question}</MarkdownRenderer></div>
-                                        </div>
-                                    </AccordionTrigger>
-                                    <AccordionContent className="p-4 bg-muted/50 rounded-b-md">
-                                        <div className="prose dark:prose-invert max-w-none text-sm space-y-2">
-                                            <p><strong>Answer:</strong> {mcq.answer}</p>
-                                            <p><strong>Explanation:</strong> <MarkdownRenderer>{mcq.explanation}</MarkdownRenderer></p>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
-                    </TabsContent>
-                    <TabsContent value="analytics" className="mt-4">
-                        <PracticeAnalytics mcqs={mcqs} answers={answers} submitted={submitted} />
-                    </TabsContent>
-                    <TabsContent value="more" className="mt-4">
-                         <Accordion type="multiple" className="w-full space-y-4" defaultValue={['assertion-reason']}>
-                            {assertionReasons && assertionReasons.length > 0 && <AccordionItem value="assertion-reason">
+                        <Accordion type="multiple" className="w-full space-y-4" defaultValue={['mcq']}>
+                            <AccordionItem value="mcq">
+                                 <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
+                                    Multiple-Choice Questions ({mcqs.length})
+                                </AccordionTrigger>
+                                <AccordionContent className="pt-4">
+                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                        {mcqs.map((mcq, qIndex) => (
+                                            <p key={qIndex}>Question placeholder</p>
+                                        ))}
+                                    </div>
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="assertion-reason">
                                 <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
                                     Assertion-Reason Questions ({assertionReasons.length})
                                 </AccordionTrigger>
@@ -305,8 +272,8 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         </div>
                                     ))}
                                 </AccordionContent>
-                            </AccordionItem>}
-                            {matchTheColumns && matchTheColumns.length > 0 && <AccordionItem value="match-the-columns">
+                            </AccordionItem>
+                            <AccordionItem value="match-the-columns">
                                 <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md">
                                     Match the Columns ({matchTheColumns.length})
                                 </AccordionTrigger>
@@ -340,8 +307,11 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                                         </div>
                                 ))}
                                 </AccordionContent>
-                            </AccordionItem>}
+                            </AccordionItem>
                         </Accordion>
+                    </TabsContent>
+                    <TabsContent value="analytics" className="mt-4">
+                        <p>Analytics coming soon! Complete a practice session to see your results.</p>
                     </TabsContent>
                 </Tabs>
             </CardContent>
