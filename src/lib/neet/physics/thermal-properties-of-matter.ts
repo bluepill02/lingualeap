@@ -20,7 +20,7 @@ export const thermalPropertiesOfMatterModule: NeetModule = {
     ],
     conceptOverview: "This chapter explores how matter responds to heat. We'll start by defining temperature and heat more formally and look at how materials expand when heated (thermal expansion). A central part of the chapter is calorimetry, which deals with the measurement of heat. We'll define specific heat (a measure of how much heat is needed to raise a substance's temperature) and latent heat (the heat required for a phase change, like melting ice or boiling water). Finally, we'll study the three ways heat can travel from one place to another: conduction (through direct contact), convection (through the movement of fluids), and radiation (through electromagnetic waves).",
     tamilConnection: "கோடை காலத்தில் இரும்புப் பொருட்கள் தொட்டால் சுடுவதும், வெந்நீர் வைக்கும்போது பாத்திரம் சூடாவதும் வெப்பக் கடத்தல் (conduction) முறையால் நடக்கிறது. காற்று சூடாகி மேலே செல்வது வெப்பச்சலனம் (convection). சூரியனிலிருந்து வெப்பம் நம்மை அடைவது வெப்பக் கதிர்வீச்சு (radiation). இந்த அத்தியாயம், வெப்பம் பரவும் இந்த மூன்று முறைகளையும் விளக்குகிறது.",
-    culturalContext: "Think of a traditional Pongal pot ('pongal paanai'). The clay pot is designed to handle thermal expansion. Heat from the fire is transferred to the pot by radiation and convection, and then through the pot to the water by conduction. The boiling of rice and milk involves the concepts of specific heat and latent heat. The entire festival cooking process is a beautiful demonstration of thermal physics.",
+    culturalContext: "Think of the traditional Pongal pot ('pongal paanai'). The clay pot is designed to handle thermal expansion. Heat from the fire is transferred to the pot by radiation and convection, and then through the pot to the water by conduction. The boiling of rice and milk involves the concepts of specific heat and latent heat. The entire festival cooking process is a beautiful demonstration of thermal physics.",
     syllabusMapping: [
          {
             topic: 'Thermal Properties of Matter',
@@ -32,33 +32,78 @@ export const thermalPropertiesOfMatterModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. Temperature and Heat (வெப்பநிலை மற்றும் வெப்பம்)
-*   **Temperature:** A measure of the degree of hotness or coldness of a body. It determines the direction of heat flow.
+            heading: {
+                english: '1. Temperature and Heat',
+                tamil: '1. வெப்பநிலை மற்றும் வெப்பம்'
+            },
+            content: [
+                {
+                    english: `**Temperature:** A measure of the degree of hotness or coldness of a body. It determines the direction of heat flow.
 *   **Heat:** The form of energy transferred between two systems by virtue of a temperature difference.
-*   **Temperature Scales:** Celsius (°C), Fahrenheit (°F), Kelvin (K). The SI unit is Kelvin. $K = °C + 273.15$.`
+*   **Temperature Scales:** Celsius (°C), Fahrenheit (°F), Kelvin (K). The SI unit is Kelvin. $K = °C + 273.15$.`,
+                    tamil: `**வெப்பநிலை:** ஒரு பொருளின் சூடு அல்லது குளிர்ச்சியின் அளவீடு. இது வெப்ப ஓட்டத்தின் திசையை தீர்மானிக்கிறது.
+*   **வெப்பம்:** வெப்பநிலை வேறுபாட்டின் காரணமாக இரண்டு அமைப்புகளுக்கு இடையில் மாற்றப்படும் ஆற்றலின் வடிவம்.
+*   **வெப்பநிலை அளவீடுகள்:** செல்சியஸ் (°C), ஃபாரன்ஹீட் (°F), கெல்வின் (K). SI அலகு கெல்வின் ஆகும். $K = °C + 273.15$.`
+                }
+            ]
         },
         {
-            english: `### 2. Thermal Expansion (வெப்ப விரிவு)
-The increase in the dimensions of a body due to an increase in its temperature.
+            heading: {
+                english: '2. Thermal Expansion',
+                tamil: '2. வெப்ப விரிவு'
+            },
+            content: [
+                {
+                    english: `The increase in the dimensions of a body due to an increase in its temperature.
 *   **Linear Expansion:** $\\Delta L = L \\alpha \\Delta T$, where α is the coefficient of linear expansion.
 *   **Area Expansion:** $\\Delta A = A \\beta \\Delta T$, where β is the coefficient of area expansion. (β ≈ 2α)
-*   **Volume Expansion:** $\\Delta V = V \\gamma \\Delta T$, where γ is the coefficient of volume expansion. (γ ≈ 3α)`
+*   **Volume Expansion:** $\\Delta V = V \\gamma \\Delta T$, where γ is the coefficient of volume expansion. (γ ≈ 3α)`,
+                    tamil: `ஒரு பொருளின் வெப்பநிலையை அதிகரிப்பதால் அதன் பரிமாணங்களில் ஏற்படும் அதிகரிப்பு.
+*   **நீள் விரிவு:** $\\Delta L = L \\alpha \\Delta T$, இங்கு α நீள் விரிவுக் குணகம்.
+*   **பரப்பு விரிவு:** $\\Delta A = A \\beta \\Delta T$, இங்கு β பரப்பு விரிவுக் குணகம். (β ≈ 2α)
+*   **பரும விரிவு:** $\\Delta V = V \\gamma \\Delta T$, இங்கு γ பரும விரிவுக் குணகம். (γ ≈ 3α)`
+                }
+            ]
         },
         {
-            english: `### 3. Calorimetry (வெப்பஅளவியல்)
-*   **Specific Heat Capacity (s or c):** The amount of heat required to raise the temperature of a unit mass of a substance by one degree Celsius or one Kelvin. $Q = ms\\Delta T$.
+            heading: {
+                english: '3. Calorimetry',
+                tamil: '3. வெப்பஅளவியல்'
+            },
+            content: [
+                {
+                    english: `*   **Specific Heat Capacity (s or c):** The amount of heat required to raise the temperature of a unit mass of a substance by one degree Celsius or one Kelvin. $Q = ms\\Delta T$.
 *   **Latent Heat (L):** The amount of heat required to change the state of a unit mass of a substance without any change in its temperature. $Q = mL$.
     *   **Latent Heat of Fusion:** For melting/freezing.
     *   **Latent Heat of Vaporization:** For boiling/condensation.
-*   **Principle of Calorimetry:** Heat Lost = Heat Gained.`
+*   **Principle of Calorimetry:** Heat Lost = Heat Gained.`,
+                    tamil: `*   **தன்வெப்ப ஏற்புத்திறன் (s or c):** ஒரு அலகு நிறையுள்ள பொருளின் வெப்பநிலையை ஒரு டிகிரி செல்சியஸ் அல்லது ஒரு கெல்வின் உயர்த்தத் தேவையான வெப்பத்தின் அளவு. $Q = ms\\Delta T$.
+*   **உள்ளுறை வெப்பம் (L):** ஒரு பொருளின் வெப்பநிலையில் எந்த மாற்றமும் இல்லாமல், அதன் நிலையை மாற்றத் தேவையான வெப்பத்தின் அளவு. $Q = mL$.
+    *   **உருகுதலின் உள்ளுறை வெப்பம்:** உருகுதல்/உறைதலுக்கு.
+    *   **ஆவியாதலின் உள்ளுறை வெப்பம்:** கொதித்தல்/ஒடுங்குதலுக்கு.
+*   **வெப்பஅளவியல் தத்துவம்:** இழந்த வெப்பம் = பெறப்பட்ட வெப்பம்.`
+                }
+            ]
         },
         {
-            english: `### 4. Heat Transfer (வெப்பப் பரிமாற்றம்)
-*   **Conduction (வெப்பக் கடத்தல்):** Heat transfer through a material medium without any actual movement of the particles. Rate of heat flow: $\\frac{dQ}{dt} = -kA\\frac{dT}{dx}$, where k is the thermal conductivity.
+            heading: {
+                english: '4. Heat Transfer',
+                tamil: '4. வெப்பப் பரிமாற்றம்'
+            },
+            content: [
+                {
+                    english: `*   **Conduction (வெப்பக் கடத்தல்):** Heat transfer through a material medium without any actual movement of the particles. Rate of heat flow: $\\frac{dQ}{dt} = -kA\\frac{dT}{dx}$, where k is the thermal conductivity.
 *   **Convection (வெப்பச்சலனம்):** Heat transfer through the actual movement of matter. Occurs in fluids (liquids and gases).
 *   **Radiation (வெப்பக் கதிர்வீச்சு):** Heat transfer through electromagnetic waves, which does not require a medium.
     *   **Stefan-Boltzmann Law:** The rate at which an object radiates energy is proportional to the fourth power of its absolute temperature. $P = \\sigma \\epsilon A T^4$.
-    *   **Wien's Displacement Law:** The wavelength of maximum emission is inversely proportional to the absolute temperature. $\\lambda_m T = \\text{constant}$.`
+    *   **Wien's Displacement Law:** The wavelength of maximum emission is inversely proportional to the absolute temperature. $\\lambda_m T = \\text{constant}$.`,
+                    tamil: `*   **வெப்பக் கடத்தல்:** துகள்களின் உண்மையான இயக்கம் இல்லாமல் ஒரு பொருள் ஊடகத்தின் வழியாக வெப்பப் பரிமாற்றம். வெப்பப் பாய்வு வீதம்: $\\frac{dQ}{dt} = -kA\\frac{dT}{dx}$, இங்கு k என்பது வெப்பக் கடத்துத்திறன்.
+*   **வெப்பச்சலனம்:** பொருளின் உண்மையான இயக்கத்தின் மூலம் வெப்பப் பரிமாற்றம். பாய்மங்களில் (திரவங்கள் மற்றும் வாயுக்கள்) நிகழ்கிறது.
+*   **வெப்பக் கதிர்வீச்சு:** ஊடகம் தேவைப்படாத மின்காந்த அலைகள் மூலம் வெப்பப் பரிமாற்றம்.
+    *   **ஸ்டீபன்-போல்ட்ஸ்மேன் விதி:** ஒரு பொருள் ஆற்றலைக் கதிர்வீசும் வீதம் அதன் தனி வெப்பநிலையின் நான்காவது அடுக்குக்கு நேர்விகிதத்தில் இருக்கும். $P = \\sigma \\epsilon A T^4$.
+    *   **வியன் இடப்பெயர்ச்சி விதி:** பெரும உமிழ்வின் அலைநீளம் தனி வெப்பநிலைக்கு எதிர்விகிதத்தில் இருக்கும். $\\lambda_m T = \\text{மாறிலி}$.`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -113,7 +158,7 @@ The increase in the dimensions of a body due to an increase in its temperature.
         {
             title: "JEE Level: Wien's Displacement Law",
             titleTamil: "ஜே.இ.இ நிலை: வியன் இடப்பெயர்ச்சி விதி",
-            difficulty: 'Medium',
+            difficulty: "Medium",
             problem: "The spectral energy distribution of the sun has a maximum at 4753 Å. If the temperature of the sun is 6050 K, what is the temperature of a star for which this maximum is at 9506 Å?",
             problemTamil: "சூரியனின் நிறமாலை ஆற்றல் பரவல் 4753 Å இல் பெருமத்தைக் கொண்டுள்ளது. சூரியனின் வெப்பநிலை 6050 K எனில், 9506 Å இல் இந்த பெருமத்தைக் கொண்ட ஒரு நட்சத்திரத்தின் வெப்பநிலை என்ன?",
             solutionSteps: [
@@ -132,12 +177,36 @@ The increase in the dimensions of a body due to an increase in its temperature.
             problem: "A steel tape gives the correct measurement at 20°C. A piece of wood is being measured with the steel tape at 0°C. The reading is 25 cm on the tape. What is the real length of the wood? (α_steel = 1.2 x 10⁻⁵ /°C)",
             problemTamil: "ஒரு எஃகு நாடா 20°C இல் சரியான அளவீட்டைக் கொடுக்கிறது. ஒரு மரத்துண்டு 0°C இல் அந்த எஃகு நாடாவால் அளவிடப்படுகிறது. நாடாவின் வாசிப்பு 25 செ.மீ ஆகும். மரத்தின் உண்மையான நீளம் என்ன?",
             solutionSteps: [
-                { step: 1, explanation: "At 0°C, the steel tape has contracted because the temperature is lower than its calibration temperature.", explanationTamil: "0°C இல், வெப்பநிலை அதன் அளவுத்திருத்த வெப்பநிலையை விட குறைவாக இருப்பதால் எஃகு நாடா சுருங்கியுள்ளது." },
-                { step: 2, explanation: "The measured length (25 cm) is less than the true length because the scale markings are closer together.", explanationTamil: "அளவுகோல் குறிகள் நெருக்கமாக இருப்பதால், அளவிடப்பட்ட நீளம் (25 செ.மீ) உண்மையான நீளத்தை விட குறைவாக உள்ளது." },
-                { step: 3, explanation: "Use the formula L = L₀(1 + αΔT), where L is the true length and L₀ is the measured length (reading).", explanationTamil: "L = L₀(1 + αΔT) என்ற சூத்திரத்தைப் பயன்படுத்தவும், இங்கு L என்பது உண்மையான நீளம் மற்றும் L₀ என்பது அளவிடப்பட்ட நீளம்." },
-                { step: 4, explanation: "Here, L₀ = 25 cm. ΔT = (Final Temp - Calibration Temp) = 0°C - 20°C = -20°C. Note: We use the temperature of measurement for the tape's final state.", calculation: "L = 25 (1 + (1.2 \\times 10^{-5})(-20))" },
-                { step: 5, explanation: "Calculate the value.", calculation: "L = 25 (1 - 2.4 \\times 10^{-4}) = 25 - 0.006 = 24.994 \\text{ cm}" },
-                { step: 6, explanation: "The true length of the wood is slightly less than the reading, which makes sense as the tape contracted.", explanationTamil: "மரத்தின் உண்மையான நீளம் வாசிப்பை விட சற்றே குறைவாக உள்ளது, இது நாடா சுருங்கியதால் அர்த்தமுள்ளதாக இருக்கிறது." }
+                {
+                    step: 1,
+                    explanation: "At 0°C, the steel tape has contracted because the temperature is lower than its calibration temperature.",
+                    explanationTamil: "0°C இல், வெப்பநிலை அதன் அளவுத்திருத்த வெப்பநிலையை விட குறைவாக இருப்பதால் எஃகு நாடா சுருங்கியுள்ளது."
+                },
+                {
+                    step: 2,
+                    explanation: "The measured length (25 cm) is less than the true length because the scale markings are closer together.",
+                    explanationTamil: "அளவுகோல் குறிகள் நெருக்கமாக இருப்பதால், அளவிடப்பட்ட நீளம் (25 செ.மீ) உண்மையான நீளத்தை விட குறைவாக உள்ளது."
+                },
+                {
+                    step: 3,
+                    explanation: "Use the formula L = L₀(1 + αΔT), where L is the true length and L₀ is the measured length (reading).",
+                    explanationTamil: "L = L₀(1 + αΔT) என்ற சூத்திரத்தைப் பயன்படுத்தவும், இங்கு L என்பது உண்மையான நீளம் மற்றும் L₀ என்பது அளவிடப்பட்ட நீளம்."
+                },
+                {
+                    step: 4,
+                    explanation: "Here, L₀ = 25 cm. ΔT = (Final Temp - Calibration Temp) = 0°C - 20°C = -20°C. Note: We use the temperature of measurement for the tape's final state.",
+                    calculation: "L = 25 (1 + (1.2 \\times 10^{-5})(-20))"
+                },
+                {
+                    step: 5,
+                    explanation: "Calculate the value.",
+                    calculation: "L = 25 (1 - 2.4 \\times 10^{-4}) = 25 - 0.006 = 24.994 \\text{ cm}"
+                },
+                {
+                    step: 6,
+                    explanation: "The true length of the wood is slightly less than the reading, which makes sense as the tape contracted.",
+                    explanationTamil: "மரத்தின் உண்மையான நீளம் வாசிப்பை விட சற்றே குறைவாக உள்ளது, இது நாடா சுருங்கியதால் அர்த்தமுள்ளதாக இருக்கிறது."
+                }
             ]
         }
     ],
@@ -169,17 +238,132 @@ The increase in the dimensions of a body due to an increase in its temperature.
         { question: "One calorie is defined as the heat required to raise the temperature of:", options: ["A. 1 g of water from 14.5°C to 15.5°C", "B. 1 kg of water by 1°C", "C. 1 g of copper by 1°C", "D. 1 kg of iron by 1°C"], answer: "A. 1 g of water from 14.5°C to 15.5°C", explanation: "This is the precise definition of the 15-degree calorie.", neetFrequency: 2 }
     ],
     assertionReasons: [
-        { assertion: "A brass tumbler feels much colder than a wooden tray on a chilly day.", reason: "Brass has a higher thermal conductivity than wood.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation. Brass conducts heat away from your hand much faster than wood, making it feel colder, even though both are at the same temperature.", neetFrequency: 4 },
-        { assertion: "Water is used as a coolant in automobile radiators.", reason: "Water has a high specific heat capacity.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation. Water's high specific heat capacity allows it to absorb a large amount of heat from the engine without a large increase in its own temperature.", neetFrequency: 3 },
-        { assertion: "The temperature of a body can be negative on the Celsius scale but not on the Kelvin scale.", reason: "The Kelvin scale is the absolute temperature scale.", answer: "A", explanation: "The assertion is true (-10°C is possible, -10 K is not). The reason is also true and is the correct explanation. The Kelvin scale starts from absolute zero (0 K), the lowest possible temperature, so it has no negative values.", neetFrequency: 2 },
-        { assertion: "Good absorbers of radiation are also good emitters.", reason: "The emissivity of a body is equal to its absorptivity for all wavelengths.", answer: "A", explanation: "The assertion is true. The reason is a statement of Kirchhoff's Law of thermal radiation and is the correct explanation for the assertion.", neetFrequency: 3 },
-        { assertion: "The coefficient of linear expansion has the unit K⁻¹ or °C⁻¹.", reason: "It is the fractional change in length per unit change in temperature.", answer: "A", explanation: "The assertion is true. The reason is also true and is the correct explanation. α = (ΔL/L)/ΔT. Since ΔL/L is dimensionless, the unit of α is the inverse of the unit of temperature change.", neetFrequency: 1 }
+        {
+            assertion: "A brass tumbler feels much colder than a wooden tray on a chilly day.",
+            reason: "Brass has a higher thermal conductivity than wood.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. Brass conducts heat away from your hand much faster than wood, making it feel colder, even though both are at the same temperature.",
+            neetFrequency: 4
+        },
+        {
+            assertion: "Water is used as a coolant in automobile radiators.",
+            reason: "Water has a high specific heat capacity.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. Water's high specific heat capacity allows it to absorb a large amount of heat from the engine without a large increase in its own temperature.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "The temperature of a body can be negative on the Celsius scale but not on the Kelvin scale.",
+            reason: "The Kelvin scale is the absolute temperature scale.",
+            answer: "A",
+            explanation: "The assertion is true (-10°C is possible, -10 K is not). The reason is also true and is the correct explanation. The Kelvin scale starts from absolute zero (0 K), the lowest possible temperature, so it has no negative values.",
+            neetFrequency: 2
+        },
+        {
+            assertion: "Good absorbers of radiation are also good emitters.",
+            reason: "The emissivity of a body is equal to its absorptivity for all wavelengths.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is a statement of Kirchhoff's Law of thermal radiation and is the correct explanation for the assertion.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "The coefficient of linear expansion has the unit K⁻¹ or °C⁻¹.",
+            reason: "It is the fractional change in length per unit change in temperature.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. α = (ΔL/L)/ΔT. Since ΔL/L is dimensionless, the unit of α is the inverse of the unit of temperature change.",
+            neetFrequency: 1
+        }
     ],
     matchTheColumns: [
-        { column1: ["(a) Conduction", "(b) Convection", "(c) Radiation", "(d) Calorimetry"], column2: ["(p) Movement of fluid", "(q) No medium required", "(r) Principle of mixtures", "(s) Transfer through solids"], answer: "a-s, b-p, c-q, d-r", explanation: "Matching the thermal concepts with their descriptions." },
-        { column1: ["(a) Specific Heat", "(b) Latent Heat", "(c) Thermal Conductivity", "(d) Coefficient of Linear Expansion"], column2: ["(p) J/kg", "(q) K⁻¹", "(r) W m⁻¹ K⁻¹", "(s) J kg⁻¹ K⁻¹"], answer: "a-s, b-p, c-r, d-q", explanation: "Matching the physical quantities with their SI units." },
-        { column1: ["(a) Stefan's Law", "(b) Wien's Law", "(c) Newton's Law of Cooling", "(d) Pascal's Law"], column2: ["(p) λ_m T = constant", "(q) Rate ∝ (T-T₀)", "(r) P ∝ T⁴", "(s) Pressure transmission"], answer: "a-r, b-p, c-q, d-s", explanation: "Matching the laws with their mathematical relations. Pascal's law is from fluids but often related." },
-        { column1: ["(a) Melting", "(b) Boiling", "(c) Heating of water", "(d) Thermal Expansion"], column2: ["(p) Specific Heat", "(q) Latent Heat of Fusion", "(r) Coefficient of Expansion", "(s) Latent Heat of Vaporization"], answer: "a-q, b-s, c-p, d-r", explanation: "Matching the physical processes with the relevant property." },
-        { column1: ["(a) Black body", "(b) White body", "(c) Thermos flask", "(d) Bimetallic strip"], column2: ["(p) Differential expansion", "(q) Prevents all heat transfer", "(r) Good reflector", "(s) Perfect absorber"], answer: "a-s, b-r, c-q, d-p", explanation: "Matching the objects with their key thermal property or application." }
-    ]
+        {
+            column1: ["(a) Conduction", "(b) Convection", "(c) Radiation", "(d) Calorimetry"],
+            column2: ["(p) Movement of fluid", "(q) No medium required", "(r) Principle of mixtures", "(s) Transfer through solids"],
+            answer: "a-s, b-p, c-q, d-r",
+            explanation: "Matching the thermal concepts with their descriptions."
+        },
+        {
+            column1: ["(a) Specific Heat", "(b) Latent Heat", "(c) Thermal Conductivity", "(d) Coefficient of Linear Expansion"],
+            column2: ["(p) J/kg", "(q) K⁻¹", "(r) W m⁻¹ K⁻¹", "(s) J kg⁻¹ K⁻¹"],
+            answer: "a-s, b-p, c-r, d-q",
+            explanation: "Matching the physical quantities with their SI units."
+        },
+        {
+            column1: ["(a) Stefan's Law", "(b) Wien's Law", "(c) Newton's Law of Cooling", "(d) Pascal's Law"],
+            column2: ["(p) λ_m T = constant", "(q) Rate ∝ (T-T₀)", "(r) P ∝ T⁴", "(s) Pressure transmission"],
+            answer: "a-r, b-p, c-q, d-s",
+            explanation: "Matching the laws with their mathematical relations. Pascal's law is from fluids but often related."
+        },
+        {
+            column1: ["(a) Melting", "(b) Boiling", "(c) Heating of water", "(d) Thermal Expansion"],
+            column2: ["(p) Specific Heat", "(q) Latent Heat of Fusion", "(r) Coefficient of Expansion", "(s) Latent Heat of Vaporization"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "Matching the physical processes with the relevant property."
+        },
+        {
+            column1: ["(a) Black body", "(b) White body", "(c) Thermos flask", "(d) Bimetallic strip"],
+            column2: ["(p) Differential expansion", "(q) Prevents all heat transfer", "(r) Good reflector", "(s) Perfect absorber"],
+            answer: "a-s, b-r, c-q, d-p",
+            explanation: "Matching the objects with their key thermal property or application."
+        }
+    ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: 'Q = mc\\Delta T',
+                description: 'Heat Transfer (Specific Heat)',
+                descriptionTamil: 'வெப்பப் பரிமாற்றம் (தன்வெப்ப ஏற்புத்திறன்)'
+            },
+            {
+                formula: 'Q = mL',
+                description: 'Heat Transfer (Latent Heat)',
+                descriptionTamil: 'வெப்பப் பரிமாற்றம் (உள்ளுறை வெப்பம்)'
+            },
+            {
+                formula: '\\frac{dQ}{dt} = kA\\frac{T_1-T_2}{L}',
+                description: 'Heat Conduction through a rod',
+                descriptionTamil: 'ஒரு தண்டு வழியாக வெப்பக் கடத்தல்'
+            },
+            {
+                formula: 'P = \\sigma \\epsilon A T^4',
+                description: 'Stefan-Boltzmann Law of Radiation',
+                descriptionTamil: 'ஸ்டீபன்-போல்ட்ஸ்மேன் கதிர்வீச்சு விதி'
+            }
+        ],
+        diagrams: []
+    },
+    keyTakeaways: [
+        "Heat is energy in transit due to a temperature difference.",
+        "Materials expand on heating and transfer heat via conduction, convection, and radiation.",
+        "During a phase change, the temperature of a substance remains constant as it absorbs or releases latent heat.",
+        "Good absorbers of heat are also good emitters of heat."
+    ],
+    mnemonics: [
+        {
+            text: "Remember the modes of heat transfer: Conduction (needs contact), Convection (needs current/flow), Radiation (can travel through a vacuum).",
+            tamil: "வெப்பப் பரிமாற்ற முறைகளை நினைவில் கொள்க: கடத்தல் (தொடுதல் தேவை), சலனம் (ஓட்டம் தேவை), கதிர்வீச்சு (வெற்றிடத்தில் பயணிக்க முடியும்)."
+        }
+    ],
+    neetTips: [
+        {
+            text: "Calorimetry problems are all about careful accounting. Write 'Heat Gained by cold bodies = Heat Lost by hot bodies' and list down every term (mcΔT for temperature change, mL for phase change) for each body.",
+            tamil: "வெப்பஅளவியல் கணக்குகள் அனைத்தும் கவனமான கணக்கீட்டைப் பற்றியது. 'குளிர்ந்த பொருட்களால் பெறப்பட்ட வெப்பம் = சூடான பொருட்களால் இழந்த வெப்பம்' என்று எழுதி, ஒவ்வொரு பொருளுக்கும் ஒவ்வொரு உறுப்பையும் (வெப்பநிலை மாற்றத்திற்கு mcΔT, நிலை மாற்றத்திற்கு mL) பட்டியலிடுங்கள்."
+        },
+        {
+            text: "For series and parallel combinations of rods in heat conduction, the formulas are analogous to electrical circuits: For series, R_thermal adds up. For parallel, 1/R_thermal adds up. Remember that thermal resistance R = L/(kA).",
+            tamil: "வெப்பக் கடத்தலில் தண்டுகளின் தொடர் மற்றும் பக்க இணைப்புகளுக்கு, சூத்திரங்கள் மின்சுற்றுக்களைப் போன்றவை: தொடரிணைப்பிற்கு, R_வெப்பம் கூட்டப்படும். பக்க இணைப்பிற்கு, 1/R_வெப்பம் கூட்டப்படும். வெப்பத்தடை R = L/(kA) என்பதை நினைவில் கொள்க."
+        }
+    ],
+    studentTip: {
+        english: "Try to observe these phenomena in daily life. Notice how a metal spoon gets hot in a cup of tea (conduction), how water boils in a pot (convection), and how you feel the warmth of a fire from a distance (radiation).",
+        tamil: "இந்த நிகழ்வுகளை அன்றாட வாழ்வில் கவனிக்க முயற்சிக்கவும். ஒரு தேநீர் கோப்பையில் ஒரு உலோகக் கரண்டி எப்படி சூடாகிறது (கடத்தல்), ஒரு பாத்திரத்தில் தண்ணீர் எப்படி கொதிக்கிறது (சலனம்), மற்றும் தூரத்திலிருந்து ஒரு நெருப்பின் வெப்பத்தை நீங்கள் எப்படி உணர்கிறீர்கள் (கதிர்வீச்சு) என்பதைக் கவனியுங்கள்."
+    },
+    peerDiscussion: {
+        english: "Discuss with a friend why wearing multiple thin layers of clothing is warmer than wearing a single thick layer of the same total thickness. What role does conduction and convection play here?",
+        tamil: "ஒரே மொத்த தடிமன் கொண்ட ஒரு தடிமனான அடுக்கை அணிவதை விட, பல மெல்லிய அடுக்குகளை அணிவது ஏன் வெப்பமாக இருக்கிறது என்று உங்கள் நண்பருடன் விவாதிக்கவும். இங்கு கடத்தல் மற்றும் சலனம் என்ன பங்கு வகிக்கின்றன?"
+    },
+    nextChapter: {
+        title: "Thermodynamics",
+        titleTamil: "வெப்ப இயக்கவியல்"
+    },
+    validationReport: []
 };
