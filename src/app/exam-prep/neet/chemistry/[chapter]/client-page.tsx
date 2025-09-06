@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube } from 'lucide-react';
+import { ArrowLeft, BookOpen, CheckCircle, Lightbulb, Trophy, Brain, Info, Loader2, FlaskConical, Atom, TestTube, Separator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -20,61 +20,80 @@ import { SyllabusMappingCard } from '@/components/exam/exam-components';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { BilingualText } from '@/components/exam/bilingual-text';
 
-function OverviewTab({ content }: { content: NeetModule }) {
-    const { learningObjectives, prerequisites, syllabusMapping, conceptOverview, tamilConnection, culturalContext } = content;
-    return (
-        <div className="space-y-6">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <Trophy className="text-primary"/>
-                        Learning Objectives
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul className="list-disc list-inside space-y-2">
-                       {learningObjectives.map((obj, index) => (
-                           <li key={index}>{obj}</li>
-                       ))}
-                    </ul>
-                </CardContent>
-            </Card>
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                        <BookOpen className="text-primary"/>
-                        Prerequisites
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ul className="list-disc list-inside space-y-2">
-                       {prerequisites.map((req, index) => (
-                           <li key={index}>{req}</li>
-                       ))}
-                    </ul>
-                </CardContent>
-            </Card>
-             <Card>
-                <CardHeader>
-                    <CardTitle>Concept Overview</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
-                    <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
-                    {tamilConnection && <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
-                        <Lightbulb className="h-4 w-4 text-yellow-400" />
-                        <AlertTitle>Tamil Connection</AlertTitle>
-                        <AlertDescription><MarkdownRenderer>{tamilConnection}</MarkdownRenderer></AlertDescription>
-                    </Alert>}
-                     {culturalContext && <Alert variant="default" className="bg-green-500/10 border-green-500/30">
-                        <BookOpen className="h-4 w-4 text-green-400" />
-                        <AlertTitle>Cultural Context</AlertTitle>
-                        <AlertDescription><MarkdownRenderer>{culturalContext}</MarkdownRenderer></AlertDescription>
-                    </Alert>}
-                </CardContent>
-            </Card>
-            <SyllabusMappingCard mapping={syllabusMapping} />
-        </div>
-    )
+function OverviewTab({
+  learningObjectives,
+  prerequisites,
+  syllabusMapping,
+  conceptOverview,
+  tamilConnection,
+  culturalContext,
+}: {
+  learningObjectives: NeetModule['learningObjectives'];
+  prerequisites: NeetModule['prerequisites'];
+  syllabusMapping: NeetModule['syllabusMapping'];
+  conceptOverview: NeetModule['conceptOverview'];
+  tamilConnection: NeetModule['tamilConnection'];
+  culturalContext: NeetModule['culturalContext'];
+}) {
+  return (
+    <div className="space-y-8">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Trophy className="text-primary"/>
+            Learning Objectives
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="list-disc list-inside space-y-2">
+             {learningObjectives.map((obj, index) => (
+                 <li key={index}>{obj}</li>
+             ))}
+          </ul>
+        </CardContent>
+      </Card>
+      
+      <Separator />
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <BookOpen className="text-primary"/>
+            Prerequisites
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="list-disc list-inside space-y-2">
+             {prerequisites.map((req, index) => (
+                 <li key={index}>{req}</li>
+             ))}
+          </ul>
+        </CardContent>
+      </Card>
+
+      <Separator />
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Concept Overview</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4 prose dark:prose-invert max-w-none">
+          <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
+          {tamilConnection && <Alert variant="default" className="bg-yellow-500/10 border-yellow-500/30">
+              <Lightbulb className="h-4 w-4 text-yellow-400" />
+              <AlertTitle>Tamil Connection</AlertTitle>
+              <AlertDescription><MarkdownRenderer>{tamilConnection}</MarkdownRenderer></AlertDescription>
+          </Alert>}
+           {culturalContext && <Alert variant="default" className="bg-green-500/10 border-green-500/30">
+              <BookOpen className="h-4 w-4 text-green-400" />
+              <AlertTitle>Cultural Context</AlertTitle>
+              <AlertDescription><MarkdownRenderer>{culturalContext}</MarkdownRenderer></AlertDescription>
+          </Alert>}
+        </CardContent>
+      </Card>
+      <SyllabusMappingCard mapping={syllabusMapping} />
+    </div>
+  )
 }
 
 function ChapterContent({ content }: { content: NeetModule }) {
@@ -157,7 +176,14 @@ function ChapterContent({ content }: { content: NeetModule }) {
           </ScrollArea>
         </div>
         <TabsContent value="overview" className="mt-6 space-y-6">
-            <OverviewTab content={content} />
+            <OverviewTab
+              learningObjectives={learningObjectives}
+              prerequisites={prerequisites}
+              syllabusMapping={syllabusMapping}
+              conceptOverview={conceptOverview}
+              tamilConnection={tamilConnection}
+              culturalContext={culturalContext}
+            />
             <div className="flex justify-center">
                 <Button onClick={() => handleCompleteSection('overview')} >
                     {completedSections.includes('overview') ? <><CheckCircle className='mr-2'/> Completed</> : 'Mark as Completed'}

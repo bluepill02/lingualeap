@@ -54,10 +54,14 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
             <CardContent className="space-y-6">
                 {content.map((note, index) => (
                     <div key={index} className="prose dark:prose-invert max-w-none">
-                        <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
-                        {note.content.map((item, itemIndex) => (
-                            <BilingualText key={itemIndex} english={item.english} tamil={item.tamil} />
-                        ))}
+                        <div className="border-b pb-2 mb-4">
+                           <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
+                        </div>
+                        <div className="space-y-2">
+                          {note.content.map((item, itemIndex) => (
+                              <BilingualText key={itemIndex} english={item.english} tamil={item.tamil} />
+                          ))}
+                        </div>
                     </div>
                 ))}
             </CardContent>
