@@ -15,11 +15,20 @@ import {
   Zap,
   ArrowLeft,
   FlaskConical,
+  Atom,
+  Thermometer,
+  Sigma,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { strategyGuideContent } from '@/lib/neet/chemistry/neet-chemistry-strategy-guide';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
+
+const sectionIcons = {
+  physical: <Thermometer className="text-blue-400" />,
+  inorganic: <Sigma className="text-green-400" />,
+  organic: <Atom className="text-orange-400" />,
+};
 
 export default function NeetChemistryStrategyGuidePage() {
   return (
@@ -45,57 +54,73 @@ export default function NeetChemistryStrategyGuidePage() {
         </div>
       </header>
 
-      <Accordion type="multiple" className="w-full space-y-4">
-        {strategyGuideContent.map((chapter, index) => (
-          <AccordionItem value={`item-${index}`} key={index}>
-            <AccordionTrigger className="text-lg font-bold font-headline px-4 bg-muted/50 rounded-md hover:bg-muted/80">
-              {chapter.chapterName}
-            </AccordionTrigger>
-            <AccordionContent className="pt-4 space-y-6">
-              {chapter.sections.map((section, secIndex) => (
-                <Card key={secIndex}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      {section.type === 'mistake' && (
-                        <AlertTriangle className="text-destructive" />
-                      )}
-                      {section.type === 'trick' && (
-                        <Zap className="text-yellow-500" />
-                      )}
-                      {section.type === 'rare' && (
-                        <Lightbulb className="text-blue-400" />
-                      )}
-                      {section.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {section.points.map((point, pointIndex) => (
-                      <Alert
-                        key={pointIndex}
-                        variant={
-                          section.type === 'mistake'
-                            ? 'destructive'
-                            : section.type === 'trick'
-                            ? 'warning'
-                            : 'default'
-                        }
-                        className="bg-card"
-                      >
-                        <AlertTitle>{point.point}</AlertTitle>
-                        <AlertDescription>
-                          <div className="prose dark:prose-invert max-w-none">
-                            <MarkdownRenderer>{point.explanation}</MarkdownRenderer>
-                          </div>
-                        </AlertDescription>
-                      </Alert>
-                    ))}
-                  </CardContent>
-                </Card>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      {Object.entries(strategyGuideContent).map(([key, sectionData]) => (
+        <div key={key} className="space-y-4">
+          <div className="flex items-center gap-3">
+             {sectionIcons[key as keyof typeof sectionIcons]}
+            <h2 className="text-3xl font-bold font-headline tracking-tight">
+              {sectionData.title} ({sectionData.titleTamil})
+            </h2>
+          </div>
+          <Accordion type="multiple" className="w-full space-y-4">
+            {sectionData.chapters.map((chapter, index) => (
+              <AccordionItem value={`item-${index}`} key={index}>
+                <AccordionTrigger className="text-lg font-bold font-headline px-4 bg-muted/50 rounded-md hover:bg-muted/80">
+                  <div className="text-left">
+                     {chapter.chapterName}
+                     <p className="text-sm font-normal text-muted-foreground">{chapter.chapterNameTamil}</p>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pt-4 space-y-6">
+                  {chapter.sections.map((section, secIndex) => (
+                    <Card key={secIndex}>
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          {section.type === 'mistake' && (
+                            <AlertTriangle className="text-destructive" />
+                          )}
+                          {section.type === 'trick' && (
+                            <Zap className="text-yellow-500" />
+                          )}
+                          {section.type === 'rare' && (
+                            <Lightbulb className="text-blue-400" />
+                          )}
+                          {section.title} ({section.titleTamil})
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-4">
+                        {section.points.map((point, pointIndex) => (
+                          <Alert
+                            key={pointIndex}
+                            variant={
+                              section.type === 'mistake'
+                                ? 'destructive'
+                                : section.type === 'trick'
+                                ? 'warning'
+                                : 'default'
+                            }
+                            className="bg-card"
+                          >
+                            <AlertTitle>{point.point}</AlertTitle>
+                            <AlertDescription>
+                              <div className="prose dark:prose-invert max-w-none">
+                                <MarkdownRenderer>{point.explanation}</MarkdownRenderer>
+                                <div className="mt-2 p-2 border-l-2 border-accent/30 bg-accent/10 rounded-r-md">
+                                    <MarkdownRenderer>{point.explanationTamil}</MarkdownRenderer>
+                                </div>
+                              </div>
+                            </AlertDescription>
+                          </Alert>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      ))}
     </div>
   );
 }
