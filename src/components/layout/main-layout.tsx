@@ -139,7 +139,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <header className="flex h-16 items-center justify-between border-b bg-card p-4 sm:px-6 md:px-8 sticky top-0 z-10">
+        <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-card p-4 sm:px-6">
           <div className="flex items-center gap-2">
             <SidebarTrigger className="md:hidden" />
             <div className="hidden md:block">
@@ -174,7 +174,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </DropdownMenu>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6 md:p-8">
+        <main className="flex-1 p-4 sm:p-6">
             {children}
         </main>
         
