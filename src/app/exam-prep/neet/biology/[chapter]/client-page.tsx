@@ -31,7 +31,7 @@ const TABS: { id: TabName; label: string; icon: React.ElementType }[] = [
 ];
 
 function ChapterContent({ content }: { content: NeetModule }) {
-  const { title, learningObjectives, prerequisites, syllabusMapping, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
+  const { title, learningObjectives, prerequisites, syllabusMapping, conceptOverview, tamilConnection, culturalContext, keyFormulasAndDiagrams, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
   const totalSections = TABS.length;
 
   const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
@@ -160,6 +160,18 @@ function ChapterContent({ content }: { content: NeetModule }) {
         case 'summary':
             return (
                 <div className="space-y-6">
+                    {mnemonics && mnemonics.length > 0 && <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
+                        </CardHeader>
+                        <CardContent className="card-padding-lg space-y-4 text-center">
+                            {mnemonics.map((mnemonic, index) => (
+                                <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
+                                    <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
+                                </div>
+                            ))}
+                        </CardContent>
+                    </Card>}
                     {keyTakeaways && keyTakeaways.length > 0 && <Card>
                         <CardHeader>
                             <CardTitle>Chapter Summary</CardTitle>
@@ -171,6 +183,35 @@ function ChapterContent({ content }: { content: NeetModule }) {
                                     <div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer></div>
                                 </div>
                             ))}
+                        </CardContent>
+                    </Card>}
+                    {neetTips && (nextChapter || studentTip || peerDiscussion) && <Card>
+                        <CardHeader>
+                            <CardTitle>NEET Tips & Next Steps</CardTitle>
+                        </CardHeader>
+                        <CardContent className="card-padding-lg space-y-4">
+                            {neetTips.map((tip, index) => (
+                                <div key={index} className="flex items-start gap-3">
+                                    <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
+                                    <BilingualText english={tip.text} tamil={tip.tamil} />
+                                </div>
+                            ))}
+                            {(nextChapter || studentTip || peerDiscussion) && 
+                            <Alert className="bg-primary/10 border-primary/20">
+                                <Info className="h-4 w-4" />
+                                {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
+                                <AlertDescriptionComponent className="mt-2 space-y-2">
+                                    {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                        <strong>Student Tip:</strong> 
+                                        <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
+                                    </div>}
+                                    {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                        <strong>Peer Discussion:</strong> 
+                                        <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
+                                </div>}
+                                </AlertDescriptionComponent>
+                            </Alert>
+                            }
                         </CardContent>
                     </Card>}
                 </div>
