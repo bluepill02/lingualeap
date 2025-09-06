@@ -39,18 +39,24 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
             },
             content: [
                 {
-                    english: `A systematic method of naming organic compounds. The name generally has three parts: **Word Root**, **Suffix**, and **Prefix**.
-*   **Word Root (வேர்ச்சொல்):** Indicates the number of carbon atoms in the longest continuous chain (the parent chain). (e.g., Meth- for 1 C, Eth- for 2 C, Prop- for 3 C).
-*   **Suffix (பின்ஒட்டு):**
+                    english: `A systematic method of naming organic compounds. The name generally has three parts: **Word Root**, **Suffix**, and **Prefix**.`,
+                    tamil: `கரிமச் சேர்மங்களுக்குப் பெயரிடுவதற்கான ஒரு முறையான முறை. பொதுவாக ஒரு பெயரில் மூன்று பகுதிகள் உள்ளன: **வேர்ச்சொல்**, **பின்ஒட்டு**, மற்றும் **முன்ஒட்டு**.`
+                },
+                {
+                    english: `*   **Word Root (வேர்ச்சொல்):** Indicates the number of carbon atoms in the longest continuous chain (the parent chain). (e.g., Meth- for 1 C, Eth- for 2 C, Prop- for 3 C).`,
+                    tamil: `*   **வேர்ச்சொல்:** மிக நீண்ட தொடர்ச்சியான சங்கிலியில் (தாய்ச் சங்கிலி) உள்ள கார்பன் அணுக்களின் எண்ணிக்கையைக் குறிக்கிறது. (எ.கா., மெத்- 1 C க்கு, எத்- 2 C க்கு, புரோப்- 3 C க்கு).`
+                },
+                {
+                    english: `*   **Suffix (பின்ஒட்டு):**
     *   *Primary Suffix:* Indicates saturation (ane for C-C, ene for C=C, yne for C≡C).
-    *   *Secondary Suffix:* Indicates the principal functional group (e.g., -ol for alcohol, -oic acid for carboxylic acid).
-*   **Prefix (முன்ஒட்டு):** Indicates substituent groups (e.g., methyl-, chloro-) or side chains.`,
-                    tamil: `கரிமச் சேர்மங்களுக்குப் பெயரிடுவதற்கான ஒரு முறையான முறை. பொதுவாக ஒரு பெயரில் மூன்று பகுதிகள் உள்ளன: **வேர்ச்சொல்**, **பின்ஒட்டு**, மற்றும் **முன்ஒட்டு**.
-*   **வேர்ச்சொல்:** மிக நீண்ட தொடர்ச்சியான சங்கிலியில் (தாய்ச் சங்கிலி) உள்ள கார்பன் அணுக்களின் எண்ணிக்கையைக் குறிக்கிறது. (எ.கா., மெத்- 1 C க்கு, எத்- 2 C க்கு, புரோப்- 3 C க்கு).
-*   **பின்ஒட்டு:**
+    *   *Secondary Suffix:* Indicates the principal functional group (e.g., -ol for alcohol, -oic acid for carboxylic acid).`,
+                    tamil: `*   **பின்ஒட்டு:**
     *   *முதன்மை பின்ஒட்டு:* செறிவூட்டலைக் குறிக்கிறது (C-C க்கு ஏன், C=C க்கு ஈன், C≡C க்கு ஐன்).
-    *   *இரண்டாம் நிலை பின்ஒட்டு:* முதன்மை வினைசெயல் தொகுதியைக் குறிக்கிறது (எ.கா., ஆல்கஹாலுக்கு -ஆல், கார்பாக்சிலிக் அமிலத்திற்கு -ஆயிக் அமிலம்).
-*   **முன்ஒட்டு:** பதிலீட்டுக் குழுக்கள் (எ.கா., மெத்தில்-, குளோரோ-) அல்லது பக்கச் சங்கிலிகளைக் குறிக்கிறது.`
+    *   *இரண்டாம் நிலை பின்ஒட்டு:* முதன்மை வினைசெயல் தொகுதியைக் குறிக்கிறது (எ.கா., ஆல்கஹாலுக்கு -ஆல், கார்பாக்சிலிக் அமிலத்திற்கு -ஆயிக் அமிலம்).`
+                },
+                {
+                    english: `*   **Prefix (முன்ஒட்டு):** Indicates substituent groups (e.g., methyl-, chloro-) or side chains.`,
+                    tamil: `*   **முன்ஒட்டு:** பதிலீட்டுக் குழுக்கள் (எ.கா., மெத்தில்-, குளோரோ-) அல்லது பக்கச் சங்கிலிகளைக் குறிக்கிறது.`
                 }
             ]
         },
@@ -61,22 +67,26 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
             },
             content: [
                 {
-                    english: `Compounds having the same molecular formula but different physical and chemical properties are called isomers.
-*   **Structural Isomerism (அமைப்பு மாற்றியம்):** Different connectivity of atoms.
+                    english: `Compounds having the same molecular formula but different physical and chemical properties are called isomers.`,
+                    tamil: `ஒரே மூலக்கூறு வாய்ப்பாட்டையும் ஆனால் வெவ்வேறு இயற்பியல் மற்றும் வேதியியல் பண்புகளையும் கொண்ட சேர்மங்கள் மாற்றியங்கள் எனப்படும்.`
+                },
+                {
+                    english: `*   **Structural Isomerism (அமைப்பு மாற்றியம்):** Different connectivity of atoms.
     *   *Chain Isomerism (சங்கிலித் தொடர் மாற்றியம்):* Different carbon skeleton (e.g., butane and isobutane).
     *   *Position Isomerism (இட மாற்றியம்):* Different position of substituent or functional group (e.g., propan-1-ol and propan-2-ol).
     *   *Functional Isomerism (வினைசெயல் தொகுதி மாற்றியம்):* Different functional groups (e.g., ethanol (C₂H₅OH) and methoxymethane (CH₃OCH₃)).
-    *   *Metamerism (மெட்டாமெரிசம்):* Different alkyl groups on either side of a functional group (e.g., diethyl ether and methyl propyl ether).
-*   **Stereoisomerism (வெளிப்புற அமைப்பு மாற்றியம்):** Same connectivity but different spatial arrangement of atoms.
-    *   *Geometrical Isomerism (வடிவ மாற்றியம்):* Restricted rotation around a bond (e.g., cis-trans isomers in alkenes).
-    *   *Optical Isomerism (ஒளி சுழற்சி மாற்றியம்):* Non-superimposable mirror images (enantiomers), occurs in chiral molecules.`,
-                    tamil: `ஒரே மூலக்கூறு வாய்ப்பாட்டையும் ஆனால் வெவ்வேறு இயற்பியல் மற்றும் வேதியியல் பண்புகளையும் கொண்ட சேர்மங்கள் மாற்றியங்கள் எனப்படும்.
-*   **அமைப்பு மாற்றியம்:** அணுக்களின் வெவ்வேறு இணைப்பு.
+    *   *Metamerism (மெட்டாமெரிசம்):* Different alkyl groups on either side of a functional group (e.g., diethyl ether and methyl propyl ether).`,
+                    tamil: `*   **அமைப்பு மாற்றியம்:** அணுக்களின் வெவ்வேறு இணைப்பு.
     *   *சங்கிலித் தொடர் மாற்றியம்:* வெவ்வேறு கார்பன் கூடு (எ.கா., பியூட்டேன் மற்றும் ஐசோபியூட்டேன்).
     *   *இட மாற்றியம்:* பதிலீட்டு அல்லது வினைசெயல் தொகுதியின் வெவ்வேறு நிலை (எ.கா., புரோப்பேன்-1-ஆல் மற்றும் புரோப்பேன்-2-ஆல்).
     *   *வினைசெயல் தொகுதி மாற்றியம்:* வெவ்வேறு வினைசெயல் தொகுதிகள் (எ.கா., எத்தனால் (C₂H₅OH) மற்றும் மெத்தாக்ஸிமீத்தேன் (CH₃OCH₃)).
-    *   *மெட்டாமெரிசம்:* ஒரு வினைசெயல் தொகுதியின் இருபுறமும் வெவ்வேறு அல்கைல் குழுக்கள் (எ.கா., டைஎத்தில் ஈதர் மற்றும் மெத்தில் புரோப்பைல் ஈதர்).
-*   **வெளிப்புற அமைப்பு மாற்றியம்:** ஒரே இணைப்பு ஆனால் அணுக்களின் வெவ்வேறு இட அமைப்பு.
+    *   *மெட்டாமெரிசம்:* ஒரு வினைசெயல் தொகுதியின் இருபுறமும் வெவ்வேறு அல்கைல் குழுக்கள் (எ.கா., டைஎத்தில் ஈதர் மற்றும் மெத்தில் புரோப்பைல் ஈதர்).`
+                },
+                {
+                    english: `*   **Stereoisomerism (வெளிப்புற அமைப்பு மாற்றியம்):** Same connectivity but different spatial arrangement of atoms.
+    *   *Geometrical Isomerism (வடிவ மாற்றியம்):* Restricted rotation around a bond (e.g., cis-trans isomers in alkenes).
+    *   *Optical Isomerism (ஒளி சுழற்சி மாற்றியம்):* Non-superimposable mirror images (enantiomers), occurs in chiral molecules.`,
+                    tamil: `*   **வெளிப்புற அமைப்பு மாற்றியம்:** ஒரே இணைப்பு ஆனால் அணுக்களின் வெவ்வேறு இட அமைப்பு.
     *   *வடிவ மாற்றியம்:* ஒரு பிணைப்பைச் சுற்றி கட்டுப்படுத்தப்பட்ட சுழற்சி (எ.கா., ஆல்கீன்களில் சிஸ்-டிரான்ஸ் மாற்றியங்கள்).
     *   *ஒளி சுழற்சி மாற்றியம்:* ஒன்றின் மீது ஒன்று பொருந்தாத கண்ணாடிப் பிம்பங்கள் (எதிர் ஒளி மாற்றியங்கள்), கைரல் மூலக்கூறுகளில் நிகழ்கிறது.`
                 }
@@ -89,20 +99,28 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
             },
             content: [
                 {
-                    english: `**Inductive Effect (-I, +I) (தூண்டல் விளைவு):** Permanent displacement of sigma (σ) electrons along a carbon chain due to the presence of an electron-withdrawing or electron-donating group. It's a weak effect that decreases with distance.
-*   **-I effect:** Caused by electron-withdrawing groups (e.g., -NO₂, -CN, -Halogens).
-*   **+I effect:** Caused by electron-donating groups (e.g., alkyl groups like -CH₃, -C₂H₅).`,
-                    tamil: `**தூண்டல் விளைவு (-I, +I):** எலக்ட்ரானை ஈர்க்கும் அல்லது வழங்கும் ஒரு குழு இருப்பதால், கார்பன் சங்கிலி வழியே சிக்மா (σ) எலக்ட்ரான்களின் நிரந்தர இடப்பெயர்ச்சி. இது தூரத்துடன் குறையும் ஒரு பலவீனமான விளைவு.
-*   **-I விளைவு:** எலக்ட்ரானை ஈர்க்கும் குழுக்களால் ஏற்படுகிறது (எ.கா., -NO₂, -CN, -ஹாலஜன்கள்).
-*   **+I விளைவு:** எலக்ட்ரானை வழங்கும் குழுக்களால் ஏற்படுகிறது (எ.கா., -CH₃, -C₂H₅ போன்ற அல்கைல் குழுக்கள்).`
+                    english: `**Inductive Effect (-I, +I) (தூண்டல் விளைவு):** Permanent displacement of sigma (σ) electrons along a carbon chain due to the presence of an electron-withdrawing or electron-donating group. It's a weak effect that decreases with distance.`,
+                    tamil: `**தூண்டல் விளைவு (-I, +I):** எலக்ட்ரானை ஈர்க்கும் அல்லது வழங்கும் ஒரு குழு இருப்பதால், கார்பன் சங்கிலி வழியே சிக்மா (σ) எலக்ட்ரான்களின் நிரந்தர இடப்பெயர்ச்சி. இது தூரத்துடன் குறையும் ஒரு பலவீனமான விளைவு.`
                 },
                 {
-                    english: `**Resonance or Mesomeric Effect (R/M Effect) (உடனிசைவு அல்லது மீசோமெரிக் விளைவு):** Permanent delocalization of pi (π) electrons in a conjugated system. This leads to resonance structures.
-*   **+R effect:** Group donates electrons to the conjugated system (e.g., -OH, -NH₂, -OR).
-*   **-R effect:** Group withdraws electrons from the conjugated system (e.g., -NO₂, -CHO, -COOH).`,
-                    tamil: `**உடனிசைவு அல்லது மீசோமெரிக் விளைவு (R/M விளைவு):** ஒரு இணைந்த அமைப்பில் பை (π) எலக்ட்ரான்களின் நிரந்தர இடமாற்றம். இது உடனிசைவு அமைப்புகளுக்கு வழிவகுக்கிறது.
-*   **+R விளைவு:** குழு இணைந்த அமைப்புக்கு எலக்ட்ரான்களை வழங்குகிறது (எ.கா., -OH, -NH₂, -OR).
-*   **-R விளைவு:** குழு இணைந்த அமைப்பிலிருந்து எலக்ட்ரான்களை ஈர்க்கிறது (எ.கா., -NO₂, -CHO, -COOH).`
+                    english: `*   **-I effect:** Caused by electron-withdrawing groups (e.g., -NO₂, -CN, -Halogens).`,
+                    tamil: `*   **-I விளைவு:** எலக்ட்ரானை ஈர்க்கும் குழுக்களால் ஏற்படுகிறது (எ.கா., -NO₂, -CN, -ஹாலஜன்கள்).`
+                },
+                {
+                    english: `*   **+I effect:** Caused by electron-donating groups (e.g., alkyl groups like -CH₃, -C₂H₅).`,
+                    tamil: `*   **+I விளைவு:** எலக்ட்ரானை வழங்கும் குழுக்களால் ஏற்படுகிறது (எ.கா., -CH₃, -C₂H₅ போன்ற அல்கைல் குழுக்கள்).`
+                },
+                {
+                    english: `**Resonance or Mesomeric Effect (R/M Effect) (உடனிசைவு அல்லது மீசோமெரிக் விளைவு):** Permanent delocalization of pi (π) electrons in a conjugated system. This leads to resonance structures.`,
+                    tamil: `**உடனிசைவு அல்லது மீசோமெரிக் விளைவு (R/M விளைவு):** ஒரு இணைந்த அமைப்பில் பை (π) எலக்ட்ரான்களின் நிரந்தர இடமாற்றம். இது உடனிசைவு அமைப்புகளுக்கு வழிவகுக்கிறது.`
+                },
+                {
+                    english: `*   **+R effect:** Group donates electrons to the conjugated system (e.g., -OH, -NH₂, -OR).`,
+                    tamil: `*   **+R விளைவு:** குழு இணைந்த அமைப்புக்கு எலக்ட்ரான்களை வழங்குகிறது (எ.கா., -OH, -NH₂, -OR).`
+                },
+                {
+                    english: `*   **-R effect:** Group withdraws electrons from the conjugated system (e.g., -NO₂, -CHO, -COOH).`,
+                    tamil: `*   **-R விளைவு:** குழு இணைந்த அமைப்பிலிருந்து எலக்ட்ரான்களை ஈர்க்கிறது (எ.கா., -NO₂, -CHO, -COOH).`
                 },
                 {
                     english: `**Hyperconjugation (no-bond resonance) (மீள்இணையுதல்):** Delocalization of sigma (σ) electrons of a C-H bond into an adjacent empty or partially filled p-orbital. It is used to explain the stability of carbocations, free radicals, and alkenes.`,
@@ -117,14 +135,20 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
             },
             content: [
                 {
-                    english: `Highly reactive, short-lived species formed during a reaction.
-*   **Carbocation (கார்போகேட்டயன்):** Positively charged carbon ($C^+$), sp² hybridized, trigonal planar. Stability order: 3° > 2° > 1°.
-*   **Carbanion (கார்பேனயன்):** Negatively charged carbon ($C^-$), sp³ hybridized, pyramidal. Stability order: 1° > 2° > 3°.
-*   **Free Radical (தனி உறுப்பு):** Neutral carbon with an unpaired electron ($C^•$), sp² hybridized, planar. Stability order: 3° > 2° > 1°.`,
-                    tamil: `ஒரு வினையின் போது உருவாகும் அதிக வினைத்திறன் கொண்ட, குறுகிய ஆயுள் கொண்ட வகைகள்.
-*   **கார்போகேட்டயன்:** நேர் மின்னூட்டம் கொண்ட கார்பன் ($C^+$), sp² இனக்கலப்பு, முக்கோணத் தளம். நிலைப்புத்தன்மை வரிசை: 3° > 2° > 1°.
-*   **கார்பேனயன்:** எதிர் மின்னூட்டம் கொண்ட கார்பன் ($C^-$), sp³ இனக்கலப்பு, பிரமிடு. நிலைப்புத்தன்மை வரிசை: 1° > 2° > 3°.
-*   **தனி உறுப்பு:** இணைசேரா எலக்ட்ரானுடன் கூடிய நடுநிலை கார்பன் ($C^•$), sp² இனக்கலப்பு, தளம். நிலைப்புத்தன்மை வரிசை: 3° > 2° > 1°.`
+                    english: `Highly reactive, short-lived species formed during a reaction.`,
+                    tamil: `ஒரு வினையின் போது உருவாகும் அதிக வினைத்திறன் கொண்ட, குறுகிய ஆயுள் கொண்ட வகைகள்.`
+                },
+                {
+                    english: `*   **Carbocation (கார்போகேட்டயன்):** Positively charged carbon ($C^+$), sp² hybridized, trigonal planar. Stability order: 3° > 2° > 1°.`,
+                    tamil: `*   **கார்போகேட்டயன்:** நேர் மின்னூட்டம் கொண்ட கார்பன் ($C^+$), sp² இனக்கலப்பு, முக்கோணத் தளம். நிலைப்புத்தன்மை வரிசை: 3° > 2° > 1°.`
+                },
+                {
+                    english: `*   **Carbanion (கார்பேனயன்):** Negatively charged carbon ($C^-$), sp³ hybridized, pyramidal. Stability order: 1° > 2° > 3°.`,
+                    tamil: `*   **கார்பேனயன்:** எதிர் மின்னூட்டம் கொண்ட கார்பன் ($C^-$), sp³ இனக்கலப்பு, பிரமிடு. நிலைப்புத்தன்மை வரிசை: 1° > 2° > 3°.`
+                },
+                {
+                    english: `*   **Free Radical (தனி உறுப்பு):** Neutral carbon with an unpaired electron ($C^•$), sp² hybridized, planar. Stability order: 3° > 2° > 1°.`,
+                    tamil: `*   **தனி உறுப்பு:** இணைசேரா எலக்ட்ரானுடன் கூடிய நடுநிலை கார்பன் ($C^•$), sp² இனக்கலப்பு, தளம். நிலைப்புத்தன்மை வரிசை: 3° > 2° > 1°.`
                 }
             ]
         }
@@ -231,7 +255,7 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
                 },
                 {
                     step: 3,
-                    explanation: "3-methylbutan-1-ol: A 4-carbon chain (butane) with a methyl group at C3 and an -OH at C1. Total carbons = 4+1=5. Total hydrogens = 3(CH₃)+1(CH)+2(CH₂)+2(CH₂OH)+1(H) = 12. Formula: C₅H₁₂O.",
+                    explanation: "3-methylbutan-1-ol: A 4-carbon chain (butane) with a methyl group at C3 and an -OH at C1. Total carbons = 4+1=5. Total hydrogens = 12. Formula: C₅H₁₂O.",
                     explanationTamil: "3-மெத்தில்பியூட்டேன்-1-ஆல்: C3 இல் ஒரு மெத்தில் குழுவும், C1 இல் ஒரு -OH தொகுதியும் கொண்ட ஒரு 4-கார்பன் சங்கிலி. மொத்த கார்பன்கள் = 5. மொத்த ஹைட்ரஜன்கள் = 12. வாய்ப்பாடு: C₅H₁₂O."
                 },
                 {
@@ -312,16 +336,128 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
             ]
         }
     ],
-    mcqs: [],
-    assertionReasons: [],
-    matchTheColumns: [],
+    mcqs: [
+        { question: "Which of the following carbocations is the most stable?", options: ["A. CH₃⁺", "B. CH₃CH₂⁺", "C. (CH₃)₂CH⁺", "D. (CH₃)₃C⁺"], answer: "D. (CH₃)₃C⁺", explanation: "The stability of carbocations follows the order 3° > 2° > 1° > methyl. The tertiary carbocation (CH₃)₃C⁺ is the most stable due to maximum hyperconjugation and inductive effect.", neetFrequency: 5 },
+        { question: "The IUPAC name of CH₃-CH(CH₃)-CH₂-COOH is:", options: ["A. 3-Methylbutanoic acid", "B. 2-Methylbutanoic acid", "C. 3-Methylbutanoic-1-acid", "D. Isopentanoic acid"], answer: "A. 3-Methylbutanoic acid", explanation: "The principal functional group is carboxylic acid (-COOH), so numbering starts from its carbon (C1). The longest chain is 4 carbons (butanoic acid). There is a methyl group at position 3.", neetFrequency: 4 },
+        { question: "Which of the following effects is temporary?", options: ["A. Inductive effect", "B. Resonance", "C. Hyperconjugation", "D. Electromeric effect"], answer: "D. Electromeric effect", explanation: "The electromeric effect is a temporary effect involving the complete transfer of a shared pair of π-electrons to one of the atoms in the presence of an attacking reagent. It disappears when the reagent is removed.", neetFrequency: 3 },
+        { question: "Geometrical isomerism is shown by:", options: ["A. But-1-ene", "B. But-2-ene", "C. Propyne", "D. 2,3-Dimethylbut-2-ene"], answer: "B. But-2-ene", explanation: "For geometrical isomerism, each carbon of the double bond must be attached to two different groups. In But-2-ene (CH₃-CH=CH-CH₃), each of the double-bonded carbons is attached to a -H and a -CH₃ group.", neetFrequency: 4 },
+        { question: "An electrophile is a species that:", options: ["A. Is electron-rich", "B. Seeks electrons", "C. Donates an electron pair", "D. Is negatively charged"], answer: "B. Seeks electrons", explanation: "'Electro-phile' means 'electron-loving'. They are electron-deficient species that attack regions of high electron density.", neetFrequency: 5 },
+        { question: "The correct order of stability for the following carbanions is: (I) CH₃⁻, (II) CH₃CH₂⁻, (III) (CH₃)₂CH⁻", options: ["A. I > II > III", "B. III > II > I", "C. II > III > I", "D. I > III > II"], answer: "A. I > II > III", explanation: "Alkyl groups are electron-donating (+I effect). They increase the electron density on the negatively charged carbon, destabilizing the carbanion. Therefore, the stability order is 1° > 2° > 3°, and methyl is the most stable.", neetFrequency: 3 },
+        { question: "Butan-2-ol and Butan-1-ol are examples of:", options: ["A. Chain isomers", "B. Position isomers", "C. Functional isomers", "D. Metamers"], answer: "B. Position isomers", explanation: "Both have the same carbon skeleton (4 carbons) and the same functional group (-OH), but the position of the -OH group is different (at C2 vs C1).", neetFrequency: 4 },
+        { question: "The reaction CH₄ + Cl₂ → CH₃Cl + HCl in the presence of sunlight is an example of:", options: ["A. Addition reaction", "B. Elimination reaction", "C. Free radical substitution", "D. Nucleophilic substitution"], answer: "C. Free radical substitution", explanation: "The reaction is initiated by UV light, which generates chlorine free radicals. These radicals then attack the methane molecule.", neetFrequency: 3 },
+        { question: "Which of the following is a nucleophile?", options: ["A. H₃O⁺", "B. BF₃", "C. NO₂⁺", "D. CN⁻"], answer: "D. CN⁻", explanation: "A nucleophile is an electron-rich species that donates an electron pair. BF₃ and NO₂⁺ are electrophiles. H₃O⁺ is an acid. CN⁻ is negatively charged and has a lone pair to donate.", neetFrequency: 5 },
+        { question: "The hybridization of carbon atoms in an ethyne (acetylene) molecule is:", options: ["A. sp³", "B. sp²", "C. sp", "D. sp³d"], answer: "C. sp", explanation: "Ethyne (H-C≡C-H) has a triple bond. Each carbon atom forms two sigma bonds, requiring sp hybridization.", neetFrequency: 2 },
+        { question: "The property by which a C-C single bond is stronger than a Si-Si single bond is:", options: ["A. Electronegativity", "B. Ionization Enthalpy", "C. Catenation", "D. Hybridization"], answer: "C. Catenation", explanation: "Catenation is the ability of an atom to form long chains with itself. Carbon exhibits this property to a much greater extent than silicon due to its stronger C-C single bond.", neetFrequency: 2 },
+        { question: "Which of the following compounds exhibits optical isomerism?", options: ["A. Propan-1-ol", "B. Butan-1-ol", "C. Butan-2-ol", "D. 2-Methylpropan-2-ol"], answer: "C. Butan-2-ol", explanation: "Optical isomerism requires a chiral center (a carbon atom attached to four different groups). In Butan-2-ol (CH₃-CH(OH)-CH₂-CH₃), the second carbon is attached to -H, -OH, -CH₃, and -C₂H₅, making it chiral.", neetFrequency: 4 },
+        { question: "The number of sigma and pi bonds in benzene is:", options: ["A. 6σ, 3π", "B. 12σ, 3π", "C. 3σ, 12π", "D. 6σ, 6π"], answer: "B. 12σ, 3π", explanation: "Benzene has 6 C-C sigma bonds and 6 C-H sigma bonds (total 12σ). It also has 3 C=C double bonds, which accounts for 3 π bonds.", neetFrequency: 3 },
+        { question: "The homolytic fission of a covalent bond leads to the formation of:", options: ["A. Carbocations", "B. Carbanions", "C. Free radicals", "D. Electrophiles"], answer: "C. Free radicals", explanation: "Homolytic fission involves the equal sharing of the bonding electrons, with each atom getting one electron, resulting in neutral species with an unpaired electron (free radicals).", neetFrequency: 2 },
+        { question: "Which of the following is the most acidic?", options: ["A. Phenol", "B. Ethanol", "C. Water", "D. Propanol"], answer: "A. Phenol", explanation: "Phenol is more acidic because its conjugate base (phenoxide ion) is stabilized by resonance, delocalizing the negative charge into the benzene ring.", neetFrequency: 4 },
+        { question: "The attacking reagent in the nitration of benzene is:", options: ["A. NO₂", "B. NO₂⁻", "C. NO₂⁺", "D. HNO₃"], answer: "C. NO₂⁺", explanation: "The nitronium ion (NO₂⁺) is the electrophile that attacks the benzene ring in electrophilic aromatic nitration.", neetFrequency: 3 },
+        { question: "Which group shows a +R (positive resonance) effect?", options: ["A. -CHO", "B. -COOH", "C. -NO₂", "D. -NH₂"], answer: "D. -NH₂", explanation: "The lone pair of electrons on the nitrogen atom in the -NH₂ group can be donated to the conjugated system, which is a +R effect. The other groups are electron-withdrawing (-R effect).", neetFrequency: 4 },
+        { question: "The process of separation of a racemic mixture into enantiomers is called:", options: ["A. Resolution", "B. Racemization", "C. Inversion", "D. Retention"], answer: "A. Resolution", explanation: "Resolution is the process of separating a racemate into its component enantiomers.", neetFrequency: 1 },
+        { question: "The general formula for alkanes is:", options: ["A. CnH2n", "B. CnH2n+2", "C. CnH2n-2", "D. CnHn"], answer: "B. CnH2n+2", explanation: "This is the general formula for non-cyclic alkanes (saturated hydrocarbons).", neetFrequency: 1 },
+        { question: "The C-C bond length is maximum in:", options: ["A. Ethane", "B. Ethene", "C. Ethyne", "D. Benzene"], answer: "A. Ethane", explanation: "Bond length decreases with increasing bond order. Ethane (single bond) > Ethene (double bond) > Ethyne (triple bond).", neetFrequency: 3 },
+        { question: "Tautomerism is a type of:", options: ["A. Chain isomerism", "B. Functional isomerism", "C. Position isomerism", "D. Metamerism"], answer: "B. Functional isomerism", explanation: "Tautomerism involves isomers that differ in the position of a proton and a double bond and exist in dynamic equilibrium. Keto-enol tautomerism is a common example where the isomers have different functional groups (ketone and enol).", neetFrequency: 2 },
+        { question: "Which of the following is an example of an elimination reaction?", options: ["A. Hydration of ethene", "B. Dehydration of ethanol", "C. Nitration of benzene", "D. Chlorination of methane"], answer: "B. Dehydration of ethanol", explanation: "Dehydration of ethanol to form ethene involves the removal of a water molecule from adjacent carbon atoms, which is an elimination reaction.", neetFrequency: 3 },
+        { question: "The stability of alkenes is explained by:", options: ["A. Inductive effect only", "B. Resonance only", "C. Electromeric effect", "D. Hyperconjugation"], answer: "D. Hyperconjugation", explanation: "The stability of alkenes increases with the number of alkyl groups attached to the double-bonded carbons. This is explained by hyperconjugation (delocalization of C-H sigma electrons).", neetFrequency: 4 },
+        { question: "The correct IUPAC name for neopentane is:", options: ["A. 2,2-Dimethylpropane", "B. 2-Methylbutane", "C. Pentane", "D. Neopentane"], answer: "A. 2,2-Dimethylpropane", explanation: "The longest carbon chain has 3 carbons (propane), with two methyl groups attached to the second carbon.", neetFrequency: 2 },
+        { question: "Lassaigne's test is used for the detection of:", options: ["A. Carbon and Hydrogen", "B. Oxygen", "C. Nitrogen, Sulphur, and Halogens", "D. The functional group"], answer: "C. Nitrogen, Sulphur, and Halogens", explanation: "This test converts these elements from their covalent form in the organic compound to an ionic form, which can then be detected by simple chemical tests.", neetFrequency: 1 }
+    ],
+    assertionReasons: [
+        {
+            assertion: "Tertiary carbocations are more stable than primary carbocations.",
+            reason: "The stability of carbocations is explained by both inductive effect and hyperconjugation.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct explanation. Tertiary carbocations have more alkyl groups, which stabilize the positive charge through both +I effect and a greater number of hyperconjugation structures.",
+            neetFrequency: 5
+        },
+        {
+            assertion: "Pent-1-ene and Pent-2-ene are position isomers.",
+            reason: "They have the same molecular formula but differ in the position of the double bond.",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and is the correct definition and explanation for position isomers.",
+            neetFrequency: 4
+        },
+        {
+            assertion: "All molecules with a chiral carbon are optically active.",
+            reason: "Meso compounds have chiral carbons but are optically inactive due to an internal plane of symmetry.",
+            answer: "D",
+            explanation: "The assertion is false. Meso compounds are an exception. The reason is a true statement that explains why the assertion is false.",
+            neetFrequency: 3
+        },
+        {
+            assertion: "The resonance effect is stronger than the inductive effect.",
+            reason: "Resonance involves the delocalization of π-electrons over a longer distance.",
+            answer: "B",
+            explanation: "Both statements are generally true. The resonance effect is indeed more powerful than the inductive effect, and it involves delocalization of π-electrons. However, the reason is more of a description than a fundamental explanation of its strength. The strength comes from the greater stabilization provided by delocalization.",
+            neetFrequency: 2
+        },
+        {
+            assertion: "Ethanol and methoxymethane are functional isomers.",
+            reason: "They have the same molecular formula C₂H₆O but different functional groups (alcohol and ether).",
+            answer: "A",
+            explanation: "The assertion is true. The reason is also true and provides the correct definition and example, thus correctly explaining the assertion.",
+            neetFrequency: 3
+        }
+    ],
+    matchTheColumns: [
+        {
+            column1: ["(a) Free Radical", "(b) Carbocation", "(c) Nucleophile", "(d) Electrophile"],
+            column2: ["(p) Electron deficient", "(q) Electron rich", "(r) Neutral species with unpaired electron", "(s) Positively charged carbon"],
+            answer: "a-r, b-p,s; c-q; d-p",
+            explanation: "Matching the species with their correct descriptions. Both carbocations and electrophiles are electron-deficient. A carbocation is a specific type of electrophile."
+        },
+        {
+            column1: ["(a) Chain isomerism", "(b) Position isomerism", "(c) Functional isomerism", "(d) Geometrical isomerism"],
+            column2: ["(p) But-1-ene and But-2-ene", "(q) cis-But-2-ene and trans-But-2-ene", "(r) Propanal and Propanone", "(s) Butane and 2-Methylpropane"],
+            answer: "a-s, b-p, c-r, d-q",
+            explanation: "Matching the type of isomerism with a correct pair of examples."
+        },
+        {
+            column1: ["(a) Inductive effect", "(b) Resonance", "(c) Hyperconjugation", "(d) Electromeric effect"],
+            column2: ["(p) Temporary effect", "(q) Delocalization of σ electrons", "(r) Permanent displacement of σ electrons", "(s) Delocalization of π electrons"],
+            answer: "a-r, b-s, c-q, d-p",
+            explanation: "Matching the electronic effect with its fundamental definition."
+        },
+        {
+            column1: ["(a) sp³", "(b) sp²", "(c) sp"],
+            column2: ["(p) Ethyne", "(q) Ethene", "(r) Ethane"],
+            answer: "a-r, b-q, c-p",
+            explanation: "Matching the hybridization of carbon with the corresponding hydrocarbon."
+        },
+        {
+            column1: ["(a) Substitution", "(b) Addition", "(c) Elimination", "(d) Rearrangement"],
+            column2: ["(p) Formation of an alkene from an alcohol", "(q) Chlorination of methane", "(r) Conversion of n-butane to isobutane", "(s) Bromination of ethene"],
+            answer: "a-q, b-s, c-p, d-r",
+            explanation: "Matching the reaction type with a classic example."
+        }
+    ],
     keyFormulasAndDiagrams: {
         formulas: [],
         diagrams: []
     },
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "The IUPAC system provides a logical and unambiguous way to name organic compounds.",
+        "Isomerism explains how compounds with the same formula can have vastly different properties.",
+        "Electronic effects like inductive and resonance govern the stability and reactivity of organic molecules.",
+        "Most organic reactions can be classified into four main types: substitution, addition, elimination, and rearrangement."
+    ],
+    mnemonics: [
+        {
+            text: "For stability of intermediates: '3-2-1 Go!' for Carbocations and Free Radicals. '1-2-3 No!' for Carbanions.",
+            tamil: "இடைநிலைகளின் நிலைப்புத்தன்மைக்கு: கார்போகேட்டயன்கள் மற்றும் தனி உறுப்புகளுக்கு '3-2-1 போ!'. கார்பேனயன்களுக்கு '1-2-3 வேண்டாம்!'."
+        }
+    ],
+    neetTips: [
+        {
+            text: "Questions comparing the stability of carbocations, carbanions, and free radicals are very frequent. Master the application of inductive, resonance, and hyperconjugation effects.",
+            tamil: "கார்போகேட்டயன்கள், கார்பேனயன்கள், மற்றும் தனி உறுப்புகளின் நிலைப்புத்தன்மையை ஒப்பிடும் கேள்விகள் மிகவும் அடிக்கடி கேட்கப்படுகின்றன. தூண்டல், உடனிசைவு, மற்றும் மீள்இணையுதல் விளைவுகளின் பயன்பாட்டை நன்கு கற்றுக் கொள்ளுங்கள்."
+        },
+        {
+            text: "Practice IUPAC nomenclature for complex molecules with multiple functional groups and substituents. This is a guaranteed area for scoring marks.",
+            tamil: "பல வினைசெயல் தொகுதிகள் மற்றும் பதிலீடுகளைக் கொண்ட சிக்கலான மூலக்கூறுகளுக்கு IUPAC பெயரிடுதலைப் பயிற்சி செய்யுங்கள். இது மதிப்பெண்களைப் பெறுவதற்கான ஒரு உறுதியான பகுதியாகும்."
+        }
+    ],
     studentTip: {
         english: "Organic chemistry is like building with LEGOs. Understand the basic blocks (functional groups) and the rules of connection (nomenclature, electronic effects), and you can build and understand any molecule.",
         tamil: "கரிம வேதியியல் லெகோவுடன் கட்டுவது போன்றது. அடிப்படைத் தொகுதிகள் (வினைசெயல் தொகுதிகள்) மற்றும் இணைப்பு விதிகள் (பெயரிடுதல், எலக்ட்ரான் விளைவுகள்) ஆகியவற்றைப் புரிந்து கொள்ளுங்கள், நீங்கள் எந்த மூலக்கூறையும் உருவாக்கலாம் மற்றும் புரிந்து கொள்ளலாம்."
@@ -336,5 +472,6 @@ export const someBasicPrinciplesOfOrganicChemistry: NeetModule = {
     },
     validationReport: []
 };
+
 
     
