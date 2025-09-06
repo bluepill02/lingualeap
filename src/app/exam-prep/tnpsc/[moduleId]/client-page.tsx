@@ -100,6 +100,27 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   
   const progressPercentage = (completedSections.size / 7) * 100;
 
+  const StrategicFocusCard = () => {
+    let recommendation = '';
+    if (module.difficultyLevel === 'Advanced' && module.weightage > 20) {
+        recommendation = "This is a high-weightage, Advanced module. We recommend allocating at least 3 study sessions. Focus heavily on understanding the nuances of the socio-political movements, as questions are often analytical.";
+    } else if (module.difficultyLevel === 'Intermediate' && module.weightage > 15) {
+        recommendation = "This Intermediate module has significant weightage. Ensure you master the key terms from the 'Context' tab and aim for over 80% in the 'Practice' section.";
+    } else {
+        recommendation = "This is a Foundation module. A strong understanding here is crucial for more advanced topics. Focus on mastering all the flashcards in the Spaced Repetition section.";
+    }
+
+    return (
+        <Alert variant="info" className="bg-primary/10 border-primary/30">
+            <Target className="h-4 w-4 text-primary" />
+            <AlertTitle className="font-bold text-primary">Strategic Focus</AlertTitle>
+            <AlertDescription>
+                {recommendation}
+            </AlertDescription>
+        </Alert>
+    );
+}
+
   const AnalyticsTabContent = () => {
     if (!showAnswers) {
         return (
@@ -372,7 +393,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
         <Progress value={progressPercentage} />
 
         <Tabs value={currentTab} onValueChange={setCurrentTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 h-auto">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 h-auto flex-wrap">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="srs">SRS</TabsTrigger>
@@ -388,6 +409,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                 <CardTitle>{language === 'english' ? 'Module Overview' : 'பாட மேலோட்டம்'}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                <StrategicFocusCard />
                 <p className="leading-relaxed">
                   {language === 'english' ? module.overview.summary : module.overview.summaryTamil}
                 </p>
