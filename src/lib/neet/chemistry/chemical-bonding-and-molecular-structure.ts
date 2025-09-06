@@ -298,28 +298,97 @@ $$ \\text{பிணைப்புத் தரம்} = \\frac{1}{2} (N_b - N_a
             neetHackTamil: "CO₂, BF₃, CH₄, CCl₄, PCl₅, மற்றும் SF₆ போன்ற சமச்சீர் மூலக்கூறுகள் அவற்றின் பிணைப்புகள் முனைவுற்றதாக இருந்தாலும், சுழி இருமுனைத் திருப்புத்திறனைக் கொண்டுள்ளன."
         }
     ],
-    mcqs: [],
-    assertionReasons: [],
-    matchTheColumns: [],
+    mcqs: [
+        { question: "The geometry of the SF₄ molecule is:", options: ["A. Tetrahedral", "B. Square planar", "C. See-saw", "D. Trigonal pyramidal"], answer: "C. See-saw", explanation: "Sulfur has 6 valence electrons. 4 are used for bonding with F, leaving 1 lone pair. Total 5 electron pairs give a trigonal bipyramidal geometry. The lone pair occupies an equatorial position, resulting in a see-saw shape.", neetFrequency: 4 },
+        { question: "Which molecule has a zero dipole moment?", options: ["A. NH₃", "B. H₂O", "C. BF₃", "D. SO₂"], answer: "C. BF₃", explanation: "BF₃ has a trigonal planar geometry. The three B-F bond dipoles are oriented at 120° to each other and cancel out completely, resulting in a zero net dipole moment.", neetFrequency: 5 },
+        { question: "The hybridization of the central atom in PCl₅ is:", options: ["A. sp³", "B. sp²", "C. sp³d", "D. sp³d²"], answer: "C. sp³d", explanation: "Phosphorus has 5 valence electrons and forms 5 single bonds with chlorine atoms. This requires 5 hybrid orbitals, which corresponds to sp³d hybridization.", neetFrequency: 4 },
+        { question: "According to Molecular Orbital Theory, which of the following is paramagnetic?", options: ["A. N₂", "B. O₂", "C. F₂", "D. C₂"], answer: "B. O₂", explanation: "The MOT configuration of O₂ has two unpaired electrons in the π* antibonding orbitals, making it paramagnetic.", neetFrequency: 5 },
+        { question: "The correct order of bond order is:", options: ["A. O₂⁺ > O₂ > O₂⁻", "B. O₂ > O₂⁺ > O₂⁻", "C. O₂⁻ > O₂ > O₂⁺", "D. O₂⁺ > O₂⁻ > O₂"], answer: "A. O₂⁺ > O₂ > O₂⁻", explanation: "The bond orders are O₂⁺ (2.5), O₂ (2.0), and O₂⁻ (1.5). Higher bond order implies greater stability.", neetFrequency: 4 },
+        { question: "The number of sigma (σ) and pi (π) bonds in a benzene molecule (C₆H₆) are:", options: ["A. 12σ, 3π", "B. 6σ, 6π", "C. 12σ, 6π", "D. 6σ, 3π"], answer: "A. 12σ, 3π", explanation: "Benzene has 6 C-C single bonds and 6 C-H single bonds, making 12 sigma bonds. It also has 3 double bonds, each containing one pi bond, for a total of 3 pi bonds.", neetFrequency: 3 },
+        { question: "Which of the following has the highest bond angle?", options: ["A. H₂O", "B. H₂S", "C. H₂Se", "D. H₂Te"], answer: "A. H₂O", explanation: "As we move down the group, the electronegativity of the central atom decreases, and the bond angle decreases. Oxygen is the most electronegative, leading to the largest bond angle.", neetFrequency: 3 },
+        { question: "The shape of the XeF₄ molecule is:", options: ["A. Tetrahedral", "B. See-saw", "C. Square planar", "D. Pyramidal"], answer: "C. Square planar", explanation: "Xenon has 8 valence electrons. 4 form bonds with F, leaving 2 lone pairs. Total 6 electron pairs give an octahedral geometry. The two lone pairs occupy axial positions to minimize repulsion, resulting in a square planar shape.", neetFrequency: 4 },
+        { question: "Which type of hybridization leads to a linear geometry?", options: ["A. sp", "B. sp²", "C. sp³", "D. dsp²"], answer: "A. sp", explanation: "sp hybridization results in two hybrid orbitals oriented at 180° to each other, leading to a linear molecular geometry.", neetFrequency: 2 },
+        { question: "Hydrogen bonding is strongest in:", options: ["A. H₂O", "B. H₂S", "C. HF", "D. NH₃"], answer: "C. HF", explanation: "Hydrogen bonding strength depends on the electronegativity of the atom bonded to H. Fluorine is the most electronegative element, so the H-F bond is the most polar, leading to the strongest hydrogen bonds.", neetFrequency: 4 },
+        { question: "The species which does not exist, according to MOT, is:", options: ["A. H₂⁺", "B. He₂", "C. He₂⁺", "D. Li₂"], answer: "B. He₂", explanation: "For He₂, there are 4 electrons. The MOT configuration is (σ1s)²(σ*1s)². The bond order is (2-2)/2 = 0. A zero bond order indicates that the molecule is unstable and does not exist.", neetFrequency: 3 },
+        { question: "The bond angle in a water molecule (H₂O) is approximately:", options: ["A. 180°", "B. 120°", "C. 109.5°", "D. 104.5°"], answer: "D. 104.5°", explanation: "Water has sp³ hybridization, but the two lone pairs on the oxygen atom repel the bond pairs, reducing the bond angle from the ideal tetrahedral angle of 109.5° to 104.5°.", neetFrequency: 2 },
+        { question: "In which of the following pairs are the two species isostructural?", options: ["A. SO₃ and NO₃⁻", "B. BF₃ and NF₃", "C. BrO₃⁻ and XeO₃", "D. SF₄ and SiF₄"], answer: "C. BrO₃⁻ and XeO₃", explanation: "Both BrO₃⁻ and XeO₃ have a central atom with 3 bond pairs and 1 lone pair, leading to a trigonal pyramidal shape for both.", neetFrequency: 3 },
+        { question: "Which of the following is an electron-deficient molecule?", options: ["A. C₂H₆", "B. PH₃", "C. B₂H₆", "D. SiH₄"], answer: "C. B₂H₆", explanation: "In Diborane (B₂H₆), the boron atoms do not have a complete octet and are connected by unique three-center-two-electron 'banana bonds', making it an electron-deficient compound.", neetFrequency: 2 },
+        { question: "The correct order of bond lengths is:", options: ["A. C-C > C=C > C≡C", "B. C≡C > C=C > C-C", "C. C=C > C-C > C≡C", "D. C≡C > C-C > C=C"], answer: "A. C-C > C=C > C≡C", explanation: "Bond length decreases as bond order increases. A triple bond is shorter and stronger than a double bond, which is shorter and stronger than a single bond.", neetFrequency: 4 },
+        { question: "The formal charge on the central oxygen atom in the ozone (O₃) molecule is:", options: ["A. 0", "B. +1", "C. -1", "D. +2"], answer: "B. +1", explanation: "In one of the resonance structures of ozone, the central oxygen atom forms one single bond and one double bond, and has one lone pair. Formal Charge = (Valence e⁻) - (Non-bonding e⁻) - (1/2 * Bonding e⁻) = 6 - 2 - (1/2 * 6) = +1.", neetFrequency: 2 },
+        { question: "Which of the following molecules contains a coordinate bond?", options: ["A. H₂O", "B. NH₃", "C. CO", "D. CH₄"], answer: "C. CO", explanation: "In the carbon monoxide molecule, after forming a double bond, oxygen donates a lone pair to carbon to satisfy its octet, forming a coordinate covalent bond.", neetFrequency: 3 },
+        { question: "The bond order of N₂⁺ is:", options: ["A. 3", "B. 2.5", "C. 2", "D. 1.5"], answer: "B. 2.5", explanation: "N₂ has 14 electrons and a bond order of 3. N₂⁺ has 13 electrons, with one electron removed from a bonding orbital. B.O. = (9-4)/2 = 2.5.", neetFrequency: 4 },
+        { question: "An ionic bond is formed between:", options: ["A. Two non-metals", "B. Two metals", "C. A metal and a non-metal", "D. Any two atoms"], answer: "C. A metal and a non-metal", explanation: "Ionic bonds typically form between elements with a large difference in electronegativity, such as a metal (which readily loses electrons) and a non-metal (which readily gains electrons).", neetFrequency: 1 },
+        { question: "The geometry of the ClF₃ molecule is:", options: ["A. Trigonal planar", "B. Trigonal pyramidal", "C. T-shaped", "D. Linear"], answer: "C. T-shaped", explanation: "Chlorine has 7 valence electrons. 3 are used for bonding with F, leaving 2 lone pairs. Total 5 electron pairs give a trigonal bipyramidal geometry. The two lone pairs occupy equatorial positions, resulting in a T-shaped molecule.", neetFrequency: 3 },
+        { question: "Which of the following is true about resonance?", options: ["A. The molecule rapidly oscillates between different structures", "B. The actual structure is an average of the resonance structures", "C. Resonance structures are real and can be isolated", "D. Resonance decreases the stability of a molecule"], answer: "B. The actual structure is an average of the resonance structures", explanation: "Resonance structures are hypothetical representations. The true structure, a resonance hybrid, is a weighted average of these structures and is more stable than any single one.", neetFrequency: 2 },
+        { question: "The species having pyramidal shape is:", options: ["A. SO₃", "B. PCl₃", "C. CO₃²⁻", "D. BF₃"], answer: "B. PCl₃", explanation: "Phosphorus in PCl₃ has 3 bond pairs and 1 lone pair, leading to a trigonal pyramidal shape, similar to ammonia.", neetFrequency: 3 },
+        { question: "In which of the following is the central atom sp² hybridized?", options: ["A. CH₄", "B. NH₃", "C. C₂H₄ (ethene)", "D. C₂H₂ (ethyne)"], answer: "C. C₂H₄ (ethene)", explanation: "In ethene, each carbon atom is bonded to two hydrogen atoms and one other carbon atom (via a double bond). This requires 3 sigma bonds, corresponding to sp² hybridization.", neetFrequency: 4 },
+        { question: "Which of the following compounds exhibits hydrogen bonding?", options: ["A. CH₄", "B. H₂S", "C. HCl", "D. C₂H₅OH (ethanol)"], answer: "D. C₂H₅OH (ethanol)", explanation: "Ethanol has a hydrogen atom directly bonded to a highly electronegative oxygen atom, which allows for hydrogen bonding.", neetFrequency: 3 },
+        { question: "According to Fajan's rules, covalent character is favored by:", options: ["A. Large cation, small anion", "B. Small cation, large anion", "C. Small cation, small anion", "D. Large cation, large anion"], answer: "B. Small cation, large anion", explanation: "A small, highly charged cation has high polarizing power, and a large anion is easily polarized. This combination favors the sharing of electrons and increases covalent character.", neetFrequency: 1 }
+    ],
+    assertionReasons: [
+        { assertion: "The bond angle in NH₃ is greater than in H₂O.", reason: "Nitrogen has one lone pair while Oxygen has two lone pairs of electrons.", answer: "A", explanation: "Assertion is true (107° > 104.5°). The reason is also true and is the correct explanation. The greater number of lone pairs on oxygen causes more repulsion, compressing the bond angle more in water than in ammonia.", neetFrequency: 4 },
+        { assertion: "The CO₂ molecule has a zero dipole moment.", reason: "CO₂ is a linear molecule and the two C=O bond dipoles cancel each other out.", answer: "A", explanation: "The assertion is true. The reason is also true and correctly explains why the net dipole moment is zero.", neetFrequency: 5 },
+        { assertion: "An ionic bond is non-directional.", reason: "The electrostatic field of an ion is spherically symmetric.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation. An ion attracts opposite charges equally from all directions, making the bond non-directional.", neetFrequency: 2 },
+        { assertion: "The bond order of O₂ is 2, while that of N₂ is 3.", reason: "Nitrogen molecule is more stable than oxygen molecule.", answer: "B", explanation: "Both statements are true. Bond orders of O₂ and N₂ are 2 and 3 respectively. N₂ is indeed more stable than O₂ (as reflected by its higher bond energy). However, the reason is a consequence of the bond order, not the explanation for it. The explanation lies in their respective MOT configurations.", neetFrequency: 3 },
+        { assertion: "SF₆ molecule is stable, but SH₆ is not.", reason: "Sulphur has vacant d-orbitals which can be used for bonding.", answer: "C", explanation: "The assertion is true. The reason is also true (sulphur can exhibit expanded octet). However, this does not explain the assertion. The reason SH₆ is not stable is that hydrogen is not electronegative enough to cause the promotion of electrons to the d-orbitals in sulphur. Only highly electronegative atoms like F can do that.", neetFrequency: 2 }
+    ],
+    matchTheColumns: [
+        { column1: ["(a) sp", "(b) sp²", "(c) sp³", "(d) sp³d²"], column2: ["(p) Trigonal planar", "(q) Octahedral", "(r) Linear", "(s) Tetrahedral"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching the hybridization type with the corresponding molecular geometry.", neetFrequency: 5 },
+        { column1: ["(a) H₂O", "(b) BeCl₂", "(c) C₂H₂", "(d) NH₃"], column2: ["(p) Linear shape", "(q) Bent shape", "(r) Pyramidal shape"], answer: "a-q, b-p, c-p, d-r", explanation: "Matching the molecules with their correct shapes.", neetFrequency: 4 },
+        { column1: ["(a) Bond Order 1", "(b) Bond Order 2", "(c) Bond Order 3", "(d) Bond Order 0"], column2: ["(p) O₂", "(q) N₂", "(r) He₂", "(s) F₂"], answer: "a-s, b-p, c-q, d-r", explanation: "Matching the bond order with the corresponding diatomic molecule.", neetFrequency: 3 },
+        { column1: ["(a) Ionic Bond", "(b) Covalent Bond", "(c) Hydrogen Bond", "(d) Metallic Bond"], column2: ["(p) Sea of electrons", "(q) Sharing of electrons", "(r) Dipole-dipole interaction involving H", "(s) Transfer of electrons"], answer: "a-s, b-q, c-r, d-p", explanation: "Matching the type of bond with its fundamental description.", neetFrequency: 2 },
+        { column1: ["(a) Zero dipole moment", "(b) Non-zero dipole moment", "(c) Paramagnetic", "(d) Diamagnetic"], column2: ["(p) O₂", "(q) N₂", "(r) CO₂", "(s) H₂O"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching the property with a molecule that exhibits it. CO₂ is linear and nonpolar. H₂O is bent and polar. O₂ is paramagnetic. N₂ is diamagnetic.", neetFrequency: 4 }
+    ],
     keyFormulasAndDiagrams: {
-        formulas: [],
+        formulas: [
+            {
+                formula: "Bond Order = \\frac{1}{2} (N_b - N_a)",
+                description: "Bond order from Molecular Orbital Theory.",
+                descriptionTamil: "மூலக்கூறு ஆர்பிட்டால் கோட்பாட்டிலிருந்து பிணைப்புத் தரம்."
+            },
+            {
+                formula: "\\text{Hybridization number} = (\\text{No. of } \\sigma \\text{ bonds}) + (\\text{No. of lone pairs})",
+                description: "Shortcut to determine hybridization.",
+                descriptionTamil: "இனக்கலத்தலைக் கண்டறியும் குறுக்குவழி."
+            }
+        ],
         diagrams: []
     },
-    keyTakeaways: [],
-    mnemonics: [],
-    neetTips: [],
+    keyTakeaways: [
+        "The shape of a molecule is determined by the repulsions between electron pairs (both bonding and lone pairs) in the valence shell of the central atom (VSEPR theory).",
+        "Hybridization is the concept of mixing atomic orbitals to form new hybrid orbitals suitable for bonding.",
+        "Molecular Orbital Theory provides a more complete picture of bonding, explaining properties like bond order and magnetism.",
+        "Hydrogen bonding is a special, strong type of dipole-dipole attraction that significantly affects the properties of substances like water."
+    ],
+    mnemonics: [
+        {
+            text: "Remember 'VSEPR' shapes: Linear(2), Trigonal Planar(3), Tetrahedral(4), Trigonal Bipyramidal(5), Octahedral(6). The name often tells you the number of electron pairs!",
+            tamil: "VSEPR வடிவங்களை நினைவில் கொள்க: நேர்கோட்டு(2), முக்கோணத் தள(3), நான்முகி(4), முக்கோண இருபிரமிடு(5), எண்முகி(6). பெயர் பெரும்பாலும் எலக்ட்ரான் இரட்டைகளின் எண்ணிக்கையைக் கூறும்!"
+        }
+    ],
+    neetTips: [
+        {
+            text: "Questions comparing bond angles are very common. Always check for hybridization first, then look at the number of lone pairs. More lone pairs = more repulsion = smaller bond angle.",
+            tamil: "பிணைப்புக் கோணங்களை ஒப்பிடும் கேள்விகள் மிகவும் பொதுவானவை. முதலில் இனக்கலத்தலைச் சரிபார்க்கவும், பின்னர் தனித்த இரட்டைகளின் எண்ணிக்கையைப் பார்க்கவும். அதிக தனித்த இரட்டைகள் = அதிக விலக்கு = சிறிய பிணைப்புக் கோணம்."
+        },
+        {
+            text: "For MOT questions on diatomic species up to N₂, the energy order of π2p orbitals is lower than σ2p. For O₂ and F₂, the order reverses.",
+            tamil: "N₂ வரையிலான ஈரணு வகைகளின் MOT கேள்விகளுக்கு, π2p ஆர்பிட்டால்களின் ஆற்றல் வரிசை σ2p ஐ விட குறைவாக இருக்கும். O₂ மற்றும் F₂ க்கு, வரிசை தலைகீழாக மாறும்."
+        }
+    ],
     nextChapter: {
         title: "Chemical Thermodynamics",
         titleTamil: "வேதி வெப்ப இயக்கவியல்"
     },
     studentTip: {
-        english: "Understanding molecular geometry is like learning to see in 3D. Practice drawing the shapes predicted by VSEPR theory to develop a strong intuition for them.",
-        tamil: "மூலக்கூறு வடிவவியலைப் புரிந்துகொள்வது 3D இல் பார்க்கக் கற்றுக்கொள்வது போன்றது. VSEPR கோட்பாட்டால் கணிக்கப்பட்ட வடிவங்களை வரைந்து பயிற்சி செய்வது அவற்றுக்கான ஒரு வலுவான உள்ளுணர்வை வளர்க்க உதவும்."
+        english: "Don't just memorize shapes. Try to build them with a model kit or visualize them in 3D. Understanding the geometry is key to understanding a molecule's reactivity.",
+        tamil: "வடிவங்களை மனப்பாடம் செய்ய வேண்டாம். ஒரு மாதிரி கருவி மூலம் அவற்றை உருவாக்க முயற்சிக்கவும் அல்லது அவற்றை 3D இல் காட்சிப்படுத்தவும். ஒரு மூலக்கூறின் வினைத்திறனைப் புரிந்துகொள்வதற்கு வடிவவியலைப் புரிந்துகொள்வது முக்கியம்."
     },
     peerDiscussion: {
-        english: "Discuss with a friend: Why does the bond angle in H₂O (104.5°) deviate more from the ideal tetrahedral angle than in NH₃ (107°)?",
-        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: NH₃ (107°) ஐ விட H₂O இல் (104.5°) பிணைப்புக் கோணம் ஏன் இலட்சிய நான்முகி கோணத்திலிருந்து அதிகமாக விலகுகிறது?"
+        english: "Discuss with a friend: Why are lone pairs 'fatter' and cause more repulsion than bond pairs? Where does this extra electron density come from?",
+        tamil: "உங்கள் நண்பருடன் விவாதிக்கவும்: தனித்த இரட்டைகள் ஏன் 'தடிமனாகவும்' பிணைப்பு இரட்டைகளை விட அதிக விலக்கத்தையும் ஏற்படுத்துகின்றன? இந்த கூடுதல் எலக்ட்ரான் அடர்த்தி எங்கிருந்து வருகிறது?"
     },
     validationReport: []
 };
 
+    
