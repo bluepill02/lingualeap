@@ -32,18 +32,30 @@ export const motionInAStraightLineModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. Describing Motion: Position, Path Length, and Displacement (இயக்கத்தை விவரித்தல்: நிலை, பாதை நீளம் மற்றும் இடப்பெயர்ச்சி)
-*   **Frame of Reference (குறிப்பாயம்):** A coordinate system (like x, y, z axes) with a clock, with respect to which we describe the motion of an object.
+            heading: {
+                english: '1. Describing Motion: Position, Path Length, and Displacement (இயக்கத்தை விவரித்தல்: நிலை, பாதை நீளம் மற்றும் இடப்பெயர்ச்சி)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `*   **Frame of Reference (குறிப்பாயம்):** A coordinate system (like x, y, z axes) with a clock, with respect to which we describe the motion of an object.
 *   **Path Length (பாதை நீளம்):** The total length of the actual path traversed by an object. It is a scalar quantity (ஸ்கேலார் அளவு) and is always positive.
 *   **Displacement (இடப்பெயர்ச்சி):** The shortest straight-line distance between the initial and final positions of an object. It is a vector quantity (வெக்டர் அளவு) and can be positive, negative, or zero.
 $$
 \\Delta x = x_f - x_i
 $$
     Example: If you walk 5m East and then 3m West, your path length is 8m, but your displacement is 2m East.`
+                }
+            ]
         },
         {
-            english: `### 2. Velocity and Speed (திசைவேகம் மற்றும் வேகம்)
-*   **Average Velocity (சராசரி திசைவேகம்):** The ratio of total displacement to the total time interval.
+            heading: {
+                english: '2. Velocity and Speed (திசைவேகம் மற்றும் வேகம்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `*   **Average Velocity (சராசரி திசைவேகம்):** The ratio of total displacement to the total time interval.
 $$
 \\bar{v} = \\frac{\\text{Total Displacement}}{\\text{Total Time}} = \\frac{\\Delta x}{\\Delta t}
 $$
@@ -57,10 +69,17 @@ $$
 v = \\lim_{\\Delta t \\to 0} \\frac{\\Delta x}{\\Delta t} = \\frac{dx}{dt}
 $$
 *   **Instantaneous Speed:** The magnitude of the instantaneous velocity.`
+                }
+            ]
         },
         {
-            english: `### 3. Acceleration (முடுக்கம்)
-*   **Acceleration (முடுக்கம்):** The rate of change of velocity with respect to time. It is a vector quantity.
+            heading: {
+                english: '3. Acceleration (முடுக்கம்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `*   **Acceleration (முடுக்கம்):** The rate of change of velocity with respect to time. It is a vector quantity.
 *   **Average Acceleration (சராசரி முடுக்கம்):**
 $$
 \\bar{a} = \\frac{\\Delta v}{\\Delta t} = \\frac{v_f - v_i}{t_f - t_i}
@@ -71,10 +90,17 @@ a = \\lim_{\\Delta t \\to 0} \\frac{\\Delta v}{\\Delta t} = \\frac{dv}{dt} = \\f
 $$
 
 {{KINEMATICS_GRAPH_ANIMATION}}`
+                }
+            ]
         },
         {
-            english: `### 4. Kinematic Equations for Uniformly Accelerated Motion (சீரான முடுக்கத்துடன் கூடிய இயக்கத்திற்கான இயக்கச் சமன்பாடுகள்)
-These three equations are the cornerstone of kinematics and are valid *only* when the acceleration 'a' is constant.
+            heading: {
+                english: '4. Kinematic Equations for Uniformly Accelerated Motion (சீரான முடுக்கத்துடன் கூடிய இயக்கத்திற்கான இயக்கச் சமன்பாடுகள்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `These three equations are the cornerstone of kinematics and are valid *only* when the acceleration 'a' is constant.
 1.  **Velocity-Time Relation:** $v = u + at$
 2.  **Position-Time Relation:** $s = ut + \\frac{1}{2}at^2$
 3.  **Position-Velocity Relation:** $v^2 = u^2 + 2as$
@@ -90,16 +116,25 @@ A fourth useful equation can be derived for displacement in the *n*th second:
 $$
 s_n = u + \\frac{a}{2}(2n - 1)
 $$`
+                }
+            ]
         },
         {
-            english: `### 5. Motion Under Gravity (ஈர்ப்பின் கீழ் இயக்கம்)
-This is a special case of uniformly accelerated motion where the acceleration is due to gravity, *g* (approximately 9.8 m/s²).
+            heading: {
+                english: '5. Motion Under Gravity (ஈர்ப்பின் கீழ் இயக்கம்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `This is a special case of uniformly accelerated motion where the acceleration is due to gravity, *g* (approximately 9.8 m/s²).
 *   **Sign Convention is Crucial:** A common convention is to take the upward direction as positive and the downward direction as negative.
     *   In this case, acceleration $a = -g$ for all scenarios (object thrown up, falling down).
 *   The kinematic equations become:
     1.  $v = u - gt$
     2.  $s = ut - \\frac{1}{2}gt^2$
     3.  $v^2 = u^2 - 2gs$`
+                }
+            ]
         }
     ],
     workedExamples: [

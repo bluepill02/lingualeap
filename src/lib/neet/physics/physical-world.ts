@@ -30,45 +30,61 @@ export const physicalWorldModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. What is Physics?`,
-            tamil: `### 1. இயற்பியல் என்றால் என்ன?`
+            heading: {
+                english: '1. What is Physics?',
+                tamil: '1. இயற்பியல் என்றால் என்ன?'
+            },
+            content: [
+                {
+                    english: `Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is **unification**—explaining diverse physical phenomena with a few concepts and laws—and **reductionism**, which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.`,
+                    tamil: `இயற்பியல் என்பது அனைத்து அறிவியல்களுக்கும் மிகவும் அடிப்படையானது, இயற்கையின் அடிப்படை விதிகள் மற்றும் பல்வேறு நிகழ்வுகளில் அவற்றின் வெளிப்பாட்டைப் புரிந்துகொள்வதை நோக்கமாகக் கொண்டது. இது பருப்பொருள், ஆற்றல் மற்றும் அவற்றின் இடைவினையைப் பற்றிய ஆய்வு ஆகும். இதன் முக்கிய கருத்து **ஒருங்கிணைத்தல்**—பல்வேறு பௌதிக நிகழ்வுகளை சில கருத்துகள் மற்றும் விதிகளுடன் விளக்குவது—மற்றும் **குறைத்தல்வாதம்**, இது ஒரு பெரிய, சிக்கலான அமைப்பின் பண்புகளை அதன் எளிய கூறுகளின் பண்புகள் மற்றும் இடைவினைகளிலிருந்து வருவிப்பதாகும்.`
+                }
+            ]
         },
         {
-            english: `Physics is the most fundamental of all sciences, aiming to understand the basic laws of nature and their manifestation in various phenomena. It is the study of matter, energy, and their interaction. The core idea is **unification**—explaining diverse physical phenomena with a few concepts and laws—and **reductionism**, which is about deriving the properties of a bigger, more complex system from the properties and interactions of its constituent simpler parts.`,
-            tamil: `இயற்பியல் என்பது அனைத்து அறிவியல்களுக்கும் மிகவும் அடிப்படையானது, இயற்கையின் அடிப்படை விதிகள் மற்றும் பல்வேறு நிகழ்வுகளில் அவற்றின் வெளிப்பாட்டைப் புரிந்துகொள்வதை நோக்கமாகக் கொண்டது. இது பருப்பொருள், ஆற்றல் மற்றும் அவற்றின் இடைவினையைப் பற்றிய ஆய்வு ஆகும். இதன் முக்கிய கருத்து **ஒருங்கிணைத்தல்**—பல்வேறு பௌதிக நிகழ்வுகளை சில கருத்துகள் மற்றும் விதிகளுடன் விளக்குவது—மற்றும் **குறைத்தல்வாதம்**, இது ஒரு பெரிய, சிக்கலான அமைப்பின் பண்புகளை அதன் எளிய கூறுகளின் பண்புகள் மற்றும் இடைவினைகளிலிருந்து வருவிப்பதாகும்.`
+            heading: {
+                english: '2. Scope and Excitement of Physics',
+                tamil: '2. இயற்பியலின் வீச்சு மற்றும் உற்சாகம்'
+            },
+            content: [
+                {
+                    english: `The scope of Physics is vast, covering two main domains:\n*   **Macroscopic:** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **Classical Physics**, which includes Mechanics, Electrodynamics, Optics, and Thermodynamics.\n*   **Microscopic:** Includes phenomena at the atomic, molecular, and nuclear scales. This is the realm of **Quantum Mechanics**.`,
+                    tamil: `இயற்பியலின் வீச்சு பரந்தது, இரண்டு முக்கிய களங்களை உள்ளடக்கியது:\n*   **பேரியல் (Macroscopic):** ஆய்வகம், பூமி மற்றும் வானியல் மட்டங்களில் உள்ள நிகழ்வுகளை உள்ளடக்கியது. இது **செவ்வியல் இயற்பியலின்** களம், இதில் இயக்கவியல், மின்னியக்கவியல், ஒளியியல் மற்றும் வெப்ப இயக்கவியல் ஆகியவை அடங்கும்.\n*   **நுண்ணியல் (Microscopic):** அணு, மூலக்கூறு மற்றும் அணுக்கரு மட்டங்களில் உள்ள நிகழ்வுகளை உள்ளடக்கியது. இது **குவாண்டம் இயக்கவியலின்** களம் ஆகும்.`
+                }
+            ]
         },
         {
-            english: `### 2. Scope and Excitement of Physics`,
-            tamil: `### 2. இயற்பியலின் வீச்சு மற்றும் உற்சாகம்`
-        },
-        {
-            english: `The scope of Physics is vast, covering two main domains:\n*   **Macroscopic:** Includes phenomena at the laboratory, terrestrial, and astronomical scales. This is the realm of **Classical Physics**, which includes Mechanics, Electrodynamics, Optics, and Thermodynamics.\n*   **Microscopic:** Includes phenomena at the atomic, molecular, and nuclear scales. This is the realm of **Quantum Mechanics**.`,
-            tamil: `இயற்பியலின் வீச்சு பரந்தது, இரண்டு முக்கிய களங்களை உள்ளடக்கியது:\n*   **பேரியல் (Macroscopic):** ஆய்வகம், பூமி மற்றும் வானியல் மட்டங்களில் உள்ள நிகழ்வுகளை உள்ளடக்கியது. இது **செவ்வியல் இயற்பியலின்** களம், இதில் இயக்கவியல், மின்னியக்கவியல், ஒளியியல் மற்றும் வெப்ப இயக்கவியல் ஆகியவை அடங்கும்.\n*   **நுண்ணியல் (Microscopic):** அணு, மூலக்கூறு மற்றும் அணுக்கரு மட்டங்களில் உள்ள நிகழ்வுகளை உள்ளடக்கியது. இது **குவாண்டம் இயக்கவியலின்** களம் ஆகும்.`
-        },
-        {
-            english: `### 3. The Four Fundamental Forces in Nature`,
-            tamil: `### 3. இயற்கையின் நான்கு அடிப்படை விசைகள்`
-        },
-        {
-            english: `All forces in the universe can be traced back to four fundamental forces, ordered here by decreasing strength:`,
-            tamil: `பிரபஞ்சத்தில் உள்ள அனைத்து விசைகளையும் நான்கு அடிப்படை விசைகளாகக் காணலாம், அவை வலிமை குறைந்துவரும் வரிசையில் இங்கே பட்டியலிடப்பட்டுள்ளன:`
-        },
-        {
-            english: `
+            heading: {
+                english: '3. The Four Fundamental Forces in Nature',
+                tamil: '3. இயற்கையின் நான்கு அடிப்படை விசைகள்'
+            },
+            content: [
+                {
+                    english: `All forces in the universe can be traced back to four fundamental forces, ordered here by decreasing strength:`,
+                    tamil: `பிரபஞ்சத்தில் உள்ள அனைத்து விசைகளையும் நான்கு அடிப்படை விசைகளாகக் காணலாம், அவை வலிமை குறைந்துவரும் வரிசையில் இங்கே பட்டியலிடப்பட்டுள்ளன:`
+                },
+                {
+                    english: `
 | Force (விசை) | Relative Strength (சார்பு வலிமை) | Range (வீச்சு) | Operates Among (செயல்படும் துகள்கள்) |
 | :--- | :--- | :--- | :--- |
 | **Strong Nuclear Force (வலுவான அணுக்கரு விசை)** | $10^{38}$ | Short, nuclear size (~$10^{-15}$ m) | Nucleons (protons, neutrons) (நியூக்ளியான்கள்) |
 | **Electromagnetic Force (மின்காந்த விசை)** | $10^{36}$ | Infinite (முடிவற்றது) | Charged particles (மின்னூட்டத் துகள்கள்) |
 | **Weak Nuclear Force (மெலிந்த அணுக்கரு விசை)** | $10^{25}$ | Very short, sub-nuclear size (~$10^{-16}$ m) | Some elementary particles (சில அடிப்படை துகள்கள்) |
 | **Gravitational Force (ஈர்ப்பியல் விசை)** | 1 | Infinite (முடிவற்றது) | All objects in the universe (அனைத்து பொருட்கள்) |`
+                }
+            ]
         },
         {
-            english: `### 4. Fundamental Conservation Laws`,
-            tamil: `### 4. அடிப்படைப் பாதுகாப்பு விதிகள்`
-        },
-        {
-            english: `In any physical process, certain quantities remain unchanged. These are the pillars upon which physics is built.\n*   **Law of Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி):** Energy can neither be created nor destroyed; it only changes form. The total energy of an isolated system is constant.\n*   **Law of Conservation of Linear Momentum (நேர்கோட்டு உந்தப் பாதுகாப்பு விதி):** If no external force acts on a system, its total linear momentum is constant.\n*   **Law of Conservation of Angular Momentum (கோண உந்தப் பாதுகாப்பு விதி):** If no external torque acts on a system, its total angular momentum is constant.\n*   **Law of Conservation of Charge (மின்னூட்டப் பாதுகாப்பு விதி):** The total electric charge of an isolated system is constant.`,
-            tamil: `எந்தவொரு பௌதிக செயல்முறையிலும், சில அளவுகள் மாறாமல் இருக்கும். இவை இயற்பியல் கட்டமைக்கப்பட்ட தூண்கள் ஆகும்.\n*   **ஆற்றல் பாதுகாப்பு விதி:** ஆற்றலை ஆக்கவோ அழிக்கவோ முடியாது; அது ஒரு வடிவத்திலிருந்து மற்றொரு வடிவத்திற்கு மட்டுமே மாறுகிறது. ஒரு தனிமைப்படுத்தப்பட்ட அமைப்பின் மொத்த ஆற்றல் மாறிலியாகும்.\n*   **நேர்கோட்டு உந்தப் பாதுகாப்பு விதி:** ஒரு அமைப்பின் மீது வெளிப்புற விசை எதுவும் செயல்படவில்லை என்றால், அதன் மொத்த நேர்கோட்டு உந்தம் மாறிலியாக இருக்கும்.\n*   **கோண உந்தப் பாதுகாப்பு விதி:** ஒரு அமைப்பின் மீது வெளிப்புற திருப்புவிசை எதுவும் செயல்படவில்லை என்றால், அதன் மொத்த கோண உந்தம் மாறிலியாக இருக்கும்.\n*   **மின்னூட்டப் பாதுகாப்பு விதி:** ஒரு தனிமைப்படுத்தப்பட்ட அமைப்பின் மொத்த மின்னூட்டம் மாறிலியாக இருக்கும்.`
+            heading: {
+                english: '4. Fundamental Conservation Laws',
+                tamil: '4. அடிப்படைப் பாதுகாப்பு விதிகள்'
+            },
+            content: [
+                {
+                    english: `In any physical process, certain quantities remain unchanged. These are the pillars upon which physics is built.\n*   **Law of Conservation of Energy (ஆற்றல் பாதுகாப்பு விதி):** Energy can neither be created nor destroyed; it only changes form. The total energy of an isolated system is constant.\n*   **Law of Conservation of Linear Momentum (நேர்கோட்டு உந்தப் பாதுகாப்பு விதி):** If no external force acts on a system, its total linear momentum is constant.\n*   **Law of Conservation of Angular Momentum (கோண உந்தப் பாதுகாப்பு விதி):** If no external torque acts on a system, its total angular momentum is constant.\n*   **Law of Conservation of Charge (மின்னூட்டப் பாதுகாப்பு விதி):** The total electric charge of an isolated system is constant.`,
+                    tamil: `எந்தவொரு பௌதிக செயல்முறையிலும், சில அளவுகள் மாறாமல் இருக்கும். இவை இயற்பியல் கட்டமைக்கப்பட்ட தூண்கள் ஆகும்.\n*   **ஆற்றல் பாதுகாப்பு விதி:** ஆற்றலை ஆக்கவோ அழிக்கவோ முடியாது; அது ஒரு வடிவத்திலிருந்து மற்றொரு வடிவத்திற்கு மட்டுமே மாறுகிறது. ஒரு தனிமைப்படுத்தப்பட்ட அமைப்பின் மொத்த ஆற்றல் மாறிலியாகும்.\n*   **நேர்கோட்டு உந்தப் பாதுகாப்பு விதி:** ஒரு அமைப்பின் மீது வெளிப்புற விசை எதுவும் செயல்படவில்லை என்றால், அதன் மொத்த நேர்கோட்டு உந்தம் மாறிலியாக இருக்கும்.\n*   **கோண உந்தப் பாதுகாப்பு விதி:** ஒரு அமைப்பின் மீது வெளிப்புற திருப்புவிசை எதுவும் செயல்படவில்லை என்றால், அதன் மொத்த கோண உந்தம் மாறிலியாக இருக்கும்.\n*   **மின்னூட்டப் பாதுகாப்பு விதி:** ஒரு தனிமைப்படுத்தப்பட்ட அமைப்பின் மொத்த மின்னூட்டம் மாறிலியாக இருக்கும்.`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -291,5 +307,3 @@ export const physicalWorldModule: NeetModule = {
         { check: 'Ensure Module is Added to UI', status: 'pass', message: 'OK' }
     ]
 };
-
-    

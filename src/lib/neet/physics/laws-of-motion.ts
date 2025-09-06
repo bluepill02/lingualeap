@@ -49,8 +49,13 @@ export const lawsOfMotionModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. The Language of Forces: The Free-Body Diagram (FBD) Methodology
-The single most important skill in solving mechanics problems is drawing a Free-Body Diagram (தனித்த பொருளின் விசைப் படம்) (FBD). It is a diagram that shows ALL the forces (விசைகள்) acting ON a single object.
+            heading: {
+              english: '1. The Language of Forces: The Free-Body Diagram (FBD) Methodology',
+              tamil: '1. விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை'
+            },
+            content: [
+                {
+                    english: `The single most important skill in solving mechanics problems is drawing a Free-Body Diagram (தனித்த பொருளின் விசைப் படம்) (FBD). It is a diagram that shows ALL the forces (விசைகள்) acting ON a single object.
 > The FBD is your map for navigating a mechanics problem. Without a correct map, you will get lost.
 
 #### The 4-Step FBD Strategy:
@@ -64,11 +69,7 @@ The single most important skill in solving mechanics problems is drawing a Free-
         *   Is there friction? **Frictional Force (உராய்வு விசை) (f)** acts parallel to the surface, opposing relative motion or the *tendency* of motion.
         *   Is a spring attached? **Spring Force (சுருள்வில் விசை) (kx)** acts along the spring.
 4.  **Establish a Coordinate System:** Choose an x-y coordinate system. It's often smart to align one axis with the direction of acceleration.`,
-            tamil: `### 1. விசைகளின் மொழி: தனித்த பொருளின் விசைப் படம் (FBD) முறை
-இயக்கவியல் கணக்குகளைத் தீர்ப்பதில் மிக முக்கியமான திறன் ஒரு தனித்த பொருளின் விசைப் படத்தை (FBD) வரைவது ஆகும். இது ஒரு பொருளின் மீது செயல்படும் அனைத்து விசைகளையும் காட்டும் ஒரு வரைபடம் ஆகும்.
-> FBD என்பது ஒரு இயக்கவியல் கணக்கிற்கு வழிகாட்டும் வரைபடம் போன்றது. சரியான வரைபடம் இல்லாமல், நீங்கள் வழிதவறி விடுவீர்கள்.
-
-#### 4-படி FBD உத்தி:
+                    tamil: `#### 4-படி FBD உத்தி:
 1.  **பொருளைத் தனிமைப்படுத்துங்கள்:** நீங்கள் ஆய்வு செய்ய விரும்பும் பொருளை அதன் சுற்றியுள்ள அனைத்திலிருந்தும் (மற்ற பொருள்கள், பரப்புகள் போன்றவை) மனதளவில் பிரிக்கவும்.
 2.  **ஒரு புள்ளியால் குறிப்பிடவும்:** பொருளைக் குறிக்க ஒரு புள்ளி அல்லது ஒரு சிறிய பெட்டியை வரையவும். இதுவே உங்கள் "பொருள்".
 3.  **அனைத்து விசைகளையும் அடையாளம் கண்டு வரையவும்:** விசைகளின் சரிபார்ப்புப் பட்டியலை பார்க்கவும். ஒவ்வொரு விசைக்கும், உங்கள் புள்ளியிலிருந்து தொடங்கி, சரியான திசையில் ஒரு வெக்டர் அம்புக்குறியை வரையவும்.
@@ -79,19 +80,25 @@ The single most important skill in solving mechanics problems is drawing a Free-
         *   உராய்வு உள்ளதா? **உராய்வு விசை (f)** பரப்பிற்கு இணையாக, சார்பு இயக்கத்தை அல்லது இயக்கத்தின் *முயற்சியை* எதிர்க்கிறது.
         *   ஒரு சுருள்வில் இணைக்கப்பட்டுள்ளதா? **சுருள்வில் விசை (kx)** சுருள்வில்லின் வழியே செயல்படுகிறது.
 4.  **ஒரு ஆய அச்சமைப்பை நிறுவவும்:** ஒரு x-y ஆய அச்சமைப்பைத் தேர்வு செய்யவும். ஒரு அச்சை முடுக்கத்தின் திசையுடன் சீரமைப்பது புத்திசாலித்தனமானது.`
+                }
+            ]
         },
         {
-            english: `### 2. Newton's Laws of Motion: The Core Principles
-#### First Law (The Law of Inertia - நிலைம விதி)
+            heading: {
+              english: '2. Newton\'s Laws of Motion: The Core Principles',
+              tamil: '2. நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்'
+            },
+            content: [
+                {
+                    english: `#### First Law (The Law of Inertia - நிலைம விதி)
 An object continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by a net external force. This law defines an **Inertial Frame of Reference (நிலைமக் குறிப்பாயம்)** (a non-accelerating frame) where Newton's laws are valid. If $\\vec{F}_{net} = 0$, then $\\vec{a} = 0$ (which means $\\vec{v}$ = constant).
 {{INERTIA_ANIMATION}}`,
-            tamil: `### 2. நியூட்டனின் இயக்க விதிகள்: அடிப்படைக் கோட்பாடுகள்
-#### முதல் விதி (நிலைம விதி)
+                    tamil: `#### முதல் விதி (நிலைம விதி)
 ஒரு பொருளின் மீது நிகர புற விசை செயல்படாதவரை, அது தனது ஓய்வு நிலையையோ அல்லது நேர்க்கோட்டில் அமைந்த சீரான இயக்க நிலையையோ மாற்றிக் கொள்ளாது. இந்த விதி நியூட்டனின் விதிகள் செல்லுபடியாகும் ஒரு **நிலைமக் குறிப்பாயத்தை** (முடுக்கப்படாத குறிப்பாயம்) வரையறுக்கிறது. $\\vec{F}_{நிகர} = 0$ எனில், $\\vec{a} = 0$ (அதாவது $\\vec{v}$ = மாறிலி).
 {{INERTIA_ANIMATION}}`
-        },
-        {
-            english: `#### Second Law (The Master Equation - முக்கிய சமன்பாடு)
+                },
+                {
+                    english: `#### Second Law (The Master Equation - முக்கிய சமன்பாடு)
 The rate of change of a body's linear momentum (நேர்கோட்டு உந்தம்) is directly proportional to the net external force applied, and this change occurs in the direction of the force.
 $$
 \\vec{F}_{net} = \\frac{d\\vec{p}}{dt}
@@ -101,7 +108,7 @@ $$
 \\vec{F}_{net} = m\\vec{a}
 $$
 This is a vector equation. It can be broken down into components: $\\Sigma F_x = ma_x$ and $\\Sigma F_y = ma_y$. The core of problem-solving is applying these component equations after drawing an FBD.`,
-            tamil: `#### இரண்டாம் விதி (முக்கிய சமன்பாடு)
+                    tamil: `#### இரண்டாம் விதி (முக்கிய சமன்பாடு)
 ஒரு பொருளின் நேர்கோட்டு உந்த மாறுபாட்டு வீதம் அதன் மீது செயல்படும் நிகர புற விசைக்கு நேர்த்தகவில் இருக்கும், மேலும் இந்த மாற்றம் விசையின் திசையிலேயே நிகழும்.
 $$
 \\vec{F}_{நிகர} = \\frac{d\\vec{p}}{dt}
@@ -111,33 +118,39 @@ $$
 \\vec{F}_{நிகர} = m\\vec{a}
 $$
 இது ஒரு வெக்டர் சமன்பாடு. இதை கூறுகளாகப் பிரிக்கலாம்: $\\Sigma F_x = ma_x$ மற்றும் $\\Sigma F_y = ma_y$. ஒரு FBD வரைந்த பிறகு இந்தக் கூறு சமன்பாடுகளைப் பயன்படுத்துவதே கணக்கு தீர்ப்பதன் மையமாகும்.`
-        },
-        {
-            english: `#### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
+                },
+                {
+                    english: `#### Third Law (Action-Reaction - வினை மற்றும் எதிர்வினை)
 For every action, there is an equal and opposite reaction.
 *   Forces always occur in pairs ($\\mathbf{F}_{AB} = -\\mathbf{F}_{BA}$).
 *   Critically, action and reaction forces act on **two different bodies**. They never act on the same body and thus never cancel each other out.
 {{ACTION_REACTION_ANIMATION}}`,
-            tamil: `#### மூன்றாம் விதி (வினை மற்றும் எதிர்வினை)
+                    tamil: `#### மூன்றாம் விதி (வினை மற்றும் எதிர்வினை)
 ஒவ்வொரு வினைக்கும், சமமான மற்றும் எதிரான ஒரு எதிர்வினை உண்டு.
 *   விசைகள் எப்போதும் ஜோடிகளாகவே நிகழும் ($\\mathbf{F}_{AB} = -\\mathbf{F}_{BA}$).
 *   முக்கியமாக, வினை மற்றும் எதிர்வினை விசைகள் **இரண்டு வெவ்வேறு பொருட்கள்** மீது செயல்படுகின்றன. அவை ஒருபோதும் ஒரே பொருளின் மீது செயல்படுவதில்லை, எனவே ஒருபோதும் ஒன்றையொன்று நீக்குவதில்லை.
 {{ACTION_REACTION_ANIMATION}}`
+                }
+            ]
         },
         {
-            english: `### 3. Applying the Principles in Complex Scenarios
-#### A. Motion with Constraints (கட்டுப்பாடுகளுடன் கூடிய இயக்கம்)
+            heading: {
+              english: '3. Applying the Principles in Complex Scenarios',
+              tamil: '3. சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்'
+            },
+            content: [
+                {
+                    english: `#### A. Motion with Constraints (கட்டுப்பாடுகளுடன் கூடிய இயக்கம்)
 When the motion of two or more bodies is interdependent (e.g., connected by a string or stacked), we need a "constraint relation (கட்டுப்பாட்டுத் தொடர்பு)" that connects their accelerations.
 *   **String Constraint:** If two objects are connected by a taut, inextensible string, the component of their accelerations *along the string* must be the same.
 *   **Wedge Constraint:** For a block on a wedge, their accelerations *perpendicular to the contact surface* must be equal for them to remain in contact.`,
-            tamil: `### 3. சிக்கலான சூழ்நிலைகளில் கோட்பாடுகளைப் பயன்படுத்துதல்
-#### A. கட்டுப்பாடுகளுடன் கூடிய இயக்கம்
+                    tamil: `#### A. கட்டுப்பாடுகளுடன் கூடிய இயக்கம்
 இரண்டு அல்லது அதற்கு மேற்பட்ட பொருட்களின் இயக்கம் ஒன்றுக்கொன்று சார்ந்ததாக இருக்கும்போது (எ.கா., ஒரு கயிற்றால் இணைக்கப்பட்டவை அல்லது அடுக்கப்பட்டவை), அவற்றின் முடுக்கங்களை இணைக்கும் ஒரு "கட்டுப்பாட்டுத் தொடர்பு" நமக்குத் தேவை.
 *   **கயிறு கட்டுப்பாடு:** இரண்டு பொருள்கள் ஒரு இறுக்கமான, நீளாத கயிற்றால் இணைக்கப்பட்டிருந்தால், அவற்றின் முடுக்கங்களின் கயிற்றின் *வழியே* உள்ள கூறு சமமாக இருக்க வேண்டும்.
 *   **ஆப்பு கட்டுப்பாடு:** ஒரு ஆப்பின் மீதுள்ள ஒரு கட்டைக்கு, அவை தொடர்பில் இருக்க அவற்றின் முடுக்கங்கள் *தொடு பரப்பிற்கு செங்குத்தாக* சமமாக இருக்க வேண்டும்.`
-        },
-        {
-            english: `#### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
+                },
+                {
+                    english: `#### B. Understanding Non-Inertial Frames (நிலைமமற்ற குறிப்பாயங்கள்)
 Newton's laws are only valid in inertial frames (non-accelerating frames). What if our viewpoint (frame of reference) is accelerating, like inside a moving lift? To analyze the motion *from within* that accelerating frame, we must introduce a **pseudo force (போலி விசை)**.
 *   **Pseudo Force ($F_p$):** This is a fictitious force we add to make Newton's laws work in the accelerating frame.
 *   **Magnitude:** $F_p = ma_0$, where 'm' is the mass of the object being observed, and '$a_0$' is the acceleration of the frame.
@@ -149,7 +162,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
 *   **Lift Accelerating Upwards:** In the lift's frame, the forces are N (up), mg (down), and $F_p = ma$ (down). For equilibrium in this frame, $N = mg + ma = m(g+a)$. The person feels heavier (apparent weight (தோற்ற எடை) > true weight).
 *   **Lift Accelerating Downwards:** The pseudo force $F_p = ma$ is now upwards. The forces are N (up), $F_p$ (up), and mg (down). For equilibrium, $N + ma = mg$, so $N = m(g-a)$. The person feels lighter (apparent weight (தோற்ற எடை) < true weight).
 {{LIFT_ANIMATION}}`,
-            tamil: `#### B. நிலைமமற்ற குறிப்பாயங்களைப் புரிந்துகொள்ளுதல்
+                    tamil: `#### B. நிலைமமற்ற குறிப்பாயங்களைப் புரிந்துகொள்ளுதல்
 நியூட்டனின் விதிகள் நிலைமக் குறிப்பாயங்களில் (முடுக்கப்படாத குறிப்பாயங்கள்) மட்டுமே செல்லுபடியாகும். ஒரு நகரும் மின் தூக்கி போன்ற, நமது பார்வைக்கோணம் (குறிப்பாயம்) முடுக்கப்பட்டால் என்ன செய்வது? அந்த முடுக்கப்பட்ட குறிப்பாயத்திற்குள் *இருந்து* இயக்கத்தைப் பகுப்பாய்வு செய்ய, நாம் ஒரு **போலி விசையை** அறிமுகப்படுத்த வேண்டும்.
 *   **போலி விசை ($F_p$):** இது முடுக்கப்பட்ட குறிப்பாயத்தில் நியூட்டனின் விதிகள் வேலை செய்ய நாம் சேர்க்கும் ஒரு கற்பனையான விசை ஆகும்.
 *   **எண்மதிப்பு:** $F_p = ma_0$, இங்கு 'm' என்பது கவனிக்கப்படும் பொருளின் நிறை, மற்றும் '$a_0$' என்பது குறிப்பாயத்தின் முடுக்கம்.
@@ -161,6 +174,8 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
 *   **மின் தூக்கி மேல்நோக்கி முடுக்கமடையும்போது:** மின் தூக்கியின் குறிப்பாயத்தில், விசைகள் N (மேல்), mg (கீழ்), மற்றும் $F_p = ma$ (கீழ்) ஆகும். இந்தக் குறிப்பாயத்தில் சமநிலைக்கு, $N = mg + ma = m(g+a)$. நபர் கனமாக உணர்கிறார் (தோற்ற எடை > உண்மையான எடை).
 *   **மின் தூக்கி கீழ்நோக்கி முடுக்கமடையும்போது:** போலி விசை $F_p = ma$ இப்போது மேல்நோக்கி உள்ளது. விசைகள் N (மேல்), $F_p$ (மேல்), மற்றும் mg (கீழ்) ஆகும். சமநிலைக்கு, $N + ma = mg$, எனவே $N = m(g-a)$. நபர் இலகுவாக உணர்கிறார் (தோற்ற எடை < உண்மையான எடை).
 {{LIFT_ANIMATION}}`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -673,8 +688,7 @@ Consider a person of mass 'm' on a weighing scale in a lift accelerating at 'a'.
                         { name: "N", direction: "up-left" },
                         { name: "f", direction: "up-right" }
                     ],
-                    isAngled: true,
-                    context: "Key forces on an inclined plane."
+                    isAngled: true
                 }
             }
         ]

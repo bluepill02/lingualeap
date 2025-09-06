@@ -30,8 +30,13 @@ export const unitsAndMeasurementsModule: NeetModule = {
     ],
     conceptNotes: [
         {
-            english: `### 1. Units and Systems of Units (அலகுகளும் அலகு முறைகளும்)
-*   **Physical Quantity (பௌதிக அளவு):** Any quantity that can be measured.
+            heading: {
+                english: '1. Units and Systems of Units (அலகுகளும் அலகு முறைகளும்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `*   **Physical Quantity (பௌதிக அளவு):** Any quantity that can be measured.
 *   **Fundamental Quantities:** Quantities that are independent of others (e.g., Length, Mass, Time).
 *   **Derived Quantities:** Quantities that are derived from fundamental quantities (e.g., Speed = Length/Time).
 *   **Unit (அலகு):** The standard used for measuring a physical quantity.
@@ -43,10 +48,17 @@ export const unitsAndMeasurementsModule: NeetModule = {
     5.  Temperature (வெப்பநிலை) - kelvin (K)
     6.  Amount of Substance (பொருளின் அளவு) - mole (mol)
     7.  Luminous Intensity (ஒளிச்செறிவு) - candela (cd)`
+                }
+            ]
         },
         {
-            english: `### 2. Dimensional Analysis (பரிமாணப் பகுப்பாய்வு)
-Dimensions of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. We denote them with square brackets, e.g., [L], [M], [T].
+            heading: {
+                english: '2. Dimensional Analysis (பரிமாணப் பகுப்பாய்வு)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `Dimensions of a physical quantity are the powers to which the fundamental units are raised to represent that quantity. We denote them with square brackets, e.g., [L], [M], [T].
 *   **Dimensional Formula:** An expression showing how a derived quantity depends on fundamental ones. E.g., Force = Mass × Acceleration = M × (L/T²) => $[MLT^{-2}]$.
 
 #### Applications:
@@ -54,10 +66,17 @@ Dimensions of a physical quantity are the powers to which the fundamental units 
 2.  **Checking Correctness of Equations:** Verify if the dimensions on the LHS equal the dimensions on the RHS.
 3.  **Deriving Relationships:** If you know a quantity depends on others, you can find the relationship between them. E.g., if Time period T depends on length (l) and gravity (g), we can say $T \\propto l^a g^b$ and solve for a and b using dimensional analysis.
 4.  **Converting Units:** Converting a quantity from one system of units to another. The principle is $n_1 u_1 = n_2 u_2$, where n is the numerical value and u is the unit.`
+                }
+            ]
         },
         {
-            english: `### 3. Significant Figures (முக்கிய எண்ணுருக்கள்)
-Significant figures in a measurement are the reliable digits plus the first uncertain digit. They indicate the precision of a measurement.
+            heading: {
+                english: '3. Significant Figures (முக்கிய எண்ணுருக்கள்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `Significant figures in a measurement are the reliable digits plus the first uncertain digit. They indicate the precision of a measurement.
 #### Rules:
 1.  All non-zero digits are significant. (e.g., 123.45 has 5 s.f.)
 2.  Zeros between non-zero digits are significant. (e.g., 1007 has 4 s.f.)
@@ -68,10 +87,17 @@ Significant figures in a measurement are the reliable digits plus the first unce
 #### Rules for Arithmetic:
 *   **Multiplication/Division:** The final result should have the same number of significant figures as the original number with the *least* number of significant figures.
 *   **Addition/Subtraction:** The final result should have the same number of decimal places as the original number with the *least* number of decimal places.`
+                }
+            ]
         },
         {
-            english: `### 4. Errors in Measurement (அளவீட்டில் பிழைகள்)
-*   **Accuracy (துல்லியம்):** How close a measured value is to the true value.
+            heading: {
+                english: '4. Errors in Measurement (அளவீட்டில் பிழைகள்)',
+                tamil: ''
+            },
+            content: [
+                {
+                    english: `*   **Accuracy (துல்லியம்):** How close a measured value is to the true value.
 *   **Precision (நுட்பம்):** How close repeated measurements are to each other (resolution of the measurement).
 *   **Absolute Error (தனிப்பிழை):** Magnitude of the difference between the true value and the measured value.
 *   **Relative Error (ஒப்புப்பிழை):** Ratio of the mean absolute error to the mean value.  $\\frac{\\Delta a_{mean}}{a_{mean}}$.
@@ -81,6 +107,8 @@ Significant figures in a measurement are the reliable digits plus the first unce
 If $Z = A \\pm B$, then the absolute error is $\\Delta Z = \\Delta A + \\Delta B$.
 If $Z = A \\times B$ or $Z = A / B$, then the relative error is $\\frac{\\Delta Z}{Z} = \\frac{\\Delta A}{A} + \\frac{\\Delta B}{B}$.
 If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
+                }
+            ]
         }
     ],
     workedExamples: [
@@ -290,7 +318,7 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
     ],
     neetTips: [
         { text: "Questions asking to find which quantity cannot be the result of a formula can often be solved quickly using dimensional analysis.", tamil: "ஒரு சூத்திரத்தின் விளைவாக இருக்க முடியாத அளவைக் கேட்கும் கேள்விகளைப் பரிமாணப் பகுப்பாய்வு மூலம் விரைவாகத் தீர்க்கலாம்." },
-        { text: "In error analysis, always add the percentage errors for multiplication, division, and powers, regardless of the operation.", tamil: "பிழைப் பகுப்பாய்வில், பெருக்கல், வகுத்தல் மற்றும் அடுக்குகளுக்கு சதவீதப் பிழைகளை எப்போதும் கூட்டவும்." }
+        { text: "In error analysis, always add the errors, even if the formula involves subtraction or division.", tamil: "பிழைப் பகுப்பாய்வில், சூத்திரத்தில் கழித்தல் அல்லது வகுத்தல் இருந்தாலும், பிழைகளை எப்போதும் கூட்டவும்." }
     ],
     mcqs: [
         {
@@ -474,36 +502,31 @@ If $Z = A^n$, then $\\frac{\\Delta Z}{Z} = n(\\frac{\\Delta A}{A})$.`
             assertion: "The equation y = a sin(ωt - kx) is dimensionally correct.",
             reason: "The argument of any trigonometric function must be dimensionless.",
             answer: "A",
-            explanation: "The assertion is correct. The reason is also correct and explains why. [ωt] = [T⁻¹][T] = [M⁰L⁰T⁰] and [kx] = [L⁻¹][L] = [M⁰L⁰T⁰], so the argument is dimensionless, making the equation valid.",
-            neetFrequency: 4
+            explanation: "The assertion is correct. The reason is also correct and explains why. [ωt] = [T⁻¹][T] = [M⁰L⁰T⁰] and [kx] = [L⁻¹][L] = [M⁰L⁰T⁰], so the argument is dimensionless, making the equation valid."
         },
         {
             assertion: "Adding two quantities with different dimensions is physically meaningless.",
             reason: "This violates the principle of homogeneity of dimensions.",
             answer: "A",
-            explanation: "The assertion is true (you cannot add mass to length). The reason is true and provides the fundamental principle that is violated.",
-            neetFrequency: 3
+            explanation: "The assertion is true (you cannot add mass to length). The reason is true and provides the fundamental principle that is violated."
         },
         {
             assertion: "Parallax method cannot be used for measuring distances of stars more than 100 light years away.",
             reason: "The parallax angle becomes too small to be measured accurately.",
             answer: "A",
-            explanation: "Assertion is true. Reason is also true and is the correct explanation. As the distance increases, the parallax angle decreases, eventually becoming too small to be measured with sufficient precision by ground-based telescopes.",
-            neetFrequency: 2
+            explanation: "Assertion is true. Reason is also true and is the correct explanation. As the distance increases, the parallax angle decreases, eventually becoming too small to be measured with sufficient precision by ground-based telescopes."
         },
         {
             assertion: "The number of significant figures depends on the system of units used.",
             reason: "Changing the unit does not change the number of significant digits.",
             answer: "D",
-            explanation: "Assertion is false. The number of significant figures is a property of the measurement, not the units. For example, 1.52 m = 152 cm = 1520 mm all have 3 significant figures. The reason is a true statement.",
-            neetFrequency: 1
+            explanation: "Assertion is false. The number of significant figures is a property of the measurement, not the units. For example, 1.52 m = 152 cm = 1520 mm all have 3 significant figures. The reason is a true statement."
         },
         {
             assertion: "The error in the measurement of radius of a sphere is 0.3%. The error in the measurement of its volume is 0.9%.",
             reason: "The error in volume is three times the error in radius.",
             answer: "A",
-            explanation: "Volume of a sphere V = (4/3)πR³. The relative error ΔV/V = 3(ΔR/R). Therefore, the percentage error in volume is 3 times the percentage error in radius. 3 * 0.3% = 0.9%. The reason correctly explains the assertion.",
-            neetFrequency: 5
+            explanation: "Volume of a sphere V = (4/3)πR³. The relative error ΔV/V = 3(ΔR/R). Therefore, the percentage error in volume is 3 times the percentage error in radius. 3 * 0.3% = 0.9%. The reason correctly explains the assertion."
         }
     ],
     matchTheColumns: [
