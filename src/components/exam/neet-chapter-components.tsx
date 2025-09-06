@@ -10,14 +10,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
@@ -40,7 +32,7 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
                 <CardHeader>
                     <CardTitle>Concept Notes</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <p>Notes are being updated for this chapter.</p>
                 </CardContent>
             </Card>
@@ -52,13 +44,13 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
             {content.map((note, index) => (
                 <React.Fragment key={index}>
                     <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
-                        <CardHeader>
+                        <CardHeader className="card-padding-lg">
                             <CardTitle className="flex items-center gap-3">
                                 <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
                                 <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
                             </CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-4">
+                        <CardContent className="card-padding-lg space-y-4">
                             <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
                                 {note.content.map((item, itemIndex) => (
                                     <div key={itemIndex}>
@@ -86,8 +78,12 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
         <div className="space-y-6">
             {examples.map((example, index) => (
                 <Card key={index}>
-                    <CardHeader className="flex flex-row justify-between items-start">
-                        <BilingualText english={example.title} tamil={example.titleTamil} />
+                    <CardHeader className="card-padding-lg flex flex-row justify-between items-start">
+                        <div>
+                            <CardTitle>
+                                <BilingualText english={example.title} tamil={example.titleTamil} />
+                            </CardTitle>
+                        </div>
                          <Badge variant={
                             example.difficulty === 'Easy' ? 'success' : 
                             example.difficulty === 'Medium' ? 'warning' : 'destructive'
@@ -95,7 +91,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             {example.difficulty}
                         </Badge>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="card-padding-lg space-y-4">
                         <div className="bg-muted p-4 rounded-md border-l-4 border-primary">
                             <p className="font-bold text-lg mb-2 text-foreground">Problem:</p>
                              <BilingualText english={example.problem} tamil={example.problemTamil} />
@@ -156,10 +152,10 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
 
     return (
         <Card>
-            <CardHeader>
+            <CardHeader className="card-padding-lg">
                 <CardTitle className="flex items-center gap-2"><FileText />Key Formulas &amp; Diagrams</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="card-padding-lg space-y-6">
                 {hasFormulas && (
                     <Table>
                         <TableHeader>
@@ -210,7 +206,7 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
                 <CardHeader>
                     <CardTitle>Practice Section</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="card-padding-lg">
                     <p>Practice questions are not available for this chapter yet.</p>
                 </CardContent>
             </Card>
@@ -219,19 +215,40 @@ export function PracticeSectionCard({ mcqs, assertionReasons, matchTheColumns }:
    
     return (
         <Card>
-            <CardHeader>
+            <CardHeader className="card-padding-lg">
                 <CardTitle>Practice Section</CardTitle>
                 <CardDescription>Test your understanding with practice problems.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="card-padding-lg">
                 <Tabs defaultValue="practice" className="w-full">
-                    <TabsList className="grid w-full grid-cols-3">
+                    <TabsList className="grid w-full grid-cols-4">
                         <TabsTrigger value="practice">Practice Mode</TabsTrigger>
+                        <TabsTrigger value="all-questions">All Questions</TabsTrigger>
                         <TabsTrigger value="analytics">Analytics</TabsTrigger>
-                        <TabsTrigger value="more">More Question Types</TabsTrigger>
+                        <TabsTrigger value="more">More Types</TabsTrigger>
                     </TabsList>
                     <TabsContent value="practice" className="mt-4">
                         <PracticeMode mcqs={mcqs} />
+                    </TabsContent>
+                    <TabsContent value="all-questions" className="mt-4">
+                        <Accordion type="multiple" className="w-full space-y-4">
+                            {mcqs.map((mcq, index) => (
+                                <AccordionItem value={`item-${index}`} key={index}>
+                                    <AccordionTrigger className="text-left font-semibold">
+                                        <div className="flex items-start gap-3">
+                                            <span className="mt-1">{index + 1}.</span>
+                                            <div className="prose dark:prose-invert max-w-none text-left"><MarkdownRenderer>{mcq.question}</MarkdownRenderer></div>
+                                        </div>
+                                    </AccordionTrigger>
+                                    <AccordionContent className="p-4 bg-muted/50 rounded-b-md">
+                                        <div className="prose dark:prose-invert max-w-none text-sm space-y-2">
+                                            <p><strong>Answer:</strong> {mcq.answer}</p>
+                                            <p><strong>Explanation:</strong> <MarkdownRenderer>{mcq.explanation}</MarkdownRenderer></p>
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
                     </TabsContent>
                     <TabsContent value="analytics" className="mt-4">
                         <PracticeAnalytics mcqs={mcqs} />
