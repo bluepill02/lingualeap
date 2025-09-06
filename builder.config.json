@@ -4,8 +4,6 @@
   "authenticateProxy": false,
   "commitMode": "commits",
   "aiExclusion": [
-    "src/lib/neet/physics/*",
-    "src/lib/neet/chemistry/*",
-    "src/lib/neet/biology/*"
+    "src/lib/neet/**/*"
   ]
 }
