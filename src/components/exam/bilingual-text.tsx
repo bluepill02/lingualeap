@@ -17,7 +17,7 @@ export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, cl
     : english;
 
   return (
-    <div className={cn('prose dark:prose-invert max-w-none [&>p]:inline', className)}>
+    <div className={cn('prose dark:prose-invert max-w-none [&>p]:inline bilingual-text', className)}>
       <MarkdownRenderer>{combinedText}</MarkdownRenderer>
     </div>
   );
