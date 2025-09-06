@@ -115,7 +115,7 @@ export const strategyGuideContent: StrategyGuide = {
           },
         ],
       },
-      {
+       {
         chapterName: 'Chemical Bonding and Molecular Structure',
         chapterNameTamil: 'வேதிப் பிணைப்பு மற்றும் மூலக்கூறு அமைப்பு',
         sections: [
@@ -333,6 +333,116 @@ export const strategyGuideContent: StrategyGuide = {
     title: "Inorganic Chemistry",
     titleTamil: "கனிம வேதியியல்",
     chapters: [
+       {
+        chapterName: 'Classification of Elements and Periodicity in Properties',
+        chapterNameTamil: 'தனிமங்களின் வகைப்பாடு மற்றும் பண்புகளில் ஆவர்த்தனத் தன்மை',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Ionization Enthalpy (IE) and Electron Gain Enthalpy (EGE) Exceptions',
+                explanation: '**Mistake:** Strictly following the general trend (IE increases across a period, EGE becomes more negative) without remembering key exceptions.\n\n**How to Avoid:** Memorize and understand these exceptions:\n*   **IE:** Be > B and N > O. This is due to the stable fully-filled (Be: 2s²) and half-filled (N: 2p³) configurations.\n*   **EGE:** Cl > F. The electron gain enthalpy of Chlorine is more negative than Fluorine. This is because the small size of the Fluorine atom leads to strong electron-electron repulsion in the compact 2p orbital when an extra electron is added.',
+                explanationTamil: '**தவறு:** முக்கிய விதிவிலக்குகளை நினைவில் கொள்ளாமல் பொதுவான போக்கை (IE ஒரு தொடரில் அதிகரிக்கும், EGE அதிக எதிர்மறையாக மாறும்) கண்டிப்பாகப் பின்பற்றுதல்.\n\n**தவிர்ப்பது எப்படி:** இந்த விதிவிலக்குகளை மனப்பாடம் செய்து புரிந்து கொள்ளுங்கள்:\n*   **IE:** Be > B மற்றும் N > O. இது நிலையான முழுமையாக நிரம்பிய (Be: 2s²) மற்றும் பாதி நிரம்பிய (N: 2p³) அமைப்புகளால் ஏற்படுகிறது.\n*   **EGE:** Cl > F. குளோரினின் எலக்ட்ரான் நாட்ட ஆற்றல் ஃபுளோரினை விட அதிக எதிர்மறையாக உள்ளது. ஏனெனில் ஃபுளோரின் சிறிய அளவு, ஒரு கூடுதல் எலக்ட்ரானைச் சேர்க்கும்போது சிறிய 2p ஆர்பிட்டாலில் வலுவான எலக்ட்ரான்-எலக்ட்ரான் விலக்கத்திற்கு வழிவகுக்கிறது.',
+              },
+            ],
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: "Diagonal Relationship",
+                explanation: "**Concept:** Elements of the second period show similarities with elements of the third period placed diagonally to them (e.g., Li & Mg, Be & Al). This is due to their similar ionic size and charge/radius ratio. \n\n**Application:** This explains why Lithium behaves more like Magnesium than other alkali metals (e.g., forming nitrides, having covalent character in its halides).",
+                explanationTamil: "**கருத்து:** இரண்டாம் தொடர் தனிமங்கள், அவற்றுக்கு மூலைவிட்டமாக அமைந்துள்ள மூன்றாம் தொடர் தனிமங்களுடன் ஒற்றுமையைக் காட்டுகின்றன (எ.கா., Li & Mg, Be & Al). இது அவற்றின் ஒத்த அயனி அளவு மற்றும் மின்னூட்டம்/ஆரம் விகிதம் காரணமாகும்.\n\n**பயன்பாடு:** மற்ற கார உலோகங்களை விட லித்தியம் ஏன் மெக்னீசியத்தைப் போல அதிகமாகச் செயல்படுகிறது என்பதை இது விளக்குகிறது (எ.கா., நைட்ரைடுகளை உருவாக்குதல், அதன் ஹேலைடுகளில் சகப்பிணைப்புத் தன்மையைக் கொண்டிருத்தல்).",
+              },
+              {
+                point: "Nature of Oxides",
+                explanation: "**Concept:** Across a period, the nature of oxides changes from basic to amphoteric to acidic. Down a group, the basic character of oxides increases.\n*   **Example (Period 3):** Na₂O (strongly basic) -> MgO (basic) -> Al₂O₃ (amphoteric) -> SiO₂ (acidic) -> P₄O₁₀ (strongly acidic) -> SO₃ (very strongly acidic) -> Cl₂O₇ (most acidic).\nThis trend is frequently asked conceptually.",
+                explanationTamil: "**கருத்து:** ஒரு தொடரில், ஆக்சைடுகளின் தன்மை காரத்திலிருந்து ஈரியல்பு வழியாக அமிலமாக மாறுகிறது. ஒரு தொகுதியில் கீழே செல்லும்போது, ஆக்சைடுகளின் காரப் பண்பு அதிகரிக்கிறது.\n*   **உதாரணம் (தொடர் 3):** Na₂O (வலுவான காரம்) -> MgO (காரம்) -> Al₂O₃ (ஈரியல்பு) -> SiO₂ (அமிலம்) -> P₄O₁₀ (வலுவான அமிலம்) -> SO₃ (மிக வலுவான அமிலம்) -> Cl₂O₇ (மிகவும் அமிலம்).\nஇந்த போக்கு கருத்தியலாக அடிக்கடி கேட்கப்படுகிறது.",
+              },
+            ]
+          }
+        ],
+      },
+      {
+        chapterName: 'p-Block Elements',
+        chapterNameTamil: 'p-தொகுதி தனிமங்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Inert Pair Effect',
+                explanation: '**Mistake:** Forgetting how the stability of oxidation states changes down the group for heavier p-block elements.\n\n**How to Avoid:** Remember that due to the **inert pair effect**, the stability of the lower oxidation state (Group number - 2) increases down the group. For example, in Group 14, SnCl₄ is more stable than SnCl₂, but PbCl₂ is more stable than PbCl₄.',
+                explanationTamil: '**தவறு:** கனமான p-தொகுதி தனிமங்களுக்கு ஒரு தொகுதியில் கீழே செல்லும்போது ஆக்சிஜனேற்ற நிலைகளின் நிலைப்புத்தன்மை எவ்வாறு மாறுகிறது என்பதை மறப்பது.\n\n**தவிர்ப்பது எப்படி:** **மந்த இணை விளைவு** காரணமாக, குறைந்த ஆக்சிஜனேற்ற நிலையின் (தொகுதி எண் - 2) நிலைப்புத்தன்மை தொகுதியில் கீழே செல்லும்போது அதிகரிக்கிறது என்பதை நினைவில் கொள்க. உதாரணமாக, தொகுதி 14 இல், SnCl₄, SnCl₂-ஐ விட நிலையானது, ஆனால் PbCl₂, PbCl₄-ஐ விட நிலையானது.',
+              },
+              {
+                point: 'Structures of Oxoacids',
+                explanation: '**Mistake:** Incorrectly drawing the structures of oxoacids of phosphorus and sulphur, leading to wrong conclusions about basicity or number of P-O-P bonds.\n\n**How to Avoid:** Practice drawing them. **Key rule for Phosphorus:** Each P atom is tetrahedral, must have one P=O bond and at least one P-OH bond. Any remaining bonds can be P-H (makes it reducing) or P-O-P (in polyacids). **Basicity = number of P-OH groups**.',
+                explanationTamil: '**தவறு:** பாஸ்பரஸ் மற்றும் கந்தகத்தின் ஆக்சோஅமிலங்களின் அமைப்புகளைத் தவறாக வரைவது, இது காரத்தன்மை அல்லது P-O-P பிணைப்புகளின் எண்ணிக்கை பற்றிய தவறான முடிவுகளுக்கு வழிவகுக்கிறது.\n\n**தவிர்ப்பது எப்படி:** அவற்றை வரைந்து பயிற்சி செய்யுங்கள். **பாஸ்பரஸிற்கான முக்கிய விதி:** ஒவ்வொரு P அணுவும் நான்முகி, ஒரு P=O பிணைப்பு மற்றும் குறைந்தது ஒரு P-OH பிணைப்பைக் கொண்டிருக்க வேண்டும். மீதமுள்ள பிணைப்புகள் P-H (ஒடுக்கும் பண்பைக் கொடுக்கும்) அல்லது P-O-P (பல்லமிலங்களில்) ஆக இருக்கலாம். **காரத்தன்மை = P-OH குழுக்களின் எண்ணிக்கை**.',
+              },
+            ]
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: 'Structure of Diborane (B₂H₆)',
+                explanation: "**Concept:** Diborane is an electron-deficient molecule. It has two **3-center-2-electron (3c-2e) bonds**, often called 'banana bonds'. The two boron atoms and four terminal hydrogen atoms lie in one plane. The two bridging hydrogen atoms lie above and below this plane.",
+                explanationTamil: "**கருத்து:** டைபோரேன் ஒரு எலக்ட்ரான் குறைபாடுள்ள மூலக்கூறு. இது இரண்டு **3-மைய-2-எலக்ட்ரான் (3c-2e) பிணைப்புகளைக்** கொண்டுள்ளது, இவை பெரும்பாலும் 'வாழைப்பழப் பிணைப்புகள்' என்று அழைக்கப்படுகின்றன. இரண்டு போரான் அணுக்கள் மற்றும் நான்கு முனைய ஹைட்ரஜன் அணுக்கள் ஒரே தளத்தில் உள்ளன. இரண்டு பாலம் அமைக்கும் ஹைட்ரஜன் அணுக்கள் இந்த தளத்திற்கு மேலும் கீழும் அமைந்துள்ளன.",
+              },
+              {
+                point: 'Interhalogen Compounds',
+                explanation: "**Concept:** Compounds formed between two different halogens (e.g., ClF₃, BrF₅). They are generally more reactive than the parent halogens (except F₂) because the X-X' bond is weaker than the X-X bond. Their structures can be predicted using VSEPR theory (e.g., ClF₃ is T-shaped).",
+                explanationTamil: "**கருத்து:** இரண்டு வெவ்வேறு ஹாலஜன்களுக்கு இடையில் உருவாகும் சேர்மங்கள் (எ.கா., ClF₃, BrF₅). அவை பொதுவாக தாய் ஹாலஜன்களை விட (F₂ தவிர) அதிக வினைத்திறன் கொண்டவை, ஏனெனில் X-X' பிணைப்பு X-X பிணைப்பை விட பலவீனமானது. அவற்றின் அமைப்புகளை VSEPR கோட்பாட்டைப் பயன்படுத்தி கணிக்க முடியும் (எ.கா., ClF₃ T-வடிவமுடையது).",
+              }
+            ]
+          }
+        ]
+      },
+      {
+        chapterName: 'd- and f-Block Elements',
+        chapterNameTamil: 'd- மற்றும் f-தொகுதி தனிமங்கள்',
+        sections: [
+          {
+            title: 'Common Mistakes & Doubts',
+            titleTamil: 'பொதுவான தவறுகள் மற்றும் சந்தேகங்கள்',
+            type: 'mistake',
+            points: [
+              {
+                point: 'Cause of Color in KMnO₄',
+                explanation: '**Mistake:** Attributing the intense purple color of KMnO₄ to d-d transitions.\n\n**How to Avoid:** In KMnO₄, the oxidation state of Mn is +7, which means it has a d⁰ configuration (no d-electrons). Therefore, d-d transitions are impossible. The color is due to a phenomenon called **Ligand to Metal Charge Transfer (LMCT)**, where an electron from an oxygen ligand momentarily jumps to an empty orbital on the metal.',
+                explanationTamil: '**தவறு:** KMnO₄-இன் தீவிர ஊதா நிறத்தை d-d தாவல்களுக்குக் காரணம் கூறுவது.\n\n**தவிர்ப்பது எப்படி:** KMnO₄-இல், Mn-இன் ஆக்ஸிஜனேற்ற நிலை +7 ஆகும், அதாவது இது ஒரு d⁰ அமைப்பைக் கொண்டுள்ளது (d-எலக்ட்ரான்கள் இல்லை). எனவே, d-d தாவல்கள் சாத்தியமற்றது. இந்த நிறம் **ஈனியிலிருந்து உலோகத்திற்கு மின்னூட்டப் பரிமாற்றம் (LMCT)** எனப்படும் ஒரு நிகழ்வால் ஏற்படுகிறது, இங்கு ஒரு ஆக்ஸிஜன் ஈனியிலிருந்து ஒரு எலக்ட்ரான் தற்காலிகமாக உலோகத்தின் மீதுள்ள ஒரு காலி ஆர்பிட்டாலுக்குத் தாவுகிறது.',
+              },
+              {
+                point: 'Consequences of Lanthanoid Contraction',
+                explanation: '**Mistake:** Only memorizing the definition of lanthanoid contraction without understanding its effects.\n\n**How to Avoid:** The most important consequence is the similarity in size between the second (4d) and third (5d) transition series elements. This makes elements like **Zr and Hf**, or **Nb and Ta**, have almost identical radii and chemical properties, making them very difficult to separate.',
+                explanationTamil: '**தவறு:** அதன் விளைவுகளைப் புரிந்து கொள்ளாமல் லாந்தனைடு குறுக்கத்தின் வரையறையை மட்டும் மனப்பாடம் செய்வது.\n\n**தவிர்ப்பது எப்படி:** மிக முக்கியமான விளைவு, இரண்டாவது (4d) மற்றும் மூன்றாவது (5d) இடைநிலைத் தொடர் தனிமங்களுக்கு இடையில் உள்ள அளவு ஒற்றுமை ஆகும். இது **Zr மற்றும் Hf**, அல்லது **Nb மற்றும் Ta** போன்ற தனிமங்கள் கிட்டத்தட்ட ஒரே மாதிரியான ஆரங்களையும் வேதியியல் பண்புகளையும் கொண்டிருக்கச் செய்கிறது, இது அவற்றைப் பிரிப்பதை மிகவும் கடினமாக்குகிறது.',
+              },
+            ]
+          },
+          {
+            title: 'Rare Concepts & Problems',
+            titleTamil: 'அரிய கருத்துக்கள் மற்றும் கணக்குகள்',
+            type: 'rare',
+            points: [
+              {
+                point: 'Disproportionation of Cu⁺',
+                explanation: "**Concept:** In aqueous solution, the Copper(I) ion is unstable and undergoes disproportionation (simultaneous oxidation and reduction).\n**Reaction:** $2Cu^+(aq) \\rightarrow Cu^{2+}(aq) + Cu(s)$. \n**Reason:** The hydration enthalpy of Cu²⁺ is much more negative than that of Cu⁺, which compensates for the high second ionization enthalpy of Copper. This drives the reaction forward.",
+                explanationTamil: "**கருத்து:** நீர்க்கரைசலில், காப்பர்(I) அயனி நிலையற்றது மற்றும் விகிதச்சிதைவுக்கு (ஒரே நேரத்தில் ஆக்சிஜனேற்றம் மற்றும் ஒடுக்கம்) உட்படுகிறது.\n**வினை:** $2Cu^+(aq) \\rightarrow Cu^{2+}(aq) + Cu(s)$. \n**காரணம்:** Cu²⁺-இன் நீரேற்ற என்தால்பி Cu⁺-ஐ விட மிகவும் எதிர்மறையாகும், இது காப்பரின் உயர் இரண்டாம் அயனியாக்கும் என்தால்பியை ஈடுசெய்கிறது. இது வினையை முன்னோக்கி செலுத்துகிறது.",
+              },
+            ]
+          }
+        ]
+      },
        {
         chapterName: 'Coordination Compounds',
         chapterNameTamil: 'அணைவுச் சேர்மங்கள்',
