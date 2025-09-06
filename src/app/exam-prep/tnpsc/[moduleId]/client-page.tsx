@@ -365,21 +365,23 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
 
     const handleNextFlashcard = (knewIt: boolean) => {
         setIsFlipped(false);
-        const currentIndex = isReviewing ? reviewPile[currentFlashcardIndex] : currentFlashcardIndex;
+        const currentIndexInPile = isReviewing ? reviewPile[currentFlashcardIndex] : currentFlashcardIndex;
 
-        if (!knewIt && !reviewPile.includes(currentIndex)) {
-            setReviewPile(prev => [...prev, currentIndex]);
+        if (!knewIt && !reviewPile.includes(currentIndexInPile)) {
+            setReviewPile(prev => [...prev, currentIndexInPile]);
         }
 
         setTimeout(() => {
-            if (currentFlashcardIndex < (isReviewing ? reviewPile.length : flashcards.length) - 1) {
-                setCurrentFlashcardIndex(prev => prev + 1);
+            const nextIndex = currentFlashcardIndex + 1;
+            const currentPile = isReviewing ? reviewPile : flashcards.map((_, i) => i);
+
+            if (nextIndex < currentPile.length) {
+                setCurrentFlashcardIndex(nextIndex);
             } else {
                 if (!isReviewing && reviewPile.length > 0) {
                     setIsReviewing(true);
                     setCurrentFlashcardIndex(0);
                 } else {
-                    // Session complete
                     alert("SRS Session Complete!");
                     setCurrentFlashcardIndex(0);
                     setReviewPile([]);
@@ -388,6 +390,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
             }
         }, 300);
     };
+
 
     const flashcards = module.spacedRepetition.flashcards;
     const cardIndexToShow = isReviewing ? reviewPile[currentFlashcardIndex] : currentFlashcardIndex;
