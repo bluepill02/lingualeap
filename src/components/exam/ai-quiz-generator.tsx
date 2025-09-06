@@ -24,9 +24,12 @@ type QuizState = {
   submitted: boolean;
 };
 
+type Language = 'English' | 'Tamil';
+
 export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
   const [numQuestions, setNumQuestions] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
+  const [language, setLanguage] = useState<Language>('English');
   const [isLoading, setIsLoading] = useState(false);
   const [quizData, setQuizData] = useState<NeetQuizGeneratorOutput | null>(null);
   const [quizState, setQuizState] = useState<QuizState | null>(null);
@@ -43,6 +46,7 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
         chapter,
         numQuestions,
         difficulty,
+        language,
       });
       if (!result.quizzes || result.quizzes.length === 0) {
         throw new Error("AI failed to generate questions. Please try again.");
@@ -95,9 +99,25 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="md:col-span-2">
+            <Label htmlFor="language-select">Language</Label>
+            <Select
+              value={language}
+              onValueChange={(value: Language) => setLanguage(value)}
+              disabled={isLoading}
+            >
+              <SelectTrigger id="language-select">
+                <SelectValue placeholder="Select language" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="English">English</SelectItem>
+                <SelectItem value="Tamil">Tamil</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
           <div>
-            <Label htmlFor="num-questions">Number of Questions</Label>
+            <Label htmlFor="num-questions">Questions</Label>
             <Input
               id="num-questions"
               type="number"
@@ -125,7 +145,7 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
               </SelectContent>
             </Select>
           </div>
-          <div className="md:self-end">
+          <div className="md:col-span-4">
             <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
               {isLoading ? (
                 <>
@@ -168,9 +188,8 @@ export function AiQuizGenerator({ subject, chapter }: AiQuizGeneratorProps) {
                         disabled={quizState.submitted}
                       >
                         <div className="flex items-start gap-2">
-                          <span>{option.charAt(0)}.</span>
                           <div className="prose dark:prose-invert max-w-none text-sm text-current">
-                            <MarkdownRenderer>{option.substring(2)}</MarkdownRenderer>
+                            <MarkdownRenderer>{option}</MarkdownRenderer>
                           </div>
                         </div>
                       </Button>

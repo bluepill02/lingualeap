@@ -23,6 +23,7 @@ export const NeetQuizGeneratorInputSchema = z.object({
   chapter: z.string().describe('The specific chapter or topic for the questions.'),
   numQuestions: z.number().min(1).max(10).describe('The number of questions to generate.'),
   difficulty: z.enum(['Easy', 'Medium', 'Hard']).describe('The desired difficulty level of the questions.'),
+  language: z.enum(['English', 'Tamil']).describe('The language for the generated quiz.'),
 });
 export type NeetQuizGeneratorInput = z.infer<typeof NeetQuizGeneratorInputSchema>;
 
@@ -43,12 +44,13 @@ const prompt = ai.definePrompt({
 Your task is to generate a set of high-quality multiple-choice questions (MCQs) based on the user's request.
 
 **Instructions:**
-1.  **Topic:** The questions must be strictly based on the chapter: **"{{{chapter}}}"**.
-2.  **Quantity:** Generate exactly **{{{numQuestions}}}** questions.
-3.  **Difficulty:** The questions should be of **{{{difficulty}}}** difficulty level, suitable for NEET aspirants.
-4.  **Format:** For each question, provide:
+1.  **Language**: The entire quiz (question, options, answer, and explanation) MUST be generated in the following language: **{{{language}}}**.
+2.  **Topic**: The questions must be strictly based on the chapter: **"{{{chapter}}}"**.
+3.  **Quantity**: Generate exactly **{{{numQuestions}}}** questions.
+4.  **Difficulty**: The questions should be of **{{{difficulty}}}** difficulty level, suitable for NEET aspirants.
+5.  **Format**: For each question, provide:
     *   A clear and unambiguous question. Use LaTeX for all mathematical formulas and symbols.
-    *   Exactly four distinct options (A, B, C, D).
+    *   Exactly four distinct options.
     *   The single correct answer.
     *   A detailed, step-by-step explanation for the solution.
 
