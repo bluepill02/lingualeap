@@ -435,7 +435,7 @@ export const strategyGuideContent: StrategyGuide = {
             type: 'rare',
             points: [
               {
-                point: 'Disproportionation of Cu⁺',
+                point: "Disproportionation of Cu⁺",
                 explanation: "**Concept:** In aqueous solution, the Copper(I) ion is unstable and undergoes disproportionation (simultaneous oxidation and reduction).\n**Reaction:** $2Cu^+(aq) \\rightarrow Cu^{2+}(aq) + Cu(s)$. \n**Reason:** The hydration enthalpy of Cu²⁺ is much more negative than that of Cu⁺, which compensates for the high second ionization enthalpy of Copper. This drives the reaction forward.",
                 explanationTamil: "**கருத்து:** நீர்க்கரைசலில், காப்பர்(I) அயனி நிலையற்றது மற்றும் விகிதச்சிதைவுக்கு (ஒரே நேரத்தில் ஆக்சிஜனேற்றம் மற்றும் ஒடுக்கம்) உட்படுகிறது.\n**வினை:** $2Cu^+(aq) \\rightarrow Cu^{2+}(aq) + Cu(s)$. \n**காரணம்:** Cu²⁺-இன் நீரேற்ற என்தால்பி Cu⁺-ஐ விட மிகவும் எதிர்மறையாகும், இது காப்பரின் உயர் இரண்டாம் அயனியாக்கும் என்தால்பியை ஈடுசெய்கிறது. இது வினையை முன்னோக்கி செலுத்துகிறது.",
               },
@@ -527,3 +527,5 @@ export const strategyGuideContent: StrategyGuide = {
     ]
   },
 };
+
+    
