@@ -80,7 +80,8 @@ const neetSyllabus: {
         "Organic Compounds Containing Halogens",
         "Organic Compounds Containing Oxygen",
         "Organic Compounds Containing Nitrogen",
-        "Biomolecules"
+        "Biomolecules",
+        "Principles Related to Practical Chemistry"
     ]
   },
   biology: {
@@ -156,7 +157,7 @@ async function run() {
                   console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
                   
                   const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-                  const filePath = path.resolve(__dirname, `../../content/neet/${subject}`, `${safeName}.ts`);
+                  const filePath = path.resolve(__dirname, `../../lib/neet/${subject}`, `${safeName}.ts`);
                   
                   fs.mkdirSync(path.dirname(filePath), { recursive: true });
                   fs.writeFileSync(filePath, currentContent);

@@ -33,7 +33,8 @@ const chapterGroups = {
       "Organic Compounds Containing Halogens",
       "Organic Compounds Containing Oxygen",
       "Organic Compounds Containing Nitrogen",
-      "Biomolecules"
+      "Biomolecules",
+      "Principles Related to Practical Chemistry"
   ]
 };
 
