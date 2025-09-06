@@ -21,7 +21,7 @@ export const gravitationModule: NeetModule = {
     ],
     conceptOverview: "Gravitation is the universal force of attraction acting between all matter. It's the force that holds the planets in their orbits, forms galaxies, and keeps us on the ground. This chapter builds upon Newton's Laws to describe this fundamental interaction on a cosmic scale. We will explore how the force of gravity changes with location, introduce the concept of gravitational fields and potential energy, and apply these principles to understand the motion of satellites and planets. The concepts here are elegant and have profound implications for our understanding of the universe.",
     tamilConnection: "வானியல் என்பது தமிழ் மரபில் ஒரு நீண்ட வரலாறு கொண்டது. கோள்கள், விண்மீன்கள் ஆகியவற்றின் இயக்கத்தைக் கணிப்பதில் பண்டைக்காலத் தமிழர்கள் சிறந்து விளங்கினர். இந்தக் 'கோள்'களின் இயக்கத்திற்கு அடிப்படைக் காரணம் ஈர்ப்பு விசை என்பதை இந்த அத்தியாயம் அறிவியல் பூர்வமாக விளக்குகிறது. இது பிரபஞ்சத்தை ஆளும் ஒரு கண்ணுக்குத் தெரியாத சக்தி.",
-    culturalContext: "Think about the massive stones used to build the great temples of Tamil Nadu. Their stability depends entirely on the constant, predictable force of gravity. Understanding this force allowed ancient engineers to create structures that have lasted for centuries. This chapter formalizes that innate understanding of gravity's power.",
+    culturalContext: "Think of the massive stones used to build the great temples of Tamil Nadu, like the one at the Brihadeeswarar Temple in Thanjavur. Their stability depends entirely on the constant, predictable force of gravity. Understanding this force allowed ancient engineers to create structures that have lasted for centuries. This chapter formalizes that innate understanding of gravity's power.",
     syllabusMapping: [
          {
             topic: 'Gravitation, Kepler\'s Laws, Satellites',
@@ -32,79 +32,100 @@ export const gravitationModule: NeetModule = {
         }
     ],
     conceptNotes: [
-      {
-        english: "### 1. Newton's Law of Universal Gravitation",
-        tamil: "### 1. நியூட்டனின் பொது ஈர்ப்பியல் விதி"
-      },
-      {
-        english: "Every particle of matter in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.",
-        tamil: "பிரபஞ்சத்தில் உள்ள ஒவ்வொரு துகளும் மற்ற ஒவ்வொரு துகளையும் ஒரு விசையுடன் ஈர்க்கிறது. இந்த விசை அவற்றின் நிறைகளின் பெருக்கற்பலனுக்கு நேர்த்தகவிலும், அவற்றின் மையங்களுக்கு இடையிலான தூரத்தின் வர்க்கத்திற்கு எதிர்த்தகவிலும் இருக்கும்."
-      },
-      {
-        english: '$$ \\vec{F} = G \\frac{m_1 m_2}{r^2} \\hat{r} $$',
-      },
-      {
-        english: "Here, G is the Universal Gravitational Constant ($G = 6.67 \\times 10^{-11} \\text{ N m}^2/\\text{kg}^2$). This force is always attractive and acts along the line joining the centers of the two bodies.",
-        tamil: "இங்கு, G என்பது பொது ஈர்ப்பியல் மாறிலி. இந்த விசை எப்போதும் ஈர்ப்பு விசையாகும் மற்றும் இரு பொருட்களின் மையங்களை இணைக்கும் கோட்டின் வழியே செயல்படும்."
-      },
-      {
-        english: "### 2. Acceleration Due to Gravity (g)",
-        tamil: "### 2. ஈர்ப்பு முடுக்கம் (g)"
-      },
-      {
-        english: "This is the acceleration experienced by a body due to Earth's gravitational pull. For an object of mass m on the Earth's surface (mass M, radius R):\nForce $F = G \\frac{Mm}{R^2}$. Also, $F = mg$.\n$$ g = \\frac{GM}{R^2} $$",
-      },
-      {
-        english: "#### Variation of 'g'",
-        tamil: "#### g-இன் மாறுபாடு"
-      },
-      {
-        english: "*   **With Altitude (h):** 'g' decreases as we go up.\n$$ g_h = g \\left(1 - \\frac{2h}{R}\\right) \\quad (\\text{if } h \\ll R) $$\nThe exact formula is $g_h = g (\\frac{R}{R+h})^2$.",
-        tamil: "*   **உயரத்தைப் பொறுத்து (h):** மேலே செல்லச் செல்ல 'g' குறைகிறது.\n$$ g_h = g \\left(1 - \\frac{2h}{R}\\right) \\quad (\\text{if } h \\ll R) $$\nசரியான சூத்திரம் $g_h = g (\\frac{R}{R+h})^2$ ஆகும்."
-      },
-      {
-        english: "*   **With Depth (d):** 'g' decreases as we go down into the Earth.\n$$ g_d = g \\left(1 - \\frac{d}{R}\\right) $$\nAt the center of the Earth, d = R, so g becomes zero.",
-        tamil: "*   **ஆழத்தைப் பொறுத்து (d):** பூமிக்குக் கீழே செல்லச் செல்ல 'g' குறைகிறது.\n$$ g_d = g \\left(1 - \\frac{d}{R}\\right) $$\nபூமியின் மையத்தில், d = R, எனவே g சுழியாகிறது."
-      },
-      {
-        english: "*   **Due to Rotation of Earth:** 'g' is maximum at the poles and minimum at the equator.\n$$ g' = g - R\\omega^2 \\cos^2\\lambda $$\nwhere $\\lambda$ is the latitude.",
-        tamil: "*   **பூமியின் சுழற்சியால்:** 'g' துருவங்களில் பெருமமாகவும், நிலநடுக்கோட்டில் சிறுமமாகவும் இருக்கும்.\n$$ g' = g - R\\omega^2 \\cos^2\\lambda $$\nஇங்கு $\\lambda$ என்பது அட்சரேகை."
-      },
-      {
-        english: "{{LIFT_ANIMATION}}"
-      },
-      {
-        english: "### 3. Gravitational Potential and Potential Energy",
-        tamil: "### 3. ஈர்ப்பு நிலை ஆற்றல் மற்றும் நிலை ஆற்றல்"
-      },
-      {
-        english: "*   **Gravitational Potential (V):** The work done in bringing a unit mass from infinity to a point in the gravitational field.\n$$ V = -\\frac{GM}{r} $$",
-        tamil: "*   **ஈர்ப்பு நிலை ஆற்றல் (V):** ஈர்ப்புப் புலத்தில் உள்ள ஒரு புள்ளிக்கு முடிவிலியிலிருந்து ஓரலகு நிறையை கொண்டு வர செய்யப்படும் வேலை.\n$$ V = -\\frac{GM}{r} $$"
-      },
-      {
-        english: "*   **Gravitational Potential Energy (U):** The work done in bringing a given mass 'm' from infinity to a point in the gravitational field.\n$$ U = -\\frac{GMm}{r} $$",
-        tamil: "*   **ஈர்ப்பு நிலை ஆற்றல் (U):** 'm' நிறையுள்ள ஒரு பொருளை முடிவிலியிலிருந்து ஈர்ப்புப் புலத்தில் உள்ள ஒரு புள்ளிக்கு கொண்டு வர செய்யப்படும் வேலை.\n$$ U = -\\frac{GMm}{r} $$"
-      },
-      {
-        english: "### 4. Satellites: Orbital and Escape Velocity",
-        tamil: "### 4. செயற்கைக்கோள்கள்: சுற்றுப்பாதை மற்றும் விடுபடு வேகம்"
-      },
-      {
-        english: "*   **Orbital Velocity ($v_o$):** The minimum velocity required to put a satellite into a circular orbit.\n$$ v_o = \\sqrt{\\frac{GM}{r}} $$",
-        tamil: "*   **சுற்றுப்பாதை வேகம் ($v_o$):** ஒரு செயற்கைக்கோளை ஒரு வட்டப் பாதையில் நிலைநிறுத்தத் தேவையான குறைந்தபட்ச வேகம்.\n$$ v_o = \\sqrt{\\frac{GM}{r}} $$"
-      },
-      {
-        english: "*   **Escape Velocity ($v_e$):** The minimum velocity with which a body must be projected to escape its gravitational field permanently.\n$$ v_e = \\sqrt{\\frac{2GM}{R}} $$",
-        tamil: "*   **விடுபடு வேகம் ($v_e$):** ஒரு பொருள் ஒரு ஈர்ப்புப் புலத்திலிருந்து நிரந்தரமாகத் தப்பிக்க, அதன் மேற்பரப்பிலிருந்து எறியப்பட வேண்டிய குறைந்தபட்ச வேகம்.\n$$ v_e = \\sqrt{\\frac{2GM}{R}} $$"
-      },
-      {
-        english: "### 5. Kepler's Laws of Planetary Motion",
-        tamil: "### 5. கோள் இயக்கத்திற்கான கெப்ளரின் விதிகள்"
-      },
-      {
-        english: "1.  **Law of Orbits:** Planets revolve in elliptical orbits with the Sun at one focus.\n2.  **Law of Areas:** A line joining a planet and the Sun sweeps out equal areas in equal intervals of time (conservation of angular momentum).\n3.  **Law of Periods:** $T^2 \\propto a^3$, where T is the time period and a is the semi-major axis.",
-        tamil: "1.  **சுற்றுப்பாதை விதி:** கோள்கள் சூரியனை ஒரு குவியத்தில் கொண்டு நீள்வட்டப் பாதையில் சுற்றி வருகின்றன.\n2.  **பரப்புகளின் விதி:** ஒரு கோளையும் சூரியனையும் இணைக்கும் கோடு சம கால இடைவெளிகளில் சம பரப்புகளைத் துடைக்கிறது (கோண உந்த அழிவின்மை).\n3.  **சுற்றுக் காலங்களின் விதி:** $T^2 \\propto a^3$, இங்கு T என்பது சுற்றுக் காலம் மற்றும் a என்பது அரை-பெரும் அச்சு."
-      }
+        {
+            heading: {
+                english: '1. Newton\'s Law of Universal Gravitation',
+                tamil: '1. நியூட்டனின் பொது ஈர்ப்பியல் விதி'
+            },
+            content: [
+                {
+                    english: "Every particle of matter in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers.",
+                    tamil: "பிரபஞ்சத்தில் உள்ள ஒவ்வொரு துகளும் மற்ற ஒவ்வொரு துகளையும் ஒரு விசையுடன் ஈர்க்கிறது. இந்த விசை அவற்றின் நிறைகளின் பெருக்கற்பலனுக்கு நேர்த்தகவிலும், அவற்றின் மையங்களுக்கு இடையிலான தூரத்தின் வர்க்கத்திற்கு எதிர்த்தகவிலும் இருக்கும்."
+                },
+                {
+                    english: '$$ \\vec{F} = G \\frac{m_1 m_2}{r^2} \\hat{r} $$',
+                },
+                {
+                    english: "Here, G is the Universal Gravitational Constant ($G = 6.67 \\times 10^{-11} \\text{ N m}^2/\\text{kg}^2$). This force is always attractive and acts along the line joining the centers of the two bodies.",
+                    tamil: "இங்கு, G என்பது பொது ஈர்ப்பியல் மாறிலி. இந்த விசை எப்போதும் ஈர்ப்பு விசையாகும் மற்றும் இரு பொருட்களின் மையங்களை இணைக்கும் கோட்டின் வழியே செயல்படும்."
+                }
+            ]
+        },
+        {
+            heading: {
+                english: '2. Acceleration Due to Gravity (g)',
+                tamil: '2. ஈர்ப்பு முடுக்கம் (g)'
+            },
+            content: [
+                 {
+                    english: "This is the acceleration experienced by a body due to Earth's gravitational pull. For an object of mass m on the Earth's surface (mass M, radius R):\nForce $F = G \\frac{Mm}{R^2}$. Also, $F = mg$.\n$$ g = \\frac{GM}{R^2} $$",
+                    tamil: ""
+                },
+                {
+                    english: "#### Variation of 'g'",
+                    tamil: "#### g-இன் மாறுபாடு"
+                },
+                {
+                    english: "*   **With Altitude (h):** 'g' decreases as we go up.\n$$ g_h = g \\left(1 - \\frac{2h}{R}\\right) \\quad (\\text{if } h \\ll R) $$\nThe exact formula is $g_h = g (\\frac{R}{R+h})^2$.",
+                    tamil: "*   **உயரத்தைப் பொறுத்து (h):** மேலே செல்லச் செல்ல 'g' குறைகிறது.\n$$ g_h = g \\left(1 - \\frac{2h}{R}\\right) \\quad (\\text{if } h \\ll R) $$\nசரியான சூத்திரம் $g_h = g (\\frac{R}{R+h})^2$ ஆகும்."
+                },
+                {
+                    english: "*   **With Depth (d):** 'g' decreases as we go down into the Earth.\n$$ g_d = g \\left(1 - \\frac{d}{R}\\right) $$\nAt the center of the Earth, d = R, so g becomes zero.",
+                    tamil: "*   **ஆழத்தைப் பொறுத்து (d):** பூமிக்குக் கீழே செல்லச் செல்ல 'g' குறைகிறது.\n$$ g_d = g \\left(1 - \\frac{d}{R}\\right) $$\nபூமியின் மையத்தில், d = R, எனவே g சுழியாகிறது."
+                },
+                {
+                    english: "*   **Due to Rotation of Earth:** 'g' is maximum at the poles and minimum at the equator.\n$$ g' = g - R\\omega^2 \\cos^2\\lambda $$\nwhere $\\lambda$ is the latitude.",
+                    tamil: "*   **பூமியின் சுழற்சியால்:** 'g' துருவங்களில் பெருமமாகவும், நிலநடுக்கோட்டில் சிறுமமாகவும் இருக்கும்.\n$$ g' = g - R\\omega^2 \\cos^2\\lambda $$\nஇங்கு $\\lambda$ என்பது அட்சரேகை."
+                },
+                {
+                    english: "{{LIFT_ANIMATION}}"
+                }
+            ]
+        },
+        {
+            heading: {
+                english: '3. Gravitational Potential and Potential Energy',
+                tamil: '3. ஈர்ப்பு நிலை ஆற்றல் மற்றும் நிலை ஆற்றல்'
+            },
+            content: [
+                {
+                    english: "*   **Gravitational Potential (V):** The work done in bringing a unit mass from infinity to a point in the gravitational field.\n$$ V = -\\frac{GM}{r} $$",
+                    tamil: "*   **ஈர்ப்பு நிலை ஆற்றல் (V):** ஈர்ப்புப் புலத்தில் உள்ள ஒரு புள்ளிக்கு முடிவிலியிலிருந்து ஓரலகு நிறையை கொண்டு வர செய்யப்படும் வேலை.\n$$ V = -\\frac{GM}{r} $$"
+                },
+                {
+                    english: "*   **Gravitational Potential Energy (U):** The work done in bringing a given mass 'm' from infinity to a point in the gravitational field.\n$$ U = -\\frac{GMm}{r} $$",
+                    tamil: "*   **ஈர்ப்பு நிலை ஆற்றல் (U):** 'm' நிறையுள்ள ஒரு பொருளை முடிவிலியிலிருந்து ஈர்ப்புப் புலத்தில் உள்ள ஒரு புள்ளிக்கு கொண்டு வர செய்யப்படும் வேலை.\n$$ U = -\\frac{GMm}{r} $$"
+                }
+            ]
+        },
+        {
+            heading: {
+                english: '4. Satellites: Orbital and Escape Velocity',
+                tamil: '4. செயற்கைக்கோள்கள்: சுற்றுப்பாதை மற்றும் விடுபடு வேகம்'
+            },
+            content: [
+                {
+                    english: "*   **Orbital Velocity ($v_o$):** The minimum velocity required to put a satellite into a circular orbit.\n$$ v_o = \\sqrt{\\frac{GM}{r}} $$",
+                    tamil: "*   **சுற்றுப்பாதை வேகம் ($v_o$):** ஒரு செயற்கைக்கோளை ஒரு வட்டப் பாதையில் நிலைநிறுத்தத் தேவையான குறைந்தபட்ச வேகம்.\n$$ v_o = \\sqrt{\\frac{GM}{r}} $$"
+                },
+                {
+                    english: "*   **Escape Velocity ($v_e$):** The minimum velocity with which a body must be projected to escape its gravitational field permanently.\n$$ v_e = \\sqrt{\\frac{2GM}{R}} $$",
+                    tamil: "*   **விடுபடு வேகம் ($v_e$):** ஒரு பொருள் ஒரு ஈர்ப்புப் புலத்திலிருந்து நிரந்தரமாகத் தப்பிக்க, அதன் மேற்பரப்பிலிருந்து எறியப்பட வேண்டிய குறைந்தபட்ச வேகம்.\n$$ v_e = \\sqrt{\\frac{2GM}{R}} $$"
+                }
+            ]
+        },
+        {
+            heading: {
+                english: '5. Kepler\'s Laws of Planetary Motion',
+                tamil: '5. கோள் இயக்கத்திற்கான கெப்ளரின் விதிகள்'
+            },
+            content: [
+                {
+                    english: "1.  **Law of Orbits:** Planets revolve in elliptical orbits with the Sun at one focus.\n2.  **Law of Areas:** A line joining a planet and the Sun sweeps out equal areas in equal intervals of time (conservation of angular momentum).\n3.  **Law of Periods:** $T^2 \\propto a^3$, where T is the time period and a is the semi-major axis.",
+                    tamil: "1.  **சுற்றுப்பாதை விதி:** கோள்கள் சூரியனை ஒரு குவியத்தில் கொண்டு நீள்வட்டப் பாதையில் சுற்றி வருகின்றன.\n2.  **பரப்புகளின் விதி:** ஒரு கோளையும் சூரியனையும் இணைக்கும் கோடு சம கால இடைவெளிகளில் சம பரப்புகளைத் துடைக்கிறது (கோண உந்த அழிவின்மை).\n3.  **சுற்றுக் காலங்களின் விதி:** $T^2 \\propto a^3$, இங்கு T என்பது சுற்றுக் காலம் மற்றும் a என்பது அரை-பெரும் அச்சு."
+                }
+            ]
+        }
     ],
     workedExamples: [
         {
