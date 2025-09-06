@@ -6,8 +6,19 @@ export const geneticsAndEvolution: NeetModule = {
     title: 'Genetics and Evolution',
     chapter: 'Genetics and Evolution',
     subject: 'Biology',
-    learningObjectives: [],
-    prerequisites: [],
+    learningObjectives: [
+        "Understand and apply Mendel's Laws of Inheritance (Dominance, Segregation, Independent Assortment).",
+        "Solve genetics problems involving monohybrid and dihybrid crosses, and understand concepts like incomplete dominance and co-dominance.",
+        "Describe the chromosomal theory of inheritance and concepts of linkage and recombination.",
+        "Explain the molecular basis of inheritance, including the structure of DNA, replication, transcription, and translation.",
+        "Understand the evidence for evolution and the theories of Lamarck, Darwin (natural selection), and the modern synthetic theory.",
+        "Analyze the mechanisms of evolution, including Hardy-Weinberg principle, genetic drift, and speciation."
+    ],
+    prerequisites: [
+        "Understanding of cell division (mitosis and meiosis).",
+        "Knowledge of reproduction in organisms.",
+        "Basic concepts of biomolecules, especially nucleic acids."
+    ],
     conceptOverview: "This unit covers the science of heredity and variation. It begins with Mendel's Laws of Inheritance and moves on to the chromosomal theory of inheritance. The 'Molecular Basis of Inheritance' delves into the structure of DNA, its replication, transcription, and translation (the central dogma of molecular biology). Finally, the 'Evolution' section explores the origin of life and the mechanisms, like natural selection, that drive the evolution of new species.",
     tamilConnection: "'தாய் எட்டடி பாய்ந்தால், குட்டி பதினாறு அடி பாயும்' என்ற பழமொழி, மரபுப் பண்புகள் கடத்தப்படுவதை குறிக்கிறது. மெண்டலின் விதிகள், இந்த மரபுப் பண்புகள் எவ்வாறு ஒரு தலைமுறையிலிருந்து அடுத்த தலைமுறைக்கு கடத்தப்படுகின்றன என்பதற்கான அறிவியல் அடிப்படையை வழங்குகின்றன.",
     culturalContext: "The Jallikattu bulls of Tamil Nadu are a product of centuries of artificial selection, where humans have selectively bred bulls for specific traits like strength, aggression, and stamina. This is a powerful example of how selection (in this case, artificial) can lead to changes in a population over time, a core concept in the study of evolution.",

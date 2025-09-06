@@ -6,8 +6,19 @@ export const reproduction: NeetModule = {
     title: 'Reproduction',
     chapter: 'Reproduction',
     subject: 'Biology',
-    learningObjectives: [],
-    prerequisites: [],
+    learningObjectives: [
+        "Differentiate between asexual and sexual reproduction.",
+        "Describe the process of sexual reproduction in flowering plants, including pollination, fertilization, and development of seed and fruit.",
+        "Explain the structure and function of the human male and female reproductive systems.",
+        "Understand the process of gametogenesis (spermatogenesis and oogenesis) and the menstrual cycle.",
+        "Describe fertilization, implantation, pregnancy, and embryonic development in humans.",
+        "Discuss various methods of birth control and sexually transmitted diseases (STDs)."
+    ],
+    prerequisites: [
+        "Knowledge of plant and animal cell structure.",
+        "Understanding of cell division (mitosis and meiosis).",
+        "Basic familiarity with the human body systems."
+    ],
     conceptOverview: "This unit covers the fundamental biological process of reproduction, ensuring the continuity of species. It includes reproduction in organisms, the detailed process of sexual reproduction in flowering plants (from pollination to fertilization and fruit development), human reproduction (including male and female reproductive systems, gametogenesis, menstrual cycle, fertilization, and embryonic development), and reproductive health (covering sexually transmitted diseases and birth control methods).",
     tamilConnection: "சங்க இலக்கியங்களில் அகத்திணைகள், காதல் மற்றும் குடும்ப வாழ்க்கையின் முக்கியத்துவத்தை விவரிக்கின்றன. இது, மனித இனப்பெருக்கத்தின் சமூக மற்றும் கலாச்சார அம்சங்களைப் பிரதிபலிக்கிறது. இந்த அத்தியாயம், அந்த வாழ்க்கைச் சுழற்சியின் உயிரியல் அடிப்படையை, அதாவது இனப்பெருக்க உறுப்புகளின் அமைப்பு மற்றும் செயல்பாடுகளை விளக்குகிறது.",
     culturalContext: "Traditional Indian wedding ceremonies often include rituals and symbolism associated with fertility and the continuation of the family line. These cultural practices are deeply connected to the biological imperatives of reproduction, which are explained scientifically in this chapter, covering everything from the menstrual cycle to fertilization.",
