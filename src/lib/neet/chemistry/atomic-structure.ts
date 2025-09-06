@@ -33,6 +33,10 @@ export const atomicStructureModule: NeetModule = {
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
+    keyFormulasAndDiagrams: {
+        formulas: [],
+        diagrams: []
+    },
     keyTakeaways: [],
     mnemonics: [],
     neetTips: [],
