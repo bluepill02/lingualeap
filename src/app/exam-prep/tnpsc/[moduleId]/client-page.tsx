@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -58,6 +58,7 @@ const COLORS = {
 export default function TnpscContentViewer({ module }: { module: TnpscModule }) {
   const router = useRouter();
   const { id: moduleId } = module;
+  const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const [currentTab, setCurrentTab] = useState('overview');
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
@@ -65,8 +66,12 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   const [bookmarked, setBookmarked] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [showAnswers, setShowAnswers] = useState(false);
-  const [isFlipped, setIsFlipped] = useState(false);
+  
+  // SRS State
   const [currentFlashcardIndex, setCurrentFlashcardIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [reviewPile, setReviewPile] = useState<number[]>([]);
+  const [isReviewing, setIsReviewing] = useState(false);
 
   useEffect(() => {
     const savedProgress = localStorage.getItem(`tnpsc-progress-${moduleId}`);
@@ -105,14 +110,31 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
   
   const progressPercentage = (completedSections.size / 7) * 100;
 
+  const handleContextClick = (sectionId: string) => {
+    setCurrentTab('content');
+    setTimeout(() => {
+      contentRefs.current[sectionId]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      contentRefs.current[sectionId]?.classList.add('animate-pulse', 'bg-primary/10', 'rounded-lg');
+      setTimeout(() => {
+         contentRefs.current[sectionId]?.classList.remove('animate-pulse', 'bg-primary/10', 'rounded-lg');
+      }, 2000)
+    }, 100);
+  };
+
   const StrategicFocusCard = () => {
     let recommendation = '';
-    if (module.difficultyLevel === 'Advanced' && module.weightage > 20) {
-        recommendation = "This is a high-weightage, Advanced module. We recommend allocating at least 3 study sessions. Focus heavily on understanding the nuances of the socio-political movements, as questions are often analytical.";
-    } else if (module.difficultyLevel === 'Intermediate' && module.weightage > 15) {
-        recommendation = "This Intermediate module has significant weightage. Ensure you master the key terms from the 'Context' tab and aim for over 80% in the 'Practice' section.";
+    const highWeightage = module.weightage > 20;
+    const isAdvanced = module.difficultyLevel === 'Advanced';
+    const isIntermediate = module.difficultyLevel === 'Intermediate';
+
+    if (isAdvanced && highWeightage) {
+        recommendation = `This is a high-weightage, Advanced module. We recommend allocating at least 3 study sessions. Focus heavily on understanding the nuances of the socio-political movements, as questions are often analytical. The '${module.sections[2].title}' section is particularly crucial.`;
+    } else if (isIntermediate && highWeightage) {
+        recommendation = `This Intermediate module has significant weightage. Ensure you master the key terms from the 'Context' tab and aim for over 80% in the 'Practice' section. Pay close attention to the chronology of events in the Freedom Struggle.`;
+    } else if (isAdvanced) {
+        recommendation = `Though this is an Advanced module, its weightage is moderate. Focus on one deep study session, prioritizing the 'Freedom Struggle' section and its key figures.`;
     } else {
-        recommendation = "This is a Foundation module. A strong understanding here is crucial for more advanced topics. Focus on mastering all the flashcards in the Spaced Repetition section.";
+        recommendation = `This is a Foundation module. A strong understanding here is crucial for more advanced topics. Focus on mastering all the flashcards in the Spaced Repetition section to build a solid base.`;
     }
 
     return (
@@ -124,7 +146,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
             </AlertDescription>
         </Alert>
     );
-}
+  }
 
   const AnalyticsTabContent = () => {
     if (!showAnswers) {
@@ -221,10 +243,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                                     const section = module.sections.find(s => s.id === topicId);
                                     return (
                                         <li key={topicId}>
-                                            <Button variant="link" className="p-0 h-auto" onClick={() => {
-                                                const contentTab = document.querySelector('button[data-radix-collection-item][value=content]') as HTMLButtonElement | null;
-                                                if(contentTab) contentTab.click();
-                                            }}>
+                                            <Button variant="link" className="p-0 h-auto" onClick={() => handleContextClick(topicId)}>
                                                 {language === 'english' ? section?.title : section?.titleTamil}
                                             </Button>
                                         </li>
@@ -273,7 +292,7 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                 <CardContent>
                    <div style={{ width: '100%', height: 300 }}>
                      <ResponsiveContainer>
-                        <BarChart data={trendData}>
+                        <BarChart data={trendData} stackOffset="sign">
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="year" />
                             <YAxis allowDecimals={false} />
@@ -344,15 +363,36 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
     )
   }
 
-  const handleNextFlashcard = (knewIt: boolean) => {
-    setIsFlipped(false);
-    setTimeout(() => {
-        setCurrentFlashcardIndex((prevIndex) => (prevIndex + 1) % module.spacedRepetition.flashcards.length);
-    }, 300); // Allow time for flip-back animation
-  };
+    const handleNextFlashcard = (knewIt: boolean) => {
+        setIsFlipped(false);
+        const currentIndex = isReviewing ? reviewPile[currentFlashcardIndex] : currentFlashcardIndex;
 
-  const flashcards = module.spacedRepetition.flashcards;
-  const currentFlashcard = flashcards[currentFlashcardIndex];
+        if (!knewIt && !reviewPile.includes(currentIndex)) {
+            setReviewPile(prev => [...prev, currentIndex]);
+        }
+
+        setTimeout(() => {
+            if (currentFlashcardIndex < (isReviewing ? reviewPile.length : flashcards.length) - 1) {
+                setCurrentFlashcardIndex(prev => prev + 1);
+            } else {
+                if (!isReviewing && reviewPile.length > 0) {
+                    setIsReviewing(true);
+                    setCurrentFlashcardIndex(0);
+                } else {
+                    // Session complete
+                    alert("SRS Session Complete!");
+                    setCurrentFlashcardIndex(0);
+                    setReviewPile([]);
+                    setIsReviewing(false);
+                }
+            }
+        }, 300);
+    };
+
+    const flashcards = module.spacedRepetition.flashcards;
+    const cardIndexToShow = isReviewing ? reviewPile[currentFlashcardIndex] : currentFlashcardIndex;
+    const currentFlashcard = flashcards[cardIndexToShow];
+
 
   return (
     <div className="container mx-auto space-y-8">
@@ -503,12 +543,16 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
               <Card>
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2"><Layers3/>Spaced Repetition Flashcards</CardTitle>
-                    <CardDescription>Review key concepts for long-term memory retention.</CardDescription>
+                    <CardDescription>
+                        {isReviewing 
+                          ? `Reviewing difficult cards (${currentFlashcardIndex + 1}/${reviewPile.length})` 
+                          : `Reviewing all cards (${currentFlashcardIndex + 1}/${flashcards.length})`}
+                    </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center gap-4">
                      <div className="w-full max-w-md h-64 [perspective:1000px]">
                         <motion.div
-                             key={currentFlashcardIndex}
+                             key={cardIndexToShow}
                              className="relative w-full h-full [transform-style:preserve-3d]"
                              initial={{ rotateY: 0 }}
                              animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -537,14 +581,16 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
           </TabsContent>
           <TabsContent value="content" className="mt-4 space-y-6">
              {module.sections.map((section) => (
-                <Card key={section.id}>
-                    <CardHeader>
-                        <CardTitle>{language === 'english' ? section.title : section.titleTamil}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="prose dark:prose-invert max-w-none">
-                         <MarkdownRenderer>{language === 'english' ? section.content : section.contentTamil}</MarkdownRenderer>
-                    </CardContent>
-                </Card>
+                <div key={section.id} ref={el => contentRefs.current[section.id] = el} className="p-2 -m-2 transition-all duration-500">
+                  <Card>
+                      <CardHeader>
+                          <CardTitle>{language === 'english' ? section.title : section.titleTamil}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="prose dark:prose-invert max-w-none">
+                           <MarkdownRenderer>{language === 'english' ? section.content : section.contentTamil}</MarkdownRenderer>
+                      </CardContent>
+                  </Card>
+                </div>
              ))}
              <Button onClick={() => markSectionCompleted('content')} disabled={completedSections.has('content')}>
                 {completedSections.has('content') ? 'Completed' : 'Mark Content as Read'}
@@ -571,7 +617,20 @@ export default function TnpscContentViewer({ module }: { module: TnpscModule }) 
                 </CardHeader>
                 <CardContent>
                     <ul className="list-disc list-inside space-y-2">
-                        {module.specificData.importantFigures.map((figure, i) => <li key={i}>{figure}</li>)}
+                        {module.specificData.importantFigures.map((figure, i) => {
+                             const section = module.sections.find(s => s.content.includes(figure.split(' ')[0]))
+                             return (
+                                <li key={i}>
+                                  {section ? (
+                                    <Button variant="link" className="p-0 h-auto text-base" onClick={() => handleContextClick(section.id)}>
+                                        {figure}
+                                    </Button>
+                                  ) : (
+                                    figure
+                                  )}
+                                </li>
+                             )
+                        })}
                     </ul>
                 </CardContent>
               </Card>
