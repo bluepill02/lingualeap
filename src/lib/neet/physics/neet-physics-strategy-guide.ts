@@ -216,8 +216,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Confusing Elasticity with Stretchability',
-                explanation: "**Mistake:** Thinking rubber is more elastic than steel.\n\n**How to Avoid:** In physics, **elasticity** is the resistance to deformation. A material with a high Young\'s modulus (Y) is more elastic. Steel has a much higher Y than rubber, so it resists deformation more and returns to its original shape more forcefully. Therefore, steel is more elastic than rubber.',
-                explanationTamil: '**தவறு:** ரப்பர் எஃகை விட அதிக மீட்சித்தன்மை கொண்டது என்று நினைப்பது.\n\n**தவிர்ப்பது எப்படி:** இயற்பியலில், **மீட்சித்தன்மை** என்பது உருக்குலைவிற்கு எதிரான எதிர்ப்பு. அதிக யங் குணகம் (Y) கொண்ட ஒரு பொருள் அதிக மீட்சித்தன்மை கொண்டது. எஃகு ரப்பரை விட மிக அதிக Y மதிப்பைக் கொண்டுள்ளது, எனவே அது உருக்குலைவை அதிகமாக எதிர்க்கிறது மற்றும் அதன் அசல் வடிவத்திற்கு அதிக விசையுடன் திரும்புகிறது. எனவே, எஃகு ரப்பரை விட அதிக மீட்சித்தன்மை கொண்டது.',
+                explanation: '**Mistake:** Thinking rubber is more elastic than steel.\\n\\n**How to Avoid:** In physics, **elasticity** is the resistance to deformation. A material with a high Young\\\'s modulus (Y) is more elastic. Steel has a much higher Y than rubber, so it resists deformation more and returns to its original shape more forcefully. Therefore, steel is more elastic than rubber.',
+                explanationTamil: '**தவறு:** ரப்பர் எஃகை விட அதிக மீட்சித்தன்மை கொண்டது என்று நினைப்பது.\\n\\n**தவிர்ப்பது எப்படி:** இயற்பியலில், **மீட்சித்தன்மை** என்பது உருக்குலைவிற்கு எதிரான எதிர்ப்பு. அதிக யங் குணகம் (Y) கொண்ட ஒரு பொருள் அதிக மீட்சித்தன்மை கொண்டது. எஃகு ரப்பரை விட மிக அதிக Y மதிப்பைக் கொண்டுள்ளது, எனவே அது உருக்குலைவை அதிகமாக எதிர்க்கிறது மற்றும் அதன் அசல் வடிவத்திற்கு அதிக விசையுடன் திரும்புகிறது. எனவே, எஃகு ரப்பரை விட அதிக மீட்சித்தன்மை கொண்டது.',
               },
             ],
           },
@@ -233,8 +233,8 @@ export const strategyGuideContent: StrategyGuide = {
             type: 'trick',
             points: [
               {
-                point: 'Bernoulli\'s Principle Insight',
-                explanation: "Think of Bernoulli\'s principle as a trade-off: **'Where speed is high, pressure is low'.** This single concept explains the lift on an airplane wing (air travels faster over the top), the swing of a spinning cricket ball, and the working of an atomizer.",
+                point: 'Bernoulli\\\'s Principle Insight',
+                explanation: "Think of Bernoulli\\'s principle as a trade-off: **'Where speed is high, pressure is low'.** This single concept explains the lift on an airplane wing (air travels faster over the top), the swing of a spinning cricket ball, and the working of an atomizer.",
                 explanationTamil: "பெர்னூலியின் தத்துவத்தை ஒரு வர்த்தகமாக நினைத்துப் பாருங்கள்: **'வேகம் அதிகம் உள்ள இடத்தில், அழுத்தம் குறைவு'.** இந்த ஒற்றைக் கருத்து ஒரு விமான இறக்கையின் மீதான தூக்கு விசை, சுழலும் கிரிக்கெட் பந்தின் ஊஞ்சலாட்டம் மற்றும் ஒரு அணுவாக்கியின் செயல்பாடு ஆகியவற்றை விளக்குகிறது.",
               },
             ],
@@ -252,8 +252,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Confusing Heat and Temperature',
-                explanation: '**Mistake:** Using the terms heat and temperature interchangeably.\n\n**How to Avoid:** **Temperature** is a measure of the average kinetic energy of molecules (how hot or cold something is). **Heat** is the *transfer* of thermal energy from a hotter body to a colder one. An iceberg has a low temperature but contains a huge amount of heat energy.',
-                explanationTamil: '**தவறு:** வெப்பம் மற்றும் வெப்பநிலை என்ற சொற்களை மாறி மாறிப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** **வெப்பநிலை** என்பது மூலக்கூறுகளின் சராசரி இயக்க ஆற்றலின் ஒரு அளவீடு (ஒரு பொருள் எவ்வளவு சூடாக அல்லது குளிராக உள்ளது). **வெப்பம்** என்பது ஒரு சூடான பொருளிலிருந்து ஒரு குளிரான பொருளுக்கு வெப்ப ஆற்றலின் *பரிமாற்றம்* ஆகும். ஒரு பனிப்பாறை குறைந்த வெப்பநிலையைக் கொண்டுள்ளது ஆனால் ஒரு பெரிய அளவு வெப்ப ஆற்றலைக் கொண்டுள்ளது.',
+                explanation: '**Mistake:** Using the terms heat and temperature interchangeably.\\n\\n**How to Avoid:** **Temperature** is a measure of the average kinetic energy of molecules (how hot or cold something is). **Heat** is the *transfer* of thermal energy from a hotter body to a colder one. An iceberg has a low temperature but contains a huge amount of heat energy.',
+                explanationTamil: '**தவறு:** வெப்பம் மற்றும் வெப்பநிலை என்ற சொற்களை மாறி மாறிப் பயன்படுத்துதல்.\\n\\n**தவிர்ப்பது எப்படி:** **வெப்பநிலை** என்பது மூலக்கூறுகளின் சராசரி இயக்க ஆற்றலின் ஒரு அளவீடு (ஒரு பொருள் எவ்வளவு சூடாக அல்லது குளிராக உள்ளது). **வெப்பம்** என்பது ஒரு சூடான பொருளிலிருந்து ஒரு குளிரான பொருளுக்கு வெப்ப ஆற்றலின் *பரிமாற்றம்* ஆகும். ஒரு பனிப்பாறை குறைந்த வெப்பநிலையைக் கொண்டுள்ளது ஆனால் ஒரு பெரிய அளவு வெப்ப ஆற்றலைக் கொண்டுள்ளது.',
               },
             ],
           },
@@ -276,8 +276,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Sign Conventions for W and Q',
-                explanation: '**Mistake:** Mixing up the signs. The physics convention for work (Work done BY system is positive) is opposite to the chemistry convention (Work done ON system is positive).\n\n**How to Avoid:** Stick to one convention, usually the one from your textbook. The standard physics convention is based on the First Law: **$\\Delta U = Q - W$**. Here, work done *by* the system is positive. Heat supplied *to* the system is positive.',
-                explanationTamil: '**தவறு:** குறிகளைக் குழப்பிக் கொள்வது. இயற்பியல் மரபு (அமைப்பால் செய்யப்படும் வேலை நேர்க்குறி) வேதியியல் மரபுக்கு (அமைப்பின் மீது செய்யப்படும் வேலை நேர்க்குறி) எதிரானது.\n\n**தவிர்ப்பது எப்படி:** உங்கள் பாடப்புத்தகத்தில் உள்ள ஒரு மரபைப் பின்பற்றவும். நிலையான இயற்பியல் மரபு முதல் விதியை அடிப்படையாகக் கொண்டது: **$\\Delta U = Q - W$**. இங்கு, அமைப்பால் *செய்யப்பட்ட* வேலை நேர்க்குறியாகும். அமைப்பிற்கு *வழங்கப்பட்ட* வெப்பம் நேர்க்குறியாகும்.',
+                explanation: '**Mistake:** Mixing up the signs. The physics convention for work (Work done BY system is positive) is opposite to the chemistry convention (Work done ON system is positive).\\n\\n**How to Avoid:** Stick to one convention, usually the one from your textbook. The standard physics convention is based on the First Law: **$\\Delta U = Q - W$**. Here, work done *by* the system is positive. Heat supplied *to* the system is positive.',
+                explanationTamil: '**தவறு:** குறிகளைக் குழப்பிக் கொள்வது. இயற்பியல் மரபு (அமைப்பால் செய்யப்படும் வேலை நேர்க்குறி) வேதியியல் மரபுக்கு (அமைப்பின் மீது செய்யப்படும் வேலை நேர்க்குறி) எதிரானது.\\n\\n**தவிர்ப்பது எப்படி:** உங்கள் பாடப்புத்தகத்தில் உள்ள ஒரு மரபைப் பின்பற்றவும். நிலையான இயற்பியல் மரபு முதல் விதியை அடிப்படையாகக் கொண்டது: **$\\Delta U = Q - W$**. இங்கு, அமைப்பால் *செய்யப்பட்ட* வேலை நேர்க்குறியாகும். அமைப்பிற்கு *வழங்கப்பட்ட* வெப்பம் நேர்க்குறியாகும்.',
               },
             ],
           },
@@ -330,8 +330,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Potential vs. Potential Energy',
-                explanation: '**Mistake:** Using the terms interchangeably.\n\n**How to Avoid:** **Potential (V)** is a property of a *point in space* (Work done per unit charge). **Potential Energy (U)** is a property of a *charge placed at that point* (U = qV). Always check if the question asks for the property of the location or the property of the charge.',
-                explanationTamil: '**தவறு:** இந்த வார்த்தைகளை மாறி மாறி பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** **மின்னழுத்தம் (V)** என்பது *வெளியில் உள்ள ஒரு புள்ளியின்* பண்பு (ஓரலகு மின்னூட்டத்திற்கு செய்யப்படும் வேலை). **நிலை ஆற்றல் (U)** என்பது *அந்தப் புள்ளியில் வைக்கப்பட்டுள்ள ஒரு மின்னூட்டத்தின்* பண்பு (U = qV). கேள்வி இடத்தின் பண்பைக் கேட்கிறதா அல்லது மின்னூட்டத்தின் பண்பைக் கேட்கிறதா என்பதை எப்போதும் சரிபார்க்கவும்.',
+                explanation: '**Mistake:** Using the terms interchangeably.\\n\\n**How to Avoid:** **Potential (V)** is a property of a *point in space* (Work done per unit charge). **Potential Energy (U)** is a property of a *charge placed at that point* (U = qV). Always check if the question asks for the property of the location or the property of the charge.',
+                explanationTamil: '**தவறு:** இந்த வார்த்தைகளை மாறி மாறி பயன்படுத்துதல்.\\n\\n**தவிர்ப்பது எப்படி:** **மின்னழுத்தம் (V)** என்பது *வெளியில் உள்ள ஒரு புள்ளியின்* பண்பு (ஓரலகு மின்னூட்டத்திற்கு செய்யப்படும் வேலை). **நிலை ஆற்றல் (U)** என்பது *அந்தப் புள்ளியில் வைக்கப்பட்டுள்ள ஒரு மின்னூட்டத்தின்* பண்பு (U = qV). கேள்வி இடத்தின் பண்பைக் கேட்கிறதா அல்லது மின்னூட்டத்தின் பண்பைக் கேட்கிறதா என்பதை எப்போதும் சரிபார்க்கவும்.',
               },
             ],
           },
@@ -366,8 +366,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: "Right-Hand Rules",
-                explanation: "Don't get confused between the different right-hand rules. Dedicate time to master them:\n*   **Thumb Rule:** For a straight wire, thumb in direction of current, fingers curl in direction of B-field lines.\n*   **Palm Rule:** For force on a charge, fingers in direction of B, thumb in direction of v, palm pushes in direction of Force.\n*   **Grip Rule:** For a solenoid, fingers curl in direction of current, thumb points in direction of B-field inside.",
-                explanationTamil: "வெவ்வேறு வலது கை விதிகளைக் குழப்பிக் கொள்ளாதீர்கள். அவற்றை நன்கு கற்க நேரம் ஒதுக்குங்கள்:\n*   **கட்டைவிரல் விதி:** ஒரு நேர் கம்பிக்கு, கட்டைவிரல் மின்னோட்டத்தின் திசையில், விரல்கள் B-புலக் கோடுகளின் திசையில் சுருளும்.\n*   **உள்ளங்கை விதி:** ஒரு மின்னூட்டத்தின் மீதான விசைக்கு, விரல்கள் B-இன் திசையில், கட்டைவிரல் v-இன் திசையில், உள்ளங்கை விசையின் திசையில் தள்ளும்.\n*   **பிடி விதி:** ஒரு வரிச்சுருளுக்கு, விரல்கள் மின்னோட்டத்தின் திசையில் சுருளும், கட்டைவிரல் உள்ளே உள்ள B-புலத்தின் திசையைக் குறிக்கும்.",
+                explanation: "Don't get confused between the different right-hand rules. Dedicate time to master them:\\n*   **Thumb Rule:** For a straight wire, thumb in direction of current, fingers curl in direction of B-field lines.\\n*   **Palm Rule:** For force on a charge, fingers in direction of B, thumb in direction of v, palm pushes in direction of Force.\\n*   **Grip Rule:** For a solenoid, fingers curl in direction of current, thumb points in direction of B-field inside.",
+                explanationTamil: "வெவ்வேறு வலது கை விதிகளைக் குழப்பிக் கொள்ளாதீர்கள். அவற்றை நன்கு கற்க நேரம் ஒதுக்குங்கள்:\\n*   **கட்டைவிரல் விதி:** ஒரு நேர் கம்பிக்கு, கட்டைவிரல் மின்னோட்டத்தின் திசையில், விரல்கள் B-புலக் கோடுகளின் திசையில் சுருளும்.\\n*   **உள்ளங்கை விதி:** ஒரு மின்னூட்டத்தின் மீதான விசைக்கு, விரல்கள் B-இன் திசையில், கட்டைவிரல் v-இன் திசையில், உள்ளங்கை விசையின் திசையில் தள்ளும்.\\n*   **பிடி விதி:** ஒரு வரிச்சுருளுக்கு, விரல்கள் மின்னோட்டத்தின் திசையில் சுருளும், கட்டைவிரல் உள்ளே உள்ள B-புலத்தின் திசையைக் குறிக்கும்.",
               },
             ],
           },
@@ -384,8 +384,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Geographic vs. Magnetic Poles',
-                explanation: "**Mistake:** Confusing the Earth's geographic and magnetic poles.\n\n**How to Avoid:** Remember they are opposites! The 'north' end of a compass needle (which is a magnetic north pole) points towards the Earth's **Geographic North Pole**. This means that the Earth's magnetic pole in the northern hemisphere is actually a **magnetic South Pole**.",
-                explanationTamil: "**தவறு:** பூமியின் புவியியல் மற்றும் காந்த துருவங்களைக் குழப்பிக் கொள்வது.\n\n**தவிர்ப்பது எப்படி:** அவை எதிர்மாறானவை என்பதை நினைவில் கொள்க! ஒரு திசைகாட்டியின் 'வடக்கு' முனை (அது ஒரு காந்த வட துருவம்) பூமியின் **புவியியல் வட துருவத்தை** நோக்கிச் செல்கிறது. இதன் பொருள், வட அரைக்கோளத்தில் உள்ள பூமியின் காந்த துருவம் உண்மையில் ஒரு **காந்த தென் துருவம்** ஆகும்.",
+                explanation: "**Mistake:** Confusing the Earth's geographic and magnetic poles.\\n\\n**How to Avoid:** Remember they are opposites! The 'north' end of a compass needle (which is a magnetic north pole) points towards the Earth's **Geographic North Pole**. This means that the Earth's magnetic pole in the northern hemisphere is actually a **magnetic South Pole**.",
+                explanationTamil: "**தவறு:** பூமியின் புவியியல் மற்றும் காந்த துருவங்களைக் குழப்பிக் கொள்வது.\\n\\n**தவிர்ப்பது எப்படி:** அவை எதிர்மாறானவை என்பதை நினைவில் கொள்க! ஒரு திசைகாட்டியின் 'வடக்கு' முனை (அது ஒரு காந்த வட துருவம்) பூமியின் **புவியியல் வட துருவத்தை** நோக்கிச் செல்கிறது. இதன் பொருள், வட அரைக்கோளத்தில் உள்ள பூமியின் காந்த துருவம் உண்மையில் ஒரு **காந்த தென் துருவம்** ஆகும்.",
               },
             ],
           },
@@ -402,8 +402,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: "Direction in Lenz's Law",
-                explanation: "**Mistake:** Getting the direction of the induced current wrong.\n\n**How to Avoid:** It's simple: Nature opposes change. **1. What is the change?** Is the magnetic flux increasing or decreasing? **2. Oppose the change:** If the flux is increasing, the induced current will create a magnetic field in the *opposite* direction to fight it. If the flux is decreasing, the induced current will create a magnetic field in the *same* direction to help it.",
-                explanationTamil: "**தவறு:** தூண்டப்பட்ட மின்னோட்டத்தின் திசையைத் தவறாகப் பெறுவது.\n\n**தவிர்ப்பது எப்படி:** இது எளிது: இயற்கை மாற்றத்தை எதிர்க்கிறது. **1. மாற்றம் என்ன?** காந்தப் பாயம் அதிகரிக்கிறதா அல்லது குறைகிறதா? **2. மாற்றத்தை எதிர்க்கவும்:** பாயம் அதிகரித்தால், தூண்டப்பட்ட மின்னோட்டம் அதை எதிர்த்துப் போராட *எதிர்* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும். பாயம் குறைந்தால், தூண்டப்பட்ட மின்னோட்டம் அதற்கு உதவ *அதே* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும்.",
+                explanation: "**Mistake:** Getting the direction of the induced current wrong.\\n\\n**How to Avoid:** It's simple: Nature opposes change. **1. What is the change?** Is the magnetic flux increasing or decreasing? **2. Oppose the change:** If the flux is increasing, the induced current will create a magnetic field in the *opposite* direction to fight it. If the flux is decreasing, the induced current will create a magnetic field in the *same* direction to help it.",
+                explanationTamil: "**தவறு:** தூண்டப்பட்ட மின்னோட்டத்தின் திசையைத் தவறாகப் பெறுவது.\\n\\n**தவிர்ப்பது எப்படி:** இது எளிது: இயற்கை மாற்றத்தை எதிர்க்கிறது. **1. மாற்றம் என்ன?** காந்தப் பாயம் அதிகரிக்கிறதா அல்லது குறைகிறதா? **2. மாற்றத்தை எதிர்க்கவும்:** பாயம் அதிகரித்தால், தூண்டப்பட்ட மின்னோட்டம் அதை எதிர்த்துப் போராட *எதிர்* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும். பாயம் குறைந்தால், தூண்டப்பட்ட மின்னோட்டம் அதற்கு உதவ *அதே* திசையில் ஒரு காந்தப்புலத்தை உருவாக்கும்.",
               },
             ],
           },
@@ -420,8 +420,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: "ELI the ICE man",
-                explanation: "This famous mnemonic helps remember phase leads and lags.\n*   In an inductor (**L**), Voltage (**E**) leads Current (**I**). -> **ELI**\n*   In a capacitor (**C**), Current (**I**) leads Voltage (**E**). -> **ICE**",
-                explanationTamil: "இந்த புகழ்பெற்ற நினைவூட்டல் கட்ட முந்துதல் மற்றும் பிந்துதலை நினைவில் கொள்ள உதவுகிறது.\n*   ஒரு மின்தூண்டியில் (**L**), மின்னழுத்தம் (**E**) மின்னோட்டத்தை (**I**) முந்துகிறது. -> **ELI**\n*   ஒரு மின்தேக்கியில் (**C**), மின்னோட்டம் (**I**) மின்னழுத்தத்தை (**E**) முந்துகிறது. -> **ICE**",
+                explanation: "This famous mnemonic helps remember phase leads and lags.\\n*   In an inductor (**L**), Voltage (**E**) leads Current (**I**). -> **ELI**\\n*   In a capacitor (**C**), Current (**I**) leads Voltage (**E**). -> **ICE**",
+                explanationTamil: "இந்த புகழ்பெற்ற நினைவூட்டல் கட்ட முந்துதல் மற்றும் பிந்துதலை நினைவில் கொள்ள உதவுகிறது.\\n*   ஒரு மின்தூண்டியில் (**L**), மின்னழுத்தம் (**E**) மின்னோட்டத்தை (**I**) முந்துகிறது. -> **ELI**\\n*   ஒரு மின்தேக்கியில் (**C**), மின்னோட்டம் (**I**) மின்னழுத்தத்தை (**E**) முந்துகிறது. -> **ICE**",
               },
             ],
           },
@@ -438,8 +438,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Sign Convention Errors',
-                explanation: '**Mistake:** Applying inconsistent or incorrect signs for u, v, f, and R in mirror and lens formulas.\n\n**How to Avoid:** **Master one sign convention and stick to it!** A common one is: 1. Light travels from left to right. 2. The pole/optical center is the origin. 3. Distances measured in the direction of light are positive; against are negative. 4. Heights above the principal axis are positive; below are negative. **Focal length for a concave mirror/lens is negative. For convex, it is positive.**',
-                explanationTamil: '**தவறு:** ஆடி மற்றும் லென்ஸ் சூத்திரங்களில் u, v, f, மற்றும் R-க்கு நிலைத்தன்மையற்ற அல்லது தவறான குறிகளைப் பயன்படுத்துதல்.\n\n**தவிர்ப்பது எப்படி:** **ஒரு குறியீட்டு மரபை நன்கு கற்றுக்கொண்டு அதையே பின்பற்றுங்கள்!** ஒரு பொதுவானது: 1. ஒளி இடமிருந்து வலமாக பயணிக்கிறது. 2. முனை/ஒளியியல் மையம் ஆதிப்புள்ளி ஆகும். 3. ஒளியின் திசையில் அளவிடப்படும் தூரங்கள் நேர்மறை; எதிராக எதிர்மறை. 4. முதன்மை அச்சிற்கு மேலே உள்ள உயரங்கள் நேர்மறை; கீழே எதிர்மறை. **குழி ஆடி/லென்சுக்கு குவியத்தூரம் எதிர்மறை. குவி ஆடி/லென்சுக்கு நேர்மறை.**',
+                explanation: '**Mistake:** Applying inconsistent or incorrect signs for u, v, f, and R in mirror and lens formulas.\\n\\n**How to Avoid:** **Master one sign convention and stick to it!** A common one is: 1. Light travels from left to right. 2. The pole/optical center is the origin. 3. Distances measured in the direction of light are positive; against are negative. 4. Heights above the principal axis are positive; below are negative. **Focal length for a concave mirror/lens is negative. For convex, it is positive.**',
+                explanationTamil: '**தவறு:** ஆடி மற்றும் லென்ஸ் சூத்திரங்களில் u, v, f, மற்றும் R-க்கு நிலைத்தன்மையற்ற அல்லது தவறான குறிகளைப் பயன்படுத்துதல்.\\n\\n**தவிர்ப்பது எப்படி:** **ஒரு குறியீட்டு மரபை நன்கு கற்றுக்கொண்டு அதையே பின்பற்றுங்கள்!** ஒரு பொதுவானது: 1. ஒளி இடமிருந்து வலமாக பயணிக்கிறது. 2. முனை/ஒளியியல் மையம் ஆதிப்புள்ளி ஆகும். 3. ஒளியின் திசையில் அளவிடப்படும் தூரங்கள் நேர்மறை; எதிராக எதிர்மறை. 4. முதன்மை அச்சிற்கு மேலே உள்ள உயரங்கள் நேர்மறை; கீழே எதிர்மறை. **குழி ஆடி/லென்சுக்கு குவியத்தூரம் எதிர்மறை. குவி ஆடி/லென்சுக்கு நேர்மறை.**',
               },
             ],
           },
@@ -456,8 +456,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Confusing Interference and Diffraction Minima/Maxima',
-                explanation: '**Mistake:** Using the condition for interference maxima for diffraction maxima, or vice versa.\n\n**How to Avoid:** Remember they are opposite for minima!\n*   **Interference (YDSE):** Bright fringes (maxima) at path difference **$d\\sin\\theta = n\\lambda$**. Dark fringes (minima) at **$d\\sin\\theta = (n+1/2)\\lambda$**.\n*   **Diffraction (Single Slit):** Dark fringes (minima) at path difference **$a\\sin\\theta = n\\lambda$**. Secondary maxima are approximately halfway between.',
-                explanationTamil: '**தவறு:** விளிம்பு விளைவு பெருமங்களுக்கு குறுக்கீட்டு விளைவு பெருமங்களுக்கான நிபந்தனையைப் பயன்படுத்துதல், அல்லது நேர்மாறாக.\n\n**தவிர்ப்பது எப்படி:** அவை சிறுமங்களுக்கு எதிர்மாறானவை என்பதை நினைவில் கொள்க!\n*   **குறுக்கீட்டு விளைவு (YDSE):** பிரகாசமான பட்டைகள் (பெருமங்கள்) பாதை வேறுபாடு **$d\\sin\\theta = n\\lambda$** இல். இருண்ட பட்டைகள் (சிறுமங்கள்) **$d\\sin\\theta = (n+1/2)\\lambda$** இல்.\n*   **விளிம்பு விளைவு (ஒற்றைப் பிளவு):** இருண்ட பட்டைகள் (சிறுமங்கள்) பாதை வேறுபாடு **$a\\sin\\theta = n\\lambda$** இல். இரண்டாம் நிலை பெருமங்கள் தோராயமாக இடையில் உள்ளன.',
+                explanation: '**Mistake:** Using the condition for interference maxima for diffraction maxima, or vice versa.\\n\\n**How to Avoid:** Remember they are opposite for minima!\\n*   **Interference (YDSE):** Bright fringes (maxima) at path difference **$d\\sin\\theta = n\\lambda$**. Dark fringes (minima) at **$d\\sin\\theta = (n+1/2)\\lambda$**.\\n*   **Diffraction (Single Slit):** Dark fringes (minima) at path difference **$a\\sin\\theta = n\\lambda$**. Secondary maxima are approximately halfway between.',
+                explanationTamil: '**தவறு:** விளிம்பு விளைவு பெருமங்களுக்கு குறுக்கீட்டு விளைவு பெருமங்களுக்கான நிபந்தனையைப் பயன்படுத்துதல், அல்லது நேர்மாறாக.\\n\\n**தவிர்ப்பது எப்படி:** அவை சிறுமங்களுக்கு எதிர்மாறானவை என்பதை நினைவில் கொள்க!\\n*   **குறுக்கீட்டு விளைவு (YDSE):** பிரகாசமான பட்டைகள் (பெருமங்கள்) பாதை வேறுபாடு **$d\\sin\\theta = n\\lambda$** இல். இருண்ட பட்டைகள் (சிறுமங்கள்) **$d\\sin\\theta = (n+1/2)\\lambda$** இல்.\\n*   **விளிம்பு விளைவு (ஒற்றைப் பிளவு):** இருண்ட பட்டைகள் (சிறுமங்கள்) பாதை வேறுபாடு **$a\\sin\\theta = n\\lambda$** இல். இரண்டாம் நிலை பெருமங்கள் தோராயமாக இடையில் உள்ளன.',
               },
             ]
           }
@@ -480,13 +480,13 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Energy and Wavelength Shortcuts',
-                explanation: 'To avoid long calculations with h and c, use this direct conversion:\n$$E(eV) = \\frac{1240}{\\lambda(nm)} = \\frac{12400}{\\lambda(Å)}$$\nThis is extremely useful for photoelectric effect problems where energies are often given in eV.',
-                explanationTamil: 'h மற்றும் c உடனான நீண்ட கணக்கீடுகளைத் தவிர்க்க, இந்த நேரடி மாற்றத்தைப் பயன்படுத்தவும்:\n$$E(eV) = \\frac{1240}{\\lambda(nm)} = \\frac{12400}{\\lambda(Å)}$$\nஒளிமின் விளைவு கணக்குகளுக்கு இது மிகவும் பயனுள்ளதாக இருக்கும், அங்கு ஆற்றல்கள் பெரும்பாலும் eV இல் கொடுக்கப்படுகின்றன.',
+                explanation: 'To avoid long calculations with h and c, use this direct conversion:\\n$$E(eV) = \\frac{1240}{\\lambda(nm)} = \\frac{12400}{\\lambda(Å)}$$\\nThis is extremely useful for photoelectric effect problems where energies are often given in eV.',
+                explanationTamil: 'h மற்றும் c உடனான நீண்ட கணக்கீடுகளைத் தவிர்க்க, இந்த நேரடி மாற்றத்தைப் பயன்படுத்தவும்:\\n$$E(eV) = \\frac{1240}{\\lambda(nm)} = \\frac{12400}{\\lambda(Å)}$$\\nஒளிமின் விளைவு கணக்குகளுக்கு இது மிகவும் பயனுள்ளதாக இருக்கும், அங்கு ஆற்றல்கள் பெரும்பாலும் eV இல் கொடுக்கப்படுகின்றன.',
               },
                {
                 point: "de Broglie Wavelength for an Electron",
-                explanation: "For an electron accelerated through a potential difference 'V', the de Broglie wavelength has a specific shortcut:\n$$ \\lambda = \\frac{12.27}{\\sqrt{V}} Å$$\nMemorizing this formula for electrons saves several steps of calculation.",
-                explanationTamil: "ஒரு 'V' மின்னழுத்த வேறுபாட்டின் மூலம் முடுக்கிவிடப்பட்ட ஒரு எலக்ட்ரானுக்கு, டி பிராய் அலைநீளத்திற்கு ஒரு குறிப்பிட்ட குறுக்குவழி உள்ளது:\n$$ \\lambda = \\frac{12.27}{\\sqrt{V}} Å$$\nஎலக்ட்ரான்களுக்கான இந்த சூத்திரத்தை மனப்பாடம் செய்வது பல கணக்கீட்டு படிகளைச் சேமிக்கிறது.",
+                explanation: "For an electron accelerated through a potential difference 'V', the de Broglie wavelength has a specific shortcut:\\n$$ \\lambda = \\frac{12.27}{\\sqrt{V}} Å$$\\nMemorizing this formula for electrons saves several steps of calculation.",
+                explanationTamil: "ஒரு 'V' மின்னழுத்த வேறுபாட்டின் மூலம் முடுக்கிவிடப்பட்ட ஒரு எலக்ட்ரானுக்கு, டி பிராய் அலைநீளத்திற்கு ஒரு குறிப்பிட்ட குறுக்குவழி உள்ளது:\\n$$ \\lambda = \\frac{12.27}{\\sqrt{V}} Å$$\\nஎலக்ட்ரான்களுக்கான இந்த சூத்திரத்தை மனப்பாடம் செய்வது பல கணக்கீட்டு படிகளைச் சேமிக்கிறது.",
               },
             ],
           },
@@ -503,8 +503,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: "Forgetting Energy is Negative",
-                explanation: "**Mistake:** Forgetting the negative sign for the total energy of an electron in a Bohr orbit, leading to incorrect calculations for binding energy or transition energy.\n\n**How to Avoid:** Always remember $E_n = -13.6 Z^2/n^2$ eV. The negative sign signifies that the electron is **bound** to the nucleus. Energy must be *supplied* to remove it.",
-                explanationTamil: "**தவறு:** ஒரு போர் சுற்றுப்பாதையில் ஒரு எலக்ட்ரானின் மொத்த ஆற்றலுக்கான எதிர்மறை குறியை மறப்பது, இது பிணைப்பு ஆற்றல் அல்லது தாவல் ஆற்றலுக்கான தவறான கணக்கீடுகளுக்கு வழிவகுக்கிறது.\n\n**தவிர்ப்பது எப்படி:** எப்போதும் $E_n = -13.6 Z^2/n^2$ eV என்பதை நினைவில் கொள்க. எதிர்மறை குறி எலக்ட்ரான் அணுக்கருவுடன் **பிணைக்கப்பட்டுள்ளது** என்பதைக் குறிக்கிறது. அதை அகற்ற ஆற்றல் *வழங்கப்பட* வேண்டும்.",
+                explanation: "**Mistake:** Forgetting the negative sign for the total energy of an electron in a Bohr orbit, leading to incorrect calculations for binding energy or transition energy.\\n\\n**How to Avoid:** Always remember $E_n = -13.6 Z^2/n^2$ eV. The negative sign signifies that the electron is **bound** to the nucleus. Energy must be *supplied* to remove it.",
+                explanationTamil: "**தவறு:** ஒரு போர் சுற்றுப்பாதையில் ஒரு எலக்ட்ரானின் மொத்த ஆற்றலுக்கான எதிர்மறை குறியை மறப்பது, இது பிணைப்பு ஆற்றல் அல்லது தாவல் ஆற்றலுக்கான தவறான கணக்கீடுகளுக்கு வழிவகுக்கிறது.\\n\\n**தவிர்ப்பது எப்படி:** எப்போதும் $E_n = -13.6 Z^2/n^2$ eV என்பதை நினைவில் கொள்க. எதிர்மறை குறி எலக்ட்ரான் அணுக்கருவுடன் **பிணைக்கப்பட்டுள்ளது** என்பதைக் குறிக்கிறது. அதை அகற்ற ஆற்றல் *வழங்கப்பட* வேண்டும்.",
               },
             ],
           },
@@ -533,8 +533,8 @@ export const strategyGuideContent: StrategyGuide = {
             points: [
               {
                 point: 'Logic Gate Equivalents',
-                explanation: "**Concept:** Memorize these simple NAND/NOR gate equivalents to solve complex circuits quickly.\n*   A **NAND gate** with its inputs tied together acts as a **NOT gate**.\n*   A **NOR gate** with its inputs tied together also acts as a **NOT gate**.\n*   Two **NOT gates** in series cancel each other out.\n*   A **NAND gate followed by a NOT gate** is an **AND gate**.\n*   A **NOR gate followed by a NOT gate** is an **OR gate**.",
-                explanationTamil: "**கருத்து:** சிக்கலான சுற்றுகளை விரைவாகத் தீர்க்க இந்த எளிய NAND/NOR வாயில் சமமான்களை மனப்பாடம் செய்யுங்கள்.\n*   உள்ளீடுகள் ஒன்றாக இணைக்கப்பட்ட ஒரு **NAND வாயில்** ஒரு **NOT வாயிலாகச்** செயல்படுகிறது.\n*   உள்ளீடுகள் ஒன்றாக இணைக்கப்பட்ட ஒரு **NOR வாயில்** கூட ஒரு **NOT வாயிலாகச்** செயல்படுகிறது.\n*   தொடரில் உள்ள இரண்டு **NOT வாயில்கள்** ஒன்றையொன்று ரத்து செய்கின்றன.\n*   ஒரு **NAND வாயிலைத் தொடர்ந்து ஒரு NOT வாயில்** ஒரு **AND வாயிலாகும்**.\n*   ஒரு **NOR வாயிலைத் தொடர்ந்து ஒரு NOT வாயில்** ஒரு **OR வாயிலாகும்**.",
+                explanation: "**Concept:** Memorize these simple NAND/NOR gate equivalents to solve complex circuits quickly.\\n*   A **NAND gate** with its inputs tied together acts as a **NOT gate**.\\n*   A **NOR gate** with its inputs tied together also acts as a **NOT gate**.\\n*   Two **NOT gates** in series cancel each other out.\\n*   A **NAND gate followed by a NOT gate** is an **AND gate**.\\n*   A **NOR gate followed by a NOT gate** is an **OR gate**.",
+                explanationTamil: "**கருத்து:** சிக்கலான சுற்றுகளை விரைவாகத் தீர்க்க இந்த எளிய NAND/NOR வாயில் சமமான்களை மனப்பாடம் செய்யுங்கள்.\\n*   உள்ளீடுகள் ஒன்றாக இணைக்கப்பட்ட ஒரு **NAND வாயில்** ஒரு **NOT வாயிலாகச்** செயல்படுகிறது.\\n*   உள்ளீடுகள் ஒன்றாக இணைக்கப்பட்ட ஒரு **NOR வாயில்** கூட ஒரு **NOT வாயிலாகச்** செயல்படுகிறது.\\n*   தொடரில் உள்ள இரண்டு **NOT வாயில்கள்** ஒன்றையொன்று ரத்து செய்கின்றன.\\n*   ஒரு **NAND வாயிலைத் தொடர்ந்து ஒரு NOT வாயில்** ஒரு **AND வாயிலாகும்**.\\n*   ஒரு **NOR வாயிலைத் தொடர்ந்து ஒரு NOT வாயில்** ஒரு **OR வாயிலாகும்**.",
               },
             ],
           },
