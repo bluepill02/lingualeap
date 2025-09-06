@@ -1,2 +1,5 @@
 .next/
 public/fonts/
+content/
+src/lib/exam-data*.ts
+lingualeap/

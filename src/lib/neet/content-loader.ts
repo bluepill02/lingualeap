@@ -50,16 +50,16 @@ import { biomolecules } from '@/content/neet/chemistry/biomolecules';
 import { principlesRelatedToPracticalChemistry } from '@/content/neet/chemistry/principles-related-to-practical-chemistry';
 
 // Biology
-import { diversityInTheLivingWorld } from '@/content/neet/biology/diversity-in-the-living-world';
-import { structuralOrganisationInAnimalsAndPlants } from '@/content/neet/biology/structural-organisation-in-animals-and-plants';
-import { cellStructureAndFunction } from '@/content/neet/biology/cell-structure-and-function';
-import { plantPhysiology } from '@/content/neet/biology/plant-physiology';
-import { humanPhysiology } from '@/content/neet/biology/human-physiology';
-import { reproduction } from '@/content/neet/biology/reproduction';
-import { geneticsAndEvolution } from '@/content/neet/biology/genetics-and-evolution';
-import { biologyAndHumanWelfare } from '@/content/neet/biology/biology-and-human-welfare';
-import { biotechnologyAndItsApplications } from '@/content/neet/biology/biotechnology-and-its-applications';
-import { ecologyAndEnvironment } from '@/content/neet/biology/ecology-and-environment';
+import { diversityInTheLivingWorld } from '@/lib/neet/biology/diversity-in-the-living-world';
+import { structuralOrganisationInAnimalsAndPlants } from '@/lib/neet/biology/structural-organisation-in-animals-and-plants';
+import { cellStructureAndFunction } from '@/lib/neet/biology/cell-structure-and-function';
+import { plantPhysiology } from '@/lib/neet/biology/plant-physiology';
+import { humanPhysiology } from '@/lib/neet/biology/human-physiology';
+import { reproduction } from '@/lib/neet/biology/reproduction';
+import { geneticsAndEvolution } from '@/lib/neet/biology/genetics-and-evolution';
+import { biologyAndHumanWelfare } from '@/lib/neet/biology/biology-and-human-welfare';
+import { biotechnologyAndItsApplications } from '@/lib/neet/biology/biotechnology-and-its-applications';
+import { ecologyAndEnvironment } from '@/lib/neet/biology/ecology-and-environment';
 
 
 // This object maps the URL-friendly chapter slug to the imported module
