@@ -151,7 +151,7 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
          <Tabs value={practiceType} onValueChange={(value) => setPracticeType(value as PracticeType)}>
             <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="mcq"><FileQuestion className="mr-2"/> MCQs</TabsTrigger>
-                <TabsTrigger value="flashcards" disabled={!['Physics', 'Chemistry', 'Biology'].includes(subject)}><Copy className="mr-2"/> Flashcards</TabsTrigger>
+                <TabsTrigger value="flashcards"><Copy className="mr-2"/> Flashcards</TabsTrigger>
             </TabsList>
         </Tabs>
 
