@@ -12,10 +12,13 @@ import {
     arrayRemove,
     query,
     where,
-    writeBatch
+    writeBatch,
+    addDoc,
+    serverTimestamp,
+    orderBy
 } from 'firebase/firestore';
-import { companionCircles, allUsers } from '@/lib/data';
-import type { CompanionCircle, User } from '@/lib/types';
+import { companionCircles, allUsers, mockUser } from '@/lib/data';
+import type { CompanionCircle, User, CirclePost } from '@/lib/types';
 
 const circlesCollection = collection(db, 'companion-circles');
 
@@ -116,5 +119,45 @@ export async function leaveCircle(userId: string, circleId: string): Promise<voi
     } catch (error) {
         console.error("Error leaving circle: ", error);
         throw error;
+    }
+}
+
+export async function addPostToCircle(circleId: string, content: string): Promise<void> {
+    if (!content.trim()) {
+        throw new Error("Post content cannot be empty.");
+    }
+    try {
+        const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
+        await addDoc(postsCollection, {
+            authorId: mockUser.id,
+            authorName: mockUser.name,
+            authorAvatarUrl: mockUser.avatarUrl,
+            content: content,
+            createdAt: serverTimestamp()
+        });
+    } catch (error) {
+        console.error("Error adding post to circle: ", error);
+        throw error;
+    }
+}
+
+export async function getPostsForCircle(circleId: string): Promise<CirclePost[]> {
+    try {
+        const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
+        const q = query(postsCollection, orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        
+        return snapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+                id: doc.id,
+                ...data,
+                // Convert Firestore Timestamp to ISO string to ensure serializability
+                createdAt: data.createdAt?.toDate().toISOString() || new Date().toISOString(),
+            } as CirclePost;
+        });
+    } catch (error) {
+        console.error("Error fetching posts for circle: ", error);
+        return [];
     }
 }

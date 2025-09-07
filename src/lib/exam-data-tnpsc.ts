@@ -258,7 +258,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 3,
           explanation: "All three texts are cornerstones of Sangam literature, providing insights into the society, grammar, and ethics of the period. Tholkappiyam is the oldest, but all are primary sources.",
           explanationTamil: "திருக்குறள், சிலப்பதிகாரம், மற்றும் தொல்காப்பியம் ஆகிய மூன்றும் சங்க இலக்கியத்தின் மூலக்கற்களாகும், அவை அக்கால சமூகம், இலக்கணம், மற்றும் அறநெறிகள் பற்றிய பார்வைகளை வழங்குகின்றன. தொல்காப்பியம் பழமையானது, ஆனால் அனைத்தும் முதன்மை ஆதாரங்களே.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2020, 2018],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "sangam-age"
@@ -271,7 +271,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 2,
           explanation: "Periyar E.V. Ramasamy was the founder of the Self-Respect Movement, which advocated for rationalism, women's rights, and the abolition of the caste system.",
           explanationTamil: "பெரியார் ஈ.வெ. ராமசாமி சுயமரியாதை இயக்கத்தின் நிறுவனர் ஆவார், இது பகுத்தறிவு, பெண்கள் உரிமைகள் மற்றும் சாதி அமைப்பை ஒழிப்பதற்காக வாதிட்டது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2021, 2019],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "justice-party"
@@ -284,7 +284,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 2,
           explanation: "C. Rajagopalachari, also known as Rajaji, led the Vedaranyam March in Tamil Nadu, which was the southern counterpart to Gandhi's Dandi March.",
           explanationTamil: "ராஜாஜி என்று அழைக்கப்படும் சி. ராஜகோபாலாச்சாரி, தமிழ்நாட்டில் வேதாரண்யம் அணிவகுப்பை வழிநடத்தினார், இது காந்தியின் தண்டி அணிவகுப்புக்கு தெற்கில் இணையான நிகழ்வாகும்.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2017, 2016],
           difficulty: "Medium",
           tnpscFrequency: 3,
           context: "freedom-struggle-tn"
@@ -297,7 +297,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "Thirukkural is divided into three main parts (paal): Aram (Virtue), Porul (Wealth/Governance), and Inbam (Love).",
           explanationTamil: "திருக்குறள் அறம், பொருள், மற்றும் இன்பம் என மூன்று முக்கியப் பால்களாகப் பிரிக்கப்பட்டுள்ளது.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2019, 2018],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "sangam-age"
@@ -310,7 +310,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "The Justice Party, or South Indian Liberal Federation, was formed to promote the interests of the non-Brahmin community in education, government jobs, and politics.",
           explanationTamil: "நீதிக் கட்சி அல்லது தென்னிந்திய தாராளவாதக் கூட்டமைப்பு, கல்வி, அரசாங்க வேலைகள் மற்றும் அரசியலில் பிராமணர் அல்லாத சமூகத்தின் நலன்களை மேம்படுத்துவதற்காக உருவாக்கப்பட்டது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2020, 2017],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "justice-party"
@@ -323,7 +323,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "'Agam' poetry deals with personal and emotional themes, particularly love and relationships, while 'Puram' poetry deals with public life, including war and heroism.",
           explanationTamil: "'அகம்' கவிதைகள் தனிப்பட்ட மற்றும் உணர்ச்சிப்பூர்வமான கருப்பொருள்களை, குறிப்பாக காதல் மற்றும் உறவுகளைக் கையாளுகின்றன, அதே நேரத்தில் 'புறம்' கவிதைகள் போர் மற்றும் வீரம் உள்ளிட்ட பொது வாழ்க்கையைக் கையாளுகின்றன.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2018],
           difficulty: "Hard",
           tnpscFrequency: 2,
           context: "sangam-age"
@@ -336,7 +336,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 2,
           explanation: "Tiruppur Kumaran is called 'Kodikkatha Kumaran' because he died holding the Indian flag during a protest march and refused to let it fall.",
           explanationTamil: "திருப்பூர் குமரன் ஒரு போராட்ட ஊர்வலத்தின் போது இந்தியக் கொடியைப் பிடித்துக்கொண்டு இறந்தார், அதைக் கீழே விழ விட மறுத்ததால் 'கொடிகாத்த குமரன்' என்று அழைக்கப்படுகிறார்.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2016],
           difficulty: "Easy",
           tnpscFrequency: 3,
           context: "freedom-struggle-tn"
@@ -349,7 +349,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "The Vellore Mutiny occurred on 10 July 1806 and is considered one of the earliest large-scale uprisings against the British East India Company, predating the 1857 mutiny.",
           explanationTamil: "வேலூர் சிப்பாய் எழுச்சி 1806 ஆம் ஆண்டு ஜூலை 10 ஆம் தேதி நிகழ்ந்தது, இது பிரிட்டிஷ் கிழக்கிந்திய கம்பெனிக்கு எதிரான ஆரம்பகால பெரிய அளவிலான கிளர்ச்சிகளில் ஒன்றாகக் கருதப்படுகிறது, இது 1857 ஆம் ஆண்டு கிளர்ச்சிக்கு முந்தையது.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2017],
           difficulty: "Medium",
           tnpscFrequency: 3,
           context: "freedom-struggle-tn"
@@ -362,7 +362,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "The Justice Party government passed the Communal Government Order (G.O.) in 1921, which was the first order to institutionalize reservation for various communities in government employment, a landmark social justice measure.",
           explanationTamil: "நீதிக் கட்சி அரசாங்கம் 1921 இல் வகுப்புவாரி அரசாணையை (G.O.) நிறைவேற்றியது, இது அரசாங்க வேலைவாய்ப்பில் பல்வேறு சமூகங்களுக்கு இடஒதுக்கீட்டை நிறுவனமயமாக்கிய முதல் உத்தரவாகும், இது ஒரு முக்கிய சமூக நீதி நடவடிக்கையாகும்.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2019],
           difficulty: "Hard",
           tnpscFrequency: 4,
           context: "justice-party"
@@ -375,7 +375,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 3,
           explanation: "V.O.C. was a multifaceted freedom fighter. He launched the Swadeshi Steam Navigation Company to compete with the British, was associated with the Madras Mahajana Sabha, and was implicated in the Tirunelveli Conspiracy Case.",
           explanationTamil: "வ.உ.சி. ஒரு பன்முக சுதந்திரப் போராட்ட வீரர். அவர் ஆங்கிலேயர்களுடன் போட்டியிட சுதேசி நீராவி கப்பல் நிறுவனத்தைத் தொடங்கினார், மெட்ராஸ் மகாஜன சபையுடன் தொடர்புடையவர், மற்றும் திருநெல்வேலி சதி வழக்கில் சிக்கவைக்கப்பட்டார்.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Hard",
           tnpscFrequency: 3,
           context: "freedom-struggle-tn"
@@ -388,7 +388,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 0,
           explanation: "The Thinai concept classifies landscapes into five categories (Kurinji, Mullai, Marutham, Neithal, Palai) based on their unique geographical, floral, and faunal characteristics, which in turn influenced the culture and occupation of the people living there.",
           explanationTamil: "திணை என்ற கருத்து நிலப்பரப்புகளை அவற்றின் தனித்துவமான புவியியல், மலர் மற்றும் விலங்கு குணாதிசயங்களின் அடிப்படையில் ஐந்து வகைகளாக (குறிஞ்சி, முல்லை, மருதம், நெய்தல், பாலை) வகைப்படுத்துகிறது, இது அங்கு வாழும் மக்களின் கலாச்சாரம் மற்றும் தொழிலை பாதித்தது.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2016],
           difficulty: "Medium",
           tnpscFrequency: 2,
           context: "sangam-age"
@@ -401,7 +401,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 2,
           explanation: "Periyar played a crucial role in the Vaikom Satyagraha in the princely state of Travancore (modern-day Kerala), which demanded the right for lower-caste individuals to use the roads around the Vaikom temple. For his role, he was given the title 'Vaikom Veerar' (Hero of Vaikom).",
           explanationTamil: "திருவிதாங்கூர் சமஸ்தானத்தில் (இன்றைய கேரளா) வைக்கம் சத்தியாகிரகத்தில் பெரியார் ஒரு முக்கியப் பங்காற்றினார், இது வைக்கம் கோவிலைச் சுற்றியுள்ள சாலைகளைப் பயன்படுத்த தாழ்த்தப்பட்ட சாதியினருக்கு உரிமை கோரியது. அவரது பங்களிப்பிற்காக, அவருக்கு 'வைக்கம் வீரர்' என்ற பட்டம் வழங்கப்பட்டது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2021, 2017],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "justice-party"
@@ -414,7 +414,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 2,
           explanation: "The 'Porul' (பொருள்) section of the Kural is a comprehensive guide to statecraft, governance, economic matters, and public life, making it a foundational text on political science and administration.",
           explanationTamil: "குறளின் 'பொருள்' பகுதி அரசுமுறை, ஆட்சி, பொருளாதார விஷயங்கள் மற்றும் பொது வாழ்க்கைக்கான ஒரு விரிவான வழிகாட்டியாகும், இது அரசியல் அறிவியல் மற்றும் நிர்வாகத்தின் ஒரு அடித்தள நூலாக அமைகிறது.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Easy",
           tnpscFrequency: 4,
           context: "sangam-age"
@@ -427,7 +427,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 1,
           explanation: "The Cholas had the Tiger (புலி) as their royal emblem. The Cheras had the Bow and Arrow, and the Pandyas had the Fish.",
           explanationTamil: "சோழர்கள் புலியை தங்கள் அரச சின்னமாக கொண்டிருந்தனர். சேரர்கள் வில் மற்றும் அம்பையும், பாண்டியர்கள் மீனையும் கொண்டிருந்தனர்.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2017],
           difficulty: "Medium",
           tnpscFrequency: 2,
           context: "sangam-age"
@@ -440,7 +440,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 3,
           explanation: "The Anti-Hindi agitations, particularly the one in 1965, were pivotal in galvanizing support for the DMK, leading to their landmark victory in the 1967 assembly elections.",
           explanationTamil: "இந்தி எதிர்ப்புப் போராட்டங்கள், குறிப்பாக 1965ல் நடந்த போராட்டம், திமுகவுக்கு ஆதரவைத் திரட்டுவதில் முக்கியப் பங்கு வகித்தது, இது 1967 சட்டமன்றத் தேர்தலில் அவர்களின் வரலாற்றுச் சிறப்புமிக்க வெற்றிக்கு வழிவகுத்தது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2019],
           difficulty: "Medium",
           tnpscFrequency: 3,
           context: "justice-party"
@@ -453,7 +453,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 3,
             explanation: "Puli Thevan, the Palaiyakkarar of Nerkattumseval, was one of the earliest opponents of British rule in South India, leading rebellions in the 1750s, well before other famous revolts.",
             explanationTamil: "நெற்கட்டும்செவல் பாளையக்காரரான பூலித்தேவன், தென்னிந்தியாவில் பிரிட்டிஷ் ஆட்சிக்கு எதிரான ஆரம்பகால எதிர்ப்பாளர்களில் ஒருவராக இருந்தார், 1750 களில் மற்ற புகழ்பெற்ற கிளர்ச்சிகளுக்கு முன்பே கிளர்ச்சிகளை வழிநடத்தினார்.",
-            yearAsked: [2022],
+            yearAsked: [2022, 2019],
             difficulty: "Hard",
             tnpscFrequency: 3,
             context: "freedom-struggle-tn"
@@ -466,7 +466,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "'Muvendar' translates to 'The Three Crowned Kings,' and it collectively refers to the rulers of the Chera, Chola, and Pandya dynasties who dominated the political landscape of ancient Tamilakam.",
             explanationTamil: "'மூவேந்தர்' என்பது 'முடிசூடிய மூன்று மன்னர்கள்' என்று மொழிபெயர்க்கப்பட்டுள்ளது, மேலும் இது பண்டைய தமிழகத்தின் அரசியல் நிலப்பரப்பில் ஆதிக்கம் செலுத்திய சேர, சோழ மற்றும் பாண்டிய வம்சங்களின் ஆட்சியாளர்களைக் கூட்டாகக் குறிக்கிறது.",
-            yearAsked: [2021],
+            yearAsked: [2021, 2018],
             difficulty: "Easy",
             tnpscFrequency: 4,
             context: "sangam-age"
@@ -479,7 +479,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "The central focus of the Self-Respect Movement was the eradication of the caste system and the practice of untouchability, advocating for a society based on equality and rationalism.",
             explanationTamil: "சுயமரியாதை இயக்கத்தின் முக்கிய நோக்கம் சாதி அமைப்பையும் தீண்டாமையையும் ஒழித்து, சமத்துவம் மற்றும் பகுத்தறிவு அடிப்படையில் ஒரு சமூகத்தை உருவாக்குவதாகும்.",
-            yearAsked: [2023],
+            yearAsked: [2023, 2020],
             difficulty: "Easy",
             tnpscFrequency: 5,
             context: "justice-party"
@@ -492,7 +492,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 3,
             explanation: "'Kudi Arasu' (Republic) was the official newspaper of the Self-Respect Movement, founded and edited by Periyar E.V. Ramasamy to propagate its ideals.",
             explanationTamil: "'குடி அரசு' சுயமரியாதை இயக்கத்தின் அதிகாரப்பூர்வ செய்தித்தாள் ஆகும், இது அதன் கொள்கைகளைப் பரப்புவதற்காக பெரியார் ஈ.வெ. ராமசாமியால் நிறுவப்பட்டு திருத்தப்பட்டது.",
-            yearAsked: [2022],
+            yearAsked: [2022, 2018],
             difficulty: "Medium",
             tnpscFrequency: 3,
             context: "justice-party"
@@ -505,7 +505,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 3,
             explanation: "Harappa, Mohenjo-Daro, and Lothal are key sites of the Indus Valley Civilization. Keeladi is a major archaeological site in Tamil Nadu that has established an urban civilization during the Sangam Age, contemporary with the later phases of the IVC but distinct.",
             explanationTamil: "ஹரப்பா, மொகஞ்சதாரோ மற்றும் லோத்தல் ஆகியவை சிந்து சமவெளி நாகரிகத்தின் முக்கிய தளங்கள். கீழடி என்பது தமிழ்நாட்டில் உள்ள ஒரு முக்கிய தொல்பொருள் தளமாகும், இது சங்க காலத்தில் ஒரு நகர்ப்புற நாகரிகத்தை நிறுவியுள்ளது, இது IVC இன் பிற்கால கட்டங்களுடன் சமகாலமானது ஆனால் வேறுபட்டது.",
-            yearAsked: [2023],
+            yearAsked: [2023, 2021],
             difficulty: "Medium",
             tnpscFrequency: 4,
             context: "sangam-age"
@@ -518,7 +518,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "The Justice Party, during its time in power in the Madras Presidency, passed the Communal G.O. of 1921, which was the first order to institutionalize reservation for various communities in government employment, a landmark social justice measure.",
             explanationTamil: "நீதிக் கட்சி, மெட்ராஸ் பிரசிடென்சியில் ஆட்சியில் இருந்த காலத்தில், 1921 ஆம் ஆண்டின் வகுப்புவாரி அரசாணையை நிறைவேற்றியது, இது அரசாங்க வேலைவாய்ப்பில் பல்வேறு சமூகங்களுக்கு இடஒதுக்கீட்டை நிறுவனமயமாக்கிய முதல் உத்தரவாகும், இது ஒரு முக்கிய சமூக நீதி நடவடிக்கையாகும்.",
-            yearAsked: [2022],
+            yearAsked: [2022, 2019],
             difficulty: "Medium",
             tnpscFrequency: 4,
             context: "justice-party"
@@ -531,7 +531,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "One of the most celebrated features of the Thirukkural is its secularism. Its teachings on ethics, governance, and love are presented in a universal manner, applicable to all people regardless of their faith or background.",
             explanationTamil: "திருக்குறளின் மிகவும் கொண்டாடப்படும் அம்சங்களில் ஒன்று அதன் மதச்சார்பின்மை. அறம், ஆட்சி மற்றும் காதல் பற்றிய அதன் போதனைகள் உலகளாவிய முறையில் வழங்கப்பட்டுள்ளன, அவை மதம் அல்லது பின்னணியைப் பொருட்படுத்தாமல் அனைவருக்கும் பொருந்தும்.",
-            yearAsked: [2021],
+            yearAsked: [2021, 2017],
             difficulty: "Easy",
             tnpscFrequency: 5,
             context: "sangam-age"
@@ -544,7 +544,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "Subramania Bharati, often referred to as 'Mahakavi Bharati', was a pioneer of modern Tamil poetry and a fervent nationalist whose poems inspired patriotism and social change during the Indian Independence movement.",
             explanationTamil: "'மகாகவி பாரதி' என்று அடிக்கடி குறிப்பிடப்படும் சுப்பிரமணிய பாரதி, நவீன தமிழ்க் கவிதையின் முன்னோடியாகவும், இந்திய சுதந்திர இயக்கத்தின் போது தேசபக்தி மற்றும் சமூக மாற்றத்தைத் தூண்டிய கவிதைகளைக் கொண்ட ஒரு தீவிர தேசியவாதியாகவும் இருந்தார்.",
-            yearAsked: [2022],
+            yearAsked: [2022, 2016],
             difficulty: "Easy",
             tnpscFrequency: 3,
             context: "freedom-struggle-tn"
@@ -557,7 +557,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "Korkai, located on the Thamirabarani river estuary, was the principal port of the Early Pandya kingdom and was world-renowned for its pearl fishery, as mentioned in Sangam literature and Greco-Roman texts.",
             explanationTamil: "தாமிரபரணி ஆற்றின் முகத்துவாரத்தில் அமைந்துள்ள கொற்கை, ஆரம்பகால பாண்டிய இராச்சியத்தின் முக்கிய துறைமுகமாக இருந்தது, மேலும் சங்க இலக்கியம் மற்றும் கிரேக்க-ரோமானிய நூல்களில் குறிப்பிடப்பட்டுள்ளபடி, அதன் முத்து மீன்பிடிக்காக உலகப் புகழ்பெற்றது.",
-            yearAsked: [2021],
+            yearAsked: [2021, 2017],
             difficulty: "Hard",
             tnpscFrequency: 2,
             context: "sangam-age"
@@ -570,7 +570,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
             correct: 2,
             explanation: "At its core, the Dravidian movement, including the Justice Party and the Self-Respect Movement, was a socio-political uprising against the dominance of the Brahmin caste in religious, social, and political spheres, advocating for the rights of non-Brahmins.",
             explanationTamil: "அதன் மையத்தில், நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கம் உள்ளிட்ட திராவிட இயக்கம், மத, சமூக மற்றும் அரசியல் துறைகளில் பிராமண சாதியின் ஆதிக்கத்திற்கு எதிரான ஒரு சமூக-அரசியல் எழுச்சியாகும், இது பிராமணர் அல்லாதவர்களின் உரிமைகளுக்காக வாதிட்டது.",
-            yearAsked: [2023],
+            yearAsked: [2023, 2020],
             difficulty: "Medium",
             tnpscFrequency: 4,
             context: "justice-party"
@@ -701,7 +701,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
       neetTips: [
         {
           text: "Focus on the social reform aspects of the Justice Party and Self-Respect Movement, as TNPSC often asks questions on their impact on society.",
-          tamil: "நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கத்தின் சமூக சீர்திருத்த அம்சங்களில் கவனம் செலுத்துங்கள், কারণ TNPSC தேர்வுகளில் அவற்றின் சமூகத் தாக்கம் குறித்த கேள்விகள் அடிக்கடி கேட்கப்படுகின்றன."
+          tamil: "நீதிக் கட்சி மற்றும் சுயமரியாதை இயக்கத்தின் சமூக சீர்திருத்த அம்சங்களில் கவனம் செலுத்துங்கள், कारण TNPSC தேர்வுகளில் அவற்றின் சமூகத் தாக்கம் குறித்த கேள்விகள் அடிக்கடி கேட்கப்படுகின்றன."
         },
         {
             text: "Connect archaeological findings like Keeladi directly to descriptions in Sangam literature. This link is a favorite topic for Mains questions.",

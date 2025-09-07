@@ -286,6 +286,15 @@ export interface CompanionCircle {
     }[];
 }
 
+export interface CirclePost {
+    id: string;
+    authorId: string;
+    authorName: string;
+    authorAvatarUrl: string;
+    content: string;
+    createdAt: string; // ISO string
+}
+
 export interface LiveClass {
   id: string;
   topic: string;
@@ -391,7 +400,7 @@ export const NeetQuizGeneratorOutputSchema = z.object({
 export type NeetQuizGeneratorOutput = z.infer<typeof NeetQuizGeneratorOutputSchema>;
 
 export const TnpscQuizGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
-    subject: z.enum(['History', 'Polity', 'Geography', 'Economy', 'General Science']),
+    subject: z.enum(['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language']),
 });
 export type TnpscQuizGeneratorInput = z.infer<typeof TnpscQuizGeneratorInputSchema>;
 
