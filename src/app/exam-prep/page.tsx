@@ -206,7 +206,7 @@ export default function ExamPrepLandingPage() {
                 <CardDescription>
                     Paste the URL to a community-created module file (e.g., from a GitHub Gist) to add it to your library.
                 </CardDescription>
-            </Header>
+            </CardHeader>
             <CardContent className="flex flex-col sm:flex-row items-end gap-2">
                 <div className="w-full">
                     <Label htmlFor="module-url">Module URL</Label>
