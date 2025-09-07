@@ -164,7 +164,17 @@ export default function CompanionCirclesPage() {
         const matchesLevel = filters.level === 'all' || circle.difficulty.toLowerCase() === filters.level;
         const matchesFormat = filters.format === 'all' || circle.format.toLowerCase().replace(' ', '-') === filters.format;
         const matchesType = filters.type === 'all' || circle.type === filters.type;
-        return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType;
+        
+        let matchesTab = true;
+        if (activeTab === 'live_sessions') {
+            matchesTab = circle.upcomingEvents?.some(event => event.toLowerCase().includes('live')) || false;
+        } else if (activeTab === 'new_posts') {
+            matchesTab = (circle.posts || 0) > 20;
+        } else if (activeTab === 'active_now') {
+            matchesTab = circle.members.length > 2;
+        }
+
+        return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType && matchesTab;
     });
 
     const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
