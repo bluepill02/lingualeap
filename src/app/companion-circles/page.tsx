@@ -174,6 +174,7 @@ export default function CompanionCirclesPage() {
             matchesTab = circle.members.length > 2;
         }
 
+
         return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType && matchesTab;
     });
 
