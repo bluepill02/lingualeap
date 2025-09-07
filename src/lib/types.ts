@@ -120,7 +120,6 @@ export interface SyllabusMapping {
     tnBoardChapter: string;
     ncertReference: string;
     notes: string;
-    mappingDescription: string;
 }
 
 export interface FBDstep {
@@ -148,6 +147,7 @@ export interface WorkedExample {
         explanationTamil?: string;
         calculation?: string;
     }[];
+    answer: string;
     neetHack?: string;
     neetHackTamil?: string;
     commonPitfall?: string;
