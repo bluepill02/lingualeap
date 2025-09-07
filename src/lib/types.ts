@@ -341,6 +341,15 @@ export interface LiveClass {
   endTime: string;
 }
 
+export interface CalendarEvent {
+    id: string;
+    title: string;
+    date: Date;
+    type: 'peer-study' | 'mentor-session' | 'live-class' | 'deadline';
+    group?: string;
+}
+
+
 export const AnalyzeImageInputSchema = z.object({
   photoDataUri: z
     .string()

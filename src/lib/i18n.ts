@@ -13,6 +13,7 @@ export const translations = {
             liveClasses: 'Live Classes',
             peerTeaching: 'Peer Teaching',
             settings: 'Settings',
+            calendar: 'Calendar',
         }
     },
     ta: {
@@ -28,6 +29,7 @@ export const translations = {
             liveClasses: 'நேரடி வகுப்புகள்',
             peerTeaching: 'சக கற்பித்தல்',
             settings: 'அமைப்புகள்',
+            calendar: 'நாட்காட்டி',
         }
     },
     hi: {
@@ -43,6 +45,7 @@ export const translations = {
             liveClasses: 'लाइव कक्षाएं',
             peerTeaching: 'सहकर्मी शिक्षण',
             settings: 'समायोजन',
+            calendar: 'कैलेंडर',
         }
     },
     ml: {
@@ -58,6 +61,7 @@ export const translations = {
             liveClasses: 'ലൈവ് ക്ലാസുകൾ',
             peerTeaching: 'सहकर्मी പഠിപ്പിക്കൽ',
             settings: 'ക്രമീകരണങ്ങൾ',
+            calendar: 'കലണ്ടർ',
         }
     },
     kn: {
@@ -73,6 +77,7 @@ export const translations = {
             liveClasses: 'ಲೈವ್ ತರಗತಿಗಳು',
             peerTeaching: 'ಸಹಪಾಠಿ ಬೋಧನೆ',
             settings: 'ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
+            calendar: 'ಕ್ಯಾಲೆಂಡರ್',
         }
     },
     te: {
@@ -88,6 +93,7 @@ export const translations = {
             liveClasses: ' ప్రత్యక్ష తరగతులు',
             peerTeaching: 'సహచర బోధన',
             settings: 'సెట్టింగ్‌లు',
+            calendar: 'క్యాలెండర్',
         }
     }
 };

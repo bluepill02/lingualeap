@@ -31,6 +31,7 @@ import {
   Menu,
   Users,
   Languages,
+  Calendar,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -70,6 +71,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       href: '/flashcards',
       labelKey: 'flashcards',
       icon: GraduationCap,
+    },
+     {
+      href: '/calendar',
+      labelKey: 'calendar',
+      icon: Calendar,
     },
     {
       href: '/personal-tutor',
