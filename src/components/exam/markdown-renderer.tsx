@@ -12,6 +12,9 @@ import { ActionReactionAnimation } from './ActionReactionAnimation';
 import { LiftAnimation } from './LiftAnimation';
 import { ProjectileAnimation } from './ProjectileAnimation';
 import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
+import { LabSimulator } from './LabSimulator';
+import { ModelViewer } from './ModelViewer';
+import { IceSkaterAnimation } from './IceSkaterAnimation';
 
 function getRawTextContent(node: React.ReactNode): string {
     let text = '';
@@ -52,6 +55,15 @@ export const MarkdownRenderer: React.FC<{ children: string | null | undefined }>
                         }
                          if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
                             return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{ICE_SKATER_ANIMATION}}') {
+                            return <div className="not-prose my-4"><IceSkaterAnimation /></div>;
+                        }
+                        if (textContent.trim() === '{{OHMS_LAW_SIMULATOR}}') {
+                            return <div className="not-prose my-4"><LabSimulator /></div>;
+                        }
+                         if (textContent.trim() === '{{ATOM_MODEL_VIEWER}}') {
+                            return <div className="not-prose my-4"><ModelViewer /></div>;
                         }
                     }
 

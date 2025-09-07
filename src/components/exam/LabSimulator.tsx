@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Button } from '../ui/button';
 import { Slider } from '../ui/slider';
 import { Label } from '../ui/label';
-import { AlertCircle } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 export function LabSimulator() {
   const [resistance, setResistance] = useState(10);
@@ -17,7 +17,7 @@ export function LabSimulator() {
     <Card className="not-prose my-6 border-primary/20">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <AlertCircle className="text-primary" />
+          <Zap className="text-primary" />
           Ohm's Law Virtual Lab
         </CardTitle>
       </CardHeader>
