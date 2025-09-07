@@ -141,7 +141,7 @@ export interface WorkedExample {
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
     problemTamil?: string;
-fbd?: FBDstep[];
+    fbd?: FBDstep[];
     solutionSteps: {
         step: number;
         explanation: string;
@@ -189,7 +189,7 @@ export interface KeyDiagram {
     title: string;
     description: string;
     diagram?: string;
-fbd?: FBDstep;
+    fbd?: FBDstep;
 }
 
 export interface BilingualContent {
