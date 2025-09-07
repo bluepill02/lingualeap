@@ -20,7 +20,7 @@ export default function LandingPage() {
           <Link href="/auth" aria-label="Log In">
             <Button variant="ghost">Log In</Button>
           </Link>
-          <Link href="/dashboard" aria-label="Get Started Free">
+          <Link href="/auth" aria-label="Get Started Free">
             <Button>
               Get Started Free
             </Button>
@@ -50,7 +50,7 @@ export default function LandingPage() {
                     Our platform combines proven learning science with AI-powered tools to create a professional and effective path to fluency.
                 </p>
                 <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-                    <Link href="/dashboard">
+                    <Link href="/auth">
                         <Button size="lg" className="w-full sm:w-auto">
                             Start Your Journey <ArrowRight className="ml-2" />
                         </Button>
@@ -67,5 +67,3 @@ export default function LandingPage() {
     </div>
   );
 }
-
-    
