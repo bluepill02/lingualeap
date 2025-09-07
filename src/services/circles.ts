@@ -232,6 +232,7 @@ export async function addCommentToPost(circleId: string, postId: string, comment
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     
     const newComment = {
+        id: doc(collection(db, 'dummy')).id, // Generate a unique ID for the comment
         authorId: mockUser.id,
         authorName: mockUser.name,
         authorAvatarUrl: mockUser.avatarUrl,
