@@ -19,7 +19,7 @@ export const mockUser: User = {
 
 export const allUsers: User[] = [
     mockUser,
-    { id: 'user-2', name: 'Priya', email: 'priya@example.com', avatarUrl: 'https://picsum.photos/100/100?a=2', streak: 25, xp: 5200, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Career', 'Exams'], persona: learnerPersonas[1].type },
+    { id: 'user-2', name: 'Priya Sharma', email: 'priya@example.com', avatarUrl: 'https://picsum.photos/100/100?a=2', streak: 25, xp: 5200, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Career', 'Exams'], persona: learnerPersonas[1].type },
     { id: 'user-3', name: 'Chen', email: 'chen@example.com', avatarUrl: 'https://picsum.photos/100/100?a=3', streak: 5, xp: 850, language: 'Hindi', timezone: 'Asia/Shanghai', isPro: false, proficiency: 'Beginner', goals: ['Culture', 'Travel'], persona: learnerPersonas[2].type },
     { id: 'user-4', name: 'Arjun Krishnan', email: 'arjun@example.com', avatarUrl: 'https://picsum.photos/100/100?a=4', streak: 50, xp: 12000, language: 'Hindi', timezone: 'Europe/Madrid', isPro: true, proficiency: 'Advanced', goals: ['Culture', 'Mentorship'], persona: learnerPersonas[3].type },
     { id: 'user-5', name: 'David', email: 'david@example.com', avatarUrl: 'https://picsum.photos/100/100?a=5', streak: 2, xp: 300, language: 'Hindi', timezone: 'America/New_York', isPro: false, proficiency: 'Beginner', goals: ['Travel'], persona: learnerPersonas[0].type },
@@ -36,14 +36,14 @@ export const companionCircles: CompanionCircle[] = [
     name: 'Calculus Concepts',
     nameTamil: 'கால்குலஸ் கருத்துகள்',
     description: 'Building strong foundations in differential and integral calculus',
-    memberCount: 32,
+    memberCount: 40,
     posts: 22,
     resources: 1,
     type: 'Mentor-led',
     subject: 'Calculus',
     difficulty: 'Core',
     language: 'Multi Language',
-    members: allUsers.slice(0, 8),
+    members: [{id: 'user-4', name: 'Arjun Krishnan', avatarUrl: 'https://picsum.photos/100/100?a=4'}, {id: 'user-2', name: 'Priya Sharma', avatarUrl: 'https://picsum.photos/100/100?a=2'}],
   },
   {
     id: 'circle-2',
@@ -57,7 +57,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Physics',
     difficulty: 'Core',
     language: 'Multi Language',
-    members: allUsers.slice(2, 9),
+    members: allUsers.slice(2, 5).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
   },
   {
     id: 'circle-3',
@@ -71,7 +71,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Chemistry',
     difficulty: 'Foundation',
     language: 'Multi Language',
-    members: allUsers.slice(4, 10),
+    members: allUsers.slice(4, 7).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
   },
 ];
 
@@ -379,7 +379,7 @@ export const allMicroLessons: MicroLesson[] = [
         title: 'Greetings',
         deckId: 'deck-bodo-1',
         vocabulary: [
-            { word: 'খুলुमबाय', romanization: 'Khulumbai', definition: 'Hello/Greetings', ipa: '/kʰulumbai/' },
+            { word: 'खुलुमबाय', romanization: 'Khulumbai', definition: 'Hello/Greetings', ipa: '/kʰulumbai/' },
             { word: 'माबोरै दं?', romanization: 'Maborai dong?', definition: 'How are you?', ipa: '/mabɔrai dɔŋ/' },
             { word: 'मोजां', romanization: 'Mojang', definition: 'Fine/Good', ipa: '/mɔzaŋ/' },
             { word: 'नोंनि मुङा मा?', romanization: 'Nonni munga ma?', definition: 'What is your name?', ipa: '/nɔnni muŋa ma/' },

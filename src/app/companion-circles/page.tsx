@@ -1,17 +1,19 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase } from 'lucide-react';
-import { companionCircles } from '@/lib/data';
-import type { CompanionCircle as CompanionCircleType } from '@/lib/types';
+import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2 } from 'lucide-react';
+import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
+import { getCircles } from '@/services/circles';
+import Link from 'next/link';
+import { mockUser } from '@/lib/data';
 
 const stats = [
     { title: 'My Circles', value: 0, subtitle: 'என் வட்டங்கள்' },
@@ -34,9 +36,7 @@ const getSubjectIcon = (subject: string) => {
 }
 
 
-function CircleCard({ circle }: { circle: CompanionCircleType }) {
-    const mentor = circle.members[0]; // Assuming the first member is the mentor for simplicity
-
+function CircleCard({ circle, mentor }: { circle: CompanionCircleType, mentor: User | null }) {
     return (
         <Card className="flex flex-col h-full hover:border-primary transition-all duration-300 hover:shadow-lg bg-card/50">
             <CardHeader>
@@ -48,7 +48,7 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
                      <div className="text-right text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
                             <Users className="w-4 h-4" />
-                            <span>{circle.memberCount}/40</span>
+                            <span>{circle.members.length}/{circle.memberCount}</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <Video className="w-4 h-4" />
@@ -66,7 +66,7 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
             </CardHeader>
             <CardContent className="flex-grow space-y-4">
                  <p className="text-sm text-muted-foreground">{circle.description}</p>
-                 <div className="bg-muted/50 p-3 rounded-lg flex items-center gap-3">
+                 {mentor && <div className="bg-muted/50 p-3 rounded-lg flex items-center gap-3">
                     <Avatar className="h-8 w-8">
                         <AvatarImage src={mentor.avatarUrl} alt={mentor.name} />
                         <AvatarFallback>{mentor.name.charAt(0)}</AvatarFallback>
@@ -80,7 +80,7 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
                             <span>&lt; 3 hours</span>
                         </div>
                     </div>
-                 </div>
+                 </div>}
                  <div className="grid grid-cols-3 text-center pt-2">
                      <div>
                         <p className="font-bold text-lg">{circle.posts || 0}</p>
@@ -97,12 +97,16 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
                  </div>
             </CardContent>
             <CardFooter className="grid grid-cols-2 gap-2">
-                 <Button variant="secondary" className="w-full">
-                    <Users className="w-4 h-4 mr-2"/>
-                    Join
+                 <Button asChild variant="secondary" className="w-full">
+                    <Link href={`/companion-circles/${circle.id}`}>
+                        <Users className="w-4 h-4 mr-2"/>
+                        View
+                    </Link>
                 </Button>
-                <Button variant="outline" className="w-full">
-                    Preview
+                <Button asChild variant="outline" className="w-full">
+                    <Link href={`/companion-circles/${circle.id}`}>
+                        Preview
+                    </Link>
                 </Button>
             </CardFooter>
         </Card>
@@ -111,6 +115,8 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
 
 
 export default function CompanionCirclesPage() {
+    const [allCircles, setAllCircles] = useState<CompanionCircleType[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [filters, setFilters] = useState({
         subject: 'all',
@@ -119,7 +125,22 @@ export default function CompanionCirclesPage() {
     });
     const [activeTab, setActiveTab] = useState('active_now');
 
-    const filteredCircles = companionCircles.filter(circle => {
+    useEffect(() => {
+        const fetchCircles = async () => {
+            setIsLoading(true);
+            try {
+                const circles = await getCircles();
+                setAllCircles(circles);
+            } catch (error) {
+                console.error("Failed to fetch circles:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchCircles();
+    }, []);
+
+    const filteredCircles = allCircles.filter(circle => {
         const matchesSearch = circle.name.toLowerCase().includes(searchQuery.toLowerCase()) || circle.description.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesSubject = filters.subject === 'all' || circle.subject.toLowerCase() === filters.subject;
         const matchesLevel = filters.level === 'all' || circle.difficulty.toLowerCase() === filters.level;
@@ -127,10 +148,19 @@ export default function CompanionCirclesPage() {
         return matchesSearch && matchesSubject && matchesLevel && matchesLanguage;
     });
 
+    const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
+    
+    // Update stats with dynamic count
+    const dynamicStats = [
+        { ...stats[0], value: myCirclesCount },
+        ...stats.slice(1)
+    ];
+
+
     return (
         <div className="container mx-auto space-y-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                {stats.map(stat => (
+                {dynamicStats.map(stat => (
                     <Card key={stat.title}>
                         <CardContent className="p-4">
                             <p className="text-3xl font-bold text-primary">{stat.value}</p>
@@ -201,13 +231,19 @@ export default function CompanionCirclesPage() {
                 </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredCircles.map(circle => (
-                    <CircleCard key={circle.id} circle={circle} />
-                ))}
-            </div>
-
-            {filteredCircles.length === 0 && (
+             {isLoading ? (
+                <div className="text-center py-12">
+                    <Loader2 className="w-12 h-12 mx-auto animate-spin text-primary" />
+                    <h3 className="font-semibold text-lg mt-4">Loading Circles...</h3>
+                    <p className="text-muted-foreground">Finding your communities.</p>
+                </div>
+            ) : filteredCircles.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredCircles.map(circle => (
+                        <CircleCard key={circle.id} circle={circle} mentor={circle.members[0]} />
+                    ))}
+                </div>
+            ) : (
                 <div className="text-center py-12 text-muted-foreground">
                     <Users className="w-12 h-12 mx-auto mb-4" />
                     <h3 className="font-semibold text-lg">No circles found</h3>
