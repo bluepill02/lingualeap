@@ -56,7 +56,7 @@ export default function CircleDetailsPage({ params }: { params: { circleId: stri
           console.error("Failed to fetch posts:", error);
           toast({ variant: 'destructive', title: 'Error', description: 'Could not load posts.' });
       }
-  }, [toast]);
+  }, [circleId, toast]);
 
   useEffect(() => {
     async function fetchData() {
