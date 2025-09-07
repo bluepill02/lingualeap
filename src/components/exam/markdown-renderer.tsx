@@ -15,6 +15,7 @@ import { KinematicsGraphAnimation } from './KinematicsGraphAnimation';
 import { LabSimulator } from './LabSimulator';
 import { ModelViewer } from './ModelViewer';
 import { IceSkaterAnimation } from './IceSkaterAnimation';
+import { FbdBuilder } from './FbdBuilder';
 
 function getRawTextContent(node: React.ReactNode): string {
     let text = '';
@@ -64,6 +65,15 @@ export const MarkdownRenderer: React.FC<{ children: string | null | undefined }>
                         }
                          if (textContent.trim() === '{{ATOM_MODEL_VIEWER}}') {
                             return <div className="not-prose my-4"><ModelViewer /></div>;
+                        }
+                         if (textContent.includes('FBD_BUILDER')) {
+                            try {
+                                const fbdData = JSON.parse(textContent.replace('{{FBD_BUILDER:', '').replace('}}', ''));
+                                return <div className="not-prose my-4"><FbdBuilder {...fbdData} /></div>;
+                            } catch (e) {
+                                console.error("Failed to parse FBD_BUILDER data", e);
+                                return <p className="text-destructive">Error: Invalid FBD data.</p>
+                            }
                         }
                     }
 
