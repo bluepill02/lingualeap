@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import 'katex/dist/katex.min.css';
 import { LanguageProvider } from '@/context/language-context';
+import { ThemeProvider } from '@/context/theme-provider';
 
 export const metadata: Metadata = {
   title: 'LinguaLeap',
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: 'dark' }}>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -30,10 +31,17 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <LanguageProvider>
-            {children}
-            <Toaster />
-        </LanguageProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LanguageProvider>
+              {children}
+              <Toaster />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
