@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -35,8 +34,7 @@ function PostCard({ post }: { post: CirclePost }) {
     )
 }
 
-export default function CircleDetailsPage({ params }: { params: { circleId: string } }) {
-  const { circleId } = params;
+export default function CircleDetailsPage({ params: { circleId } }: { params: { circleId: string } }) {
   const [circle, setCircle] = useState<CompanionCircle | null>(null);
   const [members, setMembers] = useState<User[]>([]);
   const [posts, setPosts] = useState<CirclePost[]>([]);
