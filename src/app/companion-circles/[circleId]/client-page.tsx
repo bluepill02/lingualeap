@@ -22,6 +22,7 @@ import { StudyBuddyFinder } from '@/components/circles/study-buddy-finder';
 import { MiniQuiz } from '@/components/circles/mini-quiz';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { LessonPlanTimeline } from '@/components/circles/lesson-plan-timeline';
+import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -37,7 +38,9 @@ function CommentCard({ comment }: { comment: PostComment }) {
                         {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
                     </p>
                 </div>
-                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{comment.content}</p>
+                <div className="text-sm text-muted-foreground prose dark:prose-invert max-w-none">
+                    <MarkdownRenderer>{comment.content}</MarkdownRenderer>
+                </div>
             </div>
         </div>
     )
@@ -131,7 +134,9 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                         {quizData ? (
                             <MiniQuiz {...quizData} />
                         ) : (
-                             <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
+                             <div className="text-muted-foreground whitespace-pre-wrap mt-2 prose dark:prose-invert max-w-none">
+                               <MarkdownRenderer>{post.content}</MarkdownRenderer>
+                             </div>
                         )}
                        
                     </div>
