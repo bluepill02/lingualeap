@@ -310,7 +310,7 @@ export interface PostComment {
     createdAt: string; // ISO string
 }
 
-export type ReactionType = 'madeMeSmile' | 'helpful' | 'interesting';
+export type ReactionType = 'madeMeSmile' | 'helpful' | 'interesting' | 'mentorApproved';
 
 export interface PostReaction {
     [key: string]: string[]; // e.g., { madeMeSmile: [userId1, userId2], ... }
@@ -329,6 +329,7 @@ export interface CirclePost {
         madeMeSmile: string[];
         helpful: string[];
         interesting: string[];
+        mentorApproved?: string[];
     };
     comments: PostComment[];
 }

@@ -66,7 +66,7 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
     const [isSubmittingComment, setIsSubmittingComment] = useState(false);
     const { toast } = useToast();
 
-    const reactions = post.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
+    const reactions = post.reactions || { madeMeSmile: [], helpful: [], interesting: [], mentorApproved: [] };
     const quizData = parseQuizContent(post.content);
 
     const handleReaction = async (reactionType: ReactionType) => {
@@ -100,6 +100,7 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
         madeMeSmile: <Smile className="w-4 h-4 text-yellow-500" />,
         helpful: <Lightbulb className="w-4 h-4 text-green-500" />,
         interesting: <Brain className="w-4 h-4 text-blue-500" />,
+        mentorApproved: <ShieldCheck className="w-4 h-4 text-primary" />,
     }
 
     return (
@@ -118,7 +119,14 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                                     {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
                                 </p>
                             </div>
-                            {post.isPinned && <Pin className="w-4 h-4 text-primary" />}
+                             <div className="flex items-center gap-2">
+                                {reactions.mentorApproved && reactions.mentorApproved.length > 0 && (
+                                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                                        <ShieldCheck className="w-3 h-3 mr-1.5"/> Mentor's Choice
+                                    </Badge>
+                                )}
+                                {post.isPinned && <Pin className="w-4 h-4 text-primary" />}
+                            </div>
                         </div>
                         {quizData ? (
                             <MiniQuiz {...quizData} />
@@ -174,6 +182,12 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                                     <Brain className="mr-2 h-4 w-4 text-blue-500" />
                                 </motion.div>
                                 Interesting
+                            </DropdownMenuItem>
+                             <DropdownMenuItem onClick={() => handleReaction('mentorApproved')}>
+                                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+                                    <ShieldCheck className="mr-2 h-4 w-4 text-primary" />
+                                </motion.div>
+                                Mark as Mentor's Choice
                             </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>

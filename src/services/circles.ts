@@ -155,7 +155,7 @@ export async function addPostToCircle(circleId: string, content: string): Promis
             content: content,
             createdAt: serverTimestamp(),
             isPinned: false,
-            reactions: { madeMeSmile: [], helpful: [], interesting: [] },
+            reactions: { madeMeSmile: [], helpful: [], interesting: [], mentorApproved: [] },
             comments: []
         });
     } catch (error) {
@@ -216,7 +216,7 @@ export async function togglePostReaction(circleId: string, postId: string, userI
 
         if (postSnap.exists()) {
             const postData = postSnap.data();
-            const reactions = postData.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
+            const reactions = postData.reactions || { madeMeSmile: [], helpful: [], interesting: [], mentorApproved: [] };
             
             const reactionArray: string[] = reactions[reactionType] || [];
 
