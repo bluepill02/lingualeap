@@ -229,11 +229,19 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Settings</DropdownMenuItem>
+                <Link href="/settings">
+                    <DropdownMenuItem>Profile</DropdownMenuItem>
+                </Link>
+                 <Link href="/upgrade">
+                    <DropdownMenuItem>Billing</DropdownMenuItem>
+                </Link>
+                <Link href="/settings">
+                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                </Link>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
+                <Link href="/auth">
+                    <DropdownMenuItem>Log out</DropdownMenuItem>
+                </Link>
                 </DropdownMenuContent>
             </DropdownMenu>
           </div>
