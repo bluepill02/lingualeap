@@ -67,7 +67,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       icon: Home,
     },
     {
-      href: '/lessons',
+      href: '/language-selection',
       labelKey: 'lessons',
       icon: BookOpen,
     },
