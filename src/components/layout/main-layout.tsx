@@ -168,7 +168,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           <div className="flex items-center gap-4">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button variant="ghost" size="icon" aria-label="Change language">
                         <Languages />
                         <span className="sr-only">Change language</span>
                     </Button>
