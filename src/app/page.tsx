@@ -36,6 +36,7 @@ export default function LandingPage() {
                     alt="Abstract background of a modern library, symbolizing learning."
                     data-ai-hint="professional learning"
                     fill
+                    sizes="100vw"
                     className="object-cover opacity-5"
                     priority
                 />
