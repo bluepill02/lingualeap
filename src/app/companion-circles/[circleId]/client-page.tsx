@@ -23,6 +23,7 @@ import { MiniQuiz } from '@/components/circles/mini-quiz';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { LessonPlanTimeline } from '@/components/circles/lesson-plan-timeline';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
+import { ProgressHeatmap } from '@/components/analytics/progress-heatmap';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -343,6 +344,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
       </header>
 
       {circle.type === 'Mentor-led' && <MentorAnnouncements events={circle.upcomingEvents} />}
+      {circle.type === 'Mentor-led' && circle.lessonPlan && <ProgressHeatmap members={members} chapters={circle.lessonPlan} />}
 
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">

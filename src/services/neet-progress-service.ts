@@ -2,7 +2,7 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, collection, getDocs } from 'firebase/firestore';
 
 interface ProgressData {
     completedSections: string[];
@@ -49,4 +49,28 @@ export async function saveNeetChapterProgress(userId: string, chapterId: string,
         // Handle the error appropriately
         throw error;
     }
+}
+
+export async function getChapterProgressForUsers(userIds: string[]): Promise<Record<string, Record<string, string[]>>> {
+    if (!userIds || userIds.length === 0) {
+        return {};
+    }
+    const allProgress: Record<string, Record<string, string[]>> = {};
+
+    for (const userId of userIds) {
+        try {
+            const userProgressRef = collection(db, 'userProgress', userId, 'neetPhysics');
+            const snapshot = await getDocs(userProgressRef);
+            
+            const userChapters: Record<string, string[]> = {};
+            snapshot.forEach(doc => {
+                userChapters[doc.id] = doc.data().completedSections || [];
+            });
+            allProgress[userId] = userChapters;
+        } catch (error) {
+            console.error(`Error fetching progress for user ${userId}:`, error);
+            allProgress[userId] = {}; // Return empty object for user on error
+        }
+    }
+    return allProgress;
 }
