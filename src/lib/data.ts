@@ -45,6 +45,8 @@ export const companionCircles: CompanionCircle[] = [
     language: 'Multi Language',
     format: 'Live Session',
     members: [{id: 'user-4', name: 'Arjun Krishnan', avatarUrl: 'https://picsum.photos/100/100?a=4'}, {id: 'user-2', name: 'Priya Sharma', avatarUrl: 'https://picsum.photos/100/100?a=2'}],
+    groupNorms: ['Post at least one challenging problem per week.', 'Be respectful and constructive in feedback.', 'No spam or off-topic discussions.'],
+    upcomingEvents: ['Weekly Doubt Clearing Session - Sat 7 PM', 'Live Problem Solving: Rotational Motion - Next Tue 8 PM'],
   },
   {
     id: 'circle-2',
@@ -60,6 +62,8 @@ export const companionCircles: CompanionCircle[] = [
     language: 'Multi Language',
     format: 'Resource Hub',
     members: allUsers.slice(2, 6).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
+    groupNorms: ['Share one diagram you find difficult each week.', 'Provide helpful feedback on at least two posts from others.', 'All diagrams must be from the NEET syllabus.'],
+    upcomingEvents: ['Peer Review: Human Anatomy Diagrams - Fri 6 PM'],
   },
   {
     id: 'circle-3',
@@ -75,6 +79,8 @@ export const companionCircles: CompanionCircle[] = [
     language: 'Multi Language',
     format: 'Chat',
     members: allUsers.slice(4, 7).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
+    groupNorms: ['Be active and participate in discussions.', 'Share mnemonics and memory aids.', 'Keep the chat focused on Organic Chemistry.'],
+    upcomingEvents: ['Group Quiz: Name Reactions - This Sunday'],
   },
   {
     id: 'circle-4',
@@ -90,6 +96,8 @@ export const companionCircles: CompanionCircle[] = [
     language: 'Multi Language',
     format: 'Live Session',
     members: [{id: 'user-8', name: 'Sofia', avatarUrl: 'https://picsum.photos/100/100?a=8'}, {id: 'user-10', name: 'Aarav', avatarUrl: 'https://picsum.photos/100/100?a=10'}],
+    groupNorms: ['Complete pre-session reading material.', 'Come prepared with questions for the mentor.', 'Help peers understand concepts during breakout rooms.'],
+    upcomingEvents: ['Live Class: Integration by Parts - Tomorrow 7 PM', 'Office Hours with Mentor - Thu 5 PM'],
   },
 ];
 
@@ -760,7 +768,7 @@ export const allMicroLessons: MicroLesson[] = [
             { word: 'ᱡᱚᱦᱟᱨ', romanization: 'Johar', definition: 'Hello/Greetings', ipa: '/dʒohar/' },
             { word: 'ᱪᱮᱞᱮᱠᱟ ᱢᱮᱱᱟᱢᱟ?', romanization: 'Cheleka menama?', definition: 'How are you?', ipa: '/tʃeleka menama/' },
             { word: 'ᱱᱟᱯᱟᱭ', romanization: 'Napai', definition: 'Fine/Good', ipa: '/napai/' },
-            { word: 'ᱥᱟᱹਗᱩᱱ', romanization: 'Sagun', definition: 'Auspicious/Welcome', ipa: '/sagun/' },
+            { word: 'ᱥᱟᱹᱜᱩᱱ', romanization: 'Sagun', definition: 'Auspicious/Welcome', ipa: '/sagun/' },
             { word: 'ᱥᱟᱨᱦᱟᱣ', romanization: 'Sarhaw', definition: 'Thank you/Praise', ipa: '/sarhaw/' },
         ],
         dialogue: [
@@ -911,3 +919,5 @@ export const liveClasses: LiveClass[] = [
         endTime: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 60 * 60 * 1000).toISOString(),
     },
 ];
+
+    

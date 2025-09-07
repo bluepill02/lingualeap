@@ -285,6 +285,8 @@ export interface CompanionCircle {
         name: string;
         avatarUrl: string;
     }[];
+    groupNorms?: string[];
+    upcomingEvents?: string[];
 }
 
 export interface CirclePost {
@@ -420,3 +422,5 @@ export const NeetFlashcardGeneratorOutputSchema = z.object({
     flashcards: z.array(FlashcardSchema),
 });
 export type NeetFlashcardGeneratorOutput = z.infer<typeof NeetFlashcardGeneratorOutputSchema>;
+
+    

@@ -7,13 +7,14 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserCheck, MessageCircle, BookCopy, Share2 } from 'lucide-react';
+import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserPlus, MessageCircle, BookCopy, Share2, Calendar, Shield, Info } from 'lucide-react';
 import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { getCircles, getCircleMembers } from '@/services/circles';
 import Link from 'next/link';
 import { mockUser } from '@/lib/data';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const stats = [
     { title: 'My Circles', value: 0, subtitle: 'என் வட்டங்கள்' },
@@ -36,14 +37,12 @@ const getSubjectIcon = (subject: string) => {
 }
 
 
-function CircleCard({ circle }: { circle: CompanionCircleType }) {
+function CircleCard({ circle, onPreview }: { circle: CompanionCircleType, onPreview: (circle: CompanionCircleType) => void; }) {
     const [mentor, setMentor] = useState<User | null>(null);
 
     useEffect(() => {
         async function fetchMentor() {
             if (circle.type === 'Mentor-led' && circle.members.length > 0) {
-                // In a real app, the mentor might be explicitly flagged.
-                // Here, we'll assume the first member is the mentor.
                 const members = await getCircleMembers([circle.members[0].id]);
                 if (members.length > 0) {
                     setMentor(members[0]);
@@ -68,7 +67,7 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
                         </div>
                         <div className="flex items-center gap-2">
                             <Video className="w-4 h-4" />
-                            <span>1 live</span>
+                            <span>{circle.upcomingEvents?.length || 0} live</span>
                         </div>
                     </div>
                 </div>
@@ -119,10 +118,8 @@ function CircleCard({ circle }: { circle: CompanionCircleType }) {
                         View
                     </Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full">
-                    <Link href={`/companion-circles/${circle.id}`}>
-                        Preview
-                    </Link>
+                <Button onClick={() => onPreview(circle)} variant="outline" className="w-full">
+                    Preview
                 </Button>
             </CardFooter>
         </Card>
@@ -141,6 +138,7 @@ export default function CompanionCirclesPage() {
         type: 'all',
     });
     const [activeTab, setActiveTab] = useState('active_now');
+    const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
 
     useEffect(() => {
         const fetchCircles = async () => {
@@ -266,18 +264,48 @@ export default function CompanionCirclesPage() {
                     <h3 className="font-semibold text-lg mt-4">Loading Circles...</h3>
                     <p className="text-muted-foreground">Finding your communities.</p>
                 </div>
-            ) : filteredCircles.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredCircles.map(circle => (
-                        <CircleCard key={circle.id} circle={circle} />
-                    ))}
-                </div>
             ) : (
-                <div className="text-center py-12 text-muted-foreground">
-                    <Users className="w-12 h-12 mx-auto mb-4" />
-                    <h3 className="font-semibold text-lg">No circles found</h3>
-                    <p>Try adjusting your search or filters to find your community.</p>
-                </div>
+                <Dialog open={!!selectedCircle} onOpenChange={(isOpen) => !isOpen && setSelectedCircle(null)}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredCircles.map(circle => (
+                            <CircleCard key={circle.id} circle={circle} onPreview={setSelectedCircle} />
+                        ))}
+                    </div>
+                    {selectedCircle && (
+                         <DialogContent className="max-w-md">
+                            <DialogHeader>
+                                <div className="flex items-center gap-4 mb-4">
+                                     <div className="w-16 h-16 rounded-lg flex items-center justify-center bg-primary/20 text-primary">
+                                        {getSubjectIcon(selectedCircle.subject)}
+                                    </div>
+                                    <div>
+                                        <DialogTitle className="text-xl">{selectedCircle.name}</DialogTitle>
+                                        <DialogDescription>{selectedCircle.description}</DialogDescription>
+                                    </div>
+                                </div>
+                            </DialogHeader>
+                            <div className="space-y-4">
+                                <div>
+                                    <h4 className="font-semibold flex items-center gap-2"><Shield className="w-4 h-4"/> Group Norms</h4>
+                                    <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1">
+                                        {selectedCircle.groupNorms?.map((norm, i) => <li key={i}>{norm}</li>)}
+                                    </ul>
+                                </div>
+                                 <div>
+                                    <h4 className="font-semibold flex items-center gap-2"><Calendar className="w-4 h-4"/> Upcoming Events</h4>
+                                    <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1">
+                                         {selectedCircle.upcomingEvents?.map((event, i) => <li key={i}>{event}</li>)}
+                                    </ul>
+                                </div>
+                                <Button className="w-full" asChild>
+                                    <Link href={`/companion-circles/${selectedCircle.id}`}>
+                                        <UserPlus className="mr-2"/> Join this Circle
+                                    </Link>
+                                </Button>
+                            </div>
+                        </DialogContent>
+                    )}
+                </Dialog>
             )}
              <footer className="text-center text-muted-foreground text-sm py-4">
                 Connect • Learn • Grow together in Companion Circles
@@ -286,3 +314,5 @@ export default function CompanionCirclesPage() {
         </div>
     );
 }
+
+    
