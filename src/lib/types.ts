@@ -289,7 +289,7 @@ export interface CompanionCircle {
     upcomingEvents?: string[];
 }
 
-export interface CirclePost {
+export interface PostComment {
     id: string;
     authorId: string;
     authorName: string;
@@ -297,6 +297,18 @@ export interface CirclePost {
     content: string;
     createdAt: string; // ISO string
 }
+
+export interface CirclePost {
+    id: string;
+    authorId: string;
+    authorName: string;
+    authorAvatarUrl: string;
+    content: string;
+    createdAt: string; // ISO string
+    likes: string[]; // Array of user IDs who liked the post
+    comments: PostComment[];
+}
+
 
 export interface LiveClass {
   id: string;

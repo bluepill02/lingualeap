@@ -18,7 +18,7 @@ import {
     orderBy
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser } from '@/lib/data';
-import type { CompanionCircle, User, CirclePost } from '@/lib/types';
+import type { CompanionCircle, User, CirclePost, PostComment } from '@/lib/types';
 import { getAuth } from 'firebase/auth';
 
 const circlesCollection = collection(db, 'companion-circles');
@@ -145,7 +145,9 @@ export async function addPostToCircle(circleId: string, content: string): Promis
             authorName: mockUser.name,
             authorAvatarUrl: mockUser.avatarUrl,
             content: content,
-            createdAt: serverTimestamp()
+            createdAt: serverTimestamp(),
+            likes: [],
+            comments: []
         });
     } catch (error) {
         console.error("Error adding post to circle: ", error);
@@ -172,4 +174,49 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         console.error("Error fetching posts for circle: ", error);
         return [];
     }
+}
+
+export async function togglePostLike(circleId: string, postId: string, userId: string): Promise<void> {
+    const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
+    const postSnap = await getDoc(postRef);
+
+    if (postSnap.exists()) {
+        const postData = postSnap.data();
+        const likes: string[] = postData.likes || [];
+        if (likes.includes(userId)) {
+            await updateDoc(postRef, {
+                likes: arrayRemove(userId)
+            });
+        } else {
+            await updateDoc(postRef, {
+                likes: arrayUnion(userId)
+            });
+        }
+    } else {
+        throw new Error("Post not found");
+    }
+}
+
+
+export async function addCommentToPost(circleId: string, postId: string, commentContent: string): Promise<void> {
+    if (!commentContent.trim()) {
+        throw new Error("Comment cannot be empty.");
+    }
+    const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
+    const newComment: Omit<PostComment, 'id' | 'createdAt'> = {
+        authorId: mockUser.id,
+        authorName: mockUser.name,
+        authorAvatarUrl: mockUser.avatarUrl,
+        content: commentContent,
+    };
+    
+    // Firestore SDK will handle serverTimestamp on its own
+    const commentWithTimestamp = {
+        ...newComment,
+        createdAt: serverTimestamp()
+    };
+
+    await updateDoc(postRef, {
+        comments: arrayUnion(commentWithTimestamp)
+    });
 }

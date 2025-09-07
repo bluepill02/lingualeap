@@ -3,35 +3,131 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle } from '@/services/circles';
+import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostLike, addCommentToPost } from '@/services/circles';
 import { mockUser } from '@/lib/data';
-import type { CompanionCircle, User, CirclePost } from '@/lib/types';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import type { CompanionCircle, User, CirclePost, PostComment } from '@/lib/types';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, ThumbsUp, MessageCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
 import { formatDistanceToNow } from 'date-fns';
+import { Separator } from '@/components/ui/separator';
 
-function PostCard({ post }: { post: CirclePost }) {
+function CommentCard({ comment }: { comment: PostComment }) {
     return (
-        <div className="flex gap-4">
-            <Avatar>
-                <AvatarImage src={post.authorAvatarUrl} alt={post.authorName} />
-                <AvatarFallback>{post.authorName.charAt(0)}</AvatarFallback>
+        <div className="flex gap-3">
+             <Avatar className="h-8 w-8">
+                <AvatarImage src={comment.authorAvatarUrl} alt={comment.authorName} />
+                <AvatarFallback>{comment.authorName.charAt(0)}</AvatarFallback>
             </Avatar>
-            <div className="flex-1">
+            <div className="flex-1 bg-muted p-3 rounded-lg">
                 <div className="flex items-center gap-2">
-                    <p className="font-semibold">{post.authorName}</p>
+                    <p className="font-semibold text-sm">{comment.authorName}</p>
                     <p className="text-xs text-muted-foreground">
-                        {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
+                        {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
                     </p>
                 </div>
-                <p className="text-muted-foreground whitespace-pre-wrap">{post.content}</p>
+                <p className="text-sm text-muted-foreground whitespace-pre-wrap">{comment.content}</p>
             </div>
         </div>
+    )
+}
+
+
+function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: string, onUpdate: () => void }) {
+    const [showComments, setShowComments] = useState(false);
+    const [newComment, setNewComment] = useState('');
+    const [isSubmittingComment, setIsSubmittingComment] = useState(false);
+    const { toast } = useToast();
+
+    const hasLiked = post.likes.includes(mockUser.id);
+
+    const handleLike = async () => {
+        try {
+            await togglePostLike(circleId, post.id, mockUser.id);
+            onUpdate();
+        } catch (error) {
+            console.error("Failed to like post:", error);
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not update like status.' });
+        }
+    }
+    
+    const handleCommentSubmit = async () => {
+        if (!newComment.trim()) return;
+        setIsSubmittingComment(true);
+        try {
+            await addCommentToPost(circleId, post.id, newComment);
+            setNewComment('');
+            onUpdate();
+        } catch (error) {
+            console.error("Failed to add comment:", error);
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not add comment.' });
+        } finally {
+            setIsSubmittingComment(false);
+        }
+    }
+
+    return (
+        <Card className="bg-card/50">
+            <CardContent className="p-4">
+                <div className="flex gap-4">
+                    <Avatar>
+                        <AvatarImage src={post.authorAvatarUrl} alt={post.authorName} />
+                        <AvatarFallback>{post.authorName.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                            <p className="font-semibold">{post.authorName}</p>
+                            <p className="text-xs text-muted-foreground">
+                                {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
+                            </p>
+                        </div>
+                        <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
+                    </div>
+                </div>
+                <Separator className="my-3" />
+                <div className="flex items-center gap-4">
+                    <Button variant={hasLiked ? "secondary" : "ghost"} size="sm" onClick={handleLike}>
+                        <ThumbsUp className={`mr-2 h-4 w-4 ${hasLiked ? 'text-primary' : ''}`} />
+                        {post.likes.length} Like{post.likes.length !== 1 && 's'}
+                    </Button>
+                     <Button variant="ghost" size="sm" onClick={() => setShowComments(!showComments)}>
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        {post.comments.length} Comment{post.comments.length !== 1 && 's'}
+                    </Button>
+                </div>
+                
+                {showComments && (
+                    <div className="mt-4 space-y-4">
+                        {post.comments.sort((a,b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()).map(comment => (
+                            <CommentCard key={comment.id} comment={comment} />
+                        ))}
+                        <div className="flex gap-3">
+                            <Avatar className="h-8 w-8">
+                                <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
+                                <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div className="flex-1">
+                                <Textarea 
+                                    placeholder="Write a comment..." 
+                                    className="text-sm"
+                                    value={newComment}
+                                    onChange={(e) => setNewComment(e.target.value)}
+                                    disabled={isSubmittingComment}
+                                />
+                                <Button size="sm" className="mt-2" onClick={handleCommentSubmit} disabled={isSubmittingComment || !newComment.trim()}>
+                                    {isSubmittingComment && <Loader2 className="mr-2 h-4 w-4 animate-spin"/>}
+                                    Post Comment
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </CardContent>
+        </Card>
     )
 }
 
@@ -148,21 +244,19 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
                     {!isMember && <p className="text-xs text-destructive mt-2">You must be a member to post.</p>}
                 </CardContent>
             </Card>
-            <Card>
-                <CardHeader>
-                    <CardTitle>Discussion Feed</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                    {posts.length > 0 ? (
-                        posts.map(post => <PostCard key={post.id} post={post} />)
-                    ) : (
-                        <div className="text-center text-muted-foreground p-12">
+            <div className="space-y-4">
+                <h3 className="font-bold text-lg">Discussion Feed</h3>
+                {posts.length > 0 ? (
+                    posts.map(post => <PostCard key={post.id} post={post} circleId={circle.id} onUpdate={fetchPosts} />)
+                ) : (
+                    <Card>
+                        <CardContent className="text-center text-muted-foreground p-12">
                             <MessageSquare className="w-12 h-12 mx-auto mb-4" />
                             <p>No posts yet. Be the first to start a conversation!</p>
-                        </div>
-                    )}
-                </CardContent>
-            </Card>
+                        </CardContent>
+                    </Card>
+                )}
+            </div>
         </div>
 
         <div className="space-y-6">
