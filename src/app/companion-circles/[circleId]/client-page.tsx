@@ -9,7 +9,7 @@ import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } fro
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper, Pin } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper, Pin, Megaphone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { StudyBuddyFinder } from '@/components/circles/study-buddy-finder';
 import { MiniQuiz } from '@/components/circles/mini-quiz';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -208,6 +209,23 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
     )
 }
 
+function MentorAnnouncements({ events }: { events?: string[] }) {
+    if (!events || events.length === 0) return null;
+
+    return (
+        <Alert variant="info" className="bg-primary/10 border-primary/30">
+            <Megaphone className="h-4 w-4 text-primary" />
+            <AlertTitle className="font-bold text-primary">Mentor Announcements</AlertTitle>
+            <AlertDescription>
+                <ul className="list-disc list-inside mt-2 space-y-1">
+                    {events.map((event, i) => <li key={i}>{event}</li>)}
+                </ul>
+            </AlertDescription>
+        </Alert>
+    );
+}
+
+
 interface CircleDetailsClientPageProps {
   circle: CompanionCircle;
   initialMembers: User[];
@@ -303,6 +321,8 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
             </div>
         </div>
       </header>
+
+      {circle.type === 'Mentor-led' && <MentorAnnouncements events={circle.upcomingEvents} />}
 
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">
