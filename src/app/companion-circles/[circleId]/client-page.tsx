@@ -9,7 +9,7 @@ import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } fro
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper, Pin } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
@@ -90,11 +90,14 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                         <AvatarFallback>{post.authorName.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1">
-                        <div className="flex items-center gap-2">
-                            <p className="font-semibold">{post.authorName}</p>
-                            <p className="text-xs text-muted-foreground">
-                                {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
-                            </p>
+                        <div className="flex justify-between items-start">
+                            <div className="flex items-center gap-2">
+                                <p className="font-semibold">{post.authorName}</p>
+                                <p className="text-xs text-muted-foreground">
+                                    {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
+                                </p>
+                            </div>
+                            {post.isPinned && <Pin className="w-4 h-4 text-primary" />}
                         </div>
                         <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
                     </div>

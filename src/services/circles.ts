@@ -160,6 +160,7 @@ export async function addPostToCircle(circleId: string, content: string): Promis
             authorAvatarUrl: mockUser.avatarUrl,
             content: content,
             createdAt: serverTimestamp(),
+            isPinned: false,
             reactions: { madeMeSmile: [], helpful: [], interesting: [] },
             comments: []
         });
@@ -172,7 +173,7 @@ export async function addPostToCircle(circleId: string, content: string): Promis
 export async function getPostsForCircle(circleId: string): Promise<CirclePost[]> {
     try {
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
-        const q = query(postsCollection, orderBy('createdAt', 'desc'));
+        const q = query(postsCollection, orderBy('isPinned', 'desc'), orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(q);
         
         return snapshot.docs.map(doc => {

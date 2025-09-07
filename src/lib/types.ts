@@ -311,6 +311,7 @@ export interface CirclePost {
     authorAvatarUrl: string;
     content: string;
     createdAt: string; // ISO string
+    isPinned?: boolean;
     reactions: {
         madeMeSmile: string[];
         helpful: string[];
