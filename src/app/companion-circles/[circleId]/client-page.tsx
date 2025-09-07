@@ -3,18 +3,20 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostLike, addCommentToPost } from '@/services/circles';
+import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostReaction } from '@/services/circles';
 import { mockUser } from '@/lib/data';
-import type { CompanionCircle, User, CirclePost, PostComment } from '@/lib/types';
+import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, ThumbsUp, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
 import { formatDistanceToNow } from 'date-fns';
 import { Separator } from '@/components/ui/separator';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { motion } from 'framer-motion';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -43,15 +45,15 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
     const [isSubmittingComment, setIsSubmittingComment] = useState(false);
     const { toast } = useToast();
 
-    const hasLiked = post.likes.includes(mockUser.id);
+    const reactions = post.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
 
-    const handleLike = async () => {
+    const handleReaction = async (reactionType: ReactionType) => {
         try {
-            await togglePostLike(circleId, post.id, mockUser.id);
+            await togglePostReaction(circleId, post.id, mockUser.id, reactionType);
             onUpdate();
         } catch (error) {
-            console.error("Failed to like post:", error);
-            toast({ variant: 'destructive', title: 'Error', description: 'Could not update like status.' });
+            console.error(`Failed to add ${reactionType} reaction:`, error);
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not update reaction.' });
         }
     }
     
@@ -68,6 +70,14 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
         } finally {
             setIsSubmittingComment(false);
         }
+    }
+    
+    const userReactions = Object.keys(reactions).filter(key => reactions[key as ReactionType]?.includes(mockUser.id)) as ReactionType[];
+    
+    const reactionIcons = {
+        madeMeSmile: <Smile className="w-4 h-4 text-yellow-500" />,
+        helpful: <Lightbulb className="w-4 h-4 text-green-500" />,
+        interesting: <Brain className="w-4 h-4 text-blue-500" />,
     }
 
     return (
@@ -88,16 +98,55 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                         <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
                     </div>
                 </div>
-                <Separator className="my-3" />
-                <div className="flex items-center gap-4">
-                    <Button variant={hasLiked ? "secondary" : "ghost"} size="sm" onClick={handleLike}>
-                        <ThumbsUp className={`mr-2 h-4 w-4 ${hasLiked ? 'text-primary' : ''}`} />
-                        {post.likes.length} Like{post.likes.length !== 1 && 's'}
-                    </Button>
+
+                <div className="mt-3 flex items-center justify-between">
+                     <div className="flex items-center gap-2">
+                         {reactions.madeMeSmile?.length > 0 && <Badge variant="secondary" className="gap-1.5"><Smile className="w-3 h-3 text-yellow-500"/> {reactions.madeMeSmile.length}</Badge>}
+                         {reactions.helpful?.length > 0 && <Badge variant="secondary" className="gap-1.5"><Lightbulb className="w-3 h-3 text-green-500"/> {reactions.helpful.length}</Badge>}
+                         {reactions.interesting?.length > 0 && <Badge variant="secondary" className="gap-1.5"><Brain className="w-3 h-3 text-blue-500"/> {reactions.interesting.length}</Badge>}
+                     </div>
                      <Button variant="ghost" size="sm" onClick={() => setShowComments(!showComments)}>
                         <MessageCircle className="mr-2 h-4 w-4" />
                         {post.comments.length} Comment{post.comments.length !== 1 && 's'}
                     </Button>
+                </div>
+
+                <Separator className="my-3" />
+                <div className="flex items-center gap-2">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                             <Button variant="outline" size="sm">
+                                {userReactions.length > 0 ? (
+                                    <div className="flex items-center gap-1.5">
+                                        {reactionIcons[userReactions[0]]}
+                                        <span className="capitalize">{userReactions[0].replace(/([A-Z])/g, ' $1').trim()}</span>
+                                    </div>
+                                ) : (
+                                    'React'
+                                )}
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuItem onClick={() => handleReaction('madeMeSmile')}>
+                                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+                                    <Smile className="mr-2 h-4 w-4 text-yellow-500" />
+                                </motion.div>
+                                Made me smile
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleReaction('helpful')}>
+                               <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+                                    <Lightbulb className="mr-2 h-4 w-4 text-green-500" />
+                               </motion.div>
+                                Helpful
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleReaction('interesting')}>
+                                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+                                    <Brain className="mr-2 h-4 w-4 text-blue-500" />
+                                </motion.div>
+                                Interesting
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
                 
                 {showComments && (

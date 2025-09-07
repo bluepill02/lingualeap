@@ -298,6 +298,12 @@ export interface PostComment {
     createdAt: string; // ISO string
 }
 
+export type ReactionType = 'madeMeSmile' | 'helpful' | 'interesting';
+
+export interface PostReaction {
+    [key: string]: string[]; // e.g., { madeMeSmile: [userId1, userId2], ... }
+}
+
 export interface CirclePost {
     id: string;
     authorId: string;
@@ -305,7 +311,11 @@ export interface CirclePost {
     authorAvatarUrl: string;
     content: string;
     createdAt: string; // ISO string
-    likes: string[]; // Array of user IDs who liked the post
+    reactions: {
+        madeMeSmile: string[];
+        helpful: string[];
+        interesting: string[];
+    };
     comments: PostComment[];
 }
 

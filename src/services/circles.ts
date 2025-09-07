@@ -18,7 +18,7 @@ import {
     orderBy
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser } from '@/lib/data';
-import type { CompanionCircle, User, CirclePost, PostComment } from '@/lib/types';
+import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
 import { getAuth } from 'firebase/auth';
 
 const circlesCollection = collection(db, 'companion-circles');
@@ -146,7 +146,7 @@ export async function addPostToCircle(circleId: string, content: string): Promis
             authorAvatarUrl: mockUser.avatarUrl,
             content: content,
             createdAt: serverTimestamp(),
-            likes: [],
+            reactions: { madeMeSmile: [], helpful: [], interesting: [] },
             comments: []
         });
     } catch (error) {
@@ -176,20 +176,25 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
     }
 }
 
-export async function togglePostLike(circleId: string, postId: string, userId: string): Promise<void> {
+export async function togglePostReaction(circleId: string, postId: string, userId: string, reactionType: ReactionType): Promise<void> {
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     const postSnap = await getDoc(postRef);
 
     if (postSnap.exists()) {
         const postData = postSnap.data();
-        const likes: string[] = postData.likes || [];
-        if (likes.includes(userId)) {
+        const reactions = postData.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
+        
+        const reactionArray: string[] = reactions[reactionType] || [];
+
+        if (reactionArray.includes(userId)) {
+            // User is removing their reaction
             await updateDoc(postRef, {
-                likes: arrayRemove(userId)
+                [`reactions.${reactionType}`]: arrayRemove(userId)
             });
         } else {
+            // User is adding a new reaction
             await updateDoc(postRef, {
-                likes: arrayUnion(userId)
+                [`reactions.${reactionType}`]: arrayUnion(userId)
             });
         }
     } else {
