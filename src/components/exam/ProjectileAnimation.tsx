@@ -42,6 +42,8 @@ export function ProjectileAnimation() {
 
   const handleAnimate = () => {
     setIsAnimating(true);
+    // After animation duration, reset the state
+    setTimeout(() => setIsAnimating(false), 2000);
   };
   
   const handleReset = () => {
@@ -109,7 +111,7 @@ export function ProjectileAnimation() {
 
       <div className="bg-muted p-2 rounded-md">
         <svg viewBox="0 0 300 150" className="w-full h-auto">
-            <path d={path} className="projectile-path" style={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}/>
+            <path d={path} className="projectile-path" style={{ strokeDasharray: 1000, strokeDashoffset: isAnimating ? 1000: 0 }}/>
             <path d={path} className={isAnimating ? 'animate' : ''} >
                 <circle r="4" className={`ball ${isAnimating ? 'animate' : ''}`} />
             </path>
@@ -123,7 +125,7 @@ export function ProjectileAnimation() {
           <Play className="mr-2" />
           Launch
         </Button>
-        <Button onClick={handleReset} variant="outline" disabled={!isAnimating}>
+        <Button onClick={handleReset} variant="outline">
           <Repeat className="mr-2" />
           Reset
         </Button>

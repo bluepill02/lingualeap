@@ -131,6 +131,3 @@ export function KinematicsGraphAnimation() {
     </div>
   );
 }
-
-
-    
