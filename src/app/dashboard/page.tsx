@@ -336,9 +336,11 @@ export default function DashboardPage() {
                           </div>
                       ))}
                   </div>
-                  <Button variant="outline" className="w-full mt-6">
-                      View Circle
-                  </Button>
+                    <Link href={`/companion-circles/${companionCircle.id}`}>
+                        <Button variant="outline" className="w-full mt-6">
+                            View Circle
+                        </Button>
+                  </Link>
               </CardContent>
           </Card>
       )
