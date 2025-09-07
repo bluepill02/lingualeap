@@ -84,7 +84,7 @@ export function ProjectileAnimation() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <Label htmlFor="angle-slider">Angle: {angle}°</Label>
+          <Label htmlFor="angle-slider">Angle: ${angle}°</Label>
           <Slider
             id="angle-slider"
             min={1}
@@ -96,7 +96,7 @@ export function ProjectileAnimation() {
           />
         </div>
         <div>
-          <Label htmlFor="velocity-slider">Velocity: {velocity} m/s</Label>
+          <Label htmlFor="velocity-slider">Velocity: ${velocity} m/s</Label>
           <Slider
             id="velocity-slider"
             min={10}
