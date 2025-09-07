@@ -18,6 +18,7 @@ import { Separator } from '@/components/ui/separator';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { StudyBuddyFinder } from '@/components/circles/study-buddy-finder';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -227,7 +228,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
           } else {
               await joinCircle(mockUser.id, circle.id);
               setIsMember(true);
-              const userToAdd = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl };
+              const userToAdd: Partial<User> = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl };
               setMembers(prev => [...prev, userToAdd as User]);
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
               setShowWelcomeWizard(true); // Trigger the welcome wizard
@@ -332,6 +333,8 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
                     ))}
                 </CardContent>
             </Card>
+            
+            <StudyBuddyFinder />
 
              <Button 
                 onClick={handleJoinLeave} 
@@ -389,4 +392,3 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
     </Dialog>
   );
 }
-
