@@ -264,10 +264,6 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
   const router = useRouter();
   const { toast } = useToast();
 
-  useEffect(() => {
-    setIsMember(circle.members.some(m => m.id === mockUser.id));
-  }, [circle.members]);
-
   const fetchPosts = useCallback(async () => {
       try {
           const postData = await getPostsForCircle(circle.id);
@@ -277,6 +273,11 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
           toast({ variant: 'destructive', title: 'Error', description: 'Could not load posts.' });
       }
   }, [circle.id, toast]);
+
+  useEffect(() => {
+    setIsMember(circle.members.some(m => m.id === mockUser.id));
+    fetchPosts();
+  }, [circle.members, fetchPosts]);
 
 
   const handleJoinLeave = async () => {
@@ -459,5 +460,3 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
     </Dialog>
   );
 }
-
-    
