@@ -127,13 +127,17 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
     const highWeightage = module.weightage > 20;
     const isAdvanced = module.difficultyLevel === 'Advanced';
     const isIntermediate = module.difficultyLevel === 'Intermediate';
+    const thirdSection = module.sections?.[2];
 
     if (isAdvanced && highWeightage) {
-        recommendation = `This is a high-weightage, Advanced module. We recommend allocating at least 3 study sessions. Focus heavily on understanding the nuances of the socio-political movements, as questions are often analytical. The '${module.sections[2].title}' section is particularly crucial.`;
+        const crucialSectionInfo = thirdSection 
+            ? `The '${thirdSection.title}' section is particularly crucial.`
+            : 'Focus on all sections, as they are advanced and carry high weightage.';
+        recommendation = `This is a high-weightage, Advanced module. We recommend allocating at least 3 study sessions. Focus heavily on understanding the nuances, as questions are often analytical. ${crucialSectionInfo}`;
     } else if (isIntermediate && highWeightage) {
-        recommendation = `This Intermediate module has significant weightage. Ensure you master the key terms from the 'Context' tab and aim for over 80% in the 'Practice' section. Pay close attention to the chronology of events in the Freedom Struggle.`;
+        recommendation = `This Intermediate module has significant weightage. Ensure you master the key terms from the 'Context' tab and aim for over 80% in the 'Practice' section. Pay close attention to the chronology of events.`;
     } else if (isAdvanced) {
-        recommendation = `Though this is an Advanced module, its weightage is moderate. Focus on one deep study session, prioritizing the 'Freedom Struggle' section and its key figures.`;
+        recommendation = `Though this is an Advanced module, its weightage is moderate. Focus on one deep study session, prioritizing understanding the core concepts over rote memorization.`;
     } else {
         recommendation = `This is a Foundation module. A strong understanding here is crucial for more advanced topics. Focus on mastering all the flashcards in the Spaced Repetition section to build a solid base.`;
     }
