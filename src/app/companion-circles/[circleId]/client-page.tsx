@@ -222,8 +222,8 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
           } else {
               await joinCircle(mockUser.id, circle.id);
               setIsMember(true);
-              const userToAdd = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl, email: mockUser.email, streak: mockUser.streak, xp: mockUser.xp, language: mockUser.language, timezone: mockUser.timezone, isPro: mockUser.isPro, proficiency: mockUser.proficiency, goals: mockUser.goals, persona: mockUser.persona };
-              setMembers(prev => [...prev, userToAdd]);
+              const userToAdd = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl };
+              setMembers(prev => [...prev, userToAdd as User]);
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
           }
       } catch (error) {
