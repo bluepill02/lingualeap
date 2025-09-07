@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserPlus, MessageCircle, BookCopy, Share2, Calendar, Shield, Info } from 'lucide-react';
+import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserPlus, MessageCircle, BookCopy, Share2, Calendar, Shield, Info, PlusCircle } from 'lucide-react';
 import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
@@ -15,6 +15,7 @@ import { getCircles, getCircleMembers } from '@/services/circles';
 import Link from 'next/link';
 import { mockUser } from '@/lib/data';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { CreateCircleForm } from '@/components/circles/create-circle-form';
 
 const stats = [
     { title: 'My Circles', value: 0, subtitle: 'என் வட்டங்கள்' },
@@ -139,19 +140,21 @@ export default function CompanionCirclesPage() {
     });
     const [activeTab, setActiveTab] = useState('active_now');
     const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
+    const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+
+    const fetchCircles = async () => {
+        setIsLoading(true);
+        try {
+            const circles = await getCircles();
+            setAllCircles(circles);
+        } catch (error) {
+            console.error("Failed to fetch circles:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const fetchCircles = async () => {
-            setIsLoading(true);
-            try {
-                const circles = await getCircles();
-                setAllCircles(circles);
-            } catch (error) {
-                console.error("Failed to fetch circles:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
         fetchCircles();
     }, []);
 
@@ -166,7 +169,6 @@ export default function CompanionCirclesPage() {
 
     const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
     
-    // Update stats with dynamic count
     const dynamicStats = [
         { ...stats[0], value: myCirclesCount },
         ...stats.slice(1)
@@ -175,6 +177,28 @@ export default function CompanionCirclesPage() {
 
     return (
         <div className="container mx-auto space-y-8">
+             <div className="flex justify-between items-start">
+                <div>
+                    <h1 className="text-3xl font-bold font-headline">Companion Circles</h1>
+                    <p className="text-muted-foreground">Find your study community</p>
+                </div>
+                <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+                    <DialogTrigger asChild>
+                        <Button>
+                            <PlusCircle className="mr-2" />
+                            Create Circle
+                        </Button>
+                    </DialogTrigger>
+                    <CreateCircleForm 
+                        onCircleCreated={() => {
+                            fetchCircles();
+                            setIsCreateDialogOpen(false);
+                        }} 
+                    />
+                </Dialog>
+            </div>
+
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 {dynamicStats.map(stat => (
                     <Card key={stat.title}>
@@ -314,5 +338,3 @@ export default function CompanionCirclesPage() {
         </div>
     );
 }
-
-    

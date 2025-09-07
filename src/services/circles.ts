@@ -15,7 +15,8 @@ import {
     writeBatch,
     addDoc,
     serverTimestamp,
-    orderBy
+    orderBy,
+    setDoc
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
@@ -52,6 +53,32 @@ export async function seedCirclesData() {
         console.error('Error seeding companion circles data:', error);
     }
 }
+
+export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount'>): Promise<CompanionCircle> {
+    const newDocRef = doc(circlesCollection);
+    const userAsMember = {
+        id: mockUser.id,
+        name: mockUser.name,
+        avatarUrl: mockUser.avatarUrl,
+    };
+    const newCircle: CompanionCircle = {
+        ...circleData,
+        id: newDocRef.id,
+        members: [userAsMember],
+        memberCount: circleData.memberCount || 50, // Default member count
+        posts: 0,
+        resources: 0,
+    };
+
+    try {
+        await setDoc(newDocRef, newCircle);
+        return newCircle;
+    } catch (error) {
+        console.error("Error creating circle: ", error);
+        throw new Error("Failed to create the circle in the database.");
+    }
+}
+
 
 export async function getCircles(): Promise<CompanionCircle[]> {
     try {
