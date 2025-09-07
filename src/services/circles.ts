@@ -87,9 +87,19 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
     if (!memberIds || memberIds.length === 0) {
         return [];
     }
-    // Note: In a real app, this would query a 'users' collection in Firestore.
-    // For this prototype, we'll filter the mock data.
-    return allUsers.filter(user => memberIds.includes(user.id));
+    // In a real app, this would query a 'users' collection in Firestore.
+    // For this prototype, we'll filter the mock data, which is more resilient for dev.
+    try {
+        // This is a placeholder for a real user query.
+        // const q = query(collection(db, 'users'), where('id', 'in', memberIds));
+        // const snapshot = await getDocs(q);
+        // return snapshot.docs.map(doc => doc.data() as User);
+        return allUsers.filter(user => memberIds.includes(user.id));
+    } catch (error) {
+         console.error("Error fetching circle members: ", error);
+         // Fallback to mock data on error.
+        return allUsers.filter(user => memberIds.includes(user.id));
+    }
 }
 
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
@@ -163,11 +173,17 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         
         return snapshot.docs.map(doc => {
             const data = doc.data();
+            const comments = (data.comments || []).map((comment: any) => ({
+                ...comment,
+                createdAt: comment.createdAt?.toDate ? comment.createdAt.toDate().toISOString() : new Date().toISOString()
+            }))
+
             return {
                 id: doc.id,
                 ...data,
                 // Convert Firestore Timestamp to ISO string to ensure serializability
-                createdAt: data.createdAt?.toDate().toISOString() || new Date().toISOString(),
+                createdAt: data.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString(),
+                comments,
             } as CirclePost;
         });
     } catch (error) {
@@ -178,27 +194,33 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
 
 export async function togglePostReaction(circleId: string, postId: string, userId: string, reactionType: ReactionType): Promise<void> {
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
-    const postSnap = await getDoc(postRef);
+    
+    try {
+        const postSnap = await getDoc(postRef);
 
-    if (postSnap.exists()) {
-        const postData = postSnap.data();
-        const reactions = postData.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
-        
-        const reactionArray: string[] = reactions[reactionType] || [];
+        if (postSnap.exists()) {
+            const postData = postSnap.data();
+            const reactions = postData.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
+            
+            const reactionArray: string[] = reactions[reactionType] || [];
 
-        if (reactionArray.includes(userId)) {
-            // User is removing their reaction
-            await updateDoc(postRef, {
-                [`reactions.${reactionType}`]: arrayRemove(userId)
-            });
+            if (reactionArray.includes(userId)) {
+                // User is removing their reaction
+                await updateDoc(postRef, {
+                    [`reactions.${reactionType}`]: arrayRemove(userId)
+                });
+            } else {
+                // User is adding a new reaction
+                await updateDoc(postRef, {
+                    [`reactions.${reactionType}`]: arrayUnion(userId)
+                });
+            }
         } else {
-            // User is adding a new reaction
-            await updateDoc(postRef, {
-                [`reactions.${reactionType}`]: arrayUnion(userId)
-            });
+            throw new Error("Post not found");
         }
-    } else {
-        throw new Error("Post not found");
+    } catch(error) {
+        console.error("Error toggling reaction:", error);
+        throw error;
     }
 }
 
@@ -208,20 +230,21 @@ export async function addCommentToPost(circleId: string, postId: string, comment
         throw new Error("Comment cannot be empty.");
     }
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
-    const newComment: Omit<PostComment, 'id' | 'createdAt'> = {
+    
+    const newComment = {
         authorId: mockUser.id,
         authorName: mockUser.name,
         authorAvatarUrl: mockUser.avatarUrl,
         content: commentContent,
-    };
-    
-    // Firestore SDK will handle serverTimestamp on its own
-    const commentWithTimestamp = {
-        ...newComment,
-        createdAt: serverTimestamp()
+        createdAt: serverTimestamp() // Use server timestamp for consistency
     };
 
-    await updateDoc(postRef, {
-        comments: arrayUnion(commentWithTimestamp)
-    });
+    try {
+        await updateDoc(postRef, {
+            comments: arrayUnion(newComment)
+        });
+    } catch(error) {
+        console.error("Error adding comment:", error);
+        throw error;
+    }
 }

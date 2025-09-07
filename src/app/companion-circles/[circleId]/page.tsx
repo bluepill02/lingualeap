@@ -1,9 +1,13 @@
+
+'use server';
+
 import { getCircle, getCircleMembers, getPostsForCircle } from '@/services/circles';
 import { notFound } from 'next/navigation';
 import CircleDetailsClientPage from './client-page';
 import { CompanionCircle } from '@/lib/types';
+import { a } from '@react-spring/web';
 
-export default async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
+async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
   const circleData = await getCircle(params.circleId);
   
   if (!circleData) {
@@ -22,3 +26,4 @@ export default async function CircleDetailsPage({ params }: { params: { circleId
     />
   );
 }
+export default CircleDetailsPage;

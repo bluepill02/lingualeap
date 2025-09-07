@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostReaction } from '@/services/circles';
+import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostReaction, addCommentToPost } from '@/services/circles';
 import { mockUser } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
