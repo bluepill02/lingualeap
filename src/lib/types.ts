@@ -312,10 +312,6 @@ export interface PostComment {
 
 export type ReactionType = 'madeMeSmile' | 'helpful' | 'interesting' | 'mentorApproved';
 
-export interface PostReaction {
-    [key: string]: string[]; // e.g., { madeMeSmile: [userId1, userId2], ... }
-}
-
 export interface CirclePost {
     id: string;
     circleId: string;
