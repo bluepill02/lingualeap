@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2 } from 'lucide-react';
+import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserCheck } from 'lucide-react';
 import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
@@ -138,6 +138,7 @@ export default function CompanionCirclesPage() {
         subject: 'all',
         level: 'all',
         language: 'all',
+        type: 'all',
     });
     const [activeTab, setActiveTab] = useState('active_now');
 
@@ -161,7 +162,8 @@ export default function CompanionCirclesPage() {
         const matchesSubject = filters.subject === 'all' || circle.subject.toLowerCase() === filters.subject;
         const matchesLevel = filters.level === 'all' || circle.difficulty.toLowerCase() === filters.level;
         const matchesLanguage = filters.language === 'all' || circle.language.toLowerCase() === filters.language;
-        return matchesSearch && matchesSubject && matchesLevel && matchesLanguage;
+        const matchesType = filters.type === 'all' || circle.type === filters.type;
+        return matchesSearch && matchesSubject && matchesLevel && matchesLanguage && matchesType;
     });
 
     const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
@@ -198,7 +200,7 @@ export default function CompanionCirclesPage() {
                             onChange={e => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <Select onValueChange={value => setFilters(f => ({...f, subject: value}))} defaultValue="all">
                             <SelectTrigger>
                                 <SelectValue placeholder="All Subjects" />
@@ -230,6 +232,16 @@ export default function CompanionCirclesPage() {
                                 <SelectItem value="all">All Languages</SelectItem>
                                 <SelectItem value="english">English</SelectItem>
                                 <SelectItem value="tamil">Tamil</SelectItem>
+                            </SelectContent>
+                        </Select>
+                         <Select onValueChange={value => setFilters(f => ({...f, type: value}))} defaultValue="all">
+                            <SelectTrigger>
+                                <SelectValue placeholder="All Types" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="all">All Types</SelectItem>
+                                <SelectItem value="Mentor-led">Mentor-led</SelectItem>
+                                <SelectItem value="Peer Study">Peer Study</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
