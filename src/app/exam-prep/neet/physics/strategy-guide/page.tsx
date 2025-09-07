@@ -173,12 +173,19 @@ export default function NeetPhysicsStrategyGuidePage() {
                     english="Lastly, confidence without complacency is a signature trait. While toppers approach the subject with assurance—grounded in relentless practice and strong basics—they also stay humble, continually reviewing and updating their notes, mind maps, and formula sheets to avoid overconfidence-related errors on the exam day."
                     tamil="[Paragraph 5 in Tamil]"
                 /></p>
-                 <BilingualText english="**Structured Learning Plan for NEET Physics**" tamil="நீட் இயற்பியலுக்கான கட்டமைக்கப்பட்ட கற்றல் திட்டம்" />
+                <BilingualText english="**Structured Learning Plan for NEET Physics**" tamil="நீட் இயற்பியலுக்கான கட்டமைக்கப்பட்ட கற்றல் திட்டம்" />
                 <p><BilingualText english="A NEET Physics topper’s study plan is rooted in structure, discipline, and a deep awareness of the syllabus and exam trends. It delicately balances theory, numericals, revision, and testing." tamil="[Paragraph 6 in Tamil]" /></p>
                 
                 <BilingualText english="*Time Management and Daily Routine*" tamil="நேர மேலாண்மை மற்றும் தினசரி வழக்கம்" />
                 <p><BilingualText english="Toppers typically adhere to tailored daily and weekly schedules, balancing their time among Physics, Chemistry, and Biology, with an emphasis on Physics during their cognitive peak hours (usually mornings for numericals, evenings for revision). A classic topper routine may involve 2–3 hours of focused Physics study daily, with slots dedicated to:" tamil="[Paragraph 7 in Tamil]" /></p>
-                
+                 <ul>
+                    <li><BilingualText english="Conceptual reading from NCERT and standard reference books" tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Practicing at least 30–50 objective NEET-style MCQs" tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Solving 5–10 NEET past year problems or mock questions from the current focus chapter" tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Revising difficult formulas and derivations using mind maps and short notes8" tamil="[List item in Tamil]" /></li>
+                 </ul>
+                <p><BilingualText english="Weekly, students allocate 10–12 hours for Physics during peak preparation months, supplemented by regular MCQ sessions and mock tests under timed conditions. Importantly, the topper’s timetable incorporates scheduled breaks, ensuring sustained productivity and cognitive freshness." tamil="[Paragraph in Tamil]" /></p>
+
                 <BilingualText english="*Syllabus Prioritization and Sequencing*" tamil="பாடத்திட்ட முன்னுரிமை மற்றும் வரிசைப்படுத்தல்" />
                 <p><BilingualText english="A common mistake is to treat all Physics chapters with equal immediacy or to proceed linearly as per textbooks. Toppers, in contrast, sequence their preparation based on conceptual hierarchy and NEET weightage. For example, Mechanics (Kinematics, Laws of Motion, Work-Energy, Gravitation, etc.) forms the bedrock for understanding both Class 11 and 12 physics and typically contributes 25–30% to the Physics section. Once the fundamentals are strong, toppers progressively tackle Thermodynamics, Electrodynamics, Optics, and Modern Physics, ensuring each subsequent topic builds upon earlier knowledge." tamil="[Paragraph 8 in Tamil]" /></p>
                 <p><BilingualText english="A sample “conceptual build-up” progression might look as follows:" tamil="[Sample progression intro in Tamil]" /></p>
@@ -212,6 +219,12 @@ export default function NeetPhysicsStrategyGuidePage() {
 
                 <BilingualText english="*Why Is It Essential for NEET?*" tamil="[Subtitle in Tamil]" />
                 <p><BilingualText english="Modern NEET questions are increasingly application-based and test the candidate's reasoning more than memory. Questions might combine concepts from rotational dynamics, friction, and kinematics in a single scenario, or ask for the interpretation of a graphical representation. Conceptual clarity confers the following advantages:" tamil="[Paragraph in Tamil]" /></p>
+                 <ul>
+                    <li><BilingualText english="Enables Synthesis: Students can tackle multi-layered problems drawing from multiple topics." tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Reduces Error: Conceptual understanding minimizes silly mistakes, especially with tricky sign conventions or boundary conditions." tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Accelerates Problem-Solving: With deeper understanding, students can quickly identify the relevant principles and formulas, saving critical seconds per question." tamil="[List item in Tamil]" /></li>
+                    <li><BilingualText english="Builds Confidence: Clear reasoning replaces panic or guesswork during difficult or unexpected questions, enhancing overall test-day performance." tamil="[List item in Tamil]" /></li>
+                </ul>
 
                 <BilingualText english="*Building and Maintaining Conceptual Clarity*" tamil="[Subtitle in Tamil]" />
                 <ul>
@@ -283,3 +296,4 @@ export default function NeetPhysicsStrategyGuidePage() {
     </div>
   );
 }
+
