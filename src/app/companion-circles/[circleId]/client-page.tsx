@@ -9,7 +9,7 @@ import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } fro
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,6 +17,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { Separator } from '@/components/ui/separator';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { motion } from 'framer-motion';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -193,6 +194,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
   const [isPosting, setIsPosting] = useState(false);
   const [isMember, setIsMember] = useState(false);
   const [isUpdatingMembership, setIsUpdatingMembership] = useState(false);
+  const [showWelcomeWizard, setShowWelcomeWizard] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
@@ -225,6 +227,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
               const userToAdd = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl };
               setMembers(prev => [...prev, userToAdd as User]);
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
+              setShowWelcomeWizard(true); // Trigger the welcome wizard
           }
       } catch (error) {
           console.error("Failed to update membership:", error);
@@ -251,6 +254,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
   }
 
   return (
+    <Dialog open={showWelcomeWizard} onOpenChange={setShowWelcomeWizard}>
     <div className="container mx-auto space-y-6">
       <header>
         <Button variant="ghost" onClick={() => router.back()} className="mb-4">
@@ -345,5 +349,41 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
         </div>
       </div>
     </div>
+    {circle && (
+        <DialogContent>
+            <DialogHeader className="text-center">
+                <div className="mx-auto w-16 h-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
+                    <PartyPopper className="w-8 h-8 text-green-500" />
+                </div>
+                <DialogTitle className="text-2xl">Welcome to {circle.name}!</DialogTitle>
+                <DialogDescription>
+                    We're excited to have you. Here are a few things to get you started.
+                </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4">
+                <div>
+                    <h4 className="font-semibold flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-primary"/> Group Norms</h4>
+                    <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1 pl-4">
+                        {circle.groupNorms?.map((norm, i) => <li key={i}>{norm}</li>)}
+                    </ul>
+                </div>
+                 <div>
+                    <h4 className="font-semibold flex items-center gap-2"><Calendar className="w-4 h-4 text-primary"/> Upcoming Events</h4>
+                     {circle.upcomingEvents && circle.upcomingEvents.length > 0 ? (
+                        <ul className="list-disc list-inside text-sm text-muted-foreground mt-2 space-y-1 pl-4">
+                            {circle.upcomingEvents.map((event, i) => <li key={i}>{event}</li>)}
+                        </ul>
+                     ): (
+                        <p className="text-sm text-muted-foreground mt-2 pl-4">No upcoming events scheduled yet. Stay tuned!</p>
+                     )}
+                </div>
+                <Button className="w-full" onClick={() => setShowWelcomeWizard(false)}>
+                    Got it, thanks!
+                </Button>
+            </div>
+        </DialogContent>
+    )}
+    </Dialog>
   );
 }
+
