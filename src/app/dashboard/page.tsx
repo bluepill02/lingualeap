@@ -33,6 +33,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { getWeek, format } from 'date-fns';
 import { useEffect, useState } from 'react';
+import { LessonCarousel } from '@/components/dashboard/lesson-carousel';
 
 export default function DashboardPage() {
   const [greeting, setGreeting] = useState('');
@@ -153,41 +154,6 @@ export default function DashboardPage() {
             <Button className="w-full" size="lg">
               Start Smart Session
             </Button>
-          </Link>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  function ContinueLearningCard() {
-    return (
-      <Card className="bg-card/50">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <Play className="h-5 w-5 text-primary" />
-            Continue Learning
-          </CardTitle>
-          <CardDescription>Keep up the great work!</CardDescription>
-        </CardHeader>
-        <CardContent className="text-center">
-          <div className="flex justify-around">
-            <div>
-              <p className="text-2xl font-bold">{lessons.length}</p>
-              <p className="text-sm text-muted-foreground">Lessons</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold">{flashcards.length}</p>
-              <p className="text-sm text-muted-foreground">Flashcards</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold">15</p>
-              <p className="text-sm text-muted-foreground">Minutes</p>
-            </div>
-          </div>
-          <Link href="/lessons">
-              <Button className="w-full mt-6" size="lg">
-              Start New Lesson
-              </Button>
           </Link>
         </CardContent>
       </Card>
@@ -393,12 +359,17 @@ export default function DashboardPage() {
             </Card>
           ))}
         </div>
-        <SmartStudyPlanCard />
+        
+        <div>
+          <h2 className="text-xl font-bold font-headline mb-4">Recommended Lessons</h2>
+          <LessonCarousel lessons={lessons} />
+        </div>
+
         <CompanionCircleCard />
       </div>
 
       <div className="space-y-6">
-        <ContinueLearningCard />
+        <SmartStudyPlanCard />
         <LearningAnalyticsCard />
       </div>
     </div>
