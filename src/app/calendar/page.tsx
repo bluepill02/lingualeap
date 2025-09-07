@@ -71,20 +71,27 @@ export default function CalendarPage() {
                     onSelect={setDate}
                     className="p-3"
                     components={{
-                        DayContent: ({ date }) => {
+                        DayContent: ({ date, ...props }) => {
                             const dayEvents = events.filter(event => isSameDay(event.date, date));
-                            return (
-                                <div className="relative h-full w-full">
-                                    <span className="relative">{format(date, 'd')}</span>
-                                    {dayEvents.length > 0 && (
-                                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex space-x-1">
+                            const dayNumber = format(date, 'd');
+
+                            // Use DayPicker's default rendering for other props
+                            const defaultContent = <div {...props.dayProps}>{dayNumber}</div>;
+
+                            if (dayEvents.length > 0) {
+                                return (
+                                    <div className="relative h-full w-full flex items-center justify-center">
+                                       <span>{dayNumber}</span>
+                                        <div className="absolute bottom-1 flex space-x-1">
                                             {dayEvents.slice(0, 3).map(event => (
                                                 <div key={event.id} className={cn("h-1.5 w-1.5 rounded-full", eventTypeConfig[event.type].color)}></div>
                                             ))}
                                         </div>
-                                    )}
-                                </div>
-                            )
+                                    </div>
+                                )
+                            }
+                            // Fallback to default if no events
+                            return defaultContent;
                         }
                     }}
                  />
@@ -136,7 +143,7 @@ export default function CalendarPage() {
                                         <span>{format(event.date, 'eeee, MMMM d, yyyy • p')}</span>
                                       </div>
                                       <Button className="w-full">
-                                        <config.icon className="mr-2 h-4 w-4" />
+                                        <Icon className="mr-2 h-4 w-4" />
                                         {config.action}
                                       </Button>
                                     </div>
