@@ -1,22 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { initializeApp, getApps } from "firebase/app";
+import { db } from "@/lib/firebase"; // Use the central Firebase instance
 import {
-  getFirestore,
   collection,
   getDocs,
   doc,
   updateDoc,
 } from "firebase/firestore";
 import { getGoogleModel } from "@/lib/genkit";
-
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
-};
-
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
-const db = getFirestore(app);
 
 export async function POST(req: NextRequest) {
   try {

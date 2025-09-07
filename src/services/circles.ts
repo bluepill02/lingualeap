@@ -19,11 +19,11 @@ import {
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost } from '@/lib/types';
+import { getAuth } from 'firebase/auth';
 
 const circlesCollection = collection(db, 'companion-circles');
 
-// Function to seed the database with initial data from /lib/data.ts
-// This should be run once, or when you need to reset the data.
+// This function is for development and can be removed in production
 export async function seedCirclesData() {
     console.log('Starting to seed companion circles data...');
     const batch = writeBatch(db);
@@ -51,6 +51,8 @@ export async function getCircles(): Promise<CompanionCircle[]> {
     try {
         const snapshot = await getDocs(circlesCollection);
         if (snapshot.empty) {
+            // In a real production app, you might not want to auto-seed.
+            // This is here for prototype convenience.
             await seedCirclesData();
             const seededSnapshot = await getDocs(circlesCollection);
             return seededSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as CompanionCircle));
@@ -84,17 +86,19 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
     }
     // Note: In a real app, this would query a 'users' collection in Firestore.
     // For this prototype, we'll filter the mock data.
-    const members = allUsers.filter(user => memberIds.includes(user.id));
-    return members;
+    return allUsers.filter(user => memberIds.includes(user.id));
 }
 
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userRef = allUsers.find(u => u.id === userId);
-        if(!userRef) throw new Error("User not found");
+        const userToJoin = allUsers.find(u => u.id === userId) || mockUser; // Fallback to mockUser
 
-        const memberData = { id: userRef.id, name: userRef.name, avatarUrl: userRef.avatarUrl };
+        const memberData = { 
+            id: userToJoin.id, 
+            name: userToJoin.name, 
+            avatarUrl: userToJoin.avatarUrl 
+        };
         
         await updateDoc(circleRef, {
             members: arrayUnion(memberData)
@@ -108,10 +112,13 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userRef = allUsers.find(u => u.id === userId);
-        if(!userRef) throw new Error("User not found");
+        const userToLeave = allUsers.find(u => u.id === userId) || mockUser;
 
-        const memberData = { id: userRef.id, name: userRef.name, avatarUrl: userRef.avatarUrl };
+        const memberData = { 
+            id: userToLeave.id, 
+            name: userToLeave.name, 
+            avatarUrl: userToLeave.avatarUrl 
+        };
 
         await updateDoc(circleRef, {
             members: arrayRemove(memberData)
@@ -127,6 +134,8 @@ export async function addPostToCircle(circleId: string, content: string): Promis
         throw new Error("Post content cannot be empty.");
     }
     try {
+        // In a real app, you'd get the current user from auth state.
+        // For this prototype, we'll continue using the mockUser.
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
         await addDoc(postsCollection, {
             authorId: mockUser.id,
