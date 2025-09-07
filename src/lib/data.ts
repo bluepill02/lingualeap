@@ -1,5 +1,5 @@
 
-import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass } from './types';
+import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost } from './types';
 import { learnerPersonas } from './personas';
 
 export const mockUser: User = {
@@ -920,4 +920,28 @@ export const liveClasses: LiveClass[] = [
     },
 ];
 
-    
+export const circlePosts: Omit<CirclePost, 'id'>[] = [
+  {
+    circleId: 'circle-1',
+    authorId: 'user-2',
+    authorName: 'Priya Sharma',
+    authorAvatarUrl: 'https://picsum.photos/100/100?a=2',
+    content: 'Struggling with problems related to moment of inertia. Can anyone share some good resources or a simple way to remember the theorems?',
+    createdAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+    isPinned: true,
+    reactions: { madeMeSmile: ['user-4'], helpful: ['user-1', 'user-3'], interesting: [] },
+    comments: [
+      { id: 'comment-1', authorId: 'user-4', authorName: 'Arjun Krishnan', authorAvatarUrl: 'https://picsum.photos/100/100?a=4', content: 'The Parallel Axis Theorem is key! Remember it as I = I_cm + Md^2. I found a great video on it, will share the link.', createdAt: new Date(Date.now() - 1 * 60 * 60 * 1000).toISOString() }
+    ]
+  },
+  {
+    circleId: 'circle-1',
+    authorId: 'user-1',
+    authorName: 'Alex',
+    authorAvatarUrl: 'https://picsum.photos/100/100?a=1',
+    content: '[quiz]\nWhich of the following has the highest moment of inertia for the same mass and radius?\nA solid sphere, A hollow sphere, A solid cylinder, A circular disk\nHollow sphere\nThe more mass is distributed away from the axis of rotation, the higher the moment of inertia. A hollow sphere has all its mass at the maximum distance (the radius).',
+    createdAt: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+    reactions: { madeMeSmile: [], helpful: ['user-2'], interesting: ['user-4', 'user-3'] },
+    comments: []
+  },
+];

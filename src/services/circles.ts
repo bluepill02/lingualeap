@@ -170,26 +170,12 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         const q = query(postsCollection, orderBy('isPinned', 'desc'), orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(q);
         
-        if (snapshot.empty) {
-            await seedCirclesData();
-            const seededSnapshot = await getDocs(q);
-             return seededSnapshot.docs.map(doc => {
-                const data = doc.data();
-                return {
-                    ...data,
-                    id: doc.id,
-                    createdAt: new Date().toISOString(), // Mock date
-                    comments: (data.comments || []).map((c:any) => ({...c, createdAt: new Date().toISOString()}))
-                } as CirclePost
-            });
-        }
-
-        return snapshot.docs.map(doc => {
+        const mapDocToPost = (doc: any) => {
             const data = doc.data();
             const comments = (data.comments || []).map((comment: any) => ({
                 ...comment,
                 createdAt: comment.createdAt?.toDate ? comment.createdAt.toDate().toISOString() : new Date().toISOString()
-            }))
+            }));
 
             return {
                 id: doc.id,
@@ -197,10 +183,28 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
                 createdAt: data.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString(),
                 comments,
             } as CirclePost;
-        });
+        };
+
+        if (snapshot.empty) {
+            console.log(`No posts found for circle ${circleId}. Attempting to seed data.`);
+            await seedCirclesData(); // This should be idempotent
+            const seededSnapshot = await getDocs(q);
+            if (seededSnapshot.empty) {
+                 console.warn(`Seeding did not result in posts for circle ${circleId}. Returning empty array.`);
+                 return [];
+            }
+            return seededSnapshot.docs.map(mapDocToPost);
+        }
+
+        return snapshot.docs.map(mapDocToPost);
     } catch (error) {
         console.error("Error fetching posts for circle: ", error);
-        return [];
+        // Fallback to mock data on error
+        return circlePosts.filter(p => p.circleId === circleId).map(p => ({
+            ...p,
+            id: `mock-${Math.random()}`,
+            comments: p.comments.map(c => ({...c, id: `mock-comment-${Math.random()}`}))
+        })) as CirclePost[];
     }
 }
 
