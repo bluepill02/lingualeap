@@ -6,7 +6,7 @@ import { NeetModule } from '@/lib/types';
 
 
 export default async function NeetChemistryChapterPage({ params }: { params: { chapter: string } }) {
-    const content = getNeetContent(params.chapter) as NeetModule | undefined;
+    const content = getNeetContent(params.chapter);
 
     if (!content) {
         notFound();
