@@ -414,7 +414,7 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
                 <ArrowLeft className="h-6 w-6" />
                 </Button>
                 <div>
-                <h1 className="text-2xl">
+                <h1 className="text-2xl font-bold font-headline">
                     {language === 'english' ? module.title : module.titleTamil}
                 </h1>
                 <div className="flex items-center gap-4 text-muted-foreground text-sm mt-2">

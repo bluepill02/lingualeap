@@ -100,7 +100,7 @@ export default function TnpscContentScreen() {
                 </Button>
             </Link>
             <div>
-              <h1 className="text-3xl">TNPSC Preparation</h1>
+              <h1 className="text-3xl font-bold font-headline">TNPSC Preparation</h1>
               <h2 className="text-muted-foreground text-lg">தேர்வுக்குத் தயாராகுங்கள்</h2>
               <div className="flex items-center gap-4 mt-2">
                 <Badge variant="secondary">
