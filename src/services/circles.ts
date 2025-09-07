@@ -17,7 +17,7 @@ import {
     serverTimestamp,
     orderBy
 } from 'firebase/firestore';
-import { companionCircles, allUsers, mockUser } from '@/lib/data';
+import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
 import { getAuth } from 'firebase/auth';
 
@@ -39,6 +39,12 @@ export async function seedCirclesData() {
         batch.set(docRef, circle);
     });
 
+    circlePosts.forEach(post => {
+        const postRef = doc(collection(db, 'companion-circles', post.circleId, 'posts'));
+        batch.set(postRef, { ...post, createdAt: serverTimestamp() });
+    });
+
+
     try {
         await batch.commit();
         console.log('Successfully seeded companion circles data.');
@@ -51,8 +57,6 @@ export async function getCircles(): Promise<CompanionCircle[]> {
     try {
         const snapshot = await getDocs(circlesCollection);
         if (snapshot.empty) {
-            // In a real production app, you might not want to auto-seed.
-            // This is here for prototype convenience.
             await seedCirclesData();
             const seededSnapshot = await getDocs(circlesCollection);
             return seededSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id } as CompanionCircle));
@@ -77,7 +81,6 @@ export async function getCircle(id: string): Promise<CompanionCircle | null> {
         }
     } catch (error) {
         console.error("Error fetching circle: ", error);
-        // Fallback to mock data on error as well for development robustness
         const mockCircle = companionCircles.find(c => c.id === id);
         return mockCircle || null;
     }
@@ -87,17 +90,10 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
     if (!memberIds || memberIds.length === 0) {
         return [];
     }
-    // In a real app, this would query a 'users' collection in Firestore.
-    // For this prototype, we'll filter the mock data, which is more resilient for dev.
     try {
-        // This is a placeholder for a real user query.
-        // const q = query(collection(db, 'users'), where('id', 'in', memberIds));
-        // const snapshot = await getDocs(q);
-        // return snapshot.docs.map(doc => doc.data() as User);
         return allUsers.filter(user => memberIds.includes(user.id));
     } catch (error) {
          console.error("Error fetching circle members: ", error);
-         // Fallback to mock data on error.
         return allUsers.filter(user => memberIds.includes(user.id));
     }
 }
@@ -105,7 +101,7 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userToJoin = allUsers.find(u => u.id === userId) || mockUser; // Fallback to mockUser
+        const userToJoin = allUsers.find(u => u.id === userId) || mockUser;
 
         const memberData = { 
             id: userToJoin.id, 
@@ -151,8 +147,6 @@ export async function addPostToCircle(circleId: string, content: string): Promis
         throw new Error("Post content cannot be empty.");
     }
     try {
-        // In a real app, you'd get the current user from auth state.
-        // For this prototype, we'll continue using the mockUser.
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
         await addDoc(postsCollection, {
             authorId: mockUser.id,
@@ -176,6 +170,20 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         const q = query(postsCollection, orderBy('isPinned', 'desc'), orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(q);
         
+        if (snapshot.empty) {
+            await seedCirclesData();
+            const seededSnapshot = await getDocs(q);
+             return seededSnapshot.docs.map(doc => {
+                const data = doc.data();
+                return {
+                    ...data,
+                    id: doc.id,
+                    createdAt: new Date().toISOString(), // Mock date
+                    comments: (data.comments || []).map((c:any) => ({...c, createdAt: new Date().toISOString()}))
+                } as CirclePost
+            });
+        }
+
         return snapshot.docs.map(doc => {
             const data = doc.data();
             const comments = (data.comments || []).map((comment: any) => ({
@@ -186,7 +194,6 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
             return {
                 id: doc.id,
                 ...data,
-                // Convert Firestore Timestamp to ISO string to ensure serializability
                 createdAt: data.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString(),
                 comments,
             } as CirclePost;
@@ -210,12 +217,10 @@ export async function togglePostReaction(circleId: string, postId: string, userI
             const reactionArray: string[] = reactions[reactionType] || [];
 
             if (reactionArray.includes(userId)) {
-                // User is removing their reaction
                 await updateDoc(postRef, {
                     [`reactions.${reactionType}`]: arrayRemove(userId)
                 });
             } else {
-                // User is adding a new reaction
                 await updateDoc(postRef, {
                     [`reactions.${reactionType}`]: arrayUnion(userId)
                 });
@@ -237,12 +242,12 @@ export async function addCommentToPost(circleId: string, postId: string, comment
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     
     const newComment = {
-        id: doc(collection(db, 'dummy')).id, // Generate a unique ID for the comment
+        id: doc(collection(db, 'dummy')).id, 
         authorId: mockUser.id,
         authorName: mockUser.name,
         authorAvatarUrl: mockUser.avatarUrl,
         content: commentContent,
-        createdAt: serverTimestamp() // Use server timestamp for consistency
+        createdAt: serverTimestamp() 
     };
 
     try {

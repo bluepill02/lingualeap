@@ -19,6 +19,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { StudyBuddyFinder } from '@/components/circles/study-buddy-finder';
+import { MiniQuiz } from '@/components/circles/mini-quiz';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -40,6 +41,22 @@ function CommentCard({ comment }: { comment: PostComment }) {
     )
 }
 
+function parseQuizContent(content: string) {
+  if (!content.startsWith('[quiz]')) {
+    return null;
+  }
+  const lines = content.replace('[quiz]', '').trim().split('\n');
+  const question = lines[0] || '';
+  const options = (lines[1] || '').split(',').map(o => o.trim());
+  const answer = lines[2] || '';
+  const explanation = lines[3] || '';
+
+  if (question && options.length === 4 && answer && explanation) {
+    return { question, options, answer, explanation };
+  }
+  return null;
+}
+
 
 function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: string, onUpdate: () => void }) {
     const [showComments, setShowComments] = useState(false);
@@ -48,6 +65,7 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
     const { toast } = useToast();
 
     const reactions = post.reactions || { madeMeSmile: [], helpful: [], interesting: [] };
+    const quizData = parseQuizContent(post.content);
 
     const handleReaction = async (reactionType: ReactionType) => {
         try {
@@ -100,7 +118,12 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                             </div>
                             {post.isPinned && <Pin className="w-4 h-4 text-primary" />}
                         </div>
-                        <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
+                        {quizData ? (
+                            <MiniQuiz {...quizData} />
+                        ) : (
+                             <p className="text-muted-foreground whitespace-pre-wrap mt-2">{post.content}</p>
+                        )}
+                       
                     </div>
                 </div>
 
@@ -289,10 +312,11 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
                 </CardHeader>
                 <CardContent>
                     <Textarea 
-                      placeholder="Share a question or an insight with the group..." 
+                      placeholder="Share a question or an insight with the group... To create a quiz post, start with [quiz] and then on separate lines: Question, Option A, Option B, Option C, Option D, Correct Option, Explanation" 
                       value={newPostContent}
                       onChange={(e) => setNewPostContent(e.target.value)}
                       disabled={!isMember || isPosting}
+                      className="min-h-[120px]"
                     />
                     <Button className="mt-2" onClick={handlePostSubmit} disabled={!isMember || isPosting || !newPostContent.trim()}>
                         {isPosting && <Loader2 className="mr-2 animate-spin" />}
