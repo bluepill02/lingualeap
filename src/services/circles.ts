@@ -71,12 +71,15 @@ export async function getCircle(id: string): Promise<CompanionCircle | null> {
         if (docSnap.exists()) {
             return { ...docSnap.data(), id: docSnap.id } as CompanionCircle;
         } else {
-            console.warn(`No circle found with id: ${id}`);
-            return null;
+            console.warn(`No circle found with id: ${id} in Firestore. Falling back to mock data.`);
+            const mockCircle = companionCircles.find(c => c.id === id);
+            return mockCircle || null;
         }
     } catch (error) {
         console.error("Error fetching circle: ", error);
-        return null;
+        // Fallback to mock data on error as well for development robustness
+        const mockCircle = companionCircles.find(c => c.id === id);
+        return mockCircle || null;
     }
 }
 
