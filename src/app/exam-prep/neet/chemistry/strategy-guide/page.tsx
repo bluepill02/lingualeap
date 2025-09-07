@@ -47,6 +47,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { InteractivePeriodicTable } from '@/components/exam/InteractivePeriodicTable';
 
 
 const sectionIcons = {
@@ -83,14 +84,15 @@ export default function NeetChemistryStrategyGuidePage() {
         </div>
       </header>
 
-      <Tabs defaultValue="topper-approach" className="w-full">
+      <Tabs defaultValue="deep-dive" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="deep-dive">Concept Deep Dive</TabsTrigger>
           <TabsTrigger value="topper-approach">Topper's Approach</TabsTrigger>
         </TabsList>
 
         <TabsContent value="deep-dive" className="mt-6">
-            <div className="flex justify-end mb-4">
+            <InteractivePeriodicTable />
+            <div className="flex justify-end my-4">
                 <div className="flex bg-muted rounded-lg p-1">
                     <Button
                         size="sm"
