@@ -278,6 +278,7 @@ export interface CompanionCircle {
     type: 'Mentor-led' | 'Peer Study';
     subject: string;
     difficulty: 'Foundation' | 'Bridge' | 'Core';
+    format: 'Chat' | 'Live Session' | 'Resource Hub';
     language: 'English' | 'Tamil' | 'Multi Language';
     members: {
         id: string;

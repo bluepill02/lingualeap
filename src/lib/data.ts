@@ -43,6 +43,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Physics',
     difficulty: 'Core',
     language: 'Multi Language',
+    format: 'Live Session',
     members: [{id: 'user-4', name: 'Arjun Krishnan', avatarUrl: 'https://picsum.photos/100/100?a=4'}, {id: 'user-2', name: 'Priya Sharma', avatarUrl: 'https://picsum.photos/100/100?a=2'}],
   },
   {
@@ -57,6 +58,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Biology',
     difficulty: 'Bridge',
     language: 'Multi Language',
+    format: 'Resource Hub',
     members: allUsers.slice(2, 6).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
   },
   {
@@ -71,6 +73,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Chemistry',
     difficulty: 'Foundation',
     language: 'Multi Language',
+    format: 'Chat',
     members: allUsers.slice(4, 7).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
   },
   {
@@ -85,6 +88,7 @@ export const companionCircles: CompanionCircle[] = [
     subject: 'Calculus',
     difficulty: 'Core',
     language: 'Multi Language',
+    format: 'Live Session',
     members: [{id: 'user-8', name: 'Sofia', avatarUrl: 'https://picsum.photos/100/100?a=8'}, {id: 'user-10', name: 'Aarav', avatarUrl: 'https://picsum.photos/100/100?a=10'}],
   },
 ];
@@ -778,7 +782,7 @@ export const allMicroLessons: MicroLesson[] = [
         deckId: 'deck-sindhi-1',
         vocabulary: [
             { word: 'आयो लाल', romanization: 'Aayo Lal!', definition: 'Greetings (Jhulelal has come!)', ipa: '/aːjoː laːl/' },
-            { word: 'توهان ڪيئن آهيو؟', romanization: 'Tuhāṁ kī\'aṁ āhiyo?', definition: 'How are you?', ipa: '/t̪uhɑ̃ː kiːə̃ ɑːhiːjoː/' },
+            { word: 'तوهان ڪيئن آهيو؟', romanization: 'Tuhāṁ kī\'aṁ āhiyo?', definition: 'How are you?', ipa: '/t̪uhɑ̃ː kiːə̃ ɑːhiːjoː/' },
             { word: 'مان ీీక آهيان', romanization: 'Māṁ ṭhīk āhiyāṁ', definition: 'I am fine', ipa: '/mɑ̃ː ʈʰiːk ɑːhiːjɑ̃ː/' },
             { word: 'مهرباني', romanization: 'Meherbani', definition: 'Thank you', ipa: '/meːhəɾbaːniː/' },
             { word: 'جهولي لال', romanization: 'Jhulelal', definition: 'A revered deity for Sindhis', ipa: '/dʒʱuːleːlaːl/' },

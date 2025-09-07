@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserCheck } from 'lucide-react';
+import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSquare, Star, Video, TrendingUp, Atom, FlaskConical, Sigma, Briefcase, Loader2, UserCheck, MessageCircle, BookCopy, Share2 } from 'lucide-react';
 import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
@@ -137,7 +137,7 @@ export default function CompanionCirclesPage() {
     const [filters, setFilters] = useState({
         subject: 'all',
         level: 'all',
-        language: 'all',
+        format: 'all',
         type: 'all',
     });
     const [activeTab, setActiveTab] = useState('active_now');
@@ -161,9 +161,9 @@ export default function CompanionCirclesPage() {
         const matchesSearch = circle.name.toLowerCase().includes(searchQuery.toLowerCase()) || circle.description.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesSubject = filters.subject === 'all' || circle.subject.toLowerCase() === filters.subject;
         const matchesLevel = filters.level === 'all' || circle.difficulty.toLowerCase() === filters.level;
-        const matchesLanguage = filters.language === 'all' || circle.language.toLowerCase() === filters.language;
+        const matchesFormat = filters.format === 'all' || circle.format.toLowerCase().replace(' ', '-') === filters.format;
         const matchesType = filters.type === 'all' || circle.type === filters.type;
-        return matchesSearch && matchesSubject && matchesLevel && matchesLanguage && matchesType;
+        return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType;
     });
 
     const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
@@ -200,7 +200,7 @@ export default function CompanionCirclesPage() {
                             onChange={e => setSearchQuery(e.target.value)}
                         />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <Select onValueChange={value => setFilters(f => ({...f, subject: value}))} defaultValue="all">
                             <SelectTrigger>
                                 <SelectValue placeholder="All Subjects" />
@@ -215,23 +215,24 @@ export default function CompanionCirclesPage() {
                         </Select>
                          <Select onValueChange={value => setFilters(f => ({...f, level: value}))} defaultValue="all">
                             <SelectTrigger>
-                                <SelectValue placeholder="All Levels" />
+                                <SelectValue placeholder="All Difficulties" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="all">All Levels</SelectItem>
+                                <SelectItem value="all">All Difficulties</SelectItem>
                                 <SelectItem value="foundation">Foundation</SelectItem>
                                 <SelectItem value="bridge">Bridge</SelectItem>
                                 <SelectItem value="core">Core</SelectItem>
                             </SelectContent>
                         </Select>
-                         <Select onValueChange={value => setFilters(f => ({...f, language: value}))} defaultValue="all">
+                        <Select onValueChange={value => setFilters(f => ({...f, format: value}))} defaultValue="all">
                             <SelectTrigger>
-                                <SelectValue placeholder="All Languages" />
+                                <SelectValue placeholder="All Formats" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="all">All Languages</SelectItem>
-                                <SelectItem value="english">English</SelectItem>
-                                <SelectItem value="tamil">Tamil</SelectItem>
+                                <SelectItem value="all">All Formats</SelectItem>
+                                <SelectItem value="chat">Chat</SelectItem>
+                                <SelectItem value="live-session">Live Session</SelectItem>
+                                <SelectItem value="resource-hub">Resource Hub</SelectItem>
                             </SelectContent>
                         </Select>
                          <Select onValueChange={value => setFilters(f => ({...f, type: value}))} defaultValue="all">
@@ -245,7 +246,7 @@ export default function CompanionCirclesPage() {
                             </SelectContent>
                         </Select>
                     </div>
-                     <div className="flex items-center gap-2 border-b border-border pb-2">
+                     <div className="flex items-center gap-2 border-b border-border pb-2 overflow-x-auto">
                         <Button variant={activeTab === 'active_now' ? 'secondary' : 'ghost'} onClick={() => setActiveTab('active_now')}>
                             <Users className="mr-2"/> Active Now
                         </Button>

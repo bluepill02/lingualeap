@@ -122,6 +122,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
                     <Badge variant={circle.type === 'Mentor-led' ? 'warning' : 'secondary'}>{circle.type}</Badge>
                     <Badge variant="outline">{circle.subject}</Badge>
                     <Badge variant="outline">{circle.difficulty}</Badge>
+                    <Badge variant="outline">{circle.format}</Badge>
                 </div>
             </div>
         </div>
