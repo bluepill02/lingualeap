@@ -98,7 +98,12 @@ export function InteractivePeriodicTable() {
                 <div className="overflow-x-auto">
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(18, minmax(0, 1fr))', gap: '4px' }} className="min-w-[800px]">
                         {gridCells.flat().map((el, index) => {
-                            if (!el) return <div key={index} className="hidden md:block"></div>;
+                            if (!el) {
+                                // Use a unique key for empty placeholders
+                                const row = Math.floor(index / 18);
+                                const col = index % 18;
+                                return <div key={`empty-${row}-${col}`} className="hidden md:block"></div>;
+                            }
                             
                             const value = el.properties[selectedProperty]?.value ?? null;
                             const bgColor = showHeatmap ? getColorForValue(value, selectedProperty) : categoryColors[el.category];
