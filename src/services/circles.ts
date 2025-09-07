@@ -19,7 +19,7 @@ import {
     setDoc
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
-import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
+import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
 import { getAuth } from 'firebase/auth';
 
 const circlesCollection = collection(db, 'companion-circles');
@@ -37,7 +37,15 @@ export async function seedCirclesData() {
 
     companionCircles.forEach(circle => {
         const docRef = doc(db, 'companion-circles', circle.id);
-        batch.set(docRef, circle);
+        const { lessonPlan, ...circleData } = circle; // Separate lessonPlan
+        
+        // Convert lessonPlan tasks to a plain object for Firestore
+        const serializableLessonPlan = lessonPlan?.map(week => ({
+            ...week,
+            tasks: week.tasks.map(task => ({...task}))
+        }));
+
+        batch.set(docRef, {...circleData, lessonPlan: serializableLessonPlan || [] });
     });
 
     circlePosts.forEach(post => {
@@ -54,25 +62,25 @@ export async function seedCirclesData() {
     }
 }
 
-export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount'>): Promise<CompanionCircle> {
+export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount' | 'posts' | 'resources'>): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     const userAsMember = {
         id: mockUser.id,
         name: mockUser.name,
         avatarUrl: mockUser.avatarUrl,
     };
-    const newCircle: CompanionCircle = {
+    const newCircle: Omit<CompanionCircle, 'id'> & { id?: string } = {
         ...circleData,
         id: newDocRef.id,
         members: [userAsMember],
-        memberCount: circleData.memberCount || 50, // Default member count
+        memberCount: 50, // Default member count
         posts: 0,
         resources: 0,
     };
 
     try {
         await setDoc(newDocRef, newCircle);
-        return newCircle;
+        return { ...newCircle, id: newDocRef.id } as CompanionCircle;
     } catch (error) {
         console.error("Error creating circle: ", error);
         throw new Error("Failed to create the circle in the database.");
@@ -118,6 +126,7 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
         return [];
     }
     try {
+        // This is a mock implementation. In a real app, you'd query a 'users' collection.
         return allUsers.filter(user => memberIds.includes(user.id));
     } catch (error) {
          console.error("Error fetching circle members: ", error);

@@ -46,7 +46,6 @@ export function LessonPlanTimeline({ lessonPlan }: LessonPlanTimelineProps) {
           {lessonPlan.map((week, weekIndex) => {
             const isLocked = week.status === 'locked';
             const isCompleted = week.status === 'completed';
-            const weekProgress = (week.tasks.filter(t => t.completed).length / week.tasks.length) * 100;
             return (
               <Collapsible 
                 key={week.week} 

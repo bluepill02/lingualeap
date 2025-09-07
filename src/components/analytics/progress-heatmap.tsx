@@ -5,14 +5,14 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { User } from '@/lib/types';
+import { User, LessonPlanWeek } from '@/lib/types';
 import { getChapterProgressForUsers } from '@/services/neet-progress-service';
 import { Loader2, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ProgressHeatmapProps {
   members: Pick<User, 'id' | 'name'>[];
-  chapters: { week: number; topic: string }[];
+  chapters: LessonPlanWeek[];
 }
 
 const TOTAL_SECTIONS_PER_CHAPTER = 6; // As defined in neet-chapter-components
@@ -31,6 +31,8 @@ export function ProgressHeatmap({ members, chapters }: ProgressHeatmapProps) {
         })
         .catch(console.error)
         .finally(() => setIsLoading(false));
+    } else {
+        setIsLoading(false);
     }
   }, [members]);
   
@@ -48,16 +50,15 @@ export function ProgressHeatmap({ members, chapters }: ProgressHeatmapProps) {
     );
   }
 
-  const getProgressStatus = (userId: string, chapterWeek: number) => {
-    // This is a placeholder logic. In a real app, you'd map chapterWeek to a chapterId.
-    // For now, we'll just simulate progress.
-    const chapterId = `week-${chapterWeek}`; // This won't match real data yet.
+  const getProgressStatus = (userId: string, chapterTopic: string) => {
+    // This logic assumes chapter topics are unique identifiers for now.
+    // A real implementation would use a stable chapterId.
+    const chapterId = chapterTopic.toLowerCase().replace(/\s+/g, '-');
     const userProgress = progressData[userId];
-    if (!userProgress) return { percentage: 0, status: 'not-started' };
+    if (!userProgress || !userProgress[chapterId]) return { percentage: 0, status: 'not-started' };
     
-    // Let's use a mock logic for now since chapterId doesn't exist in progress data
-    const mockProgress = (userId.charCodeAt(5) + chapterWeek) % (TOTAL_SECTIONS_PER_CHAPTER + 1);
-    const percentage = Math.round((mockProgress / TOTAL_SECTIONS_PER_CHAPTER) * 100);
+    const completedSectionsCount = userProgress[chapterId].length;
+    const percentage = Math.round((completedSectionsCount / TOTAL_SECTIONS_PER_CHAPTER) * 100);
 
     let status: 'completed' | 'in-progress' | 'not-started' = 'not-started';
     if (percentage === 100) {
@@ -91,7 +92,7 @@ export function ProgressHeatmap({ members, chapters }: ProgressHeatmapProps) {
                 <TableRow key={member.id}>
                   <TableCell className="font-medium">{member.name}</TableCell>
                   {chapters.map(chapter => {
-                    const { percentage, status } = getProgressStatus(member.id, chapter.week);
+                    const { percentage, status } = getProgressStatus(member.id, chapter.topic);
                     return (
                       <TableCell key={chapter.week} className="text-center p-1">
                         <TooltipProvider>
