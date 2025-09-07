@@ -157,7 +157,7 @@ async function run() {
                   console.log(`✅ Validation passed for ${chapter} on attempt ${attempt}.`);
                   
                   const safeName = chapter.replace(/[\/&,]/g, '').replace(/\s+/g, '-').toLowerCase();
-                  const filePath = path.resolve(__dirname, `../../content/neet/${subject}`, `${safeName}.ts`);
+                  const filePath = path.resolve(__dirname, `../../public/content/neet/${subject}`, `${safeName}.ts`);
                   
                   fs.mkdirSync(path.dirname(filePath), { recursive: true });
                   fs.writeFileSync(filePath, currentContent);
