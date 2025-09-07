@@ -11,7 +11,7 @@ import { Users, Search, BookOpen, BarChart, Languages, ChevronRight, MessageSqua
 import type { CompanionCircle as CompanionCircleType, User } from '@/lib/types';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { getCircles } from '@/services/circles';
+import { getCircles, getCircleMembers } from '@/services/circles';
 import Link from 'next/link';
 import { mockUser } from '@/lib/data';
 
@@ -36,7 +36,23 @@ const getSubjectIcon = (subject: string) => {
 }
 
 
-function CircleCard({ circle, mentor }: { circle: CompanionCircleType, mentor: User | null }) {
+function CircleCard({ circle }: { circle: CompanionCircleType }) {
+    const [mentor, setMentor] = useState<User | null>(null);
+
+    useEffect(() => {
+        async function fetchMentor() {
+            if (circle.type === 'Mentor-led' && circle.members.length > 0) {
+                // In a real app, the mentor might be explicitly flagged.
+                // Here, we'll assume the first member is the mentor.
+                const members = await getCircleMembers([circle.members[0].id]);
+                if (members.length > 0) {
+                    setMentor(members[0]);
+                }
+            }
+        }
+        fetchMentor();
+    }, [circle]);
+
     return (
         <Card className="flex flex-col h-full hover:border-primary transition-all duration-300 hover:shadow-lg bg-card/50">
             <CardHeader>
@@ -240,7 +256,7 @@ export default function CompanionCirclesPage() {
             ) : filteredCircles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCircles.map(circle => (
-                        <CircleCard key={circle.id} circle={circle} mentor={circle.members[0]} />
+                        <CircleCard key={circle.id} circle={circle} />
                     ))}
                 </div>
             ) : (
