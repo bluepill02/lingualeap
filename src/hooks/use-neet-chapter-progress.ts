@@ -34,7 +34,7 @@ export function useNeetChapterProgress(userId: string, chapterId: string) {
                     // Optionally, implement a retry mechanism or user notification
                 });
         });
-    }, [userId, chapterId]);
+    }, [userId, chapterId, startTransition]);
 
 
     const toggleSection = useCallback((section: string) => {
