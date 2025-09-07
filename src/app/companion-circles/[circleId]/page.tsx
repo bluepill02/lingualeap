@@ -35,7 +35,8 @@ function PostCard({ post }: { post: CirclePost }) {
     )
 }
 
-export default function CircleDetailsPage({ params: { circleId } }: { params: { circleId: string } }) {
+export default function CircleDetailsPage({ params }: { params: { circleId: string } }) {
+  const { circleId } = params;
   const [circle, setCircle] = useState<CompanionCircle | null>(null);
   const [members, setMembers] = useState<User[]>([]);
   const [posts, setPosts] = useState<CirclePost[]>([]);
@@ -55,7 +56,7 @@ export default function CircleDetailsPage({ params: { circleId } }: { params: { 
           console.error("Failed to fetch posts:", error);
           toast({ variant: 'destructive', title: 'Error', description: 'Could not load posts.' });
       }
-  }, [circleId, toast]);
+  }, [toast]);
 
   useEffect(() => {
     async function fetchData() {
