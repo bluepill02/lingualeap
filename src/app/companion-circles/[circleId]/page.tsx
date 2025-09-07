@@ -35,7 +35,7 @@ function PostCard({ post }: { post: CirclePost }) {
     )
 }
 
-export default function CircleDetailsPage({ params }: { params: { circleId: string } }) {
+export default function CircleDetailsPage({ params: { circleId } }: { params: { circleId: string } }) {
   const [circle, setCircle] = useState<CompanionCircle | null>(null);
   const [members, setMembers] = useState<User[]>([]);
   const [posts, setPosts] = useState<CirclePost[]>([]);
@@ -49,19 +49,19 @@ export default function CircleDetailsPage({ params }: { params: { circleId: stri
 
   const fetchPosts = useCallback(async () => {
       try {
-          const postData = await getPostsForCircle(params.circleId);
+          const postData = await getPostsForCircle(circleId);
           setPosts(postData);
       } catch (error) {
           console.error("Failed to fetch posts:", error);
           toast({ variant: 'destructive', title: 'Error', description: 'Could not load posts.' });
       }
-  }, [params.circleId, toast]);
+  }, [circleId, toast]);
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const circleData = await getCircle(params.circleId);
+        const circleData = await getCircle(circleId);
         if (!circleData) {
           notFound();
           return;
@@ -83,7 +83,7 @@ export default function CircleDetailsPage({ params }: { params: { circleId: stri
       }
     }
     fetchData();
-  }, [params.circleId, toast, fetchPosts]);
+  }, [circleId, toast, fetchPosts]);
 
   const handleJoinLeave = async () => {
       if (!circle) return;
