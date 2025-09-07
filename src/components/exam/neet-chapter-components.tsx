@@ -34,6 +34,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 
 
 export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
@@ -383,7 +384,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                         <PracticeAnalytics mcqs={practiceMcqs} answers={practiceAnswers} submitted={isPracticeSubmitted} />
                     </TabsContent>
                     <TabsContent value="ai-practice" className="mt-4">
-                       <AiPracticeGenerator subject={subject} chapter={chapter} />
+                       <AiPracticeGenerator subject={subject} chapter={chapter} generatorFn={generateNeetQuiz} />
                     </TabsContent>
                 </Tabs>
                  <AnimatePresence>
