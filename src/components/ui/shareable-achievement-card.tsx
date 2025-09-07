@@ -53,5 +53,3 @@ export function ShareableAchievementCard({ lessonTitle, score, totalQuestions }:
     </Card>
   );
 }
-
-    
