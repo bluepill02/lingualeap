@@ -21,6 +21,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { StudyBuddyFinder } from '@/components/circles/study-buddy-finder';
 import { MiniQuiz } from '@/components/circles/mini-quiz';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { LessonPlanTimeline } from '@/components/circles/lesson-plan-timeline';
 
 function CommentCard({ comment }: { comment: PostComment }) {
     return (
@@ -326,6 +327,7 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
 
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 space-y-6">
+            {circle.type === 'Mentor-led' && <LessonPlanTimeline lessonPlan={circle.lessonPlan} />}
             <Card>
                 <CardHeader>
                     <CardTitle>Post Something</CardTitle>

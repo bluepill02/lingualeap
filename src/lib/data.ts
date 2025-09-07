@@ -1,5 +1,5 @@
 
-import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost } from './types';
+import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost, LessonPlanWeek } from './types';
 import { learnerPersonas } from './personas';
 
 export const mockUser: User = {
@@ -30,6 +30,13 @@ export const allUsers: User[] = [
     { id: 'user-10', name: 'Aarav', email: 'aarav@example.com', avatarUrl: 'https://picsum.photos/100/100?a=10', streak: 30, xp: 7500, language: 'Hindi', timezone: 'Asia/Kolkata', isPro: true, proficiency: 'Intermediate', goals: ['Exams'], persona: learnerPersonas[1].type },
 ];
 
+const sampleLessonPlan: LessonPlanWeek[] = [
+  { week: 1, topic: "Newton's Laws of Motion", status: 'completed', tasks: [{id: 'learn', label: 'Learn', completed: true}, {id: 'practice', label: 'Practice', completed: true}, {id: 'reflect', label: 'Reflect', completed: true}] },
+  { week: 2, topic: "Work, Energy, and Power", status: 'in-progress', tasks: [{id: 'learn', label: 'Learn', completed: true}, {id: 'practice', label: 'Practice', completed: false}, {id: 'reflect', label: 'Reflect', completed: false}] },
+  { week: 3, topic: "Thermodynamics", status: 'locked', tasks: [{id: 'learn', label: 'Learn', completed: false}, {id: 'practice', label: 'Practice', completed: false}, {id: 'reflect', label: 'Reflect', completed: false}] },
+  { week: 4, topic: "Ray Optics", status: 'locked', tasks: [{id: 'learn', label: 'Learn', completed: false}, {id: 'practice', label: 'Practice', completed: false}, {id: 'reflect', label: 'Reflect', completed: false}] },
+];
+
 export const companionCircles: CompanionCircle[] = [
   {
     id: 'circle-1',
@@ -47,6 +54,7 @@ export const companionCircles: CompanionCircle[] = [
     members: [{id: 'user-4', name: 'Arjun Krishnan', avatarUrl: 'https://picsum.photos/100/100?a=4'}, {id: 'user-2', name: 'Priya Sharma', avatarUrl: 'https://picsum.photos/100/100?a=2'}],
     groupNorms: ['Post at least one challenging problem per week.', 'Be respectful and constructive in feedback.', 'No spam or off-topic discussions.'],
     upcomingEvents: ['Weekly Doubt Clearing Session - Sat 7 PM', 'Live Problem Solving: Rotational Motion - Next Tue 8 PM'],
+    lessonPlan: sampleLessonPlan,
   },
   {
     id: 'circle-2',
@@ -98,6 +106,7 @@ export const companionCircles: CompanionCircle[] = [
     members: [{id: 'user-8', name: 'Sofia', avatarUrl: 'https://picsum.photos/100/100?a=8'}, {id: 'user-10', name: 'Aarav', avatarUrl: 'https://picsum.photos/100/100?a=10'}],
     groupNorms: ['Complete pre-session reading material.', 'Come prepared with questions for the mentor.', 'Help peers understand concepts during breakout rooms.'],
     upcomingEvents: ['Live Class: Integration by Parts - Tomorrow 7 PM', 'Office Hours with Mentor - Thu 5 PM'],
+    lessonPlan: sampleLessonPlan,
   },
 ];
 
@@ -941,6 +950,7 @@ export const circlePosts: Omit<CirclePost, 'id'>[] = [
     authorAvatarUrl: 'https://picsum.photos/100/100?a=1',
     content: '[quiz]\nWhich of the following has the highest moment of inertia for the same mass and radius?\nA solid sphere, A hollow sphere, A solid cylinder, A circular disk\nHollow sphere\nThe more mass is distributed away from the axis of rotation, the higher the moment of inertia. A hollow sphere has all its mass at the maximum distance (the radius).',
     createdAt: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(),
+    isPinned: false,
     reactions: { madeMeSmile: [], helpful: ['user-2'], interesting: ['user-4', 'user-3'] },
     comments: []
   },

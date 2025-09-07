@@ -267,6 +267,17 @@ export interface ExamModule {
     }[];
 }
 
+export interface LessonPlanWeek {
+  week: number;
+  topic: string;
+  status: 'locked' | 'in-progress' | 'completed';
+  tasks: {
+    id: 'learn' | 'practice' | 'reflect';
+    label: string;
+    completed: boolean;
+  }[];
+}
+
 export interface CompanionCircle {
     id: string;
     name: string;
@@ -287,6 +298,7 @@ export interface CompanionCircle {
     }[];
     groupNorms?: string[];
     upcomingEvents?: string[];
+    lessonPlan?: LessonPlanWeek[];
 }
 
 export interface PostComment {
@@ -306,6 +318,7 @@ export interface PostReaction {
 
 export interface CirclePost {
     id: string;
+    circleId: string;
     authorId: string;
     authorName: string;
     authorAvatarUrl: string;
