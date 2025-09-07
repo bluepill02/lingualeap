@@ -164,6 +164,24 @@
     .btn:active, .card:active, [role="button"]:active, a:active > .card {
         @apply transform scale-[0.98] brightness-95 transition-transform;
     }
+
+    /* Responsive Grid System */
+    .responsive-card-grid {
+      display: grid;
+      gap: 1.5rem; /* 24px */
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 640px) {
+      .responsive-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .responsive-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
 }
 
 /* Custom KaTeX font path overrides */
@@ -330,13 +348,13 @@
 }
 
 @media (min-width: 640px) {
-  .responsive-card-grid { grid-template-columns: repeat(2, 1fr); }
+  .responsive-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 1024px) {
-  .responsive-card-grid { grid-template-columns: repeat(3, 1fr); }
+  .responsive-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 1280px) {
-  .responsive-card-grid { grid-template-columns: repeat(4, 1fr); }
+  .responsive-card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* Typography Scaling System */
