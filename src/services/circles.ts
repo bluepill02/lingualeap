@@ -125,17 +125,21 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userToLeave = allUsers.find(u => u.id === userId) || mockUser;
+        const circleSnap = await getDoc(circleRef);
+        if (!circleSnap.exists()) {
+            throw new Error("Circle not found");
+        }
+        
+        const circleData = circleSnap.data() as CompanionCircle;
+        const memberToRemove = circleData.members.find(m => m.id === userId);
 
-        const memberData = { 
-            id: userToLeave.id, 
-            name: userToLeave.name, 
-            avatarUrl: userToLeave.avatarUrl 
-        };
-
-        await updateDoc(circleRef, {
-            members: arrayRemove(memberData)
-        });
+        if (memberToRemove) {
+            await updateDoc(circleRef, {
+                members: arrayRemove(memberToRemove)
+            });
+        } else {
+            console.warn(`User with id ${userId} not found in circle ${circleId}`);
+        }
     } catch (error) {
         console.error("Error leaving circle: ", error);
         throw error;
