@@ -310,5 +310,3 @@ export default function NeetPhysicsStrategyGuidePage() {
     </div>
   );
 }
-
-    
