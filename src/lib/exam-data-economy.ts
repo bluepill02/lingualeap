@@ -77,7 +77,7 @@ export const indianEconomyAndPlanning: TnpscModule = {
           correct: 2,
           explanation: "The Reserve Bank of India (RBI) is the central bank of the country and is responsible for formulating and implementing monetary policy to maintain price stability and ensure adequate credit flow.",
           explanationTamil: "இந்திய ரிசர்வ் வங்கி (RBI) நாட்டின் மத்திய வங்கியாகும், மேலும் விலை സ്ഥിരத்தன்மையைப் பராமரிக்கவும், போதுமான கடன் ஓட்டத்தை உறுதிப்படுத்தவும் பணவியல் கொள்கையை வகுத்து செயல்படுத்துவதற்குப் பொறுப்பாகும்.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "national-economy"
@@ -90,7 +90,7 @@ export const indianEconomyAndPlanning: TnpscModule = {
           correct: 2,
           explanation: "NITI Aayog was established on January 1, 2015, to replace the Planning Commission. It was created to foster cooperative federalism and act as a think tank for the government.",
           explanationTamil: "நிதி ஆயோக் ஜனவரி 1, 2015 அன்று திட்டக் குழுவிற்குப் பதிலாக நிறுவப்பட்டது. இது கூட்டுறவுக் கூட்டாட்சியை வளர்ப்பதற்கும் அரசாங்கத்திற்கான ஒரு சிந்தனைக் களஞ்சியமாகச் செயல்படுவதற்கும் உருவாக்கப்பட்டது.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2019],
           difficulty: "Easy",
           tnpscFrequency: 4,
           context: "national-economy"
@@ -103,7 +103,7 @@ export const indianEconomyAndPlanning: TnpscModule = {
           correct: 2,
           explanation: "Chennai is called the 'Detroit of Asia' because it is home to a large number of automobile manufacturing plants and ancillary industries, making it a major hub for car production in Asia.",
           explanationTamil: "சென்னை 'ஆசியாவின் டெட்ராய்ட்' என்று அழைக்கப்படுகிறது, ஏனெனில் இது அதிக எண்ணிக்கையிலான ஆட்டோமொபைல் உற்பத்தி ஆலைகள் மற்றும் துணைத் தொழில்களின் தாயகமாக உள்ளது, இது ஆசியாவில் கார் உற்பத்திக்கான ஒரு முக்கிய மையமாக விளங்குகிறது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2017],
           difficulty: "Medium",
           tnpscFrequency: 3,
           context: "tamil-nadu-economy"

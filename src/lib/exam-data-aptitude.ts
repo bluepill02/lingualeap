@@ -75,7 +75,7 @@ export const aptitudeAndMentalAbility: TnpscModule = {
           correct: 1,
           explanation: "Each letter in the word is moved one step forward to obtain the corresponding letter of the code. M+1=N, A+1=B, D+1=E, R+1=S, A+1=B, S+1=T. Similarly, for BOMBAY: B+1=C, O+1=P, M+1=N, B+1=C, A+1=B, Y+1=Z. So the code is CPNCBZ.",
           explanationTamil: "வார்த்தையில் உள்ள ஒவ்வொரு எழுத்தும் குறியீட்டின் தொடர்புடைய எழுத்தைப் பெற ஒரு படி முன்னோக்கி நகர்த்தப்படுகிறது. M+1=N, A+1=B, D+1=E, R+1=S, A+1=B, S+1=T. இதேபோல், BOMBAY க்கு: B+1=C, O+1=P, M+1=N, B+1=C, A+1=B, Y+1=Z. எனவே குறியீடு CPNCBZ ஆகும்.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Easy",
           tnpscFrequency: 4,
           context: "logical-reasoning"
@@ -88,7 +88,7 @@ export const aptitudeAndMentalAbility: TnpscModule = {
             correct: 2,
             explanation: "Man's speed in still water = (Speed with current - Speed of current) = (15 - 2.5) km/hr = 12.5 km/hr. Man's speed against the current = (Man's speed in still water - Speed of current) = (12.5 - 2.5) km/hr = 10 km/hr.",
             explanationTamil: "நிலையான நீரில் மனிதனின் வேகம் = (நீரோட்டத்துடன் வேகம் - நீரோட்டத்தின் வேகம்) = (15 - 2.5) கிமீ/மணி = 12.5 கிமீ/மணி. நீரோட்டத்திற்கு எதிராக மனிதனின் வேகம் = (நிலையான நீரில் மனிதனின் வேகம் - நீரோட்டத்தின் வேகம்) = (12.5 - 2.5) கிமீ/மணி = 10 கிமீ/மணி.",
-            yearAsked: [2021],
+            yearAsked: [2021, 2019],
             difficulty: "Medium",
             tnpscFrequency: 4,
             context: "numerical-ability"
@@ -98,7 +98,7 @@ export const aptitudeAndMentalAbility: TnpscModule = {
       essay: []
     },
     
-    engagement: { 
+    engagement: {
       peerTeaching: [
           {
               topic: "Time & Work Shortcuts",

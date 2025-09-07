@@ -77,7 +77,7 @@ export const generalScienceAndTech: TnpscModule = {
           correct: 1,
           explanation: "Refraction is the phenomenon where light bends when it passes from one transparent medium to another. This is due to the change in the speed of light.",
           explanationTamil: "ஒளி ஒரு ஒளிபுகும் ஊடகத்திலிருந்து மற்றொரு ஊடகத்திற்குச் செல்லும்போது வளையும் நிகழ்வு ஒளிவிலகல் ஆகும். இது ஒளியின் வேகத்தில் ஏற்படும் மாற்றத்தால் நிகழ்கிறது.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Easy",
           tnpscFrequency: 4,
           context: "basic-sciences"
@@ -90,7 +90,7 @@ export const generalScienceAndTech: TnpscModule = {
           correct: 2,
           explanation: "Carbon Dioxide (CO₂) is a major greenhouse gas. It traps heat in the atmosphere, leading to a rise in the Earth's temperature, a phenomenon known as the greenhouse effect.",
           explanationTamil: "கார்பன் டை ஆக்சைடு (CO₂) ஒரு முக்கியப் பசுமை இல்ல வாயு ஆகும். இது வளிமண்டலத்தில் வெப்பத்தைப் பிடித்து வைத்து, பூமியின் வெப்பநிலை உயர்வுக்கு வழிவகுக்கிறது, இது பசுமை இல்ல விளைவு என்று அழைக்கப்படுகிறது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2019],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "environment-ecology"
@@ -103,7 +103,7 @@ export const generalScienceAndTech: TnpscModule = {
           correct: 2,
           explanation: "Gaganyaan is the name of the Indian Human Spaceflight Programme, which aims to demonstrate indigenous capability to undertake human space flight missions to Low Earth Orbit (LEO).",
           explanationTamil: "ககன்யான் என்பது இந்திய மனித விண்வெளிப் பயணத் திட்டத்தின் பெயர், இது தாழ் புவி சுற்றுப்பாதைக்கு (LEO) மனித விண்வெளிப் பயணப் பணிகளை மேற்கொள்ளும் உள்நாட்டுத் திறனை வெளிப்படுத்துவதை நோக்கமாகக் கொண்டுள்ளது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2021],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "emerging-tech"

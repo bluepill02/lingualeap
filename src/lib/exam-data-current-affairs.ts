@@ -79,7 +79,7 @@ export const currentAffairsModule: TnpscModule = {
           correct: 2,
           explanation: "The Pudhumai Penn scheme provides a monthly financial assistance of ₹1000 to female students who have studied in government schools from classes 6 to 12, to encourage them to pursue higher education.",
           explanationTamil: "புதுமைப் பெண் திட்டம், 6 முதல் 12 ஆம் வகுப்பு வரை அரசுப் பள்ளிகளில் படித்த மாணவிகளை உயர்கல்வி பயில ஊக்குவிக்கும் வகையில் அவர்களுக்கு மாதம் ₹1000 நிதி உதவி வழங்குகிறது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2022],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "tn-specific"

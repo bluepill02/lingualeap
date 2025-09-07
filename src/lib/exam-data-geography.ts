@@ -76,7 +76,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
           correct: 2,
           explanation: "The Northeast Monsoon, also known as the 'retreading monsoon', brings significant rainfall to the southeastern coast of India, with Tamil Nadu receiving the largest share of this rainfall from October to December.",
           explanationTamil: "'பின்வாங்கும் பருவமழை' என்றும் அழைக்கப்படும் வடகிழக்குப் பருவமழை, இந்தியாவின் தென்கிழக்குக் கடற்கரைக்கு குறிப்பிடத்தக்க மழையைக் கொண்டுவருகிறது, இதில் தமிழ்நாடு அக்டோபர் முதல் டிசம்பர் வரை இந்த மழையின் பெரும் பங்கைப் பெறுகிறது.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2019],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "physical-geography"
@@ -89,7 +89,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
           correct: 1,
           explanation: "Black soils, or Regur soils, are rich in clay and have high moisture retention capacity, making them perfect for growing cotton.",
           explanationTamil: "கரிசல் மண், அல்லது ரேகூர் மண், களிமண் நிறைந்தது மற்றும் அதிக ஈரப்பதத்தைத் தக்கவைக்கும் திறன் கொண்டது, இது பருத்தி வளர்ப்பதற்கு ஏற்றதாக அமைகிறது.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2018],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "physical-geography"
@@ -102,7 +102,7 @@ export const geographyIndiaTamilNadu: TnpscModule = {
           correct: 2,
           explanation: "The Kaveri river deposits rich alluvial soil across its delta, creating one of the most fertile regions in the state, which is ideal for wet rice cultivation.",
           explanationTamil: "காவேரி ஆறு அதன் டெல்டா முழுவதும் வளமான வண்டல் மண்ணைப் படிய வைக்கிறது, இது மாநிலத்தில் மிகவும் வளமான பகுதிகளில் ஒன்றை உருவாக்குகிறது, இது ஈரமான நெல் சாகுபடிக்கு ஏற்றது.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2020],
           difficulty: "Easy",
           tnpscFrequency: 4,
           context: "tamil-nadu-focus"

@@ -66,7 +66,7 @@ export const languagePapersModule: TnpscModule = {
           correct: 0,
           explanation: "நிலைமொழி ஈற்றில் 'ம்' இருந்து, வருமொழி முதலில் க,ச,த,ப வந்தால், 'ம்' கெட்டு, அதற்கு இனமான வல்லின மெய் மிகும். இங்கு 'ம்' கெட்டு 'க்' மிகும். ஆனால், புணர்ச்சி விதிப்படி சரியான பிரிப்பு முறை 'மரம் + கலம்' ஆகும்.",
           explanationTamil: "நிலைமொழி ஈற்றில் 'ம்' இருந்து, வருமொழி முதலில் க,ச,த,ப வந்தால், 'ம்' கெட்டு, அதற்கு இனமான வல்லின மெய் மிகும். இங்கு 'ம்' கெட்டு 'க்' மிகும். ஆனால், புணர்ச்சி விதிப்படி சரியான பிரிப்பு முறை 'மரம் + கலம்' ஆகும்.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "tamil-eligibility"
@@ -79,7 +79,7 @@ export const languagePapersModule: TnpscModule = {
             correct: 2,
             explanation: "Expand means to become or make larger or more extensive. Compress means to flatten by pressure; squeeze or press. Therefore, Compress is the antonym of Expand.",
             explanationTamil: "Expand என்றால் பெரிதாகுதல் அல்லது விரிவடைதல். Compress என்றால் அழுத்தத்தால் தட்டையாக்குதல்; பிழிதல் அல்லது அழுத்துதல். எனவே, Compress என்பது Expand என்பதன் எதிர்ச்சொல் ஆகும்.",
-            yearAsked: [2022],
+            yearAsked: [2022, 2019],
             difficulty: "Easy",
             tnpscFrequency: 3,
             context: "general-english"

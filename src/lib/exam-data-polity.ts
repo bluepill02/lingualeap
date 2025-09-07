@@ -77,7 +77,7 @@ export const indianPolityAndGovernance: TnpscModule = {
           correct: 3,
           explanation: "Article 32 provides the Right to Constitutional Remedies, allowing citizens to move the Supreme Court for the enforcement of their Fundamental Rights. Dr. Ambedkar considered this the most important article, without which the Constitution would be a nullity.",
           explanationTamil: "சரத்து 32, அரசியலமைப்புத் தீர்வுகளுக்கான உரிமையை வழங்குகிறது, இது குடிமக்கள் தங்கள் அடிப்படை உரிமைகளைச் செயல்படுத்த உச்ச நீதிமன்றத்தை நாட அனுமதிக்கிறது. டாக்டர் அம்பேத்கர் இந்தச் சரத்தை மிக முக்கியமானதாகக் கருதினார், இது இல்லாமல் அரசியலமைப்பு செல்லுபடியாகாது.",
-          yearAsked: [2022],
+          yearAsked: [2022, 2018],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "constitution-of-india"
@@ -90,7 +90,7 @@ export const indianPolityAndGovernance: TnpscModule = {
           correct: 2,
           explanation: "The 73rd Amendment, passed in 1992, added Part IX to the Constitution and gave constitutional status to the Panchayati Raj system, establishing a three-tier system of local self-governance in rural areas.",
           explanationTamil: "1992 இல் நிறைவேற்றப்பட்ட 73வது திருத்தம், அரசியலமைப்பில் பகுதி IX ஐச் சேர்த்து, பஞ்சாயத்து ராஜ் அமைப்புக்கு அரசியலமைப்பு அந்தஸ்தை வழங்கியது, கிராமப்புறங்களில் மூன்றடுக்கு உள்ளாட்சி முறையை நிறுவியது.",
-          yearAsked: [2021],
+          yearAsked: [2021, 2019, 2017],
           difficulty: "Easy",
           tnpscFrequency: 5,
           context: "centre-state-relations"
@@ -103,7 +103,7 @@ export const indianPolityAndGovernance: TnpscModule = {
           correct: 1,
           explanation: "Unlike Fundamental Rights, DPSPs are non-justiciable, meaning they cannot be enforced by a court of law. However, they are considered fundamental in the governance of the country.",
           explanationTamil: "அடிப்படை உரிமைகளைப் போலல்லாமல், DPSPகள் நீதிமன்றத்தால் செயல்படுத்த முடியாதவை, அதாவது அவற்றை நீதிமன்றத்தால் செயல்படுத்த முடியாது. இருப்பினும், அவை நாட்டின் ஆளுகையில் அடிப்படையாகக் கருதப்படுகின்றன.",
-          yearAsked: [2023],
+          yearAsked: [2023, 2020],
           difficulty: "Medium",
           tnpscFrequency: 4,
           context: "constitution-of-india"
