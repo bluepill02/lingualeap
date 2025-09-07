@@ -25,6 +25,8 @@ import {
   Calculator,
   Newspaper,
   Languages,
+  ChevronRight,
+  FileQuestion,
 } from 'lucide-react'
 import { TnpscContentDatabase, getTnpscModulesBySubject, TnpscModule } from '@/lib/exam-data-tnpsc'
 import Link from 'next/link';
@@ -53,6 +55,7 @@ export default function TnpscContentScreen() {
   }, [])
 
   const subjects = [
+    { id: 'all', name: 'All Subjects', nameTamil: 'அனைத்து பாடங்கள்', icon: BookOpen, color: 'bg-primary' },
     { id: 'history', name: 'History & Culture', nameTamil: 'வரலாறு & பண்பாடு', icon: Landmark, color: 'bg-amber-500' },
     { id: 'polity', name: 'Indian Polity', nameTamil: 'இந்திய அரசியல்', icon: Scale, color: 'bg-blue-500' },
     { id: 'geography', name: 'Geography', nameTamil: 'புவியியல்', icon: Mountain, color: 'bg-green-500' },
@@ -76,6 +79,8 @@ export default function TnpscContentScreen() {
     
     return modules.sort((a, b) => b.weightage - a.weightage)
   }
+  
+   const filteredModules = getFilteredModules();
 
   const handleDownloadOfflineContent = async () => {
     try {
@@ -102,18 +107,6 @@ export default function TnpscContentScreen() {
             <div>
               <h1 className="text-3xl font-bold font-headline">TNPSC Preparation</h1>
               <h2 className="text-muted-foreground text-lg">தேர்வுக்குத் தயாராகுங்கள்</h2>
-              <div className="flex items-center gap-4 mt-2">
-                <Badge variant="secondary">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  Streak: {studyStreak} days
-                </Badge>
-                {isOfflineMode && (
-                  <Badge variant="destructive">
-                    <Download className="h-4 w-4 mr-1" />
-                    Offline Ready
-                  </Badge>
-                )}
-              </div>
             </div>
           </div>
           
@@ -128,51 +121,49 @@ export default function TnpscContentScreen() {
           </div>
         </header>
 
+        <div className="flex flex-wrap gap-2">
+            {subjects.map(s => (
+                <Button key={s.id} variant={selectedSubject === s.id ? "default" : "outline"} onClick={() => setSelectedSubject(s.id)}>
+                    <s.icon className="h-4 w-4 mr-2" />
+                    {s.name}
+                </Button>
+            ))}
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {getFilteredModules().map((module) => {
-            const progress = userProgress[module.id] || 0
+          {filteredModules.map((module) => {
             const subjectInfo = subjects.find(s => s.id === module.subject)
             
             return (
-              <Link href={`/exam-prep/tnpsc/${module.id}`} key={module.id}>
-                <Card className="hover:border-primary transition-all cursor-pointer group h-full flex flex-col">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="secondary" className={`${subjectInfo?.color} text-white`}>
-                            {subjectInfo && <subjectInfo.icon className="h-3 w-3 mr-1" />}
-                            {subjectInfo?.name}
-                          </Badge>
-                          <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
-                                            module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
-                            {module.difficultyLevel}
-                          </Badge>
-                        </div>
-                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                          {module.title}
-                        </CardTitle>
-                        <CardDescription className="text-primary/80 text-sm mt-1">
-                          {module.titleTamil}
-                        </CardDescription>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-2xl text-primary font-bold">{module.weightage}%</div>
-                        <div className="text-xs text-muted-foreground">weightage</div>
-                      </div>
+              <Link href={`/exam-prep/tnpsc/${module.id}`} key={module.id} className="group">
+                <Card className="hover:border-primary transition-all h-full flex flex-col">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      {subjectInfo && <Badge variant="secondary" className="bg-opacity-20 text-foreground">
+                        <subjectInfo.icon className="h-3 w-3 mr-1.5" style={{ color: subjectInfo.color }} />
+                        {subjectInfo.name}
+                      </Badge>}
+                       <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
+                                        module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
+                        {module.difficultyLevel}
+                      </Badge>
                     </div>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors h-16">
+                      {module.title}
+                    </CardTitle>
                   </CardHeader>
                   
                   <CardContent className="pt-0 flex-grow flex flex-col justify-end">
-                    <div className="space-y-4">
-                      <div>
-                        <div className="flex justify-between text-sm mb-2">
-                          <span className="text-muted-foreground">Progress</span>
-                          <span>{progress.toFixed(0)}%</span>
+                     <div className="flex items-center justify-between text-sm text-muted-foreground border-t pt-4">
+                        <div className="flex items-center gap-1.5">
+                            <FileQuestion className="h-4 w-4"/>
+                            <span>{module.examPattern.mcqCount} MCQs</span>
                         </div>
-                        <Progress value={progress} />
-                      </div>
-                    </div>
+                         <div className="flex items-center gap-1.5">
+                            <span>Start Learning</span>
+                            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
+                        </div>
+                     </div>
                   </CardContent>
                 </Card>
               </Link>
