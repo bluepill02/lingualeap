@@ -81,13 +81,13 @@ export default function DashboardPage() {
       icon: Trophy,
       value: mockUser.streak,
       label: 'Day Streak',
-      color: 'text-warning',
+      color: 'text-yellow-500',
     },
     {
       icon: BrainCircuit,
       value: masteredWords,
       label: 'Words Mastered',
-      color: 'text-success',
+      color: 'text-green-500',
     },
     {
       icon: Target,
@@ -328,7 +328,7 @@ export default function DashboardPage() {
                                   <span className="font-medium">{member.name}</span>
                               </div>
                               {member.id === leader.id && (
-                                  <Badge variant="secondary" className="flex items-center gap-1 text-warning-foreground bg-warning/80">
+                                  <Badge variant="secondary" className="flex items-center gap-1 text-yellow-500 bg-yellow-500/10 border-yellow-500/20">
                                       <Crown className="h-3 w-3" />
                                       Leader
                                   </Badge>
@@ -362,7 +362,7 @@ export default function DashboardPage() {
                     {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
                 </h1>
                 <div className="flex items-center gap-2 text-muted-foreground">
-                    <Star className="w-4 h-4 text-warning" />
+                    <Star className="w-4 h-4 text-yellow-500" />
                     <span>Level {currentLevel}</span>
                 </div>
             </div>
@@ -382,7 +382,7 @@ export default function DashboardPage() {
             </div>
         </div>
 
-        <div className="responsive-card-grid">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
             <Card key={stat.label} className="text-center">
               <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
@@ -404,7 +404,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-    
-
-    
