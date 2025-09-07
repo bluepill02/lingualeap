@@ -199,10 +199,13 @@ export default function NeetChemistryStrategyGuidePage() {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 text-2xl">
                         <TrendingUp className="text-primary" />
-                        {topperLanguage === 'english' ? 'The NEET Chemistry Edge' : 'நீட் வேதியியல் மேன்மை'}
+                         {topperLanguage === 'english' ? 'High-Level NEET Chemistry Study Toolkit: Conceptual Mastery Beyond Memorization' : 'உயர்நிலை நீட் வேதியியல் ஆய்வுக் கருவிப்பெட்டி: மனப்பாடத்தைக் கடந்த கருத்தியல் தேர்ச்சி'}
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="text-muted-foreground">
+                <CardContent className="text-muted-foreground space-y-4">
+                     <p>
+                        <b>{topperLanguage === 'english' ? 'Introduction: The NEET Chemistry Edge' : 'அறிமுகம்: நீட் வேதியியல் மேன்மை'}</b>
+                     </p>
                      <p>
                         {topperLanguage === 'english' 
                          ? 'Success in NEET Chemistry hinges not just on rote memorization, but on deep conceptual understanding and smart, strategic application. Toppers stand out because they master the “why” and “how” behind every equation or trend, not merely the “what.” This report is meticulously crafted to empower aspirants with the structured, principle-driven insights, advanced tactics, and visual concept maps that high achievers leverage for peak performance in NEET Chemistry. Each section—Organic, Physical, and Inorganic Chemistry—presents analytic notes, core equations, flowcharts, and bilingual (English-Tamil) terms where meaningful, providing a holistic and visual learning path.' 
@@ -223,44 +226,45 @@ export default function NeetChemistryStrategyGuidePage() {
                     <AccordionContent className="pt-4 space-y-6">
                         <Alert variant="info">
                             <Lightbulb className="w-4 h-4" />
-                            <AlertTitle>{topperLanguage === 'english' ? 'Core Mechanistic Principles: “Why Reactions Occur”' : 'முக்கிய வினைவழிமுறைக் கோட்பாடுகள்: “வினைகள் ஏன் நிகழ்கின்றன”'}</AlertTitle>
+                            <AlertTitle>{topperLanguage === 'english' ? '1. Core Mechanistic Principles: “Why Reactions Occur”' : '1. முக்கிய வினைவழிமுறைக் கோட்பாடுகள்: “வினைகள் ஏன் நிகழ்கின்றன”'}</AlertTitle>
                             <AlertDescription>
                                 {topperLanguage === 'english' ? 'Before diving into equations and steps, recognize that every organic reaction is governed by: Electronic Effects (Inductive, resonance, etc.), Steric Effects, and Reaction Pathways. A true NEET topper can always identify not just what will happen, but why it happens that way.' : 'சமன்பாடுகள் மற்றும் படிகளுக்குள் நுழைவதற்கு முன், ஒவ்வொரு கரிம வினையும் இவற்றால் நிர்வகிக்கப்படுகிறது என்பதை அங்கீகரிக்கவும்: மின்னணு விளைவுகள் (தூண்டல், உடனிசைவு போன்றவை), ஸ்டெரிக் விளைவுகள், மற்றும் வினைப் பாதைகள். ஒரு உண்மையான நீட் டாப்பர் என்ன நடக்கும் என்பதை மட்டுமல்ல, அது ஏன் அப்படி நடக்கிறது என்பதையும் எப்போதும் அடையாளம் காண முடியும்.'}
                             </AlertDescription>
                         </Alert>
-                        
+
                         <Card>
-                            <CardHeader><CardTitle>{topperLanguage === 'english' ? 'Nucleophilic Substitution: SN1 vs. SN2' : 'கருக்கவர் பதிலீடு: SN1 vs. SN2'}</CardTitle></CardHeader>
+                            <CardHeader>
+                                <CardTitle>{topperLanguage === 'english' ? '2. Nucleophilic Substitution: SN1 vs. SN2—Detailed Concepts' : '2. கருக்கவர் பதிலீடு: SN1 vs. SN2—விரிவான கருத்துக்கள்'}</CardTitle>
+                                <CardDescription>{topperLanguage === 'english' ? 'Equations and Mechanisms' : 'சமன்பாடுகள் மற்றும் வினைவழிமுறைகள்'}</CardDescription>
+                            </CardHeader>
                             <CardContent className="space-y-4">
                                 <p><strong>{topperLanguage === 'english' ? 'General Equation' : 'பொதுச் சமன்பாடு'}:</strong> R–X + Nu⁻ → R–Nu + X⁻</p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                      <Accordion type="single" collapsible>
                                       <AccordionItem value="sn1">
                                         <AccordionTrigger>SN1 {topperLanguage === 'english' ? 'Mechanism' : 'வினைவழிமுறை'}</AccordionTrigger>
-                                        <AccordionContent className="space-y-2 p-2">
+                                        <AccordionContent className="space-y-2 p-2 text-sm">
                                           <p><strong>{topperLanguage === 'english' ? 'Rate Law' : 'வினைவேக விதி'}:</strong> Rate = k[R–X]</p>
                                           <p><strong>{topperLanguage === 'english' ? 'Key Principle' : 'முக்கியக் கொள்கை'}:</strong> {topperLanguage === 'english' ? 'Rate depends on forming a stable carbocation (3° > 2° > 1°).' : 'வினைவேகம் ஒரு நிலையான கார்போகேட்டயான் உருவாவதைப் பொறுத்தது (3° > 2° > 1°).'}</p>
                                           <p><strong>{topperLanguage === 'english' ? 'Stereochemistry' : 'முப்பரிமாண வேதியியல்'}:</strong> {topperLanguage === 'english' ? 'Racemization' : 'இனக்கலவை உருவாதல்'}</p>
+                                          <p><strong>{topperLanguage === 'english' ? 'Favored By' : 'சாதகமானவை'}:</strong> {topperLanguage === 'english' ? 'Polar protic solvents, weak nucleophiles, tertiary substrates.' : 'முனைவுள்ள புரோட்டிக் கரைப்பான்கள், బలహీనமான நியூக்ளியோஃபைல்கள், மூன்றாம் நிலை அடி மூலக்கூறுகள்.'}</p>
                                         </AccordionContent>
                                       </AccordionItem>
                                     </Accordion>
                                      <Accordion type="single" collapsible>
                                       <AccordionItem value="sn2">
                                         <AccordionTrigger>SN2 {topperLanguage === 'english' ? 'Mechanism' : 'வினைவழிமுறை'}</AccordionTrigger>
-                                         <AccordionContent className="space-y-2 p-2">
+                                         <AccordionContent className="space-y-2 p-2 text-sm">
                                           <p><strong>{topperLanguage === 'english' ? 'Rate Law' : 'வினைவேக விதி'}:</strong> Rate = k[R–X][Nu⁻]</p>
                                           <p><strong>{topperLanguage === 'english' ? 'Key Principle' : 'முக்கியக் கொள்கை'}:</strong> {topperLanguage === 'english' ? 'Steric hindrance is key (methyl > 1° > 2° > 3°).' : 'ஸ்டெரிக் தடை முக்கியமானது (மெத்தில் > 1° > 2° > 3°).'}</p>
                                           <p><strong>{topperLanguage === 'english' ? 'Stereochemistry' : 'முப்பரிமாண வேதியியல்'}:</strong> {topperLanguage === 'english' ? 'Inversion (Walden)' : 'பிரட்டல் (வால்டன்)'}</p>
+                                          <p><strong>{topperLanguage === 'english' ? 'Favored By' : 'சாதகமானவை'}:</strong> {topperLanguage === 'english' ? 'Strong nucleophiles, polar aprotic solvents, less hindered substrates.' : 'வலுவான நியூக்ளியோஃபைல்கள், முனைவுள்ள அப்ரோட்டிக் கரைப்பான்கள், குறைந்த தடையுள்ள அடி மூலக்கூறுகள்.'}</p>
                                         </AccordionContent>
                                       </AccordionItem>
                                     </Accordion>
                                 </div>
                                 <p className="text-sm text-muted-foreground">
-                                  {topperLanguage === 'english' ? 'Analysis: SN1 is supported by anything that stabilizes carbocations (hyperconjugation, resonance - ' : 'பகுப்பாய்வு: கார்போகேட்டயான்களை உறுதிப்படுத்தும் எதுவும் (ஹைபர்கான்ஜுகேஷன், உடனிசைவு - '}
-                                  <span className="text-primary">{topperLanguage === 'english' ? 'more carbocation freedom' : 'அதிக கார்போ சுதந்திரம்'}</span>
-                                  {topperLanguage === 'english' ? '). Steric hindrance is the nemesis of SN2 (' : '). ஸ்டெரிக் தடை SN2-க்கு எதிரானது ('}
-                                  <span className="text-primary">{topperLanguage === 'english' ? 'hindrance' : 'தடுப்பு'}</span>
-                                  {topperLanguage === 'english' ? ') since both substrate and nucleophile must “fit” together.' : '), ஏனெனில் அடி மூலக்கூறும் கருக்கவரும் ஒன்றாக “பொருந்த” வேண்டும்.'}
+                                  {topperLanguage === 'english' ? 'Analysis: Understanding the underlying electronic logic is central: SN1 is supported by anything that stabilizes carbocations (hyperconjugation, resonance, —அதிக கார்போ சுதந்திரம் ["more carbocation freedom" in Tamil]). Steric hindrance is the nemesis of SN2 since both substrate and nucleophile must “fit” together in the transition state, like a lock and key (or “தடுப்பு”—meaning “hindrance” in Tamil). Recognizing these controlling factors helps instantly justify which reaction path predominates for NEET mechanism and prediction questions.' : 'பகுப்பாய்வு: அடிப்படையான மின்னணு தர்க்கத்தைப் புரிந்துகொள்வது மையமானது: SN1 கார்போகேட்டயான்களை உறுதிப்படுத்தும் எதனாலும் ஆதரிக்கப்படுகிறது (ஹைபர்கான்ஜுகேஷன், உடனிசைவு, —அதிக கார்போ சுதந்திரம்). ஸ்டெரிக் தடை SN2-க்கு எதிரானது, ஏனெனில் அடி மூலக்கூறும் நியூக்ளியோஃபைலும் மாற்ற நிலையில் ஒரு பூட்டு மற்றும் சாவி போல (“தடுப்பு”) ஒன்றாகப் பொருந்த வேண்டும். இந்தக் கட்டுப்பாட்டுக் காரணிகளை அறிந்துகொள்வது, நீட் வினைவழிமுறை மற்றும் முன்கணிப்புக் கேள்விகளுக்கு எந்த வினைப்பாதை ஆதிக்கம் செலுத்துகிறது என்பதை உடனடியாக நியாயப்படுத்த உதவுகிறது.'}
                                 </p>
                             </CardContent>
                         </Card>
@@ -276,18 +280,24 @@ export default function NeetChemistryStrategyGuidePage() {
                     </AccordionTrigger>
                     <AccordionContent className="pt-4 space-y-6">
                         <Card>
-                            <CardHeader><CardTitle>{topperLanguage === 'english' ? 'Thermodynamics & Gibbs Free Energy' : 'வெப்ப இயக்கவியல் மற்றும் கிப்ஸ் கட்டிலா ஆற்றல்'}</CardTitle></CardHeader>
-                            <CardContent>
-                                <p><strong>{topperLanguage === 'english' ? 'Key Equation' : 'முக்கிய சமன்பாடு'}:</strong> ΔG = ΔH – TΔS</p>
-                                <p className="text-sm text-muted-foreground">{topperLanguage === 'english' ? 'ΔG < 0 is spontaneous. ΔG = 0 is equilibrium.' : 'ΔG < 0 தன்னிச்சையானது. ΔG = 0 சமநிலை.'}</p>
-                                <p><strong>{topperLanguage === 'english' ? 'NEET Insight' : 'நீட் நுண்ணறிவு'}:</strong> {topperLanguage === 'english' ? 'Understand the signs. If a reaction will proceed, ΔG must be negative.' : 'குறிகளைப் புரிந்து கொள்ளுங்கள். ஒரு வினை தொடர்ந்தால், ΔG எதிர்மறையாக இருக்க வேண்டும்.'}</p>
+                            <CardHeader><CardTitle>{topperLanguage === 'english' ? '1. Thermodynamics: Gibbs Free Energy (G), Spontaneity, and Chemical Work' : '1. வெப்ப இயக்கவியல்: கிப்ஸ் கட்டிலா ஆற்றல் (G), தன்னிச்சை மற்றும் வேதியியல் வேலை'}</CardTitle></CardHeader>
+                            <CardContent className="space-y-2">
+                                <p><strong>{topperLanguage === 'english' ? 'Key Equations' : 'முக்கிய சமன்பாடுகள்'}:</strong></p>
+                                <p>ΔG = ΔH – TΔS</p>
+                                <p>ΔG° = -RT ln K</p>
+                                <p><strong>{topperLanguage === 'english' ? 'Conceptual Notes' : 'கருத்துக் குறிப்புகள்'}:</strong></p>
+                                <p>{topperLanguage === 'english' ? 'Why does this formula work? ΔH is total heat content. TΔS is the effect of disorder. The formula assumes constant T and P. At equilibrium (ΔG = 0), maximum possible useful work is achieved.' : 'இந்த சூத்திரம் ஏன் வேலை செய்கிறது? ΔH என்பது மொத்த வெப்ப உள்ளடக்கம். TΔS என்பது ஒழுங்கின்மையின் விளைவு. சூத்திரம் நிலையான T மற்றும் P ஐக் கருதுகிறது. சமநிலையில் (ΔG = 0), சாத்தியமான அதிகபட்ச பயனுள்ள வேலை அடையப்படுகிறது.'}</p>
+                                <p><strong>{topperLanguage === 'english' ? 'NEET Insight' : 'நீட் நுண்ணறிவு'}:</strong> {topperLanguage === 'english' ? 'In NEET MCQs, use signs and physical meaning: Will a reaction proceed? Plug in values, and recall, negative ΔG means spontaneous—no need to memorize exceptions if you understand this.' : 'நீட் MCQக்களில், குறிகள் மற்றும் இயற்பியல் அர்த்தத்தைப் பயன்படுத்தவும்: ஒரு வினை தொடருமா? மதிப்புகளை உள்ளிடவும், நினைவில் கொள்ளவும், எதிர்மறை ΔG தன்னிச்சையானது—இதைப் புரிந்துகொண்டால் விதிவிலக்குகளை மனப்பாடம் செய்யத் தேவையில்லை.'}</p>
                             </CardContent>
                         </Card>
                         <Card>
-                             <CardHeader><CardTitle>{topperLanguage === 'english' ? 'Electrochemistry & Nernst Equation' : 'மின்னிரசாயனவியல் மற்றும் நெர்ன்ஸ்ட் சமன்பாடு'}</CardTitle></CardHeader>
-                             <CardContent>
-                                <p><strong>{topperLanguage === 'english' ? 'Key Equation' : 'முக்கிய சமன்பாடு'}:</strong> E_cell = E°_cell – (0.0591/n) log Q</p>
-                                <p className="text-sm text-muted-foreground">{topperLanguage === 'english' ? 'This links cell potential (மூலக்கூறு மின்னழுத்தம்) to non-standard conditions. A positive E_cell means spontaneous.' : 'இது செல் மின்னழுத்தத்தை (மூலக்கூறு மின்னழுத்தம்) தரமற்ற நிலைகளுடன் இணைக்கிறது. ஒரு நேர்மறை E_cell தன்னிச்சையான வினையைக் குறிக்கிறது.'}</p>
+                             <CardHeader><CardTitle>{topperLanguage === 'english' ? '2. Chemical Equilibrium: Constants and Derivations' : '2. வேதியியல் சமநிலை: மாறிலிகள் மற்றும் தருவித்தல்கள்'}</CardTitle></CardHeader>
+                             <CardContent className="space-y-2">
+                                <p><strong>{topperLanguage === 'english' ? 'Key Equations' : 'முக்கிய சமன்பாடுகள்'}:</strong></p>
+                                <p>Kc = [C]^c [D]^d / [A]^a [B]^b</p>
+                                <p>Kp = Kc(RT)^Δn</p>
+                                <p><strong>{topperLanguage === 'english' ? 'Conceptual Highlights' : 'கருத்தியல் சிறப்பம்சங்கள்'}:</strong></p>
+                                <p>{topperLanguage === 'english' ? 'Why is K constant? Set by temperature: At equilibrium, rates of forward and reverse reactions are equal; their ratio is the equilibrium constant. K = k_forward / k_reverse.' : 'K ஏன் மாறிலி? வெப்பநிலையால் அமைக்கப்பட்டது: சமநிலையில், முன்னோக்கு மற்றும் தலைகீழ் வினைகளின் விகிதங்கள் சமம்; அவற்றின் விகிதம் சமநிலை மாறிலி ஆகும். K = k_முன்னோக்கு / k_தலைகீழ்.'}</p>
                              </CardContent>
                         </Card>
                     </AccordionContent>
@@ -309,17 +319,25 @@ export default function NeetChemistryStrategyGuidePage() {
                             </AlertDescription>
                         </Alert>
                         <Card>
-                             <CardHeader><CardTitle>{topperLanguage === 'english' ? 'Periodic Table Trends' : 'தனிம வரிசைப் பண்புகள்'}</CardTitle></CardHeader>
-                             <CardContent>
+                             <CardHeader><CardTitle>{topperLanguage === 'english' ? '1. Periodic Table Trends' : '1. தனிம வரிசைப் பண்புகள்'}</CardTitle></CardHeader>
+                             <CardContent className="space-y-2">
                                 <p><strong>{topperLanguage === 'english' ? 'Atomic Radius (அணு ஆரம்)' : 'அணு ஆரம்'}:</strong> {topperLanguage === 'english' ? 'Decreases across, increases down.' : 'இடமிருந்து வலம் குறைகிறது, மேலிருந்து கீழ் அதிகரிக்கிறது.'}</p>
                                 <p><strong>{topperLanguage === 'english' ? 'Ionization Energy (அயனியாக்கும் ஆற்றல்)' : 'அயனியாக்கும் ஆற்றல்'}:</strong> {topperLanguage === 'english' ? 'Increases across, decreases down.' : 'இடமிருந்து வலம் அதிகரிக்கிறது, மேலிருந்து கீழ் குறைகிறது.'}</p>
+                                <p><strong>{topperLanguage === 'english' ? 'Logic' : 'தர்க்கம்'}:</strong> {topperLanguage === 'english' ? 'Across a period, nuclear charge increases while shielding is constant. Down a group, the number of shells increases.' : 'ஒரு வரிசையில், அணுக்கரு மின்சுமை அதிகரிக்கிறது, மறைத்தல் விளைவு மாறாமல் உள்ளது. ஒரு தொகுதியில், கூடுகளின் எண்ணிக்கை அதிகரிக்கிறது.'}</p>
                              </CardContent>
                         </Card>
                         <Card>
-                             <CardHeader><CardTitle>{topperLanguage === 'english' ? 'Bonding: VBT vs. MOT' : 'பிணைப்பு: VBT vs. MOT'}</CardTitle></CardHeader>
-                             <CardContent>
+                             <CardHeader><CardTitle>{topperLanguage === 'english' ? '2. Chemical Bonding: VBT vs. MOT' : '2. வேதியியல் பிணைப்பு: VBT vs. MOT'}</CardTitle></CardHeader>
+                             <CardContent className="space-y-2">
                                 <p><strong>VBT:</strong> {topperLanguage === 'english' ? 'Explains geometry via hybridization.' : 'இனக்கலப்பு மூலம் வடிவவியலை விளக்குகிறது.'}</p>
                                 <p><strong>MOT:</strong> {topperLanguage === 'english' ? 'Explains properties like paramagnetism more accurately.' : 'பாரா காந்தத்தன்மை போன்ற பண்புகளை மிகவும் துல்லியமாக விளக்குகிறது.'}</p>
+                             </CardContent>
+                        </Card>
+                         <Card>
+                             <CardHeader><CardTitle>{topperLanguage === 'english' ? '3. Coordination Chemistry' : '3. அணைவுச் சேர்ம வேதியியல்'}</CardTitle></CardHeader>
+                             <CardContent className="space-y-2">
+                                <p><strong>{topperLanguage === 'english' ? 'Stability Constants' : 'நிலைப்பு மாறிலிகள்'}:</strong> {topperLanguage === 'english' ? 'Larger β means more stable complex.' : 'பெரிய β என்பது அதிக நிலைப்புத்தன்மையுள்ள அணைவுச் சேர்மத்தைக் குறிக்கிறது.'}</p>
+                                <p><strong>{topperLanguage === 'english' ? 'Isomerism' : 'மாற்றியம்'}:</strong> {topperLanguage === 'english' ? 'Sketch geometrical (cis/trans) and optical isomers to solve problems.' : 'சிக்கல்களைத் தீர்க்க வடிவியல் (சிஸ்/டிரான்ஸ்) மற்றும் ஒளி மாற்றியங்களை வரையவும்.'}</p>
                              </CardContent>
                         </Card>
                     </AccordionContent>
@@ -341,16 +359,16 @@ export default function NeetChemistryStrategyGuidePage() {
                           </TableRow>
                         </TableHeader>
                         <TableBody>
-                          <TableRow><TableCell>Atomic radius</TableCell><TableCell>அணு ஆரம்</TableCell></TableRow>
-                          <TableRow><TableCell>Ionization energy</TableCell><TableCell>அயனியாக்கும் ஆற்றல்</TableCell></TableRow>
-                          <TableRow><TableCell>Electronegativity</TableCell><TableCell>மின்னெதிர்த்தன்மை</TableCell></TableRow>
-                          <TableRow><TableCell>Nucleophile</TableCell><TableCell>கருக்கவர் பொருள்</TableCell></TableRow>
-                          <TableRow><TableCell>Electrophile</TableCell><TableCell>எலக்ட்ரான் கவர் பொருள்</TableCell></TableRow>
-                          <TableRow><TableCell>Transition state</TableCell><TableCell>நிலைமாற்று நிலை</TableCell></TableRow>
-                          <TableRow><TableCell>Carbocation</TableCell><TableCell>கார்போகேட்டையான்</TableCell></TableRow>
-                          <TableRow><TableCell>Aldol reaction</TableCell><TableCell>ஆல்டால் வினை</TableCell></TableRow>
-                          <TableRow><TableCell>Coordination complex</TableCell><TableCell>அணைவுச் சேர்மம்</TableCell></TableRow>
-                          <TableRow><TableCell>Hybridization</TableCell><TableCell>இனக்கலப்பு</TableCell></TableRow>
+                          <TableRow><TableCell>Atomic radius</TableCell><TableCell>அணு ஆரம் (Anu aaram)</TableCell></TableRow>
+                          <TableRow><TableCell>Ionization energy</TableCell><TableCell>அயனியாக்கும் ஆற்றல் (Ayaniyakum aatral)</TableCell></TableRow>
+                          <TableRow><TableCell>Electronegativity</TableCell><TableCell>எதிர்மின்னி கவர் ஆற்றல் (Ethirminni kavar aatral)</TableCell></TableRow>
+                          <TableRow><TableCell>Nucleophile</TableCell><TableCell>கருக்கவர் பொருள் (Karukkavar porul)</TableCell></TableRow>
+                          <TableRow><TableCell>Electrophile</TableCell><TableCell>எலக்ட்ரான் கவர் பொருள் (Electron kavar porul)</TableCell></TableRow>
+                          <TableRow><TableCell>Transition state</TableCell><TableCell>நிலைமாற்று நிலை (Nilaimaattru nilai)</TableCell></TableRow>
+                          <TableRow><TableCell>Carbocation</TableCell><TableCell>கார்போகேட்டையான் (Carbocation)</TableCell></TableRow>
+                          <TableRow><TableCell>Aldol reaction</TableCell><TableCell>ஆல்டால் வினை (Aaldol vinai)</TableCell></TableRow>
+                          <TableRow><TableCell>Coordination complex</TableCell><TableCell>அணைவுச் சேர்மம் (Anaivu sermam)</TableCell></TableRow>
+                          <TableRow><TableCell>Hybridization</TableCell><TableCell>இனக்கலப்பு (Inakkalappu)</TableCell></TableRow>
                         </TableBody>
                       </Table>
                     </AccordionContent>
