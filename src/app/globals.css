@@ -156,7 +156,7 @@
         color: hsl(var(--warning));
     }
     
-    .subject-biology .tamil-text, .subject-physics .tamil-text {
+    .subject-physics .tamil-text {
         color: hsl(164 52% 52%); /* Teal-400 */
     }
     

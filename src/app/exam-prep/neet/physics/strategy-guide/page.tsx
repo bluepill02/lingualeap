@@ -173,8 +173,7 @@ export default function NeetPhysicsStrategyGuidePage() {
                     english="Lastly, confidence without complacency is a signature trait. While toppers approach the subject with assurance—grounded in relentless practice and strong basics—they also stay humble, continually reviewing and updating their notes, mind maps, and formula sheets to avoid overconfidence-related errors on the exam day."
                     tamil="[Paragraph 5 in Tamil]"
                 /></p>
-
-                <BilingualText english="**Structured Learning Plan for NEET Physics**" tamil="நீட் இயற்பியலுக்கான கட்டமைக்கப்பட்ட கற்றல் திட்டம்" />
+                 <BilingualText english="**Structured Learning Plan for NEET Physics**" tamil="நீட் இயற்பியலுக்கான கட்டமைக்கப்பட்ட கற்றல் திட்டம்" />
                 <p><BilingualText english="A NEET Physics topper’s study plan is rooted in structure, discipline, and a deep awareness of the syllabus and exam trends. It delicately balances theory, numericals, revision, and testing." tamil="[Paragraph 6 in Tamil]" /></p>
                 
                 <BilingualText english="*Time Management and Daily Routine*" tamil="நேர மேலாண்மை மற்றும் தினசரி வழக்கம்" />
@@ -277,7 +276,6 @@ export default function NeetPhysicsStrategyGuidePage() {
                  <BilingualText english="**Conclusion: The Topper’s Advantage—A Synthesis**" tamil="[Title in Tamil]" />
                 <p><BilingualText english="To master NEET Physics like a topper is to value depth over breadth, understanding over memorization, and discipline over randomness. Toppers are not superhuman, but their approach is systematic, mindful, and rooted in relentless improvement. They deploy structured study schedules, prioritize conceptual clarity, mine visual tools for memory and understanding, and outmaneuver pitfalls with reflective practice." tamil="[Paragraph in Tamil]" /></p>
                 <p><BilingualText english="By weaving together foundational comprehension, rigorous practice, error review, and visual cognitive aids like mind maps and flowcharts, NEET aspirants can transform Physics from a stumbling block into a competitive advantage. Above all, success in NEET Physics is the byproduct of a daily commitment to reasoning, curiosity, and adaptation—all skills within the reach of any diligent, focused candidate." tamil="[Paragraph in Tamil]" /></p>
-
             </CardContent>
           </Card>
         </TabsContent>
