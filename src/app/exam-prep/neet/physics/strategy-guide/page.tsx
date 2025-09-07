@@ -61,7 +61,7 @@ export default function NeetPhysicsStrategyGuidePage() {
         </div>
       </header>
 
-      <Tabs defaultValue="deep-dive" className="w-full">
+      <Tabs defaultValue="topper-approach" className="w-full">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="deep-dive">Concept Deep Dive</TabsTrigger>
           <TabsTrigger value="topper-approach">Topper's Approach</TabsTrigger>
@@ -237,12 +237,12 @@ export default function NeetPhysicsStrategyGuidePage() {
                     <li><BilingualText english="**Final Review:** Check if the answer fits with expectations from the physical concept—for instance, does total energy decrease in an adiabatic process as expected?" tamil="[List item in Tamil]" /></li>
                 </ul>
                 <p><BilingualText english="This systematic approach minimizes errors and prevents confusion common in exam settings" tamil="[Paragraph in Tamil]" /></p>
-
-                <BilingualText english="*Practice with Purpose*" tamil="[Subtitle in Tamil]" />
+                
+                <BilingualText english="**Practice with Purpose**" tamil="[Subtitle in Tamil]" />
                 <p><BilingualText english="Effective practice is defined not just by hours spent but by quality and diversity of problems solved. Toppers devote more time to NEET-centric MCQs—balancing straightforward formula questions with multi-step reasoning and “trick” numericals reflecting popular NEET patterns. The role of previous year questions is paramount, as they reveal frequently tested subtopics, question phrasing, and typical traps." tamil="[Paragraph in Tamil]" /></p>
                 <p><BilingualText english="Mock tests and question banks must be attempted under strict time constraints. Toppers consider each error as feedback: for every wrong answer, they analyze if it was due to a knowledge gap, a misread question, calculation carelessness, or a strategic slip (e.g., mismanaging negative marking). Error logs, maintained methodically, are reviewed weekly or biweekly." tamil="[Paragraph in Tamil]" /></p>
 
-                <BilingualText english="*Key Problem-Solving Tactics*" tamil="[Subtitle in Tamil]" />
+                <BilingualText english="**Key Problem-Solving Tactics**" tamil="[Subtitle in Tamil]" />
                 <ul>
                     <li><BilingualText english="**Reverse Engineering:** Starting from the options to back-calculate, especially when time is short" tamil="[List item in Tamil]" /></li>
                     <li><BilingualText english="**Formula Sheets and Mind Maps:** Quick recall aids for last-minute revision and on-the-spot association during problem solving" tamil="[List item in Tamil]" /></li>
@@ -272,3 +272,5 @@ export default function NeetPhysicsStrategyGuidePage() {
     </div>
   );
 }
+
+    
