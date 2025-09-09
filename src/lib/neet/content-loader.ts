@@ -60,6 +60,7 @@ import { geneticsAndEvolution } from './biology/genetics-and-evolution';
 import { biologyAndHumanWelfare } from './biology/biology-and-human-welfare';
 import { biotechnologyAndItsApplications } from './biology/biotechnology-and-its-applications';
 import { ecologyAndEnvironment } from './biology/ecology-and-environment';
+import { takeItEasyBiologyModule } from './biology/take-it-easy';
 
 
 // This object maps the URL-friendly chapter slug to the imported module
@@ -128,6 +129,7 @@ export const neetContent: { [key: string]: any } = {
   'biology-and-human-welfare': biologyAndHumanWelfare,
   'biotechnology-and-its-applications': biotechnologyAndItsApplications,
   'ecology-and-environment': ecologyAndEnvironment,
+  'take-it-easy': takeItEasyBiologyModule,
 };
 
 export function getNeetContent(chapterSlug: string) {
