@@ -95,11 +95,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       labelKey: 'companionCircles',
       icon: Users,
     },
-     {
-      href: '/admin/validation-report',
-      labelKey: 'validationReport',
-      icon: ShieldCheck,
-    },
     {
       href: '/ar-immersion',
       labelKey: 'arImmersion',
