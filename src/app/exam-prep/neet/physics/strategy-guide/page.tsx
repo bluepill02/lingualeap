@@ -30,7 +30,7 @@ import {
   BarChart3,
   GitCompare,
   Ruler,
-  TableIcon,
+  Table as TableIcon,
   Languages,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -41,7 +41,194 @@ import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BilingualText } from '@/components/exam/bilingual-text';
 import { useState } from 'react';
-import { neetJeeFormulaSheet } from '@/lib/neet/physics/neet-jee-formula-sheet';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+
+// Formula sheet data moved directly into this component
+const physicsFormulas = {
+    mechanics: {
+      "Kinematics": {
+        formulas: [
+          {
+            formula: "s = ut + \\tfrac12 a t^2",
+            description: "Displacement under constant acceleration",
+            descriptionTamil: "நிலையான முடுக்கத்தின் கீழ் இடப்பெயர்ச்சி"
+          },
+          {
+            formula: "v = u + a t",
+            description: "Velocity–time relation",
+            descriptionTamil: "திசைவேக–கால சமன்பாடு"
+          },
+          {
+            formula: "v^2 = u^2 + 2 a s",
+            description: "Velocity–displacement relation",
+            descriptionTamil: "திசைவேக–இடப்பெயர்ச்சி சமன்பாடு"
+          },
+          {
+            formula: "F = m a",
+            description: "Newton’s second law",
+            descriptionTamil: "நியூட்டனின் இரண்டாம் விதி"
+          },
+          {
+            formula: "P = F/A",
+            description: "Pressure definition",
+            descriptionTamil: "அழுத்த வரையறை"
+          }
+        ]
+      }
+    },
+    thermodynamics: {
+      "Thermodynamics": {
+        formulas: [
+            {
+              formula: "\\Delta U = Q - W",
+              description: "First law of thermodynamics",
+              descriptionTamil: "வெப்ப இயக்கவியலின் முதல் விதி"
+            },
+            {
+              formula: "PV = nRT",
+              description: "Ideal gas equation",
+              descriptionTamil: "நல்லியல்பு வாயு சமன்பாடு"
+            },
+            {
+              formula: "W_{adiabatic} = \\frac{P_2 V_2 - P_1 V_1}{1 - \\gamma}",
+              description: "Work in adiabatic process",
+              descriptionTamil: "வெப்பப் பரிமாற்றமில்லா செயல்முறையில் வேலை"
+            },
+            {
+              formula: "\\eta_{Carnot} = 1 - \\frac{T_c}{T_h}",
+              description: "Carnot efficiency",
+              descriptionTamil: "கார்னோ திறன்"
+            }
+        ]
+      },
+      "Kinetic Theory": {
+        formulas: [
+           {
+              formula: "P = \\tfrac13 \\rho \\langle v^2\\rangle",
+              description: "Pressure from molecular collisions",
+              descriptionTamil: "மூலக்கூறு மோதல்களிலிருந்து அழுத்தம்"
+            },
+            {
+              formula: "v_{rms} = \\sqrt{\\tfrac{3RT}{M}}",
+              description: "Root-mean-square speed",
+              descriptionTamil: "மூல சராசரி வர்க்க வேகம்"
+            },
+            {
+              formula: "\\lambda = \\frac{1}{\\sqrt2 \\pi n d^2}",
+              description: "Mean free path",
+              descriptionTamil: "சராசரி மோதலிடைத் தூரம்"
+            }
+        ]
+      }
+    },
+    'electromagnetism-optics': {
+      "Electrostatics": {
+        formulas: [
+            {
+              formula: "F = k \\dfrac{q_1 q_2}{r^2}",
+              description: "Coulomb’s law",
+              descriptionTamil: "கூலூம் விதி"
+            },
+            {
+              formula: "E = k \\dfrac{Q}{r^2}",
+              description: "Electric field",
+              descriptionTamil: "மின்புலம்"
+            },
+            {
+              formula: "\\displaystyle \\oint \\vec{E}\\cdot d\\vec{A} = \\tfrac{Q_{enc}}{\\varepsilon_0}",
+              description: "Gauss’s law (integral)",
+              descriptionTamil: "காஸ் விதி (தொகையீடு)"
+            }
+        ]
+      },
+      "Current Electricity": {
+        formulas: [
+           {
+              formula: "V = IR",
+              description: "Ohm’s law",
+              descriptionTamil: "ஓம் விதி"
+            },
+            {
+              formula: "P = VI = I^2 R",
+              description: "Electrical power",
+              descriptionTamil: "மின்சக்தி"
+            }
+        ]
+      },
+      "Magnetism & EMI": {
+         formulas: [
+            {
+              formula: "\\vec{F} = q (\\vec{v} \\times \\vec{B})",
+              description: "Lorentz force",
+              descriptionTamil: "லாரன்ஸ் விசை"
+            },
+            {
+              formula: "\\displaystyle \\oint \\vec{B}\\cdot d\\vec{l} = \\mu_0 I_{enc}",
+              description: "Ampère’s law",
+              descriptionTamil: "ஆம்பியர் விதி"
+            },
+            {
+              formula: "\\varepsilon = -\\dfrac{d\\Phi_B}{dt}",
+              description: "Faraday’s law of induction",
+              descriptionTamil: "பாரடேவின் மின்காந்தத் தூண்டல் விதி"
+            }
+        ]
+      },
+       "Optics": {
+         formulas: [
+            {
+              formula: "\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u}",
+              description: "Thin lens formula",
+              descriptionTamil: "மெல்லிய லென்ஸ் சூத்திரம்"
+            },
+            {
+              formula: "\\beta = \\frac{\\lambda D}{d}",
+              description: "Fringe width in YDSE",
+              descriptionTamil: "YDSE-இல் பட்டை அகலம்"
+            }
+        ]
+      }
+    },
+    'modern-physics': {
+        "Modern Physics": {
+          formulas: [
+            {
+              formula: "E = h \\nu",
+              description: "Photon energy",
+              descriptionTamil: "ஃபோட்டான் ஆற்றல்"
+            },
+            {
+              formula: "K_{max} = h \\nu - \\phi",
+              description: "Photoelectric equation",
+              descriptionTamil: "ஒளிமின் விளைவு சமன்பாடு"
+            },
+            {
+              formula: "\\lambda = \\dfrac{h}{p}",
+              description: "de Broglie wavelength",
+              descriptionTamil: "டி பிராய் அலைநீளம்"
+            },
+            {
+              formula: "N(t) = N_0 e^{-\\lambda t}",
+              description: "Radioactive decay law",
+              descriptionTamil: "கதிரியக்கச் சிதைவு விதி"
+            },
+            {
+              formula: "E_n = -13.6 \\frac{Z^2}{n^2} \\text{ eV}",
+              description: "Energy levels in Bohr atom",
+              descriptionTamil: "போர் அணுவில் ஆற்றல் மட்டங்கள்"
+            }
+          ]
+        }
+    },
+};
+
 
 const sectionIcons = {
   mechanics: <Wind className="text-blue-400" />,
@@ -66,8 +253,7 @@ const cardColors = [
 
 export default function NeetPhysicsStrategyGuidePage() {
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
-  const physicsFormulas = neetJeeFormulaSheet.physics;
-
+  
   const TopperApproachContent = () => {
     const content = topperApproachData;
     return (
@@ -97,7 +283,7 @@ export default function NeetPhysicsStrategyGuidePage() {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>Formula & Equation Sheet</CardTitle>
+          <CardTitle>Physics Formula & Equation Sheet</CardTitle>
           <CardDescription>
             A comprehensive list of formulas for NEET Physics, organized by topic.
           </CardDescription>
@@ -119,7 +305,7 @@ export default function NeetPhysicsStrategyGuidePage() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {Object.values(subtopicData)[0].formulas.map((entry, index) => (
+                      {Object.values(subtopicData)[0].formulas.map((entry: any, index: number) => (
                         <TableRow key={index}>
                           <TableCell className="font-mono text-base">
                             <MarkdownRenderer>{`$$${entry.formula}$$`}</MarkdownRenderer>
