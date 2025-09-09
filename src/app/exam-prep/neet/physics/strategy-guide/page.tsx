@@ -30,7 +30,7 @@ import {
   BarChart3,
   GitCompare,
   Ruler,
-  Table as TableIcon,
+  TableIcon,
   Languages,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -532,7 +532,6 @@ const physicsFormulas: TopicFormulas = {
             ]
         }
      }
-  }
 };
 
 
@@ -784,4 +783,3 @@ export default function NeetPhysicsStrategyGuidePage() {
     </div>
   );
 }
-
