@@ -116,9 +116,10 @@ export default function NeetPhysicsStrategyGuidePage() {
       </header>
 
       <Tabs defaultValue="topper-approach" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="deep-dive">Concept Deep Dive</TabsTrigger>
           <TabsTrigger value="topper-approach">Topper's Approach</TabsTrigger>
+          <TabsTrigger value="formula-sheet">Formula Sheet</TabsTrigger>
         </TabsList>
         <TabsContent value="deep-dive" className="mt-6">
            {Object.entries(strategyGuideContent).map(([key, sectionData]) => (
@@ -208,6 +209,19 @@ export default function NeetPhysicsStrategyGuidePage() {
                 </div>
             </div>
             <TopperApproachContent />
+        </TabsContent>
+        <TabsContent value="formula-sheet" className="mt-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle>Formula & Equation Sheet</CardTitle>
+                    <CardDescription>
+                        A comprehensive list of formulas for NEET Physics. Content coming soon.
+                    </CardDescription>
+                </CardHeader>
+                <CardContent className="h-64 flex items-center justify-center">
+                    <p className="text-muted-foreground">Placeholder for formula sheet content.</p>
+                </CardContent>
+            </Card>
         </TabsContent>
       </Tabs>
     </div>
