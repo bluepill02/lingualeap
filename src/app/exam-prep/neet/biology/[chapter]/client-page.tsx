@@ -20,6 +20,7 @@ import {
   HeartPulse,
   FlaskConical,
   Atom,
+  FileText,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -60,13 +61,14 @@ const TABS: { id: TabName; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Overview', icon: BookOpen },
   { id: 'learn', label: 'Learn', icon: FlaskConical },
   { id: 'examples', label: 'Examples', icon: TestTube },
-  { id: 'diagrams', label: 'Diagrams', icon: Microscope },
+  { id: 'diagrams', label: 'Diagrams', icon: FileText },
   { id: 'practice', label: 'Practice', icon: Brain },
   { id: 'summary', label: 'Summary', icon: Trophy },
 ];
 
 function ChapterContent({ content }: { content: NeetModule }) {
   const {
+    id: chapterId,
     title,
     learningObjectives,
     prerequisites,
@@ -90,7 +92,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
 
   const totalSections = TABS.length;
   const { completedSections, toggleSection, isLoading } =
-    useNeetChapterProgress(mockUser.id, 'biology', content.id);
+    useNeetChapterProgress(mockUser.id, 'biology', chapterId);
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState<TabName>('overview');
 
@@ -125,6 +127,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
     if (lowerCaseTitle.includes('plant')) return <Leaf className="w-6 h-6" />;
     if (lowerCaseTitle.includes('animal')) return <Bug className="w-6 h-6" />;
     if (lowerCaseTitle.includes('human')) return <HeartPulse className="w-6 h-6" />;
+    if (lowerCaseTitle.includes('take it easy')) return <Star className="w-6 h-6" />;
     return <Dna className="w-6 h-6" />;
   };
 
@@ -172,6 +175,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
             <Separator />
 
             {/* Concept Overview */}
+            {conceptOverview && (
             <Card>
               <CardHeader>
                 <CardTitle>Concept Overview</CardTitle>
@@ -206,15 +210,14 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 )}
               </CardContent>
             </Card>
-
+            )}
             <SyllabusMappingCard mapping={syllabusMapping} />
           </div>
         );
 
       case 'learn':
-        // Conditional rendering for the special "Take it Easy" module
-        if (content.id === 'neet-biology-take-it-easy') {
-            return <ConceptNotesCard content={content.conceptNotes || []} />;
+        if (chapterId === 'neet-biology-take-it-easy') {
+          return <ConceptNotesCard content={conceptNotes || []} />;
         }
         return <BiologyLearnCard content={content} />;
 
@@ -286,12 +289,14 @@ function ChapterContent({ content }: { content: NeetModule }) {
                   {(nextChapter || studentTip || peerDiscussion) && (
                     <Alert className="bg-primary/10 border-primary/20">
                       <Info className="h-4 w-4" />
-                      <AlertTitle>
-                        <BilingualText
-                          english={`Next Module: ${nextChapter?.title}`}
-                          tamil={nextChapter?.titleTamil}
-                        />
-                      </AlertTitle>
+                      {nextChapter?.title && (
+                        <AlertTitle>
+                          <BilingualText
+                            english={`Next Module: ${nextChapter.title}`}
+                            tamil={nextChapter.titleTamil}
+                          />
+                        </AlertTitle>
+                      )}
                       <AlertDescriptionComponent className="mt-2 space-y-2">
                         {studentTip && (
                           <div className="prose dark:prose-invert max-w-none text-muted-foreground">
@@ -393,7 +398,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                     <CheckCircle className="mr-2" /> Section Completed
                   </>
                 ) : (
-                  <>Mark as Complete & Go to Next</>
+                  <>Mark as Complete & Go to Next <ChevronsRight className="ml-2"/></>
                 )}
               </Button>
             </CardContent>
