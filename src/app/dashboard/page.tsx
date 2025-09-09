@@ -147,7 +147,7 @@ export default function DashboardPage() {
               <p className="font-bold">5 min</p>
             </div>
           </div>
-          <div className="bg-primary/10 text-primary-foreground p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
+          <div className="bg-primary/10 text-primary p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
             <Lightbulb className="h-5 w-5 text-accent" />
             <span>You've learned {masteredWords} words so far! Keep going to unlock personalized insights.</span>
           </div>
