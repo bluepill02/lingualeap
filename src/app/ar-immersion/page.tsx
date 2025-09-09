@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Camera, Zap, RefreshCcw, Loader2, Info, Lightbulb, HelpCircle, Check, X } from 'lucide-react';
+import { Camera, Zap, RefreshCcw, Loader2, Info, Lightbulb, HelpCircle, Check, X, Video } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -23,35 +23,39 @@ export default function ARImmersionPage() {
   const { toast } = useToast();
 
   useEffect(() => {
-    const getCameraPermission = async () => {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        setHasCameraPermission(false);
-        return;
-      }
-      try {
-        const cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-        setHasCameraPermission(true);
-        setStream(cameraStream);
-        if (videoRef.current) {
-          videoRef.current.srcObject = cameraStream;
-        }
-      } catch (error) {
-        console.error('Error accessing camera:', error);
-        setHasCameraPermission(false);
-        toast({
-          variant: 'destructive',
-          title: 'Camera Access Denied',
-          description: 'Please enable camera permissions in your browser settings to use this app.',
-        });
-      }
-    };
-
-    getCameraPermission();
-
+    // Cleanup stream when component unmounts
     return () => {
       stream?.getTracks().forEach(track => track.stop());
     };
-  }, [toast]);
+  }, [stream]);
+
+  const getCameraPermission = async () => {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      toast({
+        variant: 'destructive',
+        title: 'Camera Not Supported',
+        description: 'Your browser does not support camera access.',
+      });
+      setHasCameraPermission(false);
+      return;
+    }
+    try {
+      const cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+      setHasCameraPermission(true);
+      setStream(cameraStream);
+      if (videoRef.current) {
+        videoRef.current.srcObject = cameraStream;
+      }
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+      setHasCameraPermission(false);
+      toast({
+        variant: 'destructive',
+        title: 'Camera Access Denied',
+        description: 'Please enable camera permissions in your browser settings to use this app.',
+      });
+    }
+  };
 
   const captureImage = async () => {
     if (!videoRef.current || !canvasRef.current) return;
@@ -107,9 +111,17 @@ export default function ARImmersionPage() {
 
       <Card>
         <CardContent className="p-6">
-          <div className="relative aspect-video w-full bg-muted rounded-md overflow-hidden">
-            <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
-            <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative aspect-video w-full bg-muted rounded-md overflow-hidden flex items-center justify-center">
+            {stream ? (
+              <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+            ) : (
+                <div className="text-center">
+                    <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
+                    <h3 className="font-semibold">Start your camera to begin</h3>
+                    <p className="text-sm text-muted-foreground">Allow camera access when prompted.</p>
+                </div>
+            )}
+             <div className="absolute inset-0 flex items-center justify-center">
               {hasCameraPermission === false && (
                 <Alert variant="destructive" className="m-4">
                   <AlertTitle>Camera Access Required</AlertTitle>
@@ -119,7 +131,13 @@ export default function ARImmersionPage() {
             </div>
           </div>
           <div className="mt-4 flex justify-center">
-            <Button size="lg" onClick={captureImage} disabled={!hasCameraPermission || isLoading}>
+            {!stream ? (
+              <Button size="lg" onClick={getCameraPermission}>
+                <Camera className="mr-2"/>
+                Start Camera
+              </Button>
+            ) : (
+              <Button size="lg" onClick={captureImage} disabled={!hasCameraPermission || isLoading}>
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 animate-spin" />
@@ -132,6 +150,8 @@ export default function ARImmersionPage() {
                 </>
               )}
             </Button>
+            )}
+            
           </div>
         </CardContent>
       </Card>
