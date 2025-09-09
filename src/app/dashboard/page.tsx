@@ -353,7 +353,7 @@ export default function DashboardPage() {
                     </TabsList>
                      <TabsContent value="joined">
                         <div className="text-center p-4">
-                            <p className="text-2xl font-bold">{format(new Date(userData.email || Date.now()), 'MMMM d, yyyy')}</p>
+                            <p className="text-2xl font-bold">{format(new Date(user.metadata.creationTime || Date.now()), 'MMMM d, yyyy')}</p>
                             <p className="text-sm text-muted-foreground">Date Joined</p>
                         </div>
                     </TabsContent>
