@@ -2,8 +2,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft, BookOpen, GraduationCap, Link2, ShieldCheck } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ArrowLeft, BookOpen, GraduationCap, Link2, ShieldCheck, Star } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { neetContent } from '@/lib/neet/content-loader';
@@ -81,6 +81,23 @@ export default function NeetBiologyPage() {
         </div>
       </header>
       
+       <Card className="bg-primary/10 border-primary/20 shadow-lg hover:shadow-primary/20 transition-shadow">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-3 text-primary text-xl">
+            <Star className="h-6 w-6"/>
+            Take it Easy: Complex Topics Simplified
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="card-padding-lg">
+          <p className="text-muted-foreground mb-4">
+            A special module to help you master challenging but high-yield topics like Human Physiology and Genetics.
+          </p>
+          <Link href="/exam-prep/neet/biology/take-it-easy">
+            <Button>Open "Take it Easy" Module</Button>
+          </Link>
+        </CardContent>
+      </Card>
+
        {Object.entries(chapterGroups).map(([key, chapters]) => {
           const group = groupInfo[key as keyof typeof groupInfo];
           if (chapters.length === 0) return null;
@@ -146,3 +163,4 @@ export default function NeetBiologyPage() {
     </div>
   );
 }
+
