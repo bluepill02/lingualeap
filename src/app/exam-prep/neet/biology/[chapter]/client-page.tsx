@@ -53,11 +53,12 @@ import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { BiologyLearnCard } from '@/components/exam/neet-biology-components';
 
-type TabName = 'overview' | 'learn' | 'diagrams' | 'practice' | 'summary';
+type TabName = 'overview' | 'learn' | 'examples' | 'diagrams' | 'practice' | 'summary';
 
 const TABS: { id: TabName; label: string; icon: React.ElementType }[] = [
   { id: 'overview', label: 'Overview', icon: BookOpen },
   { id: 'learn', label: 'Learn', icon: FlaskConical },
+  { id: 'examples', label: 'Examples', icon: TestTube },
   { id: 'diagrams', label: 'Diagrams', icon: Microscope },
   { id: 'practice', label: 'Practice', icon: Brain },
   { id: 'summary', label: 'Summary', icon: Trophy },
@@ -216,6 +217,9 @@ function ChapterContent({ content }: { content: NeetModule }) {
         }
         return <BiologyLearnCard content={content} />;
 
+      case 'examples':
+        return <WorkedExamplesCard examples={workedExamples || []} />;
+        
       case 'diagrams':
         return <KeyFormulasCard content={keyFormulasAndDiagrams} />;
 
@@ -265,7 +269,6 @@ function ChapterContent({ content }: { content: NeetModule }) {
               </Card>
             )}
 
-            {/* NEET Tips */}
             {neetTips && (nextChapter || studentTip || peerDiscussion) && (
               <Card>
                 <CardHeader>
