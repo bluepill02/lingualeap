@@ -113,11 +113,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       labelKey: 'companionCircles',
       icon: Users,
     },
-    {
-      href: '/exam-prep',
-      labelKey: 'examPrep',
-      icon: ClipboardCheck,
-    },
+    // {
+    //   href: '/exam-prep',
+    //   labelKey: 'examPrep',
+    //   icon: ClipboardCheck,
+    // },
      {
       href: '/admin/validation-report',
       labelKey: 'validationReport',

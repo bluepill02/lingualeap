@@ -26,6 +26,7 @@ import {
   Crown,
   Loader2,
   Star,
+  ClipboardCheck,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -360,6 +361,18 @@ export default function DashboardPage() {
           ))}
         </div>
         
+        <Card className="bg-primary/5 border-primary/20">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3"><ClipboardCheck/> Exam Prep Zone</CardTitle>
+                <CardDescription>Access specialized modules for competitive exams like NEET and TNPSC to boost your preparation.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Link href="/exam-prep">
+                    <Button>Explore Exam Modules</Button>
+                </Link>
+            </CardContent>
+        </Card>
+
         <div>
           <h2 className="text-xl font-bold font-headline mb-4">Recommended Lessons</h2>
           <LessonCarousel lessons={lessons} />

@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import * as React from 'react';
@@ -10,8 +9,11 @@ import { Progress } from '@/components/ui/progress';
 import { Alert, AlertTitle, AlertDescription as AlertDescriptionComponent } from '@/components/ui/alert';
 import type { MCQ } from '@/lib/types';
 import { cn } from '@/lib/utils';
-import { CheckCircle, HelpCircle, XCircle, Star, BrainCircuit } from 'lucide-react';
+import { CheckCircle, HelpCircle, XCircle, Star, BrainCircuit, User } from 'lucide-react';
 import { MarkdownRenderer } from './markdown-renderer';
+import { getAuth } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+import Link from 'next/link';
 
 interface PracticeModeProps {
   mcqs: MCQ[];
@@ -32,6 +34,16 @@ export function PracticeMode({
   onSubmit,
   onReset,
 }: PracticeModeProps) {
+
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+  React.useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setIsAuthenticated(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const totalQuestions = mcqs.length;
   const answeredCount = answers.filter(a => a !== null).length;
@@ -133,13 +145,27 @@ export function PracticeMode({
         </div>
         
         <div className="flex justify-center gap-4 mt-6">
-            <Button size="lg" onClick={onSubmit} disabled={submitted || answeredCount < totalQuestions}>
+            <Button size="lg" onClick={onSubmit} disabled={submitted || answeredCount < totalQuestions || !isAuthenticated}>
                 Reveal Answers
             </Button>
              <Button size="lg" variant="outline" onClick={onReset} disabled={!submitted}>
                 Practice Again
             </Button>
         </div>
+
+        {!isAuthenticated && (
+            <Alert variant="warning" className="text-center">
+                <User className="h-4 w-4"/>
+                <AlertTitle>Log In to Save Your Progress</AlertTitle>
+                <AlertDescriptionComponent>
+                    <p>You can view the questions, but you'll need to log in to submit answers and track your performance.</p>
+                     <Button asChild variant="link" className="p-0 h-auto">
+                        <Link href="/auth">Log In or Sign Up</Link>
+                    </Button>
+                </AlertDescriptionComponent>
+            </Alert>
+        )}
+
         {submitted && (
             <Card className="mt-6 text-center">
                 <CardHeader>
