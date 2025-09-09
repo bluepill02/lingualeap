@@ -51,9 +51,12 @@ export async function validateModule(content: string, chapterName: string): Prom
   let requiredKeys = [...baseRequiredKeys];
   
   if (moduleObject.subject === 'Biology') {
-      requiredKeys.push('stateBoardGaps', 'extraNeetConcepts', 'ncertReadingGuide');
-      // Biology modules do not have conceptNotes, so remove it from check
-      requiredKeys = requiredKeys.filter(k => k !== 'conceptNotes');
+      // Special case for the "Take it Easy" module which has conceptNotes but not the other 3
+      if (moduleObject.id === 'neet-biology-take-it-easy') {
+          requiredKeys.push('conceptNotes');
+      } else {
+        requiredKeys.push('stateBoardGaps', 'extraNeetConcepts', 'ncertReadingGuide');
+      }
   } else {
       requiredKeys.push('conceptNotes');
   }
