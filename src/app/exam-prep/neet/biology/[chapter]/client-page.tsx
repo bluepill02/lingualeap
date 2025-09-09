@@ -210,6 +210,10 @@ function ChapterContent({ content }: { content: NeetModule }) {
         );
 
       case 'learn':
+        // Conditional rendering for the special "Take it Easy" module
+        if (content.id === 'neet-biology-take-it-easy') {
+            return <ConceptNotesCard content={content.conceptNotes || []} />;
+        }
         return <BiologyLearnCard content={content} />;
 
       case 'diagrams':
@@ -427,4 +431,3 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : <>Loading...</>}</>;
 }
-
