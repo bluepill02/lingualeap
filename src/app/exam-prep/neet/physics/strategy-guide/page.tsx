@@ -21,19 +21,11 @@ import {
   Star,
   TrendingUp,
   BrainCircuit,
-  Book,
-  ClipboardList,
-  Target,
-  Goal,
-  RefreshCw,
-  Sigma,
-  Network,
-  BarChart,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { strategyGuideContent } from '@/lib/neet/physics/neet-physics-strategy-guide';
-import { topperApproachContent, topperApproachContentTamil } from '@/lib/neet/physics/neet-physics-topper-approach';
+import { topperApproachData } from '@/lib/neet/physics/neet-physics-topper-approach';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BilingualText } from '@/components/exam/bilingual-text';
@@ -49,6 +41,29 @@ const sectionIcons = {
 
 export default function NeetPhysicsStrategyGuidePage() {
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
+
+  const TopperApproachContent = () => {
+    const content = topperApproachData;
+    return (
+      <Accordion type="multiple" defaultValue={['item-0']} className="w-full space-y-4">
+        {content.map((section, index) => (
+          <AccordionItem value={`item-${index}`} key={index}>
+            <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md hover:bg-muted/80">
+               <div className="flex items-center gap-3">
+                    {section.icon && <section.icon className="h-6 w-6 text-primary" />}
+                    <span className="text-left">{language === 'english' ? section.title : section.titleTamil}</span>
+               </div>
+            </AccordionTrigger>
+            <AccordionContent className="pt-4 card-padding-lg prose dark:prose-invert max-w-none">
+              <MarkdownRenderer>
+                {language === 'english' ? section.content : section.contentTamil}
+              </MarkdownRenderer>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    )
+  }
 
   return (
     <div className="container mx-auto space-y-8 subject-physics">
@@ -165,25 +180,9 @@ export default function NeetPhysicsStrategyGuidePage() {
                     </Button>
                 </div>
             </div>
-            <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-2xl">
-                    <TrendingUp className="text-primary" />
-                     {language === 'english' ? "NEET Physics Mastery: A Topper’s Approach" : "நீட் இயற்பியல் தேர்ச்சி: ஒரு டாப்பரின் அணுகுமுறை"}
-                  </CardTitle>
-                  <CardDescription>
-                      {language === 'english' ? "Deep Conceptual Understanding, Strategic Learning, and Efficient Problem Solving" : "ஆழமான கருத்தியல் புரிதல், உத்தியியல் கற்றல் மற்றும் திறமையான சிக்கல் தீர்த்தல்"}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="prose dark:prose-invert max-w-none">
-                  <MarkdownRenderer>
-                      {language === 'english' ? topperApproachContent : topperApproachContentTamil}
-                  </MarkdownRenderer>
-                </CardContent>
-            </Card>
+            <TopperApproachContent />
         </TabsContent>
       </Tabs>
     </div>
   );
 }
-
