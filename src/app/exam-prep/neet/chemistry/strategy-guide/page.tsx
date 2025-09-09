@@ -35,6 +35,7 @@ import {
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { strategyGuideContent } from '@/lib/neet/chemistry/neet-chemistry-strategy-guide';
+import { topperApproachData } from '@/lib/neet/physics/neet-physics-topper-approach';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BilingualText } from '@/components/exam/bilingual-text';
@@ -56,9 +57,195 @@ const sectionIcons = {
   organic: <Atom className="text-orange-400" />,
 };
 
+// --- FORMULA SHEET DATA ---
+export interface FormulaEntry {
+  formula: string;
+  description: string;
+  descriptionTamil: string;
+}
+
+export interface TopicFormulas {
+  [subtopic: string]: {
+    formulas: FormulaEntry[];
+  };
+}
+
+export const chemistryFormulas: TopicFormulas = {
+    physical: {
+        title: "Physical Chemistry",
+        titleTamil: "இயற்பியல் வேதியியல்",
+        formulas: [
+            {
+                formula: "PV = nRT",
+                description: "Ideal gas equation",
+                descriptionTamil: "நல்லியல்பு வாயுச் சமன்பாடு"
+            },
+            {
+                formula: "P₁/T₁ = P₂/T₂",
+                description: "Gay–Lussac’s law (isobaric gas)",
+                descriptionTamil: "கே–லுசாக் விதி"
+            },
+            {
+                formula: "\\ln\\frac{P₂}{P₁} = -\\frac{ΔH_{vap}}{R} \\Bigl(\\frac{1}{T₂} - \\frac{1}{T₁}\\Bigr)",
+                description: "Clausius–Clapeyron equation",
+                descriptionTamil: "கிளாசியஸ்-கிளாபெய்ரான் சமன்பாடு"
+            },
+            {
+                formula: "ΔG = ΔG° + RT \\ln K",
+                description: "Gibbs free energy and equilibrium",
+                descriptionTamil: "கிப்ஸ் கட்டிலா ஆற்றல் மற்றும் சமநிலை"
+            },
+            {
+                formula: "K_p = K_c (RT)^{\\Delta n}",
+                description: "Relation between Kp and Kc",
+                descriptionTamil: "Kp மற்றும் Kc க்கு இடையேயான தொடர்பு"
+            },
+            {
+                formula: "Rate = k [A]^m [B]^n",
+                description: "Rate law for chemical kinetics",
+                descriptionTamil: "வேதி வினைவேகவியல் விதி"
+            },
+            {
+                formula: "E = k_B T",
+                description: "Mean kinetic energy per molecule",
+                descriptionTamil: "ஒரு மூலக்கூறுக்கான சராசரி இயக்க ஆற்றல்"
+            },
+            {
+                formula: "E_{cell} = E°_{cell} − \\frac{RT}{nF} \\ln Q",
+                description: "Nernst equation",
+                descriptionTamil: "நெர்ன்ஸ்ட் சமன்பாடு"
+            },
+            {
+                formula: "pH = -\\log [H⁺]",
+                description: "pH definition",
+                descriptionTamil: "pH வரையறை"
+            },
+            {
+                formula: "ΔT_b = K_b m, \\quad ΔT_f = K_f m",
+                description: "Colligative property elevation/freezing",
+                descriptionTamil: "தொகுப்பண்பு கொதிநிலை ஏற்றம்/உறைநிலை தாழ்வு"
+            }
+        ]
+    },
+    inorganic: {
+        title: "Inorganic Chemistry",
+        titleTamil: "கனிம வேதியியல்",
+        formulas: [
+            {
+                formula: "E_{cell} = E°_{cathode} − E°_{anode}",
+                description: "Standard cell potential",
+                descriptionTamil: "திட்ட மின்கல மின்னழுத்தம்"
+            },
+            {
+                formula: "U = \\frac{k Q₁ Q₂}{r}",
+                description: "Electrostatic energy in lattice",
+                descriptionTamil: "படிகக்கூட்டில் நிலைமின்னியல் ஆற்றல்"
+            },
+            {
+                formula: "CFSE = [-0.4x + 0.6y] \\Delta_o",
+                description: "CFSE for octahedral complexes",
+                descriptionTamil: "எண்முகி அணைவுகளுக்கான படிகப்புல நிலைப்படுத்தும் ஆற்றல்"
+            },
+            {
+                formula: "a_{alloy} = x a_A + (1−x) a_B",
+                description: "Vegard’s law: Lattice parameter in alloy",
+                descriptionTamil: "வெகார்டு விதி: உலோகக்கலவையில் படிகக்கூடு அளவுரு"
+            },
+            {
+                formula: "Σ \\text{ oxidation numbers} = \\text{charge}",
+                description: "Oxidation state sum rule",
+                descriptionTamil: "ஆக்ஸிஜனேற்ற எண் கூட்டல் விதி"
+            }
+        ]
+    },
+    organic: {
+        title: "Organic Chemistry",
+        titleTamil: "கரிம வேதியியல்",
+        formulas: [
+            {
+                formula: "\\text{Rate}_{SN1} = k [R–LG]",
+                description: "First-order (unimolecular) nucleophilic substitution",
+                descriptionTamil: "முதல் வகை (ஒருமூலக்கூறு) கருக்கவர் பொருள் பதிலீடு"
+            },
+            {
+                formula: "\\text{Rate}_{SN2} = k [R–LG][Nu]",
+                description: "Second-order (bimolecular) substitution",
+                descriptionTamil: "இரண்டாம் வகை (இருமூலக்கூறு) பதிலீடு"
+            },
+            {
+                formula: "pKa + pKb = 14",
+                description: "Conjugate acid-base relation in water",
+                descriptionTamil: "நீரில் இணை அமில-காரத் தொடர்பு"
+            },
+            {
+                formula: "A = ε l c",
+                description: "Beer–Lambert law",
+                descriptionTamil: "பீர்–லாம்பெர்ட் விதி"
+            },
+            {
+                formula: "\\delta = \\frac{ν_{sample} − ν_{ref}}{ν_{spec}} × 10^6",
+                description: "NMR chemical shift",
+                descriptionTamil: "NMR வேதியியல் நகர்வு"
+            }
+        ]
+    }
+  };
+// --- END OF FORMULA SHEET DATA ---
+
 export default function NeetChemistryStrategyGuidePage() {
   const [deepDiveLanguage, setDeepDiveLanguage] = useState<'english' | 'tamil'>('english');
   const [topperLanguage, setTopperLanguage] = useState<'english' | 'tamil'>('english');
+
+  const FormulaSheetContent = () => {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Chemistry Formula & Equation Sheet</CardTitle>
+          <CardDescription>
+            A comprehensive list of formulas for NEET Chemistry, organized by topic.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Accordion type="multiple" className="w-full space-y-4">
+            {Object.entries(chemistryFormulas).map(([topic, subtopicData]) => (
+              <AccordionItem value={topic} key={topic}>
+                <AccordionTrigger className="text-xl font-headline capitalize card-padding-md bg-muted/50 rounded-md hover:bg-muted/80">
+                  <div className="flex items-center gap-3">
+                     {(sectionIcons as any)[topic] || <BookOpen />}
+                     <BilingualText english={subtopicData.title} tamil={subtopicData.titleTamil} />
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="pt-4 space-y-4">
+                    <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead className="w-[30%]">Formula</TableHead>
+                              <TableHead>Description (English)</TableHead>
+                              <TableHead>Description (Tamil)</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {subtopicData.formulas.map((entry, index) => (
+                              <TableRow key={index}>
+                                <TableCell className="font-mono text-base">
+                                  <MarkdownRenderer>{`$$${entry.formula}$$`}</MarkdownRenderer>
+                                </TableCell>
+                                <TableCell>{entry.description}</TableCell>
+                                <TableCell className="font-headline">{entry.descriptionTamil}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                    </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </CardContent>
+      </Card>
+    );
+  };
 
 
   return (
@@ -409,19 +596,10 @@ export default function NeetChemistryStrategyGuidePage() {
             </Accordion>
         </TabsContent>
         <TabsContent value="formula-sheet" className="mt-6">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Formula & Equation Sheet</CardTitle>
-                    <CardDescription>
-                        A comprehensive list of formulas for NEET Chemistry. Content coming soon.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="h-64 flex items-center justify-center">
-                    <p className="text-muted-foreground">Placeholder for formula sheet content.</p>
-                </CardContent>
-            </Card>
+            <FormulaSheetContent />
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
