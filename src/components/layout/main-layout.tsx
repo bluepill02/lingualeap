@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   SidebarProvider,
   Sidebar,
@@ -34,6 +34,7 @@ import {
   Calendar,
   Moon,
   Sun,
+  Loader2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -53,12 +54,33 @@ import { Separator } from '../ui/separator';
 import { useLanguage, Language } from '@/context/language-context';
 import { translations } from '@/lib/i18n';
 import { useTheme } from 'next-themes';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from '@/lib/firebase';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const { language, setLanguage } = useLanguage();
   const { setTheme } = useTheme();
   const t = translations[language];
+
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+  React.useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+        router.push('/auth');
+      }
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, [router]);
 
   const menuItems = [
     {
@@ -122,6 +144,20 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       icon: Settings,
     },
   ];
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    // This can be a fallback, but the redirect should handle most cases.
+    return null;
+  }
+
 
   return (
     <div className="app-container">
