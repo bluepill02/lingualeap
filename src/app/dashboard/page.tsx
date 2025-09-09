@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { mockUser, companionCircles, flashcards, lessons } from '@/lib/data';
 import {
   Trophy,
   BrainCircuit,
@@ -32,97 +31,146 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { getWeek, format } from 'date-fns';
+import { getWeek, format, formatDistanceToNow } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { LessonCarousel } from '@/components/dashboard/lesson-carousel';
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+import { getDashboardData } from '@/services/dashboard';
+import type { DashboardData, User } from '@/lib/types';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function DashboardSkeleton() {
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="md:col-span-2 space-y-6">
+                 <div>
+                    <Skeleton className="h-8 w-1/2 mb-2" />
+                    <Skeleton className="h-4 w-1/4" />
+                </div>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    {[...Array(4)].map((_, i) => (
+                        <Card key={i}>
+                            <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
+                                <Skeleton className="h-8 w-8 rounded-full" />
+                                <Skeleton className="h-6 w-1/2" />
+                                <Skeleton className="h-4 w-3/4" />
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+                <Card className="bg-primary/5 border-primary/20">
+                    <CardHeader>
+                        <Skeleton className="h-6 w-1/3" />
+                        <Skeleton className="h-4 w-full mt-2" />
+                        <Skeleton className="h-4 w-3/4" />
+                    </CardHeader>
+                    <CardContent>
+                        <Skeleton className="h-10 w-48" />
+                    </CardContent>
+                </Card>
+                <div>
+                     <Skeleton className="h-6 w-1/4 mb-4" />
+                     <Skeleton className="h-48 w-full" />
+                </div>
+            </div>
+            <div className="space-y-6">
+                <Card>
+                    <CardHeader>
+                         <Skeleton className="h-6 w-1/2" />
+                         <Skeleton className="h-4 w-3/4 mt-2" />
+                    </CardHeader>
+                    <CardContent className="flex flex-col items-center gap-4">
+                         <Skeleton className="h-12 w-full" />
+                         <Skeleton className="h-10 w-full" />
+                    </CardContent>
+                </Card>
+                <Card>
+                     <CardHeader>
+                         <Skeleton className="h-6 w-3/4" />
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <Skeleton className="h-10 w-full" />
+                        <Skeleton className="h-10 w-full" />
+                         <Skeleton className="h-20 w-full" />
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+    )
+}
 
 export default function DashboardPage() {
+  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [greeting, setGreeting] = useState('');
-  const [joinedDate, setJoinedDate] = useState<string | null>(null);
-  const [accuracy, setAccuracy] = useState<string | null>(null);
-
-  // Use the first circle from the array as the user's circle
-  const companionCircle = companionCircles[0];
 
   useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      if (firebaseUser) {
+        setUser(firebaseUser);
+        try {
+          const data = await getDashboardData(firebaseUser.uid);
+          setDashboardData(data);
+        } catch (error) {
+          console.error("Failed to fetch dashboard data:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        // Handle signed out state
+        setUser(null);
+        setDashboardData(null);
+        setIsLoading(false);
+        // Optionally redirect to login page
+        // router.push('/auth'); 
+      }
+    });
+
     const hour = new Date().getHours();
-    if (hour < 12) {
-        setGreeting('Good morning');
-    } else if (hour < 18) {
-        setGreeting('Good afternoon');
-    } else {
-        setGreeting('Good evening');
-    }
-    
-    // Avoid hydration mismatch by setting date on client
-    setJoinedDate(format(new Date(), 'MMMM d, yyyy'));
+    if (hour < 12) setGreeting('Good morning');
+    else if (hour < 18) setGreeting('Good afternoon');
+    else setGreeting('Good evening');
 
-    // Simulate fetching accuracy data
-    const timer = setTimeout(() => {
-      setAccuracy('Coming soon');
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    return () => unsubscribe();
   }, []);
 
-  const masteredWords = flashcards.filter(fc => fc.stability > 10).length;
-  const dueToday = flashcards.filter(fc => new Date(fc.nextDue) <= new Date()).length;
-  const totalFlashcards = flashcards.length;
-  const progressValue = totalFlashcards > 0 ? (masteredWords / totalFlashcards) * 100 : 0;
-  
+  if (isLoading) {
+    return <DashboardSkeleton />;
+  }
+
+  if (!user || !dashboardData) {
+    return (
+      <div className="text-center">
+        <h2 className="text-2xl font-bold">Welcome to LinguaLeap!</h2>
+        <p className="text-muted-foreground">Please sign in to view your dashboard.</p>
+        <Link href="/auth">
+          <Button className="mt-4">Sign In</Button>
+        </Link>
+      </div>
+    );
+  }
+
+  const { userData, flashcardStats, lessons, companionCircle } = dashboardData;
+
   const proficiencyMap: { [key: string]: string } = {
     'Beginner': 'A1',
     'Intermediate': 'A2',
     'Advanced': 'B1',
   };
-  
-  const cefrLevel = proficiencyMap[mockUser.proficiency] || 'A1';
+  const cefrLevel = proficiencyMap[userData.proficiency] || 'A1';
 
   const stats = [
-    {
-      icon: Trophy,
-      value: mockUser.streak,
-      label: 'Day Streak',
-      color: 'text-yellow-500',
-    },
-    {
-      icon: BrainCircuit,
-      value: masteredWords,
-      label: 'Words Mastered',
-      color: 'text-green-500',
-    },
-    {
-      icon: Target,
-      value: cefrLevel,
-      label: 'CEFR Level',
-      color: 'text-blue-400',
-    },
-    {
-      icon: Clock,
-      value: dueToday,
-      label: 'Due Today',
-      color: 'text-primary',
-    },
-  ];
-  
-  const cefrLevels = [
-    { level: 'A1', words: 0 },
-    { level: 'A2', words: 0 },
-    { level: 'B1', words: 0 },
-    { level: 'B2', words: 0 },
-    { level: 'C1', words: 0 },
-    { level: 'C2', words: 0 },
+    { icon: Trophy, value: userData.streak, label: 'Day Streak', color: 'text-yellow-500' },
+    { icon: BrainCircuit, value: flashcardStats.mastered, label: 'Words Mastered', color: 'text-green-500' },
+    { icon: Target, value: cefrLevel, label: 'CEFR Level', color: 'text-blue-400' },
+    { icon: Clock, value: flashcardStats.dueToday, label: 'Due Today', color: 'text-primary' },
   ];
 
-  const weekActivity = [
-    { day: 'S', activity: 0.2 },
-    { day: 'M', activity: 0.5 },
-    { day: 'T', activity: 0.8 },
-    { day: 'W', activity: 0.6 },
-    { day: 'T', activity: 0.9 },
-    { day: 'F', activity: 0.7 },
-    { day: 'S', activity: 0.4 },
-  ];
+  const levelProgress = userData.xp > 0 ? (userData.xp % 1000 / 1000) * 100 : 0;
+  const currentLevel = Math.floor(userData.xp / 1000);
 
   function SmartStudyPlanCard() {
     return (
@@ -133,14 +181,14 @@ export default function DashboardPage() {
             Smart Study Plan
           </CardTitle>
           <CardDescription>
-            Your AI-powered path to mastering {mockUser.language}.
+            Your AI-powered path to mastering {userData.language}.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex justify-between text-center mb-4">
             <div>
               <p className="text-muted-foreground text-sm">Focus Areas</p>
-              <p className="font-bold">{dueToday} words</p>
+              <p className="font-bold">{flashcardStats.dueToday} words</p>
             </div>
             <div>
               <p className="text-muted-foreground text-sm">Suggested Time</p>
@@ -149,7 +197,7 @@ export default function DashboardPage() {
           </div>
           <div className="bg-primary/10 text-primary p-3 rounded-lg flex items-center gap-3 text-sm mb-4">
             <Lightbulb className="h-5 w-5 text-accent" />
-            <span>You've learned {masteredWords} words so far! Keep going to unlock personalized insights.</span>
+            <span>You've learned {flashcardStats.mastered} words so far! Keep going to unlock personalized insights.</span>
           </div>
           <Link href="/flashcards">
             <Button className="w-full" size="lg">
@@ -161,131 +209,31 @@ export default function DashboardPage() {
     );
   }
 
-  function LearningAnalyticsCard() {
-    return (
-      <Card className="bg-card/50">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-lg">
-            <TrendingUp className="h-5 w-5 text-primary" />
-            Learning Analytics
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="text-sm font-medium">Vocabulary Progress</h3>
-              <span className="text-sm text-muted-foreground">{masteredWords} / {totalFlashcards} mastered</span>
-            </div>
-            <Progress value={progressValue} className="h-2" aria-label={`Vocabulary progress: ${Math.round(progressValue)}%`} />
-            <div className="flex justify-between text-xs text-muted-foreground mt-2">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-secondary"></span>
-                <span>Mastered</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-accent"></span>
-                <span>Learning</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-primary/50"></span>
-                <span>New</span>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium mb-2">CEFR Level Progress</h3>
-            <div className="grid grid-cols-3 gap-2">
-              {cefrLevels.map((item) => (
-                <div
-                  key={item.level}
-                  className="bg-primary/10 rounded-md p-2 text-center"
-                >
-                  <p className="font-bold text-primary">{item.level}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {item.words}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="text-sm font-medium mb-3">This Week's Activity</h3>
-            <div className="grid grid-cols-7 gap-2 h-20 px-2">
-              {weekActivity.map((item, index) => (
-                <div key={index} className="flex flex-col-reverse items-center gap-1 text-center">
-                  <span className="text-xs text-muted-foreground">{item.day}</span>
-                  <div
-                    className="w-4 bg-primary rounded-t-sm"
-                    style={{ height: `${item.activity * 100}%` }}
-                    aria-label={`Activity level for ${item.day}: ${item.activity * 100}%`}
-                  ></div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <Tabs defaultValue="joined" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                  <TabsTrigger value="joined">
-                      <CalendarDays className="mr-2 h-4 w-4"/>
-                      Joined
-                  </TabsTrigger>
-                  <TabsTrigger value="accuracy">Accuracy</TabsTrigger>
-              </TabsList>
-              <TabsContent value="joined">
-                  <div className="text-center p-4">
-                       {joinedDate ? (
-                          <>
-                              <p className="text-2xl font-bold">{joinedDate}</p>
-                              <p className="text-sm text-muted-foreground">Date Joined</p>
-                          </>
-                       ) : (
-                          <Loader2 className="animate-spin" aria-label="Loading join date" />
-                       )}
-                  </div>
-              </TabsContent>
-              <TabsContent value="accuracy">
-                  <div className="text-center p-4">
-                      {accuracy ? (
-                          <>
-                              <p className="text-2xl font-bold">{accuracy}</p>
-                              <p className="text-sm text-muted-foreground">Recent Accuracy</p>
-                          </>
-                      ) : (
-                          <Loader2 className="animate-spin" aria-label="Loading accuracy data" />
-                       )}
-                  </div>
-              </TabsContent>
-          </Tabs>
-        </CardContent>
-      </Card>
-    );
-  }
-
   function CompanionCircleCard() {
-      if (!companionCircle || !companionCircle.members || companionCircle.members.length === 0) {
+      if (!companionCircle) {
           return null;
       }
       const currentWeek = getWeek(new Date());
-      const leaderIndex = currentWeek % companionCircle.members.length;
-      const leader = companionCircle.members[leaderIndex];
+      const leaderIndex = companionCircle.members.length > 0 ? currentWeek % companionCircle.members.length : 0;
+      const leader = companionCircle.members.length > 0 ? companionCircle.members[leaderIndex] : null;
 
       return (
           <Card className="bg-card/50">
               <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                       <Users className="h-5 w-5 text-primary" />
-                      Companion Circle
+                      My Companion Circle
                   </CardTitle>
                   <CardDescription>
-                      Learn and grow with your peers. This week's leader is {leader.name}.
+                     {companionCircle.name}
                   </CardDescription>
               </CardHeader>
               <CardContent>
+                 {leader && (
+                    <div className="text-sm text-muted-foreground mb-4">This week's leader is {leader.name}.</div>
+                 )}
                   <div className="mt-4 space-y-4">
-                      {companionCircle.members.map((member) => (
+                      {companionCircle.members.slice(0, 5).map((member) => (
                           <div key={member.id} className="flex items-center justify-between text-sm">
                              <div className="flex items-center gap-3">
                                   <Avatar className="h-10 w-10">
@@ -294,7 +242,7 @@ export default function DashboardPage() {
                                   </Avatar>
                                   <span className="font-medium">{member.name}</span>
                               </div>
-                              {member.id === leader.id && (
+                              {leader && member.id === leader.id && (
                                   <Badge variant="secondary" className="flex items-center gap-1 text-yellow-500 bg-yellow-500/10 border-yellow-500/20">
                                       <Crown className="h-3 w-3" />
                                       Leader
@@ -313,11 +261,7 @@ export default function DashboardPage() {
       )
   }
 
-  const xpForNextLevel = 1000;
-  const currentLevel = Math.floor(mockUser.xp / xpForNextLevel);
-  const xpForCurrentLevel = currentLevel * xpForNextLevel;
-  const xpIntoCurrentLevel = mockUser.xp - xpForCurrentLevel;
-  const levelProgress = (xpIntoCurrentLevel / xpForNextLevel) * 100;
+  const vocabularyProgress = flashcardStats.total > 0 ? (flashcardStats.mastered / flashcardStats.total) * 100 : 0;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -326,7 +270,7 @@ export default function DashboardPage() {
             <div className="flex justify-between items-start">
             <div>
                 <h1 className="text-2xl font-bold">
-                    {greeting ? `${greeting}, ${mockUser.name}!` : `Welcome, ${mockUser.name}!`}
+                    {greeting}, {userData.name}!
                 </h1>
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <Star className="w-4 h-4 text-yellow-500" />
@@ -344,7 +288,7 @@ export default function DashboardPage() {
             <div className="mt-2">
                 <Progress value={levelProgress} className="h-2" aria-label={`Experience progress: ${Math.round(levelProgress)}%`} />
                 <p className="text-xs text-muted-foreground text-right mt-1">
-                    {xpIntoCurrentLevel.toLocaleString()} / {xpForNextLevel.toLocaleString()} XP
+                    {(userData.xp % 1000).toLocaleString()} / 1000 XP
                 </p>
             </div>
         </div>
@@ -383,7 +327,45 @@ export default function DashboardPage() {
 
       <div className="space-y-6">
         <SmartStudyPlanCard />
-        <LearningAnalyticsCard />
+        
+        <Card className="bg-card/50">
+            <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-lg">
+                <TrendingUp className="h-5 w-5 text-primary" />
+                Learning Analytics
+            </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+                <div>
+                    <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-sm font-medium">Vocabulary Progress</h3>
+                    <span className="text-sm text-muted-foreground">{flashcardStats.mastered} / {flashcardStats.total} mastered</span>
+                    </div>
+                    <Progress value={vocabularyProgress} className="h-2" aria-label={`Vocabulary progress: ${Math.round(vocabularyProgress)}%`} />
+                </div>
+                 <Tabs defaultValue="joined">
+                    <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="joined">
+                            <CalendarDays className="mr-2 h-4 w-4"/>
+                            Joined
+                        </TabsTrigger>
+                        <TabsTrigger value="accuracy">Accuracy</TabsTrigger>
+                    </TabsList>
+                     <TabsContent value="joined">
+                        <div className="text-center p-4">
+                            <p className="text-2xl font-bold">{format(new Date(userData.email || Date.now()), 'MMMM d, yyyy')}</p>
+                            <p className="text-sm text-muted-foreground">Date Joined</p>
+                        </div>
+                    </TabsContent>
+                    <TabsContent value="accuracy">
+                        <div className="text-center p-4">
+                                <p className="text-2xl font-bold">Coming Soon</p>
+                                <p className="text-sm text-muted-foreground">Recent Accuracy</p>
+                        </div>
+                    </TabsContent>
+                 </Tabs>
+            </CardContent>
+        </Card>
       </div>
     </div>
   );

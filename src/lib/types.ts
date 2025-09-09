@@ -1,4 +1,5 @@
 
+
 import { z } from 'genkit';
 
 export interface User {
@@ -120,6 +121,7 @@ export interface SyllabusMapping {
     tnBoardChapter: string;
     ncertReference: string;
     notes: string;
+    mappingDescription?: string;
 }
 
 export interface FBDstep {
@@ -227,10 +229,10 @@ export interface NeetModule {
     extraNeetConcepts?: string[];   // For Bio
     ncertReadingGuide?: string[];   // For Bio
 
-    workedExamples: WorkedExample[];
-    mcqs: MCQ[];
-    assertionReasons: AssertionReason[];
-    matchTheColumns: MatchTheColumns[];
+    workedExamples?: WorkedExample[];
+    mcqs?: MCQ[];
+    assertionReasons?: AssertionReason[];
+    matchTheColumns?: MatchTheColumns[];
     keyFormulasAndDiagrams?: {
         formulas: KeyFormula[];
         diagrams: KeyDiagram[];
@@ -347,6 +349,17 @@ export interface CalendarEvent {
     date: Date;
     type: 'peer-study' | 'mentor-session' | 'live-class' | 'deadline';
     group?: string;
+}
+
+export interface DashboardData {
+    userData: User;
+    flashcardStats: {
+        mastered: number;
+        dueToday: number;
+        total: number;
+    };
+    lessons: Lesson[];
+    companionCircle: CompanionCircle | null;
 }
 
 
