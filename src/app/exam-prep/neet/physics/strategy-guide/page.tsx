@@ -69,7 +69,7 @@ const physicsFormulas: TopicFormulas = {
       "Kinematics": {
         formulas: [
           {
-            formula: "s = ut + \\tfrac12 a t^2",
+            formula: "s = ut + \\tfrac{1}{2} a t^2",
             description: "Displacement under constant acceleration",
             descriptionTamil: "நிலையான முடுக்கத்தின் கீழ் இடப்பெயர்ச்சி"
           },
@@ -105,12 +105,12 @@ const physicsFormulas: TopicFormulas = {
                 descriptionTamil: "தளத்தில் நிலை வெக்டர்"
             },
             {
-                formula: "x = u_x t, \\quad y = u_y t - \\tfrac12 g t^2",
+                formula: "x = u_x t, \\quad y = u_y t - \\tfrac{1}{2} g t^2",
                 description: "Projectile motion coordinates",
                 descriptionTamil: "எறியியக்க ஆயங்கள்"
             },
             {
-                formula: "R = \\dfrac{u^2\\sin2\\theta}{g}",
+                formula: "R = \\dfrac{u^2\\sin(2\\theta)}{g}",
                 description: "Range of projectile",
                 descriptionTamil: "எறியத்தின் நெடுக்கம்"
             },
@@ -152,7 +152,7 @@ const physicsFormulas: TopicFormulas = {
         "Work, Energy, Power": {
             formulas: [
                 {
-                  formula: "K = \\tfrac12 m v^2",
+                  formula: "K = \\tfrac{1}{2} m v^2",
                   description: "Kinetic energy",
                   descriptionTamil: "இயக்க ஆற்றல்"
                 },
@@ -214,7 +214,7 @@ const physicsFormulas: TopicFormulas = {
                   descriptionTamil: "நியூட்டனின் ஈர்ப்பியல் விதி"
                 },
                 {
-                  formula: "g = \\dfrac{GM}{r^2}",
+                  formula: "g = \\dfrac{GM}{R^2}",
                   description: "Gravitational field",
                   descriptionTamil: "ஈர்ப்புப் புலம்"
                 },
@@ -250,7 +250,7 @@ const physicsFormulas: TopicFormulas = {
                   descriptionTamil: "தொடர்ச்சிச் சமன்பாடு"
                 },
                 {
-                  formula: "P + \\tfrac12 \\rho v^2 + \\rho g h = \\text{constant}",
+                  formula: "P + \\tfrac{1}{2} \\rho v^2 + \\rho g h = \\text{constant}",
                   description: "Bernoulli’s equation",
                   descriptionTamil: "பெர்னூலியின் சமன்பாடு"
                 },
@@ -344,7 +344,7 @@ const physicsFormulas: TopicFormulas = {
         "Kinetic Theory": {
             formulas: [
                 {
-                  formula: "P = \\tfrac13 \\rho \\langle v^2\\rangle",
+                  formula: "P = \\tfrac{1}{3} \\rho \\langle v^2\\rangle",
                   description: "Pressure from molecular collisions",
                   descriptionTamil: "மூலக்கூறு மோதல்களிலிருந்து அழுத்தம்"
                 },
@@ -354,7 +354,7 @@ const physicsFormulas: TopicFormulas = {
                   descriptionTamil: "மூல சராசரி வர்க்க வேகம்"
                 },
                 {
-                  formula: "\\lambda = \\frac{1}{\\sqrt2 \\pi n d^2}",
+                  formula: "\\lambda = \\frac{1}{\\sqrt{2} \\pi n d^2}",
                   description: "Mean free path",
                   descriptionTamil: "சராசரி மோதலிடைத் தூரம்"
                 }
@@ -532,8 +532,7 @@ const physicsFormulas: TopicFormulas = {
             ]
         }
      }
-  }
-};
+  };
 
 
 // --- END OF FORMULA SHEET DATA ---
