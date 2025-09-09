@@ -21,6 +21,7 @@ import {
   FlaskConical,
   Atom,
   FileText,
+  Star,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
