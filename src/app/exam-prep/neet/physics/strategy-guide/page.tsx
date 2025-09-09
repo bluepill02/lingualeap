@@ -21,6 +21,12 @@ import {
   Star,
   TrendingUp,
   BrainCircuit,
+  BookOpen,
+  ClipboardList,
+  Target,
+  Goal,
+  RefreshCw,
+  Network,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -45,23 +51,25 @@ export default function NeetPhysicsStrategyGuidePage() {
   const TopperApproachContent = () => {
     const content = topperApproachData;
     return (
-      <Accordion type="multiple" defaultValue={['item-0']} className="w-full space-y-4">
+      <div className="space-y-6">
         {content.map((section, index) => (
-          <AccordionItem value={`item-${index}`} key={index}>
-            <AccordionTrigger className="text-xl font-headline px-4 bg-muted rounded-md hover:bg-muted/80">
-               <div className="flex items-center gap-3">
-                    {section.icon && <section.icon className="h-6 w-6 text-primary" />}
-                    <span className="text-left">{language === 'english' ? section.title : section.titleTamil}</span>
-               </div>
-            </AccordionTrigger>
-            <AccordionContent className="pt-4 card-padding-lg prose dark:prose-invert max-w-none">
-              <MarkdownRenderer>
+           <Card key={index} className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
+            <CardHeader className="card-padding-lg">
+              <CardTitle className="flex items-center gap-3">
+                {section.icon && <section.icon className="h-6 w-6 text-primary" />}
+                <span className="text-left text-xl font-headline">
+                    {language === 'english' ? section.title : section.titleTamil}
+                </span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="card-padding-lg pt-0 prose dark:prose-invert max-w-none text-muted-foreground">
+               <MarkdownRenderer>
                 {language === 'english' ? section.content : section.contentTamil}
               </MarkdownRenderer>
-            </AccordionContent>
-          </AccordionItem>
+            </CardContent>
+          </Card>
         ))}
-      </Accordion>
+      </div>
     )
   }
 
