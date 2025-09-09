@@ -432,7 +432,7 @@ const physicsFormulas: TopicFormulas = {
                   descriptionTamil: "ஆம்பியர் விதி"
                 },
                 {
-                  formula: "d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I\\,d\\vec{l}\\times \\hat{r}}{r^2}",
+                  formula: "d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I\\,d\\vec{l} \\times \\hat{r}}{r^2}",
                   description: "Biot–Savart law",
                   descriptionTamil: "பயோ-சவர்ட் விதி"
                 },
@@ -532,6 +532,7 @@ const physicsFormulas: TopicFormulas = {
             ]
         }
      }
+  }
 };
 
 
