@@ -19,6 +19,7 @@ import {
   ChevronsRight,
   HeartPulse,
   FlaskConical,
+  Atom,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
