@@ -1,168 +1,378 @@
 
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import {
+  BrainCircuit,
+  Lightbulb,
+  CheckCircle,
+  HelpCircle,
+  XCircle,
+  Dna,
+  HeartPulse,
+  Leaf,
+  Wind,
+  Atom,
+  FlaskConical,
+  Sprout,
+  AlertTriangle,
+  FileText,
+  Target,
+} from 'lucide-react';
 import type { NeetModule } from '@/lib/types';
+import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
+import { BilingualText } from '@/components/exam/bilingual-text';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 export const takeItEasyBiologyModule: NeetModule = {
   id: 'take-it-easy',
-  title: 'Take it Easy: Complex Biology Topics Simplified',
-  chapter: 'Take it Easy',
+  title: 'Take it Easy: Complex Biology Concepts Simplified',
+  chapter: 'Complex Concepts Simplified',
   subject: 'Biology',
   learningObjectives: [
-    "To build a strong foundational understanding of the most challenging topics in the NEET biology syllabus.",
-    "To use simplified analogies and real-world examples to demystify complex biological processes.",
-    "To provide targeted practice and problem-solving strategies for high-yield concepts.",
-    "To bridge the gap between Tamil-medium education and English-based NEET questions."
+    'Build a strong foundational understanding of the most challenging topics in NEET Biology.',
+    'Simplify complex biological processes using relatable analogies and clear explanations.',
+    'Master the application of concepts through targeted worked examples.',
+    'Learn to identify and avoid common pitfalls in exam questions.',
   ],
-  prerequisites: [
-    'Basic knowledge of high school level science.',
-    'A willingness to approach difficult topics with a fresh perspective.'
-  ],
-  conceptOverview: `This special 'Take it Easy' module is designed to tackle the seven most challenging chapters for NEET aspirants from the Tamil Nadu government school syllabus. We will break down each concept into simple, understandable parts, using analogies that connect with your daily life and culture. Our goal is to build your confidence and provide a solid foundation for mastery.`,
-  conceptNotes: [
-    {
-      heading: {
-        english: "1. The Cell: A Living Kovil (Temple Complex)",
-        tamil: "1. செல்: ஒரு உயிருள்ள கோவில் வளாகம்"
-      },
-      content: [
-        `Instead of a factory, let's imagine a cell as a bustling **Kovil (கோவில்)**, a temple complex. This analogy connects with our culture and helps visualize the functions.
-- **Cell Wall (செல் சுவர்):** The strong outer wall of the temple, providing structure and protection (found in plant cells).
-- **Cell Membrane (செல் சவ்வு):** The main entrance gate (*Gopuram* gate) that controls who and what comes in and out.
-- **Nucleus (உட்கரு):** The *Moolavar Sannidhi* (main sanctum) containing the main deity (DNA). It holds all the sacred instructions and controls everything.
-- **Mitochondria (மைட்டோகாண்ட்ரியா):** The temple's *Madapalli* (kitchen) where food offerings (glucose) are converted into energy (ATP) for all temple activities. It's the powerhouse.
-- **Ribosomes (ரிபோசோம்கள்):** The priests (*Archakars*) who read the instructions from the nucleus (DNA) to perform rituals (build proteins).
-- **Endoplasmic Reticulum (ER):** The corridors and pathways that transport priests and materials throughout the temple.
-- **Golgi Apparatus (கோல்கை உறுப்புகள்):** The place where offerings (*Prasadam*) are packaged and distributed to devotees. It processes and packages proteins.
-- **Vacuoles (வெற்றிடங்கள்):** The temple water tank (*Theppakulam*) that stores water and other essential materials.`
-      ]
-    },
-    {
-      heading: {
-        english: "2. Plant Physiology: The Plant's Solar-Powered Kitchen",
-        tamil: "2. தாவர செயலியல்: தாவரத்தின் சூரியசக்தி சமையலறை"
-      },
-      content: [
-        `**Photosynthesis (ஒளிச்சேர்க்கை):** Think of it as a plant making its own food in a solar-powered kitchen.
-- **Ingredients (மூலப்பொருட்கள்):** Carbon Dioxide (from air), Water (from soil), and Sunlight.
-- **Kitchen (சமையலறை):** The Chloroplast (பசுங்கணிகம்) in the leaves.
-- **Final Dish (இறுதி உணவு):** Glucose (Sugar/Energy) and Oxygen (as a byproduct).
-- **Key Takeaway:** The plant uses light energy to convert simple inorganic molecules (CO₂, H₂O) into complex organic food (glucose). This is the foundation of almost all life on Earth.
-
-**Check Your Understanding:**
-{{QUIZ:{"question": "In photosynthesis, what is the primary role of chlorophyll (பச்சையம்)?", "options": ["To absorb water", "To absorb sunlight", "To produce Carbon Dioxide", "To store glucose"], "answer": "To absorb sunlight", "explanation": "Chlorophyll is the green pigment that captures light energy, acting like a solar panel for the plant's kitchen."}}}
-`
-      ]
-    },
-    {
-      heading: {
-        english: "3. Genetics & Evolution: Life's Cookbook",
-        tamil: "3. மரபியல் மற்றும் பரிணாமம்: வாழ்வின் சமையல் புத்தகம்"
-      },
-      content: [
-        `**DNA (டிஎன்ஏ):** It's the master cookbook containing all the recipes (genes) to build and run an entire organism.
-- **Gene (ஜீன்):** A single recipe for one specific protein (e.g., the recipe for eye color or hair type).
-- **Allele (அல்லீல்):** A variation of a recipe. For example, the gene for flower color could have a purple allele and a white allele.
-- **Dominant vs. Recessive (ஓங்கு மற்றும் ஒடுங்கு பண்பு):** A dominant allele is like a strong, flavorful ingredient that always shows up. A recessive allele is a subtle flavor that only appears if the dominant one is absent.`
-      ]
-    },
-    {
-      heading: {
-        english: "4. Human Physiology: The Body's Interconnected Systems",
-        tamil: "4. மனித உடலியல்: உடலின் ஒன்றோடொன்று இணைக்கப்பட்ட அமைப்புகள்"
-      },
-      content: [
-        `**Nervous System (நரம்பு மண்டலம்):** The body's electrical wiring and command center. A nerve impulse is like an electrical signal traveling down a wire.
-{{NEURON_FIRING_ANIMATION}}
-
-**Digestive System (செரிமான மண்டலம்):** A disassembly line that breaks down large food molecules (like a complex machine) into tiny parts (nuts and bolts) that the body can absorb and use.`
-      ]
-    },
-    {
-      heading: {
-        english: "5. Ecology & Environment: The Web of Life",
-        tamil: "5. சூழலியல் மற்றும் சுற்றுச்சூழல்: வாழ்வின் வலை"
-      },
-      content: [
-        `**Ecosystem (சூழல் மண்டலம்):** A community of living organisms (like a village) interacting with their non-living environment (the land, water, and air).
-- **Food Web (உணவு வலை):** Not a simple chain, but a complex web showing 'who eats whom'. A change in one population (e.g., fewer grasshoppers) can affect many others (frogs, birds, snakes).
-{{FOOD_WEB_DIAGRAM}}`
-      ]
-    },
-    {
-      heading: {
-        english: "6. Biomolecules: Life's Building Blocks",
-        tamil: "6. உயிர் மூலக்கூறுகள்: வாழ்வின் கட்டமைப்புப் பொருட்கள்"
-      },
-      content: [
-        `Think of biomolecules as the different types of bricks and materials needed to build a house:
-- **Carbohydrates (கார்போஹைட்ரேட்டுகள்):** The quick energy source. Like the electricity or fuel used by the builders.
-- **Proteins (புரதங்கள்):** The actual bricks, beams, and workers. They form the structure and do most of the work in the cell.
-- **Lipids (கொழுப்புகள்):** The waterproofing, insulation, and long-term energy storage. Like the paint, insulation, and backup generator.
-- **Nucleic Acids (நியூக்ளிக் அமிலங்கள்):** The blueprints and architectural plans (DNA and RNA) that direct the construction.
-{{ATOM_MODEL_VIEWER}}
-`
-      ]
-    },
-    {
-      heading: {
-        english: "7. Reproduction: The Continuation of Life",
-        tamil: "7. இனப்பெருக்கம்: வாழ்வின் தொடர்ச்சி"
-      },
-      content: [
-        `**Gametogenesis (கேметоஜெனிசிஸ்):** The process of creating specialized reproductive cells (gametes). Think of it as preparing two half-sets of blueprints (sperm and egg) that can combine to create a new, complete blueprint.
-- **Key Concept:** Meiosis (குன்றல் பகுப்பு) is the special cell division that halves the chromosome number to create these gametes.
-**Check Your Understanding:**
-{{QUIZ:{"question": "The process of meiosis results in:", "options": ["Two diploid cells", "Four diploid cells", "Two haploid cells", "Four haploid cells"], "answer": "Four haploid cells", "explanation": "Meiosis is a reductional division that produces four genetically unique haploid cells from one diploid cell, ensuring the correct chromosome number after fertilization."}}}
-`
-      ]
-    }
-  ],
-  workedExamples: [
-    {
-      title: "Monohybrid Cross in Genetics",
-      titleTamil: "மரபியலில் ஒரு பண்பு கலப்பு",
-      difficulty: 'Medium',
-      problem: "In pea plants, tall (T) is dominant to dwarf (t). If a heterozygous tall plant (Tt) is crossed with a dwarf plant (tt), what is the probability of the offspring being tall?",
-      problemTamil: "பட்டாணி செடிகளில், நெட்டை (T) குட்டைக்கு (t) ஓங்கு பண்பு. ஒரு கலப்பின நெட்டை செடியை (Tt) ஒரு குட்டை செடியுடன் (tt) கலப்பு செய்தால், சந்ததிகள் நெட்டையாக இருப்பதற்கான நிகழ்தகவு என்ன?",
-      solutionSteps: [
-        {
-          step: 1,
-          explanation: "First, identify the genotypes of the parents.",
-          explanationTamil: "முதலில், பெற்றோர்களின் மரபணு வகைகளை அடையாளம் காணவும்.",
-          calculation: "Parent 1: Tt (Heterozygous Tall)\nParent 2: tt (Dwarf)"
-        },
-        {
-          step: 2,
-          explanation: "Next, determine the possible gametes (alleles) each parent can produce. Parent 1 can produce 'T' and 't' gametes. Parent 2 can only produce 't' gametes.",
-          explanationTamil: "அடுத்து, ஒவ்வொரு பெற்றோரும் உருவாக்கக்கூடிய கேமீட்களை (அல்லீல்கள்) தீர்மானிக்கவும். பெற்றோர் 1 'T' மற்றும் 't' கேமீட்களை உருவாக்க முடியும். பெற்றோர் 2 't' கேமீட்களை மட்டுமே உருவாக்க முடியும்."
-        },
-        {
-          step: 3,
-          explanation: "Set up a Punnett square to visualize the cross.",
-          explanationTamil: "கலப்பை காட்சிப்படுத்த ஒரு புன்னட் கட்டத்தை அமைக்கவும்.",
-          calculation: "      t      t\n   +------|------+\nT  |  Tt  |  Tt  |\n   +------|------+\nt  |  tt  |  tt  |"
-        },
-        {
-          step: 4,
-          explanation: "Analyze the genotypes of the offspring from the Punnett square. We have two 'Tt' and two 'tt' genotypes.",
-          explanationTamil: "புன்னட் கட்டத்திலிருந்து சந்ததிகளின் மரபணு வகைகளை பகுப்பாய்வு செய்யவும். நம்மிடம் இரண்டு 'Tt' மற்றும் இரண்டு 'tt' மரபணு வகைகள் உள்ளன."
-        },
-        {
-          step: 5,
-          explanation: "Determine the phenotype (physical appearance) for each genotype. 'Tt' is Tall (since T is dominant). 'tt' is dwarf. Therefore, we have 2 tall plants and 2 dwarf plants.",
-          explanationTamil: "ஒவ்வொரு மரபணு வகைக்கும் தோற்றவகை (உருவத் தோற்றம்) தீர்மானிக்கவும். 'Tt' நெட்டையாகும் ('T' ஓங்கு பண்பு என்பதால்). 'tt' குட்டையாகும். எனவே, நம்மிடம் 2 நெட்டை செடிகள் மற்றும் 2 குட்டை செடிகள் உள்ளன."
-        },
-        {
-          step: 6,
-          explanation: "Calculate the probability. Out of 4 possible offspring, 2 are tall. The probability is 2/4, which simplifies to 1/2 or 50%.",
-          explanationTamil: "நிகழ்தகவைக் கணக்கிடவும். 4 சாத்தியமான சந்ததிகளில், 2 நெட்டையாக உள்ளன. நிகழ்தகவு 2/4, இது 1/2 அல்லது 50% ஆக எளிமைப்படுத்தப்படுகிறது."
-        }
-      ],
-      answer: "The probability of the offspring being tall is 50%.",
-      neetHack: "For a test cross (a cross between a heterozygous individual and a homozygous recessive individual), the phenotypic ratio is always 1:1. So, you can instantly know the probability is 50% for each trait without drawing the full Punnett square, saving time in the exam.",
-      neetHackTamil: "ஒரு சோதனை கலப்பிற்கு (ஒரு கலப்பின தனிநபர் மற்றும் ஒரு ஒடுங்கு பண்பு தனிநபருக்கு இடையேயான கலப்பு), தோற்றவகை விகிதம் எப்போதும் 1:1 ஆக இருக்கும். எனவே, முழு புன்னட் கட்டத்தை வரையாமலேயே ஒவ்வொரு பண்பிற்கும் 50% நிகழ்தகவு என்பதை நீங்கள் உடனடியாக அறிந்து கொள்ளலாம், இது தேர்வில் நேரத்தை மிச்சப்படுத்தும்."
-    }
-  ],
-  mcqs: [], // Kept empty as this is a conceptual module
+  prerequisites: ['Basic high school biology.', 'A willingness to tackle difficult subjects head-on.'],
+  conceptOverview:
+    "This special module is designed to demystify the seven most challenging and high-yield chapters in the NEET Biology syllabus. We break down each concept into easy-to-understand pieces, provide culturally relevant analogies, and offer practical, exam-oriented tips to help Tamil Nadu students build confidence and achieve mastery.",
+  workedExamples: [],
+  mcqs: [],
   assertionReasons: [],
-  matchTheColumns: []
+  matchTheColumns: [],
 };
+
+
+function CheckYourUnderstanding({ question, options, correctIndex, explanation }: { question: string, options: string[], correctIndex: number, explanation: string }) {
+    const [selected, setSelected] = useState<number | null>(null);
+    const [submitted, setSubmitted] = useState(false);
+
+    return (
+        <div className="my-4 space-y-3 rounded-lg border bg-background/50 p-4">
+            <h4 className="font-bold flex items-center gap-2"><HelpCircle className="text-primary"/> Check Your Understanding</h4>
+            <p className="text-sm font-semibold"><MarkdownRenderer>{question}</MarkdownRenderer></p>
+            <div className="space-y-2">
+                {options.map((option, index) => (
+                    <Button
+                        key={index}
+                        variant={
+                           submitted
+                            ? index === correctIndex ? 'success' : (selected === index ? 'destructive' : 'outline')
+                            : selected === index ? 'secondary' : 'outline'
+                        }
+                        className="w-full h-auto justify-start text-left"
+                        onClick={() => !submitted && setSelected(index)}
+                    >
+                        {option}
+                    </Button>
+                ))}
+            </div>
+            {!submitted && <Button onClick={() => setSubmitted(true)} disabled={selected === null}>Check Answer</Button>}
+            {submitted && (
+                 <Alert variant={selected === correctIndex ? 'success' : 'destructive'}>
+                    <AlertTitle>{selected === correctIndex ? 'Correct!' : 'Incorrect'}</AlertTitle>
+                    <AlertDescription>
+                        {explanation}
+                    </AlertDescription>
+                 </Alert>
+            )}
+        </div>
+    )
+}
+
+export function TakeItEasyContent() {
+  return (
+    <Accordion type="single" collapsible defaultValue="item-1" className="w-full">
+      
+      {/* 1. Cell Structure and Function */}
+      <AccordionItem value="item-1">
+        <AccordionTrigger className="text-lg font-bold">1. Cell Structure and Function</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+          <p className="text-muted-foreground">Analogy: The Cell is like a Kovil (Temple Complex). Each part has a specific, vital role, just like the different sannidhis and structures in a temple.</p>
+          <div className="prose dark:prose-invert max-w-none">
+            <ul>
+              <li><strong>Cell Wall (கோவில் சுவர் - Temple Wall):</strong> Provides protection and structure. Found in plants, not animals.</li>
+              <li><strong>Cell Membrane (வாயில் - Entrance Gate):</strong> Controls what enters and leaves the cell (temple). Selectively permeable.</li>
+              <li><strong>Nucleus (மூலவர் சந்நிதி - Main Sanctum):</strong> The most important part, contains the genetic material (DNA), like the main deity. Controls all cell activities.</li>
+              <li><strong>Mitochondria (பிரசாதம் தயாரிக்கும் மடப்பள்ளி - Temple Kitchen):</strong> The powerhouse. It generates energy (ATP) for the cell, just as the kitchen prepares prasadham (food offering) that gives energy to devotees.</li>
+              <li><strong>Ribosomes (மந்திரம் ஓதுபவர்கள் - Chanters):</strong> They synthesize proteins based on instructions from the nucleus, like priests chanting mantras based on the holy texts.</li>
+              <li><strong>Endoplasmic Reticulum (பிரகாரம் - Temple Corridor):</strong> A network for transporting materials within the cell, like the corridors that connect different parts of the temple.</li>
+              <li><strong>Golgi Apparatus (பொருட்கள் சேமிக்கும் அறை - Storage Room):</strong> Packages and modifies proteins and lipids for transport, like a storage room where offerings are prepared and packed.</li>
+            </ul>
+          </div>
+          <CheckYourUnderstanding
+            question="Which organelle is known as the 'Powerhouse of the Cell' and is analogous to the temple kitchen (மடப்பள்ளி)?"
+            options={["Nucleus", "Ribosome", "Mitochondria", "Cell Wall"]}
+            correctIndex={2}
+            explanation="Mitochondria are responsible for cellular respiration and energy (ATP) production, making them the powerhouse."
+          />
+           <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><FileText className="text-primary"/>Key Diagrams &amp; Concepts</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Fluid Mosaic Model:</strong> Visualize the cell membrane as a sea of lipids with proteins floating in it. It's flexible, not rigid.</p>
+                   <p><strong>Prokaryotic vs. Eukaryotic Cell:</strong> The key difference is the **absence of a true nucleus** and membrane-bound organelles in prokaryotes (like bacteria).</p>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Confusing the functions of Smooth ER (lipid synthesis) and Rough ER (protein synthesis, due to ribosomes).</p>
+                   <p><strong>Tip:</strong> Questions often test the "cell within a cell" concept (endosymbiotic theory) for mitochondria and chloroplasts. Remember they have their own DNA and ribosomes.</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 2. Biomolecules */}
+      <AccordionItem value="item-2">
+        <AccordionTrigger className="text-lg font-bold">2. Biomolecules</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+            <p className="text-muted-foreground">Analogy: Biomolecules are Life's Building Blocks (வாழ்வின் கட்டுமானப் பொருட்கள்), like bricks, cement, wires, and plans used to build a house.</p>
+            <div className="prose dark:prose-invert max-w-none">
+                <ul>
+                    <li><strong>Carbohydrates (செங்கல்கள் - Bricks):</strong> Main source of energy. Simple sugars (glucose) are single bricks, while complex carbs (starch) are walls made of many bricks.</li>
+                    <li><strong>Lipids (நீர் புகா பூச்சு - Waterproofing):</strong> Store energy for the long term and form cell membranes. Think of them as the waterproof coating and insulation for the house.</li>
+                    <li><strong>Proteins (சிமெண்ட் மற்றும் தூண்கள் - Cement and Pillars):</strong> The workhorses. They provide structure (like pillars) and carry out functions as enzymes (like workers). Made of amino acids.</li>
+                    <li><strong>Nucleic Acids (கட்டுமானத் திட்டம் - Blueprint):</strong> DNA and RNA. They are the master plan or blueprint for the house, containing all the instructions to build and run it.</li>
+                </ul>
+            </div>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><FileText className="text-primary"/>Key Diagrams &amp; Concepts</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Amino Acid Structure:</strong> Know the basic structure: a central carbon, an amino group (-NH₂), a carboxyl group (-COOH), a hydrogen atom, and a variable 'R' group.</p>
+                   <p><strong>Enzyme Action (Lock and Key):</strong> Visualize an enzyme as a lock and the substrate as the specific key that fits into it to initiate a reaction.</p>
+                   `{{DNA_MODEL_VIEWER}}`
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Confusing the types of bonds: Peptide bonds (proteins), Glycosidic bonds (carbohydrates), and Phosphodiester bonds (nucleic acids). Make flashcards for these!</p>
+                   <p><strong>Tip:</strong> Questions on protein structure (primary, secondary, tertiary, quaternary) are very common. Understand what each level represents.</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 3. Plant Physiology */}
+      <AccordionItem value="item-3">
+        <AccordionTrigger className="text-lg font-bold">3. Plant Physiology</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+          <p className="text-muted-foreground">Analogy: A plant is like a Solar-Powered Kitchen (சூரிய சக்தியில் இயங்கும் சமையலறை).</p>
+          <div className="prose dark:prose-invert max-w-none">
+            <ul>
+              <li><strong>Photosynthesis (ஒளிச்சேர்க்கை - Cooking):</strong> The process of making food (glucose) using sunlight, water, and CO₂. Occurs in the chloroplasts (the kitchen stove).</li>
+              <li><strong>Respiration (சுவாசம் - Using the food):</strong> Breaking down the prepared food (glucose) to release energy for the plant's activities. This happens all the time, day and night.</li>
+              <li><strong>Transpiration (நீர் ஆவியாதல் - Evaporation):</strong> The loss of water from leaves, which creates a "pull" to draw more water up from the roots, like a straw.</li>
+              <li><strong>Plant Hormones (சமையல் குறிப்புகள் - Recipes):</strong> Chemicals like Auxins and Gibberellins that regulate growth, telling the plant when to grow taller, when to flower, etc., like different recipes for different occasions.</li>
+            </ul>
+          </div>
+          <CheckYourUnderstanding
+            question="What is the primary purpose of Respiration (சுவாசம்) in plants?"
+            options={["To create sunlight", "To release energy from glucose", "To absorb water", "To make food"]}
+            correctIndex={1}
+            explanation="Photosynthesis MAKES the food (glucose). Respiration BREAKS DOWN that food to release energy (ATP) for the plant to use."
+          />
+           <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><FileText className="text-primary"/>Key Formulas &amp; Diagrams</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Photosynthesis Equation:</strong> `6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂`</p>
+                   <p><strong>Respiration Equation:</strong> `C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy (ATP)`</p>
+                   <p><strong>Key Diagram:</strong> Structure of a chloroplast (thylakoids, grana, stroma).</p>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Thinking plants only respire at night. Respiration is a 24/7 process for survival, while photosynthesis only happens in the presence of light.</p>
+                   <p><strong>Tip:</strong> Questions comparing C3, C4, and CAM pathways are very common. Focus on understanding their differences in terms of CO₂ fixation and water efficiency.</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 4. Human Physiology */}
+      <AccordionItem value="item-4">
+        <AccordionTrigger className="text-lg font-bold">4. Human Physiology</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+          <p className="text-muted-foreground">Focus on the Nervous System: The body's wiring and control center.</p>
+           <div className="prose dark:prose-invert max-w-none">
+            <ul>
+              <li><strong>Neuron (நரம்பு செல்):</strong> The basic wire. It transmits electrical signals (nerve impulses).</li>
+              <li><strong>Synapse (நரம்பிணைப்பு):</strong> A tiny gap between two neurons where the signal is passed from one to the next using chemicals called neurotransmitters.</li>
+              <li><strong>Action Potential (செயல் மின்னழுத்தம்):</strong> The electrical signal itself. It's an "all-or-nothing" event, like firing a gun. It's created by the rapid movement of Sodium (Na⁺) and Potassium (K⁺) ions across the neuron's membrane.</li>
+            </ul>
+            {{NEURON_FIRING_ANIMATION}}
+          </div>
+            <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><BrainCircuit className="text-primary"/>Worked Example: Reflex Arc</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Problem:</strong> Trace the path of a reflex arc when you touch a hot object.</p>
+                   <ol class="list-decimal list-inside space-y-1">
+                       <li><strong>Stimulus:</strong> Hot object.</li>
+                       <li><strong>Receptor:</strong> Pain receptors in the skin detect the heat.</li>
+                       <li><strong>Sensory Neuron:</strong> Carries the signal from the hand to the spinal cord.</li>
+                       <li><strong>Interneuron:</strong> In the spinal cord, it processes the signal and immediately passes it to a motor neuron (the brain is bypassed for speed).</li>
+                       <li><strong>Motor Neuron:</strong> Carries the "contract" signal to the muscle.</li>
+                       <li><strong>Effector:</strong> The muscle in your arm contracts, pulling your hand away.</li>
+                   </ol>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Confusing the roles of different parts of the brain. Make a simple table for the functions of the Cerebrum, Cerebellum, Medulla, etc.</p>
+                   <p><strong>Tip:</strong> Questions on hormonal regulation (endocrine system) are high-yield. Focus on the hormones of the pituitary gland, pancreas (insulin/glucagon), and thyroid.</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 5. Reproduction */}
+      <AccordionItem value="item-5">
+        <AccordionTrigger className="text-lg font-bold">5. Reproduction</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+            <p className="text-muted-foreground">Focus on Gametogenesis (இனப்பெருக்க செல் உருவாக்கம்) - The making of sperm and eggs.</p>
+             <div className="prose dark:prose-invert max-w-none">
+                <ul>
+                    <li><strong>Spermatogenesis (விந்தணு உருவாக்கம்):</strong> Occurs in males. One primary cell (spermatogonium) undergoes meiosis to produce **four** functional sperm cells. It's a continuous process starting from puberty.</li>
+                    <li><strong>Oogenesis (அண்டಾಣு உருவாக்கம்):</strong> Occurs in females. One primary cell (oogonium) undergoes meiosis, but the cytoplasm divides unequally, resulting in **one** large, functional egg (ovum) and smaller, non-functional polar bodies. This process begins before birth and pauses until puberty.</li>
+                </ul>
+            </div>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><FileText className="text-primary"/>Key Diagrams &amp; Concepts</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Menstrual Cycle Diagram:</strong> This is a very high-yield topic. Understand the graph showing the levels of four key hormones (FSH, LH, Estrogen, Progesterone) and how they relate to the uterine cycle.</p>
+                   <p><strong>Flower Structure:</strong> Be able to label the parts of a typical flower (Stamen, Anther, Pistil, Stigma, Ovary) and know their functions in pollination.</p>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Confusing gamete formation. Remember: Spermatogenesis = 4 sperm; Oogenesis = 1 egg + polar bodies.</p>
+                   <p><strong>Tip:</strong> Hormonal control is key! Questions frequently test which hormone triggers ovulation (LH surge) or maintains pregnancy (Progesterone).</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 6. Genetics and Evolution */}
+      <AccordionItem value="item-6">
+        <AccordionTrigger className="text-lg font-bold">6. Genetics and Evolution</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+          <p className="text-muted-foreground">Analogy: Genetics is a Cookbook (சமையல் புத்தகம்). DNA is the book, Genes are individual recipes, and Proteins are the finished dishes.</p>
+          <div className="prose dark:prose-invert max-w-none">
+            <ul>
+              <li><strong>DNA (மரபணு):</strong> The master cookbook containing all recipes.</li>
+              <li><strong>Gene (மரபணு):</strong> A single recipe for one specific dish (e.g., the recipe for eye color).</li>
+              <li><strong>Allele (อัลலீல்):</strong> A variation of a recipe. The recipe for eye color might have variations for blue, brown, or green eyes.</li>
+              <li><strong>Dominant vs. Recessive (ஓங்கு vs. ஒடுங்கு):</strong> A dominant allele is like a strong flavor that always comes through (e.g., coffee). A recessive allele is a mild flavor that is only noticeable if the strong one isn't there (e.g., milk).</li>
+            </ul>
+          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2"><BrainCircuit className="text-primary"/>Worked Example: Monohybrid Cross</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <p className="text-sm"><strong>Problem:</strong> A tall pea plant (TT) is crossed with a dwarf pea plant (tt). What is the phenotypic ratio of the F2 generation?</p>
+                <ol class="list-decimal list-inside space-y-1 text-sm mt-2">
+                    <li><strong>Parental Generation (P):</strong> Genotypes are TT (tall) and tt (dwarf).</li>
+                    <li><strong>Gametes from P:</strong> The TT plant only produces T gametes. The tt plant only produces t gametes.</li>
+                    <li><strong>First Filial Generation (F1):</strong> All offspring will have the genotype Tt. Since T is dominant, all F1 plants will be tall.</li>
+                    <li><strong>F1 Self-Cross:</strong> We cross Tt x Tt.</li>
+                    <li><strong>Punnett Square for F2:</strong>
+                        <div class="grid grid-cols-3 gap-1 my-2 font-mono text-center">
+                            <div class="p-2"></div><div class="p-2 bg-muted rounded">T</div><div class="p-2 bg-muted rounded">t</div>
+                            <div class="p-2 bg-muted rounded">T</div><div class="p-2 bg-secondary rounded">TT</div><div class="p-2 bg-secondary rounded">Tt</div>
+                            <div class="p-2 bg-muted rounded">t</div><div class="p-2 bg-secondary rounded">Tt</div><div class="p-2 bg-secondary rounded">tt</div>
+                        </div>
+                    </li>
+                    <li><strong>Analyze F2 Genotypes:</strong> We get 1 TT, 2 Tt, and 1 tt. (1:2:1 genotypic ratio).</li>
+                    <li><strong>Analyze F2 Phenotypes:</strong> TT and Tt plants are tall. tt plants are dwarf. So, we have 3 tall plants and 1 dwarf plant.</li>
+                    <li><strong>Answer:</strong> The phenotypic ratio is 3 (Tall) : 1 (Dwarf).</li>
+                </ol>
+            </CardContent>
+          </Card>
+          <CheckYourUnderstanding
+            question="In a monohybrid cross between two heterozygous (Tt) individuals, what is the genotypic ratio of the offspring?"
+            options={["1:1", "3:1", "1:2:1", "9:3:3:1"]}
+            correctIndex={2}
+            explanation="The cross Tt x Tt produces TT, Tt, Tt, and tt offspring, which gives a genotypic ratio of 1 (TT) : 2 (Tt) : 1 (tt)."
+          />
+        </AccordionContent>
+      </AccordionItem>
+
+      {/* 7. Ecology and Environment */}
+      <AccordionItem value="item-7">
+        <AccordionTrigger className="text-lg font-bold">7. Ecology and Environment</AccordionTrigger>
+        <AccordionContent className="space-y-4 pt-2">
+           <p className="text-muted-foreground">Focus on Ecological Pyramids (சூழலியல் கூம்புகள்).</p>
+           <div className="prose dark:prose-invert max-w-none">
+                <ul>
+                    <li><strong>Pyramid of Numbers:</strong> Shows the total number of individual organisms at each trophic level. Usually upright, but can be inverted (e.g., one large tree supporting thousands of insects).</li>
+                    <li><strong>Pyramid of Biomass:</strong> Represents the total dry weight (biomass) of organisms at each level. Also usually upright.</li>
+                    <li><strong>Pyramid of Energy:</strong> ALWAYS upright. It shows the flow of energy from one trophic level to the next. Only about 10% of energy is transferred from one level to the next (the 10% law). The rest is lost as heat. This is the most fundamental pyramid.</li>
+                </ul>
+                {{ECOLOGY_FOOD_WEB_DIAGRAM}}
+           </div>
+           <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><BrainCircuit className="text-primary"/>Worked Example: Energy Transfer</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Problem:</strong> If the producers in an ecosystem have 10,000 Joules of energy, how much energy will be available to the tertiary consumers?</p>
+                   <ol class="list-decimal list-inside space-y-1">
+                       <li><strong>Producers:</strong> 10,000 J</li>
+                       <li><strong>Primary Consumers (Herbivores):</strong> They get 10% of the producer's energy. So, 10% of 10,000 J = 1,000 J.</li>
+                       <li><strong>Secondary Consumers (Carnivores):</strong> They get 10% of the primary consumer's energy. So, 10% of 1,000 J = 100 J.</li>
+                       <li><strong>Tertiary Consumers (Top Carnivores):</strong> They get 10% of the secondary consumer's energy. So, 10% of 100 J = 10 J.</li>
+                       <li><strong>Answer:</strong> Only 10 Joules will be available to the tertiary consumers.</li>
+                   </ol>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                  <CardTitle className="text-base flex items-center gap-2"><Lightbulb className="text-yellow-500"/>NEET Tips &amp; Common Pitfalls</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2 text-sm">
+                   <p><strong>Pitfall:</strong> Forgetting that the Pyramid of Energy is *always* upright. The other two can sometimes be inverted or spindle-shaped.</p>
+                   <p><strong>Tip:</strong> Understand the difference between primary and secondary succession. Primary starts on bare rock (no soil), while secondary starts where an existing ecosystem was disturbed (soil is present).</p>
+                </CardContent>
+            </Card>
+        </AccordionContent>
+      </AccordionItem>
+
+    </Accordion>
+  );
+}
+
+export default takeItEasyBiologyModule;
