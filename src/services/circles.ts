@@ -64,15 +64,11 @@ export async function seedCirclesData() {
 
 export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount' | 'posts' | 'resources'>): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
-    const userAsMember = {
-        id: mockUser.id,
-        name: mockUser.name,
-        avatarUrl: mockUser.avatarUrl,
-    };
+    
     const newCircle: Omit<CompanionCircle, 'id'> & { id?: string } = {
         ...circleData,
         id: newDocRef.id,
-        members: [userAsMember],
+        members: [mockUser.id], // Start with the creator's ID
         memberCount: 50, // Default member count
         posts: 0,
         resources: 0,
@@ -137,16 +133,9 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userToJoin = allUsers.find(u => u.id === userId) || mockUser;
-
-        const memberData = { 
-            id: userToJoin.id, 
-            name: userToJoin.name, 
-            avatarUrl: userToJoin.avatarUrl 
-        };
         
         await updateDoc(circleRef, {
-            members: arrayUnion(memberData)
+            members: arrayUnion(userId)
         });
     } catch (error) {
         console.error("Error joining circle: ", error);
@@ -157,21 +146,11 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const circleSnap = await getDoc(circleRef);
-        if (!circleSnap.exists()) {
-            throw new Error("Circle not found");
-        }
         
-        const circleData = circleSnap.data() as CompanionCircle;
-        const memberToRemove = circleData.members.find(m => m.id === userId);
+        await updateDoc(circleRef, {
+            members: arrayRemove(userId)
+        });
 
-        if (memberToRemove) {
-            await updateDoc(circleRef, {
-                members: arrayRemove(memberToRemove)
-            });
-        } else {
-            console.warn(`User with id ${userId} not found in circle ${circleId}`);
-        }
     } catch (error) {
         console.error("Error leaving circle: ", error);
         throw error;

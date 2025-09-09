@@ -42,7 +42,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
     // 4. Fetch the user's first companion circle from Firestore
     const circlesQuery = query(
       collection(db, 'companion-circles'),
-      where('members', 'array-contains', { id: userId, name: userData.name, avatarUrl: userData.avatarUrl }),
+      where('members', 'array-contains', userId),
       limit(1)
     );
     const circleSnapshot = await getDocs(circlesQuery);
