@@ -53,7 +53,7 @@ export default function NeetPhysicsStrategyGuidePage() {
     return (
       <div className="space-y-6">
         {content.map((section, index) => (
-           <Card key={index} className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
+           <Card key={index} className="border-l-4 border-primary bg-primary/5 shadow-md hover:shadow-lg transition-shadow">
             <CardHeader className="card-padding-lg">
               <CardTitle className="flex items-center gap-3">
                 {section.icon && <section.icon className="h-6 w-6 text-primary" />}
