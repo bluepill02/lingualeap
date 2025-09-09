@@ -41,7 +41,7 @@ import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BilingualText } from '@/components/exam/bilingual-text';
 import { useState } from 'react';
-
+import { neetJeeFormulaSheet } from '@/lib/neet/physics/neet-jee-formula-sheet';
 
 const sectionIcons = {
   mechanics: <Wind className="text-blue-400" />,
@@ -66,6 +66,7 @@ const cardColors = [
 
 export default function NeetPhysicsStrategyGuidePage() {
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
+  const physicsFormulas = neetJeeFormulaSheet.physics;
 
   const TopperApproachContent = () => {
     const content = topperApproachData;
@@ -91,6 +92,53 @@ export default function NeetPhysicsStrategyGuidePage() {
       </div>
     )
   }
+
+  const FormulaSheetContent = () => {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Formula & Equation Sheet</CardTitle>
+          <CardDescription>
+            A comprehensive list of formulas for NEET Physics, organized by topic.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Accordion type="multiple" className="w-full space-y-4">
+            {Object.entries(physicsFormulas).map(([topic, subtopicData]) => (
+              <AccordionItem value={topic} key={topic}>
+                <AccordionTrigger className="text-xl font-headline capitalize card-padding-md bg-muted/50 rounded-md hover:bg-muted/80">
+                  {topic.replace(/([A-Z])/g, ' $1').trim()}
+                </AccordionTrigger>
+                <AccordionContent className="pt-4 space-y-2">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="w-[30%]">Formula</TableHead>
+                        <TableHead>Description (English)</TableHead>
+                        <TableHead>Description (Tamil)</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {Object.values(subtopicData)[0].formulas.map((entry, index) => (
+                        <TableRow key={index}>
+                          <TableCell className="font-mono text-base">
+                            <MarkdownRenderer>{`$$${entry.formula}$$`}</MarkdownRenderer>
+                          </TableCell>
+                          <TableCell>{entry.description}</TableCell>
+                          <TableCell className="font-headline">{entry.descriptionTamil}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </CardContent>
+      </Card>
+    );
+  };
+
 
   return (
     <div className="container mx-auto space-y-8 subject-physics">
@@ -211,17 +259,7 @@ export default function NeetPhysicsStrategyGuidePage() {
             <TopperApproachContent />
         </TabsContent>
         <TabsContent value="formula-sheet" className="mt-6">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Formula & Equation Sheet</CardTitle>
-                    <CardDescription>
-                        A comprehensive list of formulas for NEET Physics. Content coming soon.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="h-64 flex items-center justify-center">
-                    <p className="text-muted-foreground">Placeholder for formula sheet content.</p>
-                </CardContent>
-            </Card>
+            <FormulaSheetContent />
         </TabsContent>
       </Tabs>
     </div>
