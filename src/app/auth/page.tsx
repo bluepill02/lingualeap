@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { app } from "@/lib/firebase"; // Import the initialized Firebase app
+import { Separator } from "@/components/ui/separator";
+import { ArrowRight } from "lucide-react";
 
 export default function AuthPage() {
   const [name, setName] = useState('');
@@ -74,6 +76,10 @@ export default function AuthPage() {
     }
   };
 
+  const handleGuest = () => {
+      router.push('/dashboard');
+  }
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-background p-4 sm:p-6 md:p-8">
@@ -124,6 +130,12 @@ export default function AuthPage() {
                         <Button className="w-full" onClick={handleSignUp} disabled={loading}>{loading ? 'Signing Up...' : 'Sign Up'}</Button>
                     </CardFooter>
                 </TabsContent>
+                 <Separator className="my-4" />
+                <div className="px-6 pb-4">
+                    <Button variant="outline" className="w-full" onClick={handleGuest}>
+                        Continue as Guest <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                </div>
             </CardContent>
         </Card>
         </Tabs>
