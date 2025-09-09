@@ -64,24 +64,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const { setTheme } = useTheme();
   const t = translations[language];
 
-  const [isLoading, setIsLoading] = React.useState(true);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
-  React.useEffect(() => {
-    const auth = getAuth(app);
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-        router.push('/auth');
-      }
-      setIsLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [router]);
-
   const menuItems = [
     {
       href: '/dashboard',
@@ -113,11 +95,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       labelKey: 'companionCircles',
       icon: Users,
     },
-    // {
-    //   href: '/exam-prep',
-    //   labelKey: 'examPrep',
-    //   icon: ClipboardCheck,
-    // },
      {
       href: '/admin/validation-report',
       labelKey: 'validationReport',
@@ -144,20 +121,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       icon: Settings,
     },
   ];
-
-  if (isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    // This can be a fallback, but the redirect should handle most cases.
-    return null;
-  }
-
 
   return (
     <div className="app-container">
