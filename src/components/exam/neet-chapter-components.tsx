@@ -363,13 +363,13 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                                                 <div>
                                                     <h4 className="font-semibold mb-2">Column I</h4>
                                                     <ul className="list-disc list-inside">
-                                                        {item.column1.map(c1 => <li key={c1}><MarkdownRenderer>{c1}</MarkdownRenderer></li>)}
+                                                        {item.column1 && item.column1.map(c1 => <li key={c1}><MarkdownRenderer>{c1}</MarkdownRenderer></li>)}
                                                     </ul>
                                                 </div>
                                                 <div>
                                                     <h4 className="font-semibold mb-2">Column II</h4>
                                                     <ul className="list-disc list-inside">
-                                                        {item.column2.map(c2 => <li key={c2}><MarkdownRenderer>{c2}</MarkdownRenderer></li>)}
+                                                        {item.column2 && item.column2.map(c2 => <li key={c2}><MarkdownRenderer>{c2}</MarkdownRenderer></li>)}
                                                     </ul>
                                                 </div>
                                             </div>

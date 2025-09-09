@@ -502,6 +502,92 @@ $$
             neetFrequency: 2
         }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+          {
+            formula: `\\vec{r}(t) = x(t)\\hat{i} + y(t)\\hat{j}`,
+            description: "Position vector in plane",
+            descriptionTamil: "வெற்றிடத்தில் நிலையான வெக்டர்"
+          },
+          {
+            formula: `\\vec{v}(t) = \\dfrac{d\\vec{r}}{dt} = v_x\\hat{i} + v_y\\hat{j}`,
+            description: "Velocity vector components",
+            descriptionTamil: "வேக வெக்டர் கூறுகள்"
+          },
+          {
+            formula: `\\vec{a}(t) = \\dfrac{d\\vec{v}}{dt} = a_x\\hat{i} + a_y\\hat{j}`,
+            description: "Acceleration vector components",
+            descriptionTamil: "அதிர்வெகை வெக்டர் கூறுகள்"
+          },
+          {
+            formula: `x(t) = u_x t, \\quad y(t) = u_y t - \\tfrac{1}{2}gt^2`,
+            description: "Projectile motion equations",
+            descriptionTamil: "புகலோடு இயக்க சமன்பாடுகள்"
+          },
+          {
+            formula: `T = \\dfrac{2u\\sin\\theta}{g}`,
+            description: "Time of flight",
+            descriptionTamil: "பறக்கும் நேரம்"
+          },
+          {
+            formula: `R = \\dfrac{u^2\\sin2\\theta}{g}`,
+            description: "Range of projectile",
+            descriptionTamil: "புகலோடு பரப்பு"
+          },
+          {
+            formula: `H = \\dfrac{u^2\\sin^2\\theta}{2g}`,
+            description: "Maximum height",
+            descriptionTamil: "அதிகபட்ச உயரம்"
+          },
+          {
+            formula: `y = x\\tan\\theta - \\dfrac{gx^2}{2u^2\\cos^2\\theta}`,
+            description: "Trajectory equation",
+            descriptionTamil: "பாதை சமன்பாடு"
+          },
+          {
+            formula: `a_c = \\dfrac{v^2}{r}, \\quad a_t = r\\alpha`,
+            description: "Centripetal and tangential acceleration",
+            descriptionTamil: "மையநிலை மற்றும் தொடு அதிர்வெகை"
+          },
+          {
+            formula: `\\vec{v}_{A/B} = \\vec{v}_A - \\vec{v}_B`,
+            description: "Relative velocity",
+            descriptionTamil: "சமநிலை வேகம்"
+          }
+        ],
+        diagrams: []
+      },
+    keyTakeaways: [
+        "Decompose motion into independent x and y components; both share the same time parameter.",
+        "Projectile motion combines constant horizontal velocity with uniformly accelerated vertical motion under gravity.",
+        "Range R = (u² sin 2θ)/g; Time of flight T = (2u sin θ)/g; Maximum height H = (u² sin² θ)/(2g).",
+        "Uniform circular motion has centripetal acceleration a_c = v²/r directed toward the center and tangential a_t = r α.",
+        "Relative velocity in a plane: v_{A/B} = v_A − v_B (vector subtraction)."
+      ],
+      mnemonics: [
+        {
+          text: "HORSE: Horizontal Once constant; Vertical Subject to Earth’s gravity.",
+          tamil: "HORSE: Horizontal இயக்கம் ஒருமுறை நிலையானது; Vertical இயக்கம் பூமிப் ஈர்ப்பின் கீழ்."
+        }
+      ],
+      neetTips: [
+        {
+          text: "Always draw separate x–t and y–t graphs for projectile problems to visualize constant vs. accelerated motion.",
+          tamil: "தற்கால ஒத்தக்கருவிகள் பிரச்சினைகளில் எப்போதும் தனித்த x–t மற்றும் y–t வரைபடங்களை வரைந்து நிலையான மற்றும் прис்ஸாரம் இயக்கங்களை காட்சியளிக்கவும்."
+        },
+        {
+          text: "For circular motion, sketch velocity and acceleration vectors at key points to confirm the centripetal direction.",
+          tamil: "சுழற்சி இயக்கத்தில் முக்கிய புள்ளிகளில் வேக மற்றும் прис்ஸாரம் வெக்டார்கள் வரைந்து மையநிலை прис்ஸாரம் திசையை உறுதிசெய்யவும்."
+        }
+      ],
+      studentTip: {
+        english: "Sketch both trajectory and its component motions side by side: plot x vs. t and y vs. t, then overlay to see how horizontal and vertical motions combine.",
+        tamil: "பாதையை மற்றும் அதன் கூறு இயக்கங்களை அருகாமையில் வரைந்துவைக்கவும்: x vs. t மற்றும் y vs. t வரைபடங்களை வரைந்த பிறகு இணைத்து 横ارعியல் மற்றும் உமிழ்வு இயக்கங்கள் எப்படி சேர்கிறன என்பதை காணவும்."
+      },
+      peerDiscussion: {
+        english: "Discuss how air resistance modifies projectile range and time of flight. How would the optimum launch angle change in a resistive medium?",
+        tamil: "காற்றுக் கொறுப்பு புகலோடு பரப்பளவும் பறக்கும் நேரத்தையும் எவ்வாறு மாற்றுகிறது என்பதை விவாதிக்கவும். எதிர்ப்புள்ள ஊடகத்தில் சிறந்த துவக்க கோணம் எவ்வாறு மாறும்?"
+      },
     validationReport: [
         { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
         { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },

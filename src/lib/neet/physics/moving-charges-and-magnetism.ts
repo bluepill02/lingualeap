@@ -198,6 +198,51 @@ $$ \\vec{F} = I (\\vec{L} \\times \\vec{B}) $$
         { column1: ["(a) Motion of charge in B-field", "(b) Torque on a current loop", "(c) Force on a straight wire", "(d) Force between parallel wires"], column2: ["(p) `F = BILsinθ`", "(q) `τ = NIABsinθ`", "(r) `F/L = μ₀I₁I₂/2πd`", "(s) `r = mv/qB`"], answer: "a-s, b-q, c-p, d-r", explanation: "Matching the physical situation with its corresponding formula." },
         { column1: ["(a) Current carrying straight wire", "(b) Current carrying circular loop (at center)", "(c) Current carrying solenoid (inside)", "(d) Current carrying toroid (inside)"], column2: ["(p) B = μ₀I/(2R)", "(q) B = μ₀nI", "(r) B = μ₀NI/(2πr)", "(s) B = μ₀I/(2πr)"], answer: "a-s, b-p, c-q, d-r", explanation: "Matching different current configurations with the formula for the magnetic field they produce." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+          {
+            formula: `\\vec{F} = q \\bigl(\\vec{v} \\times \\vec{B}\\bigr)`,
+            description: "Lorentz force on a moving charge",
+            descriptionTamil: "நகரும் மினக்கணத்தின் மீது லொரென்ஸ் விசை"
+          },
+          {
+            formula: `d\\vec{F} = I\\,d\\vec{l} \\times \\vec{B}`,
+            description: "Force on a current element",
+            descriptionTamil: "மின் ஓட்டு கூறின் மீது விசை"
+          },
+          {
+            formula: `d\\vec{B} = \\frac{\\mu_0}{4\\pi} \\frac{I\\,d\\vec{l} \\times \\hat{r}}{r^2}`,
+            description: "Biot–Savart law for field due to current element",
+            descriptionTamil: "Biot–Savart விதி மூலம் மின்ஒட்டுக் கூறால் உருவாகும் புலம்"
+          },
+          {
+            formula: `\\displaystyle \\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc}`,
+            description: "Ampère’s circuital law",
+            descriptionTamil: "Ampère சுற்றுப் பாதைச் சட்டம்"
+          },
+          {
+            formula: `r = \\frac{m v_{\\perp}}{q B}, \\quad \\omega = \\frac{q B}{m}`,
+            description: "Radius and angular frequency of circular motion",
+            descriptionTamil: "சுற்று இயக்கத்தின் வீதி மற்றும் கோண வேகம்"
+          },
+          {
+            formula: `\\vec{\\mu} = I\\,\\vec{A}, \\quad \\vec{\\tau} = \\vec{\\mu} \\times \\vec{B}`,
+            description: "Magnetic dipole moment and torque on a loop",
+            descriptionTamil: "காந்த இருமுகத் தன்மை மற்றும் கட்டுமoment"
+          },
+          {
+            formula: `U = -\\vec{\\mu} \\cdot \\vec{B}`,
+            description: "Potential energy of a magnetic dipole",
+            descriptionTamil: "காந்த இருமுகத்தின் சக்தி நிலை"
+          },
+          {
+            formula: `\\varepsilon = -\\dfrac{d\\Phi}{dt}`,
+            description: "Faraday’s law of electromagnetic induction",
+            descriptionTamil: "மின்னோக்கும விதி"
+          }
+        ],
+        diagrams: []
+    },    
     keyTakeaways: [
         "Moving charges and currents are the sources of magnetic fields.",
         "A magnetic field exerts a force only on a moving charge, and this force does no work.",
@@ -210,7 +255,15 @@ $$ \\vec{F} = I (\\vec{L} \\times \\vec{B}) $$
     neetTips: [
         { text: "The Right-Hand Rule is essential. Practice it for finding the direction of B-field (thumb points along I, fingers curl in direction of B) and the direction of force (F = q(v x B)).", tamil: "வலது-கை விதி அவசியம். B-புலத்தின் திசையைக் கண்டறிய (கட்டைவிரல் I-ன் திசையில், விரல்கள் B-ன் திசையில் சுருளும்) மற்றும் விசையின் திசையைக் கண்டறிய (F = q(v x B)) பயிற்சி செய்யுங்கள்." },
         { text: "Problems involving the motion of a charged particle in a magnetic field are very common. Remember that the time period and frequency are independent of the particle's speed.", tamil: "ஒரு காந்தப்புலத்தில் ஒரு மின்னூட்டத் துகளின் இயக்கம் சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. நேர காலம் மற்றும் அதிர்வெண் ஆகியவை துகளின் வேகத்தைச் சார்ந்து இல்லை என்பதை நினைவில் கொள்க." }
-    ]
+    ],
+    studentTip: {
+        english: "Always draw the velocity vector and magnetic field lines before applying F = q (v × B). Confirm both magnitude and direction with the right-hand rule to avoid sign mistakes.",
+        tamil: "F = q (v × B) பயன்படுத்துவதற்கு முன் வேகம் வெக்டர் மற்றும் காந்த புல வரிகளை வரைந்து வையுங்கள். வலது கை விதியால் திசையையும் சந்ததியையும் உறுதிசெய்து பிழைகளை தவிர்க்கவும்."
+      },
+      peerDiscussion: {
+        english: "Discuss how crossed electric and magnetic fields produce a drift velocity v_d = E × B / B² independent of charge sign, and explore its application in mass spectrometers.",
+        tamil: "ஒருங்குகிற மின் மற்றும் காந்த புலங்கள் E × B/B² திசையில் சுழற்சி வேகத்தை உருவாக்குவது எப்படி, மற்றும் இதன் பயன்பாட்டை மாஸ் ஸ்பெக்டிரோமீட்டர்களில் ஆராயுங்கள்."
+      }
 };
 
     

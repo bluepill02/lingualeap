@@ -182,17 +182,90 @@ The phenomenon of restricting the vibrations of light waves to a particular dire
         { column: ["(a) Wavefront", "(b) Coherent Sources", "(c) Fringe", "(d) Polaroid"], column2: ["(p) Constant phase difference", "(q) Locus of points in same phase", "(r) Produces polarized light", "(s) Bright or dark band"], answer: "a-q, b-p, c-s, d-r", explanation: "Matching the terms with their definitions or functions." },
         { column1: ["(a) Resolving power of microscope", "(b) Resolving power of telescope", "(c) Magnifying power of telescope", "(d) Magnifying power of microscope"], column2: ["(p) f₀/fₑ", "(q) D/1.22λ", "(r) (L/f₀)(D/fₑ)", "(s) 2nsinθ/λ"], answer: "a-s, b-q, c-p, d-r", explanation: "Matching optical instrument properties with their formulas." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+          {
+            formula: `v = f \\lambda`,
+            description: "Wave speed relation",
+            descriptionTamil: "அலை வேக சமன்பாடு"
+          },
+          {
+            formula: `\\Delta = d \\sin\\theta`,
+            description: "Path difference in double‐slit",
+            descriptionTamil: "இரட்டை ஓட்டவைத்து பாதை வேறுபாடு"
+          },
+          {
+            formula: `\\text{Constructive: } \\Delta = m\\lambda; \\quad \\text{Destructive: } \\Delta = (m+\\tfrac12)\\lambda`,
+            description: "Interference conditions",
+            descriptionTamil: "இடைமறிப்பு உச்ச/பள்ளி நிபந்தனைகள்"
+          },
+          {
+            formula: `\\beta = \\frac{\\lambda D}{d}`,
+            description: "Fringe width in double‐slit",
+            descriptionTamil: "பட்டை அகலம்"
+          },
+          {
+            formula: `a \\sin\\theta = m\\lambda`,
+            description: "Single‐slit diffraction minima",
+            descriptionTamil: "ஓரே ஓட்டவு வியர்ப்பு பள்ளிகள்"
+          },
+          {
+            formula: `d \\sin\\theta = m\\lambda`,
+            description: "Diffraction grating equation",
+            descriptionTamil: "வியர்ப்பு கிரேட்டிங் சமன்பாடு"
+          },
+          {
+            formula: `1/f = 1/v + 1/u`,
+            description: "Lens/mirror formula",
+            descriptionTamil: "செறிவகம்/கண்ணாடி சமன்பாடு"
+          },
+          {
+            formula: `m = v/u = h'/h`,
+            description: "Linear magnification",
+            descriptionTamil: "நெருக்கமாக்கல் коэффициент்"
+          },
+          {
+            formula: `\\theta_{\\min} = 1.22 \\frac{\\lambda}{D}`,
+            description: "Rayleigh criterion for circular aperture",
+            descriptionTamil: "சுற்று திறை ரெய்லி நிபந்தனை"
+          },
+          {
+            formula: `I = I_{0} \\cos^{2}\\theta`,
+            description: "Malus’s law for polarization",
+            descriptionTamil: "மாலஸ் விதி"
+          }
+        ],
+        diagrams: []
+      },
     keyTakeaways: [
-        "Light exhibits dual nature, but phenomena like interference, diffraction, and polarization can only be explained by its wave nature.",
-        "Coherent sources are a necessary condition for sustained interference.",
-        "Fringe width in YDSE is directly proportional to wavelength (λ) and screen distance (D), and inversely proportional to slit separation (d).",
-        "Diffraction limits the resolving power of optical instruments."
-    ],
-    mnemonics: [
-        { text: "For interference conditions: 'nλ for Nice (bright), (n+1/2)λ for Nasty (dark)'.", tamil: "குறுக்கீட்டு விளைவு நிபந்தனைகளுக்கு: 'nλ நல்லதற்கு (பிரகாசம்), (n+1/2)λ நாசத்திற்கு (இருள்)'." }
-    ],
-    neetTips: [
-        { text: "In YDSE problems, if the entire setup is immersed in a liquid of refractive index 'n', the wavelength changes to λ' = λ/n, and the fringe width becomes β' = β/n.", tamil: "YDSE கணக்குகளில், முழு அமைப்பும் 'n' ஒளிவிலகல் எண் கொண்ட ஒரு திரவத்தில் மூழ்கடிக்கப்பட்டால், அலைநீளம் λ' = λ/n ஆகவும், பட்டை அகலம் β' = β/n ஆகவும் மாறும்." },
-        { text: "Be very careful with the conditions for minima and maxima in single-slit diffraction versus interference. They are opposite.", tamil: "ஒற்றைப் பிளவு விளிம்பு விளைவு மற்றும் குறுக்கீட்டு விளைவு ஆகியவற்றில் சிறுமம் மற்றும் பெருமத்திற்கான நிபந்தனைகளில் மிகவும் கவனமாக இருங்கள். அவை ஒன்றுக்கொன்று எதிரானவை." }
-    ]
+        "Light waves superpose to produce interference fringes when path difference is an integer multiple of wavelength.",
+        "Diffraction through slits and apertures arises from Huygens’ principle; slit width and wavelength govern fringe patterns.",
+        "Lens and mirror formulas (1/f = 1/v + 1/u) describe image formation in terms of wavefront bending.",
+        "Resolving power of instruments follows Rayleigh criterion θ_min ≈ 1.22 λ/D and grating equation d sin θ = m λ.",
+        "Polarization selects oscillation direction of E-field; Malus’s law I = I₀ cos² θ quantifies analyzer transmission."
+      ],
+      mnemonics: [
+        {
+          text: "‘VIVO’: Velocity = f λ, Interference = path diff, Varies fringe spacing, Optics unite.",
+          tamil: "‘VIVO’: வேகம் = f λ, இடைமறிப்பு = பாதை வேறுபாடு, வியர்ப்பு அகலம் மாறல், ஒப்டிக்ஸ் ஒன்றுமை."
+        }
+      ],
+      neetTips: [
+        {
+          text: "In double‐slit diagrams, always label d, D, θ and draw central maximum at zero path difference before computing fringe positions.",
+          tamil: "இரட்டை ஒட்டவைத்து வரைபடங்களில் d, D, θ குறிச்சொற்களை குறியிட்டு மைய உச்சத்தை (Δ=0) வரைந்து பின்னர் பட்டை இடங்களை கணக்கிடவும்."
+        },
+        {
+          text: "For thin‐film interference, track phase inversion at reflections: a π phase flip occurs when n₂ > n₁, shifting constructive/destructive conditions.",
+          tamil: "இறு பரப்பிலுள்ள இடைமறிப்பில் எதிர்ப் பிரதிபலிப்பில் φ = π மாறுதலை கவனித்து n₂ > n₁ போது உச்ச மற்றும் பள்ளி நிபந்தனைகள் மாறுவதை குறியீட்டுங்கள்."
+        }
+      ],
+      studentTip: {
+        english: "Sketch wavefronts perpendicular to rays for interference and diffraction setups; draw phase marks λ/2 to visualize path differences directly.",
+        tamil: "இடைமறிப்பு மற்றும் வியர்ப்பு அமைப்புகளுக்கு அலை முனைகளை கதிர்களுக்கெதிராக வரைந்து λ/2 கட்டங்களை குறித்து பாதை வேறுபாடுகளை நேரடியாக காண்க."
+      },
+      peerDiscussion: {
+        english: "Discuss how limited coherence length and finite source size affect fringe visibility in Young’s double‐slit experiment.",
+        tamil: "யங்கின் இரட்டை ஓட்டவு பரீட்சையில் வரையறுக்கப்பட்ட ஒத்தச்சுழற்சி நீளம் மற்றும் நிலையான மூலம் அளவு எப்படி பட்டை தெளிவை பாதிக்கின்றன என்பதை விவாதியுங்கள்."
+      }
 };

@@ -265,10 +265,82 @@ export const physicalWorldModule: NeetModule = {
         { column1: ["(a) Graviton", "(b) Photon", "(c) Gluon", "(d) W and Z bosons"], column2: ["(p) Electromagnetic force", "(q) Strong nuclear force", "(r) Weak nuclear force", "(s) Gravitational force"], answer: "a-s, b-p, c-q, d-r", explanation: "Matching the fundamental forces with their corresponding exchange particles (mediators).", neetFrequency: 4 },
         { column1: ["(a) Range of Weak Force", "(b) Range of Strong Force", "(c) Range of Gravity", "(d) Range of EM Force"], column2: ["(p) Infinite", "(q) ~10⁻¹⁵ m", "(r) ~10⁻¹⁶ m"], answer: "a-r, b-q, c-p, d-p", explanation: "Matching the forces to their effective ranges of operation.", neetFrequency: 3 }
     ],
-    keyFormulasAndDiagrams: {
-        formulas: [],
-        diagrams: []
-    },
+    
+        keyFormulasAndDiagrams: {
+          formulas: [
+            {
+              formula: `Δx = ±\\dfrac{LC}{2}`,
+              description: "Least‐count error in measurement",
+              descriptionTamil: "அளவீட்டில் குறைந்த எண்ணிக்கை பிழை"
+            },
+            {
+              formula: `ΔQ = Q_{meas} - Q_{true}`,
+              description: "Absolute error",
+              descriptionTamil: "முழுமை பிழை"
+            },
+            {
+              formula: `δ = \\dfrac{ΔQ}{Q}`,
+              description: "Relative error",
+              descriptionTamil: "சராசரி பிழை"
+            },
+            {
+              formula: `%\\text{ error} = δ \\times 100`,
+              description: "Percentage error",
+              descriptionTamil: "சதவீத பிழை"
+            },
+            {
+              formula: `ΔR = ΔA + ΔB + ⋯`,
+              description: "Error in sum or difference",
+              descriptionTamil: "கூட்டல்/கழித்தலைப் பிழை"
+            },
+            {
+              formula: `δ_R = \\sqrt{δ_A^2 + δ_B^2 + ⋯}`,
+              description: "Relative error in product or quotient",
+              descriptionTamil: "பெருக்கல்/வகுத்தல் சார்புப் பிழை"
+            },
+            {
+              formula: `δ_R = |n|\,δ_A`,
+              description: "Error in power law R = Aⁿ",
+              descriptionTamil: "பவர்‐சமன்பாட்டு பிழை"
+            },
+            {
+              formula: `\\vec{R} = \\vec{A} + \\vec{B}`,
+              description: "Vector addition",
+              descriptionTamil: "வேக்டர் கூட்டல்"
+            },
+            {
+              formula: `R_x = A_x + B_x,\\quad R_y = A_y + B_y`,
+              description: "Components of resultant",
+              descriptionTamil: "மொத்தவேக்டர் கூறுகள்"
+            },
+            {
+              formula: `|R| = \\sqrt{R_x^2 + R_y^2}`,
+              description: "Magnitude of resultant vector",
+              descriptionTamil: "மொத்தவேக்டர் அளவு"
+            },
+            {
+              formula: `v_{avg} = \\dfrac{Δx}{Δt},\\quad a_{avg} = \\dfrac{Δv}{Δt}`,
+              description: "Average speed and acceleration",
+              descriptionTamil: "சராசரி வேகம் மற்றும் прис்ஸாரம்"
+            },
+            {
+              formula: `s = ut + \\tfrac{1}{2} a t^2`,
+              description: "Displacement under constant acceleration",
+              descriptionTamil: "நிலையான прис்ஸாரம் கீழ் இடமாற்றம்"
+            },
+            {
+              formula: `v = u + a t`,
+              description: "Velocity–time relation",
+              descriptionTamil: "வேக–நேர சமன்பாடு"
+            },
+            {
+              formula: `v^2 = u^2 + 2 a s`,
+              description: "Velocity–displacement relation",
+              descriptionTamil: "வேக–இடமாற்ற சமன்பாடு"
+            }
+          ],
+          diagrams: []
+        },
     keyTakeaways: [
         "Physics is the study of the basic laws of nature, focusing on unification and reductionism.",
         "The four fundamental forces are Strong Nuclear, Electromagnetic, Weak Nuclear, and Gravitational, in decreasing order of strength.",

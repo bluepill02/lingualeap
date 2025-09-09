@@ -244,6 +244,61 @@ The spontaneous disintegration of the nuclei of heavy elements.
         { column1: ["(a) Isotopes", "(b) Isobars", "(c) Isotones", "(d) Isomers"], column2: ["(p) Same A, different Z", "(q) Same A and Z, different energy state", "(r) Same Z, different A", "(s) Same N, different Z"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching nuclear classification terms with their definitions." },
         { column1: ["(a) Nuclear Fusion", "(b) Chain Reaction", "(c) Critical Mass", "(d) Pair Production"], column2: ["(p) Minimum mass for sustained fission", "(q) Basis of a hydrogen bomb", "(r) γ → e⁺ + e⁻", "(s) Self-sustaining fission process"], answer: "a-q, b-s, c-p, d-r", explanation: "Matching nuclear phenomena with their descriptions." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+          {
+            formula: `R = R_{0} A^{1/3}`,
+            description: "Nuclear radius",
+            descriptionTamil: "அணுஇரு"
+          },
+          {
+            formula: `\\Delta m = Z m_{p} + N m_{n} - m_{\\text{nucleus}}`,
+            description: "Mass defect",
+            descriptionTamil: "மாஸ் குறைவு"
+          },
+          {
+            formula: `B = \\Delta m \\;c^{2}`,
+            description: "Total binding energy",
+            descriptionTamil: "மொத்த இணைப்பு ஆற்றல்"
+          },
+          {
+            formula: `\\frac{B}{A}`,
+            description: "Binding energy per nucleon",
+            descriptionTamil: "ஒன்றரை பொருந்திய விகிதம்"
+          },
+          {
+            formula: `N(t) = N_{0} e^{-\\lambda t}`,
+            description: "Radioactive decay law",
+            descriptionTamil: "மின்கடத்தல் விதி"
+          },
+          {
+            formula: `T_{1/2} = \\frac{\\ln 2}{\\lambda}`,
+            description: "Half-life relation",
+            descriptionTamil: "அரை-வயது"
+          },
+          {
+            formula: `A = \\lambda N`,
+            description: "Activity of a sample",
+            descriptionTamil: "செயல்திறன்"
+          },
+          {
+            formula: `Q = (\\text{mass}_{\\text{i}} - \\text{mass}_{\\text{f}}) \\;c^{2}`,
+            description: "Q-value of nuclear reaction",
+            descriptionTamil: "செயலினை மதிப்பிடும் ஆற்றல்"
+          },
+          {
+            formula: `V_{C} = \\frac{1}{4\\pi\\varepsilon_{0}} \\frac{Z_{1}Z_{2} e^{2}}{r}`,
+            description: "Coulomb barrier between nuclei",
+            descriptionTamil: "கூலம்ப் தடுப்பு"
+          },
+          {
+            formula: `\\rho_{\\text{nucleus}} = \\frac{A m_{u}}{\\tfrac{4}{3}\\pi R^{3}} \\approx \\text{constant}`,
+            description: "Average nuclear density",
+            descriptionTamil: "சராசரி அணுஅணுக்கம்"
+          }
+        ],
+        diagrams: []
+    },    
     keyTakeaways: [
         "The nucleus is incredibly dense, held together by the strong nuclear force against electrostatic repulsion.",
         "The stability of a nucleus is determined by its binding energy per nucleon.",
@@ -256,5 +311,13 @@ The spontaneous disintegration of the nuclei of heavy elements.
     neetTips: [
         { text: "Half-life problems are very common. Remember the sequence: 100% -> 50% -> 25% -> 12.5% ... Each arrow represents one half-life.", tamil: "அரை ஆயுள் கணக்குகள் மிகவும் பொதுவானவை. வரிசையை நினைவில் கொள்க: 100% -> 50% -> 25% -> 12.5% ... ஒவ்வொரு அம்புக்குறியும் ஒரு அரை ஆயுளைக் குறிக்கிறது." },
         { text: "Be very careful with units in binding energy calculations. Ensure you are using the correct mass (atomic vs. nuclear) and the correct conversion factor (931.5 MeV/u).", tamil: "பிணைப்பு ஆற்றல் கணக்கீடுகளில் அலகுகளில் மிகவும் கவனமாக இருங்கள். நீங்கள் சரியான நிறையை (அணு vs. அணுக்கரு) மற்றும் சரியான மாற்று காரணியை (931.5 MeV/u) பயன்படுத்துவதை உறுதிப்படுத்திக் கொள்ளுங்கள்." }
-    ]
+    ],
+    studentTip: {
+        english: "Draw a cartoon nucleus showing separate proton and neutron masses, then annotate Δm calculation and convert step-by-step to MeV to cement the mass defect concept.",
+        tamil: "மின்கசாய்ப் பிரிவு மற்றும் நியூட்ரானின் தனி கழிவுகளை காட்டும் எளிய வரைபடம் வரைந்து Δm கணக்கீட்டையும் MeV ஆக மாற்றும் படிநிலைகளையும் குறியிட்டு உறுதிப்படுத்து."
+      },
+      peerDiscussion: {
+        english: "Discuss why light nuclei release energy via fusion while heavy nuclei release energy via fission. How does the shape of the binding-energy curve govern which process is energetically favorable?",
+        tamil: "என்ஂ லைட் அணுக்கள் fusion மூலம், ஹேவி அணுக்கள் fission மூலம் ஏன் ஆற்றலை வெளியிடுகின்றன என்பதைப் பற்றி Binding-Energy வளைவு உருவம் எப்படி தீர்மானிக்கிறது என விவாதியுங்கள்."
+      }
 };
