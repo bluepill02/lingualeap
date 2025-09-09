@@ -10,7 +10,7 @@ export default async function NeetBiologyChapterPage({ params }: { params: { cha
     let content: NeetModule | undefined;
 
     if (params.chapter === 'take-it-easy') {
-        content = takeItEasyBiologyModule;
+       content = takeItEasyBiologyModule;
     } else {
         content = getNeetContent(params.chapter) as NeetModule | undefined;
     }
@@ -21,3 +21,4 @@ export default async function NeetBiologyChapterPage({ params }: { params: { cha
     
     return <NeetChapterClientPage content={content} />;
 }
+
