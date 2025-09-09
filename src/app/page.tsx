@@ -45,7 +45,7 @@ export default function LandingPage() {
 
             <div className="container relative z-10 mx-auto flex flex-col items-center px-4">
                 <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl">
-                    Your Gateway to Indian Languages
+                    Your Gateway to Global Languages
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
                     Our platform combines proven learning science with AI-powered tools to create a professional and effective path to fluency.
