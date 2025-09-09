@@ -256,7 +256,11 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
         setFlipped(Array(15).fill(false));
     };
 
-    if (!mcqs || !assertionReasons || !matchTheColumns) {
+    const hasPracticeContent = (mcqs && mcqs.length > 0) || 
+                              (assertionReasons && assertionReasons.length > 0) || 
+                              (matchTheColumns && matchTheColumns.length > 0);
+
+    if (!hasPracticeContent) {
         return (
             <Card>
                 <CardHeader className="card-padding-lg">
