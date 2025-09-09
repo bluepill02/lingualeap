@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -235,7 +236,7 @@ export function AiPracticeGenerator({ subject, chapter }: AiPracticeGeneratorPro
                             ? 'secondary'
                             : 'outline'
                         }
-                        className="w-full h-auto justify-start text-left py-2"
+                        className="w-full h-auto justify-start text-left py-2 flex-wrap whitespace-normal"
                         onClick={() => handleOptionChange(index, option)}
                         disabled={quizState.submitted}
                       >

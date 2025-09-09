@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import * as React from 'react';
@@ -91,7 +92,7 @@ export function PracticeMode({
                                 <Button 
                                     key={oIndex}
                                     variant={answers[qIndex] === option ? 'secondary' : 'outline'}
-                                    className="w-full h-auto justify-start text-left py-2"
+                                    className="w-full h-auto justify-start text-left py-2 flex-wrap whitespace-normal"
                                     onClick={() => onOptionSelect(qIndex, option)}
                                 >
                                     <span className="mr-2 font-bold">{option.charAt(0)}.</span>
