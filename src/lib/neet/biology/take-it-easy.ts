@@ -90,7 +90,7 @@ export const takeItEasyBiologyModule: NeetModule = {
                     tamil: `மரபியல் என்பது ஒரு குடும்பத்தின் ரகசிய சமையல் புத்தகம் (DNA) போன்றது.
 *   **மரபணு:** ஒரு உணவிற்கான ஒற்றைச் செய்முறை (ஒரு புரதம்).
 *   **அல்லீல்:** ஒரு செய்முறையின் மாறுபாடு. உதாரணமாக, 'சாம்பார்' செய்முறைக்கு இரண்டு பதிப்புகள் இருக்கலாம்: காரமானது (ஓங்கு, T) அல்லது லேசானது (ஒடுங்கு, t).
-*   **மரபு வகை:** உங்களிடம் உள்ள செய்முறை பதிப்புகளின் கலவை (TT, Tt, அல்லது tt).
+*   **மரபு வகை:** உங்களிடம் உள்ள செய்முறை பதிப்புகளின் கலவை (TT, Tt, or tt).
 *   **புறத்தோற்றம்:** நீங்கள் உண்மையில் சுவைக்கும் உணவு (காரமான அல்லது லேசான).
 *   **மெண்டலின் விதிகள்:** இந்த சமையல் குறிப்புகள் பெற்றோரிடமிருந்து குழந்தைகளுக்கு எவ்வாறு அனுப்பப்படுகின்றன என்பதற்கான விதிகள்.`
                 }
@@ -145,158 +145,162 @@ export const takeItEasyBiologyModule: NeetModule = {
         }
     ],
     workedExamples: [
-         {
-            title: "Genetics: Dihybrid Cross",
-            titleTamil: "மரபியல்: இருபண்புக் கலப்பு",
+        {
+            title: "Genetics: Dihybrid Cross Ratio",
+            titleTamil: "மரபியல்: இருபண்புக் கலப்பு விகிதம்",
             difficulty: 'Medium',
-            problem: "In pea plants, tall (T) is dominant over dwarf (t), and yellow seeds (Y) are dominant over green seeds (y). A pure tall, yellow-seeded plant (TTYY) is crossed with a pure dwarf, green-seeded plant (ttyy). What is the phenotypic ratio in the F2 generation?",
-            problemTamil: "பட்டாணிச் செடிகளில், நெட்டை (T) குட்டைக்கு (t) ஓங்கு பண்பாகவும், மஞ்சள் விதைகள் (Y) பச்சை விதைகளுக்கு (y) ஓங்கு பண்பாகவும் உள்ளன. ஒரு தூய நெட்டை, மஞ்சள் விதை கொண்ட தாவரம் (TTYY), ஒரு தூய குட்டை, பச்சை விதை கொண்ட தாவரத்துடன் (ttyy) கலப்பு செய்யப்படுகிறது. F2 தலைமுறையில் புறத்தோற்ற விகிதம் என்ன?",
+            problem: "In a dihybrid cross, the phenotypic ratio of the F₂ generation is:",
+            problemTamil: "ஒரு இருபண்புக் கலப்பில், F₂ தலைமுறையின் புறத்தோற்ற விகிதம் என்ன?",
             solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "Determine the F1 generation. The TTYY parent produces only TY gametes. The ttyy parent produces only ty gametes. The F1 offspring will all have the genotype TtYy.",
-                    explanationTamil: "F1 தலைமுறையைத் தீர்மானிக்கவும். TTYY பெற்றோர் TY கேமட்களை மட்டுமே உருவாக்கும். ttyy பெற்றோர் ty கேமட்களை மட்டுமே உருவாக்கும். F1 சந்ததிகள் அனைத்தும் TtYy என்ற மரபு வகையைக் கொண்டிருக்கும்."
-                },
-                {
-                    step: 2,
-                    explanation: "Determine the gametes produced by the F1 generation (TtYy) through self-pollination. Due to independent assortment, four types of gametes are produced: TY, Ty, tY, and ty, in equal proportions.",
-                    explanationTamil: "தன்னூட்டல் மூலம் F1 தலைமுறை (TtYy) உருவாக்கும் கேமட்களைத் தீர்மானிக்கவும். சார்பின்றி ஒதுங்குதல் விதிப்படி, நான்கு வகை கேமட்கள் சம விகிதத்தில் உருவாகின்றன: TY, Ty, tY, மற்றும் ty."
-                },
-                {
-                    step: 3,
-                    explanation: "Set up a Punnett square with the four types of gametes from both parents.",
-                    explanationTamil: "இரு பெற்றோரிடமிருந்தும் நான்கு வகை கேமட்களுடன் ஒரு புன்னட் கட்டத்தை அமைக்கவும்."
-                },
-                {
-                    step: 4,
-                    explanation: "Fill in the Punnett square and count the resulting phenotypes. You will find 9 Tall Yellow, 3 Tall Green, 3 Dwarf Yellow, and 1 Dwarf Green.",
-                    explanationTamil: "புன்னட் கட்டத்தை நிரப்பி, உருவாகும் புறத்தோற்றங்களை எண்ணவும். நீங்கள் 9 நெட்டை மஞ்சள், 3 நெட்டை பச்சை, 3 குட்டை மஞ்சள், மற்றும் 1 குட்டை பச்சை ஆகியவற்றைக் காண்பீர்கள்."
-                },
-                {
-                    step: 5,
-                    explanation: "The phenotypic ratio for a dihybrid cross is 9:3:3:1.",
-                    explanationTamil: "ஒரு இருபண்புக் கலப்பின் புறத்தோற்ற விகிதம் 9:3:3:1 ஆகும்."
-                }
+                { step: 1, explanation: "A dihybrid cross involves two traits that assort independently. The classic example is Mendel's cross of round yellow peas (RRYY) with wrinkled green peas (rryy).", explanationTamil: "ஒரு இருபண்புக் கலப்பு, சார்பின்றி ஒதுங்கும் இரண்டு பண்புகளை உள்ளடக்கியது. மெண்டலின் வட்ட மஞ்சள் பட்டாணி (RRYY) மற்றும் சுருங்கிய பச்சை பட்டாணி (rryy) கலப்பு ஒரு சிறந்த எடுத்துக்காட்டு." },
+                { step: 2, explanation: "The F1 generation will all be heterozygous for both traits (RrYy).", explanationTamil: "F1 தலைமுறை இரண்டு பண்புகளுக்கும் ஹெட்டிரோசைகஸ் ஆக இருக்கும் (RrYy)." },
+                { step: 3, explanation: "When the F1 generation self-pollinates, each parent produces four types of gametes: RY, Ry, rY, and ry.", explanationTamil: "F1 தலைமுறை தன்மகரந்தச் சேர்க்கை செய்யும்போது, ஒவ்வொரு பெற்றோரும் நான்கு வகை கேமட்களை உருவாக்குகின்றன: RY, Ry, rY, மற்றும் ry." },
+                { step: 4, explanation: "A 4x4 Punnett square of these gametes shows the distribution of genotypes and phenotypes in the F2 generation.", explanationTamil: "இந்த கேமட்களின் ஒரு 4x4 புன்னட் கட்டம் F2 தலைமுறையில் மரபு வகைகள் மற்றும் புறத்தோற்றங்களின் விநியோகத்தைக் காட்டுகிறது." },
+                { step: 5, explanation: "Counting the phenotypes from the Punnett square yields the classic ratio: 9 (Round Yellow) : 3 (Round Green) : 3 (Wrinkled Yellow) : 1 (Wrinkled Green).", explanationTamil: "புன்னட் கட்டத்திலிருந்து புறத்தோற்றங்களை எண்ணுவது பாரம்பரிய விகிதத்தை அளிக்கிறது: 9 (வட்ட மஞ்சள்) : 3 (வட்ட பச்சை) : 3 (சுருங்கிய மஞ்சள்) : 1 (சுருங்கிய பச்சை)." }
             ],
             answer: "9:3:3:1",
-            neetHack: "For any dihybrid cross between two heterozygotes, the 9:3:3:1 ratio is constant. Don't waste time drawing the Punnett square in the exam unless absolutely necessary. Just remember the ratio.",
-            neetHackTamil: "இரண்டு ஹெட்டிரோசைகஸ் பெற்றோருக்கு இடையேயான எந்தவொரு இருபண்புக் கலப்பிற்கும், 9:3:3:1 விகிதம் மாறிலி. தேர்வில் புன்னட் கட்டத்தை வரைந்து நேரத்தை வீணாக்காதீர்கள், விகிதத்தை நினைவில் வைத்திருங்கள்."
+            neetHack: "For any dihybrid cross involving independent assortment, the 9:3:3:1 ratio is a constant. Memorize it to save time during exams.",
+            neetHackTamil: "சார்பின்றி ஒதுங்குதலை உள்ளடக்கிய எந்தவொரு இருபண்புக் கலப்பிற்கும், 9:3:3:1 விகிதம் ஒரு மாறிலி. தேர்வுகளின் போது நேரத்தை மிச்சப்படுத்த இதை மனப்பாடம் செய்யுங்கள்."
+        },
+        {
+            title: "Human Physiology: Cardiac Cycle Events",
+            titleTamil: "மனித உடற்செயலியல்: இதய சுழற்சி நிகழ்வுகள்",
+            difficulty: 'Medium',
+            problem: "The second heart sound ('dub') is associated with the closure of which valves?",
+            problemTamil: "இரண்டாவது இதய ஒலி ('டப்') எந்த வால்வுகளின் மூடுதலுடன் தொடர்புடையது?",
+            solutionSteps: [
+                { step: 1, explanation: "The cardiac cycle consists of systole (contraction) and diastole (relaxation) of the atria and ventricles.", explanationTamil: "இதய சுழற்சி, ஆரிக்கிள்கள் மற்றும் வென்ட்ரிக்கிள்களின் சிஸ்டோல் (சுருக்கம்) மற்றும் டயஸ்டோல் (தளர்வு) ஆகியவற்றைக் கொண்டுள்ளது." },
+                { step: 2, explanation: "There are two main heart sounds: S1 ('lub') and S2 ('dub').", explanationTamil: "இரண்டு முக்கிய இதய ஒலிகள் உள்ளன: S1 ('லப்') மற்றும் S2 ('டப்')." },
+                { step: 3, explanation: "The first heart sound, S1 or 'lub', is produced at the beginning of ventricular systole due to the closure of the atrioventricular (AV) valves (the tricuspid and mitral valves).", explanationTamil: "முதல் இதய ஒலி, S1 அல்லது 'லப்', வென்ட்ரிக்குலர் சிஸ்டோலின் தொடக்கத்தில் ஏட்ரியோவென்ட்ரிக்குலர் (AV) வால்வுகள் (மூவிதழ் மற்றும் ஈரிதழ் வால்வுகள்) மூடுவதால் ஏற்படுகிறது." },
+                { step: 4, explanation: "The second heart sound, S2 or 'dub', is produced at the beginning of ventricular diastole due to the closure of the semilunar valves (the aortic and pulmonary valves).", explanationTamil: "இரண்டாவது இதய ஒலி, S2 அல்லது 'டப்', வென்ட்ரிக்குலர் டயஸ்டோலின் தொடக்கத்தில் அரைச்சந்திர வால்வுகள் (அயோர்டிக் மற்றும் நுரையீரல் வால்வுகள்) மூடுவதால் ஏற்படுகிறது." }
+            ],
+            answer: "Semilunar valves (Aortic and Pulmonary)",
+            neetHack: "Remember: 'Lub' is the first sound (S1) and comes from AV valve closure. 'Dub' is the second sound (S2) and comes from Semilunar valve closure.",
+            commonPitfall: "Confusing which sound corresponds to which set of valves."
+        },
+        {
+            title: "Plant Physiology: C3 vs C4 Plants",
+            titleTamil: "தாவர செயலியல்: C3 vs C4 தாவரங்கள்",
+            difficulty: 'Medium',
+            problem: "In C4 plants, the primary CO₂ acceptor is:",
+            problemTamil: "C4 தாவரங்களில், முதன்மை CO₂ ஏற்பி எது?",
+            solutionSteps: [
+                { step: 1, explanation: "Differentiate between the two main photosynthetic pathways. C3 plants use the Calvin cycle directly, while C4 plants have an additional preliminary step.", explanationTamil: "இரண்டு முக்கிய ஒளிச்சேர்க்கை பாதைகளுக்கு இடையில் வேறுபடுத்துங்கள். C3 தாவரங்கள் நேரடியாக கால்வின் சுழற்சியைப் பயன்படுத்துகின்றன, அதேசமயம் C4 தாவரங்கள் ஒரு கூடுதல் ஆரம்பப் படியைக் கொண்டுள்ளன." },
+                { step: 2, explanation: "In C3 plants, the primary CO₂ acceptor is Ribulose-1,5-bisphosphate (RuBP), a 5-carbon compound. The enzyme is RuBisCO.", explanationTamil: "C3 தாவரங்களில், முதன்மை CO₂ ஏற்பி ரிபுலோஸ்-1,5-பிஸ்பாஸ்பேட் (RuBP) ஆகும், இது ஒரு 5-கார்பன் சேர்மம். நொதி RuBisCO ஆகும்." },
+                { step: 3, explanation: "In C4 plants, to avoid photorespiration, CO₂ is first fixed in the mesophyll cells. The primary CO₂ acceptor here is Phosphoenolpyruvate (PEP), a 3-carbon compound.", explanationTamil: "C4 தாவரங்களில், ஒளிச்சுவாசத்தைத் தவிர்க்க, CO₂ முதலில் மீசோபில் செல்களில் நிலைநிறுத்தப்படுகிறது. இங்கு முதன்மை CO₂ ஏற்பி பாஸ்போஈனால்பைருவேட் (PEP) ஆகும், இது ஒரு 3-கார்பன் சேர்மம்." },
+                { step: 4, explanation: "The enzyme for this initial fixation is PEP carboxylase, which has a high affinity for CO₂ and does not bind to O₂. The first product is a 4-carbon acid (like oxaloacetic acid).", explanationTamil: "இந்த ஆரம்ப நிலைநிறுத்தத்திற்கான நொதி PEP கார்பாக்சிலேஸ் ஆகும், இது CO₂ மீது அதிக நாட்டம் கொண்டது மற்றும் O₂ உடன் பிணையாது. முதல் விளைபொருள் ஒரு 4-கார்பன் அமிலம் (ஆக்சலோஅசிட்டிக் அமிலம் போன்றவை) ஆகும்." }
+            ],
+            answer: "Phosphoenolpyruvate (PEP)",
+            neetHack: "Remember 'C4 plants make a 4-carbon acid first'. This happens because a 3-carbon acceptor (PEP) accepts a 1-carbon CO₂.",
+            commonPitfall: "Confusing the primary acceptor (PEP) with the first stable product (Oxaloacetic acid) in C4 plants, or mixing up the roles of RuBisCO and PEP Carboxylase."
+        },
+        {
+            title: "Cell Biology: Cell Organelles",
+            titleTamil: "செல் உயிரியல்: செல் நுண்ணுறுப்புகள்",
+            difficulty: 'Easy',
+            problem: "Which of the following cell organelles is not membrane-bound?",
+            problemTamil: "பின்வரும் செல் நுண்ணுறுப்புகளில் எது சவ்வினால் சூழப்படாதது?",
+            solutionSteps: [
+                { step: 1, explanation: "Recall the basic structure of common eukaryotic cell organelles.", explanationTamil: "பொதுவான யூகேரியோட் செல் நுண்ணுறுப்புகளின் அடிப்படை அமைப்பை நினைவுகூர்க." },
+                { step: 2, explanation: "The Nucleus, Mitochondrion, and Chloroplast are all double-membrane bound organelles.", explanationTamil: "உட்கரு, மைட்டோகாண்ட்ரியன், மற்றும் பசுங்கணிகம் ஆகியவை அனைத்தும் இரட்டைச் சவ்வினால் சூழப்பட்ட நுண்ணுறுப்புகள் ஆகும்." },
+                { step: 3, explanation: "Lysosomes and the Golgi apparatus are single-membrane bound organelles.", explanationTamil: "லைசோசோம்கள் மற்றும் கோல்கை உறுப்புகள் ஒற்றைச் சவ்வினால் சூழப்பட்ட நுண்ணுறுப்புகள் ஆகும்." },
+                { step: 4, explanation: "Ribosomes are composed of ribosomal RNA (rRNA) and proteins. They are not enclosed by a membrane and are found in both prokaryotes and eukaryotes.", explanationTamil: "ரிபோசோம்கள் ரிபோசோமல் ஆர்.என்.ஏ (rRNA) மற்றும் புரதங்களால் ஆனவை. அவை ஒரு சவ்வினால் சூழப்படவில்லை மற்றும் புரோகேரியோட்டுகள் மற்றும் யூகேரியோட்டுகள் இரண்டிலும் காணப்படுகின்றன." }
+            ],
+            answer: "Ribosome",
+            commonPitfall: "Confusing ribosomes with lysosomes. 'Some' means something, and 'Lye' means to break down (digestion). Ribosomes are for synthesis."
+        },
+        {
+            title: "Biomolecules: Protein Structure",
+            titleTamil: "உயிர் மூலக்கூறுகள்: புரத அமைப்பு",
+            difficulty: 'Medium',
+            problem: "The secondary structure of a protein is mainly stabilized by:",
+            problemTamil: "ஒரு புரதத்தின் இரண்டாம் நிலை அமைப்பு முக்கியமாக எதனால் நிலைப்படுத்தப்படுகிறது?",
+            solutionSteps: [
+                { step: 1, explanation: "Recall the four levels of protein structure.", explanationTamil: "புரத அமைப்பின் நான்கு நிலைகளை நினைவுகூர்க." },
+                { step: 2, explanation: "Primary structure is the linear sequence of amino acids, stabilized by covalent peptide bonds.", explanationTamil: "முதன்மை அமைப்பு அமினோ அமிலங்களின் நேர்கோட்டு வரிசையாகும், இது சகப்பிணைப்பு பெப்டைடு பிணைப்புகளால் நிலைப்படுத்தப்படுகிறது." },
+                { step: 3, explanation: "Secondary structure refers to the local folding of the polypeptide backbone into regular structures like the α-helix and β-pleated sheet.", explanationTamil: "இரண்டாம் நிலை அமைப்பு பாலிபெப்டைடு முதுகெலும்பின் உள்ளூர் மடிப்பை α-ஹெலிக்ஸ் மற்றும் β-மடிப்புத் தாள் போன்ற வழக்கமான அமைப்புகளாகக் குறிக்கிறது." },
+                { step: 4, explanation: "These regular structures are stabilized by hydrogen bonds formed between the C=O group of one peptide bond and the N-H group of another peptide bond along the chain.", explanationTamil: "இந்த வழக்கமான அமைப்புகள், சங்கிலி வழியே உள்ள ஒரு பெப்டைடு பிணைப்பின் C=O தொகுதிக்கும் மற்றொரு பெப்டைடு பிணைப்பின் N-H தொகுதிக்கும் இடையில் உருவாகும் ஹைட்ரஜன் பிணைப்புகளால் நிலைப்படுத்தப்படுகின்றன." },
+                { step: 5, explanation: "Tertiary structure involves folding of the entire chain, stabilized by various interactions including hydrogen bonds, disulfide bridges, ionic bonds, and hydrophobic interactions between R-groups.", explanationTamil: "மூன்றாம் நிலை அமைப்பு முழு சங்கிலியின் மடிப்பை உள்ளடக்கியது, இது R-குழுக்களுக்கு இடையேயான ஹைட்ரஜன் பிணைப்புகள், டைசல்பைடு பாலங்கள், அயனிப் பிணைப்புகள் மற்றும் நீர்வெறுப்பு இடைவினைகள் உள்ளிட்ட பல்வேறு இடைவினைகளால் நிலைப்படுத்தப்படுகிறது." }
+            ],
+            answer: "Hydrogen bonds",
+            commonPitfall: "Confusing the bonds that stabilize primary structure (peptide bonds) with those that stabilize secondary structure (hydrogen bonds)."
+        },
+        {
+            title: "Ecology: Population Interactions",
+            titleTamil: "சூழலியல்: மக்கள்தொகை இடைவினைகள்",
+            difficulty: 'Easy',
+            problem: "The interaction where both species are benefited is called:",
+            problemTamil: "இரண்டு சிற்றினங்களும் பயனடையும் இடைவினை என்னவென்று அழைக்கப்படுகிறது?",
+            solutionSteps: [
+                { step: 1, explanation: "Analyze the sign convention for population interactions. A beneficial interaction is denoted by '+', a harmful one by '-', and a neutral one by '0'.", explanationTamil: "மக்கள் தொகை இடைவினைகளுக்கான குறியீட்டு மரபை பகுப்பாய்வு செய்யவும். ஒரு நன்மை பயக்கும் இடைவினை '+' என்றும், ஒரு தீங்கு விளைவிக்கும் இடைவினை '-' என்றும், ஒரு நடுநிலை இடைவினை '0' என்றும் குறிக்கப்படுகிறது." },
+                { step:2, explanation: "The question describes a (+, +) interaction.", explanationTamil: "கேள்வி ஒரு (+, +) இடைவினையை விவரிக்கிறது." },
+                { step: 3, explanation: "Recall the different types of interactions:\n- Competition: (-,-)\n- Predation: (+,-)\n- Parasitism: (+,-)\n- Commensalism: (+,0)\n- Amensalism: (-,0)\n- Mutualism: (+,+)", explanationTamil: "பல்வேறு வகையான இடைவினைகளை நினைவுகூர்க." },
+                { step: 4, explanation: "The (+, +) interaction, where both species benefit, is called Mutualism. A classic example is the lichen, an association of algae and fungi.", explanationTamil: "இரண்டு சிற்றினங்களும் பயனடையும் (+, +) இடைவினை, ஒன்றியவாழ்வு (Mutualism) என்று அழைக்கப்படுகிறது. லைக்கன் ஒரு சிறந்த எடுத்துக்காட்டு." }
+            ],
+            answer: "Mutualism"
+        },
+        {
+            title: "Reproduction: Double Fertilization",
+            titleTamil: "இனப்பெருக்கம்: இரட்டைக் கருவுறுதல்",
+            difficulty: 'Medium',
+            problem: "The endosperm in angiosperms is typically:",
+            problemTamil: "ஆஞ்சியோஸ்பெர்ம்களில் உள்ள கருவூண் திசு பொதுவாக:",
+            solutionSteps: [
+                { step: 1, explanation: "Recall the unique process of double fertilization in angiosperms (flowering plants).", explanationTamil: "ஆஞ்சியோஸ்பெர்ம்களில் (பூக்கும் தாவரங்கள்) உள்ள தனித்துவமான இரட்டைக் கருவுறுதல் செயல்முறையை நினைவுகூர்க." },
+                { step: 2, explanation: "During pollination, two male gametes are delivered to the embryo sac.", explanationTamil: "மகரந்தச் சேர்க்கையின் போது, இரண்டு ஆண் கேமட்கள் கருப்பைக்கு வழங்கப்படுகின்றன." },
+                { step: 3, explanation: "One male gamete (haploid, n) fuses with the egg cell (haploid, n) to form the zygote (diploid, 2n). This is syngamy.", explanationTamil: "ஒரு ஆண் கேமட் (ஒருமயம், n) முட்டை செல்லுடன் (ஒருமயம், n) இணைந்து சைகோட்டை (இருமயம், 2n) உருவாக்குகிறது. இது சின்கேமி எனப்படும்." },
+                { step: 4, explanation: "The second male gamete (haploid, n) fuses with the central cell, which contains two polar nuclei (n + n).", explanationTamil: "இரண்டாவது ஆண் கேமட் (ஒருமயம், n), இரண்டு துருவ உட்கருக்களைக் (n + n) கொண்ட மைய செல்லுடன் இணைகிறது." },
+                { step: 5, explanation: "This fusion of three haploid nuclei (one from the male gamete and two polar nuclei) is called triple fusion. It results in the formation of the primary endosperm nucleus, which is triploid (3n). This nucleus develops into the endosperm.", explanationTamil: "இந்த மூன்று ஒருமய உட்கருக்களின் இணைவு (ஆண் கேமட்டிலிருந்து ஒன்று மற்றும் இரண்டு துருவ உட்கருக்கள்) மும்மை இணைவு என்று அழைக்கப்படுகிறது. இது முதன்மை கருவூண் திசு உட்கருவை உருவாக்குகிறது, இது மும்மயம் (3n) ஆகும். இந்த உட்கரு கருவூண் திசுவாக உருவாகிறது." }
+            ],
+            answer: "Triploid (3n)"
         },
          {
-            title: "Human Physiology: Cardiac Output",
-            titleTamil: "மனித உடற்செயலியல்: இதய வெளியேற்ற அளவு",
-            difficulty: 'Medium',
-            problem: "If a person's heart rate is 72 beats/minute and their stroke volume is 70 mL/beat, what is their cardiac output?",
-            problemTamil: "ஒரு நபரின் இதயத் துடிப்பு நிமிடத்திற்கு 72 துடிப்புகள் மற்றும் அவரது ஒரு துடிப்பிற்கான வெளியேற்ற அளவு 70 மி.லி எனில், அவரது இதய வெளியேற்ற அளவு என்ன?",
-            solutionSteps: [
-                 {
-                    step: 1,
-                    explanation: "Recall the formula for Cardiac Output (CO).",
-                    explanationTamil: "இதய வெளியேற்ற அளவு (CO) க்கான சூத்திரத்தை நினைவுகூர்க.",
-                    calculation: "Cardiac Output = Heart Rate (HR) × Stroke Volume (SV)"
-                },
-                {
-                    step: 2,
-                    explanation: "Substitute the given values.",
-                    explanationTamil: "கொடுக்கப்பட்ட மதிப்புகளைப் பிரதியிடவும்.",
-                    calculation: "CO = 72 beats/min × 70 mL/beat"
-                },
-                {
-                    step: 3,
-                    explanation: "Calculate the result and convert to Litres/minute.",
-                    explanationTamil: "முடிவைக் கணக்கிட்டு, லிட்டர்/நிமிடம் ஆக மாற்றவும்.",
-                    calculation: "CO = 5040 mL/min = 5.04 L/min"
-                }
-            ],
-            answer: "5.04 L/min",
-            neetHack: "A healthy adult's cardiac output is roughly 5 Liters per minute, which is approximately the total volume of blood in the body. This can be a useful sanity check for your answer.",
-            neetHackTamil: "ஆரோக்கியமான ஒருவரின் இதய வெளியேற்ற அளவு நிமிடத்திற்கு சுமார் 5 லிட்டர் ஆகும், இது உடலில் உள்ள மொத்த இரத்தத்தின் அளவிற்கு சமம். இது உங்கள் விடையைச் சரிபார்க்க ஒரு பயனுள்ள சோதனையாகும்."
-        },
-        {
-            title: "Cell Biology: Identifying an Organelle",
-            titleTamil: "செல் உயிரியல்: ஒரு நுண்ணுறுப்பை அடையாளம் காணுதல்",
-            difficulty: "Easy",
-            problem: "Which of the following is known as the 'powerhouse of the cell'?",
-            problemTamil: "பின்வருவனவற்றில் எது 'செல்லின் ஆற்றல் மையம்' என்று அழைக்கப்படுகிறது?",
-            solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "Analyze the function of each option. The 'powerhouse' is the organelle responsible for generating most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy.",
-                    explanationTamil: "ஒவ்வொரு விருப்பத்தின் செயல்பாட்டையும் பகுப்பாய்வு செய்யவும். 'ஆற்றல் மையம்' என்பது செல்லின் அடினோசின் டிரைபாஸ்பேட் (ATP) விநியோகத்தின் பெரும்பகுதியை உருவாக்கும் நுண்ணுருப்பாகும், இது வேதியியல் ஆற்றலின் மூலமாகப் பயன்படுத்தப்படுகிறது."
-                },
-                {
-                    step: 2,
-                    explanation: "Ribosomes are involved in protein synthesis. The Nucleus contains the genetic material. Lysosomes are involved in digestion and waste removal.",
-                    explanationTamil: "ரிபோசோம்கள் புரதத் தொகுப்பில் ஈடுபட்டுள்ளன. உட்கரு மரபணுப் பொருளைக் கொண்டுள்ளது. லைசோசோம்கள் செரிமானம் மற்றும் கழிவு நீக்கத்தில் ஈடுபட்டுள்ளன."
-                },
-                {
-                    step: 3,
-                    explanation: "Mitochondria are the sites of cellular respiration, the process that generates ATP. Therefore, they are correctly called the 'powerhouse of the cell'.",
-                    explanationTamil: "மைட்டோகாண்ட்ரியா செல்லுலார் சுவாசத்தின் தளங்களாகும், இது ATP ஐ உருவாக்கும் செயல்முறையாகும். எனவே, அவை சரியாக 'செல்லின் ஆற்றல் மையம்' என்று அழைக்கப்படுகின்றன."
-                }
-            ],
-            answer: "Mitochondrion",
-            neetHack: "This is one of the most fundamental facts in biology. It's a direct recall question.",
-            commonPitfall: "Confusing mitochondria (energy) with chloroplasts (energy production in plants) or ribosomes (protein production)."
-        },
-        {
-            title: "Plant Physiology: Identifying a Hormone Function",
-            titleTamil: "தாவர செயலியல்: ஒரு ஹார்மோன் செயல்பாட்டை அடையாளம் காணுதல்",
-            difficulty: "Easy",
-            problem: "Which plant hormone is responsible for fruit ripening?",
-            problemTamil: "பழம் பழுக்க எந்த தாவர ஹார்மோன் காரணமாகும்?",
-            solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "Recall the major functions of the five main plant hormones.",
-                    explanationTamil: "ஐந்து முக்கிய தாவர ஹார்மோன்களின் முக்கிய செயல்பாடுகளை நினைவுகூர்க."
-                },
-                {
-                    step: 2,
-                    explanation: "Auxin is primarily involved in cell elongation and apical dominance. Gibberellin promotes stem elongation and germination. Cytokinin promotes cell division. Abscisic acid is involved in dormancy and stress responses.",
-                    explanationTamil: "ஆக்சின் செல் நீட்சி மற்றும் நுனி ஆதிக்கத்தில் முதன்மையாக ஈடுபட்டுள்ளது. ஜிப்ரலின் தண்டு நீட்சி மற்றும் முளைத்தலை ஊக்குவிக்கிறது. சைட்டோகைனின் செல் பிரிவை ஊக்குவிக்கிறது. அப்சிசிக் அமிலம் உறக்கம் மற்றும் மன அழுத்த பதில்களில் ஈடுபட்டுள்ளது."
-                },
-                {
-                    step: 3,
-                    explanation: "Ethylene is a gaseous hormone that is unique in its role of promoting fruit ripening, senescence, and abscission.",
-                    explanationTamil: "எத்திலீன் ஒரு வாயு ஹார்மோன் ஆகும், இது பழம் பழுத்தல், மூப்படைதல் மற்றும் உதிர்தல் ஆகியவற்றை ஊக்குவிக்கும் அதன் பாத்திரத்தில் தனித்துவமானது."
-                }
-            ],
-            answer: "Ethylene",
-            neetHack: "Think of ripening bananas in a bag. They produce ethylene gas which accelerates the ripening of other fruits with them.",
-            neetHackTamil: "ஒரு பையில் பழுக்கும் வாழைப்பழங்களை நினையுங்கள். அவை எத்திலீன் வாயுவை உற்பத்தி செய்கின்றன, இது அவற்றுடன் உள்ள மற்ற பழங்களின் பழுத்தலை வேகப்படுத்துகிறது."
-        },
-        {
-            title: "Ecology: Identifying Population Interactions",
-            titleTamil: "சூழலியல்: மக்கள்தொகை இடைவினைகளை அடையாளம் காணுதல்",
+            title: "Human Physiology: ECG Interpretation",
+            titleTamil: "மனித உடற்செயலியல்: ECG விளக்கம்",
             difficulty: "Medium",
-            problem: "The interaction where one species benefits and the other is neither harmed nor benefited is called:",
-            problemTamil: "ஒரு சிற்றினம் பயனடையும் மற்றும் மற்றொன்று பாதிக்கப்படாமலும் பயனடையாமலும் இருக்கும் இடைவினை என்னவென்று அழைக்கப்படுகிறது?",
+            problem: "The QRS complex in a standard ECG represents:",
+            problemTamil: "ஒரு நிலையான ECG-இல் உள்ள QRS அலை எதைக் குறிக்கிறது?",
             solutionSteps: [
-                {
-                    step: 1,
-                    explanation: "Analyze the interaction type based on the outcomes for the two species (+, -, 0).",
-                    explanationTamil: "இரண்டு சிற்றினங்களுக்கான விளைவுகளின் அடிப்படையில் (+, -, 0) இடைவினை வகையை பகுப்பாய்வு செய்யவும்."
-                },
-                {
-                    step: 2,
-                    explanation: "Parasitism is (+,-). Mutualism is (+,+). Competition is (-,-). Predation is (+,-).",
-                    explanationTamil: "ஒட்டுண்ணிவாழ்க்கை (+,-). ஒன்றியவாழ்வு (+,+). போட்டி (-,-). இரைகொல்லி (+,-)."
-                },
-                {
-                    step: 3,
-                    explanation: "The given interaction is (+, 0). This defines commensalism.",
-                    explanationTamil: "கொடுக்கப்பட்ட இடைவினை (+, 0) ஆகும். இது உடன்வாழ்வை வரையறுக்கிறது."
-                },
-                {
-                    step: 4,
-                    explanation: "A classic example is an orchid growing on a mango tree. The orchid gets a place to grow (benefit, +), while the mango tree is unaffected (neutral, 0).",
-                    explanationTamil: "ஒரு மாமரத்தில் வளரும் ஆர்க்கிட் ஒரு சிறந்த எடுத்துக்காட்டு. ஆர்க்கிட் வளர ஒரு இடத்தைப் பெறுகிறது (பயன், +), அதேசமயம் மாமரம் பாதிக்கப்படவில்லை (நடுநிலை, 0)."
-                }
+                { step: 1, explanation: "An ECG (Electrocardiogram) is a graphical representation of the electrical activity of the heart during a cardiac cycle.", explanationTamil: "ஒரு ECG (எலக்ட்ரோ கார்டியோகிராம்) என்பது இதய சுழற்சியின் போது இதயத்தின் மின் செயல்பாட்டின் ஒரு வரைபட பிரதிநிதித்துவம் ஆகும்." },
+                { step: 2, explanation: "Each peak in the ECG is identified with a letter from P to T.", explanationTamil: "ECG-இல் உள்ள ஒவ்வொரு சிகரமும் P முதல் T வரையிலான ஒரு எழுத்தால் அடையாளம் காணப்படுகிறது." },
+                { step: 3, explanation: "The P-wave represents the electrical excitation (or depolarization) of the atria, which leads to atrial contraction.", explanationTamil: "P-அலை ஆரிக்கிள்களின் மின் கிளர்ச்சியை (அல்லது முனைவு நீக்கம்) குறிக்கிறது, இது ஏட்ரியல் சுருக்கத்திற்கு வழிவகுக்கிறது." },
+                { step: 4, explanation: "The QRS complex represents the depolarization of the ventricles, which initiates ventricular contraction (systole).", explanationTamil: "QRS அலை வென்ட்ரிக்கிள்களின் முனைவு நீக்கத்தைக் குறிக்கிறது, இது வென்ட்ரிக்குலர் சுருக்கத்தை (சிஸ்டோல்)த் தொடங்குகிறது." },
+                { step: 5, explanation: "The T-wave represents the repolarization of the ventricles, marking the end of systole.", explanationTamil: "T-அலை வென்ட்ரிக்கிள்களின் முனைவு மீள்வை குறிக்கிறது, இது சிஸ்டோலின் முடிவைக் குறிக்கிறது." }
             ],
-            answer: "Commensalism",
-            neetHack: "Create a simple table with all six interactions and their (+, -, 0) signs for quick recall. This is a very common conceptual question.",
-            commonPitfall: "Confusing commensalism (+, 0) with mutualism (+, +)."
+            answer: "Depolarization of the ventricles",
+            commonPitfall: "Confusing depolarization (which leads to contraction) with repolarization (which leads to relaxation)."
+        },
+        {
+            title: "Genetics: Codominance",
+            titleTamil: "மரபியல்: இணை ஓங்குதன்மை",
+            difficulty: "Medium",
+            problem: "A man with blood group A marries a woman with blood group B. What are all the possible blood groups of their offspring?",
+            problemTamil: "A இரத்தப் பிரிவைச் சேர்ந்த ஒரு ஆண், B இரத்தப் பிரிவைச் சேர்ந்த ஒரு பெண்ணை மணக்கிறார். அவர்களின் சந்ததியினரின் சாத்தியமான அனைத்து இரத்தப் பிரிவுகளும் யாவை?",
+            solutionSteps: [
+                { step: 1, explanation: "The ABO blood group system is controlled by the gene 'I'. It has three alleles: Iᴬ, Iᴮ, and i.", explanationTamil: "ABO இரத்தப் பிரிவு அமைப்பு 'I' என்ற மரபணுவால் கட்டுப்படுத்தப்படுகிறது. இது மூன்று அல்லீல்களைக் கொண்டுள்ளது: Iᴬ, Iᴮ, மற்றும் i." },
+                { step: 2, explanation: "Alleles Iᴬ and Iᴮ are dominant over 'i'. However, when Iᴬ and Iᴮ are present together, they are codominant and both express themselves.", explanationTamil: "அல்லீல்கள் Iᴬ மற்றும் Iᴮ ஆகியவை 'i' மீது ஓங்கு பண்புடையவை. இருப்பினும், Iᴬ மற்றும் Iᴮ ஒன்றாக இருக்கும்போது, அவை இணை ஓங்கு பண்புடையவை மற்றும் இரண்டும் தங்களை வெளிப்படுத்துகின்றன." },
+                { step: 3, explanation: "A man with blood group A can have the genotype IᴬIᴬ or Iᴬi. A woman with blood group B can have the genotype IᴮIᴮ or Iᴮi.", explanationTamil: "A இரத்தப் பிரிவு கொண்ட ஒரு ஆணுக்கு IᴬIᴬ அல்லது Iᴬi மரபு வகை இருக்கலாம். B இரத்தப் பிரிவு கொண்ட ஒரு பெண்ணுக்கு IᴮIᴮ அல்லது Iᴮi மரபு வகை இருக்கலாம்." },
+                { step: 4, explanation: "To get all possible blood groups in the offspring, we must assume the most versatile genotypes for the parents, which are heterozygous: Iᴬi (man) and Iᴮi (woman).", explanationTamil: "சந்ததியினரில் அனைத்து சாத்தியமான இரத்தப் பிரிவுகளையும் பெற, நாம் பெற்றோருக்கான மிகவும் பல்துறை மரபு வகைகளைக் கருத வேண்டும், அவை ஹெட்டிரோசைகஸ் ஆகும்: Iᴬi (ஆண்) மற்றும் Iᴮi (பெண்)." },
+                { step: 5, explanation: "Crossing Iᴬi × Iᴮi gives the following possible genotypes for the offspring: IᴬIᴮ (AB group), Iᴬi (A group), Iᴮi (B group), and ii (O group).", explanationTamil: "Iᴬi × Iᴮi கலப்பு, சந்ததியினருக்கு பின்வரும் சாத்தியமான மரபு வகைகளைக் கொடுக்கிறது: IᴬIᴮ (AB பிரிவு), Iᴬi (A பிரிவு), Iᴮi (B பிரிவு), மற்றும் ii (O பிரிவு)." }
+            ],
+            answer: "A, B, AB, and O"
+        },
+        {
+            title: "Ecology: Ecological Pyramids",
+            titleTamil: "சூழலியல்: சூழலியல் கூம்புகள்",
+            difficulty: "Medium",
+            problem: "The pyramid of biomass in a sea is generally:",
+            problemTamil: "ஒரு கடலில் உள்ள உயிரி நிறைக் கூம்பு பொதுவாக:",
+            solutionSteps: [
+                { step: 1, explanation: "An ecological pyramid is a graphical representation of the relationship between different organisms in an ecosystem at different trophic levels.", explanationTamil: "ஒரு சூழலியல் கூம்பு என்பது ஒரு சூழல் மண்டலத்தில் உள்ள வெவ்வேறு உயிரினங்களுக்கு இடையேயான உறவின் ஒரு வரைபட பிரதிநிதித்துவம் ஆகும்." },
+                { step: 2, explanation: "The pyramid of biomass represents the total dry weight (biomass) of organisms at each trophic level.", explanationTamil: "உயிரி நிறைக் கூம்பு ஒவ்வொரு உணவு மட்டத்திலும் உள்ள உயிரினங்களின் மொத்த உலர் எடையை (உயிரி நிறை) பிரதிபலிக்கிறது." },
+                { step: 3, explanation: "In most ecosystems (like grasslands or forests), the pyramid of biomass is upright, meaning the biomass of producers is greater than that of primary consumers, and so on.", explanationTamil: "பெரும்பாலான சூழல் மண்டலங்களில் (புல்வெளிகள் அல்லது காடுகள் போன்றவை), உயிரி நிறைக் கூம்பு நேராக உள்ளது." },
+                { step: 4, explanation: "However, in an aquatic ecosystem like a sea or a pond, the pyramid of biomass can be inverted.", explanationTamil: "இருப்பினும், ஒரு கடல் அல்லது குளம் போன்ற நீர்வாழ் சூழல் மண்டலத்தில், உயிரி நிறைக் கூம்பு தலைகீழாக இருக்கலாம்." },
+                { step: 5, explanation: "This is because the producers are phytoplanktons, which have a very short life span and are consumed rapidly by primary consumers (zooplankton). At any given time, the total biomass of zooplankton can be greater than the biomass of the phytoplankton they feed on.", explanationTamil: "ஏனெனில் உற்பத்தியாளர்கள் பைட்டோபிளாங்க்டன்கள், அவை மிகக் குறுகிய ஆயுட்காலம் கொண்டவை மற்றும் முதன்மை நுகர்வோர்களால் (சூப்ளாங்க்டன்) விரைவாக உண்ணப்படுகின்றன. எந்தவொரு நேரத்திலும், சூப்ளாங்க்டனின் மொத்த உயிரி நிறை அவை உண்ணும் பைட்டோபிளாங்க்டனின் உயிரி நிறையை விட அதிகமாக இருக்கலாம்." }
+            ],
+            answer: "Inverted",
+            commonPitfall: "Assuming all pyramids of biomass are upright. The pyramid of energy is *always* upright, but pyramids of number and biomass can be inverted.",
+            neetHackTamil: "அனைத்து உயிரி நிறைக் கூம்புகளும் நேராக இருக்கும் என்று கருதுவது. ஆற்றல் கூம்பு *எப்போதும்* நேராக இருக்கும், ஆனால் எண்ணிக்கை மற்றும் உயிரி நிறைக் கூம்புகள் தலைகீழாக இருக்கலாம்."
         }
     ],
     mcqs: [],
@@ -305,14 +309,19 @@ export const takeItEasyBiologyModule: NeetModule = {
     keyFormulasAndDiagrams: {
         formulas: [
             {
-                formula: "Phenotypic Ratio (Dihybrid Cross) = 9:3:3:1",
+                formula: "\\text{Phenotypic Ratio (Dihybrid)} = 9:3:3:1",
                 description: "The standard phenotypic ratio for an F2 generation in a dihybrid cross involving independent assortment.",
-                descriptionTamil: "ஒரு இருபண்புக் கலப்பில் F2 தலைமுறைக்கான நிலையான புறத்தோற்ற விகிதம்."
+                descriptionTamil: "சார்பின்றி ஒதுங்குதலை உள்ளடக்கிய ஒரு இருபண்புக் கலப்பில் F2 தலைமுறைக்கான நிலையான புறத்தோற்ற விகிதம்."
             },
             {
-                formula: "CO = HR × SV",
+                formula: "CO = HR \\times SV",
                 description: "Cardiac Output = Heart Rate × Stroke Volume",
                 descriptionTamil: "இதய வெளியேற்ற அளவு = இதயத் துடிப்பு × ஒரு துடிப்பிற்கான வெளியேற்ற அளவு"
+            },
+            {
+                formula: "\\text{Energy} \\propto A^2",
+                description: "The total energy in SHM is proportional to the square of the amplitude.",
+                descriptionTamil: "தனிச் சீரிசை இயக்கத்தில் மொத்த ஆற்றல் வீச்சின் வர்க்கத்திற்கு நேர்விகிதத்தில் இருக்கும்."
             }
         ],
         diagrams: []
@@ -332,5 +341,7 @@ export const takeItEasyBiologyModule: NeetModule = {
         { text: "For human physiology, create flowcharts for hormonal control pathways (e.g., the menstrual cycle). Visualizing the feedback loops is crucial.", tamil: "மனித உடற்செயலியலுக்கு, ஹார்மோன் கட்டுப்பாட்டுப் பாதைகளுக்கு (எ.கா., மாதவிடாய் சுழற்சி) பாய்வு வரைபடங்களை உருவாக்கவும். பின்னூட்ட சுழல்களைக் காட்சிப்படுத்துவது முக்கியம்." }
     ]
 };
+
+    
 
     
