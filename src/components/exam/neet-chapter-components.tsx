@@ -37,7 +37,7 @@ import {
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 
 
-export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
+export function ConceptNotesCard({ content }: { content: (ConceptNote | BilingualContent)[] }) {
     if (!Array.isArray(content) || content.length === 0) {
         return (
              <Card>
@@ -53,32 +53,40 @@ export function ConceptNotesCard({ content }: { content: ConceptNote[] }) {
 
     return (
         <div className="space-y-4">
-            {content.map((note, index) => (
-                <React.Fragment key={index}>
-                    <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
-                        <CardHeader className="card-padding-lg">
-                            <CardTitle className="flex items-center gap-3">
-                                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
-                                <BilingualText english={note.heading.english} tamil={note.heading.tamil} className="not-prose text-xl font-bold font-headline" />
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg space-y-4">
-                            <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
-                                {note.content.map((item, itemIndex) => (
-                                    <div key={itemIndex}>
-                                        <BilingualText english={typeof item === 'string' ? item : item.english} tamil={typeof item === 'string' ? undefined : item.tamil} />
-                                    </div>
-                                ))}
+            {content.map((note, index) => {
+                const isComplexNote = 'heading' in note && 'content' in note;
+                const heading = isComplexNote ? note.heading : null;
+                const noteContent = isComplexNote ? note.content : [note];
+
+                return (
+                    <React.Fragment key={index}>
+                        <Card className="bg-card/50 shadow-md hover:shadow-lg transition-shadow">
+                           {heading && (
+                             <CardHeader className="card-padding-lg">
+                                <CardTitle className="flex items-center gap-3">
+                                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
+                                    <BilingualText english={heading.english} tamil={heading.tamil} className="not-prose text-xl font-bold font-headline" />
+                                </CardTitle>
+                            </CardHeader>
+                           )}
+                            <CardContent className="card-padding-lg space-y-4">
+                                <div className="prose prose-lg dark:prose-invert max-w-none space-y-4">
+                                    {noteContent.map((item, itemIndex) => (
+                                        <div key={itemIndex}>
+                                            <BilingualText english={typeof item === 'string' ? item : item.english} tamil={typeof item === 'string' ? undefined : item.tamil} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
+                        {index < content.length - 1 && (
+                            <div className="flex justify-center items-center">
+                                <ChevronsDown className="h-6 w-6 text-muted-foreground" />
                             </div>
-                        </CardContent>
-                    </Card>
-                    {index < content.length - 1 && (
-                        <div className="flex justify-center items-center">
-                            <ChevronsDown className="h-6 w-6 text-muted-foreground" />
-                        </div>
-                    )}
-                </React.Fragment>
-            ))}
+                        )}
+                    </React.Fragment>
+                )
+            })}
         </div>
     );
 }
