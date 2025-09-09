@@ -195,14 +195,101 @@ A communication system consists of three basic units:
         { column1: ["(a) Microphone", "(b) Loudspeaker", "(c) Antenna", "(d) Modulator"], column2: ["(p) Radiates EM waves", "(q) Converts sound to electrical signal", "(r) Converts electrical signal to sound", "(s) Superimposes message on carrier"], answer: "a-q, b-r, c-p, d-s", explanation: "Matching communication devices with their functions." },
         { column1: ["(a) μ = 0", "(b) 0 < μ < 1", "(c) μ = 1", "(d) μ > 1"], column2: ["(p) Overmodulation/Distortion", "(q) Undermodulation", "(r) 100% Modulation", "(s) No modulation"], answer: "a-s, b-q, c-r, d-p", explanation: "Matching the modulation index value with its description." }
     ],
+    
+        keyFormulasAndDiagrams: {
+          formulas: [
+            {
+              formula: `s(t) = [1 + m \\cos(\\omega_m t)] \\cos(\\omega_c t)`,
+              description: "Amplitude-modulated signal",
+              descriptionTamil: "அகல மாற்றத்தின் மூலம் உருவான அலைசிக்னல்"
+            },
+            {
+              formula: `m = \\tfrac{A_m}{A_c}`,
+              description: "Modulation index for AM",
+              descriptionTamil: "AM இற்கான மாற்றுநிலை குறியீட்டு அளவீடு"
+            },
+            {
+              formula: `P_t = P_c \\Bigl(1 + \\tfrac{m^2}{2}\\Bigr)`,
+              description: "Total power in AM signal",
+              descriptionTamil: "AM சிக்னலின் மொத்த சக்தி"
+            },
+            {
+              formula: `s(t) = A_c \\cos\\bigl(\\omega_c t + \\beta \\sin(\\omega_m t)\\bigr)`,
+              description: "Frequency-modulated signal",
+              descriptionTamil: "அதிர்வெளி மாற்ற அலைசிக்னல்"
+            },
+            {
+              formula: `\\beta = \\tfrac{\\Delta f}{f_m}`,
+              description: "Frequency modulation index",
+              descriptionTamil: "அதிர்வெளி மாற்ற குறியீட்டு அளவீடு"
+            },
+            {
+              formula: `BW_{FM} \\approx 2\\,(\\Delta f + f_m)`,
+              description: "Approximate bandwidth of FM (Carson’s rule)",
+              descriptionTamil: "FM பரப்பளவு (கார்சனின் விதி)"
+            },
+            {
+              formula: `C = B \\log_2\\bigl(1 + \\tfrac{S}{N}\\bigr)`,
+              description: "Shannon channel capacity",
+              descriptionTamil: "ஷானன் சேனல் கொள்ளளவு"
+            },
+            {
+              formula: `L_{dB} = 10 \\log_{10}\\bigl(\\tfrac{P_1}{P_2}\\bigr)`,
+              description: "Power ratio in decibels",
+              descriptionTamil: "டெசிபேலில் சக்தி விகிதம்"
+            },
+            {
+              formula: `L_{dB} = 20 \\log_{10}\\bigl(\\tfrac{V_1}{V_2}\\bigr)`,
+              description: "Voltage ratio in decibels",
+              descriptionTamil: "டெசிபேலில் மின்னழுத்த விகிதம்"
+            },
+            {
+              formula: `\\mathrm{SNR}_{dB} = 10 \\log_{10}\\bigl(\\tfrac{P_{signal}}{P_{noise}}\\bigr)`,
+              description: "Signal-to-noise ratio in dB",
+              descriptionTamil: "டெசிபேலில் சிக்னல்-எதிர்ப்பாடான விகிதம்"
+            },
+            {
+              formula: `P_r = P_t\,G_t\,G_r\\bigl(\\tfrac{\\lambda}{4\\pi R}\\bigr)^2`,
+              description: "Friis transmission equation",
+              descriptionTamil: "ஃப்ரீஸ் பரிமாற்ற சமன்பாடு"
+            }
+          ],
+          diagrams: []
+        },
     keyTakeaways: [
         "A communication system consists of a transmitter, channel, and receiver.",
         "Modulation is essential for long-distance transmission to use practical antenna sizes and avoid signal mixing.",
         "The choice of wave propagation (ground, sky, space) depends on the frequency of the signal.",
         "The bandwidth of the channel must be greater than the bandwidth of the signal to be transmitted."
     ],
-    mnemonics: [],
-    neetTips: [],
+    mnemonics: [
+        {
+            text: `AM: 'A' stands for Amplitude—Amplitude Modulation changes the amplitude of the carrier.`,
+            tamil: `AM: 'A' என்பது Amplitude என்பதற்கானது—அலைதானத்தின் அகலத்தை மாற்றுகிறது.`
+          },
+          {
+            text: `FM: 'F' stands for Frequency—Frequency Modulation shifts the carrier’s frequency.`,
+            tamil: `FM: 'F' என்பது Frequency என்பதற்கானது—அலைதானத்தின் அதிர்வை மாற்றுகிறது.`
+          },
+          {
+            text: `dB conversion: "10·Log for Power, 20·Log for Voltage"—remember 10×log₁₀(P₁/P₂) and 20×log₁₀(V₁/V₂).`,
+            tamil: `dB மாற்றம்: "Powerக்கு 10·Log, Voltageக்கு 20·Log"—10×log₁₀(P₁/P₂) மற்றும் 20×log₁₀(V₁/V₂) என்பதை நினைவில் வையுங்கள்.`
+          }
+    ],
+    neetTips: [
+        {
+            text: `When studying modulation, always sketch the frequency spectrum: for AM remember BW = 2f_m, and for FM use Carson’s rule BW ≈ 2(Δf + f_m). Drawing it cements the relationship between the modulating signal and spectrum peaks.`,
+            tamil: `மாற்றுதன்மையை படிக்கும்போது எப்பொழுதும் அதனுடைய அதிர்விருப்பு பரப்பு வரைபடங்களை வரைந்து மறைவுகள் புரிந்து கொள்ளவும்: AM இல் BW = 2f_m, FM இல் கார்ஸனின் விதி BW ≈ 2(Δf + f_m) என்பதை நினைவில் வைக்கவும்.`
+          },
+          {
+            text: `Convert all power and voltage ratios into decibels early: use dB = 10·log₁₀(P₁/P₂) for power and 20·log₁₀(V₁/V₂) for voltage. Practicing quick conversions prevents sign errors and speeds up exam calculations.`,
+            tamil: `எல்லா சக்தி மற்றும் மின்னழுத்த விகிதங்களையும் துவக்கத்தில் dB-களாக மாற்றவும்: சக்திக்காக dB = 10·log₁₀(P₁/P₂), மின்னழுத்தத்திற்கு 20·log₁₀(V₁/V₂) பயன்படுத்தவும். சிறிய பயிற்சி மாற்றங்கள் பிழைகளைத் தவிர்க்கவும் நேரத்தைச் சேமிக்கவும் உதவும்.`
+          },
+          {
+            text: `Visualize the sampling theorem by showing aliasing: sketch two sine waves—one above and one below f_s/2—and illustrate how they overlap as identical frequencies. This hand-drawn proof cements the Nyquist criterion and prevents rote errors.`,
+            tamil: `சேம்பிளிங் விதியை aliasing மூலம் காட்சியளிக்கவும்: f_s/2க்கு மேல் மற்றும் கீழ் இரண்டு அலைகளை வரைந்து அவை எப்படி ஒன்றாகவே தோன்றுகின்றன என்பதை விளக்கவும். இது Nyquist நியமனத்தை உறுதிச்செய்து பிழைகளைத் தவிர்க்கும்.`
+          }
+    ],
     studentTip: {
         english: "Focus on the 'why'. Why do we need modulation? Why do different frequencies use different propagation methods? Understanding the reasons makes it easier to remember the facts.",
         tamil: "'ஏன்' என்பதில் கவனம் செலுத்துங்கள். நமக்கு ஏன் பண்பேற்றம் தேவை? வெவ்வேறு அதிர்வெண்கள் ஏன் வெவ்வேறு பரவல் முறைகளைப் பயன்படுத்துகின்றன? காரணங்களைப் புரிந்துகொள்வது உண்மைகளை நினைவில் கொள்வதை எளிதாக்குகிறது."

@@ -189,6 +189,57 @@ The Earth behaves as if a giant bar magnet is placed deep inside it. The element
         { column1: ["(a) Soft Iron", "(b) Steel", "(c) Alnico", "(d) Copper"], column2: ["(p) Permanent magnet", "(q) Diamagnetic", "(r) Electromagnet core", "(s) Ferromagnetic"], answer: "a-r, b-p,s; c-p; d-q", explanation: "Matching materials with their primary magnetic application or property. Steel and Alnico are for permanent magnets. Soft iron for electromagnets. Copper is diamagnetic. Both steel and alnico are ferromagnetic." },
         { column1: ["(a) Retentivity", "(b) Coercivity", "(c) Permeability", "(d) Susceptibility"], column2: ["(p) Ability to resist demagnetization", "(q) M/H", "(r) Ability to retain magnetism", "(s) B/H"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching magnetic properties with their definitions." }
     ],
+  
+        keyFormulasAndDiagrams: {
+          formulas: [
+            {
+              formula: `B = \\mu_0 \\bigl(H + M\\bigr)`,
+              description: "Relation between magnetic flux density (B), field strength (H) and magnetization (M)",
+              descriptionTamil: "காந்த விசு அடர்த்தி (B), காந்தப் படுத்தல் (H) மற்றும் மடிப்பு (M) இடையேயான உறவு"
+            },
+            {
+              formula: `M = \\chi H`,
+              description: "Magnetization as susceptibility times field strength",
+              descriptionTamil: "மடிப்பு (M) = உணர்திறன் (χ) × காந்தப் படுத்தல் (H)"
+            },
+            {
+              formula: `B = \\mu_0 \\mu_r H`,
+              description: "Flux density using relative permeability μ_r",
+              descriptionTamil: "சார்பான மடிப்பு (μ_r) கொண்டு விசு அடர்த்தி"
+            },
+            {
+              formula: `\\mu = \\mu_0 \\bigl(1 + \\chi\\bigr)`,
+              description: "Permeability in terms of susceptibility χ",
+              descriptionTamil: "உணர்திறன் (χ) அடிப்படையில் மடிப்பு"
+            },
+            {
+              formula: `\\displaystyle \\oint H \\cdot dl = I_{enc}`,
+              description: "Ampère’s circuital law",
+              descriptionTamil: "Ampère சுற்றுப் பாதைச் சட்டம்"
+            },
+            {
+              formula: `H = \\dfrac{I}{2\\pi r}`,
+              description: "Field around a long straight conductor",
+              descriptionTamil: "நீண்ட நேரிடை மின்கம்பின் சுற்றுவட்ட காந்தப் படுத்தல்"
+            },
+            {
+              formula: `\\tau = N I A B \\sin\\theta`,
+              description: "Torque on a coil in a magnetic field",
+              descriptionTamil: "காந்தப் புலத்தில் குத்தியின் கட்டுமoment"
+            },
+            {
+              formula: `u = \\tfrac{1}{2} B H`,
+              description: "Magnetic energy density",
+              descriptionTamil: "காந்த ஆற்றல் அடர்த்தி"
+            },
+            {
+              formula: `\\chi = \\tfrac{C}{T}`,
+              description: "Curie’s law for paramagnetic susceptibility",
+              descriptionTamil: "பரமகாந்த உணர்திறன் குறித்த Curie விதி"
+            }
+          ],
+          diagrams: []
+        },
     keyTakeaways: [
         "Magnetic field lines are always closed loops; magnetic monopoles do not exist.",
         "Materials are classified as diamagnetic, paramagnetic, or ferromagnetic based on their response to an external magnetic field.",
@@ -201,7 +252,15 @@ The Earth behaves as if a giant bar magnet is placed deep inside it. The element
     neetTips: [
         { text: "Questions on the properties of Dia-, Para-, and Ferro-magnetic materials are very common and are often theory-based. Make a table and memorize the key differences in susceptibility, permeability, and temperature dependence.", tamil: "டயா-, பாரா-, மற்றும் ஃபெர்ரோ-காந்தப் பொருட்களின் பண்புகள் பற்றிய கேள்விகள் மிகவும் பொதுவானவை மற்றும் பெரும்பாலும் கோட்பாடு அடிப்படையிலானவை. ஒரு அட்டவணையை உருவாக்கி, ஏற்புத்திறன், உட்புகுதிறன் மற்றும் வெப்பநிலை சார்பு ஆகியவற்றில் உள்ள முக்கிய வேறுபாடுகளை மனப்பாடம் செய்யுங்கள்." },
         { text: "For Earth's magnetism, be very clear with the definitions of declination, dip, and horizontal component, and the formula tan(I) = B_V / B_H.", tamil: "புவிக் காந்தவியலுக்கு, ஒதுக்கம், சரிவு மற்றும் கிடைமட்டக் கூறு ஆகியவற்றின் வரையறைகள் மற்றும் tan(I) = B_V / B_H சூத்திரம் ஆகியவற்றில் மிகவும் தெளிவாக இருங்கள்." }
-    ]
+    ],
+    studentTip: {
+        english: `Always begin by drawing the B–H curve for the given material and marking saturation (B_s), remanence (B_r) and coercivity (H_c). Then use Ampère’s law on the magnetic circuit to find H, and read off B from the curve. This visual workflow prevents sign errors and makes hysteresis‐loss questions straightforward.`,
+        tamil: `கொடுக்கப்பட்ட பொருளின் B–H வளைவை வரைந்து பருமன் (B_s), மீதமுள்ள காந்தம் (B_r) மற்றும் எதிர்ப்பு காந்தம் (H_c) ஆகியவற்றைக் குறியிட்டு ஆரம்பியுங்கள். பிறகு காந்தச் சுற்றில் Ampère விதி உபயோகித்து H கண்டறிந்து, வளைவிலிருந்து Bஐப் படிக்கவும். இந்த காட்சி-தொழில் hysteresis இழப்புத் தொடர்ச்சிகளை தெளிவாகவும் பிழையற்றதுபோலும் செய்கிறது.`
+      },
+      peerDiscussion: {
+        english: `Discuss the trade-offs between soft and hard magnetic materials: how do permeability, hysteresis loss and coercivity vary, and what implications do these have for transformer cores versus permanent-magnet applications?`,
+        tamil: `மென்மையான (soft) மற்றும் கடுமையான (hard) காந்தப் பொருட்கள் இடையேயான சமன்வயங்களை விவாதியுங்கள்: உணர்திறன் (permeability), hysteresis இழப்பு, எதிர்ப்பு காந்தம் (coercivity) எவ்வாறு மாறுகின்றன, மேலும் டிரான்ஸ்ஃபார்மர் சுதந்தரங்கள் மற்றும் நிரந்தர காந்தவகைகள் பயன்பாட்டில் அதன் என்ன தாக்கங்கள்?`
+      }
 };
 
     

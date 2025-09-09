@@ -200,6 +200,52 @@ Inductance is the property of an electrical conductor by which a change in curre
         { column1: ["(a) Ammeter conversion", "(b) Voltmeter conversion", "(c) Cyclotron principle", "(d) Direction of induced current"], column2: ["(p) High resistance in series", "(q) Lenz's Law", "(r) Shunt in parallel", "(s) Resonance"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching applications and concepts with their methods." },
         { column1: ["(a) Energy stored in inductor", "(b) Force between parallel wires", "(c) EMF in rotating rod", "(d) B at center of a loop"], column2: ["(p) (1/2)Bωl²", "(q) (1/2)LI²", "(r) μ₀I/2R", "(s) μ₀I₁I₂/(2πd)"], answer: "a-q, b-s, c-p, d-r", explanation: "Matching formulas for different physical situations." }
     ],
+    
+        keyFormulasAndDiagrams: {
+          formulas: [
+            {
+              formula: `ε = -\\dfrac{dΦ}{dt}`,
+              description: "Faraday’s law: induced emf due to changing magnetic flux",
+              descriptionTamil: "மாற்றம் அடைந்த காந்த தொடர்வின்வழி ஏற்படும் மின்னோட்டம்"
+            },
+            {
+              formula: `Φ = \\int \\mathbf{B} \\cdot d\\mathbf{A}`,
+              description: "Magnetic flux through a surface",
+              descriptionTamil: "ஒரு மேற்பரப்பிலுள்ள காந்த தொடர்வு"
+            },
+            {
+              formula: `ε = -N \\dfrac{dΦ}{dt}`,
+              description: "Emf induced in an N-turn coil",
+              descriptionTamil: "N பின்னியுள்ள குத்தியில் உருவாகும் மின்னோட்டம்"
+            },
+            {
+              formula: `ε = Bℓv`,
+              description: "Motional emf in a conductor of length ℓ moving at velocity v",
+              descriptionTamil: "வெகுணத்தில் நகரும் ℓ நீள கந்தலில் உருவாகும் மின்பரிணாமம்"
+            },
+            {
+              formula: `L = \\dfrac{NΦ}{I}`,
+              description: "Self-inductance of a coil",
+              descriptionTamil: "ஒரு குத்தியின் சுய மடிப்பு"
+            },
+            {
+              formula: `M = \\dfrac{N_2 Φ_{21}}{I_1}`,
+              description: "Mutual inductance between two coils",
+              descriptionTamil: "இரு குத்திகளுக்கு இடையிலான உட்புற மடிப்பு"
+            },
+            {
+              formula: `U = \\tfrac{1}{2} L I^2`,
+              description: "Energy stored in an inductor",
+              descriptionTamil: "மடிப்பு சக்தி"
+            },
+            {
+              formula: `ε_{max} = N A B ω`,
+              description: "Maximum emf in a coil rotating in a magnetic field",
+              descriptionTamil: "காந்த புலத்தில் சுழறும் குத்தியில் உச்ச மின்னோட்டம்"
+            }
+          ],
+          diagrams: []
+        },
     keyTakeaways: [
         "A changing magnetic flux is the source of an induced emf (Faraday's Law).",
         "The induced current always flows in a direction that opposes the change that caused it (Lenz's Law).",
@@ -212,5 +258,13 @@ Inductance is the property of an electrical conductor by which a change in curre
     neetTips: [
         { text: "Problems involving Lenz's law are very common. To find the direction of induced current, first determine if the flux is increasing or decreasing. The induced field must oppose this change.", tamil: "லென்ஸ் விதி சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. தூண்டப்பட்ட மின்னோட்டத்தின் திசையைக் கண்டுபிடிக்க, முதலில் பாயம் அதிகரிக்கிறதா அல்லது குறைகிறதா என்பதைத் தீர்மானிக்கவும். தூண்டப்பட்ட புலம் இந்த மாற்றத்தை எதிர்க்க வேண்டும்." },
         { text: "Be careful with units. Inductance is in Henry (H), flux in Weber (Wb), and magnetic field in Tesla (T). Often, values are given in milli (mH) or micro (μH).", tamil: "அலகுகளில் கவனமாக இருங்கள். மின்தூண்டல் ஹென்றி (H), பாயம் வெப்பர் (Wb), மற்றும் காந்தப்புலம் டெஸ்லா (T) ஆகியவற்றில் உள்ளது. பெரும்பாலும், மதிப்புகள் மில்லி (mH) அல்லது மைக்ரோ (μH) இல் கொடுக்கப்படுகின்றன." }
-    ]
+    ],
+    studentTip: {
+        english: `When using Faraday’s law, first sketch Φ vs. t to locate intervals of fastest flux change. Then apply ε = -dΦ/dt and Lenz’s rule to determine current direction. Translating physical motion into flux graphs builds clear intuition.`,
+        tamil: `Faraday விதியைப் பயன்படுத்தும்போது முதலில் Φ – t வரைபடம் வரைந்து தொடர்வு வேகமாக மாறும் இடங்களை கண்டறியவும். பிறகு ε = -dΦ/dt மற்றும் Lenz விதி மூலம் மின்னோட்ட திசையை தீர்மானிக்கவும். இயல்பியல் இயக்கத்தை தொடர்வு வரைபடங்களில் மாற்றுதல் தெளிவான உணர்வைக் கொடுக்கும்.`
+      },
+      peerDiscussion: {
+        english: `Discuss how Lenz’s law enables electromagnetic braking and how parameters like field strength and conductor speed affect braking force. Can you identify applications where eddy currents are harnessed or need to be minimized?`,
+        tamil: `Lenz விதி எலக்ட்ரோமேக்னெட்டிக் பிரேக்கிங்கில் எவ்வாறு பயன்படுகிறது மற்றும் காந்த புல வலிமை, கந்தலின் வேகம் போன்ற அளவுருக்கள் பிரேக்கிங் விசையை எவ்வாறு மாற்றுகின்றன என்பதைக் விவாதியுங்கள். எடிய் மின்சாரங்களை பயன்படுத்தும் அல்லது குறைக்கേണ്ട பயன்பாடுகளைச் சொல்லுங்கள்.`
+      }
 };

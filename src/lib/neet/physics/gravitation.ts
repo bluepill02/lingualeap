@@ -369,8 +369,14 @@ export const gravitationModule: NeetModule = {
         { text: "Problems involving ratios of g, v_e, or T for different planets are very common. Master the proportionality relationships.", tamil: "வெவ்வேறு கோள்களுக்கு g, v_e, அல்லது T விகிதங்கள் சம்பந்தப்பட்ட கணக்குகள் மிகவும் பொதுவானவை. விகிதாசார உறவுகளை நன்கு புரிந்து கொள்ளுங்கள்." },
         { text: "Work-energy theorem is often the easiest way to solve problems involving change in speed of satellites or objects moving between points in a gravitational field.", tamil: "ஈர்ப்புப் புலத்தில் புள்ளிகளுக்கு இடையே நகரும் செயற்கைக்கோள்கள் அல்லது பொருட்களின் வேக மாற்றத்தைக் கணக்கிட வேலை-ஆற்றல் தேற்றம் பெரும்பாலும் எளிதான வழியாகும்." }
     ],
-    studentTip:{english:"",tamil:""},
-    peerDiscussion:{english:"",tamil:""},
+    studentTip: {
+        english: `When solving gravitation problems, always sketch g(r) and V(r) versus r: label g(r) ≈ GM/r² and V(r) ≈ –GM/r, and mark the planet’s surface R and infinity. Linking these curves to F = GMm/r² and U = –GMm/r makes escape velocity and orbital formulas intuitive and reduces algebraic errors.`,
+        tamil: `புவிசார் சிக்கல்களை தீர்க்கும்போது g(r) மற்றும் V(r)-ஐ r-வழியாக வரைந்து: g(r) ≈ GM/r² மற்றும் V(r) ≈ –GM/r என்பதையும் கிரகத்தின் பரப்பு R மற்றும் ∞ இடத்தையும் குறியுங்கள். இச்சிற்றெழுத்துகளை F = GMm/r² மற்றும் U = –GMm/r உடன் இணைத்தால் வெளியேறுதல் வேகம் மற்றும் مدار சமன்பாடுகள் தெளிவாக புரியும் மற்றும் கணக்குப் பிழைகள் குறையும்.`
+      },
+      peerDiscussion: {
+        english: `Discuss how using gravitational potential energy U = –GMm/r simplifies multi-step energy calculations compared to direct integration of F = GMm/r². Also, evaluate the impact of reduced mass on two-body orbital periods in systems like Earth–Moon versus Sun–Earth.`,
+        tamil: `நேரடி F = GMm/r² ஒருங்கிணைப்போட்குறியாக பல படி சக்தி கணக்கீடுகளை U = –GMm/r மூலம் எவ்வாறு எளிமைப்படுத்தலாம் என்பதையும் விவாதியுங்கள். மேலும் ஈர்ப்புச் சுழற்சிகளில் குறைந்த மாஸ் (reduced mass) Earth–Moon மற்றும் Sun–Earth போன்ற அமைப்புகளில் சுழற்சி காலங்களை எவ்வாறு மாற்றுகிறது என்பதையும் ஆராயுங்கள்.`
+      },
     validationReport: [
         { "check": "Verify Practice Question Quotas", "status": "pass", "message": "OK" },
         { "check": "Check Adaptive MCQ Star Display", "status": "pass", "message": "OK" },

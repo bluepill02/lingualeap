@@ -128,11 +128,42 @@ export const mechanicalPropertiesOfSolidsModule: NeetModule = {
         ],
         diagrams: []
     },
-    keyTakeaways:[],
-    mnemonics:[],
-    neetTips:[],
-    studentTip:{english:"",tamil:""},
-    peerDiscussion:{english:"",tamil:""},
+   
+        keyTakeaways: [
+          "Stress (σ=F/A) and strain (ε=ΔL/L₀) quantify internal forces and deformations in solids.",
+          "Hooke’s law (σ∝ε) holds only up to the elastic (proportional) limit; beyond yield stress, plastic deformation begins.",
+          "Young’s modulus (E=σ/ε), shear modulus (G=τ/γ), and bulk modulus (K=−V·ΔP/ΔV) measure tensile, shear, and volumetric stiffness respectively.",
+          "Poisson’s ratio (ν=−ε_transverse/ε_longitudinal) links lateral contraction to axial extension.",
+          "The moduli relate via E=2G(1+ν)=3K(1−2ν), enabling cross-checks and unit consistency in calculations."
+        ],
+        mnemonics: [
+          {
+            text: "‘Young Stretches, Shear Shifts, Bulk Squeezes’ helps recall E for tension, G for shear, K for volumetric change.",
+            tamil: "‘யங் இழுக்கிறது, ஷியர் சாய்வது, புல்க் சுரைக்கிறது’ என்பதைப் பயன்படுத்தி E மடிப்பு, G ஷியர், K அளவுத்திறன் என நினைவில் வையுங்கள்."
+          }
+        ],
+        neetTips: [
+          {
+            text: "Always draw a full σ–ε curve: mark proportional limit, elastic limit, yield point, ultimate tensile strength, and fracture point before solving questions.",
+            tamil: "எப்பொழுதும் முழு σ–ε வரைபடத்தை வரைந்து இணப்பு வரம்பு, வளைவு வரம்பு, இல(section) முனை, உச்சதொடை சக்தி மற்றும் முறிவு முனை ஆகியவற்றைப் குறியிட்டு கேள்விகளைத் தீர்க்கவும்."
+          },
+          {
+            text: "Check units carefully: moduli E, G, K must be in Pa (N/m²); convert MPa→Pa by multiplying 10⁶ to avoid numerical errors.",
+            tamil: "அளவுகளை கவனமாகப் பார்க்கவும்: E, G, K மடிப்புகள் Pa (N/m²) யில் இருக்க வேண்டும்; MPa→Pa மாற்றத்துக்கு 10⁶ கொண்டு गुणிக்கவும்."
+          },
+          {
+            text: "Use the relation E=2G(1+ν)=3K(1−2ν) to verify your computed values when two moduli and Poisson’s ratio are given.",
+            tamil: "இரு மடிப்புகளும் ν கொடுக்கப்பட்டால் E=2G(1+ν)=3K(1−2ν) சமன்பாட்டை பயன்படுத்தி மதிப்புகளை பரிசோதிக்கவும்."
+          }
+        ],
+        studentTip: {
+          english: "Sketch and label each region of the tensile test curve on paper; writing formulas next to the curve cements understanding of elastic vs. plastic behavior.",
+          tamil: "கையைப் பயன்படுத்தி tensile சோதனை வளைவை வரைந்து ஒவ்வொரு பகுதியையும் குறியிடுங்கள்; வளைவுப் பக்கமாக சூத்திரங்களை எழுதி வைக்குதல் மறுசுழற்சி மற்றும் பிளாஸ்டிக் நடத்தை புரிதலை உறுதிசெய்யும்."
+        },
+        peerDiscussion: {
+          english: "Discuss how yield strength and toughness influence material selection for structural applications: why might a lower-E but higher-toughness alloy be chosen over a stiff but brittle one?",
+          tamil: "உருவ அமைப்புகளுக்கான பொருள்தேர்வில் yield சக்தி மற்றும் துணிவு (toughness) எவ்வாறு பாதிக்கின்றன என்பதை விவாதியுங்கள்: கடினமாக இருந்தாலும் மெல்லிய E கொண்ட சேர்மத்தை விட குறைந்த E ஆனாலும் உயர் toughness வாய்ந்தத் தொடரைப் தேர்ந்தெடுப்பதன் காரணங்கள் என்ன?"
+        },
     validationReport: [
         { check: 'Verify Practice Question Quotas', status: 'pass', message: 'OK' },
         { check: 'Check Adaptive MCQ Star Display', status: 'pass', message: 'OK' },

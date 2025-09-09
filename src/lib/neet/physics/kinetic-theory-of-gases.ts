@@ -313,6 +313,18 @@ $$ \\gamma = \\frac{C_p}{C_v} = \\frac{(\\frac{f}{2} + 1)R}{\\frac{f}{2}R} = 1 +
         { text: "For ratio-based questions involving RMS speed, you often don't need the value of R. Use v ∝ √(T/M) to quickly find the answer.", tamil: "RMS வேகம் சம்பந்தப்பட்ட விகித அடிப்படையிலான கேள்விகளுக்கு, உங்களுக்கு பெரும்பாலும் R-இன் மதிப்பு தேவையில்லை. விடையை விரைவாகக் கண்டுபிடிக்க v ∝ √(T/M) ஐப் பயன்படுத்தவும்." },
         { text: "Always convert temperature to Kelvin for all calculations in kinetic theory and thermodynamics.", tamil: "இயக்கவியற் கொள்கை மற்றும் வெப்ப இயக்கவியலில் உள்ள அனைத்து கணக்கீடுகளுக்கும் வெப்பநிலையை எப்போதும் கெல்வின் ஆக மாற்றவும்." }
     ],
+    studentTip: {
+        english: `Always start by sketching the Maxwell speed distribution f(v) vs v: label v_mp = √(2RT/M), v_avg = √(8RT/πM), and v_rms = √(3RT/M). Then derive pressure:  
+    P = ⅓ (N/V) m ⟨v²⟩  
+    This links microscopic collisions to macroscopic PV = nRT and cements all key speed formulas.`,
+        tamil: `எப்பொழுது Maxwell வேகப் பகிர்வு f(v) vs v வரைபடத்தை வரைந்து v_mp = √(2RT/M), v_avg = √(8RT/πM), v_rms = √(3RT/M) என்பவற்றை குறியுங்கள். பிறகு அழுத்தத்தை கண்டு பிடியுங்கள்:  
+    P = ⅓ (N/V) m ⟨v²⟩  
+    இது நுண்ணுணர்ச்சிக் கல்லணைகளை mak்ரோ அளவிலான PV = nRT உடன் இணைத்து முக்கிய வேக சூத்திரங்களை உறுதிப்படுத்தும்.`
+      },
+      peerDiscussion: {
+        english: `Discuss how mean free path λ = kT/(√2 π d² P) varies with pressure, temperature, and molecular diameter. How do changes in λ and collision frequency affect viscosity, thermal conductivity, and diffusion in real gases?`,
+        tamil: `இடையே மருவின் சராசரி பாதை λ = kT/(√2 π d² P) அழுத்தம், வெப்பநிலை மற்றும் மூலக்கூறும் விட்டம்(d) யுடன் எவ்வாறு மாறும் என்பதை விவாதியுங்கள். λ மற்றும் மோதல் அதிர்தல் மாற்றங்கள் உண்மை வாயுக்கள் உள்ள விசைசத்து, வெப்பவாட்டுத்திறன் மற்றும் பகிர்திறனுக்கு எவ்வாறு பாதிப்பாக இருக்கும்?`
+      },
     mcqs: [
         {
             question: "According to the kinetic theory of gases, at absolute zero of temperature:",

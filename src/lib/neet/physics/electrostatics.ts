@@ -80,7 +80,7 @@ $$`
 *   **Effect of Dielectric:** When a dielectric material of dielectric constant K is inserted, capacitance increases: $C' = KC$.
 *   **Capacitors in Series:** $\\frac{1}{C_s} = \\frac{1}{C_1} + \\frac{1}{C_2} + ...$
 *   **Capacitors in Parallel:** $C_p = C_1 + C_2 + ...$
-*   **Energy Stored in a Capacitor:** $U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} = \\frac{1}{2}QV`
+*   **Energy Stored in a Capacitor:** $U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} = \\frac{1}{2}QV$`
         }
     ],
     workedExamples: [
@@ -240,6 +240,20 @@ $$`
     mnemonics: [
       { text: "For capacitor combinations, remember they are the *opposite* of resistors. Series capacitors add like parallel resistors (1/C_s = 1/C₁ + ...), and parallel capacitors add directly (C_p = C₁ + ...).", tamil: "மின்தேக்கி இணைப்புகளுக்கு, அவை மின்தடையாக்கிகளுக்கு *எதிரானது* என்பதை நினைவில் கொள்க. தொடர் மின்தேக்கிகள் பக்க இணைப்பு மின்தடையாக்கிகள் போலக் கூட்டப்படும், மற்றும் பக்க இணைப்பு மின்தேக்கிகள் நேரடியாகக் கூட்டப்படும்." }
     ],
+    neetTips: [
+        {
+          text: `For any symmetric charge distribution—spherical, cylindrical, or planar—always draw the appropriate Gaussian surface and note where E is constant. Then apply Gauss’s law ∮E·dA = Q_enc/ε₀ to get E in one step rather than integrating Coulomb’s law.`,
+          tamil: `ஏதேனும் சுருட்டமுள்ள மின்கால்பிரசாரணத்திற்கு—கூர்மைக்கோளம், silிக்றெல்லை அல்லது தட்டு—தனித்துவமான Gaussian பரப்பை வரைந்து E எங்கே நிலையாக இருக்கிறது என்பதை கண்டறியவும். பிறகு Gauss விதி ∮E·dA = Q_enc/ε₀ ஐ பயன்படுத்தி ஒரே கட்டத்தில் E ஐ அடையவும்.`
+        },
+        {
+          text: `When calculating potential V, use superposition of V = kQ/r with reference V = 0 at infinity. Tabulate each charge’s contribution and watch sign conventions carefully to avoid algebraic mistakes.`,
+          tamil: `மின்பொறுத்த Vஐ கணக்கிடும்போது வேறுபடுத்துக V = kQ/r ஐ ∞ இல் V = 0 என்ற அடிப்படையில் பயன்படுத்தவும். ஒவ்வொரு மின்காந்தத்தின் பங்களிப்பையும் பட்டியலிட்டு குறியீட்டு விதிகளை கவனமாகப் பின்பற்றவும்.`
+        },
+        {
+          text: `Memorize dipole field formulas: on-axis E_axial = 2k p/r³ and equatorial E_eq = –k p/r³. For potential around a dipole, V = k p cosθ/r² helps solve angular dependence quickly in MCQs.`,
+          tamil: `டிப்போலைலுள்ள காந்தத் துறைகளை நினைவில் வையுங்கள்: அச்சு வழித்திரட்டில் E_axial = 2k p/r³ மற்றும் சுறுசுறுப்பில் E_eq = –k p/r³. டிப்போலைச் சுற்றியுள்ள மின்பொறுத்தம் V = k p cosθ/r² என்பதைக் கற்கவும்.`
+        }
+      ],
     studentTip: {
         english: "Master the sign conventions for potential and potential energy. Work done by the electric field decreases potential energy.",
         tamil: "மின்னழுத்தம் மற்றும் நிலை ஆற்றலுக்கான குறியீட்டு மரபுகளை நன்கு கற்றுக்கொள்ளுங்கள். மின்புலத்தால் செய்யப்படும் வேலை நிலை ஆற்றலைக் குறைக்கிறது."
@@ -249,4 +263,4 @@ $$`
         tamil: "உலர்ந்த தலைமுடியில் சீவிய ஒரு சீப்பு ஏன் சிறிய காகிதத் துண்டுகளை எடுக்க முடிகிறது என்று உங்கள் நண்பருடன் விவாதிக்கவும். இதில் தூண்டல் மற்றும் தளவிளைவின் பங்குகள் என்ன?"
     },
     validationReport: []
-}
+};

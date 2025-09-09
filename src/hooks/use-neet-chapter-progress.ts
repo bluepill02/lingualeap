@@ -4,14 +4,14 @@
 import { useState, useEffect, useCallback, useTransition } from 'react';
 import { getNeetChapterProgress, saveNeetChapterProgress } from '@/services/neet-progress-service';
 
-export function useNeetChapterProgress(userId: string, chapterId: string) {
+export function useNeetChapterProgress(userId: string, subject: string, chapterId: string) {
     const [completedSections, setCompletedSections] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
-        if (userId && chapterId) {
-            getNeetChapterProgress(userId, chapterId)
+        if (userId && subject && chapterId) {
+            getNeetChapterProgress(userId, subject, chapterId)
                 .then(sections => {
                     setCompletedSections(sections);
                 })
@@ -24,17 +24,16 @@ export function useNeetChapterProgress(userId: string, chapterId: string) {
         } else {
             setIsLoading(false);
         }
-    }, [userId, chapterId]);
+    }, [userId, subject, chapterId]);
 
     const saveProgress = useCallback((sections: string[]) => {
         startTransition(() => {
-            saveNeetChapterProgress(userId, chapterId, sections)
+            saveNeetChapterProgress(userId, subject, chapterId, sections)
                 .catch(error => {
                     console.error("Failed to save progress:", error);
-                    // Optionally, implement a retry mechanism or user notification
                 });
         });
-    }, [userId, chapterId, startTransition]);
+    }, [userId, subject, chapterId, startTransition]);
 
 
     const toggleSection = useCallback((section: string) => {

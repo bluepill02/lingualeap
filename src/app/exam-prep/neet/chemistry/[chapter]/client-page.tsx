@@ -36,7 +36,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
   const { title, learningObjectives, prerequisites, syllabusMapping, workedExamples, conceptOverview, tamilConnection, culturalContext, conceptNotes, keyFormulasAndDiagrams, mcqs, assertionReasons, matchTheColumns, keyTakeaways, mnemonics, neetTips, nextChapter, studentTip, peerDiscussion } = content;
   const totalSections = TABS.length;
 
-  const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, content.id);
+  const { completedSections, toggleSection, isLoading } = useNeetChapterProgress(mockUser.id, "chemistry", content.id);
   const { toast } = useToast();
   const [activeTab, setActiveTab] = useState<TabName>('overview');
 
@@ -203,7 +203,11 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             {(nextChapter || studentTip || peerDiscussion) && 
                             <Alert className="bg-primary/10 border-primary/20">
                                 <Info className="h-4 w-4" />
-                                {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
+                                <AlertTitle>
+                                    <span>
+                                        {nextChapter && <BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} />}
+                                    </span>
+                                </AlertTitle>
                                 <AlertDescriptionComponent className="mt-2 space-y-2">
                                     {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
                                         <strong>Student Tip:</strong> 

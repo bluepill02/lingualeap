@@ -32,47 +32,28 @@ export const dualNatureOfRadiationAndMatterModule: NeetModule = {
             mappingDescription: '12th Std Physics - Vol 2, Chapter 8 maps to NEET Physics Unit 17'
         }
     ],
+    // Dual Nature of Radiation and Matter – module snippets following NeetModule syntax
+
     conceptNotes: [
-        {
-            english: `### 1. Photoelectric Effect (ஒளிமின் விளைவு)
-The phenomenon of emission of electrons from a metal surface when light of suitable frequency is incident on it. The emitted electrons are called photoelectrons.
-#### Key Observations:
-1.  **Instantaneous Process:** Electron emission is instantaneous, with no time lag.
-2.  **Threshold Frequency ($ν_0$):** For a given metal, there exists a certain minimum frequency of incident radiation below which no photoemission occurs, however high the intensity.
-3.  **Intensity Effect:** For $ν > ν_0$, the number of photoelectrons emitted per second (photocurrent) is directly proportional to the intensity of incident radiation.
-4.  **Kinetic Energy:** For $ν > ν_0$, the maximum kinetic energy of the photoelectrons depends on the frequency of the incident light, not its intensity.`
-        },
-        {
-            english: `### 2. Einstein's Photoelectric Equation
-Einstein explained the photoelectric effect by proposing that light consists of discrete packets of energy called photons. The energy of a photon is E = hν.
-When a photon of energy hν strikes a metal surface, a part of its energy is used to overcome the binding force of the electron, called the **work function ($\\phi_0$)**, and the rest is given to the electron as kinetic energy.
-$$
-K_{max} = h\\nu - \\phi_0
-$$
-*   This is the cornerstone equation of this chapter.
-*   **Work Function ($\\phi_0$):** The minimum energy required to liberate an electron from a metal surface. $\\phi_0 = h\\nu_0$.
-*   **Stopping Potential ($V_0$):** The minimum negative (retarding) potential applied to the anode for which the photocurrent becomes zero. At this point, the work done by the retarding potential just stops the most energetic electrons.
-    $$ e V_0 = K_{max} $$
-Combining these, we get the full equation:
-$$ e V_0 = h\\nu - h\\nu_0 $$`
-        },
-        {
-            english: `### 3. Particle Nature of Light: The Photon
-*   **Energy of a photon:** $E = h\\nu = \\frac{hc}{\\lambda}$
-*   **Momentum of a photon:** $p = \\frac{E}{c} = \\frac{h\\nu}{c} = \\frac{h}{\\lambda}$
-*   Photons are electrically neutral and are not deflected by electric or magnetic fields.
-*   The rest mass of a photon is zero.`
-        },
-        {
-            english: `### 4. Wave Nature of Matter: de Broglie Hypothesis
-Louis de Broglie proposed that matter, like radiation, has a dual nature. Every moving particle has a wave associated with it. The wavelength of this matter wave is given by:
-$$
-\\lambda = \\frac{h}{p} = \\frac{h}{mv}
-$$
-where p=mv is the momentum of the particle.
-*   **de Broglie wavelength of an electron accelerated through a potential V:**
-$$ \\lambda = \\frac{h}{\\sqrt{2meV}} \\approx \\frac{12.27}{\\sqrt{V}} \\text{ Å} $$`
-        }
+      {
+        english: `### 1. Photoelectric Effect (புக்டோவிளைப்பு விளைவு)
+  * **Phenomenon (நிகழ்வு):** Ejection of electrons from a metal surface when incident light frequency ν ≥ threshold ν₀.
+  * **Photon Energy (புக்டான் சக்தி):** E = h ν. Photons behave as particles carrying quantized energy.
+  * **Threshold Frequency (துவக்க அதிர்வு):** ν₀ = φ/h, where φ is the work function (வேலையொலி).
+  * **Einstein’s Equation (ஐன்ஸ்டீனின் சமன்பாடு):** K_max = h ν - φ defines the maximum kinetic energy of ejected electrons.`
+      },
+      {
+        english: `### 2. de Broglie Hypothesis (டெப்ரோலி தியரியம்)
+  * **Matter Waves (துகள அலைகள்):** Particles exhibit wave-like behavior with wavelength λ = h / p.
+  * **Momentum (சீக்கம்):** p = m v for non-relativistic particles.
+  * **Wave–Particle Duality (அலை–துகள இருமுகம்):** All matter has an associated de Broglie wave; wave nature dominates for small mass at high velocity.`
+      },
+      {
+        english: `### 3. Electron Diffraction (மின்காந்த ஒளிர்வு)
+  * **Diffraction (ஒளிர்வு):** Electrons diffract through crystal lattices, demonstrating wave behavior.
+  * **Bragg’s Law (பிராக் விதி):** n λ = 2 d sin θ for constructive interference in crystal planes.
+  * **Davisson–Germer Experiment:** Provided experimental proof of de Broglie waves by observing diffraction patterns.`
+      }
     ],
     workedExamples: [
         {
@@ -189,6 +170,36 @@ $$ \\lambda = \\frac{h}{\\sqrt{2meV}} \\approx \\frac{12.27}{\\sqrt{V}} \\text{ 
         { column1: ["(a) Work function", "(b) Photon energy", "(c) Stopping potential", "(d) de Broglie wavelength"], column2: ["(p) hν", "(q) h/p", "(r) K_max/e", "(s) hν₀"], answer: "a-s, b-p, c-r, d-q", explanation: "Matching physical quantities with their defining formulas." },
         { column1: ["(a) Same K.E.", "(b) Same velocity", "(c) Same momentum", "(d) Same accelerating potential"], column2: ["(p) λ ∝ 1/√m", "(q) λ ∝ 1/m", "(r) λ is same for all", "(s) λ ∝ 1/√mq"], answer: "a-p, b-q, c-r, d-s", explanation: "Matching conditions with the resulting dependence of de Broglie wavelength on mass (m) and charge (q)." }
     ],
+    keyFormulasAndDiagrams: {
+        formulas: [
+          {
+            formula: `E = h \\nu`,
+            description: "Photon energy",
+            descriptionTamil: "புக்டான் சக்தி"
+          },
+          {
+            formula: `K_{max} = h \\nu - \\phi`,
+            description: "Maximum kinetic energy of emitted electrons",
+            descriptionTamil: "வெளியிடப்பட்ட மின்காந்தங்களின் தற்கு இயக்க சக்தி"
+          },
+          {
+            formula: `\\lambda = \\tfrac{h}{p}`,
+            description: "de Broglie wavelength",
+            descriptionTamil: "டெப்ரோலி அலை நீளம்"
+          },
+          {
+            formula: `p = mv`,
+            description: "Momentum of a particle",
+            descriptionTamil: "துகளத்தின் சீக்கம்"
+          },
+          {
+            formula: `n\\,\\lambda = d \\sin\\theta`,
+            description: "Electron diffraction condition (Davisson–Germer)",
+            descriptionTamil: "மின்காந்த ஒளிர்வு நிபந்தனை"
+          }
+        ],
+        diagrams: []
+      },
     keyTakeaways: [
         "Light and matter exhibit wave-particle duality. Which nature is observed depends on the experiment being performed.",
         "The photoelectric effect is evidence for the particle nature of light (photons), where energy is transferred in discrete packets (E=hν).",
@@ -201,5 +212,13 @@ $$ \\lambda = \\frac{h}{\\sqrt{2meV}} \\approx \\frac{12.27}{\\sqrt{V}} \\text{ 
     neetTips: [
         { text: "Be very comfortable with unit conversions, especially between Joules and electron-volts (eV). 1 eV = 1.6 x 10⁻¹⁹ J.", tamil: "ஜூல் மற்றும் எலக்ட்ரான்-வோல்ட் (eV) ஆகியவற்றுக்கு இடையேயான அலகு மாற்றங்களில் மிகவும் தேர்ச்சி பெற்றிருங்கள். 1 eV = 1.6 x 10⁻¹⁹ J." },
         { text: "Memorize the formula λ ≈ 12.27/√V Å for the de Broglie wavelength of an electron. It is a huge time-saver.", tamil: "ஒரு எலக்ட்ரானின் டி பிராய் அலைநீளத்திற்கான λ ≈ 12.27/√V Å என்ற சூத்திரத்தை மனப்பாடம் செய்யுங்கள். இது ஒரு பெரிய நேர சேமிப்பாகும்." }
-    ]
+    ],
+    studentTip: {
+        english: `Draw energy‐level diagrams for the photoelectric effect and label φ and K_max. Practice linking each term in K_max = hν - φ to physical processes: photon absorption vs. work function.`,
+        tamil: `புக்டோவிளைப்பு விளைவுக்கான சக்தி நிலவர வரைபடங்களை வரைந்து φ மற்றும் K_max குறியிடவும். K_max = hν - φ இல் உள்ள ஒவ்வொரு உறுப்பையும் புக்டான் உறிஞ்சுதல் vs. வேலையக வேலை ஆகியவற்றுடன் இணைக்க பயிற்சி செய்யவும்.`
+      },
+      peerDiscussion: {
+        english: `How does the de Broglie wavelength of an electron change when its kinetic energy doubles? Discuss implications for electron microscopy resolution.`,
+        tamil: `மின்காந்தத்தின் இயக்க சக்தி இருமடங்கு அதிகரித்தால் அதன் டெப்ரோலி அலை நீளம் எவ்வாறு மாறும்? மின்காந்த அலைக்காட்சி தீர்மானத்திற்கான தாக்கங்களை விவாதியுங்கள்.`
+      }
 };

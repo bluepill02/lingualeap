@@ -323,10 +323,12 @@ const Sidebar = React.forwardRef<
           >
             <SheetHeader>
                <VisuallyHidden>
-                <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>
-                  Main navigation and links for the application.
-                </SheetDescription>
+                <div>
+                  <SheetTitle>Menu</SheetTitle>
+                  <SheetDescription>
+                    Main navigation and links for the application.
+                  </SheetDescription>
+                </div>
               </VisuallyHidden>
             </SheetHeader>
             <div className="flex h-full w-full flex-col">{children}</div>

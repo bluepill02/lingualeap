@@ -168,6 +168,79 @@ export const alternatingCurrentModule: NeetModule = {
         { column1: ["(a) Wattless Current", "(b) RMS Value", "(c) Quality Factor", "(d) Average Power"], column2: ["(p) V_rms * I_rms * cos(φ)", "(q) Sharpness of resonance", "(r) I_m/√2", "(s) Current component with π/2 phase difference"], answer: "a-s, b-r, c-q, d-p", explanation: "Matching the AC concepts with their definitions or related quantities." },
         { column1: ["(a) DC", "(b) AC", "(c) Eddy Current", "(d) Displacement Current"], column2: ["(p) Used in transformers", "(q) Blocked by a capacitor", "(r) Heat loss in transformer core", "(s) Continuity of current in a capacitor"], answer: "a-q, b-p, c-r, d-s", explanation: "Matching different types of currents with their properties or applications." }
     ],
+    // Following the NeetModule syntax, with formula fields using backtick literals
+    keyFormulasAndDiagrams: {
+      formulas: [
+        {
+          formula: `v(t) = V_{max} \\sin(\\omega t + \\phi)`,
+          description: "Instantaneous voltage",
+          descriptionTamil: "உடனடி மின் அழுத்தம்"
+        },
+        {
+          formula: `i(t) = I_{max} \\sin(\\omega t + \\phi - \\theta)`,
+          description: "Instantaneous current with phase shift",
+          descriptionTamil: "நிலவேறுபாட்டுடன் உடனடி மின்சாரம்"
+        },
+        {
+          formula: `V_{rms} = \\tfrac{V_{max}}{\\sqrt{2}}`,
+          description: "Root‐mean‐square voltage",
+          descriptionTamil: "மூல விகித சராசரி மின் அழுத்தம்"
+        },
+        {
+          formula: `I_{rms} = \\tfrac{I_{max}}{\\sqrt{2}}`,
+          description: "Root‐mean‐square current",
+          descriptionTamil: "மூல விகித சராசரி மின்சாரம்"
+        },
+        {
+          formula: `X_L = \\omega L`,
+          description: "Inductive reactance",
+          descriptionTamil: "காந்த எதிராக்கம்"
+        },
+        {
+          formula: `X_C = \\tfrac{1}{\\omega C}`,
+          description: "Capacitive reactance",
+          descriptionTamil: "மின்சம்போதன எதிராக்கம்"
+        },
+        {
+          formula: `Z = \\sqrt{R^2 + (X_L - X_C)^2}`,
+          description: "Impedance of a series RLC circuit",
+          descriptionTamil: "சீரியல் RLC சுற்றின் மடைச்சத்து"
+        },
+        {
+          formula: `\\tan\\phi = \\tfrac{X_L - X_C}{R}`,
+          description: "Phase angle between voltage and current",
+          descriptionTamil: "மின் அழுத்தம் மற்றும் மின்சாரம் இடையிலான நிலையில் கோணம்"
+        },
+        {
+          formula: `P_{avg} = V_{rms} \\cdot I_{rms} \\cos\\phi`,
+          description: "Average (real) power",
+          descriptionTamil: "சராசரி (நிஜ) சக்தி"
+        },
+        {
+          formula: `S = V_{rms} \\cdot I_{rms}`,
+          description: "Apparent power",
+          descriptionTamil: "தற்காட்சி சக்தி"
+        },
+        {
+          formula: `Q = V_{rms} \\cdot I_{rms} \\sin\\phi`,
+          description: "Reactive power",
+          descriptionTamil: "செயல்பாட்டு சக்தி"
+        },
+        {
+          formula: `Power Factor = \\cos\\phi = \\tfrac{P_{avg}}{S}`,
+          description: "Efficiency of power usage",
+          descriptionTamil: "சக்தி பயன்பாட்டின் திறன்மிக்கம்"
+        },
+        {
+          formula: `e(t) = E_{max} \\sin(\\omega t)`,
+          description: "EMF induced in an AC generator",
+          descriptionTamil: "AC உற்பத்தியாளரில் உருவாகும் மின்காந்த இயக்க சக்தி"
+        }
+      ],
+      diagrams: []
+    },
+  
+  
     keyTakeaways: [
         "AC circuits behave differently from DC circuits due to the presence of reactance from inductors and capacitors.",
         "The phase relationship between voltage and current is crucial for understanding AC circuit behavior.",
@@ -177,8 +250,27 @@ export const alternatingCurrentModule: NeetModule = {
     mnemonics: [
         { text: "ELI the ICE man: In an inductor (L), Voltage (E) leads Current (I). In a capacitor (C), Current (I) leads Voltage (E).", tamil: "ELI the ICE man: மின்தூண்டியில் (L), மின்னழுத்தம் (E) மின்னோட்டத்திற்கு (I) முந்துகிறது. மின்தேக்கியில் (C), மின்னோட்டம் (I) மின்னழுத்தத்திற்கு (E) முந்துகிறது." }
     ],
+   
     neetTips: [
-        { text: "Phasor diagrams are a powerful visual tool for solving complex LCR circuit problems. Practice drawing them to find resultant voltage and phase angles.", tamil: "சிக்கலான LCR சுற்று கணக்குகளைத் தீர்க்க கட்ட வரைபடங்கள் ஒரு சக்திவாய்ந்த காட்சி கருவியாகும். விளைவு மின்னழுத்தம் மற்றும் கட்ட கோணங்களைக் கண்டறிய அவற்றை வரைந்து பயிற்சி செய்யுங்கள்." },
-        { text: "Remember that the voltages across L, C, and R in a series circuit do not add up arithmetically. They must be added as vectors (phasors).", tamil: "ஒரு தொடர் சுற்றில் L, C, மற்றும் R முழுவதும் உள்ள மின்னழுத்தங்கள் எண்கணித ரீதியாகக் கூட்டப்படுவதில்லை என்பதை நினைவில் கொள்க. அவற்றை வெக்டர்களாக (கட்டங்கள்) கூட்ட வேண்டும்." }
-    ]
+        {
+          text: `Convert all circuit elements to phasors and solve impedance using complex algebra; in a series RLC circuit current stays the same while voltage divides in proportion to each reactance.`,
+          tamil: `இந்த சர்க்க்யூட்டின் அனைத்து கூறுகளையும் பார்சர் வடிவிற்கு மாற்றி, கம்ப்ளெக்ஸ் ஆல்ஜெப்ரா மூலம் மடைச்சத்தியை தீர்க்கவும்; தொடர் RLC சுற்றில் மின்சாரம் எப்போதும் ஒரே மாதிரி இருக்கும், மின்னழுத்தம் எதிராக்களின் விகிதத்தில் பகிரப்படும்.`
+        },
+        {
+          text: `At resonance, impedance is minimum and circuit current is maximum; use Pₐᵥ₉ = Vᵣₘₛ·Iᵣₘₛ·cos φ to verify that power factor becomes unity.`,
+          tamil: `அதிர்வில் (resonance) மடைச்சத்தி குறைந்தபட்சம் மற்றும் மின்சாரம் அதிகபட்சம் ஆகக்கூடும்; Pₐᵥ₉ = Vᵣₘₛ·Iᵣₘₛ·cos φ சூத்திரம் மூலம் சக்தி காரகூறு 1 ஆக變 என்பதை உறுதிசெய்யவும்.`
+        },
+        {
+          text: `Always sketch phasor diagrams head-to-tail with arrows and angles labeled relative to the reference axis; this visual check prevents sign errors in voltage-current relationships.`,
+          tamil: `பார்சர் வரைபடங்களை தலை-தலையால் இணைத்து அம்புகள் மற்றும் கோணங்களை குறிப்பிட்ட அண்மையின் சார்பிலும் குறியாகவும் குறித்துச் வரைந்து, மின்னழுத்தம்-மின்சாரம் உறவுகளில் பிழைகளைத் தவிர்க்கவும்.`
+        }
+      ],
+      studentTip: {
+        english: `Practice switching between time-domain equations like v(t)=Vₘₐₓ sin(ωt+φ) and phasor notation V=Vᵣₘₛ∠φ until drawing phasors becomes second nature—this builds intuition for phase relationships instantly.`,
+        tamil: `v(t)=Vₘₐₓ sin(ωt+φ) போன்ற சமய அமைவியல் சமன்பாடுகளை V=Vᵣₘₛ∠φ என்ற பார்சர் குறியீட்டிற்கு மாற்றுவதில் பயிற்சி செய்வதன் மூலம் நிலவேறுபாடு உறவுகளை உடனே உணர்வில் கொள்ளுங்கள்.`
+      },
+      peerDiscussion: {
+        english: `How does adding a capacitor bank for power-factor correction affect real, reactive, and apparent power in an industrial AC supply? Discuss the trade-offs involved.`,
+        tamil: `சக்தி-காரகூறு சரிப்ட்டுக்காக கெபாசிட்டர் தொகுப்பு சேர்ப்பது ஒரு தொழிற்சாலை AC மின்வழிவழக்கில் உண்மையான, செயல்பாட்டு மற்றும் தோன்றும் சக்தியைக் 어떻게 மாற்றுகின்றது? இதில் உள்ள நுகர்வு-வாய்ப்புகளை விவாதியுங்கள்.`
+      }
 };
