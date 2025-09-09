@@ -78,17 +78,17 @@ function ChapterContent({ content }: { content: NeetModule }) {
                 <div className="space-y-6">
                      <Card>
                         <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <Trophy className="text-primary"/>
-                            Learning Objectives
-                        </CardTitle>
+                            <CardTitle className="flex items-center gap-2">
+                                <Trophy className="text-primary"/>
+                                Learning Objectives
+                            </CardTitle>
                         </CardHeader>
                         <CardContent className="card-padding-lg">
-                        <ul className="list-disc list-inside space-y-2">
-                            {learningObjectives.map((obj, index) => (
-                                <li key={index}>{obj}</li>
-                            ))}
-                        </ul>
+                            <ul className="list-disc list-inside space-y-2">
+                                {learningObjectives.map((obj, index) => (
+                                    <li key={index}>{obj}</li>
+                                ))}
+                            </ul>
                         </CardContent>
                     </Card>
                     
@@ -96,17 +96,17 @@ function ChapterContent({ content }: { content: NeetModule }) {
 
                     <Card>
                         <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <BookOpen className="text-primary"/>
-                            Prerequisites
-                        </CardTitle>
+                            <CardTitle className="flex items-center gap-2">
+                                <BookOpen className="text-primary"/>
+                                Prerequisites
+                            </CardTitle>
                         </CardHeader>
                         <CardContent className="card-padding-lg">
-                        <ul className="list-disc list-inside space-y-2">
-                            {prerequisites.map((req, index) => (
-                                <li key={index}>{req}</li>
-                            ))}
-                        </ul>
+                            <ul className="list-disc list-inside space-y-2">
+                                {prerequisites.map((req, index) => (
+                                    <li key={index}>{req}</li>
+                                ))}
+                            </ul>
                         </CardContent>
                     </Card>
 
@@ -114,37 +114,36 @@ function ChapterContent({ content }: { content: NeetModule }) {
 
                     <Card>
                         <CardHeader>
-                        <CardTitle>Concept Overview</CardTitle>
+                            <CardTitle>Concept Overview</CardTitle>
                         </CardHeader>
                         <CardContent className="card-padding-lg space-y-6">
-                        <div className="prose dark:prose-invert max-w-none">
-                            <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
-                        </div>
+                            <div className="prose dark:prose-invert max-w-none">
+                                <MarkdownRenderer>{conceptOverview || ''}</MarkdownRenderer>
+                            </div>
                         
-                        {tamilConnection && (
-                            <Card className="bg-yellow-500/10 border-yellow-500/30">
-                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
-                                <Lightbulb className="h-5 w-5 text-yellow-400" />
-                                <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
-                                <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
-                            </CardContent>
-                            </Card>
-                        )}
+                            {tamilConnection && (
+                                <Card className="bg-yellow-500/10 border-yellow-500/30">
+                                <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
+                                    <Lightbulb className="h-5 w-5 text-yellow-400" />
+                                    <CardTitle className="text-yellow-200 text-base">Tamil Connection</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4 pt-0 text-yellow-50 prose-sm">
+                                    <MarkdownRenderer>{tamilConnection}</MarkdownRenderer>
+                                </CardContent>
+                                </Card>
+                            )}
 
-                        {culturalContext && (
-                            <Card className="bg-green-500/10 border-green-500/30">
-                            <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
-                                <BookOpen className="h-5 w-5 text-green-400" />
-                                <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-4 pt-0 text-green-50 prose-sm">
-                                <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
-                            </CardContent>
-                            </Card>
-                        )}
-
+                            {culturalContext && (
+                                <Card className="bg-green-500/10 border-green-500/30">
+                                <CardHeader className="flex-row items-center gap-3 space-y-0 p-4">
+                                    <BookOpen className="h-5 w-5 text-green-400" />
+                                    <CardTitle className="text-green-200 text-base">Cultural Context</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-4 pt-0 text-green-50 prose-sm">
+                                    <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
+                                </CardContent>
+                                </Card>
+                            )}
                         </CardContent>
                     </Card>
                     <SyllabusMappingCard mapping={syllabusMapping} />
@@ -159,66 +158,68 @@ function ChapterContent({ content }: { content: NeetModule }) {
         case 'practice':
             return <PracticeSectionCard module={content} />;
         case 'summary':
-            return (
+             return (
                 <div className="space-y-6">
-                    {mnemonics && mnemonics.length > 0 && <Card>
-                        <CardHeader>
-                            <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg space-y-4 text-center">
-                            {mnemonics.map((mnemonic, index) => (
-                                <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
-                                    <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
-                                </div>
-                            ))}
-                        </CardContent>
-                    </Card>}
-                    {keyTakeaways && keyTakeaways.length > 0 && <Card>
-                        <CardHeader>
-                            <CardTitle>Chapter Summary</CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg space-y-4">
-                            {keyTakeaways.map((point, index) => (
-                                <div key={index} className="flex items-start gap-3">
-                                    <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
-                                    <div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer></div>
-                                </div>
-                            ))}
-                        </CardContent>
-                    </Card>}
-                    {neetTips && (nextChapter || studentTip || peerDiscussion) && <Card>
-                        <CardHeader>
-                            <CardTitle>NEET Tips & Next Steps</CardTitle>
-                        </CardHeader>
-                        <CardContent className="card-padding-lg space-y-4">
-                            {neetTips.map((tip, index) => (
-                                <div key={index} className="flex items-start gap-3">
-                                    <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
-                                    <BilingualText english={tip.text} tamil={tip.tamil} />
-                                </div>
-                            ))}
-                            {(nextChapter || studentTip || peerDiscussion) && 
-                            <Alert className="bg-primary/10 border-primary/20">
-                                <Info className="h-4 w-4" />
-                                <AlertTitle>
-                                    <span>
-                                        {nextChapter ? <BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /> : null}
-                                    </span>
-                                </AlertTitle>
-                                <AlertDescriptionComponent className="mt-2 space-y-2">
-                                    {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
-                                        <strong>Student Tip:</strong> 
-                                        <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
-                                    </div>}
-                                    {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
-                                        <strong>Peer Discussion:</strong> 
-                                        <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
-                                    </div>}
-                                </AlertDescriptionComponent>
-                            </Alert>
-                            }
-                        </CardContent>
-                    </Card>}
+                    {mnemonics && mnemonics.length > 0 && (
+                        <Card>
+                            <CardHeader>
+                                <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
+                            </CardHeader>
+                            <CardContent className="card-padding-lg space-y-4 text-center">
+                                {mnemonics.map((mnemonic, index) => (
+                                    <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
+                                        <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    )}
+                    {keyTakeaways && keyTakeaways.length > 0 && (
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Chapter Summary</CardTitle>
+                            </CardHeader>
+                            <CardContent className="card-padding-lg space-y-4">
+                                {keyTakeaways.map((point, index) => (
+                                    <div key={index} className="flex items-start gap-3">
+                                        <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
+                                        <div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer></div>
+                                    </div>
+                                ))}
+                            </CardContent>
+                        </Card>
+                    )}
+                    {neetTips && (nextChapter || studentTip || peerDiscussion) && (
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>NEET Tips & Next Steps</CardTitle>
+                            </CardHeader>
+                            <CardContent className="card-padding-lg space-y-4">
+                                {neetTips.map((tip, index) => (
+                                    <div key={index} className="flex items-start gap-3">
+                                        <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
+                                        <BilingualText english={tip.text} tamil={tip.tamil} />
+                                    </div>
+                                ))}
+                                {(nextChapter || studentTip || peerDiscussion) && (
+                                <Alert className="bg-primary/10 border-primary/20">
+                                    <Info className="h-4 w-4" />
+                                    {nextChapter && <AlertTitle><BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /></AlertTitle>}
+                                    <AlertDescriptionComponent className="mt-2 space-y-2">
+                                        {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                            <strong>Student Tip:</strong> 
+                                            <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
+                                        </div>}
+                                        {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                            <strong>Peer Discussion:</strong> 
+                                            <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
+                                        </div>}
+                                    </AlertDescriptionComponent>
+                                </Alert>
+                                )}
+                            </CardContent>
+                        </Card>
+                    )}
                 </div>
             );
         default:
@@ -323,3 +324,5 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
 
   return <>{isClient ? <ChapterContent content={content} /> : <div>Loading...</div>}</>
 }
+
+    
