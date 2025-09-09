@@ -25,7 +25,7 @@ const chapterGroups = {
     ],
     bridge: [
         { id: 'motion-in-a-plane', title: 'Motion in a Plane' },
-        { id: 'rotational-motion', title: 'System of Particles and Rotational Motion' },
+        { id: 'system-of-particles-and-rotational-motion', title: 'System of Particles and Rotational Motion' },
         { id: 'gravitation', title: 'Gravitation' },
         { id: 'moving-charges-and-magnetism', title: 'Moving Charges and Magnetism' },
         { id: 'magnetism-and-matter', title: 'Magnetism and Matter' },
@@ -174,4 +174,3 @@ export default function NeetPhysicsPage() {
     </div>
   );
 }
-
