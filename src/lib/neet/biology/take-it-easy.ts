@@ -36,13 +36,6 @@ export const takeItEasyBiologyModule: NeetModule = {
 *   **மைட்டோகாண்ட்ரியா:** கோவிலின் 'மடப்பள்ளி', இங்கு அனைத்து கோவில் நடவடிக்கைகளுக்கும் உணவு ஆற்றலாக (பிரசாதம்) மாற்றப்படுகிறது. இதுவே ஆற்றல் மையம்.
 *   **ரிபோசோம்கள்:** 'சிற்பிகள்', உட்கருவிலிருந்து வரும் அறிவுறுத்தல்களைப் படித்து அத்தியாவசிய கட்டமைப்புகளை (புரதங்கள்) உருவாக்குகிறார்கள்.
 *   **எண்டோபிளாச வலைப்பின்னல்:** கோவிலின் உள் பிரகாரங்கள், பொருட்களைக் கொண்டு செல்லவும், பொருட்களை உருவாக்கவும் பயன்படுகிறது.`
-                },
-                 {
-                    english: `{{CHECK_YOUR_UNDERSTANDING:
-"question": "Which part of the 'Cell as a Kovil' analogy represents the powerhouse that generates energy?",
-"options": ["Moolavar Sannidhi (Nucleus)", "Madapalli (Mitochondria)", "Praharam (ER)", "Mathil Suvar (Cell Wall)"],
-"answer": "Madapalli (Mitochondria)"
-}}`
                 }
             ]
         },
@@ -62,13 +55,6 @@ export const takeItEasyBiologyModule: NeetModule = {
                 {
                     english: `**Respiration (சுவாசம் - Swasam):** This is the plant *eating* its own food to get energy for growth. It happens in the mitochondria (the dining area). It's the reverse of photosynthesis, breaking down sugar to release energy.`,
                     tamil: `**சுவாசம்:** இது தாவரம் வளர்ச்சிக்கு ஆற்றலைப் பெற தனது சொந்த உணவை *சாப்பிடுவது* ஆகும். இது மைட்டோகாண்ட்ரியாவில் (சாப்பாட்டு பகுதி) நிகழ்கிறது. இது ஒளிச்சேர்க்கையின் தலைகீழ் செயல்முறையாகும், சர்க்கரையை உடைத்து ஆற்றலை வெளியிடுகிறது.`
-                },
-                {
-                    english: `{{CHECK_YOUR_UNDERSTANDING:
-"question": "In our 'Solar-Powered Kitchen' analogy for photosynthesis, what does the sunlight represent?",
-"options": ["The ingredients", "The final dish", "The stove's energy", "The kitchen room"],
-"answer": "The stove's energy"
-}}`
                 }
             ]
         },
@@ -192,6 +178,7 @@ export const takeItEasyBiologyModule: NeetModule = {
                     explanationTamil: "ஒரு இருபண்புக் கலப்பின் புறத்தோற்ற விகிதம் 9:3:3:1 ஆகும்."
                 }
             ],
+            answer: "9:3:3:1",
             neetHack: "For any dihybrid cross between two heterozygotes, the 9:3:3:1 ratio is constant. Don't waste time drawing the Punnett square in the exam unless absolutely necessary. Just remember the ratio.",
             neetHackTamil: "இரண்டு ஹெட்டிரோசைகஸ் பெற்றோருக்கு இடையேயான எந்தவொரு இருபண்புக் கலப்பிற்கும், 9:3:3:1 விகிதம் மாறிலி. தேர்வில் புன்னட் கட்டத்தை வரைந்து நேரத்தை வீணாக்காதீர்கள், விகிதத்தை நினைவில் வைத்திருங்கள்."
         },
@@ -221,107 +208,119 @@ export const takeItEasyBiologyModule: NeetModule = {
                     calculation: "CO = 5040 mL/min = 5.04 L/min"
                 }
             ],
+            answer: "5.04 L/min",
             neetHack: "A healthy adult's cardiac output is roughly 5 Liters per minute, which is approximately the total volume of blood in the body. This can be a useful sanity check for your answer.",
             neetHackTamil: "ஆரோக்கியமான ஒருவரின் இதய வெளியேற்ற அளவு நிமிடத்திற்கு சுமார் 5 லிட்டர் ஆகும், இது உடலில் உள்ள மொத்த இரத்தத்தின் அளவிற்கு சமம். இது உங்கள் விடையைச் சரிபார்க்க ஒரு பயனுள்ள சோதனையாகும்."
         },
         {
-            title: "Ecology: Biomagnification",
-            titleTamil: "சூழலியல்: உயிரியல் உருப்பெருக்கம்",
-            difficulty: 'Easy',
-            problem: "In an aquatic food chain, if the concentration of DDT in water is 0.003 ppb, what is the most likely concentration of DDT in fish-eating birds?",
-            problemTamil: "ஒரு நீர்வாழ் உணவுச் சங்கிலியில், நீரில் உள்ள DDT-இன் செறிவு 0.003 ppb எனில், மீன் உண்ணும் பறவைகளில் DDT-இன் செறிவு என்னவாக இருக்க வாய்ப்புள்ளது?",
+            title: "Cell Biology: Identifying an Organelle",
+            titleTamil: "செல் உயிரியல்: ஒரு நுண்ணுறுப்பை அடையாளம் காணுதல்",
+            difficulty: "Easy",
+            problem: "Which of the following is known as the 'powerhouse of the cell'?",
+            problemTamil: "பின்வருவனவற்றில் எது 'செல்லின் ஆற்றல் மையம்' என்று அழைக்கப்படுகிறது?",
             solutionSteps: [
-                { step: 1, explanation: "Understand the concept of Biomagnification. It is the increase in concentration of a toxicant at successive trophic levels.", explanationTamil: "உயிரியல் உருப்பெருக்கம் என்ற கருத்தைப் புரிந்து கொள்ளுங்கள். இது அடுத்தடுத்த உணவூட்ட மட்டங்களில் ஒரு நச்சுப் பொருளின் செறிவு அதிகரிப்பதாகும்." },
-                { step: 2, explanation: "Identify the food chain: Water -> Zooplankton -> Small Fish -> Large Fish -> Fish-eating Birds.", explanationTamil: "உணவுச் சங்கிலியை அடையாளம் காணவும்: நீர் -> விலங்கு மிதவை -> சிறிய மீன் -> பெரிய மீன் -> மீன் உண்ணும் பறவைகள்." },
-                { step: 3, explanation: "At each trophic level, the concentration of the non-biodegradable toxicant (DDT) increases significantly because it gets accumulated in the fatty tissues.", explanationTamil: "ஒவ்வொரு உணவூட்ட மட்டத்திலும், சிதைவடையாத நச்சுப் பொருளின் (DDT) செறிவு கணிசமாக அதிகரிக்கிறது, ஏனெனில் இது கொழுப்புத் திசுக்களில் சேகரமாகிறது." },
-                { step: 4, explanation: "Based on standard data, the concentration can increase by a factor of 10 million or more. Zooplankton (0.04 ppm), Small fish (0.5 ppm), Large fish (2 ppm), Birds (25 ppm). The concentration will be highest in the top consumer.", explanationTamil: "தரவுப்படி, செறிவு 10 மில்லியன் மடங்கு அல்லது அதற்கு மேல் அதிகரிக்கலாம். விலங்கு மிதவை (0.04 ppm), சிறிய மீன் (0.5 ppm), பெரிய மீன் (2 ppm), பறவைகள் (25 ppm). மேல்நிலை நுகர்வோரில் செறிவு மிக அதிகமாக இருக்கும்." }
+                {
+                    step: 1,
+                    explanation: "Analyze the function of each option. The 'powerhouse' is the organelle responsible for generating most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy.",
+                    explanationTamil: "ஒவ்வொரு விருப்பத்தின் செயல்பாட்டையும் பகுப்பாய்வு செய்யவும். 'ஆற்றல் மையம்' என்பது செல்லின் அடினோசின் டிரைபாஸ்பேட் (ATP) விநியோகத்தின் பெரும்பகுதியை உருவாக்கும் நுண்ணுருப்பாகும், இது வேதியியல் ஆற்றலின் மூலமாகப் பயன்படுத்தப்படுகிறது."
+                },
+                {
+                    step: 2,
+                    explanation: "Ribosomes are involved in protein synthesis. The Nucleus contains the genetic material. Lysosomes are involved in digestion and waste removal.",
+                    explanationTamil: "ரிபோசோம்கள் புரதத் தொகுப்பில் ஈடுபட்டுள்ளன. உட்கரு மரபணுப் பொருளைக் கொண்டுள்ளது. லைசோசோம்கள் செரிமானம் மற்றும் கழிவு நீக்கத்தில் ஈடுபட்டுள்ளன."
+                },
+                {
+                    step: 3,
+                    explanation: "Mitochondria are the sites of cellular respiration, the process that generates ATP. Therefore, they are correctly called the 'powerhouse of the cell'.",
+                    explanationTamil: "மைட்டோகாண்ட்ரியா செல்லுலார் சுவாசத்தின் தளங்களாகும், இது ATP ஐ உருவாக்கும் செயல்முறையாகும். எனவே, அவை சரியாக 'செல்லின் ஆற்றல் மையம்' என்று அழைக்கப்படுகின்றன."
+                }
             ],
-            neetHack: "For biomagnification questions, always choose the option with the highest concentration for the organism at the top of the food chain.",
-            commonPitfall: "Thinking that the concentration remains the same across trophic levels."
+            answer: "Mitochondrion",
+            neetHack: "This is one of the most fundamental facts in biology. It's a direct recall question.",
+            commonPitfall: "Confusing mitochondria (energy) with chloroplasts (energy production in plants) or ribosomes (protein production)."
+        },
+        {
+            title: "Plant Physiology: Identifying a Hormone Function",
+            titleTamil: "தாவர செயலியல்: ஒரு ஹார்மோன் செயல்பாட்டை அடையாளம் காணுதல்",
+            difficulty: "Easy",
+            problem: "Which plant hormone is responsible for fruit ripening?",
+            problemTamil: "பழம் பழுக்க எந்த தாவர ஹார்மோன் காரணமாகும்?",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Recall the major functions of the five main plant hormones.",
+                    explanationTamil: "ஐந்து முக்கிய தாவர ஹார்மோன்களின் முக்கிய செயல்பாடுகளை நினைவுகூர்க."
+                },
+                {
+                    step: 2,
+                    explanation: "Auxin is primarily involved in cell elongation and apical dominance. Gibberellin promotes stem elongation and germination. Cytokinin promotes cell division. Abscisic acid is involved in dormancy and stress responses.",
+                    explanationTamil: "ஆக்சின் செல் நீட்சி மற்றும் நுனி ஆதிக்கத்தில் முதன்மையாக ஈடுபட்டுள்ளது. ஜிப்ரலின் தண்டு நீட்சி மற்றும் முளைத்தலை ஊக்குவிக்கிறது. சைட்டோகைனின் செல் பிரிவை ஊக்குவிக்கிறது. அப்சிசிக் அமிலம் உறக்கம் மற்றும் மன அழுத்த பதில்களில் ஈடுபட்டுள்ளது."
+                },
+                {
+                    step: 3,
+                    explanation: "Ethylene is a gaseous hormone that is unique in its role of promoting fruit ripening, senescence, and abscission.",
+                    explanationTamil: "எத்திலீன் ஒரு வாயு ஹார்மோன் ஆகும், இது பழம் பழுத்தல், மூப்படைதல் மற்றும் உதிர்தல் ஆகியவற்றை ஊக்குவிக்கும் அதன் பாத்திரத்தில் தனித்துவமானது."
+                }
+            ],
+            answer: "Ethylene",
+            neetHack: "Think of ripening bananas in a bag. They produce ethylene gas which accelerates the ripening of other fruits with them.",
+            neetHackTamil: "ஒரு பையில் பழுக்கும் வாழைப்பழங்களை நினையுங்கள். அவை எத்திலீன் வாயுவை உற்பத்தி செய்கின்றன, இது அவற்றுடன் உள்ள மற்ற பழங்களின் பழுத்தலை வேகப்படுத்துகிறது."
+        },
+        {
+            title: "Ecology: Identifying Population Interactions",
+            titleTamil: "சூழலியல்: மக்கள்தொகை இடைவினைகளை அடையாளம் காணுதல்",
+            difficulty: "Medium",
+            problem: "The interaction where one species benefits and the other is neither harmed nor benefited is called:",
+            problemTamil: "ஒரு சிற்றினம் பயனடையும் மற்றும் மற்றொன்று பாதிக்கப்படாமலும் பயனடையாமலும் இருக்கும் இடைவினை என்னவென்று அழைக்கப்படுகிறது?",
+            solutionSteps: [
+                {
+                    step: 1,
+                    explanation: "Analyze the interaction type based on the outcomes for the two species (+, -, 0).",
+                    explanationTamil: "இரண்டு சிற்றினங்களுக்கான விளைவுகளின் அடிப்படையில் (+, -, 0) இடைவினை வகையை பகுப்பாய்வு செய்யவும்."
+                },
+                {
+                    step: 2,
+                    explanation: "Parasitism is (+,-). Mutualism is (+,+). Competition is (-,-). Predation is (+,-).",
+                    explanationTamil: "ஒட்டுண்ணிவாழ்க்கை (+,-). ஒன்றியவாழ்வு (+,+). போட்டி (-,-). இரைகொல்லி (+,-)."
+                },
+                {
+                    step: 3,
+                    explanation: "The given interaction is (+, 0). This defines commensalism.",
+                    explanationTamil: "கொடுக்கப்பட்ட இடைவினை (+, 0) ஆகும். இது உடன்வாழ்வை வரையறுக்கிறது."
+                },
+                {
+                    step: 4,
+                    explanation: "A classic example is an orchid growing on a mango tree. The orchid gets a place to grow (benefit, +), while the mango tree is unaffected (neutral, 0).",
+                    explanationTamil: "ஒரு மாமரத்தில் வளரும் ஆர்க்கிட் ஒரு சிறந்த எடுத்துக்காட்டு. ஆர்க்கிட் வளர ஒரு இடத்தைப் பெறுகிறது (பயன், +), அதேசமயம் மாமரம் பாதிக்கப்படவில்லை (நடுநிலை, 0)."
+                }
+            ],
+            answer: "Commensalism",
+            neetHack: "Create a simple table with all six interactions and their (+, -, 0) signs for quick recall. This is a very common conceptual question.",
+            commonPitfall: "Confusing commensalism (+, 0) with mutualism (+, +)."
         }
     ],
-    mcqs: [
-        { question: "The powerhouse of the cell is:", options: ["A. Nucleus", "B. Ribosome", "C. Mitochondrion", "D. Chloroplast"], answer: "C. Mitochondrion", explanation: "Mitochondria are the sites of cellular respiration and ATP synthesis.", neetFrequency: 5 },
-        { question: "Which hormone is responsible for the closing of stomata during water stress?", options: ["A. Auxin", "B. Gibberellin", "C. Cytokinin", "D. Abscisic acid (ABA)"], answer: "D. Abscisic acid (ABA)", explanation: "ABA is known as the stress hormone and causes stomatal closure to conserve water.", neetFrequency: 4 },
-        { question: "The final product of glycolysis is:", options: ["A. Acetyl-CoA", "B. Pyruvic acid", "C. Glucose-6-phosphate", "D. Citric acid"], answer: "B. Pyruvic acid", explanation: "Glycolysis breaks down one molecule of glucose into two molecules of pyruvic acid.", neetFrequency: 3 },
-        { question: "Double fertilization is a characteristic feature of:", options: ["A. Gymnosperms", "B. Algae", "C. Angiosperms", "D. Fungi"], answer: "C. Angiosperms", explanation: "Double fertilization is a unique feature of flowering plants (angiosperms).", neetFrequency: 5 },
-        { question: "A test cross involves crossing an F1 hybrid with:", options: ["A. Another F1 hybrid", "B. A homozygous recessive parent", "C. A homozygous dominant parent", "D. Any parent"], answer: "B. A homozygous recessive parent", explanation: "A test cross is used to determine the genotype of an individual with a dominant phenotype.", neetFrequency: 4 },
-        { question: "The law of independent assortment is applicable for genes that are:", options: ["A. Located on the same chromosome", "B. Located on different chromosomes", "C. Dominant over each other", "D. Recessive"], answer: "B. Located on different chromosomes", explanation: "Genes located on different chromosomes assort independently during gamete formation.", neetFrequency: 4 },
-        { question: "The process of transcription involves the synthesis of:", options: ["A. DNA from DNA", "B. RNA from DNA", "C. Protein from RNA", "D. DNA from RNA"], answer: "B. RNA from DNA", explanation: "Transcription is the process of creating an RNA copy of a DNA sequence.", neetFrequency: 5 },
-        { question: "Which of the following is an example of a vestigial organ in humans?", options: ["A. Pancreas", "B. Spleen", "C. Appendix", "D. Liver"], answer: "C. Appendix", explanation: "The appendix is considered a vestigial organ as its function is non-essential.", neetFrequency: 2 },
-        { question: "In an ecosystem, the 10% law of energy transfer was given by:", options: ["A. Tansley", "B. Haeckel", "C. Lindeman", "D. Odum"], answer: "C. Lindeman", explanation: "Raymond Lindeman gave the ten percent law of energy transfer between trophic levels.", neetFrequency: 3 },
-        { question: "The interaction between an orchid and a mango tree is an example of:", options: ["A. Parasitism", "B. Mutualism", "C. Commensalism", "D. Predation"], answer: "C. Commensalism", explanation: "The orchid benefits by getting a substrate to grow on, while the mango tree is unaffected.", neetFrequency: 5 },
-        { question: "Which part of the human eye contains photoreceptor cells?", options: ["A. Cornea", "B. Iris", "C. Lens", "D. Retina"], answer: "D. Retina", neetFrequency: 3 },
-        { question: "Which blood group is known as the 'universal donor'?", options: ["A. A", "B. B", "C. AB", "D. O"], answer: "D. O", neetFrequency: 4 },
-        { question: "The 'pacemaker' of the human heart is:", options: ["A. SA node", "B. AV node", "C. Purkinje fibers", "D. Bundle of His"], answer: "A. SA node", neetFrequency: 5 },
-        { question: "The functional unit of the kidney is:", options: ["A. Neuron", "B. Nephron", "C. Alveolus", "D. Sarcomere"], answer: "B. Nephron", neetFrequency: 4 },
-        { question: "Which plant hormone is responsible for fruit ripening?", options: ["A. Auxin", "B. Gibberellin", "C. Ethylene", "D. Cytokinin"], answer: "C. Ethylene", neetFrequency: 5 },
-        { question: "A cross between a red flower (RR) and a white flower (rr) producing a pink flower (Rr) is an example of:", options: ["A. Dominance", "B. Co-dominance", "C. Incomplete dominance", "D. Epistasis"], answer: "C. Incomplete dominance", neetFrequency: 4 },
-        { question: "The 'operon' concept of gene regulation was given by:", options: ["A. Watson and Crick", "B. Mendel", "C. Jacob and Monod", "D. Morgan"], answer: "C. Jacob and Monod", neetFrequency: 3 },
-        { question: "The wings of a bat and the wings of a bird are examples of:", options: ["A. Homologous structures", "B. Analogous structures", "C. Vestigial structures", "D. Atavism"], answer: "B. Analogous structures", neetFrequency: 4 },
-        { question: "Which gas is primarily responsible for the greenhouse effect?", options: ["A. Oxygen", "B. Nitrogen", "C. Carbon Dioxide", "D. Hydrogen"], answer: "C. Carbon Dioxide", neetFrequency: 2 },
-        { question: "The Montreal Protocol is associated with the protection of:", options: ["A. Biodiversity", "B. Ozone layer", "C. Tropical forests", "D. Wetlands"], answer: "B. Ozone layer", neetFrequency: 3 },
-        { question: "The fluid mosaic model explains the structure of:", options: ["A. Cell wall", "B. Nucleus", "C. Cell membrane", "D. Ribosome"], answer: "C. Cell membrane", neetFrequency: 3 },
-        { question: "The final electron acceptor in the mitochondrial electron transport chain is:", options: ["A. Water", "B. Oxygen", "C. NAD+", "D. Cytochrome c"], answer: "B. Oxygen", neetFrequency: 4 },
-        { question: "The process of spermatogenesis occurs in the:", options: ["A. Epididymis", "B. Vas deferens", "C. Seminiferous tubules", "D. Prostate gland"], answer: "C. Seminiferous tubules", neetFrequency: 3 },
-        { question: "Which of the following STDs is not curable?", options: ["A. Syphilis", "B. Gonorrhoea", "C. Genital Herpes", "D. Chlamydiasis"], answer: "C. Genital Herpes", neetFrequency: 2 },
-        { question: "The chromosomal condition for Turner's Syndrome is:", options: ["A. XXY", "B. XO", "C. XXX", "D. XYY"], answer: "B. XO", neetFrequency: 3 },
-        { question: "The theory of 'use and disuse' was proposed by:", options: ["A. Darwin", "B. Lamarck", "C. Wallace", "D. Weismann"], answer: "B. Lamarck", neetFrequency: 1 },
-        { question: "The pyramid of energy in an ecosystem is always:", options: ["A. Upright", "B. Inverted", "C. Spindle-shaped", "D. Can be of any shape"], answer: "A. Upright", neetFrequency: 5 },
-        { question: "The enzyme responsible for fixing carbon dioxide in C3 plants is:", options: ["A. PEP carboxylase", "B. RuBisCO", "C. Carbonic anhydrase", "D. Aldolase"], answer: "B. RuBisCO", neetFrequency: 4 },
-        { question: "Which part of the human brain is the center for thought, memory, and intelligence?", options: ["A. Cerebellum", "B. Medulla oblongata", "C. Cerebrum", "D. Hypothalamus"], answer: "C. Cerebrum", neetFrequency: 2 },
-        { question: "Which of the following is a water-soluble vitamin?", options: ["A. Vitamin A", "B. Vitamin D", "C. Vitamin E", "D. Vitamin C"], answer: "D. Vitamin C", neetFrequency: 1 },
-        { question: "The correct sequence of the cell cycle is:", options: ["A. G1 -> G2 -> S -> M", "B. S -> G1 -> G2 -> M", "C. G1 -> S -> G2 -> M", "D. M -> G1 -> G2 -> S"], answer: "C. G1 -> S -> G2 -> M", neetFrequency: 3 },
-        { question: "Crossing over occurs during which stage of meiosis?", options: ["A. Leptotene", "B. Zygotene", "C. Pachytene", "D. Diplotene"], answer: "C. Pachytene", neetFrequency: 4 },
-        { question: "Which of the following is the most abundant protein in the animal world?", options: ["A. Insulin", "B. Hemoglobin", "C. Collagen", "D. RuBisCO"], answer: "C. Collagen", neetFrequency: 2 },
-        { question: "The process of formation of a mature female gamete is called:", options: ["A. Spermatogenesis", "B. Oogenesis", "C. Gametogenesis", "D. Menstruation"], answer: "B. Oogenesis", neetFrequency: 3 },
-        { question: "Which of the following is a non-reducing sugar?", options: ["A. Glucose", "B. Maltose", "C. Lactose", "D. Sucrose"], answer: "D. Sucrose", neetFrequency: 4 },
-        { question: "The Hardy-Weinberg principle explains:", options: ["A. Genetic drift", "B. Natural selection", "C. Genetic equilibrium", "D. Speciation"], answer: "C. Genetic equilibrium", neetFrequency: 2 },
-        { question: "Which of the following is NOT a greenhouse gas?", options: ["A. Methane", "B. Carbon dioxide", "C. Water vapour", "D. Oxygen"], answer: "D. Oxygen", neetFrequency: 1 },
-        { question: "The 'lock and key' hypothesis is related to:", options: ["A. DNA replication", "B. Enzyme action", "C. Protein synthesis", "D. Muscle contraction"], answer: "B. Enzyme action", neetFrequency: 3 },
-        { question: "Which hormone is known as the 'emergency hormone'?", options: ["A. Thyroxine", "B. Insulin", "C. Adrenaline", "D. Glucagon"], answer: "C. Adrenaline", neetFrequency: 4 },
-        { question: "The structure of DNA was given by:", options: ["A. Mendel", "B. Morgan", "C. Watson and Crick", "D. Khorana"], answer: "C. Watson and Crick", neetFrequency: 2 },
-        { question: "The process of 'guttation' is a result of:", options: ["A. Diffusion", "B. Root pressure", "C. Transpiration", "D. Osmosis"], answer: "B. Root pressure", neetFrequency: 3 },
-        { question: "Which of the following is a link between glycolysis and the Krebs cycle?", options: ["A. Pyruvic acid", "B. Citric acid", "C. Acetyl-CoA", "D. Malic acid"], answer: "C. Acetyl-CoA", neetFrequency: 5 },
-        { question: "The part of the human brain that controls body temperature and hunger is:", options: ["A. Thalamus", "B. Hypothalamus", "C. Cerebellum", "D. Pons"], answer: "B. Hypothalamus", neetFrequency: 3 },
-        { question: "Which of the following is a primary consumer in a food chain?", options: ["A. Lion", "B. Eagle", "C. Grasshopper", "D. Snake"], answer: "C. Grasshopper", neetFrequency: 2 },
-        { question: "The anther contains:", options: ["A. Ovules", "B. Pistil", "C. Pollen grains", "D. Sepals"], answer: "C. Pollen grains", neetFrequency: 1 },
-        { question: "Which blood cells are involved in the immune response?", options: ["A. Erythrocytes (RBCs)", "B. Thrombocytes (Platelets)", "C. Leucocytes (WBCs)", "D. All of the above"], answer: "C. Leucocytes (WBCs)", neetFrequency: 3 },
-        { question: "In a DNA molecule, the percentage of cytosine is 18%. What will be the percentage of adenine?", options: ["A. 18%", "B. 32%", "C. 36%", "D. 64%"], answer: "B. 32%", neetFrequency: 4 },
-        { question: "The process of 'parturition' refers to:", options: ["A. Fertilization", "B. Implantation", "C. Childbirth", "D. Ovulation"], answer: "C. Childbirth", neetFrequency: 2 },
-        { question: "The theory of natural selection was proposed by:", options: ["A. Lamarck", "B. Darwin", "C. Mendel", "D. Pasteur"], answer: "B. Darwin", neetFrequency: 3 },
-        { question: "The final acceptor of electrons in the light reaction of photosynthesis is:", options: ["A. Oxygen", "B. NADP+", "C. Water", "D. Chlorophyll"], answer: "B. NADP+", neetFrequency: 4 }
-    ],
-    assertionReasons: [
-        { assertion: "The total energy of a satellite orbiting the Earth is negative.", reason: "It is a bound system.", answer: "A", explanation: "A negative total energy signifies that the satellite does not have enough energy to escape the Earth's gravitational pull, hence it is a bound system.", neetFrequency: 4 },
-        { assertion: "All enzymes are proteins, but all proteins are not enzymes.", reason: "Ribozymes are nucleic acids that act as enzymes.", answer: "B", explanation: "The first statement is a commonly accepted simplification, though technically incorrect due to ribozymes. The second statement is true and highlights an exception. However, it doesn't explain the first part. The reason all proteins aren't enzymes is that they can have other functions (structural, transport, etc.).", neetFrequency: 3 },
-        { assertion: "The two strands of a DNA double helix are anti-parallel.", reason: "One strand runs in the 5' to 3' direction, while the other runs in the 3' to 5' direction.", answer: "A", explanation: "The reason is the correct definition and explanation of what 'anti-parallel' means in the context of DNA structure.", neetFrequency: 5 },
-        { assertion: "In a food chain, the energy decreases at each successive trophic level.", reason: "A large part of the energy is lost as heat during metabolic activities at each level.", answer: "A", explanation: "The assertion is true (10% law). The reason is also true and is the correct explanation for this energy loss.", neetFrequency: 4 },
-        { assertion: "A person with AB blood group is a universal recipient.", reason: "AB blood group has no antibodies (anti-A and anti-B) in the plasma.", answer: "A", explanation: "Assertion is true. The reason is also true and is the correct explanation for why they can receive blood from any group without agglutination.", neetFrequency: 3 }
-    ],
-    matchTheColumns: [
-        { column1: ["(a) Photosynthesis", "(b) Respiration", "(c) Transpiration", "(d) Fertilization"], column2: ["(p) Stomata", "(q) Mitochondria", "(r) Fallopian tube", "(s) Chloroplast"], answer: "a-s, b-q, c-p, d-r", explanation: "Matching biological processes with the location where they occur." },
-        { column1: ["(a) Darwin", "(b) Mendel", "(c) Watson & Crick", "(d) Pasteur"], column2: ["(p) Laws of Inheritance", "(q) Swan-neck experiment", "(r) Natural Selection", "(s) DNA double helix"], answer: "a-r, b-p, c-s, d-q", explanation: "Matching scientists with their key contributions." },
-        { column1: ["(a) Ribosome", "(b) Lysosome", "(c) Nucleus", "(d) Cell Membrane"], column2: ["(p) Suicidal bags", "(q) Control center", "(r) Selective permeability", "(s) Protein factory"], answer: "a-s, b-p, c-q, d-r", explanation: "Matching cell organelles with their nicknames or primary functions." },
-        { column1: ["(a) Insulin", "(b) Thyroxine", "(c) Growth Hormone", "(d) Adrenaline"], column2: ["(p) Pituitary gland", "(q) Adrenal gland", "(r) Thyroid gland", "(s) Pancreas"], answer: "a-s, b-r, c-p, d-q", explanation: "Matching hormones with the glands that secrete them." },
-        { column1: ["(a) Monohybrid cross ratio", "(b) Dihybrid cross ratio", "(c) Incomplete dominance ratio", "(d) Test cross ratio"], column2: ["(p) 1:2:1", "(q) 1:1", "(r) 3:1", "(s) 9:3:3:1"], answer: "a-r, b-s, c-p, d-q", explanation: "Matching types of genetic crosses with their characteristic phenotypic ratios in F2 (or for test cross)." }
-    ],
+    mcqs: [],
+    assertionReasons: [],
+    matchTheColumns: [],
     keyFormulasAndDiagrams: {
         formulas: [
-            { formula: "F_net = ma", description: "Newton's Second Law", descriptionTamil: "நியூட்டனின் இரண்டாம் விதி" },
-            { formula: "K.E. = 1/2 mv^2", description: "Kinetic Energy", descriptionTamil: "இயக்க ஆற்றல்" },
-            { formula: "p^2 + 2pq + q^2 = 1", description: "Hardy-Weinberg Equilibrium", descriptionTamil: "ஹார்டி-வெயின்பெர்க் சமநிலை" }
+            {
+                formula: "Phenotypic Ratio (Dihybrid Cross) = 9:3:3:1",
+                description: "The standard phenotypic ratio for an F2 generation in a dihybrid cross involving independent assortment.",
+                descriptionTamil: "ஒரு இருபண்புக் கலப்பில் F2 தலைமுறைக்கான நிலையான புறத்தோற்ற விகிதம்."
+            },
+            {
+                formula: "CO = HR × SV",
+                description: "Cardiac Output = Heart Rate × Stroke Volume",
+                descriptionTamil: "இதய வெளியேற்ற அளவு = இதயத் துடிப்பு × ஒரு துடிப்பிற்கான வெளியேற்ற அளவு"
+            }
         ],
-        diagrams: [
-            { title: "Punnett Square", description: "A diagram used to predict the genotypes of a particular cross or breeding experiment.", diagram: "[[Placeholder for Punnett Square UI]]" },
-            { title: "Lac Operon", description: "A diagram showing the regulation of gene expression in prokaryotes.", diagram: "[[Placeholder for Lac Operon UI]]" },
-            { title: "Human Heart", description: "A diagram showing the four chambers and major blood vessels of the human heart.", diagram: "[[Placeholder for Human Heart UI]]" }
-        ]
+        diagrams: []
     },
     keyTakeaways: [
         "Mastery of these seven chapters provides a very strong foundation for the entire NEET biology syllabus.",
         "Using analogies and connecting concepts to daily life enhances understanding and retention.",
-        "Understanding 'why' a concept works is more important than just memorizing the 'what'.",
+        "Understanding 'why' a biological process works is more important than just memorizing the 'what'.",
         "Consistent practice of application-based questions is the key to converting conceptual knowledge into high scores."
     ],
     mnemonics: [
@@ -329,7 +328,7 @@ export const takeItEasyBiologyModule: NeetModule = {
         { text: "For taxonomy classification: 'King Philip Came Over For Good Soup' (Kingdom, Phylum, Class, Order, Family, Genus, Species).", tamil: "'அரசர் பிலிப் நல்ல சூப்பிற்காக வந்தார்' (உலகம், தொகுதி, வகுப்பு, வரிசை, குடும்பம், பேரினம், சிற்றினம்)." }
     ],
     neetTips: [
-        { text: "In genetics problems, always write down the genotypes and possible gametes before drawing the Punnett square. It prevents careless mistakes.", tamil: "மரபியல் கணக்குகளில், புன்னட் கட்டத்தை வரைவதற்கு முன்பு எப்போதும் மரபு வகைகள் மற்றும் சாத்தியமான கேமட்களை எழுதவும். இது கவனக்குறைவான தவறுகளைத் தடுக்கிறது." },
+        { text: "In genetics problems, always write down the genotypes and possible gametes before drawing the Punnett square. It prevents careless mistakes.", tamil: "மரபியல் கணக்குகளில், புன்னட் கட்டத்தை வரைவதற்கு முன்பு எப்போதும் மரபு வகைகளையும் சாத்தியமான கேமட்களையும் எழுதவும். இது கவனக்குறைவான தவறுகளைத் தடுக்கிறது." },
         { text: "For human physiology, create flowcharts for hormonal control pathways (e.g., the menstrual cycle). Visualizing the feedback loops is crucial.", tamil: "மனித உடற்செயலியலுக்கு, ஹார்மோன் கட்டுப்பாட்டுப் பாதைகளுக்கு (எ.கா., மாதவிடாய் சுழற்சி) பாய்வு வரைபடங்களை உருவாக்கவும். பின்னூட்ட சுழல்களைக் காட்சிப்படுத்துவது முக்கியம்." }
     ]
 };
