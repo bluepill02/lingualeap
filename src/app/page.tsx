@@ -33,8 +33,8 @@ export default function LandingPage() {
             <div className="absolute inset-0 z-0">
                 <Image 
                     src="https://picsum.photos/1200/800"
-                    alt="Abstract background of a modern library, symbolizing learning."
-                    data-ai-hint="professional learning"
+                    alt="An abstract image representing a diverse and collaborative learning environment."
+                    data-ai-hint="collaborative learning"
                     fill
                     sizes="100vw"
                     className="object-cover opacity-5"
@@ -45,10 +45,10 @@ export default function LandingPage() {
 
             <div className="container relative z-10 mx-auto flex flex-col items-center px-4">
                 <h1 className="text-5xl font-extrabold tracking-tight font-headline lg:text-7xl">
-                    Your Gateway to Global Languages
+                    Your Personal Learning Universe
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-                    Our platform combines proven learning science with AI-powered tools to create a professional and effective path to fluency.
+                    Master new languages, ace competitive exams, and connect with peers in collaborative study circles. Your complete learning journey starts here.
                 </p>
                 <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
                     <Link href="/auth">
@@ -56,9 +56,9 @@ export default function LandingPage() {
                             Start Your Journey <ArrowRight className="ml-2" />
                         </Button>
                     </Link>
-                    <Link href="/language-selection">
+                    <Link href="/dashboard">
                         <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                            Explore Courses
+                            Explore Features
                         </Button>
                     </Link>
                 </div>
