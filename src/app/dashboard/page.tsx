@@ -364,7 +364,7 @@ export default function DashboardPage() {
         <Card className="bg-primary/5 border-primary/20">
             <CardHeader>
                 <CardTitle className="flex items-center gap-3"><ClipboardCheck/> Exam Prep Zone</CardTitle>
-                <CardDescription>Access specialized modules for competitive exams like NEET and TNPSC to boost your preparation.</CardDescription>
+                <CardDescription>Access specialized modules and AI-generated study notes for competitive exams like NEET and TNPSC.</CardDescription>
             </CardHeader>
             <CardContent>
                 <Link href="/exam-prep">
