@@ -88,6 +88,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             {learningObjectives.map((obj, index) => (
                                 <li key={index}>{obj}</li>
                             ))}
+                        </ul>
                         </CardContent>
                     </Card>
                     
@@ -105,6 +106,7 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             {prerequisites.map((req, index) => (
                                 <li key={index}>{req}</li>
                             ))}
+                        </ul>
                         </CardContent>
                     </Card>
 
@@ -139,14 +141,14 @@ function ChapterContent({ content }: { content: NeetModule }) {
                             </CardHeader>
                             <CardContent className="p-4 pt-0 text-green-50 prose-sm">
                                 <MarkdownRenderer>{culturalContext}</MarkdownRenderer>
-                            CardContent>
+                            </CardContent>
                             </Card>
                         )}
 
-                        CardContent>
-                    Card>
+                        </CardContent>
+                    </Card>
                     <SyllabusMappingCard mapping={syllabusMapping} />
-                div>
+                </div>
             );
         case 'learn':
             return <ConceptNotesCard content={conceptNotes || []} />;
@@ -160,67 +162,64 @@ function ChapterContent({ content }: { content: NeetModule }) {
             return (
                 <div className="space-y-6">
                     {mnemonics && mnemonics.length > 0 && <Card>
-                        CardHeader>
+                        <CardHeader>
                             <CardTitle className="flex items-center justify-center gap-2"><Brain /> Memory Mnemonic</CardTitle>
-                        CardHeader>
+                        </CardHeader>
                         <CardContent className="card-padding-lg space-y-4 text-center">
                             {mnemonics.map((mnemonic, index) => (
                                 <div key={index} className="w-full text-center p-4 rounded-md bg-primary/10 border border-primary/20">
-                                BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
-                                div>
+                                    <BilingualText english={mnemonic.text} tamil={mnemonic.tamil} />
+                                </div>
                             ))}
-                        CardContent>
-                    Card>}
+                        </CardContent>
+                    </Card>}
                     {keyTakeaways && keyTakeaways.length > 0 && <Card>
-                        CardHeader>
+                        <CardHeader>
                             <CardTitle>Chapter Summary</CardTitle>
-                        CardHeader>
+                        </CardHeader>
                         <CardContent className="card-padding-lg space-y-4">
                             {keyTakeaways.map((point, index) => (
                                 <div key={index} className="flex items-start gap-3">
-                                    Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
-                                    div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer>div>
-                                div>
+                                    <Trophy className="w-5 h-5 text-yellow-500 mt-1"/>
+                                    <div className="prose dark:prose-invert max-w-none text-muted-foreground"><MarkdownRenderer>{point || ''}</MarkdownRenderer></div>
+                                </div>
                             ))}
-                        CardContent>
-                    Card>}
+                        </CardContent>
+                    </Card>}
                     {neetTips && (nextChapter || studentTip || peerDiscussion) && <Card>
-                        CardHeader>
+                        <CardHeader>
                             <CardTitle>NEET Tips & Next Steps</CardTitle>
-                        CardHeader>
+                        </CardHeader>
                         <CardContent className="card-padding-lg space-y-4">
                             {neetTips.map((tip, index) => (
                                 <div key={index} className="flex items-start gap-3">
-                                    Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
-                                    BilingualText english={tip.text} tamil={tip.tamil} />
-                                div>
+                                    <Lightbulb className="w-5 h-5 text-yellow-500 mt-1"/>
+                                    <BilingualText english={tip.text} tamil={tip.tamil} />
+                                </div>
                             ))}
                             {(nextChapter || studentTip || peerDiscussion) && 
-                            Alert className="bg-primary/10 border-primary/20">
-                                <>
-                                    AlertTitle>
-                                        {nextChapter ? (
-                                             Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} />
-                                        ) : (
-                                            >
-                                        )}
-                                    AlertTitle>
-                                    AlertDescriptionComponent className="mt-2 space-y-2">
-                                        {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
-                                            strong>Student Tip:/strong> 
-                                            BilingualText english={studentTip.english} tamil={studentTip.tamil} />
-                                        div>}
-                                        {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
-                                            strong>Peer Discussion:/strong> 
-                                            BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
-                                        div>}
-                                    AlertDescriptionComponent>
-                                <>
-                            Alert>
+                            <Alert className="bg-primary/10 border-primary/20">
+                                <Info className="h-4 w-4" />
+                                <AlertTitle>
+                                    <span>
+                                        {nextChapter ? <BilingualText english={`Next Module: ${nextChapter.title}`} tamil={nextChapter.titleTamil} /> : null}
+                                    </span>
+                                </AlertTitle>
+                                <AlertDescriptionComponent className="mt-2 space-y-2">
+                                    {studentTip && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                        <strong>Student Tip:</strong> 
+                                        <BilingualText english={studentTip.english} tamil={studentTip.tamil} />
+                                    </div>}
+                                    {peerDiscussion && <div className="prose dark:prose-invert max-w-none text-muted-foreground">
+                                        <strong>Peer Discussion:</strong> 
+                                        <BilingualText english={peerDiscussion.english} tamil={peerDiscussion.tamil} />
+                                    </div>}
+                                </AlertDescriptionComponent>
+                            </Alert>
                             }
-                        CardContent>
-                    Card>}
-                div>
+                        </CardContent>
+                    </Card>}
+                </div>
             );
         default:
             return null;
@@ -228,84 +227,85 @@ function ChapterContent({ content }: { content: NeetModule }) {
   }
 
   return (
-    div className="container mx-auto space-y-6">
-      header className="flex items-center justify-between">
-         div className="flex items-center gap-4">
-            Link href="/exam-prep/neet/physics">
-                Button variant="ghost" size="icon" aria-label="Back to NEET Physics chapters">
-                    ArrowLeft className="w-5 h-5" />
-                Button>
-            Link>
-            div className="flex items-center gap-4">
-                div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-500/20 text-blue-400">
+    <div className="container mx-auto space-y-6">
+      <header className="flex items-center justify-between">
+         <div className="flex items-center gap-4">
+            <Link href="/exam-prep/neet/physics">
+                <Button variant="ghost" size="icon" aria-label="Back to NEET Physics chapters">
+                    <ArrowLeft className="w-5 h-5" />
+                </Button>
+            </Link>
+            <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-blue-500/20 text-blue-400">
                     {getIcon()}
-                div>
-                div>
-                    h1 className="text-2xl font-bold font-headline">{title}h1>
-                    p className="text-muted-foreground">Physics/pp>
-                div>
-            div>
-        div>
-      header>
+                </div>
+                <div>
+                    <h1 className="text-2xl font-bold font-headline">{title}</h1>
+                    <p className="text-muted-foreground">Physics</p>
+                </div>
+            </div>
+        </div>
+      </header>
 
-      Card>
-        CardContent className="p-4">
-            div className="flex justify-between items-center mb-1 text-sm">
-                span className="text-muted-foreground font-semibold">Study Progress/span>
-                span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed/span>
-            div>
-            Progress value={progress} className="h-2 [&>div]:bg-primary" />
-        CardContent>
-      Card>
+      <Card>
+        <CardContent className="p-4">
+            <div className="flex justify-between items-center mb-1 text-sm">
+                <span className="text-muted-foreground font-semibold">Study Progress</span>
+                <span className="font-bold text-primary">{completedSections.length}/{totalSections} sections completed</span>
+            </div>
+            <Progress value={progress} className="h-2 [&>div]:bg-primary" />
+        </CardContent>
+      </Card>
       
-      div className="md:grid md:grid-cols-4 gap-8">
-        aside className="md:col-span-1 mb-6 md:mb-0">
-            div className="sticky top-24">
-                h3 className="font-headline text-lg mb-2">Chapter Sections/h3>
-                nav className="flex flex-col space-y-1">
+      <div className="md:grid md:grid-cols-4 gap-8">
+        <aside className="md:col-span-1 mb-6 md:mb-0">
+            <div className="sticky top-24">
+                <h3 className="font-headline text-lg mb-2">Chapter Sections</h3>
+                <nav className="flex flex-col space-y-1">
                     {TABS.map(tab => (
-                        Button
+                        <Button
                             key={tab.id}
                             variant={activeTab === tab.id ? 'secondary' : 'ghost'}
                             onClick={() => setActiveTab(tab.id)}
                             className="justify-start pl-2"
                         >
-                            tab.icon className="mr-2 h-4 w-4" />
-                            {completedSections.includes(tab.id) && CheckCircle className="ml-auto h-4 w-4 text-success" />}
-                        Button>
+                            <tab.icon className="mr-2 h-4 w-4" />
+                            <span>{tab.label}</span>
+                            {completedSections.includes(tab.id) && <CheckCircle className="ml-auto h-4 w-4 text-success" />}
+                        </Button>
                     ))}
-                nav>
-            div>
-        aside>
+                </nav>
+            </div>
+        </aside>
 
-        main className="md:col-span-3 space-y-6">
-            TabContent />
-            Card className="bg-muted/30">
-                CardContent className="p-4 text-center">
-                    Button onClick={() => handleCompleteSection(activeTab)}>
+        <main className="md:col-span-3 space-y-6">
+            <TabContent />
+            <Card className="bg-muted/30">
+                <CardContent className="p-4 text-center">
+                    <Button onClick={() => handleCompleteSection(activeTab)}>
                         {completedSections.includes(activeTab) 
                          ? <><CheckCircle className='mr-2'/> Section Completed</> 
-                         : <>Mark as Complete & Go to Next  />/
+                         : <>Mark as Complete & Go to Next <ChevronsRight className="ml-2"/></>
                         }
-                    Button>
-                CardContent>
-            Card>
-        main>
-      div>
+                    </Button>
+                </CardContent>
+            </Card>
+        </main>
+      </div>
       
-       Card className="mt-8 border-2 border-primary shadow-lg">
-        CardHeader className="text-center">
-            Trophy className="h-10 w-10 mx-auto text-yellow-400" />
-            CardTitle>Finish Line/CardTitle>
-            CardDescription>Complete all sections to unlock your XP!/CardDescription>
-        CardHeader>
-        CardContent className="p-6 text-center">
-            Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>
+       <Card className="mt-8 border-2 border-primary shadow-lg">
+        <CardHeader className="text-center">
+            <Trophy className="h-10 w-10 mx-auto text-yellow-400" />
+            <CardTitle>Finish Line</CardTitle>
+            <CardDescription>Complete all sections to unlock your XP!</CardDescription>
+        </CardHeader>
+        <CardContent className="p-6 text-center">
+            <Button size="lg" disabled={completedSections.length < totalSections} onClick={handleClaimXp}>
                 Complete Chapter & Claim 150 XP
-            Button>
-        CardContent>
-       Card>
-    div>
+            </Button>
+        </CardContent>
+       </Card>
+    </div>
   );
 }
 
@@ -321,5 +321,5 @@ export default function NeetChapterClientPage({ content }: NeetChapterClientPage
     setIsClient(true)
   }, [])
 
-  return <>{isClient ?  content={content} /> : Loading.../>}</>
+  return <>{isClient ? <ChapterContent content={content} /> : <div>Loading...</div>}</>
 }
