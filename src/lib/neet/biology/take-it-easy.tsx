@@ -17,9 +17,8 @@ export const takeItEasyBiologyModule: NeetModule = {
     conceptOverview: "This special module is designed to tackle the seven most challenging units for Tamil Nadu students. Instead of a linear progression, we will use simplified language, relatable analogies from our culture, and targeted examples to demystify complex topics. The goal is to build confidence and provide a strong foundation, making difficult concepts feel easy and intuitive.",
     
     conceptNotes: [
-        // --- Cell Biology ---
         {
-            heading: { english: 'Cell: The Unit of Life (Cell as a Kovil)', tamil: 'செல்: வாழ்வின் அலகு (ஒரு கோவில் வளாகமாக செல்)' },
+            heading: { english: '1. Cell: The Unit of Life (Cell as a Kovil)', tamil: '1. செல்: வாழ்வின் அலகு (ஒரு கோவில் வளாகமாக செல்)' },
             content: [
                 {
                     english: "Don't think of a cell as a boring diagram. Imagine it as a bustling **Kovil (Temple Complex)**, a concept very familiar to us.",
@@ -46,9 +45,8 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-        // --- Plant Physiology ---
         {
-            heading: { english: 'Plant Physiology (A Solar-Powered Kitchen)', tamil: 'தாவர செயலியல் (ஒரு சூரிய சக்தி சமையலறை)' },
+            heading: { english: '2. Plant Physiology (A Solar-Powered Kitchen)', tamil: '2. தாவர செயலியல் (ஒரு சூரிய சக்தி சமையலறை)' },
             content: [
                 {
                     english: `**Photosynthesis (ஒளிச்சேர்க்கை):** It's not just a formula. It's a plant's solar-powered kitchen.
@@ -73,14 +71,12 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-        // --- Human Physiology ---
         {
-            heading: { english: 'Human Physiology (A Complex Orchestra)', tamil: 'மனித உடற்செயலியல் (ஒரு சிக்கலான இசைக்குழு)' },
+            heading: { english: '3. Human Physiology (A Complex Orchestra)', tamil: '3. மனித உடற்செயலியல் (ஒரு சிக்கலான இசைக்குழு)' },
             content: [
                 {
                     english: `Instead of memorizing separate systems, think of the body as an orchestra where each section must play in harmony.
 *   **Neural System (நரம்பு மண்டலம்):** The Conductor (இசை அமைப்பாளர்). It uses fast electrical signals (nerve impulses) to give instant commands.
-    {{NEURON_FIRING_ANIMATION}}
 *   **Endocrine System (நாளமில்லாச் சுரப்பி மண்டலம்):** The Manager. It uses slower chemical signals (hormones) sent through the bloodstream to manage long-term processes like growth and metabolism.
 *   **Digestive & Respiratory Systems:** The 'Supply Crew'. They bring in the fuel (food) and oxygen needed for the orchestra to play.
 *   **Circulatory System (சுற்றோட்ட மண்டலம்):** The 'Logistics Team'. It transports the fuel and oxygen to every musician (cell) and removes waste.
@@ -94,9 +90,8 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-        // --- Genetics & Evolution ---
         {
-            heading: { english: 'Genetics (A Family Recipe Book)', tamil: 'மரபியல் (ஒரு குடும்ப சமையல் புத்தகம்)' },
+            heading: { english: '4. Genetics (A Family Recipe Book)', tamil: '4. மரபியல் (ஒரு குடும்ப சமையல் புத்தகம்)' },
             content: [
                 {
                     english: `Genetics is like a family's secret recipe book (the DNA).
@@ -114,17 +109,15 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-         // --- Ecology & Environment ---
-        {
-            heading: { english: 'Ecology (A Village Ecosystem)', tamil: 'சூழலியல் (ஒரு கிராமச் சூழல் மண்டலம்)' },
+         {
+            heading: { english: '5. Ecology & Environment (A Village Ecosystem)', tamil: '5. சூழலியல் (ஒரு கிராமச் சூழல் மண்டலம்)' },
             content: [
                 {
                     english: `Think of an ecosystem like a village community.
 *   **Producers (உற்பத்தியாளர்கள்):** The farmers (தாவரங்கள் - plants) who produce food for the entire village.
 *   **Primary Consumers (முதல்நிலை நுகர்வோர்):** The villagers (மாடு, ஆடு - herbivores) who eat the plants.
 *   **Secondary Consumers (இரண்டாம் நிலை நுகர்வோர்):** Animals (புலி, சிங்கம் - carnivores) that eat the herbivores.
-*   **Decomposers (சிதைப்பவைகள்):** The cleanup crew (பாக்டீரியா, பூஞ்சை) that recycles waste back into useful nutrients for the farmers.
-{{FOOD_WEB_DIAGRAM}}`,
+*   **Decomposers (சிதைப்பவைகள்):** The cleanup crew (பாக்டீரியா, பூஞ்சை) that recycles waste back into useful nutrients for the farmers.`,
                     tamil: `ஒரு சூழல் மண்டலத்தை ஒரு கிராமச் சமூகம் போல நினையுங்கள்.
 *   **உற்பத்தியாளர்கள்:** முழு கிராமத்திற்கும் உணவு உற்பத்தி செய்யும் விவசாயிகள் (தாவரங்கள்).
 *   **முதல்நிலை நுகர்வோர்:** தாவரங்களை உண்ணும் கிராம மக்கள் (மாடு, ஆடு).
@@ -133,17 +126,15 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-        // --- Biomolecules ---
         {
-            heading: { english: 'Biomolecules (Life\'s Building Blocks)', tamil: 'உயிர் மூலக்கூறுகள் (வாழ்வின் கட்டுமானக் கற்கள்)' },
+            heading: { english: '6. Biomolecules (Life\'s Building Blocks)', tamil: '6. உயிர் மூலக்கூறுகள் (வாழ்வின் கட்டுமானக் கற்கள்)' },
             content: [
                 {
                     english: `Imagine building a house. You need different materials for different jobs.
 *   **Carbohydrates (கார்போஹைட்ரேட்டுகள்):** The cement and sand. They provide the primary energy for construction.
 *   **Proteins (புரதங்கள்):** The bricks and pillars. They form the main structure of the house (muscles, enzymes).
 *   **Lipids (கொழுப்புகள்):** The waterproofing and electrical wiring. They store energy and form cell membranes.
-*   **Nucleic Acids (நியூக்ளிக் அமிலங்கள்):** The Architect's Blueprint (கட்டிடக்கலை நிபுணரின் வரைபடம்). DNA holds the master plan for the entire house.
-{{DNA_3D_MODEL}}`,
+*   **Nucleic Acids (நியூக்ளிக் அமிலங்கள்):** The Architect's Blueprint (கட்டிடக்கலை நிபுணரின் வரைபடம்). DNA holds the master plan for the entire house.`,
                     tamil: `ஒரு வீட்டைக் கட்டுவதாகக் கற்பனை செய்யுங்கள். வெவ்வேறு வேலைகளுக்கு வெவ்வேறு பொருட்கள் தேவை.
 *   **கார்போஹைட்ரேட்டுகள்:** சிமெண்ட் மற்றும் மணல். அவை கட்டுமானத்திற்கான முதன்மை ஆற்றலை வழங்குகின்றன.
 *   **புரதங்கள்:** செங்கற்கள் மற்றும் தூண்கள். அவை வீட்டின் முக்கிய அமைப்பை (தசைகள், நொதிகள்) உருவாக்குகின்றன.
@@ -152,9 +143,8 @@ export const takeItEasyBiologyModule: NeetModule = {
                 }
             ]
         },
-        // --- Reproduction ---
         {
-            heading: { english: 'Reproduction (Ensuring Continuity)', tamil: 'இனப்பெருக்கம் (தொடர்ச்சியை உறுதி செய்தல்)' },
+            heading: { english: '7. Reproduction (Ensuring Continuity)', tamil: '7. இனப்பெருக்கம் (தொடர்ச்சியை உறுதி செய்தல்)' },
             content: [
                 {
                     english: `This chapter explains the two main strategies for continuing a family line or a species.
@@ -203,16 +193,74 @@ export const takeItEasyBiologyModule: NeetModule = {
             ],
             neetHack: "For any dihybrid cross between two heterozygotes, the 9:3:3:1 ratio is constant. Don't waste time drawing the Punnett square in the exam unless absolutely necessary. Just remember the ratio.",
             neetHackTamil: "இரண்டு ஹெட்டிரோசைகஸ் பெற்றோருக்கு இடையேயான எந்தவொரு இருபண்புக் கலப்பிற்கும், 9:3:3:1 விகிதம் மாறிலி. தேர்வில் புன்னட் கட்டத்தை வரைந்து நேரத்தை வீணாக்காதீர்கள், விகிதத்தை நினைவில் வைத்திருங்கள்."
+        },
+         {
+            title: "Human Physiology: Cardiac Output",
+            titleTamil: "மனித உடற்செயலியல்: இதய வெளியேற்ற அளவு",
+            difficulty: 'Medium',
+            problem: "If a person's heart rate is 72 beats/minute and their stroke volume is 70 mL/beat, what is their cardiac output?",
+            problemTamil: "ஒரு நபரின் இதயத் துடிப்பு நிமிடத்திற்கு 72 துடிப்புகள் மற்றும் அவரது ஒரு துடிப்பிற்கான வெளியேற்ற அளவு 70 மி.லி எனில், அவரது இதய வெளியேற்ற அளவு என்ன?",
+            solutionSteps: [
+                 {
+                    step: 1,
+                    explanation: "Recall the formula for Cardiac Output (CO).",
+                    explanationTamil: "இதய வெளியேற்ற அளவு (CO) க்கான சூத்திரத்தை நினைவுகூர்க.",
+                    calculation: "Cardiac Output = Heart Rate (HR) × Stroke Volume (SV)"
+                },
+                {
+                    step: 2,
+                    explanation: "Substitute the given values.",
+                    explanationTamil: "கொடுக்கப்பட்ட மதிப்புகளைப் பிரதியிடவும்.",
+                    calculation: "CO = 72 beats/min × 70 mL/beat"
+                },
+                {
+                    step: 3,
+                    explanation: "Calculate the result and convert to Litres/minute.",
+                    explanationTamil: "முடிவைக் கணக்கிட்டு, லிட்டர்/நிமிடம் ஆக மாற்றவும்.",
+                    calculation: "CO = 5040 mL/min = 5.04 L/min"
+                }
+            ],
+            neetHack: "A healthy adult's cardiac output is roughly 5 Liters per minute, which is approximately the total volume of blood in the body. This can be a useful sanity check for your answer.",
+            neetHackTamil: "ஆரோக்கியமான ஒருவரின் இதய வெளியேற்ற அளவு நிமிடத்திற்கு சுமார் 5 லிட்டர் ஆகும், இது உடலில் உள்ள மொத்த இரத்தத்தின் அளவிற்கு சமம். இது உங்கள் விடையைச் சரிபார்க்க ஒரு பயனுள்ள சோதனையாகும்."
         }
     ],
     mcqs: [],
     assertionReasons: [],
     matchTheColumns: [],
+    keyFormulasAndDiagrams: {
+        formulas: [
+            {
+                formula: "CO = HR \\times SV",
+                description: "Cardiac Output = Heart Rate × Stroke Volume",
+                descriptionTamil: "இதய வெளியேற்ற அளவு = இதயத் துடிப்பு × ஒரு துடிப்பிற்கான வெளியேற்ற அளவு"
+            },
+            {
+                formula: "F = P₁ - P₂ / R",
+                description: "Ohm's law for blood flow, where F is flow, P is pressure, R is resistance",
+                descriptionTamil: "இரத்த ஓட்டத்திற்கான ஓம் விதி"
+            },
+            {
+                formula: "E = K + U",
+                description: "Total Mechanical Energy (Kinetic + Potential)",
+                descriptionTamil: "மொத்த இயந்திர ஆற்றல் (இயக்க ஆற்றல் + நிலை ஆற்றல்)"
+            },
+            {
+                formula: "Y = \\frac{\\sigma}{\\epsilon}",
+                description: "Young's Modulus = Stress / Strain",
+                descriptionTamil: "யங் குணகம் = தகைவு / திரிபு"
+            }
+        ],
+        diagrams: []
+    },
     keyTakeaways: [
         "Analogies are powerful tools to simplify complex biological concepts.",
         "Understanding the 'why' behind a biological process is more important than memorizing isolated facts.",
         "Connecting concepts across different chapters (e.g., cell biology and physiology) leads to a deeper understanding.",
         "Practicing with concrete examples solidifies theoretical knowledge."
     ],
-    validationReport: []
+    neetTips: [
+        { text: "For genetics problems, always write down the genotypes of the parents and the possible gametes first.", tamil: "மரபியல் கணக்குகளுக்கு, எப்போதும் பெற்றோரின் மரபு வகைகளையும் சாத்தியமான கேமட்களையும் முதலில் எழுதவும்." },
+        { text: "In ecology, pay close attention to the definitions of different types of population interactions (+, -, 0).", tamil: "சூழலியலில், வெவ்வேறு வகையான மக்கள் தொகை இடைவினைகளின் வரையறைகளை (+, -, 0) கவனமாகப் படிக்கவும்." },
+        { text: "For human physiology, create flowcharts for hormonal feedback loops (e.g., thyroid regulation).", tamil: "மனித உடற்செயலியலுக்கு, ஹார்மோன் பின்னூட்ட சுழற்சிகளுக்கு (எ.கா., தைராய்டு கட்டுப்பாடு) பாய்வு வரைபடங்களை உருவாக்கவும்." }
+    ]
 };
