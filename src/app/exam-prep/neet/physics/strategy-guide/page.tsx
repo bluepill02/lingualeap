@@ -27,6 +27,11 @@ import {
   Goal,
   RefreshCw,
   Network,
+  BarChart3,
+  GitCompare,
+  Ruler,
+  TableIcon,
+  Languages,
 } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -45,6 +50,20 @@ const sectionIcons = {
   'modern-physics': <Atom className="text-green-400" />,
 };
 
+const cardColors = [
+    "border-primary",
+    "border-blue-500",
+    "border-green-500",
+    "border-yellow-500",
+    "border-red-500",
+    "border-purple-500",
+    "border-pink-500",
+    "border-indigo-500",
+    "border-teal-500",
+    "border-cyan-500"
+];
+
+
 export default function NeetPhysicsStrategyGuidePage() {
   const [language, setLanguage] = useState<'english' | 'tamil'>('english');
 
@@ -53,7 +72,7 @@ export default function NeetPhysicsStrategyGuidePage() {
     return (
       <div className="space-y-6">
         {content.map((section, index) => (
-           <Card key={index} className="border-l-4 border-primary bg-primary/5 shadow-md hover:shadow-lg transition-shadow">
+           <Card key={index} className={`border-l-4 ${cardColors[index % cardColors.length]} bg-primary/5 shadow-md hover:shadow-lg transition-shadow`}>
             <CardHeader className="card-padding-lg">
               <CardTitle className="flex items-center gap-3">
                 {section.icon && <section.icon className="h-6 w-6 text-primary" />}
