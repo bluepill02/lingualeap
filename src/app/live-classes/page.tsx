@@ -160,8 +160,8 @@ export default function LiveClassesPage() {
                                     </CardContent>
                                     <CardFooter>
                                         <DialogTrigger asChild>
-                                            <Button className="w-full" size="lg" disabled>
-                                                <Video className="mr-2" /> Join Now (Demo)
+                                            <Button className="w-full" size="lg">
+                                                <Video className="mr-2" /> Join Now
                                             </Button>
                                         </DialogTrigger>
                                     </CardFooter>

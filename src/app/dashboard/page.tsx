@@ -293,7 +293,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
             <Link href={stat.href} key={stat.label} className="group">
-                <Card className="text-center h-full group-hover:bg-muted transition-colors">
+                <Card className="text-center h-full hover:bg-muted transition-colors">
                   <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
                     <stat.icon className={`h-8 w-8 ${stat.color}`} />
                     <p className="text-2xl font-bold">{stat.value}</p>
@@ -369,5 +369,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
-    
