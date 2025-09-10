@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Sparkles, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { generateQuiz, QuizGeneratorOutput } from '@/ai/flows/quiz-generator';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 type QuizState = {
   answers: (string | null)[];
@@ -69,7 +70,7 @@ export default function OnDemandQuizPage() {
   const getCorrectAnswersCount = () => {
       if (!quizData || !quizState) return 0;
       return quizData.quizzes.filter(
-        (quiz, index) => quizState.answers[index] && quizState.answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
+        (quiz, index) => quizState.answers[index] && quizState.answers[index]?.trim().toLowerCase() === quiz.answer.trim().toLowerCase()
       ).length;
   }
 
@@ -117,49 +118,63 @@ export default function OnDemandQuizPage() {
                 <CardDescription>Test your knowledge with this AI-generated quiz.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-                {quizData.quizzes.map((quiz, index) => (
-                    <div key={index}>
-                        <p className="font-medium mb-2">{index + 1}. {quiz.question}</p>
-                        <div className="space-y-2">
-                            {quiz.options.map((option) => (
-                                <Button
-                                key={option}
-                                variant={
-                                    quizState.submitted && quizState.answers[index] === option
-                                    ? option === quiz.answer
-                                        ? 'default'
-                                        : 'destructive'
-                                    : 'outline'
-                                }
-                                className="w-full justify-start text-left h-auto"
-                                onClick={() => handleOptionChange(index, option)}
-                                disabled={quizState.submitted}
-                                >
-                                {quizState.submitted && quizState.answers[index] === option &&
-                                    (option === quiz.answer ? (
-                                    <CheckCircle className="mr-2 h-4 w-4" />
-                                    ) : (
-                                    <XCircle className="mr-2 h-4 w-4" />
-                                    ))}
-                                {option}
-                                </Button>
-                            ))}
+                {quizData.quizzes.map((quiz, index) => {
+                    const userAnswer = quizState.answers[index];
+                    const isAnswerCorrect = userAnswer?.trim().toLowerCase() === quiz.answer.trim().toLowerCase();
+
+                    return (
+                        <div key={index} className="p-4 border rounded-lg bg-background/50">
+                            <p className="font-medium mb-4">{index + 1}. {quiz.question}</p>
+                            <div className="space-y-2">
+                                {quiz.options.map((option) => {
+                                    const isThisTheAnswer = option.trim().toLowerCase() === quiz.answer.trim().toLowerCase();
+                                    const isThisTheSelectedAnswer = option.trim().toLowerCase() === userAnswer?.trim().toLowerCase();
+                                    
+                                    let variant: "success" | "destructive" | "outline" | "secondary" = "outline";
+                                    if (quizState.submitted) {
+                                        if (isThisTheAnswer) variant = "success";
+                                        else if (isThisTheSelectedAnswer && !isAnswerCorrect) variant = "destructive";
+                                    } else {
+                                        if (isThisTheSelectedAnswer) variant = "secondary";
+                                    }
+
+                                    return (
+                                        <Button
+                                            key={option}
+                                            variant={variant}
+                                            className="w-full justify-start text-left h-auto py-2"
+                                            onClick={() => handleOptionChange(index, option)}
+                                            disabled={quizState.submitted}
+                                        >
+                                            {quizState.submitted && isThisTheAnswer && <CheckCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
+                                            {quizState.submitted && isThisTheSelectedAnswer && !isAnswerCorrect && <XCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
+                                            <span className="flex-1">{option}</span>
+                                        </Button>
+                                    );
+                                })}
+                            </div>
+                            {quizState.submitted && !isAnswerCorrect && (
+                                <Alert variant="success" className="mt-4">
+                                  <AlertTitle>Correct Answer</AlertTitle>
+                                  <AlertDescription>
+                                    {quiz.answer}
+                                  </AlertDescription>
+                                </Alert>
+                            )}
                         </div>
-                         {quizState.submitted && quizState.answers[index]?.toLowerCase() !== quiz.answer.toLowerCase() && (
-                            <p className="text-sm text-green-500 mt-2">Correct answer: {quiz.answer}</p>
-                        )}
-                    </div>
-                ))}
+                    );
+                })}
                 {!quizState.submitted ? (
                 <Button onClick={handleSubmit} disabled={quizState.answers.includes(null)}>
                     Submit Answers
                 </Button>
                 ) : (
-                <div className="p-4 bg-secondary rounded-lg text-center">
-                    <p className="text-lg font-bold">
-                    You got {getCorrectAnswersCount()} out of {quizData.quizzes.length} correct!
-                    </p>
-                </div>
+                <Alert className="text-center">
+                    <AlertTitle className="text-lg font-bold">Quiz Complete!</AlertTitle>
+                    <AlertDescription>
+                        You scored {getCorrectAnswersCount()} out of {quizData.quizzes.length} correct.
+                    </AlertDescription>
+                </Alert>
                 )}
             </CardContent>
         </Card>
