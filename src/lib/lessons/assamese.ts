@@ -81,7 +81,7 @@ export const assameseLessons: MicroLesson[] = [
         { word: 'চাহ', romanization: 'Sah', definition: 'Tea', ipa: '/sah/', audioUrl: placeholderAudio },
         { word: 'ভাত', romanization: 'Bhaat', definition: 'Rice', ipa: '/bʱat/', audioUrl: placeholderAudio },
     ],
-    dialogue: [{ speaker: 'Customer', line: ' মোক একাপ চাহ দিয়কচোন। (Mok ekap sah diyokson.)' }, { speaker: 'Server', line: 'নিশ্চয়, এইয়া লওক। (Niswoi, eiya look.)' }],
+    dialogue: [{ speaker: 'Customer', line: 'মোক একাপ চাহ দিয়কচোন। (Mok ekap sah diyokson.)' }, { speaker: 'Server', line: 'নিশ্চয়, এইয়া লওক। (Niswoi, eiya look.)' }],
     culturalTip: 'Tea ("Sah") is an integral part of Assamese culture, with Assam being one of the largest tea-producing regions in the world.',
     quizzes: [{ type: 'fill-in-the-blank', question: 'To ask for tea, you would say "ekap ____".', answer: 'sah' }],
     followUp: 'Ask for a glass of "pani" next time you are thirsty.'
@@ -137,4 +137,25 @@ export const assameseLessons: MicroLesson[] = [
     vocabulary: [
         { word: 'পৰিবেশ', romanization: 'Poribekh', definition: 'Environment', ipa: '', audioUrl: placeholderAudio },
         { word: 'অৰ্থনীতি', romanization: 'Orthoniti', definition: 'Economy', ipa: '', audioUrl: placeholderAudio },
-        { word: 'সংস্কৃতি', romanization: 'Sanskriti', definition: 'Culture', ipa: '', audioUrl:
+        { word: 'সংস্কৃতি', romanization: 'Sanskriti', definition: 'Culture', ipa: '', audioUrl: placeholderAudio },
+    ],
+    dialogue: [{ speaker: 'Customer', line: 'Axomor Sanskriti bohut dhuniya.' }, { speaker: 'Server', line: 'Hoi, moi ekmot.' }],
+    culturalTip: 'Discussing topics like the environment or economy requires a more advanced vocabulary.',
+    quizzes: [{ type: 'multiple-choice', question: 'What is the Assamese word for "Environment"?', options: ['Orthoniti', 'Sanskriti', 'Poribekh', 'Bhaat'], answer: 'Poribekh' }],
+    followUp: 'Try to read a small news headline in Assamese online.'
+  },
+  {
+    id: 'lesson-assamese-7',
+    title: 'Lesson 7: Formal Language',
+    deckId: 'deck-assamese-7',
+    vocabulary: [
+        { word: 'অনুগ্রহ কৰি', romanization: 'Onugroho kori', definition: 'Please', ipa: '', audioUrl: placeholderAudio },
+        { word: 'মই কৃতজ্ঞ', romanization: 'Moi kritoggo', definition: 'I am grateful', ipa: '', audioUrl: placeholderAudio },
+        { word: 'দুখিত', romanization: 'Dukhito', definition: 'Sorry', ipa: '', audioUrl: placeholderAudio },
+    ],
+    dialogue: [{ speaker: 'Customer', line: 'Onugroho kori, muk xohai koribo paribo neki?' }, { speaker: 'Server', line: 'Niswoi parim. Moi apunak xohai kori bohut সুখী। (Niswoi parim. Moi apunak xohai kori bohut sukhi.)' }],
+    culturalTip: 'Using formal language like "Onugroho kori" shows a higher level of respect, especially when speaking to elders or in official settings.',
+    quizzes: [{ type: 'fill-in-the-blank', question: 'To politely ask for help, you can start your sentence with "____ ____".', answer: 'Onugroho kori' }],
+    followUp: 'Practice using these formal phrases in appropriate situations.'
+  }
+];
