@@ -1,6 +1,31 @@
 
-import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost, LessonPlanWeek } from './types';
+import type { User, Flashcard, Lesson, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost, LessonPlanWeek } from './types';
 import { learnerPersonas } from './personas';
+
+// Import all language-specific data
+import { assameseDecks, assameseLessons } from './lessons/assamese';
+import { bengaliDecks, bengaliLessons } from './lessons/bengali';
+import { bodoDecks, bodoLessons } from './lessons/bodo';
+import { businessHindiDecks, businessHindiLessons } from './lessons/business-hindi';
+import { dogriDecks, dogriLessons } from './lessons/dogri';
+import { gujaratiDecks, gujaratiLessons } from './lessons/gujarati';
+import { hindiDecks, hindiLessons } from './lessons/hindi';
+import { kannadaDecks, kannadaLessons } from './lessons/kannada';
+import { kashmiriDecks, kashmiriLessons } from './lessons/kashmiri';
+import { konkaniDecks, konkaniLessons } from './lessons/konkani';
+import { maithiliDecks, maithiliLessons } from './lessons/maithili';
+import { malayalamDecks, malayalamLessons } from './lessons/malayalam';
+import { manipuriDecks, manipuriLessons } from './lessons/manipuri';
+import { marathiDecks, marathiLessons } from './lessons/marathi';
+import { nepaliDecks, nepaliLessons } from './lessons/nepali';
+import { odiaDecks, odiaLessons } from './lessons/odia';
+import { punjabiDecks, punjabiLessons } from './lessons/punjabi';
+import { sanskritDecks, sanskritLessons } from './lessons/sanskrit';
+import { santaliDecks, santaliLessons } from './lessons/santali';
+import { sindhiDecks, sindhiLessons } from './lessons/sindhi';
+import { tamilDecks, tamilLessons } from './lessons/tamil';
+import { teluguDecks, teluguLessons } from './lessons/telugu';
+import { urduDecks, urduLessons } from './lessons/urdu';
 
 export const mockUser: User = {
   id: 'user-1',
@@ -233,282 +258,56 @@ export const lessons: Lesson[] = [
   },
 ];
 
-const languages = [
-  'assamese', 'bengali', 'bodo', 'dogri', 'gujarati', 'hindi', 'kannada', 'kashmiri',
-  'konkani', 'maithili', 'malayalam', 'manipuri', 'marathi', 'nepali', 'odia', 'punjabi',
-  'sanskrit', 'santali', 'sindhi', 'tamil', 'telugu', 'urdu'
+export const allLessonDecks: LessonDeck[] = [
+    ...assameseDecks,
+    ...bengaliDecks,
+    ...bodoDecks,
+    ...businessHindiDecks,
+    ...dogriDecks,
+    ...gujaratiDecks,
+    ...hindiDecks,
+    ...kannadaDecks,
+    ...kashmiriDecks,
+    ...konkaniDecks,
+    ...maithiliDecks,
+    ...malayalamDecks,
+    ...manipuriDecks,
+    ...marathiDecks,
+    ...nepaliDecks,
+    ...odiaDecks,
+    ...punjabiDecks,
+    ...sanskritDecks,
+    ...santaliDecks,
+    ...sindhiDecks,
+    ...tamilDecks,
+    ...teluguDecks,
+    ...urduDecks,
 ];
-
-const levels = {
-  Foundations: 3,
-  Intermediate: 2,
-  Advanced: 2
-};
-
-const deckTemplates = {
-    Foundations: [
-        { title: 'First Steps in {Language}', description: 'Master the absolute basics, from alphabet sounds to simple greetings.' },
-        { title: 'Building Blocks of {Language}', description: 'Learn essential vocabulary for everyday objects, numbers, and colors.' },
-        { title: 'Daily Conversations in {Language}', description: 'Handle simple, real-world interactions like asking for directions or ordering food.' },
-    ],
-    Intermediate: [
-        { title: 'Expanding Horizons in {Language}', description: 'Grasp past, present, and future tenses and start forming complex sentences.' },
-        { title: 'Situational {Language}', description: 'Practice conversations for specific scenarios like shopping, travel, and making plans.' },
-    ],
-    Advanced: [
-        { title: 'Fluent Expressions in {Language}', description: 'Dive into nuanced expressions, idioms, and professional communication.' },
-        { title: 'Mastering {Language} Nuances', description: 'Discuss complex topics, understand native media, and express abstract ideas.' },
-    ],
-};
-
-const assameseLessons: MicroLesson[] = [
-  // Foundations
-  {
-    id: 'lesson-assamese-1',
-    title: 'Lesson 1: Basic Greetings',
-    deckId: 'deck-assamese-1',
-    vocabulary: [
-        { word: 'নমস্কাৰ', romanization: 'Nomoskar', definition: 'Hello/Greetings', ipa: '/nɔmɔskar/' },
-        { word: 'ধন্যবাদ', romanization: 'Dhonyobad', definition: 'Thank you', ipa: '/dʱonjobad/' },
-        { word: 'আপোনাৰ নাম কি', romanization: 'Apunar nam ki?', definition: 'What is your name?', ipa: '' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Nomoskar, apuni bhalne?' }, { speaker: 'Server', line: 'Moi bhale asu, dhonyobad.' }],
-    culturalTip: 'A respectful greeting is highly valued in Assamese culture. "Nomoskar" is a versatile greeting for any time of day.',
-    quizzes: [{ type: 'multiple-choice', question: 'How do you say "Hello" in Assamese?', options: ['Dhonyobad', 'Nomoskar', 'Ki khobor', 'Bhal'], answer: 'Nomoskar' }],
-    followUp: 'Try greeting someone with "Nomoskar" today!'
-  },
-  {
-    id: 'lesson-assamese-2',
-    title: 'Lesson 2: Common Nouns',
-    deckId: 'deck-assamese-2',
-    vocabulary: [
-        { word: 'পানী', romanization: 'Pani', definition: 'Water', ipa: '/pani/' },
-        { word: 'চাহ', romanization: 'Sah', definition: 'Tea', ipa: '/sah/' },
-        { word: 'ভাত', romanization: 'Bhaat', definition: 'Rice', ipa: '/bʱat/' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: ' মোক একাপ চাহ দিয়কচোন। (Mok ekap sah diyokson.)' }, { speaker: 'Server', line: 'নিশ্চয়, এইয়া লওক। (Niswoi, eiya look.)' }],
-    culturalTip: 'Tea ("Sah") is an integral part of Assamese culture, with Assam being one of the largest tea-producing regions in the world.',
-    quizzes: [{ type: 'fill-in-the-blank', question: 'To ask for tea, you would say "ekap ____".', answer: 'sah' }],
-    followUp: 'Ask for a glass of "pani" next time you are thirsty.'
-  },
-  {
-    id: 'lesson-assamese-3',
-    title: 'Lesson 3: Simple Questions',
-    deckId: 'deck-assamese-3',
-    vocabulary: [
-        { word: 'কেনে আছে', romanization: 'Kene ase?', definition: 'How are you?', ipa: '' },
-        { word: 'দাম কিমান', romanization: 'Dam kiman?', definition: 'What is the price?', ipa: '' },
-        { word: 'হয়', romanization: 'Hoi', definition: 'Yes', ipa: '/hɔi/' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Iyar dam kiman?' }, { speaker: 'Server', line: 'Pos-ponas toka.' }],
-    culturalTip: 'Bargaining is common in local markets, so knowing "Dam kiman?" is very useful.',
-    quizzes: [{ type: 'multiple-choice', question: 'How do you ask "How are you?"', options: ['Dam kiman?', 'Hoi', 'Kene ase?', 'Nomoskar'], answer: 'Kene ase?' }],
-    followUp: 'Practice asking for the price of an item at a shop.'
-  },
-  // Intermediate
-  {
-    id: 'lesson-assamese-4',
-    title: 'Lesson 4: Tenses and Verbs',
-    deckId: 'deck-assamese-4',
-    vocabulary: [
-        { word: 'মই যাওঁ', romanization: 'Moi jaü', definition: 'I go', ipa: '' },
-        { word: 'মই গৈছিলোঁ', romanization: 'Moi goisilu', definition: 'I went', ipa: '' },
-        { word: 'মই যাম', romanization: 'Moi jam', definition: 'I will go', ipa: '' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Moi juwakali Guwahati goisilu.' }, { speaker: 'Server', line: 'Bohut bhal! Apuni kalile goisile?' }],
-    culturalTip: 'Verb conjugations in Assamese change based on tense and level of respect.',
-    quizzes: [{ type: 'multiple-choice', question: 'How do you say "I went"?', options: ['Moi jam', 'Moi jaü', 'Moi goisilu', 'Moi kham'], answer: 'Moi goisilu' }],
-    followUp: 'Try forming a sentence about what you did yesterday.'
-  },
-  {
-    id: 'lesson-assamese-5',
-    title: 'Lesson 5: Shopping Dialogue',
-    deckId: 'deck-assamese-5',
-    vocabulary: [
-        { word: 'মোৰ এইটো লাগে', romanization: 'Mor eitu lage', definition: 'I want this one.', ipa: '' },
-        { word: 'বেলেগ কিবা আছে নেকি', romanization: 'Beleg kiba ase neki?', definition: 'Do you have anything else?', ipa: '' },
-        { word: 'ঠিক আছে', romanization: 'Thik ase', definition: 'It\'s okay / Alright', ipa: '/tʰik asɛ/' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Mor eitu gamusa lage. Beleg design ase neki?' }, { speaker: 'Server', line: 'Hoi, ase. Eiya saokson.' }],
-    culturalTip: 'The Gamosa is a traditional Assamese cloth that is a symbol of respect and is often given as a gift.',
-    quizzes: [{ type: 'fill-in-the-blank', question: 'To say "I want this one", you say "Mor ____ lage".', answer: 'eitu' }],
-    followUp: 'Practice a short shopping conversation with a friend.'
-  },
-  // Advanced
-  {
-    id: 'lesson-assamese-6',
-    title: 'Lesson 6: Complex Topics',
-    deckId: 'deck-assamese-6',
-    vocabulary: [
-        { word: 'পৰিবেশ', romanization: 'Poribekh', definition: 'Environment', ipa: '' },
-        { word: 'অৰ্থনীতি', romanization: 'Orthoniti', definition: 'Economy', ipa: '' },
-        { word: 'সংস্কৃতি', romanization: 'Sanskriti', definition: 'Culture', ipa: '' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Axomor orthoniti krixir uporot bohut nirbhorxil.' }, { speaker: 'Server', line: 'Hoi, aru porjyoton khetrotu Axomor sanskriti ek bixex sthan adhikar kore.' }],
-    culturalTip: 'Assam\'s economy is heavily based on agriculture and oil, while its rich culture is a major driver of tourism.',
-    quizzes: [{ type: 'multiple-choice', question: 'What is the Assamese word for "Culture"?', options: ['Poribekh', 'Orthoniti', 'Sanskriti', 'Itihas'], answer: 'Sanskriti' }],
-    followUp: 'Try to read a short article in Assamese about the environment.'
-  },
-  {
-    id: 'lesson-assamese-7',
-    title: 'Lesson 7: Formal Language',
-    deckId: 'deck-assamese-7',
-    vocabulary: [
-        { word: 'অনুগ্রহ কৰি', romanization: 'Onugroho kori', definition: 'Please (formal)', ipa: '' },
-        { word: 'মই কৃতজ্ঞ', romanization: 'Moi kritoggo', definition: 'I am grateful', ipa: '' },
-        { word: 'আপোনাক লগ পাই ভাল লাগিল', romanization: 'Apunak log pai bhal lagil', definition: 'It was nice to meet you', ipa: '' },
-    ],
-    dialogue: [{ speaker: 'Customer', line: 'Onugroho kori, apuni muk xohai koribo paribo ne?' }, { speaker: 'Server', line: 'Niswoi. Apunak log pai bhal lagil.' }],
-    culturalTip: 'Using formal language is important when addressing elders or in professional settings.',
-    quizzes: [{ type: 'multiple-choice', question: 'What is the formal way to say "Please"?', options: ['Kripaya', 'Onugroho kori', 'Doya kori', 'Anurodh'], answer: 'Onugroho kori' }],
-    followUp: 'Practice using formal phrases when speaking to someone you respect.'
-  },
-];
-
-const genericLesson: Omit<MicroLesson, 'id' | 'title' | 'deckId'> = {
-    vocabulary: [
-        { word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '/nəməˈsteː/' },
-        { word: 'धन्यवाद', romanization: 'Dhanyavaad', definition: 'Thank you', ipa: '/dʱən.jə.ʋɑːd̪/' },
-        { word: 'हाँ', romanization: 'Haan', definition: 'Yes', ipa: '/hɑ̃ː/' },
-        { word: 'नहीं', romanization: 'Nahin', definition: 'No', ipa: '/nəɦĩː/' },
-        { word: 'कृपया', romanization: 'Kripaya', definition: 'Please', ipa: '/kɾɪpəjɑː/' },
-    ],
-    dialogue: [
-        { speaker: 'Customer', line: 'Namaste! Ek paani ki botal, kripaya.' },
-        { speaker: 'Server', line: 'Ji, zaroor. Aur kuch?' },
-        { speaker: 'Customer', line: 'Nahin, bas yahi. Dhanyavaad.' },
-    ],
-    culturalTip: 'A slight head wobble is a common gesture in India that can mean "yes", "good", or "I understand".',
-    quizzes: [
-        {
-            type: 'multiple-choice',
-            question: 'How do you say "Yes" in Hindi?',
-            options: ['Nahin', 'Haan', 'Kripaya', 'Dhanyavaad'],
-            answer: 'Haan',
-        },
-        {
-            type: 'fill-in-the-blank',
-            question: 'To say "Thank you", you would say ____.',
-            answer: 'Dhanyavaad',
-        }
-    ],
-    followUp: 'Try greeting a friend with "Namaste" today!'
-};
-
-export const allLessonDecks: LessonDeck[] = languages.flatMap(lang => {
-  const decks: LessonDeck[] = [];
-  let deckCounter = 1;
-  
-  (Object.keys(levels) as Array<keyof typeof levels>).forEach(level => {
-    for (let i = 0; i < levels[level]; i++) {
-        const langCapitalized = lang.charAt(0).toUpperCase() + lang.slice(1);
-        decks.push({
-            id: `deck-${lang}-${deckCounter}`,
-            title: deckTemplates[level][i].title.replace('{Language}', langCapitalized),
-            description: deckTemplates[level][i].description.replace('{Language}', langCapitalized),
-            level: level,
-            lessons: [{ id: `lesson-${lang}-${deckCounter}`, title: `Lesson ${deckCounter}`, duration: '3-5 min' }]
-        });
-        deckCounter++;
-    }
-  });
-
-  return decks;
-}).concat([
-    {
-      id: 'deck-bh-1',
-      title: 'Chennai Café Conversation',
-      description: 'Real-world conversations and vocabulary for ordering food and drinks.',
-      level: 'Foundations',
-      lessons: [{ id: 'lesson-bh-1', title: 'Ordering a Coffee', duration: '2-3 min' }]
-    },
-    {
-      id: 'deck-bh-2',
-      title: 'Office Meetings',
-      description: 'Learn key phrases for participating in professional meetings.',
-      level: 'Intermediate',
-      lessons: [{ id: 'lesson-bh-2', title: 'Presenting a Report', duration: '4-6 min' }]
-    },
-    {
-      id: 'deck-bh-3',
-      title: 'Professional Phone Calls',
-      description: 'Master etiquette and vocabulary for phone conversations in a business context.',
-      level: 'Advanced',
-      lessons: [{ id: 'lesson-bh-3', title: 'Scheduling an Appointment', duration: '3-5 min' }]
-    }
-]);
-
-
-const populatedLessons: MicroLesson[] = allLessonDecks
-    .filter(deck => !deck.id.startsWith('deck-assamese-') && !deck.id.startsWith('deck-bh-'))
-    .flatMap(deck => 
-        deck.lessons.map(lesson => ({
-            ...genericLesson,
-            id: lesson.id,
-            title: lesson.title,
-            deckId: deck.id,
-        }))
-);
-
 
 export const allMicroLessons: MicroLesson[] = [
-    // Business Hindi
-    {
-        id: 'lesson-bh-1',
-        title: 'Ordering a Coffee',
-        deckId: 'deck-bh-1',
-        vocabulary: [
-            { word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '/nəməˈsteː/' },
-            { word: 'एक', romanization: 'Ek', definition: 'One', ipa: '/eːk/' },
-            { word: 'कॉफ़ी', romanization: 'Coffee', definition: 'Coffee', ipa: '/kɔː.fiː/' },
-            { word: 'और', romanization: 'Aur', definition: 'And', ipa: '/ɔːɾ/' },
-            { word: 'बिल', romanization: 'Bil', definition: 'Bill', ipa: '/bɪl/' },
-        ],
-        dialogue: [
-            { speaker: 'Customer', line: 'Namaste! Ek filter coffee, कृपया (kripaya).' },
-            { speaker: 'Server', line: 'Ji, zaroor. Aur kuch?' },
-            { speaker: 'Customer', line: 'Bas yahi. Bill de dijiye, dhanyavaad.' },
-        ],
-        culturalTip: 'In Chennai, while Tamil is the primary language, using Hindi in business settings is often appreciated. A friendly "Namaste" is a universal sign of respect.',
-        quizzes: [
-            {
-                type: 'multiple-choice',
-                question: 'How do you say "One coffee" in Hindi?',
-                options: ['Do coffee', 'Ek coffee', 'Teen coffee', 'Chai'],
-                answer: 'Ek coffee',
-            },
-            {
-                type: 'fill-in-the-blank',
-                question: 'To ask for the bill, you would say: "____ de dijiye."',
-                answer: 'Bill',
-            }
-        ],
-        followUp: 'Next time you\'re at a café, try greeting the server with "Namaste!"'
-    },
-    {
-      id: 'lesson-bh-2',
-      title: 'Presenting a Report',
-      deckId: 'deck-bh-2',
-      ...genericLesson,
-      vocabulary: [
-        { word: 'प्रस्तुति', romanization: 'Prastuti', definition: 'Presentation', ipa:'' },
-        { word: 'रिपोर्ट', romanization: 'Report', definition: 'Report', ipa:''},
-        { word: 'आंकड़े', romanization: 'Aankde', definition: 'Data / Figures', ipa:''},
-      ]
-    },
-    {
-      id: 'lesson-bh-3',
-      title: 'Scheduling an Appointment',
-      deckId: 'deck-bh-3',
-      ...genericLesson,
-      vocabulary: [
-          { word: 'समय', romanization: 'Samay', definition: 'Time', ipa:'' },
-          { word: 'मिलना', romanization: 'Milna', definition: 'To meet', ipa:'' },
-          { word: 'नियुक्ति', romanization: 'Niyukti', definition: 'Appointment', ipa:'' },
-      ]
-    },
     ...assameseLessons,
-    ...populatedLessons,
+    ...bengaliLessons,
+    ...bodoLessons,
+    ...businessHindiLessons,
+    ...dogriLessons,
+    ...gujaratiLessons,
+    ...hindiLessons,
+    ...kannadaLessons,
+    ...kashmiriLessons,
+    ...konkaniLessons,
+    ...maithiliLessons,
+    ...malayalamLessons,
+    ...manipuriLessons,
+    ...marathiLessons,
+    ...nepaliLessons,
+    ...odiaLessons,
+    ...punjabiLessons,
+    ...sanskritLessons,
+    ...santaliLessons,
+    ...sindhiLessons,
+    ...tamilLessons,
+    ...teluguLessons,
+    ...urduLessons,
 ];
 
 export const liveClasses: LiveClass[] = [
