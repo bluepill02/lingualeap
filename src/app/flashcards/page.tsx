@@ -7,16 +7,11 @@ import { flashcards } from '@/lib/data';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Volume2, Mic, Play, RotateCw, BookText, Loader, PartyPopper, Repeat, XCircle, CheckCircle } from 'lucide-react';
+import { Volume2, Play, RotateCw, BookText, Loader, PartyPopper, Repeat } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { generateStory } from '@/ai/flows/story-generator';
-import { analyzePronunciation } from '@/ai/flows/pronunciation-analysis-flow';
-import type { PronunciationAnalysisOutput } from '@/lib/types';
 import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-
-type RecordingState = 'idle' | 'recording' | 'processing' | 'done';
 
 export default function FlashcardsPage() {
   const [initialDueCards] = useState(
@@ -28,12 +23,6 @@ export default function FlashcardsPage() {
   const [story, setStory] = useState('');
   const [loadingStory, setLoadingStory] = useState(false);
   const [sessionComplete, setSessionComplete] = useState(false);
-  
-  // Pronunciation state
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const [recordingState, setRecordingState] = useState<RecordingState>('idle');
-  const [audioChunks, setAudioChunks] = useState<Blob[]>([]);
-  const [pronunciationResult, setPronunciationResult] = useState<PronunciationAnalysisOutput | null>(null);
 
   const { toast } = useToast();
 
@@ -53,19 +42,12 @@ export default function FlashcardsPage() {
   }, [isFlipped, currentIndex, dueCards, story]);
 
   const handleFlip = () => {
-    if (recordingState === 'recording') {
-        stopRecording();
-    }
     setIsFlipped(!isFlipped);
-    setPronunciationResult(null);
-    setRecordingState('idle');
   };
 
   const resetCardState = () => {
     setIsFlipped(false);
     setStory('');
-    setPronunciationResult(null);
-    setRecordingState('idle');
   }
 
   const handleRating = (rating: 'forgot' | 'hard' | 'good' | 'easy') => {
@@ -79,83 +61,6 @@ export default function FlashcardsPage() {
     }
   };
 
-  const startRecording = async () => {
-    setPronunciationResult(null);
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            mediaRecorderRef.current = new MediaRecorder(stream);
-            mediaRecorderRef.current.ondataavailable = (event) => {
-                setAudioChunks((prev) => [...prev, event.data]);
-            };
-            mediaRecorderRef.current.onstop = handleRecordingStop;
-            setAudioChunks([]);
-            mediaRecorderRef.current.start();
-            setRecordingState('recording');
-        } catch (err) {
-            console.error('Error accessing microphone:', err);
-            toast({
-                variant: 'destructive',
-                title: 'Microphone Access Denied',
-                description: 'Please enable microphone permissions in your browser to use this feature.',
-            });
-        }
-    }
-  };
-
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && recordingState === 'recording') {
-        mediaRecorderRef.current.stop();
-        setRecordingState('processing');
-    }
-  };
-
-  const handleRecordingStop = async () => {
-      const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-      const reader = new FileReader();
-      reader.readAsDataURL(audioBlob);
-      reader.onloadend = async () => {
-          const base64Audio = reader.result as string;
-          try {
-              const result = await analyzePronunciation({
-                  audioDataUri: base64Audio,
-                  correctWord: currentFlashcard.word,
-                  language: 'Hindi', // This could be made dynamic
-              });
-              setPronunciationResult(result);
-          } catch (error) {
-              console.error('Error analyzing pronunciation:', error);
-              toast({
-                  variant: 'destructive',
-                  title: 'Analysis Failed',
-                  description: 'Could not analyze your pronunciation. Please try again.',
-              });
-          } finally {
-              setRecordingState('done');
-          }
-      };
-  };
-
-  const handleMicClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (recordingState === 'recording') {
-      stopRecording();
-    } else {
-      startRecording();
-    }
-  }
-
-  const getMicButton = () => {
-    switch (recordingState) {
-        case 'recording':
-            return <Button size="icon" variant="destructive" onClick={handleMicClick} aria-label="Stop recording"><Mic /></Button>;
-        case 'processing':
-            return <Button size="icon" variant="outline" disabled aria-label="Processing audio"><Loader className="animate-spin" /></Button>;
-        default:
-            return <Button size="icon" variant="outline" onClick={handleMicClick} aria-label="Start recording pronunciation"><Mic /></Button>;
-    }
-  }
-  
   if (initialDueCards.length === 0) {
     return (
       <div className="text-center">
@@ -236,28 +141,6 @@ export default function FlashcardsPage() {
               <h2 className="text-5xl font-bold font-headline">{currentFlashcard.translation}</h2>
               <p className="text-xl text-muted-foreground mt-2">{currentFlashcard.phonetic}</p>
               
-              <div className="flex items-center justify-center gap-2 mt-4">
-                <Button size="icon" variant="outline" onClick={(e) => e.stopPropagation()} aria-label="Play pronunciation audio">
-                    <Volume2 />
-                </Button>
-                {getMicButton()}
-              </div>
-
-              {pronunciationResult && (
-                <Alert role="alert" className={`mt-4 text-left ${pronunciationResult.isCorrect ? 'border-green-500 bg-green-500/10' : 'border-yellow-500 bg-yellow-500/10'}`}>
-                    {pronunciationResult.isCorrect 
-                        ? <CheckCircle className="h-4 w-4 text-green-500" /> 
-                        : <XCircle className="h-4 w-4 text-yellow-500" />}
-                    <AlertTitle>
-                        {pronunciationResult.isCorrect ? "Excellent!" : "Good Try!"}
-                    </AlertTitle>
-                    <AlertDescription>
-                        {pronunciationResult.feedback}
-                        {!pronunciationResult.isCorrect && <p className="text-xs mt-1">You said: "{pronunciationResult.transcribedText}"</p>}
-                    </AlertDescription>
-                </Alert>
-              )}
-
               <Image src={currentFlashcard.imageUrl} alt={currentFlashcard.translation} data-ai-hint="language illustration" width={150} height={100} className="mt-4 rounded-lg" />
               
               <Separator className="my-4 w-full" />

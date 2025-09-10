@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const tamilDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const tamilDecks: LessonDeck[] = [
 ];
 
 export const tamilLessons: MicroLesson[] = [
-  { id: 'lesson-tamil-1', title: 'Lesson 1', deckId: 'deck-tamil-1', ...{ vocabulary: [{ word: 'வணக்கம்', romanization: 'Vanakkam', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-2', title: 'Lesson 2', deckId: 'deck-tamil-2', ...{ vocabulary: [{ word: 'தண்ணீர்', romanization: 'Thanneer', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-3', title: 'Lesson 3', deckId: 'deck-tamil-3', ...{ vocabulary: [{ word: 'நீங்கள் எப்படி இருக்கிறீர்கள்?', romanization: 'Neengal eppadi irukkireergal?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-4', title: 'Lesson 4', deckId: 'deck-tamil-4', ...{ vocabulary: [{ word: 'நான் போகிறேன்', romanization: 'Naan pogiren', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-5', title: 'Lesson 5', deckId: 'deck-tamil-5', ...{ vocabulary: [{ word: 'இதன் விலை என்ன?', romanization: 'Ithan vilai enna?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-6', title: 'Lesson 6', deckId: 'deck-tamil-6', ...{ vocabulary: [{ word: 'ஏனென்றால்', romanization: 'Enendral', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-tamil-7', title: 'Lesson 7', deckId: 'deck-tamil-7', ...{ vocabulary: [{ word: 'என் பொழுதுபோக்கு', romanization: 'En pozhuthupokku', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-1', title: 'Lesson 1', deckId: 'deck-tamil-1', ...{ vocabulary: [{ word: 'வணக்கம்', romanization: 'Vanakkam', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-2', title: 'Lesson 2', deckId: 'deck-tamil-2', ...{ vocabulary: [{ word: 'தண்ணீர்', romanization: 'Thanneer', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-3', title: 'Lesson 3', deckId: 'deck-tamil-3', ...{ vocabulary: [{ word: 'நீங்கள் எப்படி இருக்கிறீர்கள்?', romanization: 'Neengal eppadi irukkireergal?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-4', title: 'Lesson 4', deckId: 'deck-tamil-4', ...{ vocabulary: [{ word: 'நான் போகிறேன்', romanization: 'Naan pogiren', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-5', title: 'Lesson 5', deckId: 'deck-tamil-5', ...{ vocabulary: [{ word: 'இதன் விலை என்ன?', romanization: 'Ithan vilai enna?', definition: 'What is its price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-6', title: 'Lesson 6', deckId: 'deck-tamil-6', ...{ vocabulary: [{ word: 'ஏனென்றால்', romanization: 'Enendral', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-tamil-7', title: 'Lesson 7', deckId: 'deck-tamil-7', ...{ vocabulary: [{ word: 'என் பொழுதுபோக்கு', romanization: 'En pozhuthupokku', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

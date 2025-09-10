@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const sanskritDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const sanskritDecks: LessonDeck[] = [
 ];
 
 export const sanskritLessons: MicroLesson[] = [
-  { id: 'lesson-sanskrit-1', title: 'Lesson 1', deckId: 'deck-sanskrit-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-2', title: 'Lesson 2', deckId: 'deck-sanskrit-2', ...{ vocabulary: [{ word: 'जलम्', romanization: 'Jalam', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-3', title: 'Lesson 3', deckId: 'deck-sanskrit-3', ...{ vocabulary: [{ word: 'भवान् कथम् अस्ति?', romanization: 'Bhavan katham asti?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-4', title: 'Lesson 4', deckId: 'deck-sanskrit-4', ...{ vocabulary: [{ word: 'अहं गच्छामि', romanization: 'Aham gachhami', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-5', title: 'Lesson 5', deckId: 'deck-sanskrit-5', ...{ vocabulary: [{ word: 'अस्य मूल्यं किम्?', romanization: 'Asya mulyam kim?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-6', title: 'Lesson 6', deckId: 'deck-sanskrit-6', ...{ vocabulary: [{ word: 'यतः', romanization: 'Yatah', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sanskrit-7', title: 'Lesson 7', deckId: 'deck-sanskrit-7', ...{ vocabulary: [{ word: 'मम रुचिः', romanization: 'Mama ruchi', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-1', title: 'Lesson 1', deckId: 'deck-sanskrit-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-2', title: 'Lesson 2', deckId: 'deck-sanskrit-2', ...{ vocabulary: [{ word: 'जलम्', romanization: 'Jalam', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-3', title: 'Lesson 3', deckId: 'deck-sanskrit-3', ...{ vocabulary: [{ word: 'भवान् कथम् अस्ति?', romanization: 'Bhavan katham asti?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-4', title: 'Lesson 4', deckId: 'deck-sanskrit-4', ...{ vocabulary: [{ word: 'अहं गच्छामि', romanization: 'Aham gachhami', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-5', title: 'Lesson 5', deckId: 'deck-sanskrit-5', ...{ vocabulary: [{ word: 'अस्य मूल्यं किम्?', romanization: 'Asya mulyam kim?', definition: 'What is its price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-6', title: 'Lesson 6', deckId: 'deck-sanskrit-6', ...{ vocabulary: [{ word: 'यतः', romanization: 'Yatah', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sanskrit-7', title: 'Lesson 7', deckId: 'deck-sanskrit-7', ...{ vocabulary: [{ word: 'मम रुचिः', romanization: 'Mama ruchi', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

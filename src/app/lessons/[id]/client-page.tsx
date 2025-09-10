@@ -6,7 +6,6 @@ import { notFound, useRouter } from 'next/navigation';
 import {
   ArrowLeft,
   Lightbulb,
-  Volume2,
   CheckCircle,
   XCircle,
   Play,
@@ -52,20 +51,6 @@ function VocabularyTable({
 }: {
   vocabulary: MicroLesson['vocabulary'];
 }) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    // Initialize the Audio object only on the client side
-    audioRef.current = new Audio();
-  }, []);
-
-  const playAudio = useCallback((audioUrl: string) => {
-    if (audioRef.current && audioUrl) {
-      audioRef.current.src = audioUrl;
-      audioRef.current.play().catch(e => console.error("Error playing audio:", e));
-    }
-  }, []);
-
   return (
     <Card>
       <CardHeader>
@@ -78,7 +63,6 @@ function VocabularyTable({
               <TableHead>Word</TableHead>
               <TableHead>Romanization</TableHead>
               <TableHead>Definition</TableHead>
-              <TableHead className="text-right">Listen</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -92,11 +76,6 @@ function VocabularyTable({
                 </TableCell>
                 <TableCell>{item.romanization}</TableCell>
                 <TableCell>{item.definition}</TableCell>
-                <TableCell className="text-right">
-                  <Button variant="ghost" size="icon" onClick={(e) => { e.stopPropagation(); playAudio(item.audioUrl || ''); }} aria-label={`Listen to ${item.word}`}>
-                    <Volume2 className="h-5 w-5" />
-                  </Button>
-                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -254,20 +233,21 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
     setIsLessonCompleted(progress.includes(lesson.id));
   }, [lesson.id]);
   
-  useEffect(() => {
-    if (isLessonCompleted) {
-        saveLessonProgress(lesson.id);
-    }
-  }, [isLessonCompleted, lesson.id])
-
-  const handleCompleteLesson = () => {
+  const handleCompleteLesson = useCallback(() => {
+    saveLessonProgress(lesson.id);
     setIsLessonCompleted(true);
-    if(nextLessonId) {
-        router.push(`/lessons/${nextLessonId}`);
-    } else {
-        router.push(`/language/${deck.id.split('-')[1]}`);
+  }, [lesson.id]);
+
+  useEffect(() => {
+    if(isLessonCompleted) {
+        if(nextLessonId) {
+            router.push(`/lessons/${nextLessonId}`);
+        } else {
+            router.push(`/language/${deck.id.split('-')[1]}`);
+        }
     }
-  }
+  }, [isLessonCompleted, router, deck.id, nextLessonId]);
+
 
   const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
   const totalLessonsInDeck = deck.lessons.length;

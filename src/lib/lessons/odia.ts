@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const odiaDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const odiaDecks: LessonDeck[] = [
 ];
 
 export const odiaLessons: MicroLesson[] = [
-  { id: 'lesson-odia-1', title: 'Lesson 1', deckId: 'deck-odia-1', ...{ vocabulary: [{ word: 'ନମସ୍କାର', romanization: 'Namaskar', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-2', title: 'Lesson 2', deckId: 'deck-odia-2', ...{ vocabulary: [{ word: 'ପାଣି', romanization: 'Pani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-3', title: 'Lesson 3', deckId: 'deck-odia-3', ...{ vocabulary: [{ word: 'ଆପଣ କେମିତି ଅଛନ୍ତି?', romanization: 'Apana kemiti achanti?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-4', title: 'Lesson 4', deckId: 'deck-odia-4', ...{ vocabulary: [{ word: 'ମୁଁ ଯାଏ', romanization: 'Mun jae', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-5', title: 'Lesson 5', deckId: 'deck-odia-5', ...{ vocabulary: [{ word: 'ଏହାର ଦାମ୍ କେତେ?', romanization: 'Ehaara daam kete?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-6', title: 'Lesson 6', deckId: 'deck-odia-6', ...{ vocabulary: [{ word: 'କାରଣ', romanization: 'Karana', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-odia-7', title: 'Lesson 7', deckId: 'deck-odia-7', ...{ vocabulary: [{ word: 'ମୋର ଶବ୍ଦ', romanization: 'Mora shabda', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-1', title: 'Lesson 1', deckId: 'deck-odia-1', ...{ vocabulary: [{ word: 'ନମସ୍କାର', romanization: 'Namaskar', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-2', title: 'Lesson 2', deckId: 'deck-odia-2', ...{ vocabulary: [{ word: 'ପାଣି', romanization: 'Pani', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-3', title: 'Lesson 3', deckId: 'deck-odia-3', ...{ vocabulary: [{ word: 'ଆପଣ କେମିତି ଅଛନ୍ତି?', romanization: 'Apana kemiti achanti?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-4', title: 'Lesson 4', deckId: 'deck-odia-4', ...{ vocabulary: [{ word: 'ମୁଁ ଯାଏ', romanization: 'Mun jae', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-5', title: 'Lesson 5', deckId: 'deck-odia-5', ...{ vocabulary: [{ word: 'ଏହାର ଦାମ୍ କେତେ?', romanization: 'Ehaara daam kete?', definition: 'What is its price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-6', title: 'Lesson 6', deckId: 'deck-odia-6', ...{ vocabulary: [{ word: 'କାରଣ', romanization: 'Karana', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-odia-7', title: 'Lesson 7', deckId: 'deck-odia-7', ...{ vocabulary: [{ word: 'ମୋର ଶବ୍ଦ', romanization: 'Mora shabda', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

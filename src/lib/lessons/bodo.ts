@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const bodoDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const bodoDecks: LessonDeck[] = [
 ];
 
 export const bodoLessons: MicroLesson[] = [
-  { id: 'lesson-bodo-1', title: 'Lesson 1', deckId: 'deck-bodo-1', ...{ vocabulary: [{ word: 'खुलुमबाय', romanization: 'Khulumbai', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-2', title: 'Lesson 2', deckId: 'deck-bodo-2', ...{ vocabulary: [{ word: 'दै', romanization: 'Doi', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-3', title: 'Lesson 3', deckId: 'deck-bodo-3', ...{ vocabulary: [{ word: 'माब्रै दं?', romanization: 'Mabrai dong?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-4', title: 'Lesson 4', deckId: 'deck-bodo-4', ...{ vocabulary: [{ word: 'आं थाङो', romanization: 'Ang thango', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-5', title: 'Lesson 5', deckId: 'deck-bodo-5', ...{ vocabulary: [{ word: 'बेसे दाम?', romanization: 'Bese dam?', definition: 'What is the price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-6', title: 'Lesson 6', deckId: 'deck-bodo-6', ...{ vocabulary: [{ word: 'मानोना', romanization: 'Manona', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bodo-7', title: 'Lesson 7', deckId: 'deck-bodo-7', ...{ vocabulary: [{ word: 'आंनि Hobbie', romanization: 'Angni Hobbie', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-1', title: 'Lesson 1', deckId: 'deck-bodo-1', ...{ vocabulary: [{ word: 'खुलुमबाय', romanization: 'Khulumbai', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-2', title: 'Lesson 2', deckId: 'deck-bodo-2', ...{ vocabulary: [{ word: 'दै', romanization: 'Doi', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-3', title: 'Lesson 3', deckId: 'deck-bodo-3', ...{ vocabulary: [{ word: 'माब्रै दं?', romanization: 'Mabrai dong?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-4', title: 'Lesson 4', deckId: 'deck-bodo-4', ...{ vocabulary: [{ word: 'आं थाङो', romanization: 'Ang thango', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-5', title: 'Lesson 5', deckId: 'deck-bodo-5', ...{ vocabulary: [{ word: 'बेसे दाम?', romanization: 'Bese dam?', definition: 'What is the price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-6', title: 'Lesson 6', deckId: 'deck-bodo-6', ...{ vocabulary: [{ word: 'मानोना', romanization: 'Manona', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bodo-7', title: 'Lesson 7', deckId: 'deck-bodo-7', ...{ vocabulary: [{ word: 'आंनि Hobbie', romanization: 'Angni Hobbie', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

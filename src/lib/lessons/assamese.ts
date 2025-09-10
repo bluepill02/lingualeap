@@ -1,7 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
-
 
 export const assameseDecks: LessonDeck[] = [
   {
@@ -62,9 +60,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 1: Basic Greetings',
     deckId: 'deck-assamese-1',
     vocabulary: [
-        { word: 'নমস্কাৰ', romanization: 'Nomoskar', definition: 'Hello/Greetings', ipa: '/nɔmɔskar/', audioUrl: placeholderAudioDataUri },
-        { word: 'ধন্যবাদ', romanization: 'Dhonyobad', definition: 'Thank you', ipa: '/dʱonjobad/', audioUrl: placeholderAudioDataUri },
-        { word: 'আপোনাৰ নাম কি', romanization: 'Apunar nam ki?', definition: 'What is your name?', ipa: '', audioUrl: placeholderAudioDataUri },
+        { word: 'নমস্কাৰ', romanization: 'Nomoskar', definition: 'Hello/Greetings', ipa: '/nɔmɔskar/' },
+        { word: 'ধন্যবাদ', romanization: 'Dhonyobad', definition: 'Thank you', ipa: '/dʱonjobad/' },
+        { word: 'আপোনাৰ নাম কি', romanization: 'Apunar nam ki?', definition: 'What is your name?', ipa: '' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Nomoskar, apuni bhalne?' }, { speaker: 'Server', line: 'Moi bhale asu, dhonyobad.' }],
     culturalTip: 'A respectful greeting is highly valued in Assamese culture. "Nomoskar" is a versatile greeting for any time of day.',
@@ -76,9 +74,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 2: Common Nouns',
     deckId: 'deck-assamese-2',
     vocabulary: [
-        { word: 'পানী', romanization: 'Pani', definition: 'Water', ipa: '/pani/', audioUrl: placeholderAudioDataUri },
-        { word: 'চাহ', romanization: 'Sah', definition: 'Tea', ipa: '/sah/', audioUrl: placeholderAudioDataUri },
-        { word: 'ভাত', romanization: 'Bhaat', definition: 'Rice', ipa: '/bʱat/', audioUrl: placeholderAudioDataUri },
+        { word: 'পানী', romanization: 'Pani', definition: 'Water', ipa: '/pani/' },
+        { word: 'চাহ', romanization: 'Sah', definition: 'Tea', ipa: '/sah/' },
+        { word: 'ভাত', romanization: 'Bhaat', definition: 'Rice', ipa: '/bʱat/' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'মোক একাপ চাহ দিয়কচোন। (Mok ekap sah diyokson.)' }, { speaker: 'Server', line: 'নিশ্চয়, এইয়া লওক। (Niswoi, eiya look.)' }],
     culturalTip: 'Tea ("Sah") is an integral part of Assamese culture, with Assam being one of the largest tea-producing regions in the world.',
@@ -90,9 +88,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 3: Simple Questions',
     deckId: 'deck-assamese-3',
     vocabulary: [
-        { word: 'কেনে আছে', romanization: 'Kene ase?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'দাম কিমান', romanization: 'Dam kiman?', definition: 'What is the price?', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'হয়', romanization: 'Hoi', definition: 'Yes', ipa: '/hɔi/', audioUrl: placeholderAudioDataUri },
+        { word: 'কেনে আছে', romanization: 'Kene ase?', definition: 'How are you?', ipa: '' },
+        { word: 'দাম কিমান', romanization: 'Dam kiman?', definition: 'What is the price?', ipa: '' },
+        { word: 'হয়', romanization: 'Hoi', definition: 'Yes', ipa: '/hɔi/' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Iyar dam kiman?' }, { speaker: 'Server', line: 'Pos-ponas toka.' }],
     culturalTip: 'Bargaining is common in local markets, so knowing "Dam kiman?" is very useful.',
@@ -105,9 +103,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 4: Tenses and Verbs',
     deckId: 'deck-assamese-4',
     vocabulary: [
-        { word: 'মই যাওঁ', romanization: 'Moi jaü', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'মই গৈছিলোঁ', romanization: 'Moi goisilu', definition: 'I went', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'মই যাম', romanization: 'Moi jam', definition: 'I will go', ipa: '', audioUrl: placeholderAudioDataUri },
+        { word: 'মই যাওঁ', romanization: 'Moi jaü', definition: 'I go', ipa: '' },
+        { word: 'মই গৈছিলোঁ', romanization: 'Moi goisilu', definition: 'I went', ipa: '' },
+        { word: 'মই যাম', romanization: 'Moi jam', definition: 'I will go', ipa: '' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Moi juwakali Guwahati goisilu.' }, { speaker: 'Server', line: 'Bohut bhal! Apuni kalile goisile?' }],
     culturalTip: 'Verb conjugations in Assamese change based on tense and level of respect.',
@@ -119,9 +117,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 5: Shopping Dialogue',
     deckId: 'deck-assamese-5',
     vocabulary: [
-        { word: 'মোৰ এইটো লাগে', romanization: 'Mor eitu lage', definition: 'I want this one.', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'বেলেগ কিবা আছে নেকি', romanization: 'Beleg kiba ase neki?', definition: 'Do you have anything else?', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'ঠিক আছে', romanization: 'Thik ase', definition: 'It\'s okay / Alright', ipa: '/tʰik asɛ/', audioUrl: placeholderAudioDataUri },
+        { word: 'মোৰ এইটো লাগে', romanization: 'Mor eitu lage', definition: 'I want this one.', ipa: '' },
+        { word: 'বেলেগ কিবা আছে নেকি', romanization: 'Beleg kiba ase neki?', definition: 'Do you have anything else?', ipa: '' },
+        { word: 'ঠিক আছে', romanization: 'Thik ase', definition: 'It\'s okay / Alright', ipa: '/tʰik asɛ/' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Mor eitu gamusa lage. Beleg design ase neki?' }, { speaker: 'Server', line: 'Hoi, ase. Eiya saokson.' }],
     culturalTip: 'The Gamosa is a traditional Assamese cloth that is a symbol of respect and is often given as a gift.',
@@ -134,9 +132,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 6: Complex Topics',
     deckId: 'deck-assamese-6',
     vocabulary: [
-        { word: 'পৰিবেশ', romanization: 'Poribekh', definition: 'Environment', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'অৰ্থনীতি', romanization: 'Orthoniti', definition: 'Economy', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'সংস্কৃতি', romanization: 'Sanskriti', definition: 'Culture', ipa: '', audioUrl: placeholderAudioDataUri },
+        { word: 'পৰিবেশ', romanization: 'Poribekh', definition: 'Environment', ipa: '' },
+        { word: 'অৰ্থনীতি', romanization: 'Orthoniti', definition: 'Economy', ipa: '' },
+        { word: 'সংস্কৃতি', romanization: 'Sanskriti', definition: 'Culture', ipa: '' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Axomor Sanskriti bohut dhuniya.' }, { speaker: 'Server', line: 'Hoi, moi ekmot.' }],
     culturalTip: 'Discussing topics like the environment or economy requires a more advanced vocabulary.',
@@ -148,9 +146,9 @@ export const assameseLessons: MicroLesson[] = [
     title: 'Lesson 7: Formal Language',
     deckId: 'deck-assamese-7',
     vocabulary: [
-        { word: 'অনুগ্রহ কৰি', romanization: 'Onugroho kori', definition: 'Please', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'মই কৃতজ্ঞ', romanization: 'Moi kritoggo', definition: 'I am grateful', ipa: '', audioUrl: placeholderAudioDataUri },
-        { word: 'দুখিত', romanization: 'Dukhito', definition: 'Sorry', ipa: '', audioUrl: placeholderAudioDataUri },
+        { word: 'অনুগ্রহ কৰি', romanization: 'Onugroho kori', definition: 'Please', ipa: '' },
+        { word: 'মই কৃতজ্ঞ', romanization: 'Moi kritoggo', definition: 'I am grateful', ipa: '' },
+        { word: 'দুখিত', romanization: 'Dukhito', definition: 'Sorry', ipa: '' },
     ],
     dialogue: [{ speaker: 'Customer', line: 'Onugroho kori, muk xohai koribo paribo neki?' }, { speaker: 'Server', line: 'Niswoi parim. Moi apunak xohai kori bohut sukhi.' }],
     culturalTip: 'Using formal language like "Onugroho kori" shows a higher level of respect, especially when speaking to elders or in official settings.',

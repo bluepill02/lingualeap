@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const urduDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const urduDecks: LessonDeck[] = [
 ];
 
 export const urduLessons: MicroLesson[] = [
-  { id: 'lesson-urdu-1', title: 'Lesson 1', deckId: 'deck-urdu-1', ...{ vocabulary: [{ word: 'آداب', romanization: 'Aadaab', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-2', title: 'Lesson 2', deckId: 'deck-urdu-2', ...{ vocabulary: [{ word: 'پانی', romanization: 'Paani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-3', title: 'Lesson 3', deckId: 'deck-urdu-3', ...{ vocabulary: [{ word: 'آپ کیسے ہیں؟', romanization: 'Aap kaise hain?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-4', title: 'Lesson 4', deckId: 'deck-urdu-4', ...{ vocabulary: [{ word: 'میں جاتا ہوں', romanization: 'Main jaata hoon', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-5', title: 'Lesson 5', deckId: 'deck-urdu-5', ...{ vocabulary: [{ word: 'اس کی قیمت کیا ہے؟', romanization: 'Iski qeemat kya hai?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-6', title: 'Lesson 6', deckId: 'deck-urdu-6', ...{ vocabulary: [{ word: 'کیونکہ', romanization: 'Kyunki', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-urdu-7', title: 'Lesson 7', deckId: 'deck-urdu-7', ...{ vocabulary: [{ word: 'میرا مشغلہ', romanization: 'Mera mashghala', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-1', title: 'Lesson 1', deckId: 'deck-urdu-1', ...{ vocabulary: [{ word: 'آداب', romanization: 'Aadaab', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-2', title: 'Lesson 2', deckId: 'deck-urdu-2', ...{ vocabulary: [{ word: 'پانی', romanization: 'Paani', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-3', title: 'Lesson 3', deckId: 'deck-urdu-3', ...{ vocabulary: [{ word: 'آپ کیسے ہیں؟', romanization: 'Aap kaise hain?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-4', title: 'Lesson 4', deckId: 'deck-urdu-4', ...{ vocabulary: [{ word: 'میں جاتا ہوں', romanization: 'Main jaata hoon', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-5', title: 'Lesson 5', deckId: 'deck-urdu-5', ...{ vocabulary: [{ word: 'اس کی قیمت کیا ہے؟', romanization: 'Iski qeemat kya hai?', definition: 'What is its price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-6', title: 'Lesson 6', deckId: 'deck-urdu-6', ...{ vocabulary: [{ word: 'کیونکہ', romanization: 'Kyunki', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-urdu-7', title: 'Lesson 7', deckId: 'deck-urdu-7', ...{ vocabulary: [{ word: 'میرا مشغلہ', romanization: 'Mera mashghala', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

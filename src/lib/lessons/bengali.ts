@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const bengaliDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const bengaliDecks: LessonDeck[] = [
 ];
 
 export const bengaliLessons: MicroLesson[] = [
-  { id: 'lesson-bengali-1', title: 'Lesson 1', deckId: 'deck-bengali-1', ...{ vocabulary: [{ word: 'নমস্কার', romanization: 'Nomoshkar', definition: 'Hello', ipa: '/nɔmoʃkar/', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-2', title: 'Lesson 2', deckId: 'deck-bengali-2', ...{ vocabulary: [{ word: 'জল', romanization: 'Jol', definition: 'Water', ipa: '/dʒɔl/', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-3', title: 'Lesson 3', deckId: 'deck-bengali-3', ...{ vocabulary: [{ word: 'কেমন আছেন?', romanization: 'Kemon achen?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-4', title: 'Lesson 4', deckId: 'deck-bengali-4', ...{ vocabulary: [{ word: 'আমি যাই', romanization: 'Ami jai', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-5', title: 'Lesson 5', deckId: 'deck-bengali-5', ...{ vocabulary: [{ word: 'দাম কত?', romanization: 'Dam koto?', definition: 'What is the price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-6', title: 'Lesson 6', deckId: 'deck-bengali-6', ...{ vocabulary: [{ word: 'কারণ', romanization: 'Karon', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-bengali-7', title: 'Lesson 7', deckId: 'deck-bengali-7', ...{ vocabulary: [{ word: 'আমার শখ', romanization: 'Amar shokh', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-1', title: 'Lesson 1', deckId: 'deck-bengali-1', ...{ vocabulary: [{ word: 'নমস্কার', romanization: 'Nomoshkar', definition: 'Hello', ipa: '/nɔmoʃkar/' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-2', title: 'Lesson 2', deckId: 'deck-bengali-2', ...{ vocabulary: [{ word: 'জল', romanization: 'Jol', definition: 'Water', ipa: '/dʒɔl/' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-3', title: 'Lesson 3', deckId: 'deck-bengali-3', ...{ vocabulary: [{ word: 'কেমন আছেন?', romanization: 'Kemon achen?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-4', title: 'Lesson 4', deckId: 'deck-bengali-4', ...{ vocabulary: [{ word: 'আমি যাই', romanization: 'Ami jai', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-5', title: 'Lesson 5', deckId: 'deck-bengali-5', ...{ vocabulary: [{ word: 'দাম কত?', romanization: 'Dam koto?', definition: 'What is the price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-6', title: 'Lesson 6', deckId: 'deck-bengali-6', ...{ vocabulary: [{ word: 'কারণ', romanization: 'Karon', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-bengali-7', title: 'Lesson 7', deckId: 'deck-bengali-7', ...{ vocabulary: [{ word: 'আমার শখ', romanization: 'Amar shokh', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

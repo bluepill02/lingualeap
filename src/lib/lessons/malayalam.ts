@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const malayalamDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const malayalamDecks: LessonDeck[] = [
 ];
 
 export const malayalamLessons: MicroLesson[] = [
-  { id: 'lesson-malayalam-1', title: 'Lesson 1', deckId: 'deck-malayalam-1', ...{ vocabulary: [{ word: 'നമസ്കാരം', romanization: 'Namaskaram', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-2', title: 'Lesson 2', deckId: 'deck-malayalam-2', ...{ vocabulary: [{ word: 'വെള്ളം', romanization: 'Vellam', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-3', title: 'Lesson 3', deckId: 'deck-malayalam-3', ...{ vocabulary: [{ word: 'സുഖമാണോ?', romanization: 'Sukhamano?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-4', title: 'Lesson 4', deckId: 'deck-malayalam-4', ...{ vocabulary: [{ word: 'ഞാൻ പോകുന്നു', romanization: 'Njan pokunnu', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-5', title: 'Lesson 5', deckId: 'deck-malayalam-5', ...{ vocabulary: [{ word: 'എത്രയാണ് വില?', romanization: 'Ethrayanu vila?', definition: 'What is the price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-6', title: 'Lesson 6', deckId: 'deck-malayalam-6', ...{ vocabulary: [{ word: 'കാരണം', romanization: 'Karanam', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-malayalam-7', title: 'Lesson 7', deckId: 'deck-malayalam-7', ...{ vocabulary: [{ word: 'എൻ്റെ ഹോബി', romanization: 'Ente hobby', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-1', title: 'Lesson 1', deckId: 'deck-malayalam-1', ...{ vocabulary: [{ word: 'നമസ്കാരം', romanization: 'Namaskaram', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-2', title: 'Lesson 2', deckId: 'deck-malayalam-2', ...{ vocabulary: [{ word: 'വെള്ളം', romanization: 'Vellam', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-3', title: 'Lesson 3', deckId: 'deck-malayalam-3', ...{ vocabulary: [{ word: 'സുഖമാണോ?', romanization: 'Sukhamano?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-4', title: 'Lesson 4', deckId: 'deck-malayalam-4', ...{ vocabulary: [{ word: 'ഞാൻ പോകുന്നു', romanization: 'Njan pokunnu', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-5', title: 'Lesson 5', deckId: 'deck-malayalam-5', ...{ vocabulary: [{ word: 'എത്രയാണ് വില?', romanization: 'Ethrayanu vila?', definition: 'What is the price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-6', title: 'Lesson 6', deckId: 'deck-malayalam-6', ...{ vocabulary: [{ word: 'കാരണം', romanization: 'Karanam', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-malayalam-7', title: 'Lesson 7', deckId: 'deck-malayalam-7', ...{ vocabulary: [{ word: 'എൻ്റെ ഹോബി', romanization: 'Ente hobby', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

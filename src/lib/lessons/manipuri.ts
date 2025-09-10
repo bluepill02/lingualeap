@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const manipuriDecks: LessonDeck[] = [
   // Foundations
@@ -16,11 +15,11 @@ export const manipuriDecks: LessonDeck[] = [
 ];
 
 export const manipuriLessons: MicroLesson[] = [
-  { id: 'lesson-manipuri-1', title: 'Lesson 1', deckId: 'deck-manipuri-1', ...{ vocabulary: [{ word: 'খুরুমজরি', romanization: 'Khurumjari', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-2', title: 'Lesson 2', deckId: 'deck-manipuri-2', ...{ vocabulary: [{ word: 'ইশিং', romanization: 'Ishing', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-3', title: 'Lesson 3', deckId: 'deck-manipuri-3', ...{ vocabulary: [{ word: 'নঙাইরিব্রা?', romanization: 'Nangairibra?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-4', title: 'Lesson 4', deckId: 'deck-manipuri-4', ...{ vocabulary: [{ word: 'ঐ চৎলি', romanization: 'Ei chatli', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-5', title: 'Lesson 5', deckId: 'deck-manipuri-5', ...{ vocabulary: [{ word: 'অসিগী মমল কয়া?', romanization: 'Asigi mamal kaya?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-6', title: 'Lesson 6', deckId: 'deck-manipuri-6', ...{ vocabulary: [{ word: 'মরু ওইনা', romanization: 'Maru oina', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-manipuri-7', title: 'Lesson 7', deckId: 'deck-manipuri-7', ...{ vocabulary: [{ word: 'ঐগী শୌখ', romanization: 'Aigi shaukh', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-1', title: 'Lesson 1', deckId: 'deck-manipuri-1', ...{ vocabulary: [{ word: 'খুরুমজরি', romanization: 'Khurumjari', definition: 'Hello/Greetings', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-2', title: 'Lesson 2', deckId: 'deck-manipuri-2', ...{ vocabulary: [{ word: 'ইশিং', romanization: 'Ishing', definition: 'Water', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-3', title: 'Lesson 3', deckId: 'deck-manipuri-3', ...{ vocabulary: [{ word: 'নঙাইরিব্রা?', romanization: 'Nangairibra?', definition: 'How are you?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-4', title: 'Lesson 4', deckId: 'deck-manipuri-4', ...{ vocabulary: [{ word: 'ঐ চৎলি', romanization: 'Ei chatli', definition: 'I go', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-5', title: 'Lesson 5', deckId: 'deck-manipuri-5', ...{ vocabulary: [{ word: 'অসিগী মমল কয়া?', romanization: 'Asigi mamal kaya?', definition: 'What is its price?', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-6', title: 'Lesson 6', deckId: 'deck-manipuri-6', ...{ vocabulary: [{ word: 'মরু ওইনা', romanization: 'Maru oina', definition: 'Because', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-manipuri-7', title: 'Lesson 7', deckId: 'deck-manipuri-7', ...{ vocabulary: [{ word: 'ঐগী শୌখ', romanization: 'Aigi shaukh', definition: 'My hobby', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

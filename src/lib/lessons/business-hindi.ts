@@ -1,6 +1,5 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
-import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const businessHindiDecks: LessonDeck[] = [
     {
@@ -60,11 +59,11 @@ export const businessHindiLessons: MicroLesson[] = [
         title: 'Ordering a Coffee',
         deckId: 'deck-bh-1',
         vocabulary: [
-            { word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '/nəməˈsteː/', audioUrl: placeholderAudioDataUri },
-            { word: 'एक', romanization: 'Ek', definition: 'One', ipa: '/eːk/', audioUrl: placeholderAudioDataUri },
-            { word: 'कॉफ़ी', romanization: 'Coffee', definition: 'Coffee', ipa: '/kɔː.fiː/', audioUrl: placeholderAudioDataUri },
-            { word: 'और', romanization: 'Aur', definition: 'And', ipa: '/ɔːɾ/', audioUrl: placeholderAudioDataUri },
-            { word: 'बिल', romanization: 'Bil', definition: 'Bill', ipa: '/bɪl/', audioUrl: placeholderAudioDataUri },
+            { word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '/nəməˈsteː/' },
+            { word: 'एक', romanization: 'Ek', definition: 'One', ipa: '/eːk/' },
+            { word: 'कॉफ़ी', romanization: 'Coffee', definition: 'Coffee', ipa: '/kɔː.fiː/' },
+            { word: 'और', romanization: 'Aur', definition: 'And', ipa: '/ɔːɾ/' },
+            { word: 'बिल', romanization: 'Bil', definition: 'Bill', ipa: '/bɪl/' },
         ],
         dialogue: [
             { speaker: 'Customer', line: 'Namaste! Ek filter coffee, कृपया (kripaya).' },
@@ -87,10 +86,10 @@ export const businessHindiLessons: MicroLesson[] = [
         ],
         followUp: 'Next time you\'re at a café, try greeting the server with "Namaste!"'
     },
-    { id: 'lesson-bh-2', title: 'Lesson 2', deckId: 'deck-bh-2', ...{ vocabulary: [{ word: 'सहकर्मी', romanization: 'Sahakarmi', definition: 'Colleague', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-    { id: 'lesson-bh-3', title: 'Lesson 3', deckId: 'deck-bh-3', ...{ vocabulary: [{ word: 'बैठक', romanization: 'Baithak', definition: 'Meeting', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-    { id: 'lesson-bh-4', title: 'Lesson 4', deckId: 'deck-bh-4', ...{ vocabulary: [{ word: 'प्रस्तुति', romanization: 'Prastuti', definition: 'Presentation', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-    { id: 'lesson-bh-5', title: 'Lesson 5', deckId: 'deck-bh-5', ...{ vocabulary: [{ word: 'अनुरोध', romanization: 'Anurodh', definition: 'Request', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-    { id: 'lesson-bh-6', title: 'Lesson 6', deckId: 'deck-bh-6', ...{ vocabulary: [{ word: 'बातचीत', romanization: 'Baat-cheet', definition: 'Conversation', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-    { id: 'lesson-bh-7', title: 'Lesson 7', deckId: 'deck-bh-7', ...{ vocabulary: [{ word: 'समझौता', romanization: 'Samjhauta', definition: 'Agreement/Deal', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-2', title: 'Lesson 2', deckId: 'deck-bh-2', ...{ vocabulary: [{ word: 'सहकर्मी', romanization: 'Sahakarmi', definition: 'Colleague', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-3', title: 'Lesson 3', deckId: 'deck-bh-3', ...{ vocabulary: [{ word: 'बैठक', romanization: 'Baithak', definition: 'Meeting', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-4', title: 'Lesson 4', deckId: 'deck-bh-4', ...{ vocabulary: [{ word: 'प्रस्तुति', romanization: 'Prastuti', definition: 'Presentation', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-5', title: 'Lesson 5', deckId: 'deck-bh-5', ...{ vocabulary: [{ word: 'अनुरोध', romanization: 'Anurodh', definition: 'Request', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-6', title: 'Lesson 6', deckId: 'deck-bh-6', ...{ vocabulary: [{ word: 'बातचीत', romanization: 'Baat-cheet', definition: 'Conversation', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+    { id: 'lesson-bh-7', title: 'Lesson 7', deckId: 'deck-bh-7', ...{ vocabulary: [{ word: 'समझौता', romanization: 'Samjhauta', definition: 'Agreement/Deal', ipa: '' }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

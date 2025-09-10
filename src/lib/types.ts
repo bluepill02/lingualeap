@@ -67,7 +67,6 @@ export interface MicroLesson {
         romanization: string;
         definition: string;
         ipa: string;
-        audioUrl?: string;
     }[];
     dialogue: {
         speaker: 'Customer' | 'Server';
