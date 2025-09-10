@@ -14,6 +14,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useToast } from '@/hooks/use-toast';
 import { createCircle } from '@/services/circles';
 import { Loader2 } from 'lucide-react';
+import { Auth } from 'firebase/auth';
 
 const createCircleSchema = z.object({
   name: z.string().min(5, 'Name must be at least 5 characters.'),
@@ -30,9 +31,10 @@ type CreateCircleValues = z.infer<typeof createCircleSchema>;
 
 interface CreateCircleFormProps {
   onCircleCreated: () => void;
+  auth: Auth;
 }
 
-export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
+export function CreateCircleForm({ onCircleCreated, auth }: CreateCircleFormProps) {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
   const form = useForm<CreateCircleValues>({
@@ -45,9 +47,13 @@ export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
   });
 
   async function onSubmit(data: CreateCircleValues) {
+    if (!auth.currentUser) {
+        toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in to create a circle.' });
+        return;
+    }
     setIsLoading(true);
     try {
-      await createCircle(data);
+      await createCircle(data, auth.currentUser.uid, auth.currentUser.displayName || 'Anonymous');
       toast({
         title: 'Circle Created!',
         description: `Your new circle "${data.name}" is now live.`,
@@ -229,3 +235,5 @@ export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
     </DialogContent>
   );
 }
+
+    

@@ -16,6 +16,8 @@ import Link from 'next/link';
 import { mockUser } from '@/lib/data';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { CreateCircleForm } from '@/components/circles/create-circle-form';
+import { getAuth, Auth } from 'firebase/auth';
+import { app } from '@/lib/firebase';
 
 const stats = [
     { title: 'My Circles', value: 0, subtitle: 'என் வட்டங்கள்' },
@@ -141,6 +143,26 @@ export default function CompanionCirclesPage() {
     const [activeTab, setActiveTab] = useState('active_now');
     const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+    const [auth, setAuth] = useState<Auth | null>(null);
+
+
+    useEffect(() => {
+        const authInstance = getAuth(app);
+        setAuth(authInstance);
+
+        const fetchCircles = async () => {
+            setIsLoading(true);
+            try {
+                const circles = await getCircles();
+                setAllCircles(circles);
+            } catch (error) {
+                console.error("Failed to fetch circles:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchCircles();
+    }, []);
 
     const fetchCircles = async () => {
         setIsLoading(true);
@@ -154,9 +176,6 @@ export default function CompanionCirclesPage() {
         }
     };
 
-    useEffect(() => {
-        fetchCircles();
-    }, []);
 
     const filteredCircles = allCircles.filter(circle => {
         const matchesSearch = circle.name.toLowerCase().includes(searchQuery.toLowerCase()) || circle.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -178,7 +197,7 @@ export default function CompanionCirclesPage() {
         return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType && matchesTab;
     });
 
-    const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === mockUser.id)).length;
+    const myCirclesCount = allCircles.filter(c => c.members.some(m => m.id === auth?.currentUser?.uid)).length;
     
     const dynamicStats = [
         { ...stats[0], value: myCirclesCount },
@@ -195,17 +214,20 @@ export default function CompanionCirclesPage() {
                 </div>
                 <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
                     <DialogTrigger asChild>
-                        <Button>
+                        <Button disabled={!auth?.currentUser}>
                             <PlusCircle className="mr-2" />
                             Create Circle
                         </Button>
                     </DialogTrigger>
-                    <CreateCircleForm 
-                        onCircleCreated={() => {
-                            fetchCircles();
-                            setIsCreateDialogOpen(false);
-                        }} 
-                    />
+                    {auth && (
+                        <CreateCircleForm 
+                            auth={auth}
+                            onCircleCreated={() => {
+                                fetchCircles();
+                                setIsCreateDialogOpen(false);
+                            }} 
+                        />
+                    )}
                 </Dialog>
             </div>
 
@@ -349,3 +371,5 @@ export default function CompanionCirclesPage() {
         </div>
     );
 }
+
+    

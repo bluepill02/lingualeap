@@ -62,13 +62,24 @@ export async function seedCirclesData() {
     }
 }
 
-export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount' | 'posts' | 'resources'>): Promise<CompanionCircle> {
+export async function createCircle(
+  circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount' | 'posts' | 'resources'>,
+  userId: string,
+  userName: string
+): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    const newCircle: Omit<CompanionCircle, 'id'> & { id: string } = {
+    // Fetch creator's avatar URL from mock data for now
+    const creatorUser = allUsers.find(u => u.id === userId) || allUsers.find(u => u.id === 'user-1');
+
+    const newCircle = {
         ...circleData,
         id: newDocRef.id,
-        members: [{id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl}],
+        members: [{
+            id: userId,
+            name: userName,
+            avatarUrl: creatorUser?.avatarUrl || 'https://picsum.photos/100/100?a=1'
+        }],
         memberCount: 50,
         posts: 0,
         resources: 0,
@@ -308,3 +319,5 @@ export async function addCommentToPost(circleId: string, postId: string, comment
         throw error;
     }
 }
+
+    
