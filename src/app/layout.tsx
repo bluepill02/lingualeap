@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: 'https://picsum.photos/seed/lingualeap-og/1200/630',
         width: 1200,
         height: 630,
-        alt: 'A vibrant abstract image representing language and learning.',
+        alt: 'A vibrant abstract image representing a diverse and collaborative learning environment for language and exams.',
       },
     ],
     locale: 'en_US',
