@@ -18,11 +18,21 @@ import { cn } from '@/lib/utils';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Separator } from '@/components/ui/separator';
 
 interface Message {
   role: 'user' | 'model';
   content: string;
 }
+
+const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+};
 
 function PronunciationPractice({ word, language, onResult }: { word: string; language: Language, onResult: (isCorrect: boolean) => void }) {
     const [isRecording, setIsRecording] = useState(false);
@@ -106,30 +116,32 @@ function PronunciationPractice({ word, language, onResult }: { word: string; lan
     };
 
     return (
-        <Card className="bg-primary/5 border-primary/20">
+        <Card className="bg-primary/5 border-primary/20 mt-3">
             <CardHeader>
-                <CardTitle className="text-lg">Pronunciation Practice</CardTitle>
-                <CardDescription>Try saying the word below and get feedback.</CardDescription>
+                <CardTitle className="text-base flex items-center gap-2">
+                    <Mic className="text-primary"/>
+                    Practice: <span className="font-bold text-primary">{word}</span>
+                </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <div className="flex items-center justify-center gap-2">
-                    <p className="text-center text-2xl font-bold font-headline text-primary">{word}</p>
-                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking || isLoading || isRecording}>
+            <CardContent className="flex flex-col items-center gap-4">
+                <div className="flex items-center gap-2">
+                     <p className="text-muted-foreground text-sm">Listen:</p>
+                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking || isLoading || isRecording} aria-label={`Listen to ${word}`}>
                         {isSpeaking ? <Loader2 className="animate-spin" /> : <Volume2 className="h-5 w-5" />}
                     </Button>
-                </div>
-                <div className="flex justify-center">
+                     <Separator orientation="vertical" className="h-6 mx-2" />
                     <Button
                         size="icon"
-                        className={cn("w-16 h-16 rounded-full", isRecording && "bg-destructive hover:bg-destructive/90 animate-pulse")}
+                        className={cn("w-12 h-12 rounded-full", isRecording && "bg-destructive hover:bg-destructive/90 animate-pulse")}
                         onClick={isRecording ? handleStopRecording : handleStartRecording}
                         disabled={isLoading}
+                        aria-label={isRecording ? "Stop recording" : "Start recording"}
                     >
-                        {isLoading ? <Loader2 className="animate-spin" /> : <Mic className="w-8 h-8" />}
+                        {isLoading ? <Loader2 className="animate-spin" /> : <Mic className="w-6 h-6" />}
                     </Button>
                 </div>
                 {analysis && (
-                    <Alert variant={analysis.isCorrect ? 'success' : 'warning'}>
+                    <Alert variant={analysis.isCorrect ? 'success' : 'warning'} className="w-full">
                         {analysis.isCorrect ? <ThumbsUp className="h-4 w-4" /> : <RefreshCcw className="h-4 w-4" />}
                         <AlertTitle>
                             {analysis.isCorrect ? "Excellent!" : `You said: "${analysis.transcribedText}"`}
@@ -147,14 +159,6 @@ function PronunciationPractice({ word, language, onResult }: { word: string; lan
     )
 }
 
-const languageMap: Record<Language, string> = {
-    en: 'English',
-    ta: 'Tamil',
-    hi: 'Hindi',
-    ml: 'Malayalam',
-    kn: 'Kannada',
-    te: 'Telugu',
-};
 
 export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
@@ -181,14 +185,10 @@ export default function PersonalTutorPage() {
   }
   
   const extractLastWord = (text: string) => {
-    // Simple regex to find the last word, ignoring punctuation
     const words = text.match(/(\b[a-zA-Z\u0900-\u097F]+\b)/g);
     return words ? words[words.length - 1] : null;
   }
   
-  const lastModelMessage = messages.filter(m => m.role === 'model').pop()?.content || '';
-  const pronunciationWord = extractLastWord(lastModelMessage) || "Namaste";
-
   const scrollToBottom = useCallback(() => {
     setTimeout(() => {
         if (scrollAreaRef.current) {
@@ -282,7 +282,7 @@ export default function PersonalTutorPage() {
     }
 
     recognitionRef.current = new SpeechRecognition();
-    recognitionRef.current.lang = 'en-US'; // Can be adapted based on user's primary language
+    recognitionRef.current.lang = 'en-US';
     recognitionRef.current.interimResults = false;
     recognitionRef.current.maxAlternatives = 1;
 
@@ -312,141 +312,139 @@ export default function PersonalTutorPage() {
   };
 
   return (
-    <div className="grid md:grid-cols-3 gap-6 h-[calc(100vh-10rem)]">
-        <div className="md:col-span-2 flex flex-col h-full">
-            <div className="mb-4">
-                <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
-                <div className="flex items-end gap-4 mt-2">
-                     <p className="text-muted-foreground">
-                        Ask me anything about your selected language!
-                    </p>
-                    <div className="w-full max-w-xs">
-                        <Label htmlFor="language-select" className="text-xs">Tutor Language</Label>
-                        <Select value={language} onValueChange={(value: Language) => handleLanguageChange(value)}>
-                            <SelectTrigger id="language-select" className="h-9">
-                                <SelectValue placeholder="Select language..." />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="en">English</SelectItem>
-                                <SelectItem value="ta">Tamil</SelectItem>
-                                <SelectItem value="hi">Hindi</SelectItem>
-                                <SelectItem value="ml">Malayalam</SelectItem>
-                                <SelectItem value="kn">Kannada</SelectItem>
-                                <SelectItem value="te">Telugu</SelectItem>
-                            </SelectContent>
-                        </Select>
-                    </div>
-                </div>
-            </div>
+    <div className="max-w-3xl mx-auto h-full flex flex-col">
+        <div className="text-center mb-4">
+            <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
+            <p className="text-muted-foreground">
+                Your conversational language learning partner.
+            </p>
+        </div>
+        <div className="w-full max-w-xs mx-auto mb-4">
+            <Label htmlFor="language-select" className="text-xs text-center block mb-1">Tutor Language</Label>
+            <Select value={language} onValueChange={(value: Language) => handleLanguageChange(value)}>
+                <SelectTrigger id="language-select" className="h-9">
+                    <SelectValue placeholder="Select language..." />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="ta">Tamil</SelectItem>
+                    <SelectItem value="hi">Hindi</SelectItem>
+                    <SelectItem value="ml">Malayalam</SelectItem>
+                    <SelectItem value="kn">Kannada</SelectItem>
+                    <SelectItem value="te">Telugu</SelectItem>
+                </SelectContent>
+            </Select>
+        </div>
 
-            <Card className="flex-1 flex flex-col">
-                <CardContent className="flex-1 p-6 flex flex-col">
-                <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
-                    <div className="space-y-6">
-                    {messages.map((message, index) => (
+        <Card className="flex-1 flex flex-col">
+            <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
+            <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
+                <div className="space-y-6 p-2">
+                {messages.map((message, index) => {
+                     const lastModelMessage = index > 0 && messages[index - 1].role === 'model';
+                     const pronunciationWord = message.role === 'model' ? extractLastWord(message.content) : null;
+                    return (
                         <div
                         key={index}
-                        className={`flex items-start gap-3 ${
-                            message.role === 'user' ? 'justify-end' : ''
-                        }`}
+                        className={cn('flex items-end gap-3', message.role === 'user' ? 'justify-end' : 'justify-start')}
                         >
-                        {message.role === 'model' && (
-                            <Avatar className="h-10 w-10 border-2 border-primary">
-                            <AvatarFallback>
-                                <Bot />
-                            </AvatarFallback>
-                            </Avatar>
-                        )}
-                        <div
-                            className={cn(
-                            'max-w-xl rounded-lg px-4 py-3 relative group',
-                            message.role === 'user'
-                                ? 'bg-primary text-primary-foreground'
-                                : 'bg-muted'
-                            )}
-                        >
-                            <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                             {message.role === 'model' && (
-                            <Button 
-                                size="icon" 
-                                variant="ghost" 
-                                className="absolute -right-11 top-1/2 -translate-y-1/2 h-8 w-8 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-                                onClick={() => handlePlayAudio(message.content, index)}
+                                <Avatar className="h-8 w-8 border-2 border-primary self-start">
+                                <AvatarFallback>
+                                    <Bot />
+                                </AvatarFallback>
+                                </Avatar>
+                            )}
+                            <div
+                                className={cn(
+                                'max-w-md rounded-lg px-4 py-2 relative group text-sm sm:text-base',
+                                message.role === 'user'
+                                    ? 'bg-primary text-primary-foreground rounded-br-none'
+                                    : 'bg-muted rounded-bl-none'
+                                )}
                             >
-                                {isPlaying === index ? <Loader2 className="animate-spin" /> : <Volume2 className="h-5 w-5"/>}
-                            </Button>
+                                <p className="whitespace-pre-wrap">{message.content}</p>
+                                {message.role === 'model' && (
+                                <Button 
+                                    size="icon" 
+                                    variant="ghost" 
+                                    className="absolute -right-10 top-1/2 -translate-y-1/2 h-7 w-7 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+                                    onClick={() => handlePlayAudio(message.content, index)}
+                                    aria-label="Play audio for this message"
+                                >
+                                    {isPlaying === index ? <Loader2 className="animate-spin" /> : <Volume2 className="h-4 w-4"/>}
+                                </Button>
+                                )}
+                                 {message.role === 'model' && pronunciationWord && (
+                                    <PronunciationPractice 
+                                        key={`${pronunciationWord}-${language}-${index}`}
+                                        word={pronunciationWord} 
+                                        language={language}
+                                        onResult={(isCorrect) => {
+                                            if (isCorrect) {
+                                                toast({
+                                                    title: "Great Job!",
+                                                    description: "Your pronunciation was perfect.",
+                                                });
+                                            }
+                                        }}
+                                    />
+                                )}
+                            </div>
+                            {message.role === 'user' && (
+                                <Avatar className="h-8 w-8 self-start">
+                                <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
+                                <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
+                                </Avatar>
                             )}
                         </div>
-                        {message.role === 'user' && (
-                            <Avatar className="h-10 w-10">
-                            <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
-                            <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
-                            </Avatar>
-                        )}
-                        </div>
-                    ))}
-                    {isLoading && (
-                        <div className="flex items-start gap-4">
-                        <Avatar className="h-10 w-10 border-2 border-primary">
-                            <AvatarFallback>
-                            <Bot />
-                            </AvatarFallback>
-                        </Avatar>
-                        <div className="max-w-lg rounded-lg px-4 py-3 bg-muted flex items-center">
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            <span>Thinking...</span>
-                        </div>
-                        </div>
-                    )}
+                    );
+                })}
+                {isLoading && (
+                    <div className="flex items-start gap-3">
+                    <Avatar className="h-8 w-8 border-2 border-primary">
+                        <AvatarFallback>
+                        <Bot />
+                        </AvatarFallback>
+                    </Avatar>
+                    <div className="max-w-lg rounded-lg px-4 py-2 bg-muted flex items-center rounded-bl-none">
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        <span className="text-sm">Thinking...</span>
                     </div>
-                </ScrollArea>
-                </CardContent>
-                <div className="border-t p-4">
-                <form onSubmit={handleSubmit} className="flex items-center gap-2">
-                    <Input
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask a question or use the microphone..."
-                    className="flex-1"
-                    disabled={isLoading || isRecording}
-                    />
-                    <Button
-                    type="button"
-                    variant={isRecording ? 'destructive' : 'outline'}
-                    size="icon"
-                    onClick={handleMicClick}
-                    disabled={isLoading}
-                    aria-label={isRecording ? "Stop recording" : "Start recording"}
-                    >
-                    <Mic className="h-5 w-5" />
-                    </Button>
-                    <Button type="submit" disabled={isLoading || isRecording || !input}>
-                    {isLoading ? (
-                        <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                        <Send className="h-4 w-4" />
-                    )}
-                    <span className="sr-only">Send</span>
-                    </Button>
-                </form>
+                    </div>
+                )}
                 </div>
-            </Card>
-        </div>
-        <div className="md:col-span-1">
-             <PronunciationPractice 
-                key={`${pronunciationWord}-${language}`}
-                word={pronunciationWord} 
-                language={language}
-                onResult={(isCorrect) => {
-                    if (isCorrect) {
-                        toast({
-                            title: "Great Job!",
-                            description: "Your pronunciation was perfect.",
-                        });
-                    }
-                }}
-            />
-        </div>
+            </ScrollArea>
+            </CardContent>
+            <div className="border-t p-2 sm:p-4">
+            <form onSubmit={handleSubmit} className="flex items-center gap-2">
+                <Input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder="Ask a question or use the microphone..."
+                className="flex-1"
+                disabled={isLoading || isRecording}
+                />
+                <Button
+                type="button"
+                variant={isRecording ? 'destructive' : 'outline'}
+                size="icon"
+                onClick={handleMicClick}
+                disabled={isLoading}
+                aria-label={isRecording ? "Stop recording" : "Start recording"}
+                >
+                <Mic className="h-5 w-5" />
+                </Button>
+                <Button type="submit" disabled={isLoading || isRecording || !input} aria-label="Send message">
+                {isLoading ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                    <Send className="h-4 w-4" />
+                )}
+                </Button>
+            </form>
+            </div>
+        </Card>
         <audio ref={audioRef} className="hidden" />
     </div>
   );
