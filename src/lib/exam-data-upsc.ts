@@ -1,96 +1,92 @@
+
 import type { ExamModule } from './types';
 
 export const upscHindiIdiomsAndPhrases: ExamModule = {
-    id: 'exam-upsc-hindi-idioms-phrases',
-    title: 'UPSC Idioms & Phrases',
-    examName: 'UPSC Prelims',
-    language: 'Hindi',
-    category: 'Idioms & Phrases',
+    id: 'exam-upsc-hindi-polity-history',
+    title: 'UPSC: CSAT & GS Medley',
+    examName: 'UPSC Civil Services',
+    language: 'Hindi / English',
+    category: 'General Studies & CSAT',
     vocabulary: [
         {
-            word: 'आँख का तारा (Aankh ka tara)',
-            romanization: 'Aankh ka tara',
-            definition: 'Very dear, apple of one\'s eye',
-            partOfSpeech: 'Idiom',
-            sentence: 'वह अपनी माँ की आँख का तारा है।',
-            sentenceRoman: 'Vah apni maa ki aankh ka tara hai.',
-            sentenceTranslation: 'He is the apple of his mother\'s eye.'
+            word: 'स्वराज (Swaraj)',
+            romanization: 'Swaraj',
+            definition: 'Self-rule, independence. A key concept in the Indian independence movement.',
+            partOfSpeech: 'Noun (Modern History)',
+            sentence: 'बाल गंगाधर तिलक का प्रसिद्ध नारा था, "स्वराज मेरा जन्मसिद्ध अधिकार है और मैं इसे लेकर रहूँगा।"',
+            sentenceRoman: 'Bal Gangadhar Tilak ka prasiddh naara tha, "Swaraj mera janmasiddh adhikar hai aur main ise lekar rahunga."',
+            sentenceTranslation: 'Bal Gangadhar Tilak\'s famous slogan was, "Swaraj is my birthright and I shall have it."'
         },
         {
-            word: 'ईद का चाँद होना (Eid ka chaand hona)',
-            romanization: 'Eid ka chaand hona',
-            definition: 'To be seen very rarely',
-            partOfSpeech: 'Idiom',
-            sentence: 'जब से तुम शहर गए हो, ईद का चाँद हो गए हो।',
-            sentenceRoman: 'Jab se tum sheher gaye ho, eid ka chaand ho gaye ho.',
-            sentenceTranslation: 'Ever since you went to the city, you are seen very rarely.'
+            word: 'सत्याग्रह (Satyagraha)',
+            romanization: 'Satyagraha',
+            definition: 'Holding onto truth; nonviolent resistance. A core Gandhian principle.',
+            partOfSpeech: 'Noun (Modern History)',
+            sentence: 'गांधीजी ने चंपारण में अपना पहला सफल सत्याग्रह किया।',
+            sentenceRoman: 'Gandhiji ne Champaran mein apna pehla safal satyagraha kiya.',
+            sentenceTranslation: 'Gandhiji conducted his first successful Satyagraha in Champaran.'
+        },
+         {
+            word: 'संप्रभुता (Samprabhuta)',
+            romanization: 'Samprabhuta',
+            definition: 'Sovereignty. The supreme authority of a state to govern itself.',
+            partOfSpeech: 'Noun (Polity)',
+            sentence: 'भारत एक संप्रभु, समाजवादी, धर्मनिरपेक्ष, लोकतांत्रिक गणराज्य है।',
+            sentenceRoman: 'Bharat ek samprabhu, samajwadi, dharmanirpeksh, loktantrik ganrajya hai.',
+            sentenceTranslation: 'India is a sovereign, socialist, secular, democratic republic.'
         },
         {
-            word: 'राई का पहाड़ बनाना (Rai ka pahad banana)',
-            romanization: 'Rai ka pahad banana',
-            definition: 'To make a mountain out of a molehill',
-            partOfSpeech: 'Idiom',
-            sentence: 'छोटी सी बात पर राई का पहाड़ मत बनाओ।',
-            sentenceRoman: 'Chhoti si baat par rai ka pahad mat banao.',
-            sentenceTranslation: 'Don\'t make a mountain out of a molehill over a small matter.'
+            word: 'न्यायिक समीक्षा (Nyayik Sameeksha)',
+            romanization: 'Nyayik Sameeksha',
+            definition: 'Judicial Review. The power of the judiciary to examine the constitutionality of legislative acts.',
+            partOfSpeech: 'Noun (Polity)',
+            sentence: 'न्यायिक समीक्षा संविधान की सर्वोच्चता को बनाए रखती है।',
+            sentenceRoman: 'Nyayik sameeksha samvidhan ki sarvochchata ko banaye rakhti hai.',
+            sentenceTranslation: 'Judicial review upholds the supremacy of the Constitution.'
         },
         {
-            word: 'हवा से बातें करना (Hawa se baatein karna)',
-            romanization: 'Hawa se baatein karna',
-            definition: 'To go very fast',
-            partOfSpeech: 'Idiom',
-            sentence: 'उसका घोड़ा हवा से बातें कर रहा था।',
-            sentenceRoman: 'Uska ghoda hawa se baatein kar raha tha.',
-            sentenceTranslation: 'His horse was going very fast.'
+            word: 'अधजल गगरी छलकत जाए',
+            romanization: 'Adhjal gagri chhalkat jaye',
+            definition: 'A person with little knowledge boasts the most (empty vessels make the most noise).',
+            partOfSpeech: 'Idiom (CSAT - Hindi)',
+            sentence: 'उसे आता कुछ नहीं, बस अधजल गगरी छलकत जाए वाली बात है।',
+            sentenceRoman: 'Use aata kuch nahi, bas adhjal gagri chhalkat jaye wali baat hai.',
+            sentenceTranslation: 'He doesn\'t know anything, it\'s just a case of an empty vessel making the most noise.'
         },
-        {
-            word: 'चिकना घड़ा होना (Chikna ghada hona)',
-            romanization: 'Chikna ghada hona',
-            definition: 'To be shameless or impervious to criticism',
-            partOfSpeech: 'Idiom',
-            sentence: 'उस पर किसी बात का असर नहीं होता, वह तो चिकना घड़ा है।',
-            sentenceRoman: 'Us par kisi baat ka asar nahi hota, vah toh chikna ghada hai.',
-            sentenceTranslation: 'Nothing affects him, he is impervious to criticism.'
-        }
     ],
     quizzes: [
         {
             type: 'multiple-choice',
-            question: 'What is the meaning of "ईद का चाँद होना"?',
-            options: ['To be very beautiful', 'To be seen very rarely', 'To celebrate a festival', 'To be very bright'],
-            answer: 'To be seen very rarely'
+            question: 'The power of Judicial Review in the Indian Constitution is based on the principle of:',
+            options: ['Rule of Law', 'Separation of Powers', 'Supremacy of the Constitution', 'Federalism'],
+            answer: 'Supremacy of the Constitution'
         },
         {
             type: 'multiple-choice',
-            question: 'If someone is "हवा से बातें करना", they are...',
-            options: ['Talking a lot', 'Going very fast', 'Very light', 'Boasting'],
-            answer: 'Going very fast'
+            question: 'The Non-Cooperation Movement was launched in response to the:',
+            options: ['Partition of Bengal', 'Rowlatt Act and Jallianwala Bagh massacre', 'Simon Commission', 'Cripps Mission'],
+            answer: 'Rowlatt Act and Jallianwala Bagh massacre'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'A person who is shameless or impervious to criticism is called a "____ ____".',
-            answer: 'चिकना घड़ा'
-        },
-        {
-            type: 'fill-in-the-blank',
-            question: 'Making a mountain out of a molehill is expressed by the idiom "____ का पहाड़ बनाना".',
-            answer: 'राई'
+            question: 'The phrase for "a bad workman quarrels with his tools" is "नाच न जाने ____ टेढ़ा".',
+            answer: 'आँगन'
         },
         {
             type: 'multiple-choice',
-            question: 'A person who is very dear to someone is their "____ का तारा".',
-            options: ['आसमान', 'दिन', 'रात', 'आँख'],
-            answer: 'आँख'
-        }
+            question: 'What does the term "Sovereignty" mean in the Preamble?',
+            options: ['India is a colony of another country', 'India can acquire foreign territories', 'India is free to conduct its own internal and external affairs', 'India must obey UN directives'],
+            answer: 'India is free to conduct its own internal and external affairs'
+        },
     ],
     errorAnalysis: [
         {
-            pitfall: 'Literal Translation',
-            tip: 'Idioms are figurative. "Chikna ghada" literally means "smooth pot," but its idiomatic meaning is completely different. Focus on understanding the contextual meaning provided in the sample sentence rather than the literal words.'
+            pitfall: 'Misinterpreting Polity Terminology',
+            tip: 'Terms like "republic," "secular," and "federal" have very specific meanings in the context of the Indian Constitution. Avoid using their general English definitions. For example, "republic" specifically means the head of state is elected, not a hereditary monarch.'
         },
         {
-            pitfall: 'Incorrect Usage in Sentences',
-            tip: 'Simply knowing the meaning isn\'t enough for UPSC exams; you must know how to use the idiom correctly. Pay close attention to the grammatical structure of the sample sentences. Notice how the verb in the idiom sometimes changes to match the tense and subject.'
+            pitfall: 'Confusing Historical Timelines',
+            tip: 'In Modern History, the sequence of events is crucial. Create a timeline chart linking major movements (Non-Cooperation, Civil Disobedience, Quit India) with their key triggers (Rowlatt Act, Dandi March, etc.) to avoid confusion.'
         }
     ]
 };
