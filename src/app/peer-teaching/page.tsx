@@ -60,7 +60,7 @@ export default function PeerTeachingPage() {
                     if (latestSubmission) {
                         setScript(latestSubmission.submission.script);
                         setDiagram(latestSubmission.submission.diagramDescription);
-                        setMcqs(latestSubmission.submission.mcqs); // Direct assignment, no conversion needed
+                        setMcqs(latestSubmission.submission.mcqs);
                         setFeedback(latestSubmission.feedback);
                     }
                 } catch (error) {
@@ -86,12 +86,21 @@ export default function PeerTeachingPage() {
 
         if (field === 'question') {
             mcqToUpdate.question = value;
-        } else if (field === 'correctAnswer') {
-            mcqToUpdate.correctAnswer = value;
         } else if (field.startsWith('option-')) {
             const optionIndex = parseInt(field.split('-')[1], 10);
+            const oldOptionValue = mcqToUpdate.options[optionIndex];
+            
             mcqToUpdate.options = [...mcqToUpdate.options];
             mcqToUpdate.options[optionIndex] = value;
+            
+            // If the edited option was the correct answer, reset the correct answer
+            // to force the user to re-select it. This prevents data inconsistency.
+            if (mcqToUpdate.correctAnswer === oldOptionValue) {
+                mcqToUpdate.correctAnswer = '';
+            }
+
+        } else if (field === 'correctAnswer') {
+            mcqToUpdate.correctAnswer = value;
         }
 
         newMcqs[mcqIndex] = mcqToUpdate;
@@ -107,7 +116,6 @@ export default function PeerTeachingPage() {
         setIsLoading(true);
         setFeedback(null);
         try {
-            // The local state 'mcqs' now perfectly matches the MissionSubmissionInput['mcqs'] type
             const submission: MissionSubmissionInput = {
                 concept: mission.concept,
                 script: script,
@@ -224,10 +232,12 @@ export default function PeerTeachingPage() {
                             <Label className="mb-2 block">Correct Answer</Label>
                              <RadioGroup value={mcq.correctAnswer} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswer', value)} className="flex gap-4" disabled={!currentUser}>
                                {mcq.options.map((option, optionIndex) => (
-                                <div key={optionIndex} className="flex items-center space-x-2">
-                                    <RadioGroupItem value={option} id={`mcq${mcqIndex}-opt${optionIndex}`} />
-                                    <Label htmlFor={`mcq${mcqIndex}-opt${optionIndex}`}>{String.fromCharCode(65 + optionIndex)}</Label>
-                                </div>
+                                 option.trim() && (
+                                    <div key={optionIndex} className="flex items-center space-x-2">
+                                        <RadioGroupItem value={option} id={`mcq${mcqIndex}-opt${optionIndex}`} />
+                                        <Label htmlFor={`mcq${mcqIndex}-opt${optionIndex}`}>{String.fromCharCode(65 + optionIndex)}</Label>
+                                    </div>
+                                 )
                                ))}
                             </RadioGroup>
                          </div>
