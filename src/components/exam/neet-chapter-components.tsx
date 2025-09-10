@@ -396,7 +396,11 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                         <PracticeAnalytics mcqs={practiceMcqs} answers={practiceAnswers} submitted={isPracticeSubmitted} />
                     </TabsContent>
                     <TabsContent value="ai-practice" className="mt-4">
-                       <AiPracticeGenerator subject={subject} chapter={chapter} generatorFn={generateNeetQuiz} />
+                       <AiPracticeGenerator 
+                            subject={subject} 
+                            chapter={chapter} 
+                            generatorFn={generateNeetQuiz}
+                        />
                     </TabsContent>
                 </Tabs>
                  <AnimatePresence>

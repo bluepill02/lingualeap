@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { BookOpen, AlertTriangle, Lightbulb, Target } from 'lucide-react';
 import type { NeetModule } from '@/lib/types';
 import { MarkdownRenderer } from './markdown-renderer';
+import { AiPracticeGenerator } from './ai-practice-generator';
+import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 
 export function BiologyLearnCard({ content }: { content: NeetModule }) {
   const { stateBoardGaps = [], extraNeetConcepts = [], ncertReadingGuide = [] } = content;
