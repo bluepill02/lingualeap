@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState } from 'react';
@@ -10,15 +11,14 @@ import { Input } from '@/components/ui/input';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { Sparkles, Loader2, CheckCircle, XCircle, FileQuestion, Copy, RefreshCw } from 'lucide-react';
-import type { NeetModule, NeetQuizGeneratorOutput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorInput, NeetFlashcardGeneratorOutput, NeetQuizGeneratorInput } from '@/lib/types';
-import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
+import type { NeetQuizGeneratorOutput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorInput, NeetFlashcardGeneratorOutput, NeetQuizGeneratorInput } from '@/lib/types';
 import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 import { MarkdownRenderer } from './markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from "framer-motion";
 
 interface AiPracticeGeneratorProps {
-  subject: NeetModule['subject'] | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science';
+  subject: 'Physics' | 'Chemistry' | 'Biology' | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science' | 'Aptitude' | 'Current Affairs' | 'Language';
   chapter: string;
   generatorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
 }
