@@ -9,6 +9,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { analyzeImageForLearning } from '@/ai/flows/ar-immersion-flow';
 import type { AnalyzeImageOutput } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 export default function ARImmersionPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -40,15 +41,17 @@ export default function ARImmersionPage() {
         setHasCameraPermission(true);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
+          videoRef.current.onloadedmetadata = () => {
+             setIsCameraOn(true);
+          }
         }
-        setIsCameraOn(true);
       } catch (error) {
         console.error('Error accessing camera:', error);
         setHasCameraPermission(false);
         toast({
           variant: 'destructive',
           title: 'Camera Access Denied',
-          description: 'Please enable camera permissions in your browser settings to use this app.',
+          description: 'Please enable camera permissions in your browser settings to use this feature.',
         });
       }
     };
@@ -103,6 +106,34 @@ export default function ARImmersionPage() {
     setIsSubmitted(false);
   }
 
+  const renderQuizOption = (option: string) => {
+    const isCorrectAnswer = option === analysisResult?.quiz.answer;
+    const isSelected = selectedOption === option;
+
+    const getVariant = () => {
+        if (!isSubmitted) return isSelected ? 'secondary' : 'outline';
+        if (isCorrectAnswer) return 'success';
+        if (isSelected) return 'destructive';
+        return 'outline';
+    }
+
+    return (
+        <Button 
+            key={option}
+            variant={getVariant()}
+            className="w-full justify-start items-center"
+            onClick={() => !isSubmitted && setSelectedOption(option)}
+        >
+            <div className="flex-shrink-0 w-6">
+                {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4" />}
+                {isSubmitted && isSelected && !isCorrectAnswer && <X className="h-4 w-4" />}
+            </div>
+            <span className="flex-grow text-left">{option}</span>
+        </Button>
+    );
+  }
+
+
   return (
     <div className="container mx-auto space-y-8">
       <div>
@@ -121,24 +152,26 @@ export default function ARImmersionPage() {
                 <p>Requesting camera access...</p>
               </div>
             )}
-            <video ref={videoRef} className={`w-full h-full object-cover ${!isCameraOn ? 'hidden' : ''}`} autoPlay muted playsInline />
-            <div className="absolute inset-0 flex items-center justify-center">
-              {hasCameraPermission === false && (
+             {hasCameraPermission === false && (
                 <Alert variant="destructive" className="m-4">
                   <AlertTitle>Camera Access Required</AlertTitle>
                   <AlertDescription>Please allow camera access to use this feature.</AlertDescription>
                 </Alert>
-              )}
-               {!isCameraOn && hasCameraPermission && (
-                    <div className="text-center">
-                        <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
-                        <h3 className="font-semibold">Starting camera...</h3>
-                    </div>
-                )}
-            </div>
+            )}
+            {hasCameraPermission && (
+                <>
+                     <video ref={videoRef} className={cn("w-full h-full object-cover transition-opacity duration-500", isCameraOn ? 'opacity-100' : 'opacity-0')} autoPlay muted playsInline />
+                     {!isCameraOn && (
+                         <div className="absolute inset-0 flex items-center justify-center text-center">
+                            <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
+                            <h3 className="font-semibold">Starting camera...</h3>
+                        </div>
+                     )}
+                </>
+            )}
           </div>
           <div className="mt-4 flex justify-center">
-            <Button size="lg" onClick={captureImage} disabled={!hasCameraPermission || isLoading || !isCameraOn}>
+            <Button size="lg" onClick={captureImage} disabled={!isCameraOn || isLoading}>
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 animate-spin" />
@@ -176,29 +209,17 @@ export default function ARImmersionPage() {
                 <h3 className="font-semibold flex items-center gap-2"><HelpCircle/> Quick Quiz</h3>
                 <p>{analysisResult.quiz.question}</p>
                 <div className="space-y-2">
-                  {analysisResult.quiz.options.map((option, index) => (
-                    <Button 
-                      key={index}
-                      variant={
-                        isSubmitted 
-                          ? (option === analysisResult.quiz.answer ? 'success' : (selectedOption === option ? 'destructive' : 'outline'))
-                          : (selectedOption === option ? 'secondary' : 'outline')
-                      }
-                      className="w-full justify-start"
-                      onClick={() => !isSubmitted && setSelectedOption(option)}
-                    >
-                      {isSubmitted && option === analysisResult.quiz.answer && <Check className="mr-2" />}
-                      {isSubmitted && selectedOption === option && option !== analysisResult.quiz.answer && <X className="mr-2" />}
-                      {option}
-                    </Button>
-                  ))}
+                  {analysisResult.quiz.options.map(renderQuizOption)}
                 </div>
                 {isSubmitted ? (
-                  <p className={`text-sm ${selectedOption === analysisResult.quiz.answer ? 'text-green-500' : 'text-destructive'}`}>
-                    {selectedOption === analysisResult.quiz.answer 
-                      ? "Correct!" 
-                      : `Nice try! The correct answer is: ${analysisResult.quiz.answer}`}
-                  </p>
+                   <Alert variant={selectedOption === analysisResult.quiz.answer ? 'success' : 'warning'}>
+                        <AlertTitle>
+                            {selectedOption === analysisResult.quiz.answer ? 'Correct!' : 'Nice try!'}
+                        </AlertTitle>
+                        <AlertDescription>
+                            The correct answer is: <strong>{analysisResult.quiz.answer}</strong>
+                        </AlertDescription>
+                    </Alert>
                 ) : (
                   <Button onClick={handleQuizSubmit} disabled={!selectedOption}>Submit</Button>
                 )}
