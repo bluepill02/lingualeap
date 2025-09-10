@@ -6,13 +6,16 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Video, User, Zap, Loader2, Check } from 'lucide-react';
+import { Clock, Video, User, Zap, Loader2, Check, Lock } from 'lucide-react';
 import { getLiveClasses } from '@/services/live-classes';
 import type { LiveClass } from '@/lib/types';
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useUser } from '@/context/user-context';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 function LiveClassSkeleton() {
     return (
@@ -44,10 +47,12 @@ function LiveClassSkeleton() {
 const REGISTRATION_STORAGE_KEY = 'lingualeap_registered_classes';
 
 export default function LiveClassesPage() {
+    const { user } = useUser();
     const [allClasses, setAllClasses] = useState<LiveClass[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [registeredClasses, setRegisteredClasses] = useState<Set<string>>(new Set());
     const { toast } = useToast();
+    const isPro = user?.isPro || false;
 
     useEffect(() => {
         async function fetchClasses() {
@@ -182,8 +187,26 @@ export default function LiveClassesPage() {
                     <div className="responsive-card-grid">
                         {upcomingClasses.map(cls => {
                             const isRegistered = registeredClasses.has(cls.id);
+                            const actionButton = isPro ? (
+                                <Button 
+                                    variant={isRegistered ? "success" : "secondary"} 
+                                    className="w-full" 
+                                    disabled={isRegistered}
+                                    onClick={() => handleRegister(cls.id)}
+                                >
+                                    {isRegistered ? <Check className="mr-2" /> : <User className="mr-2" />}
+                                    {isRegistered ? 'Registered' : 'Register'}
+                                </Button>
+                            ) : (
+                                <Link href="/upgrade" className="w-full">
+                                    <Button variant="outline" className="w-full">
+                                        <Lock className="mr-2"/> Upgrade to Register
+                                    </Button>
+                                </Link>
+                            );
+
                             return (
-                                <Card key={cls.id} className="flex flex-col bg-card/50">
+                                <Card key={cls.id} className={cn("flex flex-col bg-card/50", !isPro && "border-dashed")}>
                                     <CardHeader>
                                         <CardTitle>{cls.topic}</CardTitle>
                                         <CardDescription>With {cls.instructor}</CardDescription>
@@ -202,15 +225,7 @@ export default function LiveClassesPage() {
                                         </div>
                                     </CardContent>
                                     <CardFooter>
-                                        <Button 
-                                            variant={isRegistered ? "success" : "secondary"} 
-                                            className="w-full" 
-                                            disabled={isRegistered}
-                                            onClick={() => handleRegister(cls.id)}
-                                        >
-                                            {isRegistered ? <Check className="mr-2" /> : <User className="mr-2" />}
-                                            {isRegistered ? 'Registered' : 'Register'}
-                                        </Button>
+                                        {actionButton}
                                     </CardFooter>
                                 </Card>
                             )

@@ -26,6 +26,7 @@ import {
   Loader2,
   Star,
   ClipboardCheck,
+  Lock,
 } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -39,6 +40,8 @@ import { app } from '@/lib/firebase';
 import { getDashboardData } from '@/services/dashboard';
 import type { DashboardData, User } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useUser } from '@/context/user-context';
+import { cn } from '@/lib/utils';
 
 function DashboardSkeleton() {
     return (
@@ -101,41 +104,36 @@ function DashboardSkeleton() {
 }
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const { user } = useUser();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
-    const auth = getAuth(app);
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        try {
-          const data = await getDashboardData(firebaseUser.uid);
-          setDashboardData(data);
-        } catch (error) {
-          console.error("Failed to fetch dashboard data:", error);
-        } finally {
-          setIsLoading(false);
+    async function loadData() {
+        if (user) {
+            try {
+                const data = await getDashboardData(user.uid);
+                setDashboardData(data);
+            } catch (error) {
+                console.error("Failed to fetch dashboard data:", error);
+            } finally {
+                setIsLoading(false);
+            }
+        } else {
+            // Handle signed out state
+            setDashboardData(null);
+            setIsLoading(false);
         }
-      } else {
-        // Handle signed out state
-        setUser(null);
-        setDashboardData(null);
-        setIsLoading(false);
-        // Optionally redirect to login page
-        // router.push('/auth'); 
-      }
-    });
+    }
+    loadData();
 
     const hour = new Date().getHours();
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
 
-    return () => unsubscribe();
-  }, []);
+  }, [user]);
 
   if (isLoading) {
     return <DashboardSkeleton />;
@@ -154,6 +152,7 @@ export default function DashboardPage() {
   }
 
   const { userData, flashcardStats, lessons, companionCircle } = dashboardData;
+  const isPro = userData.isPro;
 
   const proficiencyMap: { [key: string]: string } = {
     'Beginner': 'A1',
@@ -174,14 +173,16 @@ export default function DashboardPage() {
 
   function SmartStudyPlanCard() {
     return (
-      <Card className="bg-card/50">
+      <Card className={cn("bg-card/50", !isPro && "bg-muted/30 border-dashed")}>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
             <Sparkles className="text-primary h-5 w-5" />
             Smart Study Plan
           </CardTitle>
           <CardDescription>
-            Your AI-powered path to mastering {userData.language}.
+            {isPro
+              ? `Your AI-powered path to mastering ${userData.language}.`
+              : 'Unlock AI-powered study sessions with Pro.'}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -199,9 +200,9 @@ export default function DashboardPage() {
             <Lightbulb className="h-5 w-5 text-accent" />
             <span>You've learned {flashcardStats.mastered} words so far! Keep going to unlock personalized insights.</span>
           </div>
-          <Link href="/flashcards">
-            <Button className="w-full" size="lg">
-              Start Smart Session
+          <Link href={isPro ? "/flashcards" : "/upgrade"}>
+            <Button className="w-full" size="lg" disabled={!isPro}>
+              {isPro ? 'Start Smart Session' : <> <Lock className="mr-2"/> Upgrade to Pro</>}
             </Button>
           </Link>
         </CardContent>
@@ -217,8 +218,11 @@ export default function DashboardPage() {
       const leaderIndex = companionCircle.members.length > 0 ? currentWeek % companionCircle.members.length : 0;
       const leader = companionCircle.members.length > 0 ? companionCircle.members[leaderIndex] : null;
 
+      const isProCircle = companionCircle.type === 'Mentor-led';
+      const canAccess = isPro ? true : !isProCircle;
+
       return (
-          <Card className="bg-card/50">
+          <Card className={cn("bg-card/50", !canAccess && "bg-muted/30 border-dashed")}>
               <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                       <Users className="h-5 w-5 text-primary" />
@@ -251,9 +255,10 @@ export default function DashboardPage() {
                           </div>
                       ))}
                   </div>
-                    <Link href={`/companion-circles/${companionCircle.id}`}>
-                        <Button variant="outline" className="w-full mt-6">
-                            View Circle
+                    <Link href={canAccess ? `/companion-circles/${companionCircle.id}` : '/upgrade'}>
+                        <Button variant="outline" className="w-full mt-6" disabled={!canAccess}>
+                           {!canAccess && <Lock className="mr-2"/>}
+                           {canAccess ? "View Circle" : "Upgrade to View"}
                         </Button>
                   </Link>
               </CardContent>
@@ -275,6 +280,7 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <Star className="w-4 h-4 text-yellow-500" />
                     <span>Level {currentLevel}</span>
+                     <Badge variant={isPro ? 'warning' : 'secondary'}>{isPro ? 'Pro Member' : 'Free Member'}</Badge>
                 </div>
             </div>
             <div className="flex gap-2">
@@ -319,7 +325,7 @@ export default function DashboardPage() {
 
         <div>
           <h2 className="text-xl font-bold font-headline mb-4">Recommended Lessons</h2>
-          <LessonCarousel lessons={lessons} />
+          <LessonCarousel lessons={lessons} isPro={isPro} />
         </div>
 
         <CompanionCircleCard />
@@ -353,7 +359,7 @@ export default function DashboardPage() {
                     </TabsList>
                      <TabsContent value="joined">
                         <div className="text-center p-4">
-                            <p className="text-2xl font-bold">{format(new Date(user.metadata.creationTime || Date.now()), 'MMMM d, yyyy')}</p>
+                            <p className="text-2xl font-bold">{user.metadata.creationTime ? format(new Date(user.metadata.creationTime), 'MMMM d, yyyy') : 'N/A'}</p>
                             <p className="text-sm text-muted-foreground">Date Joined</p>
                         </div>
                     </TabsContent>

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Sparkles, Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { Sparkles, Loader2, CheckCircle, XCircle, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -15,6 +15,8 @@ import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
 import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput } from '@/lib/types';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
+import { useUser } from '@/context/user-context';
+import Link from 'next/link';
 
 type QuizState = {
   answers: (string | null)[];
@@ -29,7 +31,25 @@ type Language = 'English' | 'Tamil';
 const neetSubjects: Subject[] = ['Physics', 'Chemistry', 'Biology'];
 const tnpscSubjects: Subject[] = ['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language'];
 
+function ProUpgradeCard() {
+    return (
+        <Card className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm space-y-4 p-8 text-center">
+            <div className="p-4 bg-primary/10 rounded-full">
+                 <Sparkles className="w-12 h-12 text-primary" />
+            </div>
+            <h2 className="text-2xl font-bold font-headline">Unlock the AI Practice Generator</h2>
+            <p className="text-muted-foreground">
+                Generate unlimited, custom quizzes on any topic instantly. A LinguaLeap Pro feature to supercharge your exam prep.
+            </p>
+            <Link href="/upgrade">
+                <Button size="lg">Upgrade to Pro</Button>
+            </Link>
+        </Card>
+    )
+}
+
 export default function OnDemandQuizPage() {
+  const { user } = useUser();
   const [prompt, setPrompt] = useState('Optics');
   const [examType, setExamType] = useState<ExamType>('NEET');
   const [subject, setSubject] = useState<Subject>('Physics');
@@ -42,6 +62,7 @@ export default function OnDemandQuizPage() {
   const [quizState, setQuizState] = useState<QuizState | null>(null);
 
   const { toast } = useToast();
+  const isPro = user?.isPro || false;
 
   const availableSubjects = examType === 'NEET' ? neetSubjects : tnpscSubjects;
 
@@ -123,7 +144,8 @@ export default function OnDemandQuizPage() {
         </p>
       </header>
 
-      <Card>
+      <Card className="relative">
+        {!isPro && <ProUpgradeCard />}
         <CardContent className="p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              <div>
@@ -195,7 +217,7 @@ export default function OnDemandQuizPage() {
                 </div>
            </div>
 
-          <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
+          <Button onClick={handleGenerateQuiz} disabled={isLoading || !isPro} className="w-full">
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 animate-spin" />
@@ -299,4 +321,3 @@ export default function OnDemandQuizPage() {
     </div>
   );
 }
-

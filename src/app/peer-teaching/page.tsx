@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
-import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw } from 'lucide-react';
+import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideMissionFeedback } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
@@ -19,6 +19,8 @@ import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth
 import { app } from '@/lib/firebase';
 import { saveMissionSubmission, getLatestMissionSubmission } from '@/services/missions';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useUser } from '@/context/user-context';
+import Link from 'next/link';
 
 const mission = {
     id: 'newtons-third-law',
@@ -40,23 +42,21 @@ const initialMcqState: MCQState[] = [
 
 
 export default function PeerTeachingPage() {
+    const { user: firebaseUser } = useUser();
     const [script, setScript] = useState('');
     const [diagram, setDiagram] = useState('');
     const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
-    const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
+    const isPro = firebaseUser?.isPro || false;
 
     const { toast } = useToast();
     
      useEffect(() => {
-        const auth = getAuth(app);
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                setCurrentUser(user);
-                try {
-                    const latestSubmission = await getLatestMissionSubmission(user.uid, mission.id);
+        if (firebaseUser && isPro) {
+            getLatestMissionSubmission(firebaseUser.uid, mission.id)
+                .then(latestSubmission => {
                     if (latestSubmission) {
                         setScript(latestSubmission.submission.script);
                         setDiagram(latestSubmission.submission.diagramDescription);
@@ -68,21 +68,22 @@ export default function PeerTeachingPage() {
                         setMcqs(loadedMcqs);
                         setFeedback(latestSubmission.feedback);
                     }
-                } catch (error) {
+                })
+                .catch(error => {
                     console.error("Could not load previous submission:", error);
                     toast({
                         variant: 'destructive',
                         title: 'Error',
                         description: 'Could not load your previous submission.',
                     });
-                }
-            } else {
-                setCurrentUser(null);
-            }
+                })
+                .finally(() => {
+                    setIsPageLoading(false);
+                });
+        } else {
             setIsPageLoading(false);
-        });
-        return () => unsubscribe();
-    }, [toast]);
+        }
+    }, [firebaseUser, toast, isPro]);
 
 
     const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswer', value: string) => {
@@ -96,7 +97,6 @@ export default function PeerTeachingPage() {
                 const optionIndex = parseInt(field.split('-')[1], 10);
                 const oldOptionValue = mcqToUpdate.options[optionIndex];
                 
-                // If the edited option was the correct answer, reset the correct answer.
                 if (mcqToUpdate.correctAnswer === oldOptionValue) {
                     mcqToUpdate.correctAnswer = '';
                 }
@@ -112,7 +112,7 @@ export default function PeerTeachingPage() {
 
 
     const handleSubmit = async () => {
-        if (!currentUser) {
+        if (!firebaseUser) {
             toast({ variant: 'destructive', title: 'You must be logged in to submit.' });
             return;
         }
@@ -129,7 +129,7 @@ export default function PeerTeachingPage() {
             const feedbackResult = await provideMissionFeedback(submission);
             setFeedback(feedbackResult);
             
-            await saveMissionSubmission(currentUser.uid, mission.id, submission, feedbackResult);
+            await saveMissionSubmission(firebaseUser.uid, mission.id, submission, feedbackResult);
 
             toast({
                 title: "Feedback Received and Saved!",
@@ -163,10 +163,34 @@ export default function PeerTeachingPage() {
                 </div>
                 <Card><CardContent className="p-6"><Skeleton className="h-24"/></CardContent></Card>
                 <Card><CardContent className="p-6"><Skeleton className="h-32"/></CardContent></Card>
-                 <Card><CardContent className="p-6"><Skeleton className="h-48"/></CardContent></Card>
+                <Card><CardContent className="p-6"><Skeleton className="h-48"/></CardContent></Card>
             </div>
         )
     }
+    
+    if (!isPro) {
+        return (
+            <div className="container mx-auto flex items-center justify-center">
+                 <Card className="max-w-xl text-center p-8">
+                    <CardHeader>
+                        <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                            <Sparkles className="w-8 h-8 text-primary"/>
+                        </div>
+                        <CardTitle className="text-2xl font-headline">Unlock AI-Powered Feedback</CardTitle>
+                        <CardDescription>
+                            Get instant, expert feedback on your micro-lessons with Peer-Teaching Missions, a LinguaLeap Pro feature.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Link href="/upgrade">
+                            <Button size="lg">Upgrade to Pro</Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+            </div>
+        )
+    }
+
 
   return (
     <div className="container mx-auto space-y-8">
@@ -194,7 +218,7 @@ export default function PeerTeachingPage() {
                     className="min-h-[150px]"
                     value={script}
                     onChange={(e) => setScript(e.target.value)}
-                    disabled={!currentUser}
+                    disabled={!firebaseUser}
                 />
             </CardContent>
         </Card>
@@ -209,7 +233,7 @@ export default function PeerTeachingPage() {
                     placeholder="e.g., 'A simple sketch of two people on skateboards pushing each other apart. Arrows show the equal and opposite forces.'"
                     value={diagram}
                     onChange={(e) => setDiagram(e.target.value)}
-                    disabled={!currentUser}
+                    disabled={!firebaseUser}
                 />
             </CardContent>
         </Card>
@@ -223,17 +247,17 @@ export default function PeerTeachingPage() {
                 {mcqs.map((mcq, mcqIndex) => (
                     <div key={mcqIndex} className="space-y-3 p-4 border rounded-md">
                         <Label htmlFor={`mcq${mcqIndex}-q`}>Question {mcqIndex + 1}</Label>
-                        <Input id={`mcq${mcqIndex}-q`} placeholder="Question text..." value={mcq.question} onChange={e => handleMcqChange(mcqIndex, 'question', e.target.value)} disabled={!currentUser}/>
+                        <Input id={`mcq${mcqIndex}-q`} placeholder="Question text..." value={mcq.question} onChange={e => handleMcqChange(mcqIndex, 'question', e.target.value)} disabled={!firebaseUser}/>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                            {mcq.options.map((option, optionIndex) => (
-                                <Input key={optionIndex} placeholder={`Option ${String.fromCharCode(65 + optionIndex)}`} value={option} onChange={e => handleMcqChange(mcqIndex, `option-${optionIndex}`, e.target.value)} disabled={!currentUser} />
+                                <Input key={optionIndex} placeholder={`Option ${String.fromCharCode(65 + optionIndex)}`} value={option} onChange={e => handleMcqChange(mcqIndex, `option-${optionIndex}`, e.target.value)} disabled={!firebaseUser} />
                            ))}
                         </div>
                         
                          <div>
                             <Label className="mb-2 block">Correct Answer</Label>
-                             <RadioGroup value={mcq.correctAnswer} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswer', value)} className="flex gap-4" disabled={!currentUser}>
+                             <RadioGroup value={mcq.correctAnswer} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswer', value)} className="flex gap-4" disabled={!firebaseUser}>
                                {mcq.options.map((option, optionIndex) => (
                                  option.trim() && (
                                     <div key={optionIndex} className="flex items-center space-x-2">
@@ -250,14 +274,14 @@ export default function PeerTeachingPage() {
         </Card>
       </div>
       
-      {!currentUser && (
+      {!firebaseUser && (
           <Alert variant="warning">
               <AlertTitle>Please Log In</AlertTitle>
               <AlertDescription>You need to be logged in to submit a mission and receive feedback.</AlertDescription>
           </Alert>
       )}
 
-       <Button size="lg" className="w-full" onClick={handleSubmit} disabled={isLoading || !currentUser}>
+       <Button size="lg" className="w-full" onClick={handleSubmit} disabled={isLoading || !firebaseUser}>
            {isLoading ? <><Loader2 className="mr-2 animate-spin"/> Submitting to AI Editor...</> : "Submit Mission for Feedback"}
         </Button>
 
@@ -304,4 +328,3 @@ export default function PeerTeachingPage() {
     </div>
   );
 }
-

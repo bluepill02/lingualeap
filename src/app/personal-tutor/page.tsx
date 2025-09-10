@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Bot, Loader2, Send, Mic, Volume2, User } from 'lucide-react';
+import { Bot, Loader2, Send, Mic, Volume2, User, Lock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,14 +18,34 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import type { Language, Message, PersonalTutorInput } from '@/lib/types';
 import { languageMap } from '@/lib/types';
 import Image from 'next/image';
+import { useUser } from '@/context/user-context';
+import Link from 'next/link';
+
+function ProUpgradeCard() {
+    return (
+        <Card className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm space-y-4 p-8 text-center">
+            <div className="p-4 bg-primary/10 rounded-full">
+                 <Sparkles className="w-12 h-12 text-primary" />
+            </div>
+            <h2 className="text-2xl font-bold font-headline">Unlock Your AI Personal Tutor</h2>
+            <p className="text-muted-foreground">
+                Get unlimited conversational practice, grammar explanations, and cultural insights with LinguaLeap Pro.
+            </p>
+            <Link href="/upgrade">
+                <Button size="lg">Upgrade to Pro</Button>
+            </Link>
+        </Card>
+    )
+}
 
 
 export default function PersonalTutorPage() {
+  const { user } = useUser();
   const [language, setLanguage] = useState<Language>('en');
   
   const getInitialMessage = useCallback(() => {
-    return `Hello ${mockUser.name}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
-  }, [language]);
+    return `Hello ${user?.displayName || 'there'}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
+  }, [language, user]);
 
   const [messages, setMessages] = useState<Message[]>([
     { role: 'model', content: getInitialMessage() },
@@ -41,10 +61,17 @@ export default function PersonalTutorPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const { toast } = useToast();
+  
+  const isPro = user?.isPro || false;
+
+  useEffect(() => {
+    setMessages([{ role: 'model', content: getInitialMessage() }]);
+  }, [user, getInitialMessage]);
+
 
   const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
-    setMessages([{ role: 'model', content: `Hello ${mockUser.name}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
+    setMessages([{ role: 'model', content: `Hello ${user?.displayName || 'there'}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
   }
 
   const scrollToBottom = useCallback(() => {
@@ -202,7 +229,8 @@ export default function PersonalTutorPage() {
                 </Select>
             </div>
        </header>
-       <Card className="flex-1 flex flex-col bg-background/80 backdrop-blur-sm">
+       <Card className="flex-1 flex flex-col bg-background/80 backdrop-blur-sm overflow-hidden">
+        {!isPro && <ProUpgradeCard />}
         <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
           <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
             <div className="space-y-6 p-2">
@@ -250,9 +278,9 @@ export default function PersonalTutorPage() {
                   </div>
                   {message.role === 'user' && (
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
+                      <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
                       <AvatarFallback>
-                        {mockUser.name.charAt(0)}
+                        {user?.displayName?.charAt(0) || 'U'}
                       </AvatarFallback>
                     </Avatar>
                   )}
