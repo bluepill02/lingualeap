@@ -27,13 +27,13 @@ const mission = {
     scenario: "Balancing carts at a temple chariot festival (தேர் திருவிழா). Explain why when you push a cart, you also feel a push back."
 };
 
-interface MCQFormState {
+interface MCQState {
     question: string;
     options: string[];
     correctAnswer: string;
 }
 
-const initialMcqState: MCQFormState[] = [
+const initialMcqState: MCQState[] = [
     { question: '', options: ['', '', '', ''], correctAnswer: '' },
     { question: '', options: ['', '', '', ''], correctAnswer: '' },
 ];
@@ -42,7 +42,7 @@ const initialMcqState: MCQFormState[] = [
 export default function PeerTeachingPage() {
     const [script, setScript] = useState('');
     const [diagram, setDiagram] = useState('');
-    const [mcqs, setMcqs] = useState<MCQFormState[]>(initialMcqState);
+    const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
@@ -60,7 +60,13 @@ export default function PeerTeachingPage() {
                     if (latestSubmission) {
                         setScript(latestSubmission.submission.script);
                         setDiagram(latestSubmission.submission.diagramDescription);
-                        setMcqs(latestSubmission.submission.mcqs);
+                        // Ensure the loaded MCQs match the state structure
+                        const loadedMcqs = latestSubmission.submission.mcqs.map(mcq => ({
+                            question: mcq.question || '',
+                            options: mcq.options || ['', '', '', ''],
+                            correctAnswer: mcq.correctAnswer || '',
+                        }));
+                        setMcqs(loadedMcqs);
                         setFeedback(latestSubmission.feedback);
                     }
                 } catch (error) {
@@ -81,28 +87,32 @@ export default function PeerTeachingPage() {
 
 
     const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswer', value: string) => {
-        const newMcqs = [...mcqs];
-        const mcqToUpdate = { ...newMcqs[mcqIndex] };
+        setMcqs(currentMcqs => {
+            const newMcqs = [...currentMcqs];
+            const mcqToUpdate = { ...newMcqs[mcqIndex] };
 
-        if (field === 'question') {
-            mcqToUpdate.question = value;
-        } else if (field.startsWith('option-')) {
-            const optionIndex = parseInt(field.split('-')[1], 10);
-            const oldOptionValue = mcqToUpdate.options[optionIndex];
-            
-            mcqToUpdate.options = [...mcqToUpdate.options];
-            mcqToUpdate.options[optionIndex] = value;
-            
-            if (mcqToUpdate.correctAnswer === oldOptionValue) {
-                mcqToUpdate.correctAnswer = '';
+            if (field === 'question') {
+                mcqToUpdate.question = value;
+            } else if (field.startsWith('option-')) {
+                const optionIndex = parseInt(field.split('-')[1], 10);
+                const oldOptionValue = mcqToUpdate.options[optionIndex];
+                
+                // Create a new array for options to ensure re-render
+                mcqToUpdate.options = [...mcqToUpdate.options];
+                mcqToUpdate.options[optionIndex] = value;
+                
+                // If the edited option was the correct answer, reset the correct answer.
+                if (mcqToUpdate.correctAnswer === oldOptionValue) {
+                    mcqToUpdate.correctAnswer = '';
+                }
+
+            } else if (field === 'correctAnswer') {
+                mcqToUpdate.correctAnswer = value;
             }
 
-        } else if (field === 'correctAnswer') {
-            mcqToUpdate.correctAnswer = value;
-        }
-
-        newMcqs[mcqIndex] = mcqToUpdate;
-        setMcqs(newMcqs);
+            newMcqs[mcqIndex] = mcqToUpdate;
+            return newMcqs;
+        });
     };
 
 
