@@ -60,7 +60,6 @@ export default function PeerTeachingPage() {
                     if (latestSubmission) {
                         setScript(latestSubmission.submission.script);
                         setDiagram(latestSubmission.submission.diagramDescription);
-                        // Ensure the loaded MCQs match the state structure
                         const loadedMcqs = latestSubmission.submission.mcqs.map(mcq => ({
                             question: mcq.question || '',
                             options: mcq.options || ['', '', '', ''],
@@ -88,8 +87,8 @@ export default function PeerTeachingPage() {
 
     const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswer', value: string) => {
         setMcqs(currentMcqs => {
-            const newMcqs = [...currentMcqs];
-            const mcqToUpdate = { ...newMcqs[mcqIndex] };
+            const newMcqs = [...currentMcqs].map(mcq => ({ ...mcq, options: [...mcq.options] }));
+            const mcqToUpdate = newMcqs[mcqIndex];
 
             if (field === 'question') {
                 mcqToUpdate.question = value;
@@ -97,19 +96,16 @@ export default function PeerTeachingPage() {
                 const optionIndex = parseInt(field.split('-')[1], 10);
                 const oldOptionValue = mcqToUpdate.options[optionIndex];
                 
-                mcqToUpdate.options = [...mcqToUpdate.options];
-                mcqToUpdate.options[optionIndex] = value;
-                
                 // If the edited option was the correct answer, reset the correct answer.
                 if (mcqToUpdate.correctAnswer === oldOptionValue) {
                     mcqToUpdate.correctAnswer = '';
                 }
+                mcqToUpdate.options[optionIndex] = value;
 
             } else if (field === 'correctAnswer') {
                 mcqToUpdate.correctAnswer = value;
             }
 
-            newMcqs[mcqIndex] = mcqToUpdate;
             return newMcqs;
         });
     };
@@ -308,3 +304,4 @@ export default function PeerTeachingPage() {
     </div>
   );
 }
+
