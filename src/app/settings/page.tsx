@@ -191,11 +191,29 @@ export default function SettingsPage() {
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="Assamese">Assamese</SelectItem>
+                  <SelectItem value="Bengali">Bengali</SelectItem>
+                  <SelectItem value="Bodo">Bodo</SelectItem>
+                  <SelectItem value="Business Hindi">Business Hindi</SelectItem>
+                  <SelectItem value="Dogri">Dogri</SelectItem>
+                  <SelectItem value="Gujarati">Gujarati</SelectItem>
                   <SelectItem value="Hindi">Hindi</SelectItem>
-                  <SelectItem value="Spanish">Spanish</SelectItem>
-                  <SelectItem value="French">French</SelectItem>
-                  <SelectItem value="German">German</SelectItem>
-                  <SelectItem value="Japanese">Japanese</SelectItem>
+                  <SelectItem value="Kannada">Kannada</SelectItem>
+                  <SelectItem value="Kashmiri">Kashmiri</SelectItem>
+                  <SelectItem value="Konkani">Konkani</SelectItem>
+                  <SelectItem value="Maithili">Maithili</SelectItem>
+                  <SelectItem value="Malayalam">Malayalam</SelectItem>
+                  <SelectItem value="Manipuri">Manipuri</SelectItem>
+                  <SelectItem value="Marathi">Marathi</SelectItem>
+                  <SelectItem value="Nepali">Nepali</SelectItem>
+                  <SelectItem value="Odia">Odia</SelectItem>
+                  <SelectItem value="Punjabi">Punjabi</SelectItem>
+                  <SelectItem value="Sanskrit">Sanskrit</SelectItem>
+                  <SelectItem value="Santali">Santali</SelectItem>
+                  <SelectItem value="Sindhi">Sindhi</SelectItem>
+                  <SelectItem value="Tamil">Tamil</SelectItem>
+                  <SelectItem value="Telugu">Telugu</SelectItem>
+                  <SelectItem value="Urdu">Urdu</SelectItem>
                 </SelectContent>
               </Select>
             </div>
