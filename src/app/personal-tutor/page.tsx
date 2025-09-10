@@ -26,9 +26,30 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
     const [isRecording, setIsRecording] = useState(false);
     const [analysis, setAnalysis] = useState<PronunciationAnalysisOutput | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [isSpeaking, setIsSpeaking] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
     const { toast } = useToast();
+
+    const handlePlayWord = async () => {
+        setIsSpeaking(true);
+        try {
+            const response = await speak(word);
+            if (response.media) {
+                if(audioRef.current) {
+                    audioRef.current.src = response.media;
+                    audioRef.current.play();
+                    audioRef.current.onended = () => setIsSpeaking(false);
+                }
+            }
+        } catch (error) {
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not generate audio for the word.' });
+            setIsSpeaking(false);
+        }
+    };
+
 
     const handleStartRecording = async () => {
         try {
@@ -88,7 +109,12 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
                 <CardDescription>Try saying the word below and get feedback.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-                <p className="text-center text-2xl font-bold font-headline text-primary">{word}</p>
+                <div className="flex items-center justify-center gap-2">
+                    <p className="text-center text-2xl font-bold font-headline text-primary">{word}</p>
+                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking}>
+                        {isSpeaking ? <Loader2 className="animate-spin" /> : <Volume2 className="h-5 w-5" />}
+                    </Button>
+                </div>
                 <div className="flex justify-center">
                     <Button
                         size="icon"
@@ -105,11 +131,15 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
                         <AlertTitle>
                             {analysis.isCorrect ? "Excellent!" : `You said: "${analysis.transcribedText}"`}
                         </AlertTitle>
-                        <AlertDescription>{analysis.feedback}</AlertDescription>
-                        {!analysis.isCorrect && <Button variant="link" size="sm" className="p-0 mt-2" onClick={reset}>Try Again</Button>}
+                        <AlertDescription>
+                            {analysis.feedback}
+                            {!analysis.isCorrect && <Button variant="link" size="sm" className="p-0 mt-2 h-auto" onClick={reset}>Try Again</Button>}
+                        </AlertDescription>
+                        
                     </Alert>
                 )}
             </CardContent>
+            <audio ref={audioRef} className="hidden" />
         </Card>
     )
 }
@@ -385,3 +415,4 @@ export default function PersonalTutorPage() {
     </div>
   );
 }
+
