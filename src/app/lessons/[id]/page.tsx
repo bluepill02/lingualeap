@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { notFound, useRouter } from 'next/navigation';
 import { allMicroLessons, allLessonDecks } from '@/lib/data';
 import {
@@ -10,6 +10,8 @@ import {
   Volume2,
   CheckCircle,
   XCircle,
+  Play,
+  Check,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -42,12 +44,18 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
+import Link from 'next/link';
 
 function VocabularyTable({
   vocabulary,
 }: {
   vocabulary: MicroLesson['vocabulary'];
 }) {
+  const playAudio = (audioUrl: string) => {
+    const audio = new Audio(audioUrl);
+    audio.play();
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -75,7 +83,7 @@ function VocabularyTable({
                 <TableCell>{item.romanization}</TableCell>
                 <TableCell>{item.definition}</TableCell>
                 <TableCell className="text-right">
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" onClick={() => playAudio(item.audioUrl)} aria-label={`Listen to ${item.word}`}>
                     <Volume2 className="h-5 w-5" />
                   </Button>
                 </TableCell>
@@ -119,7 +127,7 @@ function DialogueSection({ dialogue }: { dialogue: MicroLesson['dialogue'] }) {
   );
 }
 
-function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: MicroLesson['quizzes'] }) {
+function QuizSection({ lessonTitle, quizzes, onQuizComplete }: { lessonTitle: string; quizzes: MicroLesson['quizzes'], onQuizComplete: (isSuccess: boolean) => void }) {
   const [answers, setAnswers] = useState<(string | null)[]>(
     Array(quizzes.length).fill(null)
   );
@@ -133,13 +141,17 @@ function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: M
 
   const handleSubmit = () => {
     setSubmitted(true);
+    const allCorrect = quizzes.every(
+      (quiz, index) => answers[index]?.trim().toLowerCase() === quiz.answer.toLowerCase()
+    );
+    onQuizComplete(allCorrect);
   };
 
   const correctAnswers = quizzes.filter(
-    (quiz, index) => answers[index] && answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
+    (quiz, index) => answers[index] && answers[index]?.trim().toLowerCase() === quiz.answer.toLowerCase()
   ).length;
 
-  if (submitted) {
+  if (submitted && correctAnswers === quizzes.length) {
     return (
         <ShareableAchievementCard 
             lessonTitle={lessonTitle}
@@ -156,10 +168,10 @@ function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: M
       </CardHeader>
       <CardContent className="space-y-6">
         {quizzes.map((quiz, index) => {
-          const isCorrect = submitted && answers[index]?.toLowerCase() === quiz.answer.toLowerCase();
+          const isCorrect = submitted && answers[index]?.trim().toLowerCase() === quiz.answer.toLowerCase();
           return (
           <div key={index} className="relative">
-            {isCorrect && <ConfettiBurst />}
+            {submitted && isCorrect && <ConfettiBurst />}
             <p className="font-medium mb-2">{quiz.question}</p>
             {quiz.type === 'multiple-choice' ? (
               <div className="space-y-2">
@@ -169,22 +181,19 @@ function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: M
                     variant={
                       submitted && answers[index] === option
                         ? option === quiz.answer
-                          ? 'default'
+                          ? 'success'
                           : 'destructive'
-                        : 'outline'
+                        : answers[index] === option ? 'secondary' : 'outline'
                     }
-                    className="w-full justify-start"
+                    className="w-full justify-start text-left h-auto py-2"
                     onClick={() => !submitted && handleOptionChange(index, option)}
                     disabled={submitted}
                   >
-                    {submitted &&
-                      answers[index] === option &&
-                      (option === quiz.answer ? (
-                        <CheckCircle className="mr-2 h-4 w-4" />
-                      ) : (
-                        <XCircle className="mr-2 h-4 w-4" />
-                      ))}
-                    {option}
+                     <div className="flex items-start gap-2">
+                        {submitted && option === quiz.answer && <CheckCircle className="h-4 w-4 mt-1" />}
+                        {submitted && answers[index] === option && option !== quiz.answer && <XCircle className="h-4 w-4 mt-1" />}
+                        <span className="flex-1">{option}</span>
+                     </div>
                   </Button>
                 ))}
               </div>
@@ -196,15 +205,15 @@ function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: M
                 disabled={submitted}
                 className={
                   submitted
-                    ? answers[index]?.toLowerCase() === quiz.answer.toLowerCase()
+                    ? answers[index]?.trim().toLowerCase() === quiz.answer.toLowerCase()
                       ? 'border-green-500'
                       : 'border-destructive'
                     : ''
                 }
               />
             )}
-            {submitted && answers[index]?.toLowerCase() !== quiz.answer.toLowerCase() && (
-                <p className="text-sm text-green-500 mt-1">Correct answer: {quiz.answer}</p>
+            {submitted && !isCorrect && (
+                <p className="text-sm text-green-600 dark:text-green-400 mt-2">Correct answer: {quiz.answer}</p>
             )}
           </div>
         )})}
@@ -217,6 +226,7 @@ function QuizSection({ lessonTitle, quizzes }: { lessonTitle: string; quizzes: M
             <p className="text-lg font-bold">
               You got {correctAnswers} out of {quizzes.length} correct!
             </p>
+             {correctAnswers < quizzes.length && <Button variant="outline" onClick={() => setSubmitted(false)} className="mt-4">Try Again</Button>}
           </div>
         )}
       </CardContent>
@@ -228,18 +238,22 @@ export default function LessonPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const lesson = allMicroLessons.find((l) => l.id === params.id);
   const deck = allLessonDecks.find((d) => d.id === lesson?.deckId);
+  const [isQuizComplete, setIsQuizComplete] = useState(false);
 
   if (!lesson || !deck) {
     notFound();
   }
 
-  const progress = 50;
+  const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
+  const totalLessonsInDeck = deck.lessons.length;
+  const progress = ((currentLessonIndex + 1) / totalLessonsInDeck) * 100;
+  const nextLessonId = currentLessonIndex < totalLessonsInDeck - 1 ? deck.lessons[currentLessonIndex + 1].id : null;
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 p-4 sm:p-6 md:p-8">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={() => router.back()}>
+          <Button variant="ghost" size="icon" onClick={() => router.back()} aria-label="Back">
             <ArrowLeft />
           </Button>
           <div>
@@ -251,7 +265,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" aria-label="Cultural Tip">
                   <Lightbulb className="text-yellow-400" />
                 </Button>
               </TooltipTrigger>
@@ -269,7 +283,7 @@ export default function LessonPage({ params }: { params: { id: string } }) {
 
       <VocabularyTable vocabulary={lesson.vocabulary} />
       <DialogueSection dialogue={lesson.dialogue} />
-      <QuizSection lessonTitle={lesson.title} quizzes={lesson.quizzes} />
+      <QuizSection lessonTitle={lesson.title} quizzes={lesson.quizzes} onQuizComplete={setIsQuizComplete} />
 
       <Card className="bg-primary/10">
         <CardHeader>
@@ -279,11 +293,21 @@ export default function LessonPage({ params }: { params: { id: string } }) {
           <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{lesson.followUp}</ReactMarkdown>
         </CardContent>
       </Card>
-
+      
       <div className="flex justify-center">
-        <Button size="lg" onClick={() => router.back()}>
-          Back to Lessons
-        </Button>
+        {nextLessonId ? (
+          <Link href={`/lessons/${nextLessonId}`}>
+            <Button size="lg" disabled={!isQuizComplete}>
+                Complete & Go to Next Lesson <Check className="ml-2"/>
+            </Button>
+          </Link>
+        ) : (
+          <Link href={`/language/${deck.id.split('-')[1]}`}>
+             <Button size="lg" variant="secondary" disabled={!isQuizComplete}>
+                Complete Deck! Back to Course Page
+            </Button>
+          </Link>
+        )}
       </div>
     </div>
   );
