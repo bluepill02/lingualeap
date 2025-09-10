@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, Briefcase, Globe, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
+import { allLessonDecks } from '@/lib/data';
 
 const LanguageIcon = ({ letter }: { letter: string }) => (
   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary font-bold text-lg">
@@ -16,167 +17,173 @@ const languages = [
     {
         icon: () => <LanguageIcon letter="অ" />,
         title: 'Assamese',
+        id: 'assamese',
         description: 'Discover the official language of Assam',
-        lessons: 2,
         href: '/language/assamese',
     },
     {
         icon: () => <LanguageIcon letter="ব" />,
         title: 'Bengali',
+        id: 'bengali',
         description: 'Learn the sweet language of Bengal',
-        lessons: 2,
         href: '/language/bengali',
     },
     {
         icon: () => <LanguageIcon letter="ब" />,
         title: 'Bodo',
+        id: 'bodo',
         description: 'Explore the Tibeto-Burman language from Northeast India',
-        lessons: 1,
         href: '/language/bodo',
+    },
+    {
+        icon: () => <LanguageIcon letter="ह" />,
+        title: 'Business Hindi',
+        id: 'bh',
+        description: 'Professional Hindi for workplace communication',
+        href: '/language/business-hindi',
     },
     {
         icon: () => <LanguageIcon letter="ड" />,
         title: 'Dogri',
+        id: 'dogri',
         description: 'Learn the Indo-Aryan language spoken in Jammu and Kashmir',
-        lessons: 1,
         href: '/language/dogri',
     },
     {
         icon: () => <LanguageIcon letter="ગ" />,
         title: 'Gujarati',
+        id: 'gujarati',
         description: 'Learn the language of the vibrant state of Gujarat',
-        lessons: 2,
         href: '/language/gujarati',
     },
     {
         icon: () => <LanguageIcon letter="ह" />,
         title: 'Hindi',
+        id: 'hindi',
         description: 'The most widely spoken language in India',
-        lessons: 2,
         href: '/language/hindi',
-    },
-    {
-        icon: () => <LanguageIcon letter="ह" />,
-        title: 'Business Hindi',
-        description: 'Professional Hindi for workplace communication',
-        lessons: 3,
-        href: '/language/business-hindi',
     },
     {
         icon: () => <LanguageIcon letter="ಕ" />,
         title: 'Kannada',
+        id: 'kannada',
         description: 'Delve into a Dravidian language of Karnataka',
-        lessons: 2,
         href: '/language/kannada',
     },
     {
         icon: () => <LanguageIcon letter="ک" />,
         title: 'Kashmiri',
+        id: 'kashmiri',
         description: 'Experience the Dardic language of the Kashmir Valley',
-        lessons: 1,
         href: '/language/kashmiri',
     },
     {
         icon: () => <LanguageIcon letter="क" />,
         title: 'Konkani',
+        id: 'konkani',
         description: 'Learn the language of the Goan coast',
-        lessons: 1,
         href: '/language/konkani',
     },
     {
         icon: () => <LanguageIcon letter="म" />,
         title: 'Maithili',
+        id: 'maithili',
         description: 'Discover the Indo-Aryan language of Bihar and Jharkhand',
-        lessons: 1,
         href: '/language/maithili',
     },
     {
         icon: () => <LanguageIcon letter="മ" />,
         title: 'Malayalam',
+        id: 'malayalam',
         description: 'Explore the Dravidian language of Kerala',
-        lessons: 2,
         href: '/language/malayalam',
     },
     {
         icon: () => <LanguageIcon letter="ম" />,
         title: 'Manipuri (Meitei)',
+        id: 'manipuri',
         description: 'Learn the primary language of Manipur',
-        lessons: 1,
         href: '/language/manipuri',
     },
     {
         icon: () => <LanguageIcon letter="म" />,
         title: 'Marathi',
+        id: 'marathi',
         description: 'Start your journey into the language of Maharashtra',
-        lessons: 2,
         href: '/language/marathi',
     },
     {
         icon: () => <LanguageIcon letter="न" />,
         title: 'Nepali',
+        id: 'nepali',
         description: 'The lingua franca of Nepal, also spoken in parts of India',
-        lessons: 1,
         href: '/language/nepali',
     },
     {
         icon: () => <LanguageIcon letter="ଓ" />,
         title: 'Odia',
+        id: 'odia',
         description: 'Learn the official language of Odisha',
-        lessons: 2,
         href: '/language/odia',
     },
     {
         icon: () => <LanguageIcon letter="ਪ" />,
         title: 'Punjabi',
+        id: 'punjabi',
         description: 'The language of the Punjab region',
-        lessons: 2,
         href: '/language/punjabi',
     },
     {
         icon: () => <LanguageIcon letter="स" />,
         title: 'Sanskrit',
+        id: 'sanskrit',
         description: 'Explore the classical language of ancient India',
-        lessons: 1,
         href: '/language/sanskrit',
     },
     {
         icon: () => <LanguageIcon letter="ᱥ" />,
         title: 'Santali',
+        id: 'santali',
         description: 'A Munda language spoken by the Santal people',
-        lessons: 1,
         href: '/language/santali',
     },
     {
         icon: () => <LanguageIcon letter="س" />,
         title: 'Sindhi',
+        id: 'sindhi',
         description: 'The language of the Sindhi people',
-        lessons: 1,
         href: '/language/sindhi',
     },
     {
         icon: () => <LanguageIcon letter="த" />,
         title: 'Tamil',
+        id: 'tamil',
         description: "Explore one of the world's oldest languages",
-        lessons: 2,
         href: '/language/tamil',
     },
     {
         icon: () => <LanguageIcon letter="త" />,
         title: 'Telugu',
+        id: 'telugu',
         description: 'Discover the "Italian of the East"',
-        lessons: 2,
         href: '/language/telugu',
     },
     {
         icon: () => <LanguageIcon letter="ا" />,
         title: 'Urdu',
+        id: 'urdu',
         description: 'Learn the poetic language with Perso-Arabic script',
-        lessons: 2,
         href: '/language/urdu',
     },
 ];
 
 export default function LanguageSelectionPage() {
+
+  const languageDecks = languages.map(lang => {
+    const deckCount = allLessonDecks.filter(deck => deck.id.startsWith(`deck-${lang.id}-`)).length;
+    return { ...lang, lessons: deckCount };
+  });
+
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 md:px-8">
       <Link href="/dashboard" className="flex items-center gap-2 text-primary mb-4">
@@ -190,7 +197,7 @@ export default function LanguageSelectionPage() {
         </p>
       </div>
       <div className="space-y-4 max-w-2xl mx-auto">
-        {languages.sort((a, b) => a.title.localeCompare(b.title)).map((lang, index) => (
+        {languageDecks.sort((a, b) => a.title.localeCompare(b.title)).map((lang, index) => (
           <Card key={index} className="bg-card/50">
             <CardContent className="p-6 flex items-center gap-6">
               <lang.icon />
@@ -221,3 +228,4 @@ export default function LanguageSelectionPage() {
     </div>
   );
 }
+
