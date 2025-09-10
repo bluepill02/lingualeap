@@ -1,3 +1,4 @@
+
 import type { ExamModule } from './types';
 
 export const gpscGujaratiProverbs: ExamModule = {
@@ -8,46 +9,46 @@ export const gpscGujaratiProverbs: ExamModule = {
     category: 'Proverbs & Sayings',
     vocabulary: [
         {
-            word: 'પારકી આશ સદા નિરાશ (Parki aash sada nirash)',
+            word: 'પારકી આશ સદા નિરાશ',
             romanization: 'Parki aash sada nirash',
             definition: 'Relying on others always leads to disappointment.',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (કહેવત)',
             sentence: 'પોતાના કામ માટે બીજા પર આધાર ન રાખવો, કારણ કે પારકી આશ સદા નિરાશ.',
             sentenceRoman: 'Potana kaam maate bija par aadhar na rakhvo, kaaran ke parki aash sada nirash.',
             sentenceTranslation: 'One should not depend on others for their work, because depending on others always leads to disappointment.'
         },
         {
-            word: 'ગાજ્યા મેઘ વરસે નહિ (Gajya megh varse nahi)',
+            word: 'ગાજ્યા મેઘ વરસે નહિ',
             romanization: 'Gajya megh varse nahi',
             definition: 'Those who make the most threats often do the least (barking dogs seldom bite).',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (કહેવત)',
             sentence: 'તે ફક્ત ધમકીઓ આપે છે, કંઈ કરતો નથી, સાચે જ ગાજ્યા મેઘ વરસે નહિ।',
             sentenceRoman: 'Te fakt dhamkio aape chhe, kai karto nathi, saache j gajya megh varse nahi.',
             sentenceTranslation: 'He only gives threats, does nothing, truly barking dogs seldom bite.'
         },
         {
-            word: 'ના બોલવામાં નવ ગુણ (Na bolvama nav gun)',
+            word: 'ના બોલવામાં નવ ગુણ',
             romanization: 'Na bolvama nav gun',
             definition: 'There are nine virtues in not speaking; silence is golden.',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (કહેવત)',
             sentence: 'જ્યારે તમને પરિસ્થિતિ વિશે ખાતરી ન હોય, ત્યારે યાદ રાખો કે ના બોલવામાં નવ ગુણ.',
             sentenceRoman: 'Jyare tamne paristhiti vishe khatri na hoy, tyare yaad rakho ke na bolvama nav gun.',
             sentenceTranslation: 'When you are not sure about the situation, remember that silence is golden.'
         },
         {
-            word: 'સંપ ત્યાં જંપ (Samp tya jamp)',
+            word: 'સંપ ત્યાં જંપ',
             romanization: 'Samp tya jamp',
             definition: 'Where there is unity, there is peace and prosperity.',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (કહેવત)',
             sentence: 'પરિવારમાં સંપ ત્યાં જંપ હોય તો જ પ્રગતિ શક્ય છે।',
             sentenceRoman: 'Parivarma samp tya jamp hoy to j pragati shakya chhe.',
             sentenceTranslation: 'Progress is possible only if there is unity and peace in the family.'
         },
         {
-            word: 'ધીરજના ફળ મીઠા (Dhirajna phal mitha)',
+            word: 'ધીરજના ફળ મીઠા',
             romanization: 'Dhirajna phal mitha',
             definition: 'The fruits of patience are sweet.',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (કહેવત)',
             sentence: 'સફળતા માટે ઉતાવળ ન કરો, ધીરજના ફળ મીઠા હોય છે।',
             sentenceRoman: 'Safalta maate utaval na karo, dhirajna phal mitha hoy chhe.',
             sentenceTranslation: 'Do not rush for success, the fruits of patience are sweet.'
