@@ -22,7 +22,7 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
-import { Separator } from '@/components/ui/separator';
+import { Separator } from '../ui/separator';
 import { Calendar, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
@@ -36,11 +36,24 @@ export default function SettingsPage() {
   const [timezone, setTimezone] = useState(mockUser.timezone);
   const [isSaving, setIsSaving] = useState(false);
   const { toast } = useToast();
+
+  // State for notifications
+  const [dailyReminders, setDailyReminders] = useState(true);
+  const [smartScheduling, setSmartScheduling] = useState(false);
+  const [promotionalEmails, setPromotionalEmails] = useState(false);
   
   useEffect(() => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user);
+      if (user) {
+        setCurrentUser(user);
+        // In a real app, you would fetch user settings from a database here
+        // For now, we'll use mock data and local state
+        setName(user.displayName || mockUser.name);
+        setEmail(user.email || mockUser.email);
+      } else {
+        setCurrentUser(null);
+      }
     });
     return () => unsubscribe();
   }, []);
@@ -78,8 +91,8 @@ export default function SettingsPage() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
-              <AvatarImage src={currentUser?.photoURL || mockUser.avatarUrl} alt={currentUser?.displayName || mockUser.name} />
-              <AvatarFallback>{(currentUser?.displayName || mockUser.name).charAt(0)}</AvatarFallback>
+              <AvatarImage src={currentUser?.photoURL || mockUser.avatarUrl} alt={name} />
+              <AvatarFallback>{name.charAt(0)}</AvatarFallback>
             </Avatar>
             <Button variant="outline" disabled={isSaving}>Change Avatar</Button>
           </div>
@@ -90,7 +103,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSaving}/>
+              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSaving || !!currentUser?.email}/>
             </div>
           </div>
           <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
@@ -188,21 +201,36 @@ export default function SettingsPage() {
                     <h3 className="font-semibold">Daily Reminders</h3>
                     <p className="text-sm text-muted-foreground">Get reminded of due flashcards and upcoming streak expiry.</p>
                 </div>
-                <Switch defaultChecked disabled={isSaving} />
+                <Switch 
+                  checked={dailyReminders} 
+                  onCheckedChange={setDailyReminders} 
+                  disabled={isSaving} 
+                  aria-label="Toggle daily reminders"
+                />
             </div>
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Smart Scheduling via Calendar</h3>
                     <p className="text-sm text-muted-foreground">Automatically find time in your calendar for micro-sessions.</p>
                 </div>
-                <Switch disabled />
+                 <Switch 
+                  checked={smartScheduling} 
+                  onCheckedChange={setSmartScheduling} 
+                  disabled 
+                  aria-label="Toggle smart scheduling"
+                />
             </div>
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Promotional Emails</h3>
                     <p className="text-sm text-muted-foreground">Receive updates on new features and special offers.</p>
                 </div>
-                <Switch disabled={isSaving} />
+                 <Switch 
+                  checked={promotionalEmails} 
+                  onCheckedChange={setPromotionalEmails} 
+                  disabled={isSaving} 
+                  aria-label="Toggle promotional emails"
+                />
             </div>
             <Button onClick={() => handleSave('Notifications')} disabled={isSaving}>
                  {isSaving && <Loader2 className="mr-2 animate-spin" />}
