@@ -235,5 +235,3 @@ export function CreateCircleForm({ onCircleCreated, auth }: CreateCircleFormProp
     </DialogContent>
   );
 }
-
-    
