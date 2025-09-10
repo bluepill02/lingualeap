@@ -41,6 +41,8 @@ function LiveClassSkeleton() {
     );
 }
 
+const REGISTRATION_STORAGE_KEY = 'lingualeap_registered_classes';
+
 export default function LiveClassesPage() {
     const [allClasses, setAllClasses] = useState<LiveClass[]>([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +53,12 @@ export default function LiveClassesPage() {
         async function fetchClasses() {
             setIsLoading(true);
             try {
+                // Load registrations from localStorage first
+                const savedRegistrations = localStorage.getItem(REGISTRATION_STORAGE_KEY);
+                if (savedRegistrations) {
+                    setRegisteredClasses(new Set(JSON.parse(savedRegistrations)));
+                }
+                
                 const classes = await getLiveClasses();
                 setAllClasses(classes);
             } catch (error) {
@@ -68,7 +76,9 @@ export default function LiveClassesPage() {
     }, [toast]);
 
     const handleRegister = (classId: string) => {
-        setRegisteredClasses(prev => new Set(prev).add(classId));
+        const newRegisteredClasses = new Set(registeredClasses).add(classId);
+        setRegisteredClasses(newRegisteredClasses);
+        localStorage.setItem(REGISTRATION_STORAGE_KEY, JSON.stringify(Array.from(newRegisteredClasses)));
         toast({
             title: 'Registration Confirmed!',
             description: "You've been registered for the class.",
@@ -78,8 +88,9 @@ export default function LiveClassesPage() {
     const handleJoin = (topic: string) => {
         toast({
             title: `Joining: ${topic}`,
-            description: 'In a real application, this would open a video call.',
+            description: 'Opening the live session in a new tab...',
         });
+        window.open('', '_blank')?.focus();
     };
     
     const now = new Date();
