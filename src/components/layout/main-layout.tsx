@@ -58,6 +58,15 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { app } from '@/lib/firebase';
 import { useUser, UserProvider } from '@/context/user-context';
 import { Skeleton } from '../ui/skeleton';
+import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
+
+function AdPlaceholder() {
+    return (
+        <div className="p-4 bg-muted border border-dashed rounded-lg text-center">
+            <p className="text-sm text-muted-foreground">Advertisement</p>
+        </div>
+    )
+}
 
 function MainLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -214,7 +223,8 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
           </div>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6">
+        <main className="flex-1 p-4 sm:p-6 space-y-6">
+            {!(user as any)?.isPro && <AdPlaceholder />}
             {children}
         </main>
         

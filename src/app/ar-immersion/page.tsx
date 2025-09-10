@@ -13,23 +13,6 @@ import { cn } from '@/lib/utils';
 import { useUser } from '@/context/user-context';
 import Link from 'next/link';
 
-function ProUpgradeCard() {
-    return (
-        <Card className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm space-y-4 p-8 text-center">
-            <div className="p-4 bg-primary/10 rounded-full">
-                 <Camera className="w-12 h-12 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold font-headline">Unlock AR Immersion</h2>
-            <p className="text-muted-foreground">
-                Point your camera at any object to instantly learn its name, pronunciation, and more. Upgrade to Pro to use this feature.
-            </p>
-            <Link href="/upgrade">
-                <Button size="lg">Upgrade to Pro</Button>
-            </Link>
-        </Card>
-    )
-}
-
 export default function ARImmersionPage() {
   const { user } = useUser();
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -43,12 +26,8 @@ export default function ARImmersionPage() {
   const [isCameraOn, setIsCameraOn] = useState(false);
   
   const { toast } = useToast();
-  const isPro = user?.isPro || false;
-
 
   useEffect(() => {
-    if (!isPro) return;
-
     const getCameraPermission = async () => {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         toast({
@@ -97,7 +76,7 @@ export default function ARImmersionPage() {
       }
       setIsCameraOn(false);
     };
-  }, [toast, isPro]);
+  }, [toast]);
 
   const captureImage = async () => {
     if (!videoRef.current || !canvasRef.current) return;
@@ -183,9 +162,8 @@ export default function ARImmersionPage() {
         </p>
       </div>
 
-      <Card className="relative">
-        {!isPro && <ProUpgradeCard />}
-        <CardContent className={cn("p-6", !isPro && "blur-sm pointer-events-none")}>
+      <Card>
+        <CardContent className="p-6">
           <div className="relative aspect-video w-full bg-muted rounded-md overflow-hidden flex items-center justify-center">
             {hasCameraPermission === null && (
               <div className="text-center p-4">

@@ -14,10 +14,11 @@ const freeFeatures = [
     { text: "Access to 'Foundations' lessons" },
     { text: 'Basic flashcard review' },
     { text: 'Peer-to-Peer study circles' },
-    { text: 'Standard support', unavailable: true },
+    { text: 'AR Immersion vocabulary' },
+    { text: 'On-Demand quiz generator' },
+    { text: 'Ad-supported', unavailable: true },
     { text: 'AI Personal Tutor', unavailable: true },
-    { text: 'AR Immersion vocabulary', unavailable: true },
-    { text: 'On-Demand quiz generator', unavailable: true },
+    { text: 'Mentor-led Circles', unavailable: true },
 ];
 
 const proFeatures = [
@@ -28,6 +29,7 @@ const proFeatures = [
     { text: 'AI Personal Tutor' },
     { text: 'AR Immersion vocabulary' },
     { text: 'On-Demand quiz generator' },
+    { text: 'Ad-Free Experience' },
 ];
 
 export default function UpgradePage() {

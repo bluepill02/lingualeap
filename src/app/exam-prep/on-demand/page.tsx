@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -31,23 +30,6 @@ type Language = 'English' | 'Tamil';
 const neetSubjects: Subject[] = ['Physics', 'Chemistry', 'Biology'];
 const tnpscSubjects: Subject[] = ['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language'];
 
-function ProUpgradeCard() {
-    return (
-        <Card className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm space-y-4 p-8 text-center">
-            <div className="p-4 bg-primary/10 rounded-full">
-                 <Sparkles className="w-12 h-12 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold font-headline">Unlock the AI Practice Generator</h2>
-            <p className="text-muted-foreground">
-                Generate unlimited, custom quizzes on any topic instantly. A LinguaLeap Pro feature to supercharge your exam prep.
-            </p>
-            <Link href="/upgrade">
-                <Button size="lg">Upgrade to Pro</Button>
-            </Link>
-        </Card>
-    )
-}
-
 export default function OnDemandQuizPage() {
   const { user } = useUser();
   const [prompt, setPrompt] = useState('Optics');
@@ -62,7 +44,6 @@ export default function OnDemandQuizPage() {
   const [quizState, setQuizState] = useState<QuizState | null>(null);
 
   const { toast } = useToast();
-  const isPro = user?.isPro || false;
 
   const availableSubjects = examType === 'NEET' ? neetSubjects : tnpscSubjects;
 
@@ -144,8 +125,7 @@ export default function OnDemandQuizPage() {
         </p>
       </header>
 
-      <Card className="relative">
-        {!isPro && <ProUpgradeCard />}
+      <Card>
         <CardContent className="p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              <div>
@@ -217,7 +197,7 @@ export default function OnDemandQuizPage() {
                 </div>
            </div>
 
-          <Button onClick={handleGenerateQuiz} disabled={isLoading || !isPro} className="w-full">
+          <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 animate-spin" />
