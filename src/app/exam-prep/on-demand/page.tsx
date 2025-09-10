@@ -127,12 +127,12 @@ export default function OnDemandQuizPage() {
                             <p className="font-medium mb-4">{index + 1}. {quiz.question}</p>
                             <div className="space-y-2">
                                 {quiz.options.map((option) => {
-                                    const isThisTheAnswer = option.trim().toLowerCase() === quiz.answer.trim().toLowerCase();
+                                    const isThisTheCorrectAnswer = option.trim().toLowerCase() === quiz.answer.trim().toLowerCase();
                                     const isThisTheSelectedAnswer = option.trim().toLowerCase() === userAnswer?.trim().toLowerCase();
                                     
                                     let variant: "success" | "destructive" | "outline" | "secondary" = "outline";
                                     if (quizState.submitted) {
-                                        if (isThisTheAnswer) variant = "success";
+                                        if (isThisTheCorrectAnswer) variant = "success";
                                         else if (isThisTheSelectedAnswer && !isAnswerCorrect) variant = "destructive";
                                     } else {
                                         if (isThisTheSelectedAnswer) variant = "secondary";
@@ -146,7 +146,7 @@ export default function OnDemandQuizPage() {
                                             onClick={() => handleOptionChange(index, option)}
                                             disabled={quizState.submitted}
                                         >
-                                            {quizState.submitted && isThisTheAnswer && <CheckCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
+                                            {quizState.submitted && isThisTheCorrectAnswer && <CheckCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
                                             {quizState.submitted && isThisTheSelectedAnswer && !isAnswerCorrect && <XCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
                                             <span className="flex-1">{option}</span>
                                         </Button>
@@ -174,6 +174,10 @@ export default function OnDemandQuizPage() {
                     <AlertDescription>
                         You scored {getCorrectAnswersCount()} out of {quizData.quizzes.length} correct.
                     </AlertDescription>
+                    <Button onClick={handleGenerateQuiz} variant="outline" className="mt-4" disabled={isLoading}>
+                         {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}
+                        Generate Another Quiz
+                    </Button>
                 </Alert>
                 )}
             </CardContent>
