@@ -8,6 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Check, Loader2, Sparkles, Star, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { Badge } from '@/components/ui/badge';
 
 const freeFeatures = [
     { text: "Access to 'Foundations' lessons" },
