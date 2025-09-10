@@ -2,7 +2,7 @@
 import type { LessonDeck, MicroLesson } from '@/lib/types';
 
 // Using a valid, publicly accessible audio file as a placeholder
-const placeholderAudio = 'https://storage.googleapis.com/stately-temp-files/1-sound.mp3';
+const placeholderAudio = 'https://ssl.gstatic.com/dictionary/static/sounds/20200429/hello--_us_1.mp3';
 
 export const assameseDecks: LessonDeck[] = [
   {
@@ -153,7 +153,7 @@ export const assameseLessons: MicroLesson[] = [
         { word: 'মই কৃতজ্ঞ', romanization: 'Moi kritoggo', definition: 'I am grateful', ipa: '', audioUrl: placeholderAudio },
         { word: 'দুখিত', romanization: 'Dukhito', definition: 'Sorry', ipa: '', audioUrl: placeholderAudio },
     ],
-    dialogue: [{ speaker: 'Customer', line: 'Onugroho kori, muk xohai koribo paribo neki?' }, { speaker: 'Server', line: 'Niswoi parim. Moi apunak xohai kori bohut সুখী। (Niswoi parim. Moi apunak xohai kori bohut sukhi.)' }],
+    dialogue: [{ speaker: 'Customer', line: 'Onugroho kori, muk xohai koribo paribo neki?' }, { speaker: 'Server', line: 'Niswoi parim. Moi apunak xohai kori bohut sukhi.' }],
     culturalTip: 'Using formal language like "Onugroho kori" shows a higher level of respect, especially when speaking to elders or in official settings.',
     quizzes: [{ type: 'fill-in-the-blank', question: 'To politely ask for help, you can start your sentence with "____ ____".', answer: 'Onugroho kori' }],
     followUp: 'Practice using these formal phrases in appropriate situations.'
