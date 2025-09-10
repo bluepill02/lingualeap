@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Camera, Zap, RefreshCcw, Loader2, Info, Lightbulb, HelpCircle, Check, X, Video, VideoOff } from 'lucide-react';
+import { Camera, Zap, Loader2, Info, Lightbulb, HelpCircle, Check, X, Video, VideoOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -36,7 +36,8 @@ export default function ARImmersionPage() {
         return;
       }
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        // Correctly request the rear-facing camera for an AR experience
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: 'environment' } } });
         streamRef.current = stream;
         setHasCameraPermission(true);
         if (videoRef.current) {
@@ -46,20 +47,35 @@ export default function ARImmersionPage() {
           }
         }
       } catch (error) {
-        console.error('Error accessing camera:', error);
-        setHasCameraPermission(false);
-        toast({
-          variant: 'destructive',
-          title: 'Camera Access Denied',
-          description: 'Please enable camera permissions in your browser settings to use this feature.',
-        });
+        console.error('Error accessing rear camera, trying default:', error);
+        // Fallback to any available camera if the rear one fails
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            streamRef.current = stream;
+            setHasCameraPermission(true);
+            if (videoRef.current) {
+                videoRef.current.srcObject = stream;
+                videoRef.current.onloadedmetadata = () => setIsCameraOn(true);
+            }
+        } catch (finalError) {
+            console.error('Error accessing any camera:', finalError);
+            setHasCameraPermission(false);
+            toast({
+                variant: 'destructive',
+                title: 'Camera Access Denied',
+                description: 'Please enable camera permissions in your browser settings to use this feature.',
+            });
+        }
       }
     };
 
     getCameraPermission();
 
     return () => {
-      streamRef.current?.getTracks().forEach(track => track.stop());
+      // Cleanup function to stop the camera stream when the component unmounts
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
+      }
     };
   }, [toast]);
 
@@ -120,6 +136,8 @@ export default function ARImmersionPage() {
             variant={getVariant()}
             className="w-full justify-start items-center h-auto py-2"
             onClick={() => !isSubmitted && setSelectedOption(option)}
+            aria-pressed={isSelected}
+            aria-label={`Select option: ${option}`}
         >
             <span className="flex-1 flex items-center gap-2 text-left whitespace-normal">
                 {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4 flex-shrink-0" />}
@@ -159,7 +177,7 @@ export default function ARImmersionPage() {
             {hasCameraPermission && (
                 <>
                      <video ref={videoRef} className={cn("w-full h-full object-cover transition-opacity duration-500", isCameraOn ? 'opacity-100' : 'opacity-0')} autoPlay muted playsInline />
-                     {!isCameraOn && hasCameraPermission && (
+                     {!isCameraOn && (
                          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
                             <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
                             <h3 className="font-semibold">Starting camera...</h3>
@@ -178,7 +196,7 @@ export default function ARImmersionPage() {
               ) : (
                 <>
                   <Camera className="mr-2" />
-                   {analysisResult ? 'Scan Another Object' : 'Capture'}
+                   Capture
                 </>
               )}
             </Button>
