@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 
 const countFillerWords = (text: string): number => {
@@ -135,10 +136,10 @@ export default function InterviewPrepPage() {
         finalTranscriptRef.current = '';
         setInterimTranscript('');
         
-        if (updatedHistory.length < MAX_QUESTIONS) {
-            await fetchNextQuestion();
-        } else {
+        if (updatedHistory.length >= MAX_QUESTIONS) {
             setSessionState('session_complete');
+        } else {
+            await fetchNextQuestion();
         }
 
     }, [currentQuestion, sessionState, sessionHistory, fetchNextQuestion, toast, jobRole, user]);
@@ -379,12 +380,14 @@ export default function InterviewPrepPage() {
                     <Card>
                          <CardHeader className="pb-2"><CardTitle className="text-base">STAR Method Analysis & Transcript</CardTitle></CardHeader>
                          <CardContent>
-                             <div className="flex flex-wrap gap-2 text-xs mb-4">
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400/30"/>Situation</span>
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-400/30"/>Task</span>
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400/30"/>Action</span>
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-purple-400/30"/>Result</span>
-                             </div>
+                            <TooltipProvider>
+                                <div className="flex flex-wrap gap-2 text-xs mb-4">
+                                     <Tooltip><TooltipTrigger asChild><span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400/30"/>Situation</span></TooltipTrigger><TooltipContent><p>Context or background of your story.</p></TooltipContent></Tooltip>
+                                     <Tooltip><TooltipTrigger asChild><span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-400/30"/>Task</span></TooltipTrigger><TooltipContent><p>The specific challenge or responsibility.</p></TooltipContent></Tooltip>
+                                     <Tooltip><TooltipTrigger asChild><span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400/30"/>Action</span></TooltipTrigger><TooltipContent><p>What you specifically did.</p></TooltipContent></Tooltip>
+                                     <Tooltip><TooltipTrigger asChild><span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-purple-400/30"/>Result</span></TooltipTrigger><TooltipContent><p>The outcome or impact of your action.</p></TooltipContent></Tooltip>
+                                </div>
+                            </TooltipProvider>
                              <p className="text-sm italic text-muted-foreground leading-relaxed p-3 bg-background rounded-md" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript() }} />
                              <Separator className="my-4"/>
                              <div className="space-y-2 text-sm">
@@ -474,7 +477,12 @@ export default function InterviewPrepPage() {
                 {singleAnswerRecord && <CardDescription>Question: {singleAnswerRecord.question}</CardDescription>}
             </CardHeader>
             <CardContent>
-                {singleAnswerRecord && renderFeedbackCard(singleAnswerRecord, singleFeedback)}
+                <Accordion type="single" collapsible defaultValue="item-0">
+                    <AccordionItem value="item-0">
+                        <AccordionTrigger>View Feedback</AccordionTrigger>
+                        {singleAnswerRecord && renderFeedbackCard(singleAnswerRecord, singleFeedback)}
+                    </AccordionItem>
+                </Accordion>
                  <div className="mt-4 flex gap-4">
                      <Button className="w-full" onClick={() => handleRetryQuestion(singleAnswerRecord!.question)}>
                         <Repeat className="mr-2"/> Try Again
