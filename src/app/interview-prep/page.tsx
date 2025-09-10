@@ -16,7 +16,6 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const countFillerWords = (text: string): number => {
     const fillerWords = /\b(um|uh|er|ah|like|okay|right|so|you know)\b/gi;
@@ -236,7 +235,6 @@ export default function InterviewPrepPage() {
         if (!history || history.length === 0) return;
         setSessionState('analyzing');
         try {
-            // We don't need to send audio to the AI, just the transcript
             const historyForAi = history.map(({ question, answer }) => ({ question, answer }));
             const feedbackResult = await provideInterviewFeedback({ jobRole, sessionHistory: historyForAi });
             setFinalFeedback(feedbackResult);
@@ -436,9 +434,8 @@ export default function InterviewPrepPage() {
             {renderQuestionAndRecorder(currentQuestion, ((sessionHistory.length) / MAX_QUESTIONS) * 100)}
             <Separator/>
             <div className="text-center mt-6 flex justify-center items-center gap-4">
-                <Button variant="outline" onClick={() => setSessionState('idle')}>
-                    <RefreshCw className="mr-2"/>
-                    End & Restart Session
+                <Button variant="outline" onClick={() => generateFinalReport(sessionHistory)}>
+                    End Session Early & Get Report
                 </Button>
             </div>
         </>
