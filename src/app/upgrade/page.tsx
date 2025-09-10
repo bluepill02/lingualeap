@@ -48,7 +48,7 @@ export default function UpgradePage() {
 const plans = [
   {
     name: "Free",
-    price: "$0",
+    price: "₹0",
     description: "Start your language journey for free.",
     features: [
       "Access to first 3 lesson decks",
@@ -62,7 +62,7 @@ const plans = [
   },
   {
     name: "Pro",
-    price: "$9.99",
+    price: "₹850",
     description: "Unlock all features and learn faster.",
     features: [
       "Unlimited access to all lessons",
