@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState } from 'react';
@@ -31,6 +30,7 @@ type QuizState = {
 
 type Language = 'English' | 'Tamil';
 type PracticeType = 'mcq' | 'flashcards';
+const NEET_SUBJECTS = ['Physics', 'Chemistry', 'Biology'];
 
 export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPracticeGeneratorProps) {
   const [numItems, setNumItems] = useState(5);
@@ -47,6 +47,8 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
   const [flippedStates, setFlippedStates] = useState<boolean[]>([]);
 
   const { toast } = useToast();
+  
+  const isFlashcardSupported = NEET_SUBJECTS.includes(subject);
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -151,7 +153,7 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
          <Tabs value={practiceType} onValueChange={(value) => setPracticeType(value as PracticeType)}>
             <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="mcq"><FileQuestion className="mr-2"/> MCQs</TabsTrigger>
-                <TabsTrigger value="flashcards"><Copy className="mr-2"/> Flashcards</TabsTrigger>
+                <TabsTrigger value="flashcards" disabled={!isFlashcardSupported}><Copy className="mr-2"/> Flashcards</TabsTrigger>
             </TabsList>
         </Tabs>
 
