@@ -60,7 +60,8 @@ export async function getUserSettings(userId: string): Promise<User | null> {
         }
     } catch (error) {
         console.error("Error fetching user settings from Firestore:", error);
-        throw new Error("Could not retrieve user settings.");
+        // Returning null instead of throwing an error to prevent app crash
+        return null;
     }
 }
 
