@@ -60,9 +60,7 @@ export async function getUserSettings(userId: string): Promise<Partial<User> | n
         }
     } catch (error) {
         console.error("Error fetching user settings from Firestore:", error);
-        // Instead of throwing an error that crashes the app, return null.
-        // The UI component will handle the null case.
-        return null;
+        throw new Error("Could not retrieve user settings.");
     }
 }
 
@@ -93,3 +91,4 @@ export async function updateUserSettings(userId: string, settings: Partial<User>
         throw new Error("Could not save user settings.");
     }
 }
+
