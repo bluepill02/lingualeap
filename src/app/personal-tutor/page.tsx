@@ -24,7 +24,7 @@ import Link from 'next/link';
 
 export default function PersonalTutorPage() {
   const { user } = useUser();
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('hi');
   
   useEffect(() => {
     if (user && user.language) {
