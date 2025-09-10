@@ -10,6 +10,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import type { ExamModule } from '@/lib/types';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: 'Exam Preparation Modules',
+  description: 'Explore comprehensive study modules for competitive exams like NEET, TNPSC, UPSC, and more. Featuring AI-powered practice tools and detailed bilingual content.',
+  keywords: ['exam prep', 'NEET modules', 'TNPSC study material', 'UPSC preparation', 'competitive exams India'],
+};
+
 
 const officialModules = [
   {

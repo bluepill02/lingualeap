@@ -6,6 +6,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, Briefcase, Globe, Users, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import { allLessonDecks } from '@/lib/data';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+  title: 'Choose a Language to Learn',
+  description: 'Select from over 20 Indian languages, including Hindi, Tamil, Bengali, Telugu, and more. Start your language learning journey with LinguaLeap today.',
+  keywords: ['learn indian languages', 'learn hindi', 'learn tamil', 'language courses', 'bengali lessons', 'telugu course'],
+};
+
 
 const LanguageIcon = ({ letter }: { letter: string }) => (
   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/20 text-primary font-bold text-lg">
@@ -228,4 +237,3 @@ export default function LanguageSelectionPage() {
     </div>
   );
 }
-
