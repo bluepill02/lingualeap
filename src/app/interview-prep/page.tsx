@@ -26,7 +26,9 @@ const countFillerWords = (text: string): number => {
 
 const highlightSTAR = (text: string, part: string | undefined): string => {
     if (!part || !text) return text;
-    const regex = new RegExp(`(${part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    // Escape special regex characters from the part string
+    const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedPart})`, 'gi');
     return text.replace(regex, `<mark class="bg-primary/20 rounded-sm p-0.5">$1</mark>`);
 };
 
@@ -69,7 +71,7 @@ export default function InterviewPrepPage() {
         let finalTranscript = '';
 
         recognition.onstart = () => {
-            finalTranscript = '';
+            finalTranscript = ''; // Reset transcript for the new recording
             setIsRecording(true);
         };
 
@@ -93,27 +95,26 @@ export default function InterviewPrepPage() {
 
         recognition.onend = () => {
             setIsRecording(false);
-            if (finalTranscript.trim()) {
-                const newAnswer: AnswerRecord = {
-                    question: questions[currentQuestionIndex],
-                    transcript: finalTranscript,
-                    feedback: null, // Feedback will be generated at the end
-                };
-                setAnswers(prev => [...prev, newAnswer]);
-                
-                if (currentQuestionIndex < questions.length - 1) {
-                    setCurrentQuestionIndex(prev => prev + 1);
-                    setCurrentTranscript('');
-                } else {
-                    // Last question answered, move to analysis
-                    generateAllFeedback([...answers, newAnswer]);
-                }
+            const newAnswer: AnswerRecord = {
+                question: questions[currentQuestionIndex],
+                transcript: finalTranscript.trim() || "No answer recorded.", // Handle empty transcript
+                feedback: null,
+            };
+            
+            const updatedAnswers = [...answers, newAnswer];
+            setAnswers(updatedAnswers);
+            setCurrentTranscript('');
+
+            if (currentQuestionIndex < questions.length - 1) {
+                setCurrentQuestionIndex(prev => prev + 1);
+            } else {
+                generateAllFeedback(updatedAnswers);
             }
         };
         
         recognitionRef.current = recognition;
 
-    }, [questions, currentQuestionIndex, toast, answers]); // Dependencies
+    }, [questions, currentQuestionIndex, toast, answers]); 
 
      useEffect(() => {
         initializeSpeechRecognition();
@@ -260,6 +261,13 @@ export default function InterviewPrepPage() {
                     </CardContent>
                 </Card>
             )}
+
+            <div className="text-center mt-6">
+                <Button variant="outline" onClick={() => setSessionState('idle')}>
+                    <RefreshCw className="mr-2"/>
+                    Restart Session
+                </Button>
+            </div>
         </>
     );
     
@@ -271,92 +279,111 @@ export default function InterviewPrepPage() {
         </div>
     );
     
-    const renderReportState = () => (
-         <Card className="animate-in fade-in-50">
-            <CardHeader className="text-center">
-                <Wand2 className="w-10 h-10 mx-auto text-primary mb-2"/>
-                <CardTitle className="text-2xl">AI Feedback Report</CardTitle>
-                <CardDescription>Here's a breakdown of your performance across {answers.length} questions.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-8">
-                {answers.map((answer, index) => {
-                    const feedback = answer.feedback;
-                    if (!feedback) return null;
-                    
-                    const highlightedTranscript = highlightSTAR(answer.transcript, feedback.starAnalysis.situation) +
-                                                 highlightSTAR('', feedback.starAnalysis.task) +
-                                                 highlightSTAR('', feedback.starAnalysis.action) +
-                                                 highlightSTAR('', feedback.starAnalysis.result);
+    const renderReportState = () => {
+        if (answers.length === 0) return renderIdleState();
 
-                    return (
-                        <Card key={index} className="bg-card/50">
-                            <CardHeader>
-                               <CardTitle className="text-lg">Q{index + 1}: {answer.question}</CardTitle>
-                            </CardHeader>
-                             <CardContent className="space-y-4">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <Alert>
-                                        <Star className="h-4 w-4" />
-                                        <AlertTitle>Confidence Score</AlertTitle>
-                                        <AlertDescription className="font-bold text-lg">{feedback.confidenceScore}/10</AlertDescription>
-                                    </Alert>
-                                     <Alert>
-                                        <MessageSquare className="h-4 w-4" />
-                                        <AlertTitle>Filler Words</AlertTitle>
-                                        <AlertDescription className="font-bold text-lg">{countFillerWords(answer.transcript)}</AlertDescription>
-                                    </Alert>
-                                </div>
-                                <details>
-                                    <summary className="cursor-pointer font-semibold text-sm">View STAR Analysis & Transcript</summary>
-                                    <div className="mt-2 space-y-4 p-4 bg-muted rounded-md">
-                                        <p className="text-xs text-muted-foreground italic" dangerouslySetInnerHTML={{ __html: highlightedTranscript }} />
-                                        <Separator />
-                                         <div className="space-y-2 text-sm">
-                                           <div className="flex items-start gap-2">
-                                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.situation ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                                <div><strong className="font-semibold">Situation:</strong> {feedback.starAnalysis.situationFeedback}</div>
-                                            </div>
-                                             <div className="flex items-start gap-2">
-                                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.task ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                                <div><strong className="font-semibold">Task:</strong> {feedback.starAnalysis.taskFeedback}</div>
-                                            </div>
-                                             <div className="flex items-start gap-2">
-                                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.action ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                                <div><strong className="font-semibold">Action:</strong> {feedback.starAnalysis.actionFeedback}</div>
-                                            </div>
-                                            <div className="flex items-start gap-2">
-                                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.result ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                                <div><strong className="font-semibold">Result:</strong> {feedback.starAnalysis.resultFeedback}</div>
-                                            </div>
-                                         </div>
+        const getHighlightedTranscript = (answer: AnswerRecord): string => {
+            if (!answer.feedback) return answer.transcript;
+            
+            let highlightedText = answer.transcript;
+            const starParts = [
+                answer.feedback.starAnalysis.situation,
+                answer.feedback.starAnalysis.task,
+                answer.feedback.starAnalysis.action,
+                answer.feedback.starAnalysis.result,
+            ];
+            
+            starParts.forEach(part => {
+                if (part) {
+                    highlightedText = highlightSTAR(highlightedText, part);
+                }
+            });
+            return highlightedText;
+        };
+
+
+        return (
+             <Card className="animate-in fade-in-50">
+                <CardHeader className="text-center">
+                    <Wand2 className="w-10 h-10 mx-auto text-primary mb-2"/>
+                    <CardTitle className="text-2xl">AI Feedback Report</CardTitle>
+                    <CardDescription>Here's a breakdown of your performance across {answers.length} questions.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-8">
+                    {answers.map((answer, index) => {
+                        const feedback = answer.feedback;
+                        if (!feedback) return null;
+                        
+                        return (
+                            <Card key={index} className="bg-card/50">
+                                <CardHeader>
+                                   <CardTitle className="text-lg">Q{index + 1}: {answer.question}</CardTitle>
+                                </CardHeader>
+                                 <CardContent className="space-y-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <Alert>
+                                            <Star className="h-4 w-4" />
+                                            <AlertTitle>Confidence Score</AlertTitle>
+                                            <AlertDescription className="font-bold text-lg">{feedback.confidenceScore}/10}</AlertDescription>
+                                        </Alert>
+                                         <Alert>
+                                            <MessageSquare className="h-4 w-4" />
+                                            <AlertTitle>Filler Words</AlertTitle>
+                                            <AlertDescription className="font-bold text-lg">{countFillerWords(answer.transcript)}</AlertDescription>
+                                        </Alert>
                                     </div>
-                                </details>
-                                <Alert>
-                                    <Sparkles className="h-4 w-4"/>
-                                    <AlertTitle>Keyword Feedback</AlertTitle>
-                                    <AlertDescription>{feedback.keywordFeedback}</AlertDescription>
-                                </Alert>
-                                <Alert variant="success">
-                                    <BookCheck className="h-4 w-4"/>
-                                    <AlertTitle>Actionable Tips</AlertTitle>
-                                    <AlertDescription>
-                                        <ul className="list-disc list-inside">
-                                            {feedback.actionableTips.map((tip, i) => <li key={i}>{tip}</li>)}
-                                        </ul>
-                                    </AlertDescription>
-                                </Alert>
-                             </CardContent>
-                        </Card>
-                    )
-                })}
-                <div className="text-center">
-                    <Button onClick={() => setSessionState('idle')}>
-                        <RefreshCw className="mr-2"/> Start New Session
-                    </Button>
-                </div>
-            </CardContent>
-         </Card>
-    );
+                                    <details>
+                                        <summary className="cursor-pointer font-semibold text-sm">View STAR Analysis &amp; Transcript</summary>
+                                        <div className="mt-2 space-y-4 p-4 bg-muted rounded-md">
+                                            <p className="text-xs text-muted-foreground italic" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript(answer) }} />
+                                            <Separator />
+                                             <div className="space-y-2 text-sm">
+                                               <div className="flex items-start gap-2">
+                                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.situation ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                                    <div><strong className="font-semibold">Situation:</strong> {feedback.starAnalysis.situationFeedback}</div>
+                                                </div>
+                                                 <div className="flex items-start gap-2">
+                                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.task ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                                    <div><strong className="font-semibold">Task:</strong> {feedback.starAnalysis.taskFeedback}</div>
+                                                </div>
+                                                 <div className="flex items-start gap-2">
+                                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.action ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                                    <div><strong className="font-semibold">Action:</strong> {feedback.starAnalysis.actionFeedback}</div>
+                                                </div>
+                                                <div className="flex items-start gap-2">
+                                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.result ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                                    <div><strong className="font-semibold">Result:</strong> {feedback.starAnalysis.resultFeedback}</div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                    </details>
+                                    <Alert>
+                                        <Sparkles className="h-4 w-4"/>
+                                        <AlertTitle>Keyword Feedback</AlertTitle>
+                                        <AlertDescription>{feedback.keywordFeedback}</AlertDescription>
+                                    </Alert>
+                                    <Alert variant="success">
+                                        <BookCheck className="h-4 w-4"/>
+                                        <AlertTitle>Actionable Tips</AlertTitle>
+                                        <AlertDescription>
+                                            <ul className="list-disc list-inside">
+                                                {feedback.actionableTips.map((tip, i) => <li key={i}>{tip}</li>)}
+                                            </ul>
+                                        </AlertDescription>
+                                    </Alert>
+                                 </CardContent>
+                            </Card>
+                        );
+                    })}
+                    <div className="text-center">
+                        <Button onClick={() => setSessionState('idle')}>
+                            <RefreshCw className="mr-2"/> Start New Session
+                        </Button>
+                    </div>
+                </CardContent>
+             </Card>
+        );
+    };
 
     const renderContent = () => {
         switch (sessionState) {
@@ -382,12 +409,4 @@ export default function InterviewPrepPage() {
     );
 }
 
-const interviewQuestions = [
-    "Tell me about yourself.",
-    "What are your greatest strengths?",
-    "What is your biggest weakness?",
-    "Where do you see yourself in five years?",
-    "Tell me about a time you faced a challenge and how you overcame it.",
-    "Describe a time you had to work with a difficult team member.",
-    "Why do you want to work for this company?",
-];
+    
