@@ -122,7 +122,7 @@ export const InterviewFeedbackInputSchema = z.object({
   sessionHistory: z.array(AnswerRecordSchema).describe("An array of all questions asked and the user's answers for the entire session.")
 });
 
-const STARAnalysisSchema = z.object({
+export const STARAnalysisSchema = z.object({
   situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'. This should be an EXACT quote from the user's answer, if present."),
   task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'. This should be an EXACT quote from the user's answer, if present."),
   action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'. This should be an EXACT quote from the user's answer, if present."),
@@ -133,14 +133,14 @@ const STARAnalysisSchema = z.object({
   resultFeedback: z.string().describe("Feedback on the outcome. Was it quantified? Did it show impact?"),
 });
 
-const IndividualFeedbackSchema = z.object({
+export const IndividualFeedbackSchema = z.object({
     question: z.string().describe("The original question this feedback pertains to."),
     starAnalysis: STARAnalysisSchema,
     keywordFeedback: z.string().describe("Analyzes the use of keywords relevant to the job role. Suggests powerful action verbs and industry-specific terms."),
     confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer, based on clarity, pace, and conviction."),
 });
 
-const OverallFeedbackSchema = z.object({
+export const OverallFeedbackSchema = z.object({
     summary: z.string().describe("A brief, encouraging overview of the user's performance across the entire session."),
     strengths: z.string().describe("Two to three key strengths the user demonstrated consistently across their answers."),
     areasForImprovement: z.string().describe("The two or three most critical areas the user should focus on for improvement, based on patterns observed across all answers."),
