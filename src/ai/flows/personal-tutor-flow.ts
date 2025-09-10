@@ -18,7 +18,7 @@ export async function personalTutor(input: PersonalTutorInput): Promise<Personal
 const prompt = ai.definePrompt({
   name: 'personalTutorPrompt',
   input: { schema: PersonalTutorInputSchema },
-  output: { schema: z.string() }, // Output is just the string response
+  output: { schema: PersonalTutorOutputSchema },
   prompt: `You are LinguaLeap's AI Personal Tutor, a friendly and expert language guide. Your goal is to help users master the {{{language}}} language. Be patient, encouraging, and clear in your explanations.
 
 You can answer questions about grammar, vocabulary, culture, or provide practice sentences. Keep your answers concise but informative. If a user asks a question unrelated to language learning, gently guide them back to the topic.
@@ -31,7 +31,7 @@ Here is the conversation history:
 
 Now, respond to the user's latest message:
 User: {{{message}}}
-Tutor:`,
+`,
 });
 
 
@@ -51,12 +51,14 @@ const personalTutorFlow = ai.defineFlow(
         }
     });
     
-    const llmResponse = await prompt({
+    const { output } = await prompt({
         ...input,
         history: historyForPrompt
     });
 
-    const responseText = llmResponse.output || "I'm not sure how to respond to that. Could you ask in a different way?";
-    return { response: responseText };
+    if (!output) {
+      return { response: "I'm not sure how to respond to that. Could you ask in a different way?" };
+    }
+    return output;
   }
 );
