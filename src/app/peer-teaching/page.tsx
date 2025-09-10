@@ -13,6 +13,9 @@ import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, 
 import { useToast } from '@/hooks/use-toast';
 import { provideMissionFeedback, } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { cn } from '@/lib/utils';
+
 
 const mission = {
     title: "Mission: Explain Newton's Third Law",
@@ -20,15 +23,43 @@ const mission = {
     scenario: "Balancing carts at a temple chariot festival (தேர் திருவிழா). Explain why when you push a cart, you also feel a push back."
 };
 
+interface MCQState {
+    question: string;
+    options: string[];
+    correctAnswerIndex: number;
+}
+
+
 export default function PeerTeachingPage() {
     const [script, setScript] = useState('');
     const [diagram, setDiagram] = useState('');
-    const [mcq1, setMcq1] = useState({ question: '', optionA: '', optionB: '', optionC: '', optionD: '', answer: 'A' });
-    const [mcq2, setMcq2] = useState({ question: '', optionA: '', optionB: '', optionC: '', optionD: '', answer: 'A' });
+    const [mcqs, setMcqs] = useState<MCQState[]>([
+        { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+        { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+    ]);
     const [isLoading, setIsLoading] = useState(false);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
 
     const { toast } = useToast();
+    
+    const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswerIndex', value: string | number) => {
+        const newMcqs = [...mcqs];
+        const mcqToUpdate = { ...newMcqs[mcqIndex] };
+
+        if (field === 'question') {
+            mcqToUpdate.question = value as string;
+        } else if (field === 'correctAnswerIndex') {
+            mcqToUpdate.correctAnswerIndex = value as number;
+        } else if (field.startsWith('option-')) {
+            const optionIndex = parseInt(field.split('-')[1], 10);
+            mcqToUpdate.options = [...mcqToUpdate.options];
+            mcqToUpdate.options[optionIndex] = value as string;
+        }
+
+        newMcqs[mcqIndex] = mcqToUpdate;
+        setMcqs(newMcqs);
+    };
+
 
     const handleSubmit = async () => {
         setIsLoading(true);
@@ -38,10 +69,11 @@ export default function PeerTeachingPage() {
                 concept: mission.concept,
                 script: script,
                 diagramDescription: diagram,
-                mcqs: [
-                    { question: mcq1.question, options: [mcq1.optionA, mcq1.optionB, mcq1.optionC, mcq1.optionD], correctAnswer: mcq1.answer },
-                    { question: mcq2.question, options: [mcq2.optionA, mcq2.optionB, mcq2.optionC, mcq2.optionD], correctAnswer: mcq2.answer },
-                ]
+                mcqs: mcqs.map(mcq => ({
+                    question: mcq.question,
+                    options: mcq.options,
+                    correctAnswer: mcq.options[mcq.correctAnswerIndex] || '',
+                }))
             }
             const result = await provideMissionFeedback(submission);
             setFeedback(result);
@@ -111,28 +143,30 @@ export default function PeerTeachingPage() {
                 <CardDescription>Create two MCQs that test common misunderstandings of the concept.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-                {/* MCQ 1 */}
-                <div className="space-y-2 p-4 border rounded-md">
-                    <Label htmlFor="mcq1-q">Question 1</Label>
-                    <Input id="mcq1-q" placeholder="Question text..." value={mcq1.question} onChange={e => setMcq1({...mcq1, question: e.target.value})} />
-                    <div className="grid grid-cols-2 gap-2">
-                        <Input placeholder="Option A" value={mcq1.optionA} onChange={e => setMcq1({...mcq1, optionA: e.target.value})} />
-                        <Input placeholder="Option B" value={mcq1.optionB} onChange={e => setMcq1({...mcq1, optionB: e.target.value})}/>
-                        <Input placeholder="Option C" value={mcq1.optionC} onChange={e => setMcq1({...mcq1, optionC: e.target.value})}/>
-                        <Input placeholder="Option D" value={mcq1.optionD} onChange={e => setMcq1({...mcq1, optionD: e.target.value})}/>
+                {mcqs.map((mcq, mcqIndex) => (
+                    <div key={mcqIndex} className="space-y-3 p-4 border rounded-md">
+                        <Label htmlFor={`mcq${mcqIndex}-q`}>Question {mcqIndex + 1}</Label>
+                        <Input id={`mcq${mcqIndex}-q`} placeholder="Question text..." value={mcq.question} onChange={e => handleMcqChange(mcqIndex, 'question', e.target.value)} />
+                        
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                           {mcq.options.map((option, optionIndex) => (
+                                <Input key={optionIndex} placeholder={`Option ${String.fromCharCode(65 + optionIndex)}`} value={option} onChange={e => handleMcqChange(mcqIndex, `option-${optionIndex}`, e.target.value)} />
+                           ))}
+                        </div>
+                        
+                         <div>
+                            <Label className="mb-2 block">Correct Answer</Label>
+                             <RadioGroup value={String(mcq.correctAnswerIndex)} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswerIndex', Number(value))} className="flex gap-4">
+                               {mcq.options.map((_, optionIndex) => (
+                                <div key={optionIndex} className="flex items-center space-x-2">
+                                    <RadioGroupItem value={String(optionIndex)} id={`mcq${mcqIndex}-opt${optionIndex}`} />
+                                    <Label htmlFor={`mcq${mcqIndex}-opt${optionIndex}`}>{String.fromCharCode(65 + optionIndex)}</Label>
+                                </div>
+                               ))}
+                            </RadioGroup>
+                         </div>
                     </div>
-                </div>
-                 {/* MCQ 2 */}
-                <div className="space-y-2 p-4 border rounded-md">
-                    <Label htmlFor="mcq2-q">Question 2</Label>
-                    <Input id="mcq2-q" placeholder="Question text..." value={mcq2.question} onChange={e => setMcq2({...mcq2, question: e.target.value})} />
-                    <div className="grid grid-cols-2 gap-2">
-                        <Input placeholder="Option A" value={mcq2.optionA} onChange={e => setMcq2({...mcq2, optionA: e.target.value})} />
-                        <Input placeholder="Option B" value={mcq2.optionB} onChange={e => setMcq2({...mcq2, optionB: e.target.value})}/>
-                        <Input placeholder="Option C" value={mcq2.optionC} onChange={e => setMcq2({...mcq2, optionC: e.target.value})}/>
-                        <Input placeholder="Option D" value={mcq2.optionD} onChange={e => setMcq2({...mcq2, optionD: e.target.value})}/>
-                    </div>
-                </div>
+                ))}
             </CardContent>
         </Card>
       </div>
@@ -151,7 +185,7 @@ export default function PeerTeachingPage() {
                      <div className="flex justify-center">
                         <div className="flex items-center gap-1">
                             {Array.from({ length: 5 }).map((_, i) => (
-                                <Star key={i} className={`w-8 h-8 ${i < feedback.teachingStars ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`} />
+                                <Star key={i} className={cn("w-8 h-8", i < feedback.teachingStars ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')} />
                             ))}
                         </div>
                     </div>
