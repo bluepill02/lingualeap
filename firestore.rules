@@ -1,0 +1,40 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users can read and write to their own user document.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Allow read access to companion circles for authenticated users.
+    match /companion-circles/{circleId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null; // More specific rules for creation/joining needed in prod
+    }
+
+    // Allow read/write access to posts and comments for authenticated users
+    match /companion-circles/{circleId}/posts/{postId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Allow read/write to events for authenticated users
+     match /events/{eventId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Allow read/write to live classes for authenticated users
+    match /liveClasses/{classId} {
+      allow read, write: if request.auth != null;
+    }
+     // Allow read/write to mission submissions for authenticated users
+    match /mission-submissions/{submissionId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+    }
+     // Allow read/write to user progress for authenticated users
+    match /userProgress/{userId}/{subject}/{chapterId} {
+       allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
