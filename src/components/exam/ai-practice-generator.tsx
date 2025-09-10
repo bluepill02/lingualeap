@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState } from 'react';
@@ -20,7 +19,8 @@ import { motion } from "framer-motion";
 interface AiPracticeGeneratorProps {
   subject: 'Physics' | 'Chemistry' | 'Biology' | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science' | 'Aptitude' | 'Current Affairs' | 'Language';
   chapter: string;
-  generatorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
+  quizGeneratorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
+  flashcardGeneratorFn?: (input: any) => Promise<NeetFlashcardGeneratorOutput>;
 }
 
 type QuizState = {
@@ -32,7 +32,7 @@ type Language = 'English' | 'Tamil';
 type PracticeType = 'mcq' | 'flashcards';
 const NEET_SUBJECTS = ['Physics', 'Chemistry', 'Biology'];
 
-export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPracticeGeneratorProps) {
+export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashcardGeneratorFn }: AiPracticeGeneratorProps) {
   const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
   const [language, setLanguage] = useState<Language>('English');
@@ -48,7 +48,7 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
 
   const { toast } = useToast();
   
-  const isFlashcardSupported = NEET_SUBJECTS.includes(subject);
+  const isFlashcardSupported = NEET_SUBJECTS.includes(subject) && !!flashcardGeneratorFn;
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -60,8 +60,10 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
     try {
         if (practiceType === 'mcq') {
             await handleGenerateMcqs();
-        } else {
+        } else if (isFlashcardSupported) {
             await handleGenerateFlashcards();
+        } else {
+            throw new Error("Flashcards are not supported for this subject.");
         }
     } catch (error: any) {
         console.error(`Error generating AI ${practiceType}:`, error);
@@ -84,7 +86,7 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
         difficulty,
         language,
     };
-    const result = await generatorFn(input);
+    const result = await quizGeneratorFn(input);
     if (!result.quizzes || result.quizzes.length === 0) {
         throw new Error("AI failed to generate questions. Please try again.");
     }
@@ -96,8 +98,9 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
   }
 
   const handleGenerateFlashcards = async () => {
-    const result = await generateNeetFlashcards({
-        subject: subject as NeetQuizGeneratorInput['subject'], // Assuming flashcards are only for NEET subjects for now
+    if (!flashcardGeneratorFn) return;
+    const result = await flashcardGeneratorFn({
+        subject: subject as NeetQuizGeneratorInput['subject'],
         chapter,
         numFlashcards: numItems,
         difficulty,
@@ -190,7 +193,7 @@ export function AiPracticeGenerator({ subject, chapter, generatorFn }: AiPractic
             <Label htmlFor="difficulty">Difficulty</Label>
             <Select
               value={difficulty}
-              onValueChange={(value: 'Easy' | 'Medium' | 'Hard') => setDifficulty(value)}
+              onValueChange={(value: 'Easy' | 'Medium' | 'Hard'>) => setDifficulty(value)}
               disabled={isLoading}
             >
               <SelectTrigger id="difficulty">

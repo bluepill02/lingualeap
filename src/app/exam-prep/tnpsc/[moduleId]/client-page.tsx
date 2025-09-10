@@ -548,7 +548,7 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
             <AiPracticeGenerator 
               subject={module.subject as 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science'} 
               chapter={module.title} 
-              generatorFn={generateTnpscQuiz}
+              quizGeneratorFn={generateTnpscQuiz}
             />
           </TabsContent>
           <TabsContent value="srs" className="mt-4 space-y-6">

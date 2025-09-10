@@ -35,6 +35,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
+import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 
 
 export function ConceptNotesCard({ content }: { content: (ConceptNote | BilingualContent)[] }) {
@@ -399,7 +400,8 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                        <AiPracticeGenerator 
                             subject={subject} 
                             chapter={chapter} 
-                            generatorFn={generateNeetQuiz}
+                            quizGeneratorFn={generateNeetQuiz}
+                            flashcardGeneratorFn={generateNeetFlashcards}
                         />
                     </TabsContent>
                 </Tabs>
