@@ -18,10 +18,8 @@ import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { loadStripe } from '@stripe/stripe-js';
+import Script from 'next/script';
 
-// Make sure to add your publishable key to your environment variables
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function UpgradePage() {
   const { user, reloadUser, isLoading } = useUser();
@@ -40,31 +38,51 @@ export default function UpgradePage() {
     }
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/create-checkout-session', {
+      const res = await fetch('/api/create-razorpay-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userId: user.id }),
+        body: JSON.stringify({ amount: 9900, currency: 'INR' }),
       });
 
-      const { sessionId, error: sessionError } = await res.json();
-
-      if (!res.ok || sessionError) {
-        throw new Error(sessionError?.message || 'Failed to create checkout session');
+      const { orderId, amount, currency, error } = await res.json();
+      
+      if(error) {
+        throw new Error(error.message);
       }
 
-      const stripe = await stripePromise;
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
+        amount: amount,
+        currency: currency,
+        name: 'LinguaLeap Pro',
+        description: 'Unlimited access to all features.',
+        order_id: orderId,
+        handler: async function (response: any) {
+            // In a real app, you would verify the payment signature on your backend
+            // and then grant Pro access.
+            await updateUserSettings(user.id, { isPro: true });
+            await reloadUser();
+             toast({
+                title: 'Upgrade Successful!',
+                description: "Welcome to LinguaLeap Pro! Your account has been upgraded.",
+            });
+            router.push('/dashboard');
+        },
+        prefill: {
+            name: user.name,
+            email: user.email,
+        },
+        theme: {
+            color: '#5B21B6' // Purple to match the theme
+        }
+    };
+    
+    // @ts-ignore
+    const rzp = new window.Razorpay(options);
+    rzp.open();
 
-      if (!stripe) {
-        throw new Error('Stripe.js has not loaded yet.');
-      }
-
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) {
-        throw error;
-      }
     } catch (error: any) {
       console.error('Upgrade failed:', error);
       toast({
@@ -128,6 +146,11 @@ export default function UpgradePage() {
   ];
 
   return (
+    <>
+    <Script
+        id="razorpay-checkout-js"
+        src="https://checkout.razorpay.com/v1/checkout.js"
+      />
     <div className="container mx-auto flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold font-headline">Choose Your Plan</h1>
@@ -220,5 +243,6 @@ export default function UpgradePage() {
         </Card>
       </div>
     </div>
+    </>
   );
 }
