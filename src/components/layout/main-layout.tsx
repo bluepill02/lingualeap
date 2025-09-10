@@ -159,7 +159,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
       <SidebarInset>
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-card p-4 sm:px-6">
           <div className="flex items-center gap-2">
-            <SidebarTrigger className="md:hidden" />
+            <SidebarTrigger className="md:hidden h-10 w-10" aria-label="Toggle mobile menu" />
             <div className="hidden md:block">
               <SidebarTrigger />
             </div>
@@ -234,12 +234,12 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
           </div>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6 space-y-6">
+        <main className="flex-1 p-2 sm:p-4 md:p-6 space-y-6">
             {user && <AdPlaceholder />}
             {children}
         </main>
         
-        <footer className="p-6 text-center text-xs text-muted-foreground">
+        <footer className="p-4 sm:p-6 text-center text-xs text-muted-foreground">
             <Separator className="my-4" />
             <div className="flex items-center justify-center gap-4">
                 <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>

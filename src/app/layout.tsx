@@ -29,6 +29,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   openGraph: {
     title: 'LinguaLeap: AI-Powered Language & Exam Mastery',
     description: 'Master new languages and ace competitive exams like NEET & TNPSC with LinguaLeap.',
