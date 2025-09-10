@@ -59,7 +59,6 @@ export default function ARImmersionPage() {
     getCameraPermission();
 
     return () => {
-      // Cleanup: stop all tracks on the stream when the component unmounts.
       streamRef.current?.getTracks().forEach(track => track.stop());
     };
   }, [toast]);
@@ -104,12 +103,6 @@ export default function ARImmersionPage() {
     setIsSubmitted(true);
   }
 
-  const reset = () => {
-    setAnalysisResult(null);
-    setSelectedOption(null);
-    setIsSubmitted(false);
-  }
-
   const renderQuizOption = (option: string) => {
     const isCorrectAnswer = option === analysisResult?.quiz.answer;
     const isSelected = selectedOption === option;
@@ -128,11 +121,11 @@ export default function ARImmersionPage() {
             className="w-full justify-start items-center h-auto py-2"
             onClick={() => !isSubmitted && setSelectedOption(option)}
         >
-            <div className="flex-grow text-left whitespace-normal flex items-center gap-2">
+            <span className="flex-1 flex items-center gap-2 text-left whitespace-normal">
                 {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4 flex-shrink-0" />}
                 {isSubmitted && isSelected && !isCorrectAnswer && <X className="h-4 w-4 flex-shrink-0" />}
-                <span className="flex-1">{option}</span>
-            </div>
+                {option}
+            </span>
         </Button>
     );
   }
@@ -185,7 +178,7 @@ export default function ARImmersionPage() {
               ) : (
                 <>
                   <Camera className="mr-2" />
-                  Capture
+                   {analysisResult ? 'Scan Another Object' : 'Capture'}
                 </>
               )}
             </Button>
@@ -235,11 +228,6 @@ export default function ARImmersionPage() {
                 <AlertTitle>Mnemonic Hook</AlertTitle>
                 <AlertDescription>{analysisResult.mnemonic}</AlertDescription>
               </Alert>
-
-              <Button variant="outline" onClick={reset} className="w-full">
-                <RefreshCcw className="mr-2"/>
-                Scan Another Object
-              </Button>
           </CardContent>
         </Card>
       )}
