@@ -1,4 +1,5 @@
 
+
 import { FieldValue } from 'firebase/firestore';
 
 // --- Plain TypeScript Types (Safe for Client & Server) ---
@@ -448,11 +449,13 @@ export interface NeetFlashcardGeneratorInput extends Omit<NeetQuizGeneratorInput
 export interface NeetFlashcardGeneratorOutput {
     flashcards: FlashcardSchema[];
 }
+
 export type SpeakInput = string;
 
 export interface SpeakOutput {
   media: string;
 }
+
 export interface AnalyzeImageInput {
   photoDataUri: string;
   targetLanguage: string;
