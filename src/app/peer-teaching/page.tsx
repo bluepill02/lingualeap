@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
-import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw, Lock } from 'lucide-react';
+import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideMissionFeedback } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
@@ -20,7 +20,6 @@ import { app } from '@/lib/firebase';
 import { saveMissionSubmission, getLatestMissionSubmission } from '@/services/missions';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useUser } from '@/context/user-context';
-import Link from 'next/link';
 
 const mission = {
     id: 'newtons-third-law',
@@ -49,12 +48,11 @@ export default function PeerTeachingPage() {
     const [isLoading, setIsLoading] = useState(false);
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
-    const isPro = firebaseUser?.isPro || false;
-
+    
     const { toast } = useToast();
     
      useEffect(() => {
-        if (firebaseUser && isPro) {
+        if (firebaseUser) {
             getLatestMissionSubmission(firebaseUser.uid, mission.id)
                 .then(latestSubmission => {
                     if (latestSubmission) {
@@ -83,7 +81,7 @@ export default function PeerTeachingPage() {
         } else {
             setIsPageLoading(false);
         }
-    }, [firebaseUser, toast, isPro]);
+    }, [firebaseUser, toast]);
 
 
     const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswer', value: string) => {
@@ -167,30 +165,6 @@ export default function PeerTeachingPage() {
             </div>
         )
     }
-    
-    if (!isPro) {
-        return (
-            <div className="container mx-auto flex items-center justify-center">
-                 <Card className="max-w-xl text-center p-8">
-                    <CardHeader>
-                        <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                            <Sparkles className="w-8 h-8 text-primary"/>
-                        </div>
-                        <CardTitle className="text-2xl font-headline">Unlock AI-Powered Feedback</CardTitle>
-                        <CardDescription>
-                            Get instant, expert feedback on your micro-lessons with Peer-Teaching Missions, a LinguaLeap Pro feature.
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <Link href="/upgrade">
-                            <Button size="lg">Upgrade to Pro</Button>
-                        </Link>
-                    </CardContent>
-                </Card>
-            </div>
-        )
-    }
-
 
   return (
     <div className="container mx-auto space-y-8">

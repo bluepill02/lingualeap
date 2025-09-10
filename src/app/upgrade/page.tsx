@@ -10,26 +10,15 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 
-const freeFeatures = [
-    { text: "Access to 'Foundations' lessons" },
-    { text: 'Basic flashcard review' },
-    { text: 'Peer-to-Peer study circles' },
-    { text: 'AR Immersion vocabulary' },
-    { text: 'On-Demand quiz generator' },
-    { text: 'Ad-supported', unavailable: true },
-    { text: 'AI Personal Tutor', unavailable: true },
-    { text: 'Mentor-led Circles', unavailable: true },
-];
-
-const proFeatures = [
-    { text: 'Unlimited access to ALL lessons' },
-    { text: 'Advanced flashcard statistics' },
-    { text: 'Mentor-led & specialized circles' },
-    { text: 'Priority support' },
-    { text: 'AI Personal Tutor' },
-    { text: 'AR Immersion vocabulary' },
-    { text: 'On-Demand quiz generator' },
-    { text: 'Ad-Free Experience' },
+const features = [
+    'Unlimited Access to All Lessons',
+    'Basic & Advanced Flashcard Review',
+    'Peer-to-Peer & Mentor-led Circles',
+    'AI Personal Tutor for Conversational Practice',
+    'AR Immersion for Vocabulary',
+    'On-Demand Quiz Generator',
+    'Live Classes with Tutors',
+    'AI-Powered Mission Feedback',
 ];
 
 export default function UpgradePage() {
@@ -82,7 +71,7 @@ export default function UpgradePage() {
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold font-headline">Choose Your Plan</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Unlock your full potential with LinguaLeap Pro. Get unlimited access to all features and accelerate your learning.
+          Unlock your full potential with LinguaLeap Pro for an ad-free experience, or enjoy all our features for free with ads.
         </p>
       </div>
 
@@ -91,7 +80,7 @@ export default function UpgradePage() {
         <Card className="flex flex-col border-2">
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Free</CardTitle>
-              <CardDescription>Start your language journey, completely free.</CardDescription>
+              <CardDescription>Access all features, supported by ads.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
@@ -99,12 +88,16 @@ export default function UpgradePage() {
                     <span className="text-muted-foreground">/forever</span>
                 </div>
                 <ul className="space-y-4">
-                    {freeFeatures.map((feature, i) => (
-                    <li key={i} className={`flex items-center gap-3 ${feature.unavailable ? 'text-muted-foreground' : ''}`}>
-                       {feature.unavailable ? <X className="h-5 w-5" /> : <Check className="h-5 w-5 text-primary" />}
-                        <span>{feature.text}</span>
+                    {features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                       <Check className="h-5 w-5 text-primary" />
+                        <span>{feature}</span>
                     </li>
                     ))}
+                    <li className="flex items-center gap-3 text-muted-foreground">
+                        <X className="h-5 w-5"/>
+                        <span>Ad-Free Experience</span>
+                    </li>
                 </ul>
             </CardContent>
             <CardFooter>
@@ -126,7 +119,7 @@ export default function UpgradePage() {
             </div>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Pro</CardTitle>
-              <CardDescription>Unlock all features and learn faster with AI.</CardDescription>
+              <CardDescription>Support the app and enjoy an ad-free experience.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
@@ -134,12 +127,16 @@ export default function UpgradePage() {
                     <span className="text-muted-foreground">/month</span>
                 </div>
                 <ul className="space-y-4">
-                    {proFeatures.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3">
+                    {features.map((feature, i) => (
+                     <li key={i} className="flex items-center gap-3">
                         <Check className="h-5 w-5 text-primary" />
-                        <span>{feature.text}</span>
+                        <span>{feature}</span>
                     </li>
                     ))}
+                     <li className="flex items-center gap-3 font-bold text-primary">
+                        <Sparkles className="h-5 w-5"/>
+                        <span>Ad-Free Experience</span>
+                    </li>
                 </ul>
             </CardContent>
             <CardFooter>

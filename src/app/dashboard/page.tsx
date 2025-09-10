@@ -173,16 +173,14 @@ export default function DashboardPage() {
 
   function SmartStudyPlanCard() {
     return (
-      <Card className={cn("bg-card/50", !isPro && "bg-muted/30 border-dashed")}>
+      <Card className="bg-card/50">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg">
             <Sparkles className="text-primary h-5 w-5" />
             Smart Study Plan
           </CardTitle>
           <CardDescription>
-            {isPro
-              ? `Your AI-powered path to mastering ${userData.language}.`
-              : 'Unlock AI-powered study sessions with Pro.'}
+            Your AI-powered path to mastering {userData.language}.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -200,9 +198,9 @@ export default function DashboardPage() {
             <Lightbulb className="h-5 w-5 text-accent" />
             <span>You've learned {flashcardStats.mastered} words so far! Keep going to unlock personalized insights.</span>
           </div>
-          <Link href={isPro ? "/flashcards" : "/upgrade"}>
-            <Button className="w-full" size="lg" disabled={!isPro}>
-              {isPro ? 'Start Smart Session' : <> <Lock className="mr-2"/> Upgrade to Pro</>}
+          <Link href="/flashcards">
+            <Button className="w-full" size="lg">
+              Start Smart Session
             </Button>
           </Link>
         </CardContent>
@@ -218,11 +216,8 @@ export default function DashboardPage() {
       const leaderIndex = companionCircle.members.length > 0 ? currentWeek % companionCircle.members.length : 0;
       const leader = companionCircle.members.length > 0 ? companionCircle.members[leaderIndex] : null;
 
-      const isProCircle = companionCircle.type === 'Mentor-led';
-      const canAccess = isPro ? true : !isProCircle;
-
       return (
-          <Card className={cn("bg-card/50", !canAccess && "bg-muted/30 border-dashed")}>
+          <Card className="bg-card/50">
               <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
                       <Users className="h-5 w-5 text-primary" />
@@ -255,10 +250,9 @@ export default function DashboardPage() {
                           </div>
                       ))}
                   </div>
-                    <Link href={canAccess ? `/companion-circles/${companionCircle.id}` : '/upgrade'}>
-                        <Button variant="outline" className="w-full mt-6" disabled={!canAccess}>
-                           {!canAccess && <Lock className="mr-2"/>}
-                           {canAccess ? "View Circle" : "Upgrade to View"}
+                    <Link href={`/companion-circles/${companionCircle.id}`}>
+                        <Button variant="outline" className="w-full mt-6">
+                           View Circle
                         </Button>
                   </Link>
               </CardContent>

@@ -38,17 +38,11 @@ export function LessonCarousel({ lessons, isPro }: LessonCarouselProps) {
     >
       <CarouselContent>
         {lessons.map((lesson, index) => {
-          const isLocked = index >= 3 && !isPro;
           return (
           <CarouselItem key={lesson.id} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card className={cn("flex h-full flex-col", isLocked && "bg-muted/50 border-dashed")}>
+              <Card className="flex h-full flex-col">
                 <CardHeader className="p-0 relative">
-                  {isLocked && (
-                    <div className="absolute inset-0 bg-black/50 z-10 flex items-center justify-center rounded-t-lg">
-                      <Lock className="text-white w-12 h-12" />
-                    </div>
-                  )}
                   <Image
                     src={lesson.imageUrl}
                     alt={lesson.title}
@@ -68,9 +62,9 @@ export function LessonCarousel({ lessons, isPro }: LessonCarouselProps) {
                   </div>
                 </div>
                 <CardFooter>
-                   <Link href={isLocked ? '/upgrade' : `/lessons/${lesson.id}`} className="w-full">
-                    <Button className="w-full" disabled={isLocked}>
-                      {isLocked ? 'Upgrade to Pro' : 'Start Lesson'}
+                   <Link href={`/lessons/${lesson.id}`} className="w-full">
+                    <Button className="w-full">
+                      Start Lesson
                     </Button>
                   </Link>
                 </CardFooter>

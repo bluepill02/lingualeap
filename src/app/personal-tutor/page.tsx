@@ -21,24 +21,6 @@ import Image from 'next/image';
 import { useUser } from '@/context/user-context';
 import Link from 'next/link';
 
-function ProUpgradeCard() {
-    return (
-        <Card className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm space-y-4 p-8 text-center">
-            <div className="p-4 bg-primary/10 rounded-full">
-                 <Sparkles className="w-12 h-12 text-primary" />
-            </div>
-            <h2 className="text-2xl font-bold font-headline">Unlock Your AI Personal Tutor</h2>
-            <p className="text-muted-foreground">
-                Get unlimited conversational practice, grammar explanations, and cultural insights with LinguaLeap Pro.
-            </p>
-            <Link href="/upgrade">
-                <Button size="lg">Upgrade to Pro</Button>
-            </Link>
-        </Card>
-    )
-}
-
-
 export default function PersonalTutorPage() {
   const { user } = useUser();
   const [language, setLanguage] = useState<Language>('en');
@@ -62,8 +44,6 @@ export default function PersonalTutorPage() {
 
   const { toast } = useToast();
   
-  const isPro = user?.isPro || false;
-
   useEffect(() => {
     setMessages([{ role: 'model', content: getInitialMessage() }]);
   }, [user, getInitialMessage]);
@@ -230,7 +210,6 @@ export default function PersonalTutorPage() {
             </div>
        </header>
        <Card className="flex-1 flex flex-col bg-background/80 backdrop-blur-sm overflow-hidden">
-        {!isPro && <ProUpgradeCard />}
         <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
           <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
             <div className="space-y-6 p-2">
