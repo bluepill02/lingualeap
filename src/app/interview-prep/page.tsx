@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const countFillerWords = (text: string): number => {
     const fillerWords = /\b(um|uh|er|ah|like|okay|right|so|you know)\b/gi;
@@ -23,13 +24,19 @@ const countFillerWords = (text: string): number => {
     return matches ? matches.length : 0;
 };
 
-const highlightSTAR = (text: string, part: string | undefined): string => {
-    if (!part || !text) return text;
-    // Escape special characters for regex, and handle potential whitespace differences
-    const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
-    if (!escapedPart) return text;
-    const regex = new RegExp(`(${escapedPart})`, 'gi');
-    return text.replace(regex, `<mark class="bg-primary/20 rounded-sm p-0.5">$1</mark>`);
+const highlightSTAR = (text: string, parts: { part: string | undefined; className: string }[]): string => {
+    if (!text) return '';
+    let highlightedText = text;
+
+    parts.forEach(({ part, className }) => {
+        if (!part || !part.trim()) return;
+        // Escape special characters for regex
+        const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+        const regex = new RegExp(`(${escapedPart})`, 'gi');
+        highlightedText = highlightedText.replace(regex, `<mark class="${className}">$1</mark>`);
+    });
+
+    return highlightedText;
 };
 
 
@@ -77,7 +84,16 @@ export default function InterviewPrepPage() {
     const handleAnswerSubmission = useCallback(async () => {
         const transcript = finalTranscriptRef.current.trim();
         if (!transcript || !currentQuestion) {
-            toast({ variant: 'destructive', title: 'Empty Answer', description: 'Please provide an answer before stopping.'});
+             // If there's no transcript but we are in progress, just move to the next question.
+            if(sessionState === 'in_progress' && currentQuestion) {
+                 const updatedHistory = [...sessionHistory, { question: currentQuestion, transcript: '(No answer recorded)', feedback: null }];
+                 setSessionHistory(updatedHistory);
+                 if (updatedHistory.length < MAX_QUESTIONS) {
+                    await fetchNextQuestion();
+                } else {
+                    setSessionState('session_complete');
+                }
+            }
             return;
         }
         
@@ -98,7 +114,7 @@ export default function InterviewPrepPage() {
             setSessionState('session_complete');
         }
 
-    }, [currentQuestion, sessionHistory, fetchNextQuestion, toast]);
+    }, [currentQuestion, sessionState, sessionHistory, fetchNextQuestion, toast]);
 
 
     const initializeSpeechRecognition = useCallback(() => {
@@ -121,11 +137,8 @@ export default function InterviewPrepPage() {
         };
         recognition.onend = () => {
              setIsRecording(false);
-             // Use a short timeout to ensure final result has time to process
              setTimeout(() => {
-                if (finalTranscriptRef.current.trim()) {
-                    handleAnswerSubmission();
-                }
+                handleAnswerSubmission();
              }, 300);
         };
 
@@ -282,7 +295,7 @@ export default function InterviewPrepPage() {
                     <RefreshCw className="mr-2"/>
                     Restart Session
                 </Button>
-                {sessionHistory.length > 0 && (
+                 {sessionHistory.length > 0 && sessionHistory.length < MAX_QUESTIONS && (
                     <Button onClick={() => generateFinalReport(sessionHistory)}>
                         End Session Early & Get Report
                     </Button>
@@ -319,30 +332,23 @@ export default function InterviewPrepPage() {
 
         const getHighlightedTranscript = (answer: AnswerRecord): string => {
             if (!answer.feedback) return answer.transcript;
-            
-            let highlightedText = answer.transcript;
             const starParts = [
-                answer.feedback.starAnalysis.situation,
-                answer.feedback.starAnalysis.task,
-                answer.feedback.starAnalysis.action,
-                answer.feedback.starAnalysis.result,
+                { part: answer.feedback.starAnalysis.situation, className: 'bg-yellow-400/30' },
+                { part: answer.feedback.starAnalysis.task, className: 'bg-blue-400/30' },
+                { part: answer.feedback.starAnalysis.action, className: 'bg-green-400/30' },
+                { part: answer.feedback.starAnalysis.result, className: 'bg-purple-400/30' },
             ];
-            
-            starParts.forEach(part => {
-                if (part) {
-                    highlightedText = highlightSTAR(highlightedText, part);
-                }
-            });
-            return highlightedText;
+            return highlightSTAR(answer.transcript, starParts);
         };
 
+        const overallConfidence = Math.round(sessionHistory.reduce((acc, ans) => acc + (ans.feedback?.confidenceScore || 0), 0) / sessionHistory.length);
 
         return (
              <Card className="animate-in fade-in-50">
                 <CardHeader className="text-center">
                     <Wand2 className="w-10 h-10 mx-auto text-primary mb-2"/>
                     <CardTitle className="text-2xl">AI Feedback Report</CardTitle>
-                    <CardDescription>Here's a breakdown of your performance across {sessionHistory.length} questions for the '{jobRole}' role.</CardDescription>
+                    <CardDescription>Here's a breakdown of your performance for the '{jobRole}' role.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
                     {sessionHistory.map((answer, index) => {
@@ -350,29 +356,35 @@ export default function InterviewPrepPage() {
                         if (!feedback) return null;
                         
                         return (
-                            <Card key={index} className="bg-card/50">
-                                <CardHeader>
-                                   <CardTitle className="text-lg">Q{index + 1}: {answer.question}</CardTitle>
-                                </CardHeader>
-                                 <CardContent className="space-y-4">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <Alert>
-                                            <Star className="h-4 w-4" />
-                                            <AlertTitle>Confidence Score</AlertTitle>
-                                            <AlertDescription className="font-bold text-lg">{feedback.confidenceScore}/10</AlertDescription>
-                                        </Alert>
-                                         <Alert>
-                                            <MessageSquare className="h-4 w-4" />
-                                            <AlertTitle>Filler Words</AlertTitle>
-                                            <AlertDescription className="font-bold text-lg">{countFillerWords(answer.transcript)}</AlertDescription>
-                                        </Alert>
+                             <details key={index} className="group border-b pb-4">
+                                <summary className="cursor-pointer list-none">
+                                    <div className="flex items-center justify-between">
+                                        <h3 className="font-semibold text-lg">Q{index + 1}: {answer.question}</h3>
+                                        <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
+                                            <span>View Details</span>
+                                            <ArrowRight className="h-4 w-4 transition-transform group-open:rotate-90"/>
+                                        </div>
                                     </div>
-                                    <details>
-                                        <summary className="cursor-pointer font-semibold text-sm">View STAR Analysis &amp; Transcript</summary>
-                                        <div className="mt-2 space-y-4 p-4 bg-muted rounded-md">
-                                            <p className="text-xs text-muted-foreground italic" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript(answer) }} />
-                                            <Separator />
-                                             <div className="space-y-2 text-sm">
+                                </summary>
+                                <div className="mt-4 space-y-4 p-4 bg-muted/50 rounded-lg">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <Card>
+                                            <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Confidence Score</CardTitle></CardHeader>
+                                            <CardContent><p className="text-2xl font-bold">{feedback.confidenceScore}/10</p></CardContent>
+                                        </Card>
+                                         <Card>
+                                            <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><MessageSquare/>Filler Words</CardTitle></CardHeader>
+                                            <CardContent><p className="text-2xl font-bold">{countFillerWords(answer.transcript)}</p></CardContent>
+                                        </Card>
+                                    </div>
+                                    <Card>
+                                         <CardHeader className="pb-2"><CardTitle className="text-base">STAR Method Analysis & Transcript</CardTitle></CardHeader>
+                                         <CardContent>
+                                            <TooltipProvider>
+                                                <p className="text-sm italic text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript(answer) }} />
+                                            </TooltipProvider>
+                                            <Separator className="my-4"/>
+                                            <div className="space-y-2 text-sm">
                                                <div className="flex items-start gap-2">
                                                     <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.situation ? 'text-green-500' : 'text-muted-foreground/50')} />
                                                     <div><strong className="font-semibold">Situation:</strong> {feedback.starAnalysis.situationFeedback}</div>
@@ -390,8 +402,8 @@ export default function InterviewPrepPage() {
                                                     <div><strong className="font-semibold">Result:</strong> {feedback.starAnalysis.resultFeedback}</div>
                                                 </div>
                                              </div>
-                                        </div>
-                                    </details>
+                                         </CardContent>
+                                    </Card>
                                     <Alert>
                                         <Sparkles className="h-4 w-4"/>
                                         <AlertTitle>Keyword Feedback</AlertTitle>
@@ -406,11 +418,11 @@ export default function InterviewPrepPage() {
                                             </ul>
                                         </AlertDescription>
                                     </Alert>
-                                 </CardContent>
-                            </Card>
+                                 </div>
+                            </details>
                         );
                     })}
-                    <div className="text-center">
+                    <div className="text-center pt-4">
                         <Button onClick={() => setSessionState('idle')}>
                             <RefreshCw className="mr-2"/> Start New Session
                         </Button>

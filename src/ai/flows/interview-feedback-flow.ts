@@ -17,10 +17,10 @@ export const InterviewFeedbackInputSchema = z.object({
 export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
 
 const STARAnalysisSchema = z.object({
-  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'. This should be an exact quote from the user's answer."),
-  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'. This should be an exact quote from the user's answer."),
-  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'. This should be an exact quote from the user's answer."),
-  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'. This should be an exact quote from the user's answer."),
+  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'. This should be an EXACT quote from the user's answer, if present."),
+  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'. This should be an EXACT quote from the user's answer, if present."),
+  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'. This should be an EXACT quote from the user's answer, if present."),
+  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'. This should be an EXACT quote from the user's answer, if present."),
   situationFeedback: z.string().describe("Feedback on how well the user established the context."),
   taskFeedback: z.string().describe("Feedback on how well the user explained their specific responsibility."),
   actionFeedback: z.string().describe("Feedback on the description of the actions taken. Were they specific and impactful?"),
