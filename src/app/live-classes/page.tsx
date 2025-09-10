@@ -6,13 +6,14 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Video, User, Zap, Loader2, Check } from 'lucide-react';
+import { Clock, Video, User, Zap, Loader2, Check, Info } from 'lucide-react';
 import { getLiveClasses } from '@/services/live-classes';
 import type { LiveClass } from '@/lib/types';
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 function LiveClassSkeleton() {
     return (
@@ -85,14 +86,6 @@ export default function LiveClassesPage() {
         });
     };
 
-    const handleJoin = (topic: string) => {
-        toast({
-            title: `Joining: ${topic}`,
-            description: 'Opening the live session in a new tab...',
-        });
-        window.open('', '_blank')?.focus();
-    };
-    
     const now = new Date();
     const liveNowClasses = allClasses.filter(c => new Date(c.startTime) <= now && new Date(c.endTime) > now);
     const upcomingClasses = allClasses.filter(c => new Date(c.startTime) > now);
@@ -145,31 +138,52 @@ export default function LiveClassesPage() {
                     </h2>
                     <div className="responsive-card-grid">
                         {liveNowClasses.map(cls => (
-                            <Card key={cls.id} className="border-primary ring-2 ring-primary flex flex-col">
-                                <CardHeader>
-                                    <Badge variant="destructive" className="absolute top-4 right-4">LIVE</Badge>
-                                    <CardTitle>{cls.topic}</CardTitle>
-                                    <CardDescription>With {cls.instructor}</CardDescription>
-                                </CardHeader>
-                                <CardContent className="flex-grow space-y-4">
-                                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                        <Clock className="w-4 h-4" />
-                                        <span>Ends at {format(new Date(cls.endTime), 'p')}</span>
+                            <Dialog key={cls.id}>
+                                <Card className="border-primary ring-2 ring-primary flex flex-col">
+                                    <CardHeader>
+                                        <Badge variant="destructive" className="absolute top-4 right-4">LIVE</Badge>
+                                        <CardTitle>{cls.topic}</CardTitle>
+                                        <CardDescription>With {cls.instructor}</CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="flex-grow space-y-4">
+                                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                                            <Clock className="w-4 h-4" />
+                                            <span>Ends at {format(new Date(cls.endTime), 'p')}</span>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <Avatar>
+                                                <AvatarImage src={cls.instructorAvatar} alt={cls.instructor} />
+                                                <AvatarFallback>{cls.instructor.charAt(0)}</AvatarFallback>
+                                            </Avatar>
+                                            <p className="text-sm">{cls.description}</p>
+                                        </div>
+                                    </CardContent>
+                                    <CardFooter>
+                                        <DialogTrigger asChild>
+                                            <Button className="w-full" size="lg">
+                                                <Video className="mr-2" /> View Details
+                                            </Button>
+                                        </DialogTrigger>
+                                    </CardFooter>
+                                </Card>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle>Live Class: {cls.topic}</DialogTitle>
+                                        <DialogDescription>
+                                            This feature is for demonstration purposes only.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="space-y-4">
+                                        <p className="text-muted-foreground">
+                                            In a real application, clicking "Join Now" would open a video conferencing link (e.g., Google Meet, Zoom) where the live class is being held.
+                                        </p>
+                                        <div className="flex items-center gap-2 text-sm">
+                                            <Info className="w-4 h-4 text-primary"/>
+                                            <span>Instructor: <strong>{cls.instructor}</strong></span>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-4">
-                                        <Avatar>
-                                            <AvatarImage src={cls.instructorAvatar} alt={cls.instructor} />
-                                            <AvatarFallback>{cls.instructor.charAt(0)}</AvatarFallback>
-                                        </Avatar>
-                                        <p className="text-sm">{cls.description}</p>
-                                    </div>
-                                </CardContent>
-                                <CardFooter>
-                                    <Button className="w-full" size="lg" onClick={() => handleJoin(cls.topic)}>
-                                        <Video className="mr-2" /> Join Now
-                                    </Button>
-                                </CardFooter>
-                            </Card>
+                                </DialogContent>
+                            </Dialog>
                         ))}
                     </div>
                     <Separator className="my-8" />

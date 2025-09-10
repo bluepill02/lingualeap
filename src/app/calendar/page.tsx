@@ -2,7 +2,7 @@
 'use client';
 
 import * as React from 'react';
-import { Calendar as CalendarIcon, Users, User, Video, Flag, Clock, Loader2 } from 'lucide-react';
+import { Calendar as CalendarIcon, Users, User, Video, Flag, Clock, Loader2, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { format, isSameDay, startOfDay } from 'date-fns';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -80,7 +80,8 @@ export default function CalendarPage() {
               if (event.circleId) router.push(`/companion-circles/${event.circleId}`);
               break;
           case 'live-class':
-              router.push('/live-classes');
+              // This is now handled by the DialogTrigger, but we keep this case for completeness.
+              // In a real app, this might navigate to a live class page.
               break;
           case 'deadline':
               router.push('/peer-teaching');
@@ -173,14 +174,26 @@ export default function CalendarPage() {
                                       </DialogDescription>
                                     </DialogHeader>
                                     <div className="space-y-4">
-                                      <p className="text-muted-foreground">
-                                        This is a placeholder description for the event. More details about the session, including agenda and preparation materials, would appear here.
-                                      </p>
+                                      {event.type === 'live-class' ? (
+                                        <>
+                                            <p className="text-muted-foreground">
+                                                In a real application, you would find a "Join Now" button here to enter the live video session. This feature is for demonstration purposes.
+                                            </p>
+                                            <div className="flex items-center gap-2 text-sm">
+                                                <Info className="w-4 h-4 text-primary"/>
+                                                <span>Instructor details would appear here.</span>
+                                            </div>
+                                        </>
+                                      ) : (
+                                        <p className="text-muted-foreground">
+                                            This is a placeholder description for the event. More details about the session, including agenda and preparation materials, would appear here.
+                                        </p>
+                                      )}
                                       <div className="flex items-center gap-2 text-sm">
                                         <Clock className="w-4 h-4 text-muted-foreground"/>
                                         <span>{format(new Date(event.date), 'eeee, MMMM d, yyyy • p')}</span>
                                       </div>
-                                      <Button className="w-full" onClick={() => handleActionClick(event)}>
+                                      <Button className="w-full" onClick={() => handleActionClick(event)} disabled={event.type === 'live-class'}>
                                         <Icon className="mr-2 h-4 w-4" />
                                         {config.action}
                                       </Button>
