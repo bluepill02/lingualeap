@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useUser } from '@/context/user-context';
 import { updateUserSettings } from '@/services/user';
 import { useToast } from '@/hooks/use-toast';
-import { Check, Loader2, Sparkles, Star } from 'lucide-react';
+import { Check, Loader2, Sparkles, Star, Users, Lock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
@@ -27,7 +27,7 @@ const proFeatures = [
 ];
 
 const freeFeatures = [
-    'Access to Foundation Lessons',
+    'Access to All Lessons & Decks',
     'Basic Flashcard Review',
     'Peer-to-Peer Study Circles',
     'Ad-Supported',
@@ -136,12 +136,18 @@ export default function UpgradePage() {
                     <span className="text-muted-foreground">/month</span>
                 </div>
                 <ul className="space-y-4 text-sm">
-                    {freeFeatures.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                       <Check className="h-5 w-5 text-green-500" />
-                        <span>{feature}</span>
+                     <li className="flex items-center gap-3">
+                       <Users className="h-5 w-5 text-green-500" />
+                        <span>Peer-to-Peer Study Circles</span>
                     </li>
-                    ))}
+                     <li className="flex items-center gap-3 text-muted-foreground line-through">
+                       <Lock className="h-5 w-5" />
+                        <span>Mentor-led & Specialized Circles</span>
+                    </li>
+                     <li className="flex items-center gap-3 text-muted-foreground line-through">
+                       <Lock className="h-5 w-5" />
+                        <span>Ad-Free Experience</span>
+                    </li>
                 </ul>
             </CardContent>
             <CardFooter>
@@ -167,12 +173,18 @@ export default function UpgradePage() {
                     <span className="text-muted-foreground">/month</span>
                 </div>
                 <ul className="space-y-4 text-sm">
-                     {proFeatures.map((feature, i) => (
-                     <li key={i} className="flex items-center gap-3 font-medium">
-                        <Sparkles className="h-5 w-5 text-primary" />
-                        <span>{feature}</span>
+                     <li className="flex items-center gap-3 font-medium">
+                        <Users className="h-5 w-5 text-primary" />
+                        <span>Peer-to-Peer Study Circles</span>
                     </li>
-                    ))}
+                     <li className="flex items-center gap-3 font-medium">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        <span>Mentor-led & Specialized Circles</span>
+                    </li>
+                     <li className="flex items-center gap-3 font-medium">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        <span>Ad-Free Experience</span>
+                    </li>
                 </ul>
             </CardContent>
             <CardFooter>
