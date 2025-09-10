@@ -13,7 +13,7 @@ import {
 import { useUser } from '@/context/user-context';
 import { updateUserSettings } from '@/services/user';
 import { useToast } from '@/hooks/use-toast';
-import { Check, Loader2, Sparkles, Star, Users, Lock } from 'lucide-react';
+import { Check, Loader2, Sparkles, Star, Users, Lock, Bot, Camera, FileQuestion, Megaphone, Radio } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { getUserSettings } from '@/services/user';
@@ -21,6 +21,7 @@ import { getAuth } from 'firebase/auth';
 import { app } from '@/lib/firebase';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+
 
 export default function UpgradePage() {
   const { user: authUser, loading: authLoading } = useUser();
@@ -109,6 +110,21 @@ export default function UpgradePage() {
 
   const isPro = userProfile?.isPro || false;
 
+  const freeFeatures = [
+      { icon: Users, text: 'Peer-to-Peer Study Circles' },
+      { icon: FileQuestion, text: 'On-Demand Quiz Generator' },
+      { icon: Camera, text: 'AR Immersion Tool' },
+  ];
+
+  const proFeatures = [
+      { icon: Sparkles, text: 'All Features from Free Plan' },
+      { icon: Check, text: 'Ad-Free Experience' },
+      { icon: ShieldCheck, text: 'Mentor-led & Specialized Circles' },
+      { icon: Bot, text: 'Unlimited AI Personal Tutor' },
+      { icon: Megaphone, text: 'AI-Powered Mission Feedback' },
+      { icon: Radio, text: 'Access to All Live Classes' },
+  ];
+
   return (
     <div className="container mx-auto flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
@@ -119,13 +135,13 @@ export default function UpgradePage() {
         </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:max-w-5xl">
+      <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:max-w-5xl w-full">
         {/* Free Plan Card */}
         <Card className={cn('flex flex-col border-2', !isPro && 'border-primary')}>
           <CardHeader className="text-left">
             <CardTitle className="text-2xl font-headline">Free</CardTitle>
             <CardDescription>
-              Access essential features to kickstart your learning.
+              Access essential features to kickstart your learning, supported by ads.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex-1">
@@ -134,26 +150,12 @@ export default function UpgradePage() {
               <span className="text-muted-foreground">/month</span>
             </div>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-center gap-3">
-                <Check className="h-5 w-5 text-green-500" />
-                <span>Access to All Lesson Decks</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="h-5 w-5 text-green-500" />
-                <span>Basic Flashcard Review</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="h-5 w-5 text-green-500" />
-                <span>Peer-to-Peer Study Circles</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <Lock className="h-5 w-5" />
-                <span>Mentor-led & Specialized Circles</span>
-              </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <Lock className="h-5 w-5" />
-                <span>Ad-Free Experience</span>
-              </li>
+                {freeFeatures.map(feat => (
+                     <li key={feat.text} className="flex items-center gap-3">
+                        <feat.icon className="h-5 w-5 text-green-500" />
+                        <span>{feat.text}</span>
+                    </li>
+                ))}
             </ul>
           </CardContent>
           <CardFooter>
@@ -192,18 +194,12 @@ export default function UpgradePage() {
               <span className="text-muted-foreground">/month</span>
             </div>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-center gap-3 font-medium">
-                <Sparkles className="h-5 w-5 text-primary" />
-                <span>All Features from Free Plan</span>
-              </li>
-              <li className="flex items-center gap-3 font-medium">
-                <Users className="h-5 w-5 text-primary" />
-                <span>Mentor-led & Specialized Circles</span>
-              </li>
-              <li className="flex items-center gap-3 font-medium">
-                <Check className="h-5 w-5 text-primary" />
-                <span>Ad-Free Experience</span>
-              </li>
+                 {proFeatures.map(feat => (
+                     <li key={feat.text} className="flex items-center gap-3 font-medium">
+                        <feat.icon className="h-5 w-5 text-primary" />
+                        <span>{feat.text}</span>
+                    </li>
+                ))}
             </ul>
           </CardContent>
           <CardFooter>
