@@ -38,6 +38,7 @@ import {
   Loader2,
   Briefcase,
   Lock,
+  Crown,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -198,6 +199,14 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
         <SidebarFooter>
            <Separator className="my-2" />
            <SidebarMenuItem>
+                <Link href="/upgrade" aria-label="Upgrade to Pro">
+                    <SidebarMenuButton isActive={pathname.startsWith('/upgrade')} tooltip="Upgrade to Pro">
+                        <Crown />
+                        <span>Upgrade to Pro</span>
+                    </SidebarMenuButton>
+                </Link>
+           </SidebarMenuItem>
+           <SidebarMenuItem>
              <Link href="/settings" aria-label={t.sidebar.settings}>
                <SidebarMenuButton isActive={pathname.startsWith('/settings')} tooltip={t.sidebar.settings}>
                  <Settings />
@@ -316,5 +325,3 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <MainLayoutContent>{children}</MainLayoutContent>
   );
 }
-
-    
