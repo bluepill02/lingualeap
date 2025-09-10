@@ -1,3 +1,4 @@
+
 'use client';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,10 @@ import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { loadStripe } from '@stripe/stripe-js';
 
+// Make sure to add your publishable key to your environment variables
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function UpgradePage() {
   const { user, reloadUser, isLoading } = useUser();
@@ -36,18 +40,36 @@ export default function UpgradePage() {
     }
     setIsSubmitting(true);
     try {
-      await updateUserSettings(user.id, { isPro: true });
-      await reloadUser(); // Refresh the user context
-      toast({
-        title: 'Upgrade Successful!',
-        description: 'Welcome to LinguaLeap Pro! All features are now unlocked.',
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId: user.id }),
       });
-    } catch (error) {
+
+      if (!res.ok) {
+        throw new Error('Failed to create checkout session');
+      }
+
+      const { sessionId } = await res.json();
+      const stripe = await stripePromise;
+
+      if (!stripe) {
+        throw new Error('Stripe.js has not loaded yet.');
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+
+      if (error) {
+        throw error;
+      }
+    } catch (error: any) {
       console.error('Upgrade failed:', error);
       toast({
         variant: 'destructive',
         title: 'Upgrade Failed',
-        description: "We couldn't process your upgrade. Please try again.",
+        description: error.message || "We couldn't process your upgrade. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
