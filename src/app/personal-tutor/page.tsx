@@ -16,21 +16,13 @@ import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { languageMap } from '@/lib/types';
+
 
 interface Message {
   role: 'user' | 'model';
   content: string;
 }
-
-const languageMap: Record<Language, string> = {
-    en: 'English',
-    ta: 'Tamil',
-    hi: 'Hindi',
-    ml: 'Malayalam',
-    kn: 'Kannada',
-    te: 'Telugu',
-};
-
 
 export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
@@ -183,122 +175,143 @@ export default function PersonalTutorPage() {
 
   return (
     <div className="container mx-auto h-full flex flex-col max-w-3xl">
-        <div className="text-center mb-4">
-            <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
-            <p className="text-muted-foreground">
-                Your conversational language learning partner.
-            </p>
-        </div>
-        <div className="w-full max-w-xs mx-auto mb-4">
-            <Label htmlFor="language-select" className="text-xs text-center block mb-1">Tutor Language</Label>
-            <Select value={language} onValueChange={(value: Language) => handleLanguageChange(value)}>
-                <SelectTrigger id="language-select" className="h-9">
-                    <SelectValue placeholder="Select language..." />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="ta">Tamil</SelectItem>
-                    <SelectItem value="hi">Hindi</SelectItem>
-                    <SelectItem value="ml">Malayalam</SelectItem>
-                    <SelectItem value="kn">Kannada</SelectItem>
-                    <SelectItem value="te">Telugu</SelectItem>
-                </SelectContent>
-            </Select>
-        </div>
+      <div className="text-center mb-4">
+        <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
+        <p className="text-muted-foreground">
+          Your conversational language learning partner.
+        </p>
+      </div>
 
-        <Card className="flex-1 flex flex-col">
-            <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
-            <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
-                <div className="space-y-6 p-2">
-                {messages.map((message, index) => {
-                    return (
-                        <div
-                        key={index}
-                        className={cn('flex items-start gap-3', message.role === 'user' ? 'justify-end' : 'justify-start')}
-                        >
-                            {message.role === 'model' && (
-                                <Avatar className="h-8 w-8 border-2 border-primary">
-                                <AvatarFallback>
-                                    <Bot />
-                                </AvatarFallback>
-                                </Avatar>
-                            )}
-                            <div
-                                className={cn(
-                                'max-w-md rounded-lg px-4 py-2 relative group text-sm sm:text-base',
-                                message.role === 'user'
-                                    ? 'bg-primary text-primary-foreground rounded-br-none'
-                                    : 'bg-muted rounded-bl-none'
-                                )}
-                            >
-                                <p className="whitespace-pre-wrap">{message.content}</p>
-                                {message.role === 'model' && (
-                                <Button 
-                                    size="icon" 
-                                    variant="ghost" 
-                                    className="absolute -right-10 top-1/2 -translate-y-1/2 h-7 w-7 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity"
-                                    onClick={() => handlePlayAudio(message.content, index)}
-                                    aria-label="Play audio for this message"
-                                >
-                                    {isPlaying === index ? <Loader2 className="animate-spin" /> : <Volume2 className="h-4 w-4"/>}
-                                </Button>
-                                )}
-                            </div>
-                            {message.role === 'user' && (
-                                <Avatar className="h-8 w-8">
-                                <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
-                                <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
-                                </Avatar>
-                            )}
-                        </div>
-                    );
-                })}
-                {isLoading && (
-                    <div className="flex items-start gap-3">
-                    <Avatar className="h-8 w-8 border-2 border-primary">
-                        <AvatarFallback>
-                        <Bot />
-                        </AvatarFallback>
-                    </Avatar>
-                    <div className="max-w-lg rounded-lg px-4 py-2 bg-muted flex items-center rounded-bl-none">
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        <span className="text-sm">Thinking...</span>
-                    </div>
-                    </div>
-                )}
-                </div>
-            </ScrollArea>
-            </CardContent>
-            <div className="border-t p-2 sm:p-4">
-            <form onSubmit={handleSubmit} className="flex items-center gap-2">
-                <Input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask a question or use the microphone..."
-                className="flex-1"
-                disabled={isLoading || isRecording}
-                />
-                <Button
-                type="button"
-                variant={isRecording ? 'destructive' : 'outline'}
-                size="icon"
-                onClick={handleMicClick}
-                disabled={isLoading}
-                aria-label={isRecording ? "Stop recording" : "Start recording"}
+      <div className="grid grid-cols-1 justify-items-center mb-4">
+        <div className="w-full max-w-xs">
+          <Label htmlFor="language-select" className="text-xs text-center block mb-1">
+            Tutor Language
+          </Label>
+          <Select
+            value={language}
+            onValueChange={(value: Language) => handleLanguageChange(value)}
+          >
+            <SelectTrigger id="language-select" className="h-9">
+              <SelectValue placeholder="Select language..." />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="en">English</SelectItem>
+              <SelectItem value="ta">Tamil</SelectItem>
+              <SelectItem value="hi">Hindi</SelectItem>
+              <SelectItem value="ml">Malayalam</SelectItem>
+              <SelectItem value="kn">Kannada</SelectItem>
+              <SelectItem value="te">Telugu</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <Card className="flex-1 flex flex-col">
+        <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
+          <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
+            <div className="space-y-6 p-2">
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={cn(
+                    'flex items-start gap-3',
+                    message.role === 'user'
+                      ? 'justify-end'
+                      : 'justify-start'
+                  )}
                 >
-                <Mic className="h-5 w-5" />
-                </Button>
-                <Button type="submit" disabled={isLoading || isRecording || !input} aria-label="Send message">
-                {isLoading ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                    <Send className="h-4 w-4" />
-                )}
-                </Button>
-            </form>
+                  {message.role === 'model' && (
+                    <Avatar className="h-8 w-8 border-2 border-primary">
+                      <AvatarFallback>
+                        <Bot />
+                      </AvatarFallback>
+                    </Avatar>
+                  )}
+                  <div
+                    className={cn(
+                      'max-w-md rounded-lg px-4 py-2 relative group text-sm sm:text-base',
+                      message.role === 'user'
+                        ? 'bg-primary text-primary-foreground rounded-br-none'
+                        : 'bg-muted rounded-bl-none'
+                    )}
+                  >
+                    <p className="whitespace-pre-wrap">{message.content}</p>
+                    {message.role === 'model' && (
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="absolute -right-10 top-1/2 -translate-y-1/2 h-7 w-7 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() => handlePlayAudio(message.content, index)}
+                        aria-label="Play audio for this message"
+                      >
+                        {isPlaying === index ? (
+                          <Loader2 className="animate-spin" />
+                        ) : (
+                          <Volume2 className="h-4 w-4" />
+                        )}
+                      </Button>
+                    )}
+                  </div>
+                  {message.role === 'user' && (
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
+                      <AvatarFallback>
+                        {mockUser.name.charAt(0)}
+                      </AvatarFallback>
+                    </Avatar>
+                  )}
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex items-start gap-3">
+                  <Avatar className="h-8 w-8 border-2 border-primary">
+                    <AvatarFallback>
+                      <Bot />
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="max-w-lg rounded-lg px-4 py-2 bg-muted flex items-center rounded-bl-none">
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <span className="text-sm">Thinking...</span>
+                  </div>
+                </div>
+              )}
             </div>
-        </Card>
-        <audio ref={audioRef} className="hidden" />
+          </ScrollArea>
+        </CardContent>
+        <div className="border-t p-2 sm:p-4">
+          <form onSubmit={handleSubmit} className="flex items-center gap-2">
+            <Input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Ask a question or use the microphone..."
+              className="flex-1"
+              disabled={isLoading || isRecording}
+            />
+            <Button
+              type="button"
+              variant={isRecording ? 'destructive' : 'outline'}
+              size="icon"
+              onClick={handleMicClick}
+              disabled={isLoading}
+              aria-label={isRecording ? 'Stop recording' : 'Start recording'}
+            >
+              <Mic className="h-5 w-5" />
+            </Button>
+            <Button
+              type="submit"
+              disabled={isLoading || isRecording || !input}
+              aria-label="Send message"
+            >
+              {isLoading ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="h-4 w-4" />
+              )}
+            </Button>
+          </form>
+        </div>
+      </Card>
+      <audio ref={audioRef} className="hidden" />
     </div>
   );
 }

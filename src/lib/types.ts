@@ -392,6 +392,15 @@ export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
 
 export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';
 
+export const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+};
+
 export const PersonalTutorInputSchema = z.object({
   history: z.array(z.object({
     role: z.enum(['user', 'model']),
