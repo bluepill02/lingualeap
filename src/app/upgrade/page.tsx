@@ -48,7 +48,7 @@ export default function UpgradePage() {
 
             if (!response.ok) {
                 const errorBody = await response.json();
-                throw new Error(errorBody.error?.message || 'Failed to create Razorpay order.');
+                throw new Error(errorBody.error || 'Failed to create Razorpay order.');
             }
 
             const order = await response.json();
@@ -98,6 +98,13 @@ export default function UpgradePage() {
             };
             
             const rzp = new window.Razorpay(options);
+            rzp.on('payment.failed', function (response: any){
+                    toast({
+                        variant: 'destructive',
+                        title: 'Payment Failed',
+                        description: response.error.description,
+                    });
+            });
             rzp.open();
 
         } catch (error: any) {
