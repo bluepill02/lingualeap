@@ -102,12 +102,12 @@ export function PracticeMode({
                         <div className="space-y-2">
                             {mcq.options.map((option, oIndex) => {
                                 const isSelected = answers[qIndex] === option;
-                                let variant: "success" | "destructive" | "outline" | "secondary" = 'outline';
+                                let variant: "success" | "destructive" | "outline" | "default" = 'outline';
                                 if (submitted) {
                                     if (option === mcq.answer) variant = 'success';
                                     else if (isSelected) variant = 'destructive';
                                 } else {
-                                    if (isSelected) variant = 'secondary';
+                                    if (isSelected) variant = 'default';
                                 }
                                 return (
                                     <Button 
