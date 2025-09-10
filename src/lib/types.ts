@@ -390,13 +390,15 @@ export const AnalyzeImageOutputSchema = z.object({
 });
 export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
 
+export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';
+
 export const PersonalTutorInputSchema = z.object({
   history: z.array(z.object({
     role: z.enum(['user', 'model']),
     content: z.string(),
   })),
   message: z.string().describe("The user's latest message."),
-  language: z.string().describe('The language the user is learning.'),
+  language: z.nativeEnum(languageMap),
 });
 export type PersonalTutorInput = z.infer<typeof PersonalTutorInputSchema>;
 
@@ -404,20 +406,6 @@ export const PersonalTutorOutputSchema = z.object({
   response: z.string(),
 });
 export type PersonalTutorOutput = z.infer<typeof PersonalTutorOutputSchema>;
-
-export const PronunciationAnalysisInputSchema = z.object({
-  audioDataUri: z.string().describe("The user's pronunciation of a word, as a data URI."),
-  correctWord: z.string().describe('The correct word the user was trying to pronounce.'),
-  language: z.string().describe('The language of the word.'),
-});
-export type PronunciationAnalysisInput = z.infer<typeof PronunciationAnalysisInputSchema>;
-
-export const PronunciationAnalysisOutputSchema = z.object({
-    transcribedText: z.string().describe("The text transcribed from the user's audio."),
-    isCorrect: z.boolean().describe('Whether the transcription exactly matches the correct word (case-insensitive).'),
-    feedback: z.string().describe('Short, encouraging, and helpful feedback for the user.'),
-});
-export type PronunciationAnalysisOutput = z.infer<typeof PronunciationAnalysisOutputSchema>;
 
 export const MissionSubmissionInputSchema = z.object({
     concept: z.string(),

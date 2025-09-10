@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Bot, Loader2, Send, Mic, Volume2, User, Check, RefreshCcw, ThumbsUp, Languages } from 'lucide-react';
+import { Bot, Loader2, Send, Mic, Volume2, User, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -10,15 +10,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
 import { personalTutor } from '@/ai/flows/personal-tutor-flow';
 import { speak } from '@/ai/flows/speak-flow';
-import { analyzePronunciation } from '@/ai/flows/pronunciation-flow';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import type { PersonalTutorInput, PronunciationAnalysisOutput, Language } from '@/lib/types';
+import type { PersonalTutorInput, Language } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 
 interface Message {
   role: 'user' | 'model';
@@ -34,136 +31,14 @@ const languageMap: Record<Language, string> = {
     te: 'Telugu',
 };
 
-function PronunciationPractice({ word, language, onResult }: { word: string; language: Language, onResult: (isCorrect: boolean) => void }) {
-    const [isRecording, setIsRecording] = useState(false);
-    const [analysis, setAnalysis] = useState<PronunciationAnalysisOutput | null>(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isSpeaking, setIsSpeaking] = useState(false);
-    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-    const audioChunksRef = useRef<Blob[]>([]);
-    const audioRef = useRef<HTMLAudioElement | null>(null);
-    
-    const { toast } = useToast();
-
-    const handlePlayWord = async () => {
-        setIsSpeaking(true);
-        try {
-            const response = await speak(word);
-            if (response.media) {
-                if(audioRef.current) {
-                    audioRef.current.src = response.media;
-                    audioRef.current.play();
-                    audioRef.current.onended = () => setIsSpeaking(false);
-                }
-            }
-        } catch (error) {
-            toast({ variant: 'destructive', title: 'Error', description: 'Could not generate audio for the word.' });
-            setIsSpeaking(false);
-        }
-    };
-
-
-    const handleStartRecording = async () => {
-        setAnalysis(null);
-        setIsLoading(false);
-        audioChunksRef.current = [];
-        try {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            mediaRecorderRef.current = new MediaRecorder(stream);
-            mediaRecorderRef.current.ondataavailable = (event) => {
-                audioChunksRef.current.push(event.data);
-            };
-            mediaRecorderRef.current.onstop = async () => {
-                const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
-                const reader = new FileReader();
-                reader.readAsDataURL(audioBlob);
-                reader.onloadend = async () => {
-                    const base64Audio = reader.result as string;
-                    try {
-                        const result = await analyzePronunciation({
-                            audioDataUri: base64Audio,
-                            correctWord: word,
-                            language: language,
-                        });
-                        setAnalysis(result);
-                        onResult(result.isCorrect);
-                    } catch (err) {
-                        toast({ variant: 'destructive', title: 'Analysis Failed', description: 'Could not analyze your pronunciation.' });
-                    } finally {
-                        setIsLoading(false);
-                    }
-                };
-            };
-            mediaRecorderRef.current.start();
-            setIsRecording(true);
-        } catch (error) {
-            toast({ variant: 'destructive', title: 'Microphone Error', description: 'Could not access the microphone.' });
-        }
-    };
-    
-    const handleStopRecording = () => {
-        if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
-            mediaRecorderRef.current.stop();
-            setIsRecording(false);
-            setIsLoading(true);
-        }
-    };
-    
-    const reset = () => {
-        setAnalysis(null);
-        setIsLoading(false);
-        setIsRecording(false);
-    };
-
-    return (
-        <Card className="bg-primary/5 border-primary/20 mt-3">
-            <CardHeader>
-                <CardTitle className="text-base flex items-center gap-2">
-                    <Mic className="text-primary"/>
-                    Practice: <span className="font-bold text-primary">{word}</span>
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col items-center gap-4">
-                <div className="flex items-center gap-2">
-                     <p className="text-muted-foreground text-sm">Listen:</p>
-                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking || isLoading || isRecording} aria-label={`Listen to ${word}`}>
-                        {isSpeaking ? <Loader2 className="animate-spin" /> : <Volume2 className="h-5 w-5" />}
-                    </Button>
-                     <Separator orientation="vertical" className="h-6 mx-2" />
-                    <Button
-                        size="icon"
-                        className={cn("w-12 h-12 rounded-full", isRecording && "bg-destructive hover:bg-destructive/90 animate-pulse")}
-                        onClick={isRecording ? handleStopRecording : handleStartRecording}
-                        disabled={isLoading}
-                        aria-label={isRecording ? "Stop recording" : "Start recording"}
-                    >
-                        {isLoading ? <Loader2 className="animate-spin" /> : <Mic className="w-6 h-6" />}
-                    </Button>
-                </div>
-                {analysis && (
-                    <Alert variant={analysis.isCorrect ? 'success' : 'warning'} className="w-full">
-                        {analysis.isCorrect ? <ThumbsUp className="h-4 w-4" /> : <RefreshCcw className="h-4 w-4" />}
-                        <AlertTitle>
-                            {analysis.isCorrect ? "Excellent!" : `You said: "${analysis.transcribedText}"`}
-                        </AlertTitle>
-                        <AlertDescription>
-                            {analysis.feedback}
-                            {!analysis.isCorrect && <Button variant="link" size="sm" className="p-0 mt-2 h-auto" onClick={reset}>Try Again</Button>}
-                        </AlertDescription>
-                        
-                    </Alert>
-                )}
-            </CardContent>
-            <audio ref={audioRef} className="hidden" />
-        </Card>
-    )
-}
-
 
 export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
-  const getInitialMessage = () => `Hello ${mockUser.name}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
   
+  const getInitialMessage = useCallback(() => {
+    return `Hello ${mockUser.name}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
+  }, [language]);
+
   const [messages, setMessages] = useState<Message[]>([
     { role: 'model', content: getInitialMessage() },
   ]);
@@ -183,12 +58,7 @@ export default function PersonalTutorPage() {
     setLanguage(newLang);
     setMessages([{ role: 'model', content: `Hello ${mockUser.name}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
   }
-  
-  const extractLastWord = (text: string) => {
-    const words = text.match(/(\b[a-zA-Z\u0900-\u097F]+\b)/g);
-    return words ? words[words.length - 1] : null;
-  }
-  
+
   const scrollToBottom = useCallback(() => {
     setTimeout(() => {
         if (scrollAreaRef.current) {
@@ -312,7 +182,7 @@ export default function PersonalTutorPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto h-full flex flex-col">
+    <div className="container mx-auto h-full flex flex-col max-w-3xl">
         <div className="text-center mb-4">
             <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
             <p className="text-muted-foreground">
@@ -341,15 +211,13 @@ export default function PersonalTutorPage() {
             <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
                 <div className="space-y-6 p-2">
                 {messages.map((message, index) => {
-                     const lastModelMessage = index > 0 && messages[index - 1].role === 'model';
-                     const pronunciationWord = message.role === 'model' ? extractLastWord(message.content) : null;
                     return (
                         <div
                         key={index}
-                        className={cn('flex items-end gap-3', message.role === 'user' ? 'justify-end' : 'justify-start')}
+                        className={cn('flex items-start gap-3', message.role === 'user' ? 'justify-end' : 'justify-start')}
                         >
                             {message.role === 'model' && (
-                                <Avatar className="h-8 w-8 border-2 border-primary self-start">
+                                <Avatar className="h-8 w-8 border-2 border-primary">
                                 <AvatarFallback>
                                     <Bot />
                                 </AvatarFallback>
@@ -375,24 +243,9 @@ export default function PersonalTutorPage() {
                                     {isPlaying === index ? <Loader2 className="animate-spin" /> : <Volume2 className="h-4 w-4"/>}
                                 </Button>
                                 )}
-                                 {message.role === 'model' && pronunciationWord && (
-                                    <PronunciationPractice 
-                                        key={`${pronunciationWord}-${language}-${index}`}
-                                        word={pronunciationWord} 
-                                        language={language}
-                                        onResult={(isCorrect) => {
-                                            if (isCorrect) {
-                                                toast({
-                                                    title: "Great Job!",
-                                                    description: "Your pronunciation was perfect.",
-                                                });
-                                            }
-                                        }}
-                                    />
-                                )}
                             </div>
                             {message.role === 'user' && (
-                                <Avatar className="h-8 w-8 self-start">
+                                <Avatar className="h-8 w-8">
                                 <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
                                 <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
                                 </Avatar>
