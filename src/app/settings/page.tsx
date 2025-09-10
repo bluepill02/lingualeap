@@ -159,11 +159,11 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="name">Name</Label>
-              <Input id="name" value={userSettings.name || ''} onChange={(e) => handleFieldChange('name', e.target.value)} disabled={isSaving} />
+              <Input id="name" value={userSettings.name || ''} onChange={(e) => handleFieldChange('name' as keyof User, e.target.value)} disabled={isSaving} />
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={userSettings.email || ''} onChange={(e) => handleFieldChange('email', e.target.value)} disabled={isSaving || !!currentUser.email}/>
+              <Input id="email" type="email" value={userSettings.email || ''} onChange={(e) => handleFieldChange('email' as keyof User, e.target.value)} disabled={isSaving || !!currentUser.email}/>
             </div>
           </div>
           <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
@@ -205,7 +205,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="language">Learning Language</Label>
-              <Select value={userSettings.language || ''} onValueChange={(value) => handleFieldChange('language', value)} disabled={isSaving}>
+              <Select value={userSettings.language || ''} onValueChange={(value) => handleFieldChange('language' as keyof User, value)} disabled={isSaving}>
                 <SelectTrigger id="language">
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
@@ -220,7 +220,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <Label htmlFor="timezone">Timezone</Label>
-              <Select value={userSettings.timezone || ''} onValueChange={(value) => handleFieldChange('timezone', value)} disabled={isSaving}>
+              <Select value={userSettings.timezone || ''} onValueChange={(value) => handleFieldChange('timezone' as keyof User, value)} disabled={isSaving}>
                 <SelectTrigger id="timezone">
                   <SelectValue placeholder="Select timezone" />
                 </SelectTrigger>
@@ -256,14 +256,14 @@ export default function SettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-            {/* Placeholder UI - In a real app, these would come from userSettings */}
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Daily Reminders</h3>
                     <p className="text-sm text-muted-foreground">Get reminded of due flashcards and upcoming streak expiry.</p>
                 </div>
                 <Switch 
-                  defaultChecked
+                  checked={(userSettings as any).dailyReminders || false}
+                  onCheckedChange={(checked) => handleFieldChange('dailyReminders' as keyof User, checked)}
                   disabled={isSaving} 
                   aria-label="Toggle daily reminders"
                 />
@@ -283,7 +283,9 @@ export default function SettingsPage() {
                     <h3 className="font-semibold">Promotional Emails</h3>
                     <p className="text-sm text-muted-foreground">Receive updates on new features and special offers.</p>
                 </div>
-                 <Switch 
+                 <Switch
+                  checked={(userSettings as any).promotionalEmails || false}
+                  onCheckedChange={(checked) => handleFieldChange('promotionalEmails' as keyof User, checked)}
                   disabled={isSaving} 
                   aria-label="Toggle promotional emails"
                 />
