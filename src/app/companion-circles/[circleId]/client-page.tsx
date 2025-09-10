@@ -24,11 +24,14 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { LessonPlanTimeline } from '@/components/circles/lesson-plan-timeline';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { ProgressHeatmap } from '@/components/analytics/progress-heatmap';
-import { Timestamp } from 'firebase/firestore';
+import { FieldValue, Timestamp } from 'firebase/firestore';
 
 
 function CommentCard({ comment }: { comment: PostComment }) {
-    const createdAtDate = comment.createdAt ? new Date(comment.createdAt as string) : new Date();
+    const createdAtDate = comment.createdAt instanceof Timestamp 
+        ? comment.createdAt.toDate() 
+        : (typeof comment.createdAt === 'string' ? new Date(comment.createdAt) : new Date());
+
     return (
         <div className="flex gap-3">
              <Avatar className="h-8 w-8">
@@ -67,7 +70,7 @@ function parseQuizContent(content: string) {
 }
 
 
-function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, circleId: string, onUpdate: () => void, setPosts: React.Dispatch<React.SetStateAction<CirclePost[]>> }) {
+function PostCard({ post, circleId, setPosts, fetchPosts }: { post: CirclePost, circleId: string, setPosts: React.Dispatch<React.SetStateAction<CirclePost[]>>, fetchPosts: () => void }) {
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState('');
     const [isSubmittingComment, setIsSubmittingComment] = useState(false);
@@ -79,7 +82,7 @@ function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, ci
     const handleReaction = async (reactionType: ReactionType) => {
         try {
             await togglePostReaction(circleId, post.id, mockUser.id, reactionType);
-            onUpdate();
+            fetchPosts();
         } catch (error) {
             console.error(`Failed to add ${reactionType} reaction:`, error);
             toast({ variant: 'destructive', title: 'Error', description: 'Could not update reaction.' });
@@ -103,10 +106,13 @@ function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, ci
             // Optimistic UI update
             setPosts(currentPosts => currentPosts.map(p => {
                 if (p.id === post.id) {
-                    return { ...p, comments: [...p.comments, optimisticComment] };
+                    // Create a new comments array and add the optimistic one
+                    const updatedComments = [...(p.comments || []), optimisticComment];
+                    return { ...p, comments: updatedComments };
                 }
                 return p;
             }));
+            
             setShowComments(true);
             setNewComment('');
 
@@ -114,7 +120,7 @@ function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, ci
             await addCommentToPost(circleId, post.id, newComment);
             
             // Re-sync with the server in the background to get the final data
-            onUpdate();
+            fetchPosts();
 
         } catch (error) {
             console.error("Failed to add comment:", error);
@@ -234,8 +240,8 @@ function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, ci
                 
                 {showComments && (
                     <div className="mt-4 space-y-4">
-                        {post.comments.sort((a,b) => new Date(a.createdAt as string).getTime() - new Date(b.createdAt as string).getTime()).map((comment, index) => (
-                            <CommentCard key={comment.id || index} comment={comment} />
+                        {post.comments.sort((a,b) => new Date(a.createdAt as string).getTime() - new Date(b.createdAt as string).getTime()).map((comment) => (
+                            <CommentCard key={comment.id} comment={comment} />
                         ))}
                         <div className="flex gap-3">
                             <Avatar className="h-8 w-8">
@@ -318,9 +324,8 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
 
 
   useEffect(() => {
-    setIsMember(circle.members.some(m => m.id === mockUser.id));
-    fetchPosts();
-  }, [circle.members, fetchPosts]);
+    setIsMember(members.some(m => m.id === mockUser.id));
+  }, [members]);
 
 
   const handleJoinLeave = async () => {
@@ -411,7 +416,7 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
             <div className="space-y-4">
                 <h3 className="font-bold text-lg">Discussion Feed</h3>
                 {posts.length > 0 ? (
-                    posts.map(post => <PostCard key={post.id} post={post} circleId={circle.id} onUpdate={fetchPosts} setPosts={setPosts} />)
+                    posts.map(post => <PostCard key={post.id} post={post} circleId={circle.id} setPosts={setPosts} fetchPosts={fetchPosts} />)
                 ) : (
                     <Card>
                         <CardContent className="text-center text-muted-foreground p-12">
@@ -441,7 +446,7 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
                 </CardContent>
             </Card>
             
-            <StudyBuddyFinder />
+            <StudyBuddyFinder members={members} />
 
              <Button 
                 onClick={handleJoinLeave} 

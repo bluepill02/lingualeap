@@ -18,5 +18,6 @@ import '@/ai/flows/neet-quiz-generator';
 import '@/ai/flows/neet-flashcard-generator';
 import '@/ai_flows/tnpsc-quiz-generator';
 import '@/ai/flows/speak-flow';
+import '@/ai/flows/study-buddy-flow';
 
     
