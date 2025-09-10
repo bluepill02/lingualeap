@@ -34,6 +34,27 @@ export default function InterviewPrepPage() {
 
     const recognitionRef = useRef<any>(null);
     const { toast } = useToast();
+    
+    const getFeedback = (finalTranscript: string) => {
+        if (finalTranscript.trim().length < 10) { // Simple validation
+            toast({ variant: 'destructive', title: 'Answer too short', description: 'Please provide a more detailed answer.' });
+            setIsLoading(false);
+            return;
+        }
+
+        setIsLoading(true);
+        provideInterviewFeedback({ question: currentQuestion, answer: finalTranscript })
+            .then(result => {
+                setFeedback(result);
+            })
+            .catch(err => {
+                console.error("Error getting feedback:", err);
+                toast({ variant: 'destructive', title: 'Feedback Failed', description: 'Could not get feedback from the AI coach.' });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    }
 
     useEffect(() => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -44,27 +65,37 @@ export default function InterviewPrepPage() {
 
             recognitionRef.current.onresult = (event: any) => {
                 let interimTranscript = '';
+                let finalTranscript = '';
                 for (let i = event.resultIndex; i < event.results.length; ++i) {
                     if (event.results[i].isFinal) {
-                        setTranscript(prev => prev + event.results[i][0].transcript);
+                        finalTranscript += event.results[i][0].transcript;
                     } else {
                         interimTranscript += event.results[i][0].transcript;
                     }
                 }
+                setTranscript(prev => prev + finalTranscript);
             };
 
             recognitionRef.current.onerror = (event: any) => {
                 console.error("Speech recognition error:", event.error);
                 toast({ variant: 'destructive', title: 'Recognition Error', description: "Sorry, I couldn't understand that. Please try again." });
                 setIsRecording(false);
+                setIsLoading(false);
             };
 
              recognitionRef.current.onend = () => {
                 setIsRecording(false);
+                // We get the final transcript from the state and trigger feedback generation
+                setTranscript(currentTranscript => {
+                    if (currentTranscript && !isLoading && !feedback) {
+                       getFeedback(currentTranscript);
+                    }
+                    return currentTranscript;
+                });
             };
 
         }
-    }, [toast]);
+    }, [toast, currentQuestion, isLoading, feedback]); // Rerun effect if dependencies change
     
     const startRecording = () => {
         if (!recognitionRef.current) {
@@ -77,32 +108,15 @@ export default function InterviewPrepPage() {
         recognitionRef.current.start();
     }
     
-    const stopRecordingAndGetFeedback = () => {
+    const stopRecording = () => {
         setIsRecording(false);
         recognitionRef.current.stop();
-        
-        if (transcript.trim().length < 10) { // Simple validation
-            toast({ variant: 'destructive', title: 'Answer too short', description: 'Please provide a more detailed answer.' });
-            return;
-        }
-
-        setIsLoading(true);
-        provideInterviewFeedback({ question: currentQuestion, answer: transcript })
-            .then(result => {
-                setFeedback(result);
-            })
-            .catch(err => {
-                console.error("Error getting feedback:", err);
-                toast({ variant: 'destructive', title: 'Feedback Failed', description: 'Could not get feedback from the AI coach.' });
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
     }
     
     const handleNextQuestion = () => {
         setFeedback(null);
         setTranscript('');
+        setIsLoading(false);
         const currentIndex = interviewQuestions.indexOf(currentQuestion);
         const nextIndex = (currentIndex + 1) % interviewQuestions.length;
         setCurrentQuestion(interviewQuestions[nextIndex]);
@@ -147,7 +161,7 @@ export default function InterviewPrepPage() {
                  <Button 
                     size="lg" 
                     className={cn("h-16 w-16 rounded-full", isRecording && "bg-destructive")}
-                    onClick={isRecording ? stopRecordingAndGetFeedback : startRecording}
+                    onClick={isRecording ? stopRecording : startRecording}
                     disabled={isLoading}
                 >
                     {isRecording ? <MicOff/> : <Mic/>}
