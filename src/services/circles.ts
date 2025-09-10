@@ -72,6 +72,12 @@ export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'mem
         memberCount: 50, // Default member count
         posts: 0,
         resources: 0,
+        groupNorms: [
+            "Be respectful and constructive in feedback.",
+            "Stay on topic and share relevant resources.",
+            "Participate actively and help others learn."
+        ],
+        upcomingEvents: ["Weekly Kick-off Meeting - Mondays 7 PM"]
     };
 
     try {
@@ -122,10 +128,20 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
         return [];
     }
     try {
-        // This is a mock implementation. In a real app, you'd query a 'users' collection.
-        return allUsers.filter(user => memberIds.includes(user.id));
+        // Fetch users from the 'users' collection in Firestore
+        const usersRef = collection(db, 'users');
+        const q = query(usersRef, where('id', 'in', memberIds));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            console.warn(`No users found for IDs: ${memberIds.join(', ')}. Falling back to mock data for existing IDs.`);
+            return allUsers.filter(user => memberIds.includes(user.id));
+        }
+
+        return querySnapshot.docs.map(doc => doc.data() as User);
     } catch (error) {
-         console.error("Error fetching circle members: ", error);
+         console.error("Error fetching circle members from Firestore: ", error);
+         // Fallback to mock data on error to prevent UI crashing
         return allUsers.filter(user => memberIds.includes(user.id));
     }
 }

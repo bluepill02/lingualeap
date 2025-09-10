@@ -66,7 +66,7 @@ export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
   }
 
   return (
-    <DialogContent className="sm:max-w-[425px]">
+    <DialogContent className="sm:max-w-xl">
       <DialogHeader>
         <DialogTitle>Create a New Companion Circle</DialogTitle>
         <DialogDescription>
@@ -75,32 +75,34 @@ export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
       </DialogHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Circle Name (English)</FormLabel>
-                <FormControl>
-                  <Input placeholder="e.g., NEET Physics Problem Solvers" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="nameTamil"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Circle Name (Tamil)</FormLabel>
-                <FormControl>
-                  <Input placeholder="e.g., நீட் இயற்பியல் சிக்கல் தீர்ப்பவர்கள்" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Circle Name (English)</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g., NEET Physics Problem Solvers" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="nameTamil"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Circle Name (Tamil)</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g., நீட் இயற்பியல் சிக்கல் தீர்ப்பவர்கள்" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name="description"
@@ -114,49 +116,108 @@ export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
               </FormItem>
             )}
           />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
+              control={form.control}
+              name="subject"
+              render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Subject</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormLabel>Subject</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                        <SelectTrigger><SelectValue placeholder="Select a subject" /></SelectTrigger>
+                      <SelectTrigger><SelectValue placeholder="Select a subject" /></SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                        <SelectItem value="Physics">Physics</SelectItem>
-                        <SelectItem value="Chemistry">Chemistry</SelectItem>
-                        <SelectItem value="Biology">Biology</SelectItem>
-                        <SelectItem value="Calculus">Calculus</SelectItem>
+                      <SelectItem value="Physics">Physics</SelectItem>
+                      <SelectItem value="Chemistry">Chemistry</SelectItem>
+                      <SelectItem value="Biology">Biology</SelectItem>
+                      <SelectItem value="Calculus">Calculus</SelectItem>
                     </SelectContent>
-                    </Select>
-                    <FormMessage />
+                  </Select>
+                  <FormMessage />
                 </FormItem>
-                )}
+              )}
             />
             <FormField
-                control={form.control}
-                name="difficulty"
-                render={({ field }) => (
+              control={form.control}
+              name="difficulty"
+              render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Difficulty</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormLabel>Difficulty</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                        <SelectTrigger><SelectValue placeholder="Select a level" /></SelectTrigger>
+                      <SelectTrigger><SelectValue placeholder="Select a level" /></SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                        <SelectItem value="Foundation">Foundation</SelectItem>
-                        <SelectItem value="Bridge">Bridge</SelectItem>
-                        <SelectItem value="Core">Core</SelectItem>
+                      <SelectItem value="Foundation">Foundation</SelectItem>
+                      <SelectItem value="Bridge">Bridge</SelectItem>
+                      <SelectItem value="Core">Core</SelectItem>
                     </SelectContent>
-                    </Select>
-                    <FormMessage />
+                  </Select>
+                  <FormMessage />
                 </FormItem>
-                )}
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="type"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Type</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger><SelectValue placeholder="Select a type" /></SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Mentor-led">Mentor-led</SelectItem>
+                      <SelectItem value="Peer Study">Peer Study</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="format"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Format</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger><SelectValue placeholder="Select a format" /></SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Chat">Chat</SelectItem>
+                      <SelectItem value="Live Session">Live Session</SelectItem>
+                      <SelectItem value="Resource Hub">Resource Hub</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
           </div>
+          <FormField
+            control={form.control}
+            name="language"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Primary Language</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger><SelectValue placeholder="Select a language" /></SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="English">English</SelectItem>
+                    <SelectItem value="Tamil">Tamil</SelectItem>
+                    <SelectItem value="Multi Language">Multi Language</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <DialogFooter>
             <Button type="submit" disabled={isLoading}>
               {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}

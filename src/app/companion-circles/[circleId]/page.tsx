@@ -5,7 +5,7 @@ import { getCircle, getCircleMembers, getPostsForCircle } from '@/services/circl
 import { notFound } from 'next/navigation';
 import CircleDetailsClientPage from './client-page';
 import { CompanionCircle } from '@/lib/types';
-import { a } from '@react-spring/web';
+
 
 async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
   const circleData = await getCircle(params.circleId);
@@ -15,7 +15,8 @@ async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
   }
 
   // Fetch initial data on the server
-  const memberData = await getCircleMembers(circleData.members.map(m => m.id));
+  const memberIds = circleData.members.map(m => typeof m === 'string' ? m : m.id);
+  const memberData = await getCircleMembers(memberIds);
   const postData = await getPostsForCircle(circleData.id);
 
   return (
