@@ -191,7 +191,7 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
             <Label htmlFor="difficulty">Difficulty</Label>
             <Select
               value={difficulty}
-              onValueChange={(value: 'Easy' | 'Medium' | 'Hard'>) => setDifficulty(value)}
+              onValueChange={(value: 'Easy' | 'Medium' | 'Hard') => setDifficulty(value)}
               disabled={isLoading}
             >
               <SelectTrigger id="difficulty">
