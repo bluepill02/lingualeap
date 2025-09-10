@@ -37,6 +37,7 @@ import {
   LogOut,
   Loader2,
   Briefcase,
+  Lock,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -50,6 +51,15 @@ import {
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
 } from '@/components/ui/dropdown-menu';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+} from '@/components/ui/dialog';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '../ui/separator';
 import { useLanguage, Language } from '@/context/language-context';
@@ -60,6 +70,8 @@ import { app } from '@/lib/firebase';
 import { useUser } from '@/context/user-context';
 import { Skeleton } from '../ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
+import { Badge } from '../ui/badge';
+import { cn } from '@/lib/utils';
 
 function AdPlaceholder() {
     return (
@@ -67,6 +79,25 @@ function AdPlaceholder() {
             <p className="text-sm text-muted-foreground">Advertisement</p>
         </div>
     )
+}
+
+function ProFeatureDialog({ featureName, onUpgrade }: { featureName: string, onUpgrade: () => void }) {
+  return (
+    <DialogContent>
+      <DialogHeader>
+        <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit">
+            <Lock className="w-8 h-8 text-primary"/>
+        </div>
+        <DialogTitle className="text-center mt-4">Pro Feature</DialogTitle>
+        <DialogDescription className="text-center">
+          The "{featureName}" is a premium feature. Upgrade to LinguaLeap Pro for unlimited access.
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter className="sm:justify-center">
+          <Button onClick={onUpgrade}>Upgrade to Pro</Button>
+      </DialogFooter>
+    </DialogContent>
+  );
 }
 
 function MainLayoutContent({ children }: { children: React.ReactNode }) {
@@ -85,17 +116,17 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
   };
 
   const menuItems = [
-    { href: '/dashboard', labelKey: 'dashboard', icon: Home, },
-    { href: '/language-selection', labelKey: 'lessons', icon: BookOpen, },
-    { href: '/flashcards', labelKey: 'flashcards', icon: GraduationCap, },
-     { href: '/calendar', labelKey: 'calendar', icon: Calendar, },
-    { href: '/personal-tutor', labelKey: 'personalTutor', icon: Bot, },
-    { href: '/companion-circles', labelKey: 'companionCircles', icon: Users, },
-    { href: '/interview-prep', labelKey: 'interviewPrep', icon: Briefcase, },
-    { href: '/ar-immersion', labelKey: 'arImmersion', icon: Camera, },
-    { href: '/live-classes', labelKey: 'liveClasses', icon: Radio, },
-    { href: '/peer-teaching', labelKey: 'peerTeaching', icon: Megaphone, },
-    { href: '/exam-prep', labelKey: 'examPrep', icon: ShieldCheck },
+    { href: '/dashboard', labelKey: 'dashboard', icon: Home, pro: false },
+    { href: '/language-selection', labelKey: 'lessons', icon: BookOpen, pro: false },
+    { href: '/flashcards', labelKey: 'flashcards', icon: GraduationCap, pro: false },
+    { href: '/calendar', labelKey: 'calendar', icon: Calendar, pro: false },
+    { href: '/personal-tutor', labelKey: 'personalTutor', icon: Bot, pro: true },
+    { href: '/companion-circles', labelKey: 'companionCircles', icon: Users, pro: true },
+    { href: '/interview-prep', labelKey: 'interviewPrep', icon: Briefcase, pro: true },
+    { href: '/ar-immersion', labelKey: 'arImmersion', icon: Camera, pro: false },
+    { href: '/live-classes', labelKey: 'liveClasses', icon: Radio, pro: false },
+    { href: '/peer-teaching', labelKey: 'peerTeaching', icon: Megaphone, pro: false },
+    { href: '/exam-prep', labelKey: 'examPrep', icon: ShieldCheck, pro: false },
   ];
 
   if (isLoading) {
@@ -106,6 +137,40 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
               <p className="text-muted-foreground">Initializing Application...</p>
           </div>
       </div>
+    )
+  }
+
+  const renderMenuItem = (item: typeof menuItems[0]) => {
+    const label = t.sidebar[item.labelKey as keyof typeof t.sidebar];
+
+    if (item.pro && !user?.isPro) {
+      return (
+        <Dialog>
+          <DialogTrigger asChild>
+            <SidebarMenuButton
+              tooltip={label}
+              className="relative"
+            >
+              <item.icon />
+              <span>{label}</span>
+              <Badge variant="warning" className="absolute right-2 top-1/2 -translate-y-1/2 group-data-[collapsible=icon]:hidden text-xs">Pro</Badge>
+            </SidebarMenuButton>
+          </DialogTrigger>
+          <ProFeatureDialog featureName={label} onUpgrade={() => router.push('/upgrade')} />
+        </Dialog>
+      )
+    }
+
+    return (
+      <Link href={item.href} aria-label={label}>
+        <SidebarMenuButton
+          isActive={pathname.startsWith(item.href)}
+          tooltip={label}
+        >
+          <item.icon />
+          <span>{label}</span>
+        </SidebarMenuButton>
+      </Link>
     )
   }
 
@@ -125,15 +190,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
           <SidebarMenu>
             {menuItems.map((item) => (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href} aria-label={t.sidebar[item.labelKey as keyof typeof t.sidebar]}>
-                  <SidebarMenuButton
-                    isActive={pathname.startsWith(item.href)}
-                    tooltip={t.sidebar[item.labelKey as keyof typeof t.sidebar]}
-                  >
-                    <item.icon />
-                    <span>{t.sidebar[item.labelKey as keyof typeof t.sidebar]}</span>
-                  </SidebarMenuButton>
-                </Link>
+                {renderMenuItem(item)}
               </SidebarMenuItem>
             ))}
           </SidebarMenu>

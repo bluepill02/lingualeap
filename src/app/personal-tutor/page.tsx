@@ -1,11 +1,10 @@
 
-
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Bot, Loader2, Send, Mic, Volume2, User, Lock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
@@ -185,6 +184,45 @@ export default function PersonalTutorPage() {
 
     recognitionRef.current.start();
   };
+
+  if (!user) {
+    return (
+        <div className="flex items-center justify-center h-full">
+            <Card className="max-w-md text-center p-8">
+                <CardHeader>
+                    <CardTitle>Access Denied</CardTitle>
+                    <CardDescription>You need to be logged in to use the AI Personal Tutor.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Link href="/auth">
+                        <Button>Log In or Sign Up</Button>
+                    </Link>
+                </CardContent>
+            </Card>
+        </div>
+    )
+  }
+
+  if (!user.isPro) {
+    return (
+        <div className="flex items-center justify-center h-full">
+            <Card className="max-w-md text-center p-8">
+                <CardHeader>
+                    <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit">
+                        <Lock className="w-8 h-8 text-primary"/>
+                    </div>
+                    <CardTitle className="mt-4">Pro Feature</CardTitle>
+                    <CardDescription>The AI Personal Tutor is a premium feature. Upgrade to LinguaLeap Pro for unlimited, personalized language practice.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Link href="/upgrade">
+                        <Button>Upgrade to Pro</Button>
+                    </Link>
+                </CardContent>
+            </Card>
+        </div>
+    )
+  }
 
   return (
     <div className="relative flex h-[calc(100vh-10rem)] w-full flex-col items-center justify-center p-4">
