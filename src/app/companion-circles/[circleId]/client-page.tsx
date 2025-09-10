@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -332,12 +333,17 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
 
   const refreshCircleData = useCallback(async () => {
     if (!circle.id) return;
-    const updatedCircleData = await getCircleWithMembers(circle.id);
-    if (updatedCircleData) {
-        setCircle(updatedCircleData.circle);
-        setMembers(updatedCircleData.members);
+    try {
+        const updatedCircleData = await getCircleWithMembers(circle.id);
+        if (updatedCircleData) {
+            setCircle(updatedCircleData.circle);
+            setMembers(updatedCircleData.members);
+        }
+    } catch(e) {
+        console.error("Failed to refresh circle data", e);
+        toast({ variant: 'destructive', title: 'Error', description: 'Could not refresh circle data.' });
     }
-  }, [circle.id]);
+  }, [circle.id, toast]);
 
 
   useEffect(() => {
