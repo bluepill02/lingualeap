@@ -27,22 +27,22 @@ const mission = {
     scenario: "Balancing carts at a temple chariot festival (தேர் திருவிழா). Explain why when you push a cart, you also feel a push back."
 };
 
-interface MCQState {
+interface MCQFormState {
     question: string;
     options: string[];
-    correctAnswerIndex: number;
+    correctAnswer: string;
 }
 
-const initialMcqState: MCQState[] = [
-    { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
-    { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+const initialMcqState: MCQFormState[] = [
+    { question: '', options: ['', '', '', ''], correctAnswer: '' },
+    { question: '', options: ['', '', '', ''], correctAnswer: '' },
 ];
 
 
 export default function PeerTeachingPage() {
     const [script, setScript] = useState('');
     const [diagram, setDiagram] = useState('');
-    const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
+    const [mcqs, setMcqs] = useState<MCQFormState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
@@ -60,11 +60,7 @@ export default function PeerTeachingPage() {
                     if (latestSubmission) {
                         setScript(latestSubmission.submission.script);
                         setDiagram(latestSubmission.submission.diagramDescription);
-                        setMcqs(latestSubmission.submission.mcqs.map(mcq => ({
-                            question: mcq.question,
-                            options: mcq.options,
-                            correctAnswerIndex: mcq.options.indexOf(mcq.correctAnswer)
-                        })));
+                        setMcqs(latestSubmission.submission.mcqs); // Direct assignment, no conversion needed
                         setFeedback(latestSubmission.feedback);
                     }
                 } catch (error) {
@@ -84,18 +80,18 @@ export default function PeerTeachingPage() {
     }, [toast]);
 
 
-    const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswerIndex', value: string | number) => {
+    const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswer', value: string) => {
         const newMcqs = [...mcqs];
         const mcqToUpdate = { ...newMcqs[mcqIndex] };
 
         if (field === 'question') {
-            mcqToUpdate.question = value as string;
-        } else if (field === 'correctAnswerIndex') {
-            mcqToUpdate.correctAnswerIndex = value as number;
+            mcqToUpdate.question = value;
+        } else if (field === 'correctAnswer') {
+            mcqToUpdate.correctAnswer = value;
         } else if (field.startsWith('option-')) {
             const optionIndex = parseInt(field.split('-')[1], 10);
             mcqToUpdate.options = [...mcqToUpdate.options];
-            mcqToUpdate.options[optionIndex] = value as string;
+            mcqToUpdate.options[optionIndex] = value;
         }
 
         newMcqs[mcqIndex] = mcqToUpdate;
@@ -111,16 +107,14 @@ export default function PeerTeachingPage() {
         setIsLoading(true);
         setFeedback(null);
         try {
+            // The local state 'mcqs' now perfectly matches the MissionSubmissionInput['mcqs'] type
             const submission: MissionSubmissionInput = {
                 concept: mission.concept,
                 script: script,
                 diagramDescription: diagram,
-                mcqs: mcqs.map(mcq => ({
-                    question: mcq.question,
-                    options: mcq.options,
-                    correctAnswer: mcq.options[mcq.correctAnswerIndex] || '',
-                }))
-            }
+                mcqs: mcqs 
+            };
+
             const feedbackResult = await provideMissionFeedback(submission);
             setFeedback(feedbackResult);
             
@@ -228,10 +222,10 @@ export default function PeerTeachingPage() {
                         
                          <div>
                             <Label className="mb-2 block">Correct Answer</Label>
-                             <RadioGroup value={String(mcq.correctAnswerIndex)} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswerIndex', Number(value))} className="flex gap-4" disabled={!currentUser}>
-                               {mcq.options.map((_, optionIndex) => (
+                             <RadioGroup value={mcq.correctAnswer} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswer', value)} className="flex gap-4" disabled={!currentUser}>
+                               {mcq.options.map((option, optionIndex) => (
                                 <div key={optionIndex} className="flex items-center space-x-2">
-                                    <RadioGroupItem value={String(optionIndex)} id={`mcq${mcqIndex}-opt${optionIndex}`} />
+                                    <RadioGroupItem value={option} id={`mcq${mcqIndex}-opt${optionIndex}`} />
                                     <Label htmlFor={`mcq${mcqIndex}-opt${optionIndex}`}>{String.fromCharCode(65 + optionIndex)}</Label>
                                 </div>
                                ))}
