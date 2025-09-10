@@ -17,10 +17,10 @@ export const InterviewFeedbackInputSchema = z.object({
 export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
 
 const STARAnalysisSchema = z.object({
-  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'."),
-  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'."),
-  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'."),
-  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'."),
+  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'. This should be an exact quote from the user's answer."),
+  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'. This should be an exact quote from the user's answer."),
+  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'. This should be an exact quote from the user's answer."),
+  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'. This should be an exact quote from the user's answer."),
   situationFeedback: z.string().describe("Feedback on how well the user established the context."),
   taskFeedback: z.string().describe("Feedback on how well the user explained their specific responsibility."),
   actionFeedback: z.string().describe("Feedback on the description of the actions taken. Were they specific and impactful?"),
@@ -55,8 +55,8 @@ They gave the following answer:
 Your task is to provide expert, constructive feedback based on the STAR method (Situation, Task, Action, Result).
 
 1.  **STAR Analysis**:
-    *   Carefully analyze the user's answer. For each part of STAR, extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
-    *   For each part (Situation, Task, Action, Result), provide concise feedback on its effectiveness. If it's missing, state that clearly in the feedback.
+    *   Carefully analyze the user's answer. For each part of STAR (situation, task, action, result), extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
+    *   For each part, provide concise feedback on its effectiveness. If it's missing, state that clearly in the feedback.
 
 2.  **Keyword Feedback**:
     *   Analyze the language used. Did they use strong action verbs? Did they use keywords relevant to a '{{{jobRole}}}'? Provide suggestions for more impactful language.
@@ -86,5 +86,3 @@ const interviewFeedbackFlow = ai.defineFlow(
     return output;
   }
 );
-
-    

@@ -22,7 +22,7 @@ const countFillerWords = (text: string): number => {
     return matches ? matches.length : 0;
 }
 
-const highlightSTAR = (text: string, part: string) => {
+const highlightSTAR = (text: string, part: string | undefined): string => {
     if (!part || !text) return text;
     // A simple implementation. A more robust solution might use AI to get character indices.
     const regex = new RegExp(`(${part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
@@ -161,10 +161,10 @@ export default function InterviewPrepPage() {
     const highlightedTranscript = React.useMemo(() => {
         if (!feedback || !transcript) return transcript;
         let html = transcript;
-        if(feedback.starAnalysis.situation) html = highlightSTAR(html, feedback.starAnalysis.situation);
-        if(feedback.starAnalysis.task) html = highlightSTAR(html, feedback.starAnalysis.task);
-        if(feedback.starAnalysis.action) html = highlightSTAR(html, feedback.starAnalysis.action);
-        if(feedback.starAnalysis.result) html = highlightSTAR(html, feedback.starAnalysis.result);
+        html = highlightSTAR(html, feedback.starAnalysis.situation);
+        html = highlightSTAR(html, feedback.starAnalysis.task);
+        html = highlightSTAR(html, feedback.starAnalysis.action);
+        html = highlightSTAR(html, feedback.starAnalysis.result);
         return html;
     }, [transcript, feedback]);
 
@@ -248,7 +248,7 @@ export default function InterviewPrepPage() {
                         <Card>
                             <CardHeader>
                                 <CardTitle className="text-lg flex items-center gap-2"><Star className="text-yellow-400"/> STAR Method Analysis</CardTitle>
-                                <CardDescription>Behavioral answers are strongest when they follow this structure.</CardDescription>
+                                <CardDescription>Behavioral answers are strongest when they follow this structure. We've highlighted the parts of your answer our AI identified for each section.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
                                <div dangerouslySetInnerHTML={{ __html: highlightedTranscript }} className="p-3 bg-muted rounded-md text-sm italic" />
@@ -321,4 +321,3 @@ const interviewQuestions = [
     "Why do you want to work for this company?",
 ];
 
-    
