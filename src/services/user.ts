@@ -1,8 +1,7 @@
-
 'use server';
 
 import { db } from '@/lib/firebase';
-import { doc, getDoc, setDoc, serverTimestamp, collection } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, collection, Timestamp } from 'firebase/firestore';
 import type { User } from '@/lib/types';
 import { learnerPersonas } from '@/lib/personas';
 
@@ -53,7 +52,13 @@ export async function getUserSettings(userId: string): Promise<User | null> {
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
-            return userSnap.data() as User;
+            const data = userSnap.data();
+            // Ensure Timestamps are converted properly before returning
+            const createdAt = data.createdAt instanceof Timestamp ? data.createdAt.toDate().toISOString() : new Date().toISOString();
+            return {
+                ...data,
+                createdAt: createdAt, // Make sure this property exists and is a string
+            } as User;
         } else {
             console.log(`No user document found for ${userId}, a new one may be created on first save.`);
             return null;

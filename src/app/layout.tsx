@@ -1,10 +1,10 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import 'katex/dist/katex.min.css';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-provider';
+import { UserProvider } from '@/context/user-context';
 
 export const metadata: Metadata = {
   title: 'LinguaLeap',
@@ -38,10 +38,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-              {children}
-              <Toaster />
-          </LanguageProvider>
+          <UserProvider>
+            <LanguageProvider>
+                {children}
+                <Toaster />
+            </LanguageProvider>
+          </UserProvider>
         </ThemeProvider>
       </body>
     </html>

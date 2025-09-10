@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -35,10 +34,8 @@ import { Badge } from '@/components/ui/badge';
 import { getWeek, format, formatDistanceToNow } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { LessonCarousel } from '@/components/dashboard/lesson-carousel';
-import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
-import { app } from '@/lib/firebase';
 import { getDashboardData } from '@/services/dashboard';
-import type { DashboardData, User } from '@/lib/types';
+import type { DashboardData } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useUser } from '@/context/user-context';
 import { cn } from '@/lib/utils';
@@ -104,26 +101,27 @@ function DashboardSkeleton() {
 }
 
 export default function DashboardPage() {
-  const { user } = useUser();
+  const { user, isLoading } = useUser();
   const [dashboardData, setDashboardData] = useState<DashboardData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isDataLoading, setIsDataLoading] = useState(true);
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
     async function loadData() {
         if (user) {
+            setIsDataLoading(true);
             try {
-                const data = await getDashboardData(user.uid);
+                const data = await getDashboardData(user.id);
                 setDashboardData(data);
             } catch (error) {
                 console.error("Failed to fetch dashboard data:", error);
             } finally {
-                setIsLoading(false);
+                setIsDataLoading(false);
             }
-        } else {
-            // Handle signed out state
+        } else if (!isLoading) {
+            // User is loaded and is null
             setDashboardData(null);
-            setIsLoading(false);
+            setIsDataLoading(false);
         }
     }
     loadData();
@@ -133,9 +131,9 @@ export default function DashboardPage() {
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
 
-  }, [user]);
+  }, [user, isLoading]);
 
-  if (isLoading) {
+  if (isLoading || isDataLoading) {
     return <DashboardSkeleton />;
   }
 
@@ -353,7 +351,7 @@ export default function DashboardPage() {
                     </TabsList>
                      <TabsContent value="joined">
                         <div className="text-center p-4">
-                            <p className="text-2xl font-bold">{user.metadata.creationTime ? format(new Date(user.metadata.creationTime), 'MMMM d, yyyy') : 'N/A'}</p>
+                            <p className="text-2xl font-bold">{user.createdAt ? format(new Date(user.createdAt.seconds * 1000), 'MMMM d, yyyy') : 'N/A'}</p>
                             <p className="text-sm text-muted-foreground">Date Joined</p>
                         </div>
                     </TabsContent>

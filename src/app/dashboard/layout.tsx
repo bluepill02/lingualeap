@@ -1,7 +1,7 @@
-
 'use client';
 
 import MainLayout from '@/components/layout/main-layout';
+import { UserProvider } from '@/context/user-context';
 
 export default function DashboardLayout({
   children,
@@ -9,6 +9,8 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-      <MainLayout>{children}</MainLayout>
+      <UserProvider>
+        <MainLayout>{children}</MainLayout>
+      </UserProvider>
   );
 }

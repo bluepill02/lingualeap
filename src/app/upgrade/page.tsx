@@ -1,4 +1,3 @@
-
 'use client';
 import * as React from 'react';
 import { Button } from '@/components/ui/button';
@@ -16,41 +15,18 @@ import { useToast } from '@/hooks/use-toast';
 import { Check, Loader2, Sparkles, Star, Users, Lock, Bot, Camera, FileQuestion, Megaphone, Radio, ShieldCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
-import { getUserSettings } from '@/services/user';
-import { getAuth } from 'firebase/auth';
-import { app } from '@/lib/firebase';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 
 export default function UpgradePage() {
-  const { user: authUser, loading: authLoading } = useUser();
-  const [userProfile, setUserProfile] = React.useState<any>(null);
-  const [isProfileLoading, setIsProfileLoading] = React.useState(true);
+  const { user, reloadUser, isLoading } = useUser();
   const { toast } = useToast();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
 
-  React.useEffect(() => {
-    async function loadUser() {
-      if (authUser) {
-        try {
-          const profile = await getUserSettings(authUser.uid);
-          setUserProfile(profile);
-        } catch (error) {
-          console.error('Failed to load user profile on upgrade page', error);
-          setUserProfile(null);
-        }
-      }
-      setIsProfileLoading(false);
-    }
-    if (!authLoading) {
-      loadUser();
-    }
-  }, [authUser, authLoading]);
-
   const handleUpgrade = async () => {
-    if (!authUser) {
+    if (!user) {
       toast({
         variant: 'destructive',
         title: "You're not logged in",
@@ -60,8 +36,8 @@ export default function UpgradePage() {
     }
     setIsSubmitting(true);
     try {
-      await updateUserSettings(authUser.uid, { isPro: true });
-      setUserProfile((prev: any) => ({ ...prev, isPro: true }));
+      await updateUserSettings(user.id, { isPro: true });
+      await reloadUser(); // Refresh the user context
       toast({
         title: 'Upgrade Successful!',
         description: 'Welcome to LinguaLeap Pro! All features are now unlocked.',
@@ -79,11 +55,11 @@ export default function UpgradePage() {
   };
 
   const handleDowngrade = async () => {
-    if (!authUser) return;
+    if (!user) return;
     setIsSubmitting(true);
     try {
-      await updateUserSettings(authUser.uid, { isPro: false });
-      setUserProfile((prev: any) => ({ ...prev, isPro: false }));
+      await updateUserSettings(user.id, { isPro: false });
+      await reloadUser(); // Refresh the user context
       toast({
         title: 'Plan Changed',
         description: 'You have been switched to the Free plan.',
@@ -100,7 +76,7 @@ export default function UpgradePage() {
     }
   };
 
-  if (authLoading || isProfileLoading) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center h-full">
         <Loader2 className="w-12 h-12 animate-spin text-primary" />
@@ -108,7 +84,7 @@ export default function UpgradePage() {
     );
   }
 
-  const isPro = userProfile?.isPro || false;
+  const isPro = user?.isPro || false;
 
   const freeFeatures = [
       { icon: Users, text: 'Peer-to-Peer Study Circles' },

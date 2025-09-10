@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -24,7 +23,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
 import { Calendar, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { getUserSettings, updateUserSettings } from '@/services/user';
+import { updateUserSettings } from '@/services/user';
 import type { User } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useUser } from '@/context/user-context';
@@ -62,44 +61,30 @@ function SettingsSkeleton() {
 
 
 export default function SettingsPage() {
-  const { user: firebaseUser } = useUser();
+  const { user, isLoading, reloadUser } = useUser();
   const [userSettings, setUserSettings] = useState<Partial<User>>({});
   const [isSaving, setIsSaving] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
   
   useEffect(() => {
-    async function loadSettings() {
-      if (firebaseUser) {
-        setIsLoading(true);
-        try {
-            const settings = await getUserSettings(firebaseUser.uid);
-            setUserSettings(settings || { name: firebaseUser.displayName || '', email: firebaseUser.email || '' });
-        } catch(error) {
-            console.error("Failed to load user settings", error);
-            toast({ variant: 'destructive', title: 'Error', description: 'Could not load your settings.' });
-        } finally {
-            setIsLoading(false);
-        }
-      } else {
-        setIsLoading(false);
-      }
+    if (user) {
+      setUserSettings(user);
     }
-    loadSettings();
-  }, [firebaseUser, toast]);
+  }, [user]);
 
   const handleFieldChange = (field: keyof User, value: any) => {
     setUserSettings(prev => ({...prev, [field]: value}));
   }
 
   const handleSave = async (section: string) => {
-    if (!firebaseUser) {
+    if (!user) {
         toast({ variant: 'destructive', title: 'Not Authenticated', description: 'You must be logged in to save settings.'});
         return;
     }
     setIsSaving(true);
     try {
-        await updateUserSettings(firebaseUser.uid, userSettings);
+        await updateUserSettings(user.id, userSettings);
+        await reloadUser(); // Reload the user context
         toast({
             title: 'Settings Saved',
             description: `Your ${section} preferences have been updated.`,
@@ -116,7 +101,7 @@ export default function SettingsPage() {
       return <SettingsSkeleton />
   }
 
-  if (!firebaseUser) {
+  if (!user) {
       return (
         <Card>
             <CardHeader>
@@ -148,7 +133,7 @@ export default function SettingsPage() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
-              <AvatarImage src={userSettings.avatarUrl || firebaseUser.photoURL || undefined} alt={userSettings.name} />
+              <AvatarImage src={userSettings.avatarUrl || user.avatarUrl || undefined} alt={userSettings.name} />
               <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
             <Button variant="outline" disabled>Change Avatar</Button>
@@ -160,7 +145,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={userSettings.email || ''} onChange={(e) => handleFieldChange('email' as keyof User, e.target.value)} disabled={isSaving || !!firebaseUser.email}/>
+              <Input id="email" type="email" value={userSettings.email || ''} disabled={true}/>
             </div>
           </div>
           <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
