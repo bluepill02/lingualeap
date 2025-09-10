@@ -86,7 +86,7 @@ function VocabularyTable({
                 <TableCell>{item.romanization}</TableCell>
                 <TableCell>{item.definition}</TableCell>
                 <TableCell className="text-right">
-                  <Button variant="ghost" size="icon" onClick={() => playAudio(item.audioUrl || '')} aria-label={`Listen to ${item.word}`}>
+                  <Button variant="ghost" size="icon" onClick={(e) => { e.stopPropagation(); playAudio(item.audioUrl || ''); }} aria-label={`Listen to ${item.word}`}>
                     <Volume2 className="h-5 w-5" />
                   </Button>
                 </TableCell>
