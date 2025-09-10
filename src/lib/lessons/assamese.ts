@@ -1,8 +1,8 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
 
-// Using a valid public domain sound file as a placeholder
-const placeholderAudio = 'https://firebasestorage.googleapis.com/v0/b/lingua-leap-6ed60.appspot.com/o/placeholder-audio%2Fplaceholder-sound.mp3?alt=media&token=c2d3a758-932c-4e87-8e6c-799347d48175';
+// Using a valid, publicly accessible audio file as a placeholder
+const placeholderAudio = 'https://storage.googleapis.com/stately-temp-files/1-sound.mp3';
 
 export const assameseDecks: LessonDeck[] = [
   {
