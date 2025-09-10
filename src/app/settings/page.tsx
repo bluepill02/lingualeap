@@ -1,4 +1,7 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import {
   Card,
   CardContent,
@@ -20,9 +23,40 @@ import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
 import { Separator } from '@/components/ui/separator';
-import { Calendar } from 'lucide-react';
+import { Calendar, Loader2 } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { app } from '@/lib/firebase';
 
 export default function SettingsPage() {
+  const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
+  const [name, setName] = useState(mockUser.name);
+  const [email, setEmail] = useState(mockUser.email);
+  const [language, setLanguage] = useState(mockUser.language);
+  const [timezone, setTimezone] = useState(mockUser.timezone);
+  const [isSaving, setIsSaving] = useState(false);
+  const { toast } = useToast();
+  
+  useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleSave = (section: string) => {
+    setIsSaving(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSaving(false);
+      toast({
+        title: 'Settings Saved',
+        description: `Your ${section} preferences have been updated.`,
+      });
+    }, 1000);
+  };
+
   return (
     <div className="container mx-auto space-y-8">
       <div>
@@ -44,22 +78,25 @@ export default function SettingsPage() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
-              <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
-              <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
+              <AvatarImage src={currentUser?.photoURL || mockUser.avatarUrl} alt={currentUser?.displayName || mockUser.name} />
+              <AvatarFallback>{(currentUser?.displayName || mockUser.name).charAt(0)}</AvatarFallback>
             </Avatar>
-            <Button variant="outline">Change Avatar</Button>
+            <Button variant="outline" disabled={isSaving}>Change Avatar</Button>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue={mockUser.name} />
+              <Input id="name" value={name} onChange={(e) => setName(e.target.value)} disabled={isSaving} />
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" defaultValue={mockUser.email} />
+              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSaving}/>
             </div>
           </div>
-          <Button>Save Profile</Button>
+          <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
+            {isSaving && <Loader2 className="mr-2 animate-spin" />}
+            Save Profile
+          </Button>
         </CardContent>
       </Card>
 
@@ -79,7 +116,7 @@ export default function SettingsPage() {
                         <p className="text-sm text-muted-foreground">Not connected</p>
                     </div>
                 </div>
-                <Button variant="outline">Connect</Button>
+                <Button variant="outline" disabled>Connect</Button>
             </Card>
         </CardContent>
       </Card>
@@ -95,11 +132,12 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="language">Learning Language</Label>
-              <Select defaultValue={mockUser.language}>
+              <Select value={language} onValueChange={(value) => setLanguage(value)} disabled={isSaving}>
                 <SelectTrigger id="language">
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="Hindi">Hindi</SelectItem>
                   <SelectItem value="Spanish">Spanish</SelectItem>
                   <SelectItem value="French">French</SelectItem>
                   <SelectItem value="German">German</SelectItem>
@@ -109,7 +147,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <Label htmlFor="timezone">Timezone</Label>
-              <Select defaultValue={mockUser.timezone}>
+              <Select value={timezone} onValueChange={(value) => setTimezone(value)} disabled={isSaving}>
                 <SelectTrigger id="timezone">
                   <SelectValue placeholder="Select timezone" />
                 </SelectTrigger>
@@ -120,6 +158,9 @@ export default function SettingsPage() {
                   <SelectItem value="Europe/London">
                     (GMT+1) London
                   </SelectItem>
+                   <SelectItem value="Asia/Kolkata">
+                    (GMT+5:30) India Standard Time
+                  </SelectItem>
                    <SelectItem value="Asia/Tokyo">
                     (GMT+9) Tokyo
                   </SelectItem>
@@ -127,7 +168,10 @@ export default function SettingsPage() {
               </Select>
             </div>
           </div>
-          <Button>Save Preferences</Button>
+          <Button onClick={() => handleSave('Preferences')} disabled={isSaving}>
+             {isSaving && <Loader2 className="mr-2 animate-spin" />}
+            Save Preferences
+            </Button>
         </CardContent>
       </Card>
       
@@ -144,23 +188,26 @@ export default function SettingsPage() {
                     <h3 className="font-semibold">Daily Reminders</h3>
                     <p className="text-sm text-muted-foreground">Get reminded of due flashcards and upcoming streak expiry.</p>
                 </div>
-                <Switch defaultChecked />
+                <Switch defaultChecked disabled={isSaving} />
             </div>
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Smart Scheduling via Calendar</h3>
                     <p className="text-sm text-muted-foreground">Automatically find time in your calendar for micro-sessions.</p>
                 </div>
-                <Switch />
+                <Switch disabled />
             </div>
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Promotional Emails</h3>
                     <p className="text-sm text-muted-foreground">Receive updates on new features and special offers.</p>
                 </div>
-                <Switch />
+                <Switch disabled={isSaving} />
             </div>
-            <Button>Save Notifications</Button>
+            <Button onClick={() => handleSave('Notifications')} disabled={isSaving}>
+                 {isSaving && <Loader2 className="mr-2 animate-spin" />}
+                Save Notifications
+            </Button>
         </CardContent>
       </Card>
     </div>
