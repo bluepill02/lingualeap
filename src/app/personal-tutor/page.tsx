@@ -52,6 +52,9 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
 
 
     const handleStartRecording = async () => {
+        setAnalysis(null);
+        setIsLoading(false);
+        audioChunksRef.current = [];
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             mediaRecorderRef.current = new MediaRecorder(stream);
@@ -78,12 +81,9 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
                         setIsLoading(false);
                     }
                 };
-                audioChunksRef.current = [];
             };
-            audioChunksRef.current = [];
             mediaRecorderRef.current.start();
             setIsRecording(true);
-            setAnalysis(null);
         } catch (error) {
             toast({ variant: 'destructive', title: 'Microphone Error', description: 'Could not access the microphone.' });
         }
@@ -100,6 +100,7 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
     const reset = () => {
         setAnalysis(null);
         setIsLoading(false);
+        setIsRecording(false);
     };
 
     return (
@@ -111,7 +112,7 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
             <CardContent className="space-y-4">
                 <div className="flex items-center justify-center gap-2">
                     <p className="text-center text-2xl font-bold font-headline text-primary">{word}</p>
-                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking}>
+                    <Button size="icon" variant="ghost" onClick={handlePlayWord} disabled={isSpeaking || isLoading || isRecording}>
                         {isSpeaking ? <Loader2 className="animate-spin" /> : <Volume2 className="h-5 w-5" />}
                     </Button>
                 </div>
@@ -416,3 +417,4 @@ export default function PersonalTutorPage() {
   );
 }
 
+    
