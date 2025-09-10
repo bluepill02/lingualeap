@@ -89,6 +89,11 @@ export default function ARImmersionPage() {
     canvas.height = video.videoHeight;
     const context = canvas.getContext('2d');
     if (!context) {
+        toast({
+            variant: 'destructive',
+            title: 'Canvas Error',
+            description: 'Could not get canvas context. Please try again.',
+        });
         setIsLoading(false);
         return;
     }
