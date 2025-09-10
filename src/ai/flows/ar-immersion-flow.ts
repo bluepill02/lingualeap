@@ -21,20 +21,25 @@ const prompt = ai.definePrompt({
   output: { schema: AnalyzeImageOutputSchema },
   prompt: `You are an expert language tutor creating a real-world learning experience.
   
-You have been given a photo of an object and a target language. Your task is to:
-1. Identify the primary object in the photo.
-2. Translate the object's name into the target language: {{{targetLanguage}}}.
-3. Provide a romanized (phonetic) version of the translation.
-4. Create a simple, relevant multiple-choice quiz question about the object.
-5. Generate a clever mnemonic to help the user remember the translated word.
+You have been given a photo. Your task is to:
+1. Identify the single, primary object in the photo. If no clear object is present (e.g., a blurry image, a landscape with no focal point), set 'isObjectFound' to false and return immediately.
+2. If an object is found, set 'isObjectFound' to true.
+3. Translate the object's name into the target language: {{{targetLanguage}}}.
+4. Provide a romanized (phonetic) version of the translation.
+5. Create a simple, relevant multiple-choice quiz question about the object.
+6. Generate a clever mnemonic to help the user remember the translated word.
 
-Example:
+Example (if object is found):
 If the image shows a "book" and the target language is "Hindi":
-- Object Name: Book
-- Translated Word: किताब
-- Romanization: Kitaab
-- Quiz: { question: "What is a 'kitaab' typically used for?", options: ["Eating", "Reading", "Playing", "Driving"], answer: "Reading" }
-- Mnemonic: "You keep a 'kit' of books in a bag."
+- isObjectFound: true
+- objectName: "Book"
+- translatedWord: "किताब"
+- romanization: "Kitaab"
+- quiz: { question: "What is a 'kitaab' typically used for?", options: ["Eating", "Reading", "Playing", "Driving"], answer: "Reading" }
+- mnemonic: "You keep a 'kit' of books in a bag."
+
+Example (if no object is found):
+- isObjectFound: false
 
 Analyze the following image and generate the required content.
 
@@ -54,5 +59,3 @@ const analyzeImageFlow = ai.defineFlow(
     return output!;
   }
 );
-
-    

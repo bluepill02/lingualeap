@@ -89,24 +89,27 @@ export const AnalyzeImageInputSchema = z.object({
 });
 
 export const AnalyzeImageOutputSchema = z.object({
-    objectName: z.string().describe('The name of the identified object in English.'),
-    translatedWord: z.string().describe('The translated name of the object in the target language.'),
-    romanization: z.string().describe('A romanized (phonetic) spelling of the translated word.'),
+    isObjectFound: z.boolean().describe("Set to true if a specific object was identified, false otherwise."),
+    objectName: z.string().optional().describe('The name of the identified object in English.'),
+    translatedWord: z.string().optional().describe('The translated name of the object in the target language.'),
+    romanization: z.string().optional().describe('A romanized (phonetic) spelling of the translated word.'),
     quiz: z.object({
         question: z.string().describe('A simple multiple-choice question about the object.'),
         options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options.'),
         answer: z.string().describe('The correct answer from the options.'),
-    }),
-    mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
+    }).optional(),
+    mnemonic: z.string().optional().describe('A clever mnemonic or short sentence to help remember the translated word.'),
 });
+
 
 export const InterviewQuestionInputSchema = z.object({
   jobRole: z.string().describe('The job role the user is preparing for, e.g., "Software Engineer".'),
 });
 
 export const InterviewQuestionOutputSchema = z.object({
-  question: z.string().describe("A single, relevant behavioral interview question for the specified job role. It should be a common question asked in real interviews."),
+  question: z.string().describe("A single, common, but insightful behavioral interview question for the specified job role. It should be a question that is likely to be asked in a real interview."),
 });
+
 
 const AnswerRecordSchema = z.object({
     question: z.string().describe('The interview question that was asked.'),
