@@ -112,6 +112,7 @@ export default function InterviewPrepPage() {
              try {
                 const feedbackResult = await provideInterviewFeedback({
                     jobRole,
+                    userPersona: user?.persona,
                     sessionHistory: [{ question: currentQuestion, answer: newAnswer.answer }],
                 });
                 if(feedbackResult.detailedFeedback.length > 0) {
@@ -140,7 +141,7 @@ export default function InterviewPrepPage() {
             setSessionState('session_complete');
         }
 
-    }, [currentQuestion, sessionState, sessionHistory, fetchNextQuestion, toast, jobRole]);
+    }, [currentQuestion, sessionState, sessionHistory, fetchNextQuestion, toast, jobRole, user]);
 
 
     const startRecording = async () => {
@@ -241,7 +242,11 @@ export default function InterviewPrepPage() {
         setSessionState('analyzing');
         try {
             const historyForAi = history.map(({ question, answer }) => ({ question, answer }));
-            const feedbackResult = await provideInterviewFeedback({ jobRole, sessionHistory: historyForAi });
+            const feedbackResult = await provideInterviewFeedback({
+                jobRole,
+                userPersona: user?.persona,
+                sessionHistory: historyForAi
+            });
             setFinalFeedback(feedbackResult);
             setSessionState('report');
         } catch (err) {

@@ -16,6 +16,7 @@ const AnswerRecordSchema = z.object({
 
 export const InterviewFeedbackInputSchema = z.object({
   jobRole: z.string().optional().describe("The specific job role the user is preparing for, e.g., 'Software Engineer'."),
+  userPersona: z.string().optional().describe("The user's learning persona, e.g., 'The Career Climber'. This should guide the tone of the feedback."),
   sessionHistory: z.array(AnswerRecordSchema).describe("An array of all questions asked and the user's answers for the entire session.")
 });
 export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
@@ -59,22 +60,25 @@ const prompt = ai.definePrompt({
     name: 'interviewFeedbackPrompt',
     input: { schema: InterviewFeedbackInputSchema },
     output: { schema: InterviewFeedbackOutputSchema },
-    prompt: `You are an expert career coach and interview trainer for the role of: '{{{jobRole}}}'. A user has just completed a mock interview session.
+    prompt: `You are an expert career coach and interview trainer. Your client is preparing for a '{{{jobRole}}}' interview.
 
-You will be provided with a history of the questions they were asked and the answers they gave.
+The client's learning persona is '{{{userPersona}}}'. You MUST tailor the TONE and FOCUS of your feedback to this persona.
+- If they are a 'Career Climber', be direct, professional, and focus on ROI and impact.
+- If they are a 'Cultural Explorer' or 'Social Connector', be more encouraging, and focus on storytelling and connection.
+- If they are an 'Exam Ace', be structured and analytical.
 
 Your task is to provide expert, constructive feedback in two parts:
 
 **Part 1: Overall Session Feedback**
-Analyze all the answers together to identify patterns. Provide a holistic summary of their performance.
-- **Summary**: Write a brief, encouraging overview.
+Analyze all the answers together to identify patterns.
+- **Summary**: Write a brief overview in a tone appropriate for the user's persona.
 - **Strengths**: Identify 2-3 key strengths they showed consistently.
 - **Areas for Improvement**: Pinpoint the 2-3 most important areas they should work on based on recurring weaknesses.
 
 **Part 2: Detailed Question-by-Question Feedback**
 For EACH question and answer pair in the session history, provide a detailed analysis:
 1.  **STAR Analysis**:
-    *   Carefully analyze the user's answer. For each part of STAR (situation, task, action, result), extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
+    *   Carefully analyze the user's answer. For each part of STAR (Situation, Task, Action, Result), extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
     *   For each part, provide concise feedback on its effectiveness. If it's missing, state that clearly in the feedback.
 2.  **Keyword Feedback**:
     *   Analyze the language used. Did they use strong action verbs? Did they use keywords relevant to a '{{{jobRole}}}'? Provide suggestions for more impactful language.
@@ -90,7 +94,7 @@ Here is the full interview session:
 ---
 {{/each}}
 
-Provide your complete, structured feedback now.
+Provide your complete, structured feedback now, keeping the user's persona ('{{{userPersona}}}') in mind.
 `,
 });
 
