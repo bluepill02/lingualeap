@@ -198,7 +198,7 @@ export default function DashboardPage() {
           </div>
           <Link href="/flashcards">
             <Button className="w-full" size="lg">
-              Start Smart Session
+              Review Flashcards
             </Button>
           </Link>
         </CardContent>
