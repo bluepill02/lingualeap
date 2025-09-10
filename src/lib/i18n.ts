@@ -13,6 +13,7 @@ export const translations = {
             peerTeaching: 'Peer Teaching',
             settings: 'Settings',
             calendar: 'Calendar',
+            interviewPrep: 'Interview Prep',
         }
     },
     ta: {
@@ -28,6 +29,7 @@ export const translations = {
             peerTeaching: 'சக கற்பித்தல்',
             settings: 'அமைப்புகள்',
             calendar: 'நாட்காட்டி',
+            interviewPrep: 'நேர்காணல் প্রস্তুতি',
         }
     },
     hi: {
@@ -43,6 +45,7 @@ export const translations = {
             peerTeaching: 'सहकर्मी शिक्षण',
             settings: 'समायोजन',
             calendar: 'कैलेंडर',
+            interviewPrep: 'साक्षात्कार तैयारी',
         }
     },
     ml: {
@@ -58,6 +61,7 @@ export const translations = {
             peerTeaching: 'सहकर्मी പഠിപ്പിക്കൽ',
             settings: 'ക്രമീകരണങ്ങൾ',
             calendar: 'കലണ്ടർ',
+            interviewPrep: 'അഭിമുഖ പരിശീലനം',
         }
     },
     kn: {
@@ -73,6 +77,7 @@ export const translations = {
             peerTeaching: 'ಸಹಪಾಠಿ ಬೋಧನೆ',
             settings: 'ಸೆಟ್ಟಿಂಗ್‌ಗಳು',
             calendar: 'ಕ್ಯಾಲೆಂಡರ್',
+            interviewPrep: 'ಸಂದರ್ಶನ ಸಿದ್ಧತೆ',
         }
     },
     te: {
@@ -88,6 +93,7 @@ export const translations = {
             peerTeaching: 'సహచర బోధన',
             settings: 'సెట్టింగ్‌లు',
             calendar: 'క్యాలెండర్',
+            interviewPrep: 'ఇంటర్వ్యూ తయారీ',
         }
     }
 };

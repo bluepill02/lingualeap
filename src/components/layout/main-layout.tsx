@@ -36,6 +36,7 @@ import {
   Sun,
   LogOut,
   Loader2,
+  Briefcase,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -90,6 +91,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
      { href: '/calendar', labelKey: 'calendar', icon: Calendar, },
     { href: '/personal-tutor', labelKey: 'personalTutor', icon: Bot, },
     { href: '/companion-circles', labelKey: 'companionCircles', icon: Users, },
+    { href: '/interview-prep', labelKey: 'interviewPrep', icon: Briefcase, },
     { href: '/ar-immersion', labelKey: 'arImmersion', icon: Camera, },
     { href: '/live-classes', labelKey: 'liveClasses', icon: Radio, },
     { href: '/peer-teaching', labelKey: 'peerTeaching', icon: Megaphone, },

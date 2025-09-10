@@ -17,5 +17,6 @@ import '@/ai/flows/neet-flashcard-generator';
 import '@/ai/flows/tnpsc-quiz-generator';
 import '@/ai/flows/speak-flow';
 import '@/ai/flows/study-buddy-flow';
+import '@/ai/flows/interview-feedback-flow';
 
     
