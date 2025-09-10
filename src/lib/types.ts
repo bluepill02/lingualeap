@@ -2,6 +2,8 @@
 import { z } from 'genkit';
 import { FieldValue } from 'firebase/firestore';
 
+// --- Plain TypeScript Types (Safe for Client & Server) ---
+
 export interface User {
   id: string;
   name: string;
@@ -58,6 +60,22 @@ export interface LessonDeck {
     lessons: { id: string; title: string; duration: string }[];
 }
 
+interface BaseQuiz {
+    type: 'multiple-choice' | 'fill-in-the-blank';
+    question: string;
+}
+
+export interface MultipleChoiceQuiz extends BaseQuiz {
+    type: 'multiple-choice';
+    options: string[];
+    answer: string;
+}
+
+export interface FillInTheBlankQuiz extends BaseQuiz {
+    type: 'fill-in-the-blank';
+    answer: string;
+}
+
 export interface MicroLesson {
     id: string;
     title: string;
@@ -77,21 +95,6 @@ export interface MicroLesson {
     followUp: string;
 }
 
-interface BaseQuiz {
-    type: 'multiple-choice' | 'fill-in-the-blank';
-    question: string;
-}
-
-export interface MultipleChoiceQuiz extends BaseQuiz {
-    type: 'multiple-choice';
-    options: string[];
-    answer: string;
-}
-
-export interface FillInTheBlankQuiz extends BaseQuiz {
-    type: 'fill-in-the-blank';
-    answer: string;
-}
 
 // Exam Prep Types
 export interface VocabEntry {
@@ -366,6 +369,18 @@ export interface DashboardData {
     companionCircle: CompanionCircle | null;
 }
 
+export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';
+
+// --- Server-Side Schemas & Types (Do not import directly on client) ---
+
+export const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+};
 
 export const AnalyzeImageInputSchema = z.object({
   photoDataUri: z
@@ -389,17 +404,6 @@ export const AnalyzeImageOutputSchema = z.object({
     mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
 });
 export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
-
-export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';
-
-export const languageMap: Record<Language, string> = {
-    en: 'English',
-    ta: 'Tamil',
-    hi: 'Hindi',
-    ml: 'Malayalam',
-    kn: 'Kannada',
-    te: 'Telugu',
-};
 
 export const PersonalTutorInputSchema = z.object({
   history: z.array(z.object({

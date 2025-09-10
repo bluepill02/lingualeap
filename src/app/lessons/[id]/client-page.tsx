@@ -31,7 +31,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { Input } from '@/components/ui/input';
-import {
+import type {
   MultipleChoiceQuiz,
   FillInTheBlankQuiz,
   MicroLesson,
