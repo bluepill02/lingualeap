@@ -147,6 +147,14 @@ function PronunciationPractice({ word, language, onResult }: { word: string; lan
     )
 }
 
+const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+};
 
 export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
@@ -166,15 +174,6 @@ export default function PersonalTutorPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const { toast } = useToast();
-
-  const languageMap: Record<Language, string> = {
-    en: 'English',
-    ta: 'Tamil',
-    hi: 'Hindi',
-    ml: 'Malayalam',
-    kn: 'Kannada',
-    te: 'Telugu',
-  };
 
   const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
@@ -452,5 +451,3 @@ export default function PersonalTutorPage() {
     </div>
   );
 }
-
-    
