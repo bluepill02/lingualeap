@@ -1,30 +1,31 @@
 
 'use server';
 
-import { getCircle, getCircleMembers, getPostsForCircle } from '@/services/circles';
+import { getCircleWithMembers, getPostsForCircle } from '@/services/circles';
 import { notFound } from 'next/navigation';
 import CircleDetailsClientPage from './client-page';
 import { CompanionCircle } from '@/lib/types';
 
 
 async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
-  const circleData = await getCircle(params.circleId);
+  const circleDetails = await getCircleWithMembers(params.circleId);
   
-  if (!circleData) {
+  if (!circleDetails) {
     notFound();
   }
 
-  // Fetch initial data on the server
-  const memberIds = circleData.members.map(m => m.id);
-  const memberData = await getCircleMembers(memberIds);
-  const postData = await getPostsForCircle(circleData.id);
+  // Fetch initial posts on the server
+  const postData = await getPostsForCircle(circleDetails.circle.id);
 
   return (
     <CircleDetailsClientPage
-      circle={circleData}
-      initialMembers={memberData}
+      initialCircle={circleDetails.circle}
+      initialMembers={circleDetails.members}
       initialPosts={postData}
     />
   );
 }
 export default CircleDetailsPage;
+
+
+    

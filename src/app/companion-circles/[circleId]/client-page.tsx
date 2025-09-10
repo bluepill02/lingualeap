@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostReaction, addCommentToPost } from '@/services/circles';
+import { joinCircle, leaveCircle, addPostToCircle, getPostsForCircle, togglePostReaction, addCommentToPost, getCircleWithMembers } from '@/services/circles';
 import { mockUser } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } from '@/lib/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -248,12 +248,13 @@ function MentorAnnouncements({ events }: { events?: string[] }) {
 
 
 interface CircleDetailsClientPageProps {
-  circle: CompanionCircle;
+  initialCircle: CompanionCircle;
   initialMembers: User[];
   initialPosts: CirclePost[];
 }
 
-export default function CircleDetailsClientPage({ circle, initialMembers, initialPosts }: CircleDetailsClientPageProps) {
+export default function CircleDetailsClientPage({ initialCircle, initialMembers, initialPosts }: CircleDetailsClientPageProps) {
+  const [circle, setCircle] = useState<CompanionCircle>(initialCircle);
   const [members, setMembers] = useState<User[]>(initialMembers);
   const [posts, setPosts] = useState<CirclePost[]>(initialPosts);
   const [newPostContent, setNewPostContent] = useState('');
@@ -285,16 +286,17 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
       try {
           if (isMember) {
               await leaveCircle(mockUser.id, circle.id);
-              setIsMember(false);
-              setMembers(prev => prev.filter(m => m.id !== mockUser.id));
               toast({ title: 'Success', description: `You have left "${circle.name}".` });
           } else {
               await joinCircle(mockUser.id, circle.id);
-              setIsMember(true);
-              const userToAdd: Partial<User> = { id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl };
-              setMembers(prev => [...prev, userToAdd as User]);
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
-              setShowWelcomeWizard(true); // Trigger the welcome wizard
+              setShowWelcomeWizard(true);
+          }
+          // Re-fetch circle and member data to ensure UI is consistent
+          const updatedCircleData = await getCircleWithMembers(circle.id);
+          if (updatedCircleData) {
+              setCircle(updatedCircleData.circle);
+              setMembers(updatedCircleData.members);
           }
       } catch (error) {
           console.error("Failed to update membership:", error);
@@ -460,3 +462,5 @@ export default function CircleDetailsClientPage({ circle, initialMembers, initia
     </Dialog>
   );
 }
+
+    

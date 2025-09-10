@@ -20,7 +20,6 @@ import {
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
-import { getAuth } from 'firebase/auth';
 
 const circlesCollection = collection(db, 'companion-circles');
 
@@ -123,14 +122,12 @@ export async function getCircle(id: string): Promise<CompanionCircle | null> {
         if (docSnap.exists()) {
             return { ...docSnap.data(), id: docSnap.id } as CompanionCircle;
         } else {
-            console.warn(`No circle found with id: ${id} in Firestore. Falling back to mock data.`);
-            const mockCircle = companionCircles.find(c => c.id === id);
-            return mockCircle || null;
+            console.warn(`No circle found with id: ${id}.`);
+            return null;
         }
     } catch (error) {
         console.error("Error fetching circle: ", error);
-        const mockCircle = companionCircles.find(c => c.id === id);
-        return mockCircle || null;
+        return null;
     }
 }
 
@@ -139,26 +136,29 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
         return [];
     }
     try {
-        const usersRef = collection(db, 'users');
-        const q = query(usersRef, where('id', 'in', memberIds));
-        const querySnapshot = await getDocs(q);
-
-        if (querySnapshot.empty) {
-            console.warn(`No users found for IDs: ${memberIds.join(', ')}. Falling back to mock data.`);
-            return allUsers.filter(user => memberIds.includes(user.id));
-        }
-
-        return querySnapshot.docs.map(doc => doc.data() as User);
-    } catch (error) {
-         console.error("Error fetching circle members from Firestore: ", error);
+        // In a real app, this would query a 'users' collection.
+        // For now, we filter the mock data.
         return allUsers.filter(user => memberIds.includes(user.id));
+    } catch (error) {
+         console.error("Error fetching circle members: ", error);
+        return [];
     }
+}
+
+export async function getCircleWithMembers(id: string): Promise<{ circle: CompanionCircle, members: User[] } | null> {
+    const circle = await getCircle(id);
+    if (!circle) {
+        return null;
+    }
+    const memberIds = circle.members.map(m => m.id);
+    const members = await getCircleMembers(memberIds);
+    return { circle, members };
 }
 
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId);
+        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
         if (!userDoc) throw new Error("User not found in mock data.");
         
         const memberData = {
@@ -179,7 +179,7 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId);
+        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
         if (!userDoc) throw new Error("User not found in mock data.");
 
         const memberData = {
@@ -242,20 +242,16 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         };
 
         if (snapshot.empty) {
-            console.log(`No posts found for circle ${circleId}. Attempting to seed data.`);
-            await seedCirclesData(); // This should be idempotent
-            const seededSnapshot = await getDocs(q);
-            if (seededSnapshot.empty) {
-                 console.warn(`Seeding did not result in posts for circle ${circleId}. Returning empty array.`);
-                 return [];
+            const mockPosts = circlePosts.filter(p => p.circleId === circleId);
+            if (mockPosts.length > 0) {
+                 return mockPosts.map(p => ({...p, id: `mock-${Math.random()}`} as CirclePost));
             }
-            return seededSnapshot.docs.map(mapDocToPost);
+            return [];
         }
 
         return snapshot.docs.map(mapDocToPost);
     } catch (error) {
         console.error("Error fetching posts for circle: ", error);
-        // Fallback to mock data on error
         return circlePosts.filter(p => p.circleId === circleId).map(p => ({
             ...p,
             id: `mock-${Math.random()}`,
@@ -319,5 +315,6 @@ export async function addCommentToPost(circleId: string, postId: string, comment
         throw error;
     }
 }
+
 
     
