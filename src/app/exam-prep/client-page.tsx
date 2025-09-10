@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import type { ExamModule } from '@/lib/types';
+import { getCommunityModules } from '@/services/missions';
 
 
 const officialModules = [
@@ -94,71 +95,28 @@ const officialModules = [
 
 export default function ExamPrepClientPage() {
     const [communityModules, setCommunityModules] = useState<ExamModule[]>([]);
-    const [importUrl, setImportUrl] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [isCommunityLoading, setIsCommunityLoading] = useState(true);
     const { toast } = useToast();
 
     useEffect(() => {
-        try {
-            const storedModules = localStorage.getItem('communityModules');
-            if (storedModules) {
-                setCommunityModules(JSON.parse(storedModules));
+        async function loadCommunityModules() {
+            try {
+                setIsCommunityLoading(true);
+                const modules = await getCommunityModules();
+                setCommunityModules(modules);
+            } catch (error) {
+                console.error("Could not load community modules:", error);
+                toast({
+                    variant: 'destructive',
+                    title: 'Error',
+                    description: 'Failed to load community-created modules.'
+                })
+            } finally {
+                setIsCommunityLoading(false);
             }
-        } catch (error) {
-            console.error("Could not load community modules from local storage:", error);
         }
-    }, []);
-    
-    const handleImportModule = async () => {
-        if (!importUrl) {
-            toast({
-                variant: 'destructive',
-                title: 'URL Required',
-                description: 'Please paste a URL to a module file.',
-            });
-            return;
-        }
-        setIsLoading(true);
-        try {
-            const response = await fetch(importUrl);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const textContent = await response.text();
-            
-            // This is a simplified parser. A real implementation would need more robust validation.
-            const objectMatch = textContent.match(/=\s*({[\s\S]*})/);
-             if (!objectMatch) {
-                throw new Error("Could not find a valid module object in the file.");
-            }
-            let objectString = objectMatch[1];
-            objectString = objectString.replace(/,\s*([}\]])/g, '$1');
-            const newModule = (new Function(`return ${objectString}`))() as ExamModule;
-
-            if (!newModule.id || !newModule.title) {
-                 throw new Error("Imported module is missing a required 'id' or 'title'.");
-            }
-            
-            const updatedModules = [...communityModules.filter(m => m.id !== newModule.id), newModule];
-            setCommunityModules(updatedModules);
-            localStorage.setItem('communityModules', JSON.stringify(updatedModules));
-            toast({
-                title: 'Module Imported!',
-                description: `Successfully imported "${newModule.title}".`,
-            });
-            setImportUrl('');
-
-        } catch (error: any) {
-            console.error("Failed to import module:", error);
-            toast({
-                variant: 'destructive',
-                title: 'Import Failed',
-                description: error.message || 'Could not import the module from the provided URL. Please check the URL and the file format.',
-            });
-        } finally {
-            setIsLoading(false);
-        }
-    }
+        loadCommunityModules();
+    }, [toast]);
 
 
   return (
@@ -201,26 +159,19 @@ export default function ExamPrepClientPage() {
       
       <div className="space-y-4">
         <h2 className="text-2xl font-bold font-headline">Community Modules</h2>
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2"><LinkIcon/> Import Community Module</CardTitle>
-                <CardDescription>
-                    Paste the URL to a community-created module file (e.g., from a GitHub Gist) to add it to your library.
-                </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col sm:flex-row items-end gap-2">
-                <div className="w-full">
-                    <Label htmlFor="module-url">Module URL</Label>
-                    <Input id="module-url" placeholder="https://..." value={importUrl} onChange={e => setImportUrl(e.target.value)} disabled={isLoading} />
-                </div>
-                 <Button onClick={handleImportModule} disabled={isLoading} className="w-full sm:w-auto">
-                    {isLoading ? <Loader2 className="animate-spin" /> : 'Import Module'}
-                </Button>
-            </CardContent>
-        </Card>
         
-        {communityModules.length === 0 ? (
-            <p className="text-muted-foreground text-center py-4">No community modules imported yet.</p>
+        {isCommunityLoading ? (
+            <div className="flex items-center justify-center h-24">
+                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                <p className="ml-2 text-muted-foreground">Loading community modules...</p>
+            </div>
+        ) : communityModules.length === 0 ? (
+            <Card>
+                <CardContent className="p-6 text-center text-muted-foreground">
+                    <p>No community modules have been published yet.</p>
+                    <p className="text-sm">Be the first to create one via the <Link href="/peer-teaching" className="text-primary hover:underline">Peer-Teaching Mission</Link> page!</p>
+                </CardContent>
+            </Card>
         ) : (
             <div className="responsive-card-grid">
                 {communityModules.map((module) => (
@@ -240,6 +191,11 @@ export default function ExamPrepClientPage() {
                                 <strong>Warning:</strong> This is a community-provided module. Content has not been officially verified and this feature is for demonstration only.
                             </p>
                         </CardContent>
+                        <div className="p-6 pt-0">
+                            <Button className="w-full" variant="secondary" disabled>
+                                View Module (Coming Soon)
+                            </Button>
+                        </div>
                     </Card>
                 ))}
             </div>

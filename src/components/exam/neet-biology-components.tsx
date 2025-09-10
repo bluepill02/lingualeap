@@ -8,7 +8,8 @@ import { BookOpen, AlertTriangle, Lightbulb, Target } from 'lucide-react';
 import type { NeetModule } from '@/lib/types';
 import { MarkdownRenderer } from './markdown-renderer';
 import { AiPracticeGenerator } from './ai-practice-generator';
-import { generateNeetQuiz, generateNeetFlashcards } from '@/ai/flows/neet-quiz-generator';
+import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
+import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 
 export function BiologyLearnCard({ content }: { content: NeetModule }) {
   const { stateBoardGaps = [], extraNeetConcepts = [], ncertReadingGuide = [] } = content;
@@ -83,6 +84,14 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
           )}
         </CardContent>
       </Card>
+
+      <AiPracticeGenerator
+        subject="Biology"
+        chapter={content.title}
+        quizGeneratorFn={generateNeetQuiz}
+        flashcardGeneratorFn={generateNeetFlashcards}
+        isFlashcardSupported={true}
+      />
     </div>
   );
 }

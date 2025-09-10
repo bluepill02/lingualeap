@@ -523,3 +523,17 @@ export interface InterviewFeedbackOutput {
   overallFeedback: OverallFeedback;
   detailedFeedback: IndividualFeedback[];
 }
+
+export interface StudyBuddyInput {
+    currentUser: User;
+    otherMembers: User[];
+}
+
+export interface StudyBuddyOutput {
+    bestMatch?: {
+        id: string;
+        name: string;
+        avatarUrl: string;
+        reason: string;
+    };
+}

@@ -13,8 +13,10 @@ import {
     limit,
     getDocs,
     Timestamp,
+    addDoc,
 } from 'firebase/firestore';
-import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
+import type { MissionSubmissionInput, MissionFeedbackOutput, ExamModule } from '@/lib/types';
+import { v4 as uuidv4 } from 'uuid';
 
 interface MissionSubmissionRecord {
     userId: string;
@@ -74,3 +76,60 @@ export async function getLatestMissionSubmission(
         throw new Error("Could not retrieve your previous submissions.");
     }
 }
+
+export async function publishMissionToCommunity(submission: MissionSubmissionInput): Promise<void> {
+    try {
+        const communityModulesRef = collection(db, 'community-modules');
+
+        // Transform the submission into an ExamModule structure
+        const communityModule: Partial<ExamModule> = {
+            id: `community-${uuidv4()}`,
+            title: `Community: ${submission.concept}`,
+            examName: 'NEET',
+            language: 'English',
+            category: submission.concept,
+            vocabulary: [
+                {
+                    word: "Core Concept",
+                    romanization: submission.concept,
+                    definition: submission.script,
+                    partOfSpeech: 'Explanation',
+                    sentence: submission.diagramDescription,
+                    sentenceTranslation: 'Visual Analogy'
+                }
+            ],
+            quizzes: submission.mcqs.map(mcq => ({
+                type: 'multiple-choice',
+                question: mcq.question,
+                options: mcq.options,
+                answer: mcq.correctAnswer
+            })),
+            errorAnalysis: []
+        };
+        
+        await addDoc(communityModulesRef, communityModule);
+
+    } catch(error) {
+         console.error("Error publishing mission to community: ", error);
+        throw new Error("Could not publish your mission.");
+    }
+}
+
+
+export async function getCommunityModules(): Promise<ExamModule[]> {
+    try {
+        const communityModulesRef = collection(db, 'community-modules');
+        const q = query(communityModulesRef, orderBy('title'), limit(10));
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+            return [];
+        }
+
+        return snapshot.docs.map(doc => doc.data() as ExamModule);
+    } catch(error) {
+        console.error("Error fetching community modules:", error);
+        return [];
+    }
+}
+

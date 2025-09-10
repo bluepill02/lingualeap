@@ -15,11 +15,9 @@ import { provideMissionFeedback } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
-import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
-import { app } from '@/lib/firebase';
-import { saveMissionSubmission, getLatestMissionSubmission } from '@/services/missions';
-import { Skeleton } from '@/components/ui/skeleton';
 import { useUser } from '@/context/user-context';
+import { saveMissionSubmission, getLatestMissionSubmission, publishMissionToCommunity } from '@/services/missions';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const mission = {
     id: 'newtons-third-law',
@@ -46,8 +44,10 @@ export default function PeerTeachingPage() {
     const [diagram, setDiagram] = useState('');
     const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
+    const [isPublishing, setIsPublishing] = useState(false);
     const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
+    const [lastSubmission, setLastSubmission] = useState<MissionSubmissionInput | null>(null);
     
     const { toast } = useToast();
     
@@ -56,15 +56,17 @@ export default function PeerTeachingPage() {
             getLatestMissionSubmission(firebaseUser.uid, mission.id)
                 .then(latestSubmission => {
                     if (latestSubmission) {
-                        setScript(latestSubmission.submission.script);
-                        setDiagram(latestSubmission.submission.diagramDescription);
-                        const loadedMcqs = latestSubmission.submission.mcqs.map(mcq => ({
+                        const submissionData = latestSubmission.submission;
+                        setScript(submissionData.script);
+                        setDiagram(submissionData.diagramDescription);
+                        const loadedMcqs = submissionData.mcqs.map(mcq => ({
                             question: mcq.question || '',
                             options: mcq.options || ['', '', '', ''],
                             correctAnswer: mcq.correctAnswer || '',
                         }));
                         setMcqs(loadedMcqs);
                         setFeedback(latestSubmission.feedback);
+                        setLastSubmission(submissionData);
                     }
                 })
                 .catch(error => {
@@ -123,6 +125,8 @@ export default function PeerTeachingPage() {
                 diagramDescription: diagram,
                 mcqs: mcqs 
             };
+            
+            setLastSubmission(submission);
 
             const feedbackResult = await provideMissionFeedback(submission);
             setFeedback(feedbackResult);
@@ -145,11 +149,34 @@ export default function PeerTeachingPage() {
         }
     }
     
+    const handlePublish = async () => {
+        if (!firebaseUser || !lastSubmission) return;
+        
+        setIsPublishing(true);
+        try {
+            await publishMissionToCommunity(lastSubmission);
+            toast({
+                title: 'Mission Published!',
+                description: 'Your micro-lesson is now available for the community to learn from. Thank you!',
+            });
+        } catch(error) {
+            console.error("Error publishing mission:", error);
+            toast({
+                variant: 'destructive',
+                title: 'Publishing Failed',
+                description: 'Could not publish your mission. Please try again.',
+            });
+        } finally {
+            setIsPublishing(false);
+        }
+    }
+
     const resetForm = () => {
         setScript('');
         setDiagram('');
         setMcqs(initialMcqState);
         setFeedback(null);
+        setLastSubmission(null);
     }
     
     if (isPageLoading) {
@@ -290,7 +317,10 @@ export default function PeerTeachingPage() {
                     </Alert>
                     <Separator />
                     <div className="flex flex-col sm:flex-row gap-2">
-                        <Button variant="secondary" className="flex-1">Submit to Peer Review</Button>
+                        <Button className="flex-1" onClick={handlePublish} disabled={isPublishing}>
+                             {isPublishing && <Loader2 className="mr-2 animate-spin"/>}
+                            Publish to Community
+                        </Button>
                         <Button variant="outline" className="flex-1" onClick={resetForm}>
                             <RefreshCw className="mr-2" /> Start New Mission
                         </Button>

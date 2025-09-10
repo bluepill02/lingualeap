@@ -14,12 +14,12 @@ import type { NeetQuizGeneratorOutput, TnpscQuizGeneratorInput, NeetFlashcardGen
 import { MarkdownRenderer } from './markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from "framer-motion";
+import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 
 interface AiPracticeGeneratorProps {
   subject: 'Physics' | 'Chemistry' | 'Biology' | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science' | 'Aptitude' | 'Current Affairs' | 'Language';
   chapter: string;
   quizGeneratorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
-  flashcardGeneratorFn?: (input: any) => Promise<NeetFlashcardGeneratorOutput>;
   isFlashcardSupported?: boolean;
 }
 
@@ -31,7 +31,7 @@ type QuizState = {
 type Language = 'English' | 'Tamil';
 type PracticeType = 'mcq' | 'flashcards';
 
-export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashcardGeneratorFn, isFlashcardSupported = false }: AiPracticeGeneratorProps) {
+export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, isFlashcardSupported = false }: AiPracticeGeneratorProps) {
   const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
   const [language, setLanguage] = useState<Language>('English');
@@ -96,8 +96,7 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
   }
 
   const handleGenerateFlashcards = async () => {
-    if (!flashcardGeneratorFn) return;
-    const result = await flashcardGeneratorFn({
+    const result = await generateNeetFlashcards({
         subject: subject as NeetQuizGeneratorInput['subject'],
         chapter,
         numFlashcards: numItems,
@@ -134,7 +133,7 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
   const getCorrectAnswersCount = () => {
     if (!quizData || !quizState) return 0;
     return quizData.quizzes.filter(
-      (quiz, index) => quizState.answers[index] === quiz.answer
+      (quiz, index) => answers[index] === quiz.answer
     ).length;
   };
 

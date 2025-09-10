@@ -2,6 +2,7 @@
 
 import { z } from 'genkit';
 import { languageMap } from './types';
+import type { User, StudyBuddyInput, StudyBuddyOutput } from './types';
 
 // This file contains Zod schemas that are strictly for server-side validation.
 // They depend on Genkit's Zod instance and should not be imported into client components.
@@ -152,3 +153,29 @@ export const InterviewFeedbackOutputSchema = z.object({
   overallFeedback: OverallFeedbackSchema,
   detailedFeedback: z.array(IndividualFeedbackSchema),
 });
+
+
+const UserSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  avatarUrl: z.string(),
+  persona: z.string(),
+});
+
+export const StudyBuddyInputSchema = z.object({
+    currentUser: UserSchema.extend({
+        // No need for a full User schema from types.ts, just what's needed.
+        // In a real app this might be more extensive.
+    }),
+    otherMembers: z.array(UserSchema),
+}) satisfies z.ZodType<StudyBuddyInput>;
+
+
+export const StudyBuddyOutputSchema = z.object({
+  bestMatch: z.object({
+      id: z.string(),
+      name: z.string(),
+      avatarUrl: z.string(),
+      reason: z.string().describe("A short, friendly explanation for why this user is a good match."),
+  }).optional(),
+}) satisfies z.ZodType<StudyBuddyOutput>;
