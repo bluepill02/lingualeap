@@ -21,54 +21,114 @@ import {
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { mockUser } from '@/lib/data';
 import { Separator } from '../ui/separator';
 import { Calendar, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { app } from '@/lib/firebase';
+import { getUserSettings, updateUserSettings } from '@/services/user';
+import type { User } from '@/lib/types';
+import { Skeleton } from '@/components/ui/skeleton';
+
+function SettingsSkeleton() {
+    return (
+        <div className="space-y-8">
+             <Card>
+                <CardHeader>
+                    <Skeleton className="h-6 w-1/4" />
+                    <Skeleton className="h-4 w-1/2" />
+                </CardHeader>
+                <CardContent className="space-y-6">
+                    <div className="flex items-center gap-4">
+                        <Skeleton className="h-20 w-20 rounded-full" />
+                        <Skeleton className="h-10 w-24" />
+                    </div>
+                     <Skeleton className="h-10 w-full" />
+                     <Skeleton className="h-10 w-24" />
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <Skeleton className="h-6 w-1/4" />
+                    <Skeleton className="h-4 w-1/2" />
+                </CardHeader>
+                <CardContent className="space-y-6">
+                     <Skeleton className="h-12 w-full" />
+                     <Skeleton className="h-10 w-32" />
+                </CardContent>
+            </Card>
+        </div>
+    );
+}
+
 
 export default function SettingsPage() {
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
-  const [name, setName] = useState(mockUser.name);
-  const [email, setEmail] = useState(mockUser.email);
-  const [language, setLanguage] = useState(mockUser.language);
-  const [timezone, setTimezone] = useState(mockUser.timezone);
+  const [userSettings, setUserSettings] = useState<Partial<User>>({});
   const [isSaving, setIsSaving] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
-
-  // State for notifications
-  const [dailyReminders, setDailyReminders] = useState(true);
-  const [smartScheduling, setSmartScheduling] = useState(false);
-  const [promotionalEmails, setPromotionalEmails] = useState(false);
   
   useEffect(() => {
     const auth = getAuth(app);
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setCurrentUser(user);
-        // In a real app, you would fetch user settings from a database here
-        // For now, we'll use mock data and local state
-        setName(user.displayName || mockUser.name);
-        setEmail(user.email || mockUser.email);
+        try {
+            const settings = await getUserSettings(user.uid);
+            setUserSettings(settings || { name: user.displayName, email: user.email });
+        } catch(error) {
+            console.error("Failed to load user settings", error);
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not load your settings.' });
+        } finally {
+            setIsLoading(false);
+        }
       } else {
         setCurrentUser(null);
+        setIsLoading(false);
       }
     });
     return () => unsubscribe();
-  }, []);
+  }, [toast]);
 
-  const handleSave = (section: string) => {
+  const handleFieldChange = (field: keyof User, value: any) => {
+    setUserSettings(prev => ({...prev, [field]: value}));
+  }
+
+  const handleSave = async (section: string) => {
+    if (!currentUser) {
+        toast({ variant: 'destructive', title: 'Not Authenticated', description: 'You must be logged in to save settings.'});
+        return;
+    }
     setIsSaving(true);
-    // Simulate API call
-    setTimeout(() => {
+    try {
+        await updateUserSettings(currentUser.uid, userSettings);
+        toast({
+            title: 'Settings Saved',
+            description: `Your ${section} preferences have been updated.`,
+        });
+    } catch (error) {
+        console.error(`Failed to save ${section}`, error);
+        toast({ variant: 'destructive', title: 'Save Failed', description: 'Could not save your settings.' });
+    } finally {
       setIsSaving(false);
-      toast({
-        title: 'Settings Saved',
-        description: `Your ${section} preferences have been updated.`,
-      });
-    }, 1000);
+    }
   };
+
+  if (isLoading) {
+      return <SettingsSkeleton />
+  }
+
+  if (!currentUser) {
+      return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Access Denied</CardTitle>
+                <CardDescription>Please log in to view and manage your settings.</CardDescription>
+            </CardHeader>
+        </Card>
+      );
+  }
 
   return (
     <div className="container mx-auto space-y-8">
@@ -91,19 +151,19 @@ export default function SettingsPage() {
         <CardContent className="space-y-6">
           <div className="flex items-center gap-4">
             <Avatar className="h-20 w-20">
-              <AvatarImage src={currentUser?.photoURL || mockUser.avatarUrl} alt={name} />
-              <AvatarFallback>{name.charAt(0)}</AvatarFallback>
+              <AvatarImage src={userSettings.avatarUrl || currentUser.photoURL || undefined} alt={userSettings.name} />
+              <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
-            <Button variant="outline" disabled={isSaving}>Change Avatar</Button>
+            <Button variant="outline" disabled>Change Avatar</Button>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="name">Name</Label>
-              <Input id="name" value={name} onChange={(e) => setName(e.target.value)} disabled={isSaving} />
+              <Input id="name" value={userSettings.name || ''} onChange={(e) => handleFieldChange('name', e.target.value)} disabled={isSaving} />
             </div>
             <div>
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} disabled={isSaving || !!currentUser?.email}/>
+              <Input id="email" type="email" value={userSettings.email || ''} onChange={(e) => handleFieldChange('email', e.target.value)} disabled={isSaving || !!currentUser.email}/>
             </div>
           </div>
           <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
@@ -145,7 +205,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="language">Learning Language</Label>
-              <Select value={language} onValueChange={(value) => setLanguage(value)} disabled={isSaving}>
+              <Select value={userSettings.language || ''} onValueChange={(value) => handleFieldChange('language', value)} disabled={isSaving}>
                 <SelectTrigger id="language">
                   <SelectValue placeholder="Select language" />
                 </SelectTrigger>
@@ -160,7 +220,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <Label htmlFor="timezone">Timezone</Label>
-              <Select value={timezone} onValueChange={(value) => setTimezone(value)} disabled={isSaving}>
+              <Select value={userSettings.timezone || ''} onValueChange={(value) => handleFieldChange('timezone', value)} disabled={isSaving}>
                 <SelectTrigger id="timezone">
                   <SelectValue placeholder="Select timezone" />
                 </SelectTrigger>
@@ -196,14 +256,14 @@ export default function SettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+            {/* Placeholder UI - In a real app, these would come from userSettings */}
             <div className="flex items-center justify-between rounded-lg border p-4">
                 <div>
                     <h3 className="font-semibold">Daily Reminders</h3>
                     <p className="text-sm text-muted-foreground">Get reminded of due flashcards and upcoming streak expiry.</p>
                 </div>
                 <Switch 
-                  checked={dailyReminders} 
-                  onCheckedChange={setDailyReminders} 
+                  defaultChecked
                   disabled={isSaving} 
                   aria-label="Toggle daily reminders"
                 />
@@ -214,8 +274,6 @@ export default function SettingsPage() {
                     <p className="text-sm text-muted-foreground">Automatically find time in your calendar for micro-sessions.</p>
                 </div>
                  <Switch 
-                  checked={smartScheduling} 
-                  onCheckedChange={setSmartScheduling} 
                   disabled 
                   aria-label="Toggle smart scheduling"
                 />
@@ -226,8 +284,6 @@ export default function SettingsPage() {
                     <p className="text-sm text-muted-foreground">Receive updates on new features and special offers.</p>
                 </div>
                  <Switch 
-                  checked={promotionalEmails} 
-                  onCheckedChange={setPromotionalEmails} 
                   disabled={isSaving} 
                   aria-label="Toggle promotional emails"
                 />
