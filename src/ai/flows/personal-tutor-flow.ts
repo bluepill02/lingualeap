@@ -25,8 +25,8 @@ You can answer questions about grammar, vocabulary, culture, or provide practice
 
 Here is the conversation history:
 {{#each history}}
-{{#if (eq this.role 'user')}}User: {{this.content}}{{/if}}
-{{#if (eq this.role 'model')}}Tutor: {{this.content}}{{/if}}
+{{#if user}}User: {{user}}{{/if}}
+{{#if model}}Tutor: {{model}}{{/if}}
 {{/each}}
 
 Now, respond to the user's latest message:
@@ -42,7 +42,20 @@ const personalTutorFlow = ai.defineFlow(
     outputSchema: PersonalTutorOutputSchema,
   },
   async (input) => {
-    const llmResponse = await prompt(input);
+    // Rework the history to be compatible with Handlebars' #if helper
+    const historyForPrompt = input.history.map(message => {
+        if (message.role === 'user') {
+            return { user: message.content };
+        } else {
+            return { model: message.content };
+        }
+    });
+    
+    const llmResponse = await prompt({
+        ...input,
+        history: historyForPrompt
+    });
+
     const responseText = llmResponse.output || "I'm not sure how to respond to that. Could you ask in a different way?";
     return { response: responseText };
   }
