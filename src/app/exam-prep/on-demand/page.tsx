@@ -13,7 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
 import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
-import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorOutput } from '@/lib/types';
+import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorOutput, NeetFlashcardGeneratorInput } from '@/lib/types';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { useUser } from '@/context/user-context';
 import Link from 'next/link';
@@ -58,6 +58,10 @@ export default function OnDemandQuizPage() {
   useEffect(() => {
     // Reset subject when exam type changes
     setSubject(availableSubjects[0]);
+    // If switching to TNPSC, default back to MCQ tab since flashcards are disabled
+    if (examType === 'TNPSC') {
+        setPracticeType('mcq');
+    }
   }, [examType, availableSubjects]);
 
 
@@ -97,7 +101,7 @@ export default function OnDemandQuizPage() {
         });
       } else {
         // Flashcard generation (currently assumes NEET subjects)
-        const flashcardInput = {
+        const flashcardInput: NeetFlashcardGeneratorInput = {
             subject: subject as NeetQuizGeneratorInput['subject'],
             chapter: prompt,
             numFlashcards: numItems,
