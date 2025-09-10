@@ -14,48 +14,51 @@ export default function ARImmersionPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
-  const [stream, setStream] = useState<MediaStream | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalyzeImageOutput | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [isCameraOn, setIsCameraOn] = useState(false);
+  
   const { toast } = useToast();
 
   useEffect(() => {
-    // Cleanup stream when component unmounts
+    let stream: MediaStream | null = null;
+    
+    const getCameraPermission = async () => {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        toast({
+          variant: 'destructive',
+          title: 'Camera Not Supported',
+          description: 'Your browser does not support camera access.',
+        });
+        setHasCameraPermission(false);
+        return;
+      }
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        setHasCameraPermission(true);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+        setIsCameraOn(true);
+      } catch (error) {
+        console.error('Error accessing camera:', error);
+        setHasCameraPermission(false);
+        toast({
+          variant: 'destructive',
+          title: 'Camera Access Denied',
+          description: 'Please enable camera permissions in your browser settings to use this app.',
+        });
+      }
+    };
+
+    getCameraPermission();
+
     return () => {
       stream?.getTracks().forEach(track => track.stop());
     };
-  }, [stream]);
-
-  const getCameraPermission = async () => {
-    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-      toast({
-        variant: 'destructive',
-        title: 'Camera Not Supported',
-        description: 'Your browser does not support camera access.',
-      });
-      setHasCameraPermission(false);
-      return;
-    }
-    try {
-      const cameraStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
-      setHasCameraPermission(true);
-      setStream(cameraStream);
-      if (videoRef.current) {
-        videoRef.current.srcObject = cameraStream;
-      }
-    } catch (error) {
-      console.error('Error accessing camera:', error);
-      setHasCameraPermission(false);
-      toast({
-        variant: 'destructive',
-        title: 'Camera Access Denied',
-        description: 'Please enable camera permissions in your browser settings to use this app.',
-      });
-    }
-  };
+  }, [toast]);
 
   const captureImage = async () => {
     if (!videoRef.current || !canvasRef.current) return;
@@ -112,32 +115,30 @@ export default function ARImmersionPage() {
       <Card>
         <CardContent className="p-6">
           <div className="relative aspect-video w-full bg-muted rounded-md overflow-hidden flex items-center justify-center">
-            {stream ? (
-              <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
-            ) : (
-                <div className="text-center">
-                    <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
-                    <h3 className="font-semibold">Start your camera to begin</h3>
-                    <p className="text-sm text-muted-foreground">Allow camera access when prompted.</p>
-                </div>
+            {hasCameraPermission === null && (
+              <div className="text-center p-4">
+                <Loader2 className="w-8 h-8 mx-auto animate-spin text-muted-foreground mb-4"/>
+                <p>Requesting camera access...</p>
+              </div>
             )}
-             <div className="absolute inset-0 flex items-center justify-center">
+            <video ref={videoRef} className={`w-full h-full object-cover ${!isCameraOn ? 'hidden' : ''}`} autoPlay muted playsInline />
+            <div className="absolute inset-0 flex items-center justify-center">
               {hasCameraPermission === false && (
                 <Alert variant="destructive" className="m-4">
                   <AlertTitle>Camera Access Required</AlertTitle>
                   <AlertDescription>Please allow camera access to use this feature.</AlertDescription>
                 </Alert>
               )}
+               {!isCameraOn && hasCameraPermission && (
+                    <div className="text-center">
+                        <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
+                        <h3 className="font-semibold">Starting camera...</h3>
+                    </div>
+                )}
             </div>
           </div>
           <div className="mt-4 flex justify-center">
-            {!stream ? (
-              <Button size="lg" onClick={getCameraPermission}>
-                <Camera className="mr-2"/>
-                Start Camera
-              </Button>
-            ) : (
-              <Button size="lg" onClick={captureImage} disabled={!hasCameraPermission || isLoading}>
+            <Button size="lg" onClick={captureImage} disabled={!hasCameraPermission || isLoading || !isCameraOn}>
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 animate-spin" />
@@ -150,8 +151,6 @@ export default function ARImmersionPage() {
                 </>
               )}
             </Button>
-            )}
-            
           </div>
         </CardContent>
       </Card>
@@ -182,7 +181,7 @@ export default function ARImmersionPage() {
                       key={index}
                       variant={
                         isSubmitted 
-                          ? (option === analysisResult.quiz.answer ? 'default' : (selectedOption === option ? 'destructive' : 'outline'))
+                          ? (option === analysisResult.quiz.answer ? 'success' : (selectedOption === option ? 'destructive' : 'outline'))
                           : (selectedOption === option ? 'secondary' : 'outline')
                       }
                       className="w-full justify-start"
@@ -222,3 +221,4 @@ export default function ARImmersionPage() {
     </div>
   );
 }
+
