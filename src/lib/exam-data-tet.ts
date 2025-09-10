@@ -91,7 +91,7 @@ export const tnPscTetVocabulary: ExamModule = {
         },
         {
             pitfall: 'Incorrectly Identifying Vallinam Rules (வல்லினம் மிகுமிடங்கள்)',
-            tip: 'The rules for adding a hard consonant between two words are critical. A common mistake is adding "க்" after a verb. Remember, a hard consonant is generally NOT added after a finite verb (e.g., "వந்த பையன்" is wrong, "வந்த பையன்" is right). Focus on rules related to cases (வேற்றுமை) and word types.'
+            tip: 'The rules for adding a hard consonant between two words are critical. A common mistake is adding "க்" after a verb. Remember, a hard consonant is generally NOT added after a finite verb (e.g., "வந்த பையன்" is right, not "வந்தக் பையன்"). Focus on rules related to cases (வேற்றுமை) and word types.'
         }
     ]
 };
