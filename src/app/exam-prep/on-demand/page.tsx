@@ -6,16 +6,19 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Sparkles, Loader2, CheckCircle, XCircle, Lock } from 'lucide-react';
+import { Sparkles, Loader2, CheckCircle, XCircle, Lock, Copy, FileQuestion } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
 import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
-import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput } from '@/lib/types';
+import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
+import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorOutput } from '@/lib/types';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { useUser } from '@/context/user-context';
 import Link from 'next/link';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from 'framer-motion';
 
 type QuizState = {
   answers: (string | null)[];
@@ -26,6 +29,7 @@ type ExamType = 'NEET' | 'TNPSC';
 type Subject = 'Physics' | 'Chemistry' | 'Biology' | 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science' | 'Aptitude' | 'Current Affairs' | 'Language';
 type Difficulty = 'Easy' | 'Medium' | 'Hard';
 type Language = 'English' | 'Tamil';
+type PracticeType = 'mcq' | 'flashcards';
 
 const neetSubjects: Subject[] = ['Physics', 'Chemistry', 'Biology'];
 const tnpscSubjects: Subject[] = ['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language'];
@@ -35,13 +39,17 @@ export default function OnDemandQuizPage() {
   const [prompt, setPrompt] = useState('Optics');
   const [examType, setExamType] = useState<ExamType>('NEET');
   const [subject, setSubject] = useState<Subject>('Physics');
-  const [numQuestions, setNumQuestions] = useState(5);
+  const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<Difficulty>('Medium');
   const [language, setLanguage] = useState<Language>('English');
+  const [practiceType, setPracticeType] = useState<PracticeType>('mcq');
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [quizData, setQuizData] = useState<NeetQuizGeneratorOutput | null>(null);
   const [quizState, setQuizState] = useState<QuizState | null>(null);
+  const [flashcardData, setFlashcardData] = useState<NeetFlashcardGeneratorOutput | null>(null);
+  const [flippedStates, setFlippedStates] = useState<boolean[]>([]);
 
   const { toast } = useToast();
 
@@ -50,10 +58,10 @@ export default function OnDemandQuizPage() {
   useEffect(() => {
     // Reset subject when exam type changes
     setSubject(availableSubjects[0]);
-  }, [examType]);
+  }, [examType, availableSubjects]);
 
 
-  const handleGenerateQuiz = async () => {
+  const handleGenerate = async () => {
     if (!prompt) {
       toast({
         variant: 'destructive',
@@ -66,30 +74,46 @@ export default function OnDemandQuizPage() {
     setIsLoading(true);
     setQuizData(null);
     setQuizState(null);
+    setFlashcardData(null);
+    setFlippedStates([]);
 
     try {
-      let result;
-      const commonInput = { chapter: prompt, numQuestions, difficulty, language, subject };
+      if (practiceType === 'mcq') {
+        let result;
+        const commonInput = { chapter: prompt, numQuestions: numItems, difficulty, language, subject };
 
-      if (examType === 'NEET') {
-        const neetInput: NeetQuizGeneratorInput = commonInput;
-        result = await generateNeetQuiz(neetInput);
-      } else { 
-        const tnpscInput: TnpscQuizGeneratorInput = commonInput;
-        result = await generateTnpscQuiz(tnpscInput);
+        if (examType === 'NEET') {
+          const neetInput: NeetQuizGeneratorInput = commonInput;
+          result = await generateNeetQuiz(neetInput);
+        } else { 
+          const tnpscInput: TnpscQuizGeneratorInput = commonInput;
+          result = await generateTnpscQuiz(tnpscInput);
+        }
+        
+        setQuizData(result);
+        setQuizState({
+          answers: Array(result.quizzes.length).fill(null),
+          submitted: false,
+        });
+      } else {
+        // Flashcard generation (currently assumes NEET subjects)
+        const flashcardInput = {
+            subject: subject as NeetQuizGeneratorInput['subject'],
+            chapter: prompt,
+            numFlashcards: numItems,
+            difficulty,
+            language
+        }
+        const result = await generateNeetFlashcards(flashcardInput);
+        setFlashcardData(result);
+        setFlippedStates(Array(result.flashcards.length).fill(false));
       }
-      
-      setQuizData(result);
-      setQuizState({
-        answers: Array(result.quizzes.length).fill(null),
-        submitted: false,
-      });
     } catch (error: any) {
-      console.error('Error generating quiz:', error);
+      console.error(`Error generating ${practiceType}:`, error);
       toast({
         variant: 'destructive',
-        title: 'Quiz Generation Failed',
-        description: error.message || 'Could not generate the quiz. Please try a different prompt.',
+        title: 'Generation Failed',
+        description: error.message || `Could not generate the ${practiceType}. Please try a different prompt.`,
       });
     } finally {
       setIsLoading(false);
@@ -113,6 +137,14 @@ export default function OnDemandQuizPage() {
       return quizData.quizzes.filter(
         (quiz, index) => quizState.answers[index]?.trim().toLowerCase() === quiz.answer.trim().toLowerCase()
       ).length;
+  }
+  
+  const handleFlipCard = (index: number) => {
+    setFlippedStates(current => {
+        const newFlipped = [...current];
+        newFlipped[index] = !newFlipped[index];
+        return newFlipped;
+    })
   }
 
 
@@ -151,7 +183,14 @@ export default function OnDemandQuizPage() {
                 </Select>
             </div>
           </div>
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <Tabs value={practiceType} onValueChange={(value) => setPracticeType(value as PracticeType)}>
+            <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="mcq"><FileQuestion className="mr-2"/> MCQs</TabsTrigger>
+                <TabsTrigger value="flashcards" disabled={examType === 'TNPSC'}><Copy className="mr-2"/> Flashcards (NEET Only)</TabsTrigger>
+            </TabsList>
+          </Tabs>
+
+           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
                     <Label htmlFor="subject">Subject</Label>
                     <Select value={subject} onValueChange={(value: Subject) => setSubject(value)} disabled={isLoading}>
@@ -164,15 +203,16 @@ export default function OnDemandQuizPage() {
                     </Select>
                 </div>
                  <div>
-                    <Label htmlFor="num-questions">Questions</Label>
-                    <Select value={String(numQuestions)} onValueChange={(value) => setNumQuestions(Number(value))} disabled={isLoading}>
-                        <SelectTrigger id="num-questions"><SelectValue /></SelectTrigger>
-                        <SelectContent>
-                           {[3, 5, 10].map(num => (
-                             <SelectItem key={num} value={String(num)}>{num} Questions</SelectItem>
-                           ))}
-                        </SelectContent>
-                    </Select>
+                    <Label htmlFor="num-items">Quantity</Label>
+                    <Input 
+                      id="num-items" 
+                      type="number" 
+                      min="1" 
+                      max="10" 
+                      value={numItems} 
+                      onChange={(e) => setNumItems(parseInt(e.target.value))} 
+                      disabled={isLoading}
+                    />
                 </div>
                  <div>
                     <Label htmlFor="difficulty">Difficulty</Label>
@@ -185,35 +225,35 @@ export default function OnDemandQuizPage() {
                         </SelectContent>
                     </Select>
                 </div>
-                 <div>
-                    <Label htmlFor="language">Language</Label>
-                    <Select value={language} onValueChange={(value: Language) => setLanguage(value)} disabled={isLoading}>
-                        <SelectTrigger id="language"><SelectValue /></SelectTrigger>
-                        <SelectContent>
-                           <SelectItem value="English">English</SelectItem>
-                           <SelectItem value="Tamil">Tamil</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
+           </div>
+           <div>
+              <Label htmlFor="language">Language</Label>
+              <Select value={language} onValueChange={(value: Language) => setLanguage(value)} disabled={isLoading}>
+                  <SelectTrigger id="language"><SelectValue /></SelectTrigger>
+                  <SelectContent>
+                      <SelectItem value="English">English</SelectItem>
+                      <SelectItem value="Tamil">Tamil</SelectItem>
+                  </SelectContent>
+              </Select>
            </div>
 
-          <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
+          <Button onClick={handleGenerate} disabled={isLoading} className="w-full">
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 animate-spin" />
-                Generating Quiz...
+                Generating...
               </>
             ) : (
               <>
                 <Sparkles className="mr-2" />
-                Generate Quiz
+                Generate
               </>
             )}
           </Button>
         </CardContent>
       </Card>
       
-      {quizData && quizState && (
+      {practiceType === 'mcq' && quizData && quizState && (
         <Card className="animate-in fade-in-50">
             <CardHeader>
                 <CardTitle>{quizData.title || 'Your Custom Quiz'}</CardTitle>
@@ -288,7 +328,7 @@ export default function OnDemandQuizPage() {
                     <AlertDescription>
                         You scored {getCorrectAnswersCount()} out of {quizData.quizzes.length} correct.
                     </AlertDescription>
-                    <Button onClick={handleGenerateQuiz} variant="outline" className="mt-4" disabled={isLoading}>
+                    <Button onClick={handleGenerate} variant="outline" className="mt-4" disabled={isLoading}>
                          {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}
                         Generate Another Quiz
                     </Button>
@@ -297,6 +337,39 @@ export default function OnDemandQuizPage() {
             </CardContent>
         </Card>
       )}
+
+      {practiceType === 'flashcards' && flashcardData && (
+        <div className="space-y-6 mt-6 animate-in fade-in-50">
+            <h3 className="text-lg font-bold">Your Custom Flashcards</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {flashcardData.flashcards.map((card, index) => (
+                <div key={index} className="[perspective:1000px] h-64">
+                <motion.div
+                    className="relative w-full h-full [transform-style:preserve-3d] cursor-pointer"
+                    initial={false}
+                    animate={{ rotateY: flippedStates[index] ? 180 : 0 }}
+                    transition={{ duration: 0.6 }}
+                    onClick={() => handleFlipCard(index)}
+                >
+                    {/* Front */}
+                    <div className="absolute w-full h-full [backface-visibility:hidden] flex items-center justify-center p-4 bg-secondary rounded-lg border">
+                        <div className="prose dark:prose-invert text-center"><MarkdownRenderer>{card.front}</MarkdownRenderer></div>
+                    </div>
+                    {/* Back */}
+                    <div className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center p-4 bg-background rounded-lg border">
+                        <div className="prose dark:prose-invert text-center text-sm"><MarkdownRenderer>{card.back}</MarkdownRenderer></div>
+                    </div>
+                </motion.div>
+                </div>
+            ))}
+            </div>
+             <Button onClick={handleGenerate} variant="outline" className="w-full mt-4" disabled={isLoading}>
+                {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}
+                Generate New Flashcards
+            </Button>
+        </div>
+      )}
+
 
     </div>
   );
