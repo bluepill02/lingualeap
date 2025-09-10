@@ -1,16 +1,19 @@
+
 import type { ExamModule } from './types';
 
-export const sscCglHindiSynonymsAntonyms: ExamModule = {
-    id: 'exam-ssc-hindi-synonyms-antonyms',
-    title: 'Rajbhasha Synonyms & Antonyms',
-    examName: 'SSC CGL',
+export const sscCglHindiContent: ExamModule = {
+    id: 'exam-ssc-cgl-hindi',
+    title: 'SSC CGL: Hindi Language & Comprehension',
+    examName: 'SSC CGL (Tier-II)',
     language: 'Hindi',
-    category: 'Synonyms & Antonyms',
+    category: 'General Hindi',
+    
     vocabulary: [
+        // Synonyms (पर्यायवाची)
         {
             word: 'अमृत (Amrit)',
             romanization: 'Amrit',
-            definition: 'Synonym: सुधा (Sudha), पीयूष (Piyush); Antonym: विष (Vish)',
+            definition: 'Synonym: सुधा (Sudha), पीयूष (Piyush), सोम (Som)',
             partOfSpeech: 'Noun',
             sentence: 'देवताओं ने सागर मंथन से अमृत निकाला।',
             sentenceRoman: 'Devtao ne sagar manthan se amrit nikala.',
@@ -19,16 +22,17 @@ export const sscCglHindiSynonymsAntonyms: ExamModule = {
         {
             word: 'अग्नि (Agni)',
             romanization: 'Agni',
-            definition: 'Synonym: आग (Aag), पावक (Pavak); Antonym: जल (Jal)',
+            definition: 'Synonym: आग (Aag), पावक (Pavak), अनल (Anal)',
             partOfSpeech: 'Noun',
             sentence: 'यज्ञ में अग्नि प्रज्वलित की गई।',
             sentenceRoman: 'Yagya mein agni prajwalit ki gayi.',
             sentenceTranslation: 'The fire was lit in the holy ritual.'
         },
+        // Antonyms (विलोम)
         {
             word: 'उत्थान (Utthan)',
             romanization: 'Utthan',
-            definition: 'Synonym: उत्कर्ष (Utkarsh), प्रगति (Pragati); Antonym: पतन (Patan)',
+            definition: 'Antonym: पतन (Patan)',
             partOfSpeech: 'Noun',
             sentence: 'शिक्षा समाज के उत्थान के लिए आवश्यक है।',
             sentenceRoman: 'Shiksha samaj ke utthan ke liye avashyak hai.',
@@ -37,56 +41,68 @@ export const sscCglHindiSynonymsAntonyms: ExamModule = {
         {
             word: 'एकता (Ekta)',
             romanization: 'Ekta',
-            definition: 'Synonym: मेल (Mel), संगठन (Sangathan); Antonym: अनेकता (Anekta)',
+            definition: 'Antonym: अनेकता (Anekta), फूट (Foot)',
             partOfSpeech: 'Noun',
             sentence: 'राष्ट्रीय एकता देश की शक्ति है।',
             sentenceRoman: 'Rashtriya ekta desh ki shakti hai.',
             sentenceTranslation: 'National unity is the strength of the country.'
         },
+        // Idioms (मुहावरे)
         {
-            word: 'नवीन (Naveen)',
-            romanization: 'Naveen',
-            definition: 'Synonym: नया (Naya), आधुनिक (Aadhunik); Antonym: प्राचीन (Prachin)',
-            partOfSpeech: 'Adjective',
-            sentence: 'उन्होंने एक नवीन दृष्टिकोण प्रस्तुत किया।',
-            sentenceRoman: 'Unhone ek naveen drishtikon prastut kiya.',
-            sentenceTranslation: 'He presented a new perspective.'
+            word: 'आँखों का तारा होना',
+            romanization: 'Aankhon ka tara hona',
+            definition: 'To be very dear (apple of one\'s eye).',
+            partOfSpeech: 'Idiom',
+            sentence: 'हर बच्चा अपनी माँ की आँखों का तारा होता है।',
+            sentenceRoman: 'Har bachcha apni maa ki aankhon ka tara hota hai.',
+            sentenceTranslation: 'Every child is the apple of their mother\'s eye.'
+        },
+        // One-word substitution (अनेक शब्दों के लिए एक शब्द)
+         {
+            word: 'अविश्वसनीय (Avishvasniya)',
+            romanization: 'Avishvasniya',
+            definition: 'That which cannot be believed; Unbelievable.',
+            partOfSpeech: 'One-Word Substitution',
+            sentence: 'उसने एक अविश्वसनीय कहानी सुनाई।',
+            sentenceRoman: 'Usne ek avishvasniya kahani sunai.',
+            sentenceTranslation: 'He told an unbelievable story.'
         }
     ],
+
     quizzes: [
+        // Synonyms
         {
             type: 'multiple-choice',
-            question: 'What is the antonym of "उत्थान" (Utthan)?',
-            options: ['प्रगति (Pragati)', 'पतन (Patan)', 'उत्कर्ष (Utkarsh)', 'उन्नति (Unnati)'],
-            answer: 'पतन (Patan)'
-        },
-        {
-            type: 'multiple-choice',
-            question: 'Which of the following is a synonym for "अग्नि" (Agni)?',
+            question: 'Which of the following is a synonym for "अग्नि"?',
             options: ['जल (Jal)', 'वायु (Vayu)', 'पावक (Pavak)', 'पृथ्वी (Prithvi)'],
             answer: 'पावक (Pavak)'
         },
-        {
-            type: 'fill-in-the-blank',
-            question: 'The antonym of "नवीन" (Naveen) is ____.',
-            answer: 'प्राचीन'
-        },
-        {
-            type: 'fill-in-the-blank',
-            question: 'The synonym of "अमृत" (Amrit) is ____.',
-            answer: 'सुधा'
-        },
+        // Antonyms
         {
             type: 'multiple-choice',
-            question: 'Which word means the opposite of "एकता" (Ekta)?',
-            options: ['संगठन (Sangathan)', 'फूट (Foot)', 'अनेकता (Anekta)', 'मेल (Mel)'],
-            answer: 'अनेकता (Anekta)'
+            question: 'What is the antonym of "उत्थान"?',
+            options: ['प्रगति (Pragati)', 'पतन (Patan)', 'उत्कर्ष (Utkarsh)', 'उन्नति (Unnati)'],
+            answer: 'पतन (Patan)'
+        },
+        // Idioms
+        {
+            type: 'multiple-choice',
+            question: 'What does the idiom "आँखों का तारा होना" mean?',
+            options: ['To have beautiful eyes', 'To be a star', 'To be very dear', 'To see stars'],
+            answer: 'To be very dear'
+        },
+        // One-word substitution
+        {
+            type: 'fill-in-the-blank',
+            question: 'Something that is unbelievable is called ____.',
+            answer: 'अविश्वसनीय'
         }
     ],
+
     errorAnalysis: [
         {
             pitfall: 'Confusing Synonyms with Antonyms',
-            tip: 'Always read the question carefully. If it asks for a "विलोम" (vilom) or "विपरीतार्थक" (vipritarthak), you need an antonym. If it asks for a "पर्यायवाची" (paryayvachi) or "समानार्थक" (samanarthak), you need a synonym. Create separate mental buckets for each.'
+            tip: 'Always read the question carefully. If it asks for a "विलोम" (vilom), you need an antonym. If it asks for a "पर्यायवाची" (paryayvachi), you need a synonym. Create separate mental buckets for each.'
         },
         {
             pitfall: 'Ignoring Nuances in Meaning',
