@@ -97,7 +97,6 @@ export default function PeerTeachingPage() {
                 const optionIndex = parseInt(field.split('-')[1], 10);
                 const oldOptionValue = mcqToUpdate.options[optionIndex];
                 
-                // Create a new array for options to ensure re-render
                 mcqToUpdate.options = [...mcqToUpdate.options];
                 mcqToUpdate.options[optionIndex] = value;
                 
