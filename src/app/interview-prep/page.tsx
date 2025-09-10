@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3, ChevronDown } from 'lucide-react';
+import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3, ChevronDown, Headphones } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideInterviewFeedback, InterviewFeedbackOutput } from '@/ai/flows/interview-feedback-flow';
 import { generateInterviewQuestion } from '@/ai/flows/interview-question-generator';
@@ -49,6 +49,7 @@ type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'session_co
 interface AnswerRecord {
     question: string;
     answer: string;
+    audioBlob?: Blob;
 }
 
 const MAX_QUESTIONS = 5;
@@ -65,13 +66,16 @@ export default function InterviewPrepPage() {
     
     // Single question practice state
     const [singleFeedback, setSingleFeedback] = useState<InterviewFeedbackOutput['detailedFeedback'][0] | null>(null);
-    const [singleTranscript, setSingleTranscript] = useState<string>('');
+    const [singleAnswerRecord, setSingleAnswerRecord] = useState<AnswerRecord | null>(null);
 
 
     // Recording state
     const [isRecording, setIsRecording] = useState(false);
     const [interimTranscript, setInterimTranscript] = useState('');
     const finalTranscriptRef = useRef('');
+    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+    const audioChunksRef = useRef<Blob[]>([]);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
 
     const recognitionRef = useRef<any>(null);
     const { toast } = useToast();
@@ -92,20 +96,27 @@ export default function InterviewPrepPage() {
 
     const handleAnswerSubmission = useCallback(async () => {
         const transcript = finalTranscriptRef.current.trim();
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+        audioChunksRef.current = []; // Clear chunks for next recording
         if (!currentQuestion) return;
+
+        const newAnswer: AnswerRecord = {
+            question: currentQuestion,
+            answer: transcript || '(No answer recorded)',
+            audioBlob: audioBlob.size > 0 ? audioBlob : undefined,
+        };
 
         if (sessionState === 'practicing_single') {
              setSessionState('analyzing_single');
              try {
-                // For a retry, we send only that single exchange for feedback.
                 const feedbackResult = await provideInterviewFeedback({
                     jobRole,
-                    sessionHistory: [{ question: currentQuestion, answer: transcript }],
+                    sessionHistory: [{ question: currentQuestion, answer: newAnswer.answer }],
                 });
                 if(feedbackResult.detailedFeedback.length > 0) {
                     setSingleFeedback(feedbackResult.detailedFeedback[0]);
                 }
-                setSingleTranscript(transcript);
+                setSingleAnswerRecord(newAnswer);
                 setSessionState('single_report');
              } catch(e) {
                 console.error("Failed to get feedback for single question", e);
@@ -116,11 +127,6 @@ export default function InterviewPrepPage() {
              setInterimTranscript('');
              return;
         }
-
-        const newAnswer: AnswerRecord = {
-            question: currentQuestion,
-            answer: transcript || '(No answer recorded)',
-        };
         
         const updatedHistory = [...sessionHistory, newAnswer];
         setSessionHistory(updatedHistory);
@@ -136,6 +142,44 @@ export default function InterviewPrepPage() {
     }, [currentQuestion, sessionState, sessionHistory, fetchNextQuestion, toast, jobRole]);
 
 
+    const startRecording = async () => {
+        finalTranscriptRef.current = '';
+        setInterimTranscript('');
+        audioChunksRef.current = [];
+        
+        if (!recognitionRef.current) initializeSpeechRecognition();
+        
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            recognitionRef.current.start();
+
+            mediaRecorderRef.current = new MediaRecorder(stream);
+            mediaRecorderRef.current.ondataavailable = (event) => {
+                 if (event.data.size > 0) audioChunksRef.current.push(event.data);
+            };
+            mediaRecorderRef.current.onstop = () => {
+                stream.getTracks().forEach(track => track.stop());
+                 setTimeout(() => {
+                    handleAnswerSubmission();
+                 }, 300);
+            };
+            mediaRecorderRef.current.start();
+            setIsRecording(true);
+        } catch (err) {
+            console.error("Error starting recording:", err);
+            toast({ variant: 'destructive', title: 'Microphone Error', description: 'Could not access the microphone. Please check your permissions.' });
+        }
+    }
+
+    const stopRecording = () => {
+        if (recognitionRef.current) recognitionRef.current.stop();
+        if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+            mediaRecorderRef.current.stop();
+        }
+        setIsRecording(false);
+    }
+
+
     const initializeSpeechRecognition = useCallback(() => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
@@ -147,20 +191,6 @@ export default function InterviewPrepPage() {
         recognition.continuous = true;
         recognition.interimResults = true;
         recognition.lang = 'en-US';
-
-        recognition.onstart = () => setIsRecording(true);
-        recognition.onerror = (event: any) => {
-            console.error("Speech recognition error:", event.error);
-            toast({ variant: 'destructive', title: 'Recognition Error', description: "Sorry, I couldn't understand that. Please try again." });
-            setIsRecording(false);
-        };
-        recognition.onend = () => {
-             setIsRecording(false);
-             // Use a short timeout to ensure the final transcript is captured before submitting
-             setTimeout(() => {
-                handleAnswerSubmission();
-             }, 300);
-        };
 
         recognition.onresult = (event: any) => {
             let final = '';
@@ -178,7 +208,7 @@ export default function InterviewPrepPage() {
         
         recognitionRef.current = recognition;
 
-    }, [toast, handleAnswerSubmission]); 
+    }, [toast]); 
 
      useEffect(() => {
         initializeSpeechRecognition();
@@ -198,7 +228,7 @@ export default function InterviewPrepPage() {
         setInterimTranscript('');
         setCurrentQuestion(question);
         setSingleFeedback(null);
-        setSingleTranscript('');
+        setSingleAnswerRecord(null);
         setSessionState('practicing_single');
     }
 
@@ -206,7 +236,9 @@ export default function InterviewPrepPage() {
         if (!history || history.length === 0) return;
         setSessionState('analyzing');
         try {
-            const feedbackResult = await provideInterviewFeedback({ jobRole, sessionHistory: history });
+            // We don't need to send audio to the AI, just the transcript
+            const historyForAi = history.map(({ question, answer }) => ({ question, answer }));
+            const feedbackResult = await provideInterviewFeedback({ jobRole, sessionHistory: historyForAi });
             setFinalFeedback(feedbackResult);
             setSessionState('report');
         } catch (err) {
@@ -216,6 +248,15 @@ export default function InterviewPrepPage() {
         }
     };
     
+    const playAudio = (audioBlob?: Blob) => {
+        if (!audioBlob) return;
+        if (audioRef.current) {
+            const audioUrl = URL.createObjectURL(audioBlob);
+            audioRef.current.src = audioUrl;
+            audioRef.current.play();
+        }
+    }
+
     if (!user) {
         return (
              <div className="flex items-center justify-center h-full">
@@ -261,11 +302,9 @@ export default function InterviewPrepPage() {
                     className={cn("h-16 w-16 rounded-full transition-all duration-300", isRecording && "bg-destructive scale-110")}
                     onClick={() => {
                         if (isRecording) {
-                            recognitionRef.current.stop();
+                            stopRecording();
                         } else {
-                            finalTranscriptRef.current = '';
-                            setInterimTranscript('');
-                            recognitionRef.current.start();
+                            startRecording();
                         }
                     }}
                     disabled={sessionState === 'generating_question' || !question}
@@ -289,7 +328,7 @@ export default function InterviewPrepPage() {
         </>
     )
 
-    const renderFeedbackCard = (question: string, transcript: string, feedback: InterviewFeedbackOutput['detailedFeedback'][0] | null) => {
+    const renderFeedbackCard = (answerRecord: AnswerRecord, feedback: InterviewFeedbackOutput['detailedFeedback'][0] | null) => {
         if (!feedback) {
             return (
                 <Card className="p-4 text-muted-foreground">
@@ -305,19 +344,27 @@ export default function InterviewPrepPage() {
                 { part: feedback.starAnalysis.action, className: 'bg-green-400/30' },
                 { part: feedback.starAnalysis.result, className: 'bg-purple-400/30' },
             ];
-            return highlightSTAR(transcript, starParts);
+            return highlightSTAR(answerRecord.answer, starParts);
         };
 
          return (
             <div className="mt-4 space-y-4 p-4 bg-muted/50 rounded-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Card>
-                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Confidence Score</CardTitle></CardHeader>
+                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Confidence</CardTitle></CardHeader>
                         <CardContent><p className="text-2xl font-bold">{feedback.confidenceScore}/10</p></CardContent>
                     </Card>
                      <Card>
                         <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><MessageSquare/>Filler Words</CardTitle></CardHeader>
-                        <CardContent><p className="text-2xl font-bold">{countFillerWords(transcript)}</p></CardContent>
+                        <CardContent><p className="text-2xl font-bold">{countFillerWords(answerRecord.answer)}</p></CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Headphones/>Your Audio</CardTitle></CardHeader>
+                        <CardContent>
+                            <Button onClick={() => playAudio(answerRecord.audioBlob)} disabled={!answerRecord.audioBlob} variant="outline" className="w-full">
+                                <Play className="mr-2"/> Play Recording
+                            </Button>
+                        </CardContent>
                     </Card>
                 </div>
                 <Card>
@@ -412,12 +459,12 @@ export default function InterviewPrepPage() {
          <Card>
             <CardHeader>
                 <CardTitle>Feedback for Your Retry</CardTitle>
-                <CardDescription>Question: {currentQuestion}</CardDescription>
+                {singleAnswerRecord && <CardDescription>Question: {singleAnswerRecord.question}</CardDescription>}
             </CardHeader>
             <CardContent>
-                {renderFeedbackCard(currentQuestion || '', singleTranscript, singleFeedback)}
+                {singleAnswerRecord && renderFeedbackCard(singleAnswerRecord, singleFeedback)}
                  <div className="mt-4 flex gap-4">
-                     <Button className="w-full" onClick={() => handleRetryQuestion(currentQuestion!)}>
+                     <Button className="w-full" onClick={() => handleRetryQuestion(singleAnswerRecord!.question)}>
                         <Repeat className="mr-2"/> Try Again
                      </Button>
                      <Button variant="outline" className="w-full" onClick={() => setSessionState('report')}>
@@ -496,7 +543,8 @@ export default function InterviewPrepPage() {
                     <div>
                         <h3 className="text-xl font-bold mb-4">Detailed Breakdown</h3>
                         {finalFeedback.detailedFeedback.map((feedbackItem, index) => {
-                             const userAnswer = sessionHistory.find(h => h.question === feedbackItem.question)?.answer || '';
+                             const answerRecord = sessionHistory.find(h => h.question === feedbackItem.question);
+                             if (!answerRecord) return null;
                              return (
                                  <details key={index} className="group border-b pb-4 mb-4">
                                     <summary className="cursor-pointer list-none flex items-center justify-between py-2">
@@ -506,7 +554,7 @@ export default function InterviewPrepPage() {
                                             <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180"/>
                                         </div>
                                     </summary>
-                                    {renderFeedbackCard(feedbackItem.question, userAnswer, feedbackItem)}
+                                    {renderFeedbackCard(answerRecord, feedbackItem)}
                                      <Button variant="secondary" size="sm" className="mt-4" onClick={() => handleRetryQuestion(feedbackItem.question)}>
                                         <Repeat className="mr-2"/> Retry This Question
                                     </Button>
@@ -543,6 +591,9 @@ export default function InterviewPrepPage() {
     return (
         <div className="container mx-auto max-w-4xl space-y-8">
             {renderContent()}
+            <audio ref={audioRef} className="hidden" />
         </div>
     );
 }
+
+    
