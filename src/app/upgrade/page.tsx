@@ -48,11 +48,12 @@ export default function UpgradePage() {
         body: JSON.stringify({ userId: user.id }),
       });
 
-      if (!res.ok) {
-        throw new Error('Failed to create checkout session');
+      const { sessionId, error: sessionError } = await res.json();
+
+      if (!res.ok || sessionError) {
+        throw new Error(sessionError?.message || 'Failed to create checkout session');
       }
 
-      const { sessionId } = await res.json();
       const stripe = await stripePromise;
 
       if (!stripe) {
