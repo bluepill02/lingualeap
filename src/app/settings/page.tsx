@@ -131,12 +131,18 @@ export default function SettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <Avatar className="h-20 w-20">
               <AvatarImage src={userSettings.avatarUrl || user.avatarUrl || undefined} alt={userSettings.name} />
               <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
-             <p className="text-sm text-muted-foreground">Avatar change is coming soon.</p>
+             <div className="w-full space-y-2">
+                <Label htmlFor="avatarUrl">Avatar URL</Label>
+                <Input id="avatarUrl" value={userSettings.avatarUrl || ''} onChange={(e) => handleFieldChange('avatarUrl' as keyof User, e.target.value)} disabled={isSaving} />
+                <p className="text-xs text-muted-foreground">
+                    You can use a service like <a href="https://picsum.photos/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">picsum.photos</a> for a random avatar.
+                </p>
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
