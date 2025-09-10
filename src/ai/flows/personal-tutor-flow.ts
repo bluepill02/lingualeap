@@ -8,22 +8,28 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { PersonalTutorInputSchema, PersonalTutorOutputSchema, PersonalTutorInput, PersonalTutorOutput } from '@/lib/types';
-import { Language } from '@/context/language-context';
+import { Language, languageMap, type PersonalTutorInput, type PersonalTutorOutput, type Message } from '@/lib/types';
+
+
+// Define Zod schemas here, on the server, where they are used.
+const PersonalTutorInputSchema = z.object({
+  history: z.array(z.object({
+    role: z.enum(['user', 'model']),
+    content: z.string(),
+  })),
+  message: z.string().describe("The user's latest message."),
+  language: z.nativeEnum(languageMap),
+});
+
+const PersonalTutorOutputSchema = z.object({
+  response: z.string(),
+});
 
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
   return personalTutorFlow(input);
 }
 
-const languageMap: Record<Language, string> = {
-    en: 'English',
-    ta: 'Tamil',
-    hi: 'Hindi',
-    ml: 'Malayalam',
-    kn: 'Kannada',
-    te: 'Telugu',
-};
 
 const prompt = ai.definePrompt({
   name: 'personalTutorPrompt',
@@ -35,8 +41,8 @@ You can answer questions about grammar, vocabulary, culture, or provide practice
 
 Here is the conversation history:
 {{#each history}}
-{{#if user}}User: {{user}}{{/if}}
-{{#if model}}Tutor: {{model}}{{/if}}
+{{#if this.user}}User: {{this.user}}{{/if}}
+{{#if this.model}}Tutor: {{this.model}}{{/if}}
 {{/each}}
 
 Now, respond to the user's latest message:
@@ -75,5 +81,3 @@ const personalTutorFlow = ai.defineFlow(
     return output;
   }
 );
-
-    

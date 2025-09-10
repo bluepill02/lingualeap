@@ -371,8 +371,6 @@ export interface DashboardData {
 
 export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';
 
-// --- Server-Side Schemas & Types (Do not import directly on client) ---
-
 export const languageMap: Record<Language, string> = {
     en: 'English',
     ta: 'Tamil',
@@ -382,43 +380,21 @@ export const languageMap: Record<Language, string> = {
     te: 'Telugu',
 };
 
-export const AnalyzeImageInputSchema = z.object({
-  photoDataUri: z
-    .string()
-    .describe(
-      "A photo of an object, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
-    ),
-  targetLanguage: z.string().describe('The language to translate the object name into.'),
-});
-export type AnalyzeImageInput = z.infer<typeof AnalyzeImageInputSchema>;
+export interface Message {
+  role: 'user' | 'model';
+  content: string;
+}
 
-export const AnalyzeImageOutputSchema = z.object({
-    objectName: z.string().describe('The name of the identified object in English.'),
-    translatedWord: z.string().describe('The translated name of the object in the target language.'),
-    romanization: z.string().describe('A romanized (phonetic) spelling of the translated word.'),
-    quiz: z.object({
-        question: z.string().describe('A simple multiple-choice question about the object.'),
-        options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options.'),
-        answer: z.string().describe('The correct answer from the options.'),
-    }),
-    mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
-});
-export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
+export interface PersonalTutorInput {
+  history: Message[];
+  message: string;
+  language: Language;
+}
 
-export const PersonalTutorInputSchema = z.object({
-  history: z.array(z.object({
-    role: z.enum(['user', 'model']),
-    content: z.string(),
-  })),
-  message: z.string().describe("The user's latest message."),
-  language: z.nativeEnum(languageMap),
-});
-export type PersonalTutorInput = z.infer<typeof PersonalTutorInputSchema>;
+export interface PersonalTutorOutput {
+  response: string;
+}
 
-export const PersonalTutorOutputSchema = z.object({
-  response: z.string(),
-});
-export type PersonalTutorOutput = z.infer<typeof PersonalTutorOutputSchema>;
 
 export const MissionSubmissionInputSchema = z.object({
     concept: z.string(),
@@ -491,3 +467,26 @@ export const SpeakOutputSchema = z.object({
   media: z.string().describe('The generated audio as a data URI.'),
 });
 export type SpeakOutput = z.infer<typeof SpeakOutputSchema>;
+
+export const AnalyzeImageInputSchema = z.object({
+  photoDataUri: z
+    .string()
+    .describe(
+      "A photo of an object, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
+    ),
+  targetLanguage: z.string().describe('The language to translate the object name into.'),
+});
+export type AnalyzeImageInput = z.infer<typeof AnalyzeImageInputSchema>;
+
+export const AnalyzeImageOutputSchema = z.object({
+    objectName: z.string().describe('The name of the identified object in English.'),
+    translatedWord: z.string().describe('The translated name of the object in the target language.'),
+    romanization: z.string().describe('A romanized (phonetic) spelling of the translated word.'),
+    quiz: z.object({
+        question: z.string().describe('A simple multiple-choice question about the object.'),
+        options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options.'),
+        answer: z.string().describe('The correct answer from the options.'),
+    }),
+    mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
+});
+export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;

@@ -2,27 +2,22 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Bot, Loader2, Send, Mic, Volume2, User, Languages } from 'lucide-react';
+import { Bot, Loader2, Send, Mic, Volume2, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { mockUser } from '@/lib/data';
 import { personalTutor } from '@/ai/flows/personal-tutor-flow';
 import { speak } from '@/ai/flows/speak-flow';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import type { PersonalTutorInput, Language } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import type { Language, Message, PersonalTutorInput } from '@/lib/types';
 import { languageMap } from '@/lib/types';
 
-
-interface Message {
-  role: 'user' | 'model';
-  content: string;
-}
 
 export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
@@ -174,39 +169,28 @@ export default function PersonalTutorPage() {
   };
 
   return (
-    <div className="container mx-auto h-full flex flex-col max-w-3xl">
-      <div className="text-center mb-4">
-        <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
-        <p className="text-muted-foreground">
-          Your conversational language learning partner.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 justify-items-center mb-4">
-        <div className="w-full max-w-xs">
-          <Label htmlFor="language-select" className="text-xs text-center block mb-1">
-            Tutor Language
-          </Label>
-          <Select
-            value={language}
-            onValueChange={(value: Language) => handleLanguageChange(value)}
-          >
-            <SelectTrigger id="language-select" className="h-9">
-              <SelectValue placeholder="Select language..." />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="en">English</SelectItem>
-              <SelectItem value="ta">Tamil</SelectItem>
-              <SelectItem value="hi">Hindi</SelectItem>
-              <SelectItem value="ml">Malayalam</SelectItem>
-              <SelectItem value="kn">Kannada</SelectItem>
-              <SelectItem value="te">Telugu</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
-
-      <Card className="flex-1 flex flex-col">
+    <div className="flex h-[calc(100vh-10rem)] w-full flex-col">
+       <header className="mb-4 text-center">
+            <h1 className="text-2xl font-bold font-headline">AI Personal Tutor</h1>
+            <p className="text-muted-foreground">Your conversational language learning partner.</p>
+             <div className="mx-auto mt-4 max-w-xs">
+                <Label htmlFor="language-select" className="sr-only">Tutor Language</Label>
+                <Select value={language} onValueChange={(value: Language) => handleLanguageChange(value)}>
+                    <SelectTrigger id="language-select" className="h-9">
+                        <SelectValue placeholder="Select language..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="en">English</SelectItem>
+                        <SelectItem value="ta">Tamil</SelectItem>
+                        <SelectItem value="hi">Hindi</SelectItem>
+                        <SelectItem value="ml">Malayalam</SelectItem>
+                        <SelectItem value="kn">Kannada</SelectItem>
+                        <SelectItem value="te">Telugu</SelectItem>
+                    </SelectContent>
+                </Select>
+            </div>
+       </header>
+       <Card className="flex-1 flex flex-col">
         <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
           <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
             <div className="space-y-6 p-2">
