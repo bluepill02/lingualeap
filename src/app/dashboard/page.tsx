@@ -272,7 +272,6 @@ export default function DashboardPage() {
                 <div className="flex items-center gap-2 text-muted-foreground">
                     <Star className="w-4 h-4 text-yellow-500" />
                     <span>Level {currentLevel}</span>
-                     <Badge variant={isPro ? 'warning' : 'secondary'}>{isPro ? 'Pro Member' : 'Free Member'}</Badge>
                 </div>
             </div>
             <div className="flex gap-2">

@@ -55,7 +55,7 @@ import { translations } from '@/lib/i18n';
 import { useTheme } from 'next-themes';
 import { getAuth } from 'firebase/auth';
 import { app } from '@/lib/firebase';
-import { useUser, UserProvider } from '@/context/user-context';
+import { useUser } from '@/context/user-context';
 import { Skeleton } from '../ui/skeleton';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
 
@@ -223,9 +223,6 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
                 <Link href="/settings">
                     <DropdownMenuItem>Profile</DropdownMenuItem>
                 </Link>
-                 <Link href="/upgrade">
-                    <DropdownMenuItem>Upgrade to Pro</DropdownMenuItem>
-                </Link>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>Log out</DropdownMenuItem>
                 </DropdownMenuContent>
@@ -234,7 +231,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
         </header>
 
         <main className="flex-1 p-4 sm:p-6 space-y-6">
-            {user && !user.isPro && <AdPlaceholder />}
+            {user && <AdPlaceholder />}
             {children}
         </main>
         
@@ -255,8 +252,6 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <UserProvider>
       <MainLayoutContent>{children}</MainLayoutContent>
-    </UserProvider>
   );
 }

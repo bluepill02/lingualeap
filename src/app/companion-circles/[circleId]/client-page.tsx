@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -26,7 +25,6 @@ import { ProgressHeatmap } from '@/components/analytics/progress-heatmap';
 import { FieldValue, Timestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { app } from '@/lib/firebase';
-import { getUserSettings } from '@/services/user';
 import Link from 'next/link';
 
 
@@ -306,7 +304,6 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
   const [showWelcomeWizard, setShowWelcomeWizard] = useState(false);
   
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
-  const [isProUser, setIsProUser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
@@ -317,12 +314,6 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
         setIsLoading(true);
         setCurrentUser(user);
-        if (user) {
-            const userSettings = await getUserSettings(user.uid);
-            setIsProUser(userSettings?.isPro || false);
-        } else {
-            setIsProUser(false);
-        }
         setIsLoading(false);
     });
     return () => unsubscribe();
@@ -405,30 +396,6 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
               <Loader2 className="h-12 w-12 animate-spin text-primary"/>
           </div>
       )
-  }
-
-  if (circle.type === 'Mentor-led' && !isProUser) {
-    return (
-        <div className="container mx-auto flex items-center justify-center h-full">
-            <Card className="max-w-md text-center">
-                <CardHeader>
-                    <CardTitle className="flex items-center justify-center gap-2"><Lock className="text-primary"/> Pro Access Required</CardTitle>
-                    <CardDescription>This is a Mentor-led circle, which is a Pro feature.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">Upgrade to Pro to join exclusive circles with expert mentors, structured lesson plans, and more.</p>
-                </CardContent>
-                <CardFooter className="flex-col gap-2">
-                    <Button asChild className="w-full">
-                        <Link href="/upgrade">Upgrade to Pro</Link>
-                    </Button>
-                    <Button asChild variant="ghost" className="w-full">
-                         <Link href="/companion-circles">Back to Circles</Link>
-                    </Button>
-                </CardFooter>
-            </Card>
-        </div>
-    )
   }
 
   return (
