@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,13 +11,17 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
 import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { provideMissionFeedback, } from '@/ai/flows/mission-feedback-flow';
+import { provideMissionFeedback } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
-
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+import { saveMissionSubmission, getLatestMissionSubmission } from '@/services/missions';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const mission = {
+    id: 'newtons-third-law',
     title: "Mission: Explain Newton's Third Law",
     concept: "Newton's Third Law",
     scenario: "Balancing carts at a temple chariot festival (தேர் திருவிழா). Explain why when you push a cart, you also feel a push back."
@@ -40,10 +44,46 @@ export default function PeerTeachingPage() {
     const [diagram, setDiagram] = useState('');
     const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
+    const [isPageLoading, setIsPageLoading] = useState(true);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
+    const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
 
     const { toast } = useToast();
     
+     useEffect(() => {
+        const auth = getAuth(app);
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                setCurrentUser(user);
+                try {
+                    const latestSubmission = await getLatestMissionSubmission(user.uid, mission.id);
+                    if (latestSubmission) {
+                        setScript(latestSubmission.submission.script);
+                        setDiagram(latestSubmission.submission.diagramDescription);
+                        setMcqs(latestSubmission.submission.mcqs.map(mcq => ({
+                            question: mcq.question,
+                            options: mcq.options,
+                            correctAnswerIndex: mcq.options.indexOf(mcq.correctAnswer)
+                        })));
+                        setFeedback(latestSubmission.feedback);
+                    }
+                } catch (error) {
+                    console.error("Could not load previous submission:", error);
+                    toast({
+                        variant: 'destructive',
+                        title: 'Error',
+                        description: 'Could not load your previous submission.',
+                    });
+                }
+            } else {
+                setCurrentUser(null);
+            }
+            setIsPageLoading(false);
+        });
+        return () => unsubscribe();
+    }, [toast]);
+
+
     const handleMcqChange = (mcqIndex: number, field: 'question' | `option-${number}` | 'correctAnswerIndex', value: string | number) => {
         const newMcqs = [...mcqs];
         const mcqToUpdate = { ...newMcqs[mcqIndex] };
@@ -64,6 +104,10 @@ export default function PeerTeachingPage() {
 
 
     const handleSubmit = async () => {
+        if (!currentUser) {
+            toast({ variant: 'destructive', title: 'You must be logged in to submit.' });
+            return;
+        }
         setIsLoading(true);
         setFeedback(null);
         try {
@@ -77,11 +121,14 @@ export default function PeerTeachingPage() {
                     correctAnswer: mcq.options[mcq.correctAnswerIndex] || '',
                 }))
             }
-            const result = await provideMissionFeedback(submission);
-            setFeedback(result);
+            const feedbackResult = await provideMissionFeedback(submission);
+            setFeedback(feedbackResult);
+            
+            await saveMissionSubmission(currentUser.uid, mission.id, submission, feedbackResult);
+
             toast({
-                title: "Feedback Received!",
-                description: "Your submission has been reviewed by the AI Editor.",
+                title: "Feedback Received and Saved!",
+                description: "Your submission has been reviewed and saved to your profile.",
             });
         } catch (error) {
              console.error('Error getting feedback:', error);
@@ -100,6 +147,20 @@ export default function PeerTeachingPage() {
         setDiagram('');
         setMcqs(initialMcqState);
         setFeedback(null);
+    }
+    
+    if (isPageLoading) {
+        return (
+            <div className="container mx-auto space-y-8">
+                 <div>
+                    <h1 className="text-3xl font-bold font-headline flex items-center gap-2"><Megaphone className="text-primary"/> Peer-Teaching Mission</h1>
+                    <p className="text-muted-foreground">Solidify your knowledge by teaching it to others.</p>
+                </div>
+                <Card><CardContent className="p-6"><Skeleton className="h-24"/></CardContent></Card>
+                <Card><CardContent className="p-6"><Skeleton className="h-32"/></CardContent></Card>
+                 <Card><CardContent className="p-6"><Skeleton className="h-48"/></CardContent></Card>
+            </div>
+        )
     }
 
   return (
@@ -128,6 +189,7 @@ export default function PeerTeachingPage() {
                     className="min-h-[150px]"
                     value={script}
                     onChange={(e) => setScript(e.target.value)}
+                    disabled={!currentUser}
                 />
             </CardContent>
         </Card>
@@ -142,6 +204,7 @@ export default function PeerTeachingPage() {
                     placeholder="e.g., 'A simple sketch of two people on skateboards pushing each other apart. Arrows show the equal and opposite forces.'"
                     value={diagram}
                     onChange={(e) => setDiagram(e.target.value)}
+                    disabled={!currentUser}
                 />
             </CardContent>
         </Card>
@@ -155,17 +218,17 @@ export default function PeerTeachingPage() {
                 {mcqs.map((mcq, mcqIndex) => (
                     <div key={mcqIndex} className="space-y-3 p-4 border rounded-md">
                         <Label htmlFor={`mcq${mcqIndex}-q`}>Question {mcqIndex + 1}</Label>
-                        <Input id={`mcq${mcqIndex}-q`} placeholder="Question text..." value={mcq.question} onChange={e => handleMcqChange(mcqIndex, 'question', e.target.value)} />
+                        <Input id={`mcq${mcqIndex}-q`} placeholder="Question text..." value={mcq.question} onChange={e => handleMcqChange(mcqIndex, 'question', e.target.value)} disabled={!currentUser}/>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                            {mcq.options.map((option, optionIndex) => (
-                                <Input key={optionIndex} placeholder={`Option ${String.fromCharCode(65 + optionIndex)}`} value={option} onChange={e => handleMcqChange(mcqIndex, `option-${optionIndex}`, e.target.value)} />
+                                <Input key={optionIndex} placeholder={`Option ${String.fromCharCode(65 + optionIndex)}`} value={option} onChange={e => handleMcqChange(mcqIndex, `option-${optionIndex}`, e.target.value)} disabled={!currentUser} />
                            ))}
                         </div>
                         
                          <div>
                             <Label className="mb-2 block">Correct Answer</Label>
-                             <RadioGroup value={String(mcq.correctAnswerIndex)} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswerIndex', Number(value))} className="flex gap-4">
+                             <RadioGroup value={String(mcq.correctAnswerIndex)} onValueChange={value => handleMcqChange(mcqIndex, 'correctAnswerIndex', Number(value))} className="flex gap-4" disabled={!currentUser}>
                                {mcq.options.map((_, optionIndex) => (
                                 <div key={optionIndex} className="flex items-center space-x-2">
                                     <RadioGroupItem value={String(optionIndex)} id={`mcq${mcqIndex}-opt${optionIndex}`} />
@@ -179,8 +242,15 @@ export default function PeerTeachingPage() {
             </CardContent>
         </Card>
       </div>
+      
+      {!currentUser && (
+          <Alert variant="warning">
+              <AlertTitle>Please Log In</AlertTitle>
+              <AlertDescription>You need to be logged in to submit a mission and receive feedback.</AlertDescription>
+          </Alert>
+      )}
 
-       <Button size="lg" className="w-full" onClick={handleSubmit} disabled={isLoading}>
+       <Button size="lg" className="w-full" onClick={handleSubmit} disabled={isLoading || !currentUser}>
            {isLoading ? <><Loader2 className="mr-2 animate-spin"/> Submitting to AI Editor...</> : "Submit Mission for Feedback"}
         </Button>
 
