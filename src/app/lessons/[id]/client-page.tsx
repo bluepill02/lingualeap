@@ -55,6 +55,7 @@ function VocabularyTable({
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    // Initialize the Audio object only on the client side
     audioRef.current = new Audio();
   }, []);
 
