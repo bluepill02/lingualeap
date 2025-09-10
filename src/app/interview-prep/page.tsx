@@ -15,6 +15,7 @@ import { useUser } from '@/context/user-context';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Separator } from '@/components/ui/separator';
 
 const SESSION_LENGTH = 3; // Number of questions in one session
 
@@ -95,9 +96,15 @@ export default function InterviewPrepPage() {
 
         recognition.onend = () => {
             setIsRecording(false);
+            if (!finalTranscript.trim()) {
+                toast({ variant: 'warning', title: 'No answer recorded', description: 'Please try recording your answer again.' });
+                setCurrentTranscript('');
+                return;
+            }
+            
             const newAnswer: AnswerRecord = {
                 question: questions[currentQuestionIndex],
-                transcript: finalTranscript.trim() || "No answer recorded.", // Handle empty transcript
+                transcript: finalTranscript.trim(),
                 feedback: null,
             };
             
@@ -324,7 +331,7 @@ export default function InterviewPrepPage() {
                                         <Alert>
                                             <Star className="h-4 w-4" />
                                             <AlertTitle>Confidence Score</AlertTitle>
-                                            <AlertDescription className="font-bold text-lg">{feedback.confidenceScore}/10}</AlertDescription>
+                                            <AlertDescription className="font-bold text-lg">{feedback.confidenceScore}/10</AlertDescription>
                                         </Alert>
                                          <Alert>
                                             <MessageSquare className="h-4 w-4" />
@@ -408,5 +415,3 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
-
-    
