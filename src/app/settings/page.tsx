@@ -22,12 +22,14 @@ import {
 import { Switch } from '@/components/ui/switch';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, Loader2 } from 'lucide-react';
+import { Calendar, Loader2, Upload } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { updateUserSettings } from '@/services/user';
 import type { User } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useUser } from '@/context/user-context';
+import { uploadAvatar } from '@/services/storage';
+import { Progress } from '@/components/ui/progress';
 
 function SettingsSkeleton() {
     return (
@@ -64,6 +66,9 @@ export default function SettingsPage() {
   const { user, isLoading, reloadUser } = useUser();
   const [userSettings, setUserSettings] = useState<Partial<User>>({});
   const [isSaving, setIsSaving] = useState(false);
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
+
   const { toast } = useToast();
   
   useEffect(() => {
@@ -96,6 +101,41 @@ export default function SettingsPage() {
       setIsSaving(false);
     }
   };
+
+  const handleAvatarFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setAvatarFile(e.target.files[0]);
+    }
+  }
+
+  const handleAvatarUpload = async () => {
+    if (!avatarFile || !user) return;
+    setIsSaving(true);
+    setUploadProgress(0);
+    try {
+        const downloadURL = await uploadAvatar(
+            user.id, 
+            avatarFile, 
+            (progress) => setUploadProgress(progress)
+        );
+        
+        await updateUserSettings(user.id, { avatarUrl: downloadURL });
+        await reloadUser();
+        
+        toast({
+            title: 'Avatar Updated!',
+            description: 'Your new profile picture has been saved.',
+        });
+        setAvatarFile(null);
+        setUploadProgress(0);
+    } catch (error) {
+        console.error("Failed to upload avatar", error);
+        toast({ variant: 'destructive', title: 'Upload Failed', description: 'Could not upload your new avatar.' });
+    } finally {
+        setIsSaving(false);
+    }
+  }
+
 
   if (isLoading) {
       return <SettingsSkeleton />
@@ -131,19 +171,26 @@ export default function SettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="flex items-center gap-6">
-            <Avatar className="h-20 w-20">
-              <AvatarImage src={userSettings.avatarUrl || user.avatarUrl || undefined} alt={userSettings.name} />
-              <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
-            </Avatar>
-             <div className="w-full space-y-2">
-                <Label htmlFor="avatarUrl">Avatar URL</Label>
-                <Input id="avatarUrl" value={userSettings.avatarUrl || ''} onChange={(e) => handleFieldChange('avatarUrl' as keyof User, e.target.value)} disabled={isSaving} />
-                <p className="text-xs text-muted-foreground">
-                    You can use a service like <a href="https://picsum.photos/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">picsum.photos</a> for a random avatar.
-                </p>
+            <div className="flex items-center gap-6">
+                <Avatar className="h-20 w-20">
+                <AvatarImage src={userSettings.avatarUrl || user.avatarUrl || undefined} alt={userSettings.name} />
+                <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
+                </Avatar>
+                <div className="w-full space-y-2">
+                    <Label htmlFor="avatarFile">Change Avatar</Label>
+                    <Input id="avatarFile" type="file" accept="image/png, image/jpeg" onChange={handleAvatarFileChange} disabled={isSaving} />
+                    {avatarFile && (
+                    <div className="space-y-2">
+                        <Button onClick={handleAvatarUpload} disabled={isSaving || !avatarFile}>
+                            {isSaving ? <Loader2 className="mr-2 animate-spin" /> : <Upload className="mr-2" />}
+                            Upload & Save Avatar
+                        </Button>
+                        {isSaving && <Progress value={uploadProgress} className="w-full h-2" />}
+                    </div>
+                    )}
+                </div>
             </div>
-          </div>
+
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <Label htmlFor="name">Name</Label>
@@ -156,7 +203,7 @@ export default function SettingsPage() {
           </div>
           <Button onClick={() => handleSave('Profile')} disabled={isSaving}>
             {isSaving && <Loader2 className="mr-2 animate-spin" />}
-            Save Profile
+            Save Name
           </Button>
         </CardContent>
       </Card>
