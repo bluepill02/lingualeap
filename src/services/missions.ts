@@ -14,6 +14,7 @@ import {
     getDocs,
     Timestamp,
     addDoc,
+    getDoc,
 } from 'firebase/firestore';
 import type { MissionSubmissionInput, MissionFeedbackOutput, ExamModule } from '@/lib/types';
 import { v4 as uuidv4 } from 'uuid';
@@ -131,5 +132,22 @@ export async function getCommunityModules(): Promise<ExamModule[]> {
     } catch(error) {
         console.error("Error fetching community modules:", error);
         return [];
+    }
+}
+
+export async function getCommunityModuleById(id: string): Promise<ExamModule | null> {
+    try {
+        const docRef = doc(db, 'community-modules', id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            return docSnap.data() as ExamModule;
+        } else {
+            console.warn(`No community module found with id: ${id}`);
+            return null;
+        }
+    } catch (error) {
+        console.error(`Error fetching community module with id ${id}:`, error);
+        return null;
     }
 }

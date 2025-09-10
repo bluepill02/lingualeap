@@ -192,9 +192,11 @@ export default function ExamPrepClientPage() {
                             </p>
                         </CardContent>
                         <div className="p-6 pt-0">
-                            <Button className="w-full" variant="secondary" disabled>
-                                View Module (Coming Soon)
-                            </Button>
+                            <Link href={`/exam-prep/community/${module.id}`}>
+                                <Button className="w-full" variant="secondary">
+                                    View Module
+                                </Button>
+                            </Link>
                         </div>
                     </Card>
                 ))}
