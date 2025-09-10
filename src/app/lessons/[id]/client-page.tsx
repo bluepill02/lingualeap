@@ -228,31 +228,32 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
   const [isQuizComplete, setIsQuizComplete] = useState(false);
   const [isLessonCompleted, setIsLessonCompleted] = useState(false);
 
+  const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
+  const totalLessonsInDeck = deck.lessons.length;
+  const nextLessonId = currentLessonIndex < totalLessonsInDeck - 1 ? deck.lessons[currentLessonIndex + 1].id : null;
+  const progress = ((currentLessonIndex + 1) / totalLessonsInDeck) * 100;
+  
   useEffect(() => {
     const progress = getLessonProgress();
     setIsLessonCompleted(progress.includes(lesson.id));
   }, [lesson.id]);
-  
+
   const handleCompleteLesson = useCallback(() => {
-    saveLessonProgress(lesson.id);
-    setIsLessonCompleted(true);
-  }, [lesson.id]);
+    if (!isLessonCompleted) {
+        saveLessonProgress(lesson.id);
+        setIsLessonCompleted(true);
+    }
+  }, [lesson.id, isLessonCompleted]);
 
   useEffect(() => {
-    if(isLessonCompleted) {
-        if(nextLessonId) {
-            router.push(`/lessons/${nextLessonId}`);
-        } else {
-            router.push(`/language/${deck.id.split('-')[1]}`);
-        }
+    if (isLessonCompleted && nextLessonId) {
+      router.push(`/lessons/${nextLessonId}`);
+    } else if (isLessonCompleted && !nextLessonId) {
+      // Last lesson in the deck, navigate back to the language page
+      const languagePath = deck.id.split('-')[1];
+      router.push(`/language/${languagePath}`);
     }
-  }, [isLessonCompleted, router, deck.id, nextLessonId]);
-
-
-  const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
-  const totalLessonsInDeck = deck.lessons.length;
-  const progress = ((currentLessonIndex + 1) / totalLessonsInDeck) * 100;
-  const nextLessonId = currentLessonIndex < totalLessonsInDeck - 1 ? deck.lessons[currentLessonIndex + 1].id : null;
+  }, [isLessonCompleted, nextLessonId, deck.id, router]);
 
   return (
     <div className="max-w-4xl mx-auto space-y-8 p-4 sm:p-6 md:p-8">
@@ -300,17 +301,13 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
       </Card>
       
       <div className="flex justify-center">
-        {isLessonCompleted ? (
-            <Button size="lg" disabled>
-                Lesson Completed <Check className="ml-2"/>
-            </Button>
-        ) : nextLessonId ? (
+        {nextLessonId ? (
           <Button size="lg" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
-              Complete & Go to Next Lesson <Check className="ml-2"/>
+              {isLessonCompleted ? <>Lesson Complete</> : <>Complete & Go to Next Lesson</>} <Check className="ml-2"/>
           </Button>
         ) : (
            <Button size="lg" variant="secondary" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
-              Complete Deck! Back to Course Page
+              {isLessonCompleted ? <>Deck Complete!</> : <>Complete Deck! Back to Course Page</>}
           </Button>
         )}
       </div>
