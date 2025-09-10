@@ -1,0 +1,341 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 99%;
+    --foreground: 220 20% 10%;
+    --card: 220 20% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 220 20% 100%;
+    --popover-foreground: 220 20% 10%;
+    --primary: 260 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 15% 30%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 50%;
+    --accent: 39 100% 65%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 140 70% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 90% 50%;
+    --warning-foreground: 220 20% 10%;
+    --border: 220 15% 92%;
+    --input: 220 15% 92%;
+    --ring: 260 80% 55%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 20% 10%; /* Dark Gray */
+    --foreground: 220 20% 98%; /* Light Gray */
+    --card: 220 20% 13%;
+    --card-foreground: 220 20% 98%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 20% 98%;
+    --primary: 260 80% 65%; /* Lighter Purple */
+    --primary-foreground: 220 20% 10%;
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 15% 80%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 39 100% 65%; /* #FFB74D */
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 70% 60%; /* Lighter Red */
+    --destructive-foreground: 220 20% 98%;
+    --success: 140 60% 55%; /* Brighter Green */
+    --success-foreground: 220 20% 10%;
+    --warning: 45 90% 60%; /* Lighter Yellow */
+    --warning-foreground: 220 20% 10%;
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 260 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+  .perspective-\[1000px\] {
+    perspective: 1000px;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .confetti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: #ffd300;
+    top: 0;
+    opacity: 0;
+    animation: makeItRain 1000ms infinite ease-out;
+  }
+  
+  @keyframes makeItRain {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(300px) rotate(90deg);
+    }
+  }
+
+  .confetti-piece:nth-child(1) { background: hsl(var(--primary)); animation-delay: 100ms; }
+  .confetti-piece:nth-child(2) { background: hsl(var(--secondary)); animation-delay: 200ms; }
+  .confetti-piece:nth-child(3) { background: hsl(var(--accent)); animation-delay: 300ms; }
+  .confetti-piece:nth-child(4) { background: hsl(var(--primary)); animation-delay: 400ms; }
+  .confetti-piece:nth-child(5) { background: hsl(var(--secondary)); animation-delay: 500ms; }
+  .confetti-piece:nth-child(6) { background: hsl(var(--accent)); animation-delay: 600ms; }
+  .confetti-piece:nth-child(7) { background: hsl(var(--primary)); animation-delay: 700ms; }
+  .confetti-piece:nth-child(8) { background: hsl(var(--secondary)); animation-delay: 800ms; }
+  .confetti-piece:nth-child(9) { background: hsl(var(--accent)); animation-delay: 900ms; }
+  .confetti-piece:nth-child(10) { background: hsl(var(--primary)); animation-delay: 1000ms; }
+}
+
+@layer components {
+    .card {
+        position: relative;
+        overflow: hidden;
+    }
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%2329abe2' fill-opacity='0.03'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-size: 20px 20px;
+        opacity: 0.5;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .prose .tamil-text {
+        color: hsl(var(--warning));
+    }
+    
+    .subject-physics .tamil-text {
+        color: hsl(164 52% 52%); /* Teal-400 */
+    }
+    
+    /* Touch-friendly target sizes */
+    .touch-target, button, a {
+        @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+    }
+    /* Ensure a tags that are not buttons still look like links */
+    a:not(.inline-flex) {
+        @apply min-h-0 min-w-0;
+    }
+    .btn:active, .card:active, [role="button"]:active, a:active > .card {
+        @apply transform scale-[0.98] brightness-95 transition-transform;
+    }
+
+    /* Responsive Grid System */
+    .responsive-card-grid {
+      display: grid;
+      gap: 1.5rem; /* 24px */
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 640px) {
+      .responsive-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      .responsive-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+}
+
+/* Custom KaTeX font path overrides */
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url('/fonts/KaTeX_Main-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Math';
+  src: url('/fonts/KaTeX_Math-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size1';
+  src: url('/fonts/KaTeX_Size1-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size2';
+  src: url('/fonts/KaTeX_Size2-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size3';
+  src: url('/fonts/KaTeX_Size3-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Size4';
+  src: url('/fonts/KaTeX_Size4-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_AMS';
+  src: url('/fonts/KaTeX_AMS-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Typewriter';
+  src: url('/fonts/KaTeX_Typewriter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url('/fonts/KaTeX_SansSerif-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Script';
+  src: url('/fonts/KaTeX_Script-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Fraktur';
+  src: url('/fonts/KaTeX_Fraktur-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Fraktur';
+  src: url('/fonts/KaTeX_Fraktur-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url('/fonts/KaTeX_SansSerif-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_SansSerif';
+  src: url('/fonts/KaTeX_SansSerif-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Math';
+  src: url('/fonts/KaTeX_Math-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url('/fonts/KaTeX_Main-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url('/fonts/KaTeX_Main-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'KaTeX_Main';
+  src: url('/fonts/KaTeX_Main-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.card-padding-sm { @apply p-3; }
+.card-padding-md { @apply p-4; }  
+.card-padding-lg { @apply p-6; }     
+.card-padding-xl { @apply p-8; }
+
+/* Typography Scaling System */
+.text-xs-mobile { @apply text-xs sm:text-sm; }
+.text-sm-mobile { @apply text-sm sm:text-base; }
+.text-base-mobile { @apply text-base sm:text-lg; }
+.text-lg-mobile { @apply text-lg sm:text-xl; }
+.text-xl-mobile { @apply text-xl sm:text-2xl; }
+
+/* Responsive Container */
+.app-container {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+    .card-padding-lg { @apply p-4; }
+    .card-padding-xl { @apply p-6; }
+}
+

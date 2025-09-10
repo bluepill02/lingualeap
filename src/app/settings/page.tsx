@@ -183,7 +183,7 @@ export default function SettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <Label htmlFor="language">Learning Language</Label>
               <Select value={userSettings.language || ''} onValueChange={(value) => handleFieldChange('language' as keyof User, value)} disabled={isSaving}>

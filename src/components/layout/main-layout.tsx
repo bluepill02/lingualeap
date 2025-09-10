@@ -156,7 +156,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
            </SidebarMenuItem>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset className="p-0">
+      <SidebarInset>
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between border-b bg-card p-4 sm:px-6">
           <div className="flex items-center gap-2">
             <SidebarTrigger className="md:hidden" />
