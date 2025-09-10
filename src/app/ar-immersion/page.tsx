@@ -42,9 +42,7 @@ export default function ARImmersionPage() {
         setHasCameraPermission(true);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-          videoRef.current.onloadedmetadata = () => {
-             setIsCameraOn(true);
-          }
+          setIsCameraOn(true);
         }
       } catch (error) {
         console.error('Error accessing rear camera, trying default:', error);
@@ -55,7 +53,7 @@ export default function ARImmersionPage() {
             setHasCameraPermission(true);
             if (videoRef.current) {
                 videoRef.current.srcObject = stream;
-                videoRef.current.onloadedmetadata = () => setIsCameraOn(true);
+                setIsCameraOn(true);
             }
         } catch (finalError) {
             console.error('Error accessing any camera:', finalError);
