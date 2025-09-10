@@ -20,8 +20,11 @@ import {
     Timestamp,
     DocumentReference
 } from 'firebase/firestore';
-import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
+import { allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+
 
 const circlesCollection = collection(db, 'companion-circles');
 
@@ -70,7 +73,8 @@ export async function createCircle(
 ): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: 'https://picsum.photos/100/100?a=1', name: userName || 'New User' };
+    // In a real app, you would fetch the user's actual profile data
+    const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: `https://picsum.photos/seed/${userId}/100/100`, name: userName || 'New User' };
 
     const newCircle = {
         ...circleData,
@@ -121,19 +125,9 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
      if (!memberIds || memberIds.length === 0) {
         return [];
     }
-    try {
-        const usersRef = collection(db, 'users');
-        const q = query(usersRef, where('id', 'in', memberIds));
-        const snapshot = await getDocs(q);
-        if (snapshot.empty) {
-             // Fallback to mock data if no users are found in Firestore (useful for dev)
-            return allUsers.filter(user => memberIds.includes(user.id));
-        }
-        return snapshot.docs.map(doc => doc.data() as User);
-    } catch (error) {
-         console.error("Error fetching circle members: ", error);
-        return allUsers.filter(user => memberIds.includes(user.id));
-    }
+    // In a real app, this would query a 'users' collection.
+    // For this prototype, we'll filter the mock data.
+    return allUsers.filter(user => memberIds.includes(user.id));
 }
 
 export async function getCircleWithMembers(id: string): Promise<{ circle: CompanionCircle, members: User[] } | null> {
@@ -148,7 +142,9 @@ export async function getCircleWithMembers(id: string): Promise<{ circle: Compan
 
         const circle = { ...docSnap.data(), id: docSnap.id } as CompanionCircle;
         const memberIds = circle.members.map(m => m.id);
-        const members = await getCircleMembers(memberIds);
+        
+        // This should be a real database query in a production app
+        const members = allUsers.filter(user => memberIds.includes(user.id));
 
         return { circle, members };
     } catch (error) {
@@ -160,8 +156,8 @@ export async function getCircleWithMembers(id: string): Promise<{ circle: Compan
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId); 
-        if (!userDoc) throw new Error("User not found.");
+        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
+        if (!userDoc) throw new Error("User not found in mock data.");
         
         const memberData = {
             id: userDoc.id,
@@ -202,16 +198,16 @@ export async function leaveCircle(userId: string, circleId: string): Promise<voi
     }
 }
 
-export async function addPostToCircle(circleId: string, content: string): Promise<void> {
+export async function addPostToCircle(circleId: string, content: string, authorInfo: { uid: string, displayName: string | null, photoURL: string | null }): Promise<void> {
     if (!content.trim()) {
         throw new Error("Post content cannot be empty.");
     }
     try {
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
         await addDoc(postsCollection, {
-            authorId: mockUser.id, // In a real app, this would be the current authenticated user's ID
-            authorName: mockUser.name,
-            authorAvatarUrl: mockUser.avatarUrl,
+            authorId: authorInfo.uid,
+            authorName: authorInfo.displayName || 'Anonymous',
+            authorAvatarUrl: authorInfo.photoURL || `https://picsum.photos/seed/${authorInfo.uid}/100/100`,
             content: content,
             createdAt: serverTimestamp(),
             isPinned: false,
@@ -331,16 +327,16 @@ export async function togglePostReaction(circleId: string, postId: string, userI
 }
 
 
-export async function addCommentToPost(circleId: string, postId: string, commentContent: string): Promise<void> {
+export async function addCommentToPost(circleId: string, postId: string, commentContent: string, authorInfo: { uid: string, displayName: string | null, photoURL: string | null }): Promise<void> {
     if (!commentContent.trim()) {
         throw new Error("Comment cannot be empty.");
     }
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     
     const newComment: Omit<PostComment, 'id'| 'createdAt'> & { createdAt: any } = {
-        authorId: mockUser.id,
-        authorName: mockUser.name,
-        authorAvatarUrl: mockUser.avatarUrl,
+        authorId: authorInfo.uid,
+        authorName: authorInfo.displayName || 'Anonymous',
+        authorAvatarUrl: authorInfo.photoURL || `https://picsum.photos/seed/${authorInfo.uid}/100/100`,
         content: commentContent,
         createdAt: serverTimestamp() // Let Firestore handle the timestamp
     };

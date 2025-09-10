@@ -8,24 +8,35 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Users, Loader2, Wand2, UserPlus, AlertTriangle } from 'lucide-react';
 import { findStudyBuddy } from '@/ai/flows/study-buddy-flow';
 import type { User, StudyBuddyOutput } from '@/lib/types';
-import { mockUser } from '@/lib/data';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '../ui/alert';
+import type { User as FirebaseUser } from 'firebase/auth';
 
 interface StudyBuddyFinderProps {
   members: User[];
+  currentUser: FirebaseUser | null;
 }
 
-export function StudyBuddyFinder({ members }: StudyBuddyFinderProps) {
+export function StudyBuddyFinder({ members, currentUser }: StudyBuddyFinderProps) {
     const [isLoading, setIsLoading] = useState(false);
     const [suggestion, setSuggestion] = useState<StudyBuddyOutput['bestMatch'] | null>(null);
     const { toast } = useToast();
 
     const handleFindBuddy = async () => {
+        if (!currentUser) {
+            toast({
+                variant: 'destructive',
+                title: 'Not Logged In',
+                description: 'You need to be logged in to find a study buddy.',
+            });
+            return;
+        }
+
         setIsLoading(true);
         setSuggestion(null);
 
-        const otherMembers = members.filter(m => m.id !== mockUser.id);
+        const otherMembers = members.filter(m => m.id !== currentUser.uid);
+        const currentUserData = members.find(m => m.id === currentUser.uid);
 
         if (otherMembers.length === 0) {
             toast({
@@ -37,8 +48,18 @@ export function StudyBuddyFinder({ members }: StudyBuddyFinderProps) {
             return;
         }
 
+        if (!currentUserData) {
+            toast({
+                variant: 'destructive',
+                title: 'You are not a member',
+                description: 'You must be a member of this circle to find a buddy.',
+            });
+            setIsLoading(false);
+            return;
+        }
+
         try {
-            const result = await findStudyBuddy({ currentUser: mockUser, otherMembers });
+            const result = await findStudyBuddy({ currentUser: currentUserData, otherMembers });
             if (result.bestMatch) {
                 setSuggestion(result.bestMatch);
                  toast({
@@ -92,7 +113,7 @@ export function StudyBuddyFinder({ members }: StudyBuddyFinderProps) {
                         </Button>
                     </div>
                 ) : (
-                    <Button className="w-full" onClick={handleFindBuddy} disabled={isLoading}>
+                    <Button className="w-full" onClick={handleFindBuddy} disabled={isLoading || !currentUser}>
                         {isLoading ? (
                             <><Loader2 className="mr-2 animate-spin"/> Searching...</>
                         ) : (
