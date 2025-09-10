@@ -67,7 +67,7 @@ function parseQuizContent(content: string) {
 }
 
 
-function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: string, onUpdate: () => void }) {
+function PostCard({ post, circleId, onUpdate, setPosts }: { post: CirclePost, circleId: string, onUpdate: () => void, setPosts: React.Dispatch<React.SetStateAction<CirclePost[]>> }) {
     const [showComments, setShowComments] = useState(false);
     const [newComment, setNewComment] = useState('');
     const [isSubmittingComment, setIsSubmittingComment] = useState(false);
@@ -89,14 +89,43 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
     const handleCommentSubmit = async () => {
         if (!newComment.trim()) return;
         setIsSubmittingComment(true);
+
+        const optimisticComment: PostComment = {
+            id: `temp-${Date.now()}`,
+            authorId: mockUser.id,
+            authorName: mockUser.name,
+            authorAvatarUrl: mockUser.avatarUrl,
+            content: newComment,
+            createdAt: new Date().toISOString(),
+        };
+
         try {
-            await addCommentToPost(circleId, post.id, newComment);
+            // Optimistic UI update
+            setPosts(currentPosts => currentPosts.map(p => {
+                if (p.id === post.id) {
+                    return { ...p, comments: [...p.comments, optimisticComment] };
+                }
+                return p;
+            }));
+            setShowComments(true);
             setNewComment('');
-            onUpdate(); // Trigger a re-fetch to get the latest state with the new comment
-            setShowComments(true); // Ensure comments section is open
+
+            // Actual database call
+            await addCommentToPost(circleId, post.id, newComment);
+            
+            // Re-sync with the server in the background to get the final data
+            onUpdate();
+
         } catch (error) {
             console.error("Failed to add comment:", error);
-            toast({ variant: 'destructive', title: 'Error', description: 'Could not add comment.' });
+            toast({ variant: 'destructive', title: 'Error', description: 'Could not add comment. Please try again.' });
+            // Revert optimistic update on failure
+            setPosts(currentPosts => currentPosts.map(p => {
+                if (p.id === post.id) {
+                    return { ...p, comments: p.comments.filter(c => c.id !== optimisticComment.id) };
+                }
+                return p;
+            }));
         } finally {
             setIsSubmittingComment(false);
         }
@@ -382,7 +411,7 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
             <div className="space-y-4">
                 <h3 className="font-bold text-lg">Discussion Feed</h3>
                 {posts.length > 0 ? (
-                    posts.map(post => <PostCard key={post.id} post={post} circleId={circle.id} onUpdate={fetchPosts} />)
+                    posts.map(post => <PostCard key={post.id} post={post} circleId={circle.id} onUpdate={fetchPosts} setPosts={setPosts} />)
                 ) : (
                     <Card>
                         <CardContent className="text-center text-muted-foreground p-12">
