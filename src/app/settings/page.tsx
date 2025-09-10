@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -39,7 +40,6 @@ function SettingsSkeleton() {
                 <CardContent className="space-y-6">
                     <div className="flex items-center gap-4">
                         <Skeleton className="h-20 w-20 rounded-full" />
-                        <Skeleton className="h-10 w-24" />
                     </div>
                      <Skeleton className="h-10 w-full" />
                      <Skeleton className="h-10 w-24" />
@@ -136,7 +136,7 @@ export default function SettingsPage() {
               <AvatarImage src={userSettings.avatarUrl || user.avatarUrl || undefined} alt={userSettings.name} />
               <AvatarFallback>{userSettings.name?.charAt(0) || 'U'}</AvatarFallback>
             </Avatar>
-            <Button variant="outline" disabled>Change Avatar</Button>
+             <p className="text-sm text-muted-foreground">Avatar change is coming soon.</p>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
@@ -168,10 +168,9 @@ export default function SettingsPage() {
                     <Calendar className="text-primary"/>
                     <div>
                         <h3 className="font-semibold">Google Calendar</h3>
-                        <p className="text-sm text-muted-foreground">Not connected</p>
+                        <p className="text-sm text-muted-foreground">Calendar integration is coming soon.</p>
                     </div>
                 </div>
-                <Button variant="outline" disabled>Connect</Button>
             </Card>
         </CardContent>
       </Card>
