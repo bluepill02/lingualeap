@@ -16,6 +16,8 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 
 const countFillerWords = (text: string): number => {
     const fillerWords = /\b(um|uh|er|ah|like|okay|right|so|you know)\b/gi;
@@ -150,6 +152,9 @@ export default function InterviewPrepPage() {
         
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            if (!recognitionRef.current) {
+                initializeSpeechRecognition();
+            }
             recognitionRef.current.start();
 
             mediaRecorderRef.current = new MediaRecorder(stream);
@@ -346,62 +351,67 @@ export default function InterviewPrepPage() {
         };
 
          return (
-            <div className="mt-4 space-y-4 p-4 bg-muted/50 rounded-lg">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <AccordionContent>
+                <div className="mt-4 space-y-4 p-4 bg-muted/50 rounded-lg border">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <Card>
+                            <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Confidence</CardTitle></CardHeader>
+                            <CardContent><p className="text-2xl font-bold">{feedback.confidenceScore}/10</p></CardContent>
+                        </Card>
+                         <Card>
+                            <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><MessageSquare/>Filler Words</CardTitle></CardHeader>
+                            <CardContent><p className="text-2xl font-bold">{countFillerWords(answerRecord.answer)}</p></CardContent>
+                        </Card>
+                         <Card>
+                            <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Headphones/>Your Audio</CardTitle></CardHeader>
+                            <CardContent>
+                                <Button onClick={() => playAudio(answerRecord.audioBlob)} disabled={!answerRecord.audioBlob} variant="outline" className="w-full">
+                                    <Play className="mr-2"/> Play Recording
+                                </Button>
+                            </CardContent>
+                        </Card>
+                    </div>
                     <Card>
-                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Confidence</CardTitle></CardHeader>
-                        <CardContent><p className="text-2xl font-bold">{feedback.confidenceScore}/10</p></CardContent>
+                         <CardHeader className="pb-2"><CardTitle className="text-base">STAR Method Analysis & Transcript</CardTitle></CardHeader>
+                         <CardContent>
+                             <div className="flex flex-wrap gap-2 text-xs mb-4">
+                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400/30"/>Situation</span>
+                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-400/30"/>Task</span>
+                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400/30"/>Action</span>
+                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-purple-400/30"/>Result</span>
+                             </div>
+                             <p className="text-sm italic text-muted-foreground leading-relaxed p-3 bg-background rounded-md" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript() }} />
+                             <Separator className="my-4"/>
+                             <div className="space-y-2 text-sm">
+                                <div className="flex items-start gap-2">
+                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.situation ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                    <div><strong className="font-semibold">Situation:</strong> {feedback.starAnalysis.situationFeedback}</div>
+                                </div>
+                                 <div className="flex items-start gap-2">
+                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.task ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                    <div><strong className="font-semibold">Task:</strong> {feedback.starAnalysis.taskFeedback}</div>
+                                </div>
+                                 <div className="flex items-start gap-2">
+                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.action ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                    <div><strong className="font-semibold">Action:</strong> {feedback.starAnalysis.actionFeedback}</div>
+                                </div>
+                                <div className="flex items-start gap-2">
+                                    <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.result ? 'text-green-500' : 'text-muted-foreground/50')} />
+                                    <div><strong className="font-semibold">Result:</strong> {feedback.starAnalysis.resultFeedback}</div>
+                                </div>
+                             </div>
+                         </CardContent>
                     </Card>
-                     <Card>
-                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><MessageSquare/>Filler Words</CardTitle></CardHeader>
-                        <CardContent><p className="text-2xl font-bold">{countFillerWords(answerRecord.answer)}</p></CardContent>
-                    </Card>
-                     <Card>
-                        <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Headphones/>Your Audio</CardTitle></CardHeader>
-                        <CardContent>
-                            <Button onClick={() => playAudio(answerRecord.audioBlob)} disabled={!answerRecord.audioBlob} variant="outline" className="w-full">
-                                <Play className="mr-2"/> Play Recording
-                            </Button>
-                        </CardContent>
-                    </Card>
-                </div>
-                <Card>
-                     <CardHeader className="pb-2"><CardTitle className="text-base">STAR Method Analysis & Transcript</CardTitle></CardHeader>
-                     <CardContent>
-                         <div className="flex flex-wrap gap-2 text-xs mb-4">
-                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400/30"/>Situation</span>
-                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-400/30"/>Task</span>
-                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400/30"/>Action</span>
-                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-purple-400/30"/>Result</span>
-                         </div>
-                         <p className="text-sm italic text-muted-foreground leading-relaxed p-3 bg-background rounded-md" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript() }} />
-                         <Separator className="my-4"/>
-                         <div className="space-y-2 text-sm">
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.situation ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                <div><strong className="font-semibold">Situation:</strong> {feedback.starAnalysis.situationFeedback}</div>
-                            </div>
-                             <div className="flex items-start gap-2">
-                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.task ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                <div><strong className="font-semibold">Task:</strong> {feedback.starAnalysis.taskFeedback}</div>
-                            </div>
-                             <div className="flex items-start gap-2">
-                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.action ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                <div><strong className="font-semibold">Action:</strong> {feedback.starAnalysis.actionFeedback}</div>
-                            </div>
-                            <div className="flex items-start gap-2">
-                                <CheckCircle className={cn('mt-1 h-4 w-4 flex-shrink-0', feedback.starAnalysis.result ? 'text-green-500' : 'text-muted-foreground/50')} />
-                                <div><strong className="font-semibold">Result:</strong> {feedback.starAnalysis.resultFeedback}</div>
-                            </div>
-                         </div>
-                     </CardContent>
-                </Card>
-                <Alert>
-                    <Sparkles className="h-4 w-4"/>
-                    <AlertTitle>Keyword Feedback</AlertTitle>
-                    <AlertDescription>{feedback.keywordFeedback}</AlertDescription>
-                </Alert>
-             </div>
+                    <Alert>
+                        <Sparkles className="h-4 w-4"/>
+                        <AlertTitle>Keyword Feedback</AlertTitle>
+                        <AlertDescription>{feedback.keywordFeedback}</AlertDescription>
+                    </Alert>
+                    <Button variant="secondary" size="sm" className="mt-4" onClick={() => handleRetryQuestion(answerRecord.question)}>
+                        <Repeat className="mr-2"/> Retry This Question
+                    </Button>
+                 </div>
+            </AccordionContent>
         );
     }
 
@@ -539,25 +549,20 @@ export default function InterviewPrepPage() {
                     
                     <div>
                         <h3 className="text-xl font-bold mb-4">Detailed Breakdown</h3>
-                        {finalFeedback.detailedFeedback.map((feedbackItem, index) => {
-                             const answerRecord = sessionHistory.find(h => h.question === feedbackItem.question);
-                             if (!answerRecord) return null;
-                             return (
-                                 <details key={index} className="group border-b pb-4 mb-4">
-                                    <summary className="cursor-pointer list-none flex items-center justify-between py-2">
-                                        <h4 className="font-semibold text-lg flex-1 pr-4">Q{index + 1}: {feedbackItem.question}</h4>
-                                        <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
-                                            <span>View Details</span>
-                                            <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180"/>
-                                        </div>
-                                    </summary>
-                                    {renderFeedbackCard(answerRecord, feedbackItem)}
-                                     <Button variant="secondary" size="sm" className="mt-4" onClick={() => handleRetryQuestion(feedbackItem.question)}>
-                                        <Repeat className="mr-2"/> Retry This Question
-                                    </Button>
-                                </details>
-                             )
-                        })}
+                         <Accordion type="single" collapsible className="w-full space-y-2">
+                             {finalFeedback.detailedFeedback.map((feedbackItem, index) => {
+                                 const answerRecord = sessionHistory.find(h => h.question === feedbackItem.question);
+                                 if (!answerRecord) return null;
+                                 return (
+                                     <AccordionItem value={`item-${index}`} key={index}>
+                                         <AccordionTrigger className="font-semibold text-lg text-left p-4 hover:no-underline bg-background rounded-md">
+                                             Q{index + 1}: {feedbackItem.question}
+                                         </AccordionTrigger>
+                                         {renderFeedbackCard(answerRecord, feedbackItem)}
+                                     </AccordionItem>
+                                 )
+                            })}
+                        </Accordion>
                     </div>
                     <div className="text-center pt-4">
                         <Button onClick={() => setSessionState('idle')}>
@@ -592,5 +597,3 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
-
-    
