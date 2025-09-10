@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3 } from 'lucide-react';
+import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3, ChevronDown } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideInterviewFeedback, InterviewFeedbackOutput } from '@/ai/flows/interview-feedback-flow';
 import { generateInterviewQuestion } from '@/ai/flows/interview-question-generator';
@@ -51,7 +51,7 @@ interface AnswerRecord {
     answer: string;
 }
 
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 5;
 
 export default function InterviewPrepPage() {
     const { user } = useUser();
@@ -323,7 +323,13 @@ export default function InterviewPrepPage() {
                 <Card>
                      <CardHeader className="pb-2"><CardTitle className="text-base">STAR Method Analysis & Transcript</CardTitle></CardHeader>
                      <CardContent>
-                         <p className="text-sm italic text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript() }} />
+                         <div className="flex flex-wrap gap-2 text-xs mb-4">
+                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400/30"/>Situation</span>
+                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-400/30"/>Task</span>
+                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400/30"/>Action</span>
+                            <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-purple-400/30"/>Result</span>
+                         </div>
+                         <p className="text-sm italic text-muted-foreground leading-relaxed p-3 bg-background rounded-md" dangerouslySetInnerHTML={{ __html: getHighlightedTranscript() }} />
                          <Separator className="my-4"/>
                          <div className="space-y-2 text-sm">
                             <div className="flex items-start gap-2">
@@ -372,7 +378,7 @@ export default function InterviewPrepPage() {
             <div className="text-center">
                 <Button size="lg" onClick={startInterviewSession} disabled={!jobRole.trim()}>
                     <Play className="mr-2"/>
-                    Start Mock Interview
+                    Start Mock Interview ({MAX_QUESTIONS} Questions)
                 </Button>
             </div>
         </>
@@ -466,7 +472,7 @@ export default function InterviewPrepPage() {
                         <CardContent className="space-y-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <Card>
-                                    <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star/>Avg. Confidence</CardTitle></CardHeader>
+                                    <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star className="text-yellow-500"/>Avg. Confidence</CardTitle></CardHeader>
                                     <CardContent><p className="text-3xl font-bold">{avgConfidence}/10</p></CardContent>
                                 </Card>
                                 <Card>
@@ -474,7 +480,7 @@ export default function InterviewPrepPage() {
                                     <CardContent><p className="text-3xl font-bold">{totalFillerWords}</p></CardContent>
                                 </Card>
                             </div>
-                            <Alert>
+                            <Alert variant="info">
                                 <UserCheck className="h-4 w-4"/>
                                 <AlertTitle>Overall Strengths</AlertTitle>
                                 <AlertDescription>{finalFeedback.overallFeedback.strengths}</AlertDescription>
@@ -493,13 +499,11 @@ export default function InterviewPrepPage() {
                              const userAnswer = sessionHistory.find(h => h.question === feedbackItem.question)?.answer || '';
                              return (
                                  <details key={index} className="group border-b pb-4 mb-4">
-                                    <summary className="cursor-pointer list-none">
-                                        <div className="flex items-center justify-between">
-                                            <h4 className="font-semibold text-lg">Q{index + 1}: {feedbackItem.question}</h4>
-                                            <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
-                                                <span>View Details</span>
-                                                <ArrowRight className="h-4 w-4 transition-transform group-open:rotate-90"/>
-                                            </div>
+                                    <summary className="cursor-pointer list-none flex items-center justify-between py-2">
+                                        <h4 className="font-semibold text-lg flex-1 pr-4">Q{index + 1}: {feedbackItem.question}</h4>
+                                        <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
+                                            <span>View Details</span>
+                                            <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180"/>
                                         </div>
                                     </summary>
                                     {renderFeedbackCard(feedbackItem.question, userAnswer, feedbackItem)}
