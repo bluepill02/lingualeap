@@ -8,18 +8,25 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Sparkles, Loader2, CheckCircle, XCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { generateQuiz, QuizGeneratorOutput } from '@/ai/flows/quiz-generator';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { generateNeetQuiz } from '@/ai/flows/neet-quiz-generator';
+import { generateTnpscQuiz } from '@/ai/flows/tnpsc-quiz-generator';
+import type { NeetQuizGeneratorOutput, NeetQuizGeneratorInput, TnpscQuizGeneratorInput } from '@/lib/types';
+import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 
 type QuizState = {
   answers: (string | null)[];
   submitted: boolean;
 };
 
+type ExamType = 'NEET' | 'TNPSC';
+
 export default function OnDemandQuizPage() {
-  const [prompt, setPrompt] = useState('10 NEET-physics problems on optics');
+  const [prompt, setPrompt] = useState('10 physics problems on optics');
+  const [examType, setExamType] = useState<ExamType>('NEET');
   const [isLoading, setIsLoading] = useState(false);
-  const [quizData, setQuizData] = useState<QuizGeneratorOutput | null>(null);
+  const [quizData, setQuizData] = useState<NeetQuizGeneratorOutput | null>(null);
   const [quizState, setQuizState] = useState<QuizState | null>(null);
 
   const { toast } = useToast();
@@ -37,7 +44,18 @@ export default function OnDemandQuizPage() {
     setQuizData(null);
     setQuizState(null);
     try {
-      const result = await generateQuiz({ prompt });
+      let result;
+      // This is a simplified input structure. A real app might need more tailored inputs.
+      const commonInput = { prompt, numQuestions: 10, difficulty: 'Medium', language: 'English' };
+
+      if (examType === 'NEET') {
+        const neetInput: NeetQuizGeneratorInput = { ...commonInput, subject: 'Physics', chapter: prompt };
+        result = await generateNeetQuiz(neetInput);
+      } else { // TNPSC
+        const tnpscInput: TnpscQuizGeneratorInput = { ...commonInput, subject: 'History', chapter: prompt };
+        result = await generateTnpscQuiz(tnpscInput);
+      }
+      
       setQuizData(result);
       setQuizState({
         answers: Array(result.quizzes.length).fill(null),
@@ -70,7 +88,7 @@ export default function OnDemandQuizPage() {
   const getCorrectAnswersCount = () => {
       if (!quizData || !quizState) return 0;
       return quizData.quizzes.filter(
-        (quiz, index) => quizState.answers[index] && quizState.answers[index]?.trim().toLowerCase() === quiz.answer.trim().toLowerCase()
+        (quiz, index) => quizState.answers[index]?.trim().toLowerCase() === quiz.answer.trim().toLowerCase()
       ).length;
   }
 
@@ -79,21 +97,35 @@ export default function OnDemandQuizPage() {
       <header>
         <h1 className="text-3xl font-bold font-headline">On-Demand Quiz Generator</h1>
         <p className="text-muted-foreground">
-          Enter any topic, and our AI will instantly create a custom quiz for you.
+          Enter any topic, select an exam type, and our AI will instantly create a custom quiz.
         </p>
       </header>
 
       <Card>
         <CardContent className="p-6 space-y-4">
-          <div>
-            <Label htmlFor="quiz-prompt">Quiz Topic</Label>
-            <Input
-              id="quiz-prompt"
-              placeholder="e.g., 10 questions on the Indian Rebellion of 1857"
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              disabled={isLoading}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+             <div className="md:col-span-2">
+                <Label htmlFor="quiz-prompt">Quiz Topic</Label>
+                <Input
+                id="quiz-prompt"
+                placeholder="e.g., 10 questions on the Indian Rebellion of 1857"
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                disabled={isLoading}
+                />
+            </div>
+             <div>
+                <Label htmlFor="exam-type">Exam Type</Label>
+                <Select value={examType} onValueChange={(value: ExamType) => setExamType(value)} disabled={isLoading}>
+                    <SelectTrigger id="exam-type">
+                        <SelectValue placeholder="Select exam type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="NEET">NEET</SelectItem>
+                        <SelectItem value="TNPSC">TNPSC</SelectItem>
+                    </SelectContent>
+                </Select>
+            </div>
           </div>
           <Button onClick={handleGenerateQuiz} disabled={isLoading} className="w-full">
             {isLoading ? (
@@ -114,7 +146,7 @@ export default function OnDemandQuizPage() {
       {quizData && quizState && (
         <Card className="animate-in fade-in-50">
             <CardHeader>
-                <CardTitle>{quizData.title}</CardTitle>
+                <CardTitle>{quizData.title || 'Your Custom Quiz'}</CardTitle>
                 <CardDescription>Test your knowledge with this AI-generated quiz.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -124,7 +156,9 @@ export default function OnDemandQuizPage() {
 
                     return (
                         <div key={index} className="p-4 border rounded-lg bg-background/50">
-                            <p className="font-medium mb-4">{index + 1}. {quiz.question}</p>
+                            <div className="font-medium mb-4 prose dark:prose-invert max-w-none">
+                                {index + 1}. <MarkdownRenderer>{quiz.question}</MarkdownRenderer>
+                            </div>
                             <div className="space-y-2">
                                 {quiz.options.map((option) => {
                                     const isThisTheCorrectAnswer = option.trim().toLowerCase() === quiz.answer.trim().toLowerCase();
@@ -146,9 +180,11 @@ export default function OnDemandQuizPage() {
                                             onClick={() => handleOptionChange(index, option)}
                                             disabled={quizState.submitted}
                                         >
-                                            {quizState.submitted && isThisTheCorrectAnswer && <CheckCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
-                                            {quizState.submitted && isThisTheSelectedAnswer && !isAnswerCorrect && <XCircle className="mr-2 h-4 w-4 flex-shrink-0" />}
-                                            <span className="flex-1">{option}</span>
+                                            <div className="flex items-start gap-2">
+                                                {quizState.submitted && isThisTheCorrectAnswer && <CheckCircle className="h-4 w-4 mt-1 flex-shrink-0" />}
+                                                {quizState.submitted && isThisTheSelectedAnswer && !isAnswerCorrect && <XCircle className="h-4 w-4 mt-1 flex-shrink-0" />}
+                                                <div className="flex-1 prose dark:prose-invert max-w-none text-sm text-current"><MarkdownRenderer>{option}</MarkdownRenderer></div>
+                                            </div>
                                         </Button>
                                     );
                                 })}
@@ -156,8 +192,16 @@ export default function OnDemandQuizPage() {
                             {quizState.submitted && !isAnswerCorrect && (
                                 <Alert variant="success" className="mt-4">
                                   <AlertTitle>Correct Answer</AlertTitle>
-                                  <AlertDescription>
-                                    {quiz.answer}
+                                  <AlertDescription className="prose dark:prose-invert max-w-none text-sm">
+                                    <MarkdownRenderer>{quiz.answer}</MarkdownRenderer>
+                                  </AlertDescription>
+                                </Alert>
+                            )}
+                             {quizState.submitted && (
+                                <Alert variant="info" className="mt-4">
+                                  <AlertTitle>Explanation</AlertTitle>
+                                  <AlertDescription className="prose dark:prose-invert max-w-none text-sm">
+                                    <MarkdownRenderer>{quiz.explanation}</MarkdownRenderer>
                                   </AlertDescription>
                                 </Alert>
                             )}
@@ -187,3 +231,5 @@ export default function OnDemandQuizPage() {
     </div>
   );
 }
+
+    
