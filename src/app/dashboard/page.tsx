@@ -159,11 +159,13 @@ export default function DashboardPage() {
   };
   const cefrLevel = proficiencyMap[userData.proficiency] || 'A1';
 
+  const myCirclesCount = companionCircle ? 1 : 0; // Simplified for now
+
   const stats = [
-    { icon: Trophy, value: userData.streak, label: 'Day Streak', color: 'text-yellow-500' },
-    { icon: BrainCircuit, value: flashcardStats.mastered, label: 'Words Mastered', color: 'text-green-500' },
-    { icon: Target, value: cefrLevel, label: 'CEFR Level', color: 'text-blue-400' },
-    { icon: Clock, value: flashcardStats.dueToday, label: 'Due Today', color: 'text-primary' },
+    { icon: Trophy, value: userData.streak, label: 'Day Streak', color: 'text-yellow-500', href: '/flashcards' },
+    { icon: BrainCircuit, value: flashcardStats.mastered, label: 'Words Mastered', color: 'text-green-500', href: '/flashcards' },
+    { icon: Clock, value: flashcardStats.dueToday, label: 'Due Today', color: 'text-primary', href: '/flashcards' },
+    { icon: Users, value: myCirclesCount, label: 'My Circles', color: 'text-blue-400', href: '/companion-circles' },
   ];
 
   const levelProgress = userData.xp > 0 ? (userData.xp % 1000 / 1000) * 100 : 0;
@@ -292,13 +294,15 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
-            <Card key={stat.label} className="text-center">
-              <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
-                <stat.icon className={`h-8 w-8 ${stat.color}`} />
-                <p className="text-2xl font-bold">{stat.value}</p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </CardContent>
-            </Card>
+            <Link href={stat.href} key={stat.label}>
+                <Card className="text-center h-full hover:bg-muted transition-colors">
+                  <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
+                    <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                    <p className="text-2xl font-bold">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </CardContent>
+                </Card>
+            </Link>
           ))}
         </div>
         
@@ -367,3 +371,5 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+    
