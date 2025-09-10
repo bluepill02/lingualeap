@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Separator } from '@/components/ui/separator';
-import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star } from 'lucide-react';
+import { Megaphone, Lightbulb, ClipboardCheck, MessageSquareQuote, CheckCircle, Sparkles, Loader2, Star, RefreshCw } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideMissionFeedback, } from '@/ai/flows/mission-feedback-flow';
 import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
@@ -29,14 +29,16 @@ interface MCQState {
     correctAnswerIndex: number;
 }
 
+const initialMcqState: MCQState[] = [
+    { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+    { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
+];
+
 
 export default function PeerTeachingPage() {
     const [script, setScript] = useState('');
     const [diagram, setDiagram] = useState('');
-    const [mcqs, setMcqs] = useState<MCQState[]>([
-        { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
-        { question: '', options: ['', '', '', ''], correctAnswerIndex: 0 },
-    ]);
+    const [mcqs, setMcqs] = useState<MCQState[]>(initialMcqState);
     const [isLoading, setIsLoading] = useState(false);
     const [feedback, setFeedback] = useState<MissionFeedbackOutput | null>(null);
 
@@ -91,6 +93,13 @@ export default function PeerTeachingPage() {
         } finally {
             setIsLoading(false);
         }
+    }
+    
+    const resetForm = () => {
+        setScript('');
+        setDiagram('');
+        setMcqs(initialMcqState);
+        setFeedback(null);
     }
 
   return (
@@ -205,7 +214,12 @@ export default function PeerTeachingPage() {
                         <AlertDescription>{feedback.analogySuggestion}</AlertDescription>
                     </Alert>
                     <Separator />
-                    <Button variant="secondary" className="w-full">Submit to Peer Review</Button>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                        <Button variant="secondary" className="flex-1">Submit to Peer Review</Button>
+                        <Button variant="outline" className="flex-1" onClick={resetForm}>
+                            <RefreshCw className="mr-2" /> Start New Mission
+                        </Button>
+                    </div>
                 </CardContent>
             </Card>
         )}
