@@ -43,9 +43,8 @@ const getSubjectIcon = (subject: string) => {
 }
 
 
-function CircleCard({ circle, onPreview, isPro }: { circle: CompanionCircleType, onPreview: (circle: CompanionCircleType) => void; isPro: boolean }) {
+function CircleCard({ circle, onPreview }: { circle: CompanionCircleType, onPreview: (circle: CompanionCircleType) => void; }) {
     const [mentor, setMentor] = useState<User | null>(null);
-    const isLocked = circle.type === 'Mentor-led' && !isPro;
 
     useEffect(() => {
         async function fetchMentor() {
@@ -60,7 +59,7 @@ function CircleCard({ circle, onPreview, isPro }: { circle: CompanionCircleType,
     }, [circle]);
 
     return (
-        <Card className={cn("flex flex-col h-full hover:border-primary transition-all duration-300 hover:shadow-lg bg-card/50", isLocked && "bg-muted/50 border-dashed hover:border-muted-foreground")}>
+        <Card className="flex flex-col h-full hover:border-primary transition-all duration-300 hover:shadow-lg bg-card/50">
             <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                     <Badge variant={circle.type === 'Mentor-led' ? 'warning' : 'secondary'} className="flex items-center gap-1.5">
@@ -119,10 +118,10 @@ function CircleCard({ circle, onPreview, isPro }: { circle: CompanionCircleType,
                  </div>
             </CardContent>
             <CardFooter className="grid grid-cols-2 gap-2">
-                 <Button asChild variant="secondary" className="w-full" disabled={isLocked}>
+                 <Button asChild variant="secondary" className="w-full">
                     <Link href={`/companion-circles/${circle.id}`}>
-                        {isLocked ? <Lock className="w-4 h-4 mr-2"/> : <Users className="w-4 h-4 mr-2"/>}
-                        {isLocked ? 'Pro Only' : 'View'}
+                        <Users className="w-4 h-4 mr-2"/>
+                        View
                     </Link>
                 </Button>
                 <Button onClick={() => onPreview(circle)} variant="outline" className="w-full">
@@ -148,19 +147,11 @@ export default function CompanionCirclesPage() {
     const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
-    const [isProUser, setIsProUser] = useState(false);
-
 
     useEffect(() => {
         const authInstance = getAuth(app);
         const unsubscribe = onAuthStateChanged(authInstance, async (user) => {
             setCurrentUser(user);
-            if (user) {
-                const userProfile = await getUserSettings(user.uid);
-                setIsProUser(userProfile?.isPro || false);
-            } else {
-                setIsProUser(false);
-            }
             fetchCircles(user);
         });
 
@@ -334,7 +325,7 @@ export default function CompanionCirclesPage() {
                 <Dialog open={!!selectedCircle} onOpenChange={(isOpen) => !isOpen && setSelectedCircle(null)}>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredCircles.map(circle => (
-                            <CircleCard key={circle.id} circle={circle} onPreview={setSelectedCircle} isPro={isProUser} />
+                            <CircleCard key={circle.id} circle={circle} onPreview={setSelectedCircle} />
                         ))}
                     </div>
                     {selectedCircle && (

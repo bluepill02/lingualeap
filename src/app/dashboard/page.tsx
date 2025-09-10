@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -150,7 +151,6 @@ export default function DashboardPage() {
   }
 
   const { userData, flashcardStats, lessons, companionCircle } = dashboardData;
-  const isPro = userData.isPro;
 
   const proficiencyMap: { [key: string]: string } = {
     'Beginner': 'A1',
@@ -316,7 +316,7 @@ export default function DashboardPage() {
 
         <div>
           <h2 className="text-xl font-bold font-headline mb-4">Recommended Lessons</h2>
-          <LessonCarousel lessons={lessons} isPro={isPro} />
+          <LessonCarousel lessons={lessons} />
         </div>
 
         <CompanionCircleCard />

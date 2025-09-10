@@ -26,7 +26,7 @@ export default function PersonalTutorPage() {
   const [language, setLanguage] = useState<Language>('en');
   
   const getInitialMessage = useCallback(() => {
-    return `Hello ${user?.displayName || 'there'}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
+    return `Hello ${user?.name || 'there'}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
   }, [language, user]);
 
   const [messages, setMessages] = useState<Message[]>([
@@ -51,7 +51,7 @@ export default function PersonalTutorPage() {
 
   const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
-    setMessages([{ role: 'model', content: `Hello ${user?.displayName || 'there'}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
+    setMessages([{ role: 'model', content: `Hello ${user?.name || 'there'}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
   }
 
   const scrollToBottom = useCallback(() => {
@@ -257,7 +257,7 @@ export default function PersonalTutorPage() {
                   </div>
                   {message.role === 'user' && (
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
+                      <AvatarImage src={user?.avatarUrl || undefined} alt={user?.displayName || 'User'} />
                       <AvatarFallback>
                         {user?.displayName?.charAt(0) || 'U'}
                       </AvatarFallback>

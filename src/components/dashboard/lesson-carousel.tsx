@@ -25,10 +25,9 @@ import { cn } from '@/lib/utils';
 
 interface LessonCarouselProps {
   lessons: Lesson[];
-  isPro: boolean;
 }
 
-export function LessonCarousel({ lessons, isPro }: LessonCarouselProps) {
+export function LessonCarousel({ lessons }: LessonCarouselProps) {
   return (
     <Carousel
       opts={{
