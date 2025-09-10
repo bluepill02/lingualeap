@@ -93,8 +93,6 @@ export default function PeerTeachingPage() {
             mcqToUpdate.options = [...mcqToUpdate.options];
             mcqToUpdate.options[optionIndex] = value;
             
-            // If the edited option was the correct answer, reset the correct answer
-            // to force the user to re-select it. This prevents data inconsistency.
             if (mcqToUpdate.correctAnswer === oldOptionValue) {
                 mcqToUpdate.correctAnswer = '';
             }
