@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   try {
     // In a real application, you would fetch product details from your database
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      payment_method_types: ['card', 'upi'],
       line_items: [
         {
           price_data: {
