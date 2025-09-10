@@ -362,7 +362,12 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
               await leaveCircle(currentUser.uid, circle.id);
               toast({ title: 'Success', description: `You have left "${circle.name}".` });
           } else {
-              await joinCircle(currentUser.uid, circle.id);
+              await joinCircle(
+                  currentUser.uid, 
+                  circle.id,
+                  currentUser.displayName || 'Anonymous User',
+                  currentUser.photoURL || `https://picsum.photos/seed/${currentUser.uid}/100/100`
+              );
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
               setShowWelcomeWizard(true);
           }

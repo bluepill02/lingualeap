@@ -192,16 +192,13 @@ export async function getCircleWithMembers(id: string): Promise<{ circle: Compan
     }
 }
 
-export async function joinCircle(userId: string, circleId: string): Promise<void> {
+export async function joinCircle(userId: string, circleId: string, userName: string, avatarUrl: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
-        if (!userDoc) throw new Error("User not found in mock data.");
-        
         const memberData = {
-            id: userDoc.id,
-            name: userDoc.name,
-            avatarUrl: userDoc.avatarUrl
+            id: userId,
+            name: userName,
+            avatarUrl: avatarUrl
         };
         
         await updateDoc(circleRef, {
