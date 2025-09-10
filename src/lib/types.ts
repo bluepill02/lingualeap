@@ -472,3 +472,51 @@ export interface AnalyzeImageOutput {
     };
     mnemonic: string;
 }
+
+export interface InterviewQuestionInput {
+    jobRole: string;
+}
+
+export interface InterviewQuestionOutput {
+    question: string;
+}
+
+export interface AnswerRecord {
+    question: string;
+    answer: string;
+}
+
+export interface InterviewFeedbackInput {
+  jobRole?: string;
+  userPersona?: string;
+  sessionHistory: AnswerRecord[];
+}
+
+export interface STARAnalysis {
+  situation?: string;
+  task?: string;
+  action?: string;
+  result?: string;
+  situationFeedback: string;
+  taskFeedback: string;
+  actionFeedback: string;
+  resultFeedback: string;
+}
+
+export interface IndividualFeedback {
+    question: string;
+    starAnalysis: STARAnalysis;
+    keywordFeedback: string;
+    confidenceScore: number;
+}
+
+export interface OverallFeedback {
+    summary: string;
+    strengths: string;
+    areasForImprovement: string;
+}
+
+export interface InterviewFeedbackOutput {
+  overallFeedback: OverallFeedback;
+  detailedFeedback: IndividualFeedback[];
+}

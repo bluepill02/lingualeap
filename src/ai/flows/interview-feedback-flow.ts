@@ -8,53 +8,16 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-
-const AnswerRecordSchema = z.object({
-    question: z.string().describe('The interview question that was asked.'),
-    answer: z.string().describe("The user's spoken answer to the question."),
-});
-
-export const InterviewFeedbackInputSchema = z.object({
-  jobRole: z.string().optional().describe("The specific job role the user is preparing for, e.g., 'Software Engineer'."),
-  userPersona: z.string().optional().describe("The user's learning persona, e.g., 'The Career Climber'. This should guide the tone of the feedback."),
-  sessionHistory: z.array(AnswerRecordSchema).describe("An array of all questions asked and the user's answers for the entire session.")
-});
-export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
-
-const STARAnalysisSchema = z.object({
-  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'. This should be an EXACT quote from the user's answer, if present."),
-  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'. This should be an EXACT quote from the user's answer, if present."),
-  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'. This should be an EXACT quote from the user's answer, if present."),
-  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'. This should be an EXACT quote from the user's answer, if present."),
-  situationFeedback: z.string().describe("Feedback on how well the user established the context."),
-  taskFeedback: z.string().describe("Feedback on how well the user explained their specific responsibility."),
-  actionFeedback: z.string().describe("Feedback on the description of the actions taken. Were they specific and impactful?"),
-  resultFeedback: z.string().describe("Feedback on the outcome. Was it quantified? Did it show impact?"),
-});
-
-const IndividualFeedbackSchema = z.object({
-    question: z.string().describe("The original question this feedback pertains to."),
-    starAnalysis: STARAnalysisSchema,
-    keywordFeedback: z.string().describe("Analyzes the use of keywords relevant to the job role. Suggests powerful action verbs and industry-specific terms."),
-    confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer, based on clarity, pace, and conviction."),
-});
-
-const OverallFeedbackSchema = z.object({
-    summary: z.string().describe("A brief, encouraging overview of the user's performance across the entire session."),
-    strengths: z.string().describe("Two to three key strengths the user demonstrated consistently across their answers."),
-    areasForImprovement: z.string().describe("The two or three most critical areas the user should focus on for improvement, based on patterns observed across all answers."),
-});
-
-export const InterviewFeedbackOutputSchema = z.object({
-  overallFeedback: OverallFeedbackSchema,
-  detailedFeedback: z.array(IndividualFeedbackSchema),
-});
-export type InterviewFeedbackOutput = z.infer<typeof InterviewFeedbackOutputSchema>;
+import { InterviewFeedbackInput, InterviewFeedbackOutput } from '@/lib/types';
+import { InterviewFeedbackInputSchema, InterviewFeedbackOutputSchema } from '@/lib/server-types';
 
 
 export async function provideInterviewFeedback(input: InterviewFeedbackInput): Promise<InterviewFeedbackOutput> {
   return interviewFeedbackFlow(input);
 }
+
+// Custom Handlebars helper to add 1 to the index for display
+const addHelper = (a: number, b: number) => a + b;
 
 const prompt = ai.definePrompt({
     name: 'interviewFeedbackPrompt',
@@ -96,6 +59,7 @@ Here is the full interview session:
 
 Provide your complete, structured feedback now, keeping the user's persona ('{{{userPersona}}}') in mind.
 `,
+    helpers: { add: addHelper }
 });
 
 

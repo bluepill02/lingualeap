@@ -8,16 +8,8 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-
-export const InterviewQuestionInputSchema = z.object({
-  jobRole: z.string().describe('The job role the user is preparing for, e.g., "Software Engineer".'),
-});
-export type InterviewQuestionInput = z.infer<typeof InterviewQuestionInputSchema>;
-
-export const InterviewQuestionOutputSchema = z.object({
-  question: z.string().describe("A single, relevant behavioral interview question for the specified job role. It should be a common question asked in real interviews."),
-});
-export type InterviewQuestionOutput = z.infer<typeof InterviewQuestionOutputSchema>;
+import { InterviewQuestionInputSchema, InterviewQuestionOutputSchema } from '@/lib/server-types';
+import { InterviewQuestionInput, InterviewQuestionOutput } from '@/lib/types';
 
 
 export async function generateInterviewQuestion(input: InterviewQuestionInput): Promise<InterviewQuestionOutput> {
