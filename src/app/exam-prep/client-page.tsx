@@ -166,7 +166,7 @@ export default function ExamPrepClientPage() {
       <div>
         <h1 className="text-3xl font-bold font-headline">Exam Preparation Modules</h1>
         <p className="text-muted-foreground">
-          Select a module to start preparing for your competitive exams.
+          Select a module to start preparing for your competitive exams. Explore resources for <Link href="/exam-prep/neet" className="text-primary hover:underline">NEET</Link>, <Link href="/exam-prep/tnpsc" className="text-primary hover:underline">TNPSC</Link>, <Link href="/exam-prep/upsc" className="text-primary hover:underline">UPSC</Link>, and more.
         </p>
       </div>
 

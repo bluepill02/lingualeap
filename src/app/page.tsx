@@ -1,10 +1,29 @@
 
 'use client';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Bot, GraduationCap, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { LinguaLeapLogo } from '@/components/icons';
 import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+const features = [
+  {
+    icon: Bot,
+    title: "AI-Powered Learning",
+    description: "Utilize our AI Tutor for personalized guidance and the AR Immersion feature to learn from the world around you."
+  },
+  {
+    icon: GraduationCap,
+    title: "Gamified Lessons",
+    description: "Stay motivated with points, streaks, and levels. Master new languages and exam topics through engaging, bite-sized lessons."
+  },
+  {
+    icon: Users,
+    title: "Companion Circles",
+    description: "Join peer study groups or mentor-led circles to collaborate, discuss topics, and learn together."
+  }
+];
 
 export default function LandingPage() {
   return (
@@ -32,8 +51,8 @@ export default function LandingPage() {
         <section className="relative flex items-center justify-center h-[calc(100vh-80px)] text-center">
             <div className="absolute inset-0 z-0">
                 <Image 
-                    src="https://picsum.photos/1200/800"
-                    alt="An abstract image representing a diverse and collaborative learning environment."
+                    src="https://picsum.photos/seed/language-learning/1200/800"
+                    alt="An abstract, vibrant image representing a diverse and collaborative learning environment for language and exams."
                     data-ai-hint="collaborative learning"
                     fill
                     sizes="100vw"
@@ -63,6 +82,30 @@ export default function LandingPage() {
                     </Link>
                 </div>
             </div>
+        </section>
+
+        <section className="container mx-auto px-4 py-16 sm:py-24">
+           <div className="text-center">
+             <h2 className="text-3xl font-bold font-headline">A Smarter Way to Learn</h2>
+             <p className="mt-4 max-w-2xl mx-auto text-muted-foreground">
+                LinguaLeap combines cutting-edge AI with proven learning techniques to create a personalized and effective educational experience.
+             </p>
+           </div>
+           <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {features.map((feature, index) => (
+              <Card key={index}>
+                <CardHeader className="items-center text-center">
+                  <div className="p-3 bg-primary/10 rounded-full mb-2">
+                    <feature.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  <CardTitle>{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center text-muted-foreground">
+                  {feature.description}
+                </CardContent>
+              </Card>
+            ))}
+           </div>
         </section>
       </main>
     </div>

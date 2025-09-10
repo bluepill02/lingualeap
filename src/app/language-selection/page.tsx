@@ -186,7 +186,7 @@ export default function LanguageSelectionPage() {
 
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 md:px-8">
-      <Link href="/dashboard" className="flex items-center gap-2 text-primary mb-4">
+      <Link href="/dashboard" className="flex items-center gap-2 text-primary mb-4" aria-label="Back to Dashboard">
         <ArrowLeft className="w-5 h-5" />
         <span>Back</span>
       </Link>
@@ -208,7 +208,7 @@ export default function LanguageSelectionPage() {
                   {lang.lessons > 0 ? `${lang.lessons} lesson deck${lang.lessons > 1 ? 's' : ''} available` : 'Coming Soon'}
                 </p>
               </div>
-              <Link href={lang.href}>
+              <Link href={lang.href} aria-label={`Start learning ${lang.title}`}>
                 <Button variant="outline" disabled={lang.lessons === 0}>Start Learning</Button>
               </Link>
             </CardContent>
