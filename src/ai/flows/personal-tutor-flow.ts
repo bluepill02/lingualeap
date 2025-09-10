@@ -9,11 +9,21 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { PersonalTutorInputSchema, PersonalTutorOutputSchema, PersonalTutorInput, PersonalTutorOutput } from '@/lib/types';
+import { Language } from '@/context/language-context';
 
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
   return personalTutorFlow(input);
 }
+
+const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+};
 
 const prompt = ai.definePrompt({
   name: 'personalTutorPrompt',
@@ -50,9 +60,12 @@ const personalTutorFlow = ai.defineFlow(
             return { model: message.content };
         }
     });
+
+    const fullLanguageName = languageMap[input.language as Language] || input.language;
     
     const { output } = await prompt({
         ...input,
+        language: fullLanguageName,
         history: historyForPrompt
     });
 

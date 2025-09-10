@@ -16,6 +16,7 @@ import type { PersonalTutorInput, PronunciationAnalysisOutput } from '@/lib/type
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { useLanguage } from '@/context/language-context';
 
 interface Message {
   role: 'user' | 'model';
@@ -30,6 +31,7 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const { language } = useLanguage();
 
     const { toast } = useToast();
 
@@ -71,7 +73,7 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
                         const result = await analyzePronunciation({
                             audioDataUri: base64Audio,
                             correctWord: word,
-                            language: mockUser.language,
+                            language: language,
                         });
                         setAnalysis(result);
                         onResult(result.isCorrect);
@@ -147,10 +149,11 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
 
 
 export default function PersonalTutorPage() {
+  const { language } = useLanguage();
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'model',
-      content: `Hello ${mockUser.name}! I'm your AI Personal Tutor. How can I help you with your ${mockUser.language} learning today? You can type or use the microphone to ask me anything.`,
+      content: `Hello ${mockUser.name}! I'm your AI Personal Tutor. How can I help you with your language learning today? You can type or use the microphone to ask me anything.`,
     },
   ]);
   const [input, setInput] = useState('');
@@ -225,7 +228,7 @@ export default function PersonalTutorPage() {
       const tutorInput: PersonalTutorInput = {
         history,
         message: messageText,
-        language: mockUser.language,
+        language: language,
       };
       const response = await personalTutor(tutorInput);
 
@@ -301,7 +304,7 @@ export default function PersonalTutorPage() {
             <div className="mb-4">
                 <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
                 <p className="text-muted-foreground">
-                Ask me anything about {mockUser.language}!
+                Ask me anything about your selected language!
                 </p>
             </div>
 
