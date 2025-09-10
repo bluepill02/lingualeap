@@ -36,7 +36,6 @@ export default function ARImmersionPage() {
         return;
       }
       try {
-        // Correctly request the rear-facing camera for an AR experience
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: 'environment' } } });
         streamRef.current = stream;
         setHasCameraPermission(true);
@@ -46,7 +45,6 @@ export default function ARImmersionPage() {
         }
       } catch (error) {
         console.error('Error accessing rear camera, trying default:', error);
-        // Fallback to any available camera if the rear one fails
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             streamRef.current = stream;
@@ -70,10 +68,10 @@ export default function ARImmersionPage() {
     getCameraPermission();
 
     return () => {
-      // Cleanup function to stop the camera stream when the component unmounts
       if (streamRef.current) {
         streamRef.current.getTracks().forEach(track => track.stop());
       }
+      setIsCameraOn(false);
     };
   }, [toast]);
 
