@@ -1,6 +1,4 @@
 
-'use server';
-
 import { z } from 'genkit';
 import { languageMap } from './types';
 
@@ -101,5 +99,3 @@ export const AnalyzeImageOutputSchema = z.object({
     }),
     mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
 });
-
-    
