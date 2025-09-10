@@ -17,6 +17,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import type { Language, Message, PersonalTutorInput } from '@/lib/types';
 import { languageMap } from '@/lib/types';
+import Image from 'next/image';
 
 
 export default function PersonalTutorPage() {
@@ -94,7 +95,7 @@ export default function PersonalTutorPage() {
     setIsLoading(true);
 
     try {
-      const history = [...messages, userMessage];
+      const history = messages; // Pass previous messages
       const tutorInput: PersonalTutorInput = {
         history,
         message: messageText,
@@ -139,7 +140,7 @@ export default function PersonalTutorPage() {
     }
 
     recognitionRef.current = new SpeechRecognition();
-    recognitionRef.current.lang = 'en-US';
+    recognitionRef.current.lang = language;
     recognitionRef.current.interimResults = false;
     recognitionRef.current.maxAlternatives = 1;
 
@@ -169,7 +170,18 @@ export default function PersonalTutorPage() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-10rem)] w-full flex-col">
+    <div className="relative flex h-[calc(100vh-10rem)] w-full flex-col items-center justify-center p-4">
+       <div className="absolute inset-0 z-0">
+        <Image
+          src="https://picsum.photos/seed/ai-tutor/1600/900"
+          alt="Vibrant abstract background representing AI and language"
+          data-ai-hint="abstract learning"
+          fill
+          className="object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-background/50" />
+      </div>
+      <div className="relative z-10 h-full w-full max-w-4xl flex flex-col">
        <header className="mb-4 text-center">
             <h1 className="text-2xl font-bold font-headline">AI Personal Tutor</h1>
             <p className="text-muted-foreground">Your conversational language learning partner.</p>
@@ -190,7 +202,7 @@ export default function PersonalTutorPage() {
                 </Select>
             </div>
        </header>
-       <Card className="flex-1 flex flex-col">
+       <Card className="flex-1 flex flex-col bg-background/80 backdrop-blur-sm">
         <CardContent className="flex-1 p-2 sm:p-4 flex flex-col">
           <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
             <div className="space-y-6 p-2">
@@ -213,7 +225,7 @@ export default function PersonalTutorPage() {
                   )}
                   <div
                     className={cn(
-                      'max-w-md rounded-lg px-4 py-2 relative group text-sm sm:text-base',
+                      'max-w-md rounded-lg px-4 py-2 relative group text-sm sm:text-base shadow-md',
                       message.role === 'user'
                         ? 'bg-primary text-primary-foreground rounded-br-none'
                         : 'bg-muted rounded-bl-none'
@@ -253,7 +265,7 @@ export default function PersonalTutorPage() {
                       <Bot />
                     </AvatarFallback>
                   </Avatar>
-                  <div className="max-w-lg rounded-lg px-4 py-2 bg-muted flex items-center rounded-bl-none">
+                  <div className="max-w-lg rounded-lg px-4 py-2 bg-muted flex items-center rounded-bl-none shadow-md">
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     <span className="text-sm">Thinking...</span>
                   </div>
@@ -294,10 +306,9 @@ export default function PersonalTutorPage() {
             </Button>
           </form>
         </div>
-      </Card>
+       </Card>
       <audio ref={audioRef} className="hidden" />
+      </div>
     </div>
   );
 }
-
-    
