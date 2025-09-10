@@ -388,7 +388,7 @@ export const TnpscContentDatabase: Record<string, TnpscModule> = {
           correct: 0,
           explanation: "The Thinai concept classifies landscapes into five categories (Kurinji, Mullai, Marutham, Neithal, Palai) based on their unique geographical, floral, and faunal characteristics, which in turn influenced the culture and occupation of the people living there.",
           explanationTamil: "திணை என்ற கருத்து நிலப்பரப்புகளை அவற்றின் தனித்துவமான புவியியல், மலர் மற்றும் விலங்கு குணாதிசயங்களின் அடிப்படையில் ஐந்து வகைகளாக (குறிஞ்சி, முல்லை, மருதம், நெய்தல், பாலை) வகைப்படுத்துகிறது, இது அங்கு வாழும் மக்களின் கலாச்சாரம் மற்றும் தொழிலை பாதித்தது.",
-          yearAsked: [2021, 2016],
+          yearAsked: [2021, 2018],
           difficulty: "Medium",
           tnpscFrequency: 2,
           context: "sangam-age"
