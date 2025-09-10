@@ -26,6 +26,15 @@ export default function PersonalTutorPage() {
   const { user } = useUser();
   const [language, setLanguage] = useState<Language>('en');
   
+  useEffect(() => {
+    if (user && user.language) {
+      const userLang = Object.keys(languageMap).find(key => languageMap[key as Language] === user.language) as Language | undefined;
+      if (userLang) {
+        setLanguage(userLang);
+      }
+    }
+  }, [user]);
+
   const getInitialMessage = useCallback(() => {
     return `Hello ${user?.name || 'there'}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
   }, [language, user]);
@@ -47,7 +56,7 @@ export default function PersonalTutorPage() {
   
   useEffect(() => {
     setMessages([{ role: 'model', content: getInitialMessage() }]);
-  }, [user, getInitialMessage]);
+  }, [user, language, getInitialMessage]);
 
 
   const handleLanguageChange = (newLang: Language) => {

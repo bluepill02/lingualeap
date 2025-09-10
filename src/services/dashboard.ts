@@ -18,8 +18,13 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
     const userData = await getUserSettings(userId);
     if (!userData) {
       console.warn(`User document for ${userId} not found. Using mock user.`);
+      const fallbackUser: User = { 
+        ...mockUser, 
+        id: userId,
+        language: 'Hindi', // Ensure consistency with user creation
+      };
       return {
-        userData: { ...mockUser, id: userId },
+        userData: fallbackUser,
         flashcardStats: { mastered: 0, dueToday: 0, total: 0 },
         lessons: mockLessons.slice(0, 4),
         companionCircle: null,
@@ -42,7 +47,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
     // 4. Fetch all of the user's companion circles from Firestore
     const circlesQuery = query(
       collection(db, 'companion-circles'),
-      where('members', 'array-contains', userId)
+      where('members', 'array-contains', { id: userId, name: userData.name, avatarUrl: userData.avatarUrl })
     );
     const circleSnapshot = await getDocs(circlesQuery);
     
@@ -65,8 +70,13 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
   } catch (error) {
     console.error("Error fetching dashboard data:", error);
     // Return mock data as a fallback to prevent crashing the page
+    const fallbackUser: User = { 
+        ...mockUser, 
+        id: userId,
+        language: 'Hindi',
+     };
     return {
-      userData: { ...mockUser, id: userId }, // Return a shell user with the correct ID
+      userData: fallbackUser,
       flashcardStats: { mastered: 0, dueToday: 0, total: 0 },
       lessons: mockLessons.slice(0, 4),
       companionCircle: null, // Default to no circle on error

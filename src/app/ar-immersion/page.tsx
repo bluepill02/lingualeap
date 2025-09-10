@@ -12,12 +12,14 @@ import type { AnalyzeImageOutput } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { useUser } from '@/context/user-context';
 
 export default function ARImmersionPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
   
+  const { user } = useUser();
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalyzeImageOutput | null>(null);
@@ -37,7 +39,7 @@ export default function ARImmersionPage() {
   }, []);
 
   const captureAndAnalyze = useCallback(async () => {
-    if (!videoRef.current || !canvasRef.current || isProcessing) return;
+    if (!videoRef.current || !canvasRef.current || isProcessing || !user) return;
 
     setIsProcessing(true);
     const video = videoRef.current;
@@ -51,7 +53,7 @@ export default function ARImmersionPage() {
       const dataUri = canvas.toDataURL('image/jpeg');
 
       try {
-        const result = await analyzeImageForLearning({ photoDataUri: dataUri, targetLanguage: 'Hindi' });
+        const result = await analyzeImageForLearning({ photoDataUri: dataUri, targetLanguage: user.language || 'Hindi' });
         if (result && result.isObjectFound) {
           handleNewAnalysis(result);
         }
@@ -65,7 +67,7 @@ export default function ARImmersionPage() {
       }
     }
     setIsProcessing(false);
-  }, [isProcessing, toast, handleNewAnalysis]);
+  }, [isProcessing, toast, handleNewAnalysis, user]);
 
   useEffect(() => {
     const getCameraPermission = async () => {
