@@ -20,7 +20,7 @@ import {
     Timestamp,
     DocumentReference
 } from 'firebase/firestore';
-import { allUsers, mockUser, circlePosts } from '@/lib/data';
+import { allUsers, mockUser, circlePosts as seedPosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { app } from '@/lib/firebase';
@@ -38,9 +38,47 @@ export async function seedCirclesData() {
         console.log('Circles collection already exists. Seeding skipped.');
         return;
     }
+    
+    const companionCircles: Omit<CompanionCircle, 'id'>[] = [
+      {
+        name: 'NEET Physics Problem Solvers',
+        nameTamil: 'நீட் இயற்பியல் சிக்கல் தீர்ப்பவர்கள்',
+        description: 'A mentor-led group focused on tackling tough NEET physics problems, sharing strategies, and clarifying doubts with an experienced tutor.',
+        memberCount: 25,
+        posts: 112,
+        resources: 15,
+        type: 'Mentor-led',
+        subject: 'Physics',
+        difficulty: 'Core',
+        language: 'Multi Language',
+        format: 'Live Session',
+        members: [{id: 'user-4', name: 'Arjun Krishnan', avatarUrl: 'https://picsum.photos/100/100?a=4'}, {id: 'user-2', name: 'Priya Sharma', avatarUrl: 'https://picsum.photos/100/100?a=2'}],
+        groupNorms: ['Post at least one challenging problem per week.', 'Be respectful and constructive in feedback.', 'No spam or off-topic discussions.'],
+        upcomingEvents: ['Weekly Doubt Clearing Session - Sat 7 PM', 'Live Problem Solving: Rotational Motion - Next Tue 8 PM'],
+        lessonPlan: [],
+      },
+       {
+        name: 'Biology Diagram Practice',
+        nameTamil: 'உயிரியல் வரைபடப் பயிற்சி',
+        description: 'A peer-led study circle for students to share, practice, and get feedback on important NEET biology diagrams.',
+        memberCount: 30,
+        posts: 88,
+        resources: 22,
+        type: 'Peer Study',
+        subject: 'Biology',
+        difficulty: 'Bridge',
+        language: 'Multi Language',
+        format: 'Resource Hub',
+        members: allUsers.slice(2, 6).map(u => ({id: u.id, name: u.name, avatarUrl: u.avatarUrl})),
+        groupNorms: ['Share one diagram you find difficult each week.', 'Provide helpful feedback on at least two posts from others.', 'All diagrams must be from the NEET syllabus.'],
+        upcomingEvents: ['Peer Review: Human Anatomy Diagrams - Fri 6 PM'],
+      },
+    ];
 
-    companionCircles.forEach(circle => {
-        const docRef = doc(db, 'companion-circles', circle.id);
+
+    companionCircles.forEach((circle, index) => {
+        const circleId = `circle-${index + 1}`;
+        const docRef = doc(db, 'companion-circles', circleId);
         const { lessonPlan, ...circleData } = circle; // Separate lessonPlan
         
         // Convert lessonPlan tasks to a plain object for Firestore
@@ -49,14 +87,16 @@ export async function seedCirclesData() {
             tasks: week.tasks.map(task => ({...task}))
         }));
 
-        batch.set(docRef, {...circleData, lessonPlan: serializableLessonPlan || [] });
-    });
+        batch.set(docRef, {...circleData, id: circleId, lessonPlan: serializableLessonPlan || [] });
 
-    circlePosts.forEach(post => {
-        const postRef = doc(collection(db, 'companion-circles', post.circleId, 'posts'));
-        batch.set(postRef, { ...post, createdAt: serverTimestamp() });
+        // Seed posts for this circle
+        const postsForThisCircle = seedPosts.filter(p => p.circleId === circleId);
+        postsForThisCircle.forEach(postData => {
+            const postRef = doc(collection(db, 'companion-circles', circleId, 'posts'));
+            const {circleId, ...post} = postData;
+            batch.set(postRef, { ...post, createdAt: serverTimestamp() });
+        });
     });
-
 
     try {
         await batch.commit();
@@ -73,7 +113,6 @@ export async function createCircle(
 ): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    // In a real app, you would fetch the user's actual profile data
     const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: `https://picsum.photos/seed/${userId}/100/100`, name: userName || 'New User' };
 
     const newCircle = {
@@ -84,7 +123,7 @@ export async function createCircle(
             name: creatorUser.name,
             avatarUrl: creatorUser.avatarUrl
         }],
-        memberCount: 50,
+        memberCount: 50, // Default max members
         posts: 0,
         resources: 0,
         groupNorms: [
@@ -229,10 +268,11 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         if (snapshot.empty) {
             // Seeding mock posts if collection is empty
             const batch = writeBatch(db);
-            const mockPosts = circlePosts.filter(p => p.circleId === circleId);
+            const mockPosts = seedPosts.filter(p => p.circleId === circleId);
             mockPosts.forEach(postData => {
                  const postRef = doc(postsCollection);
-                 batch.set(postRef, { ...postData, createdAt: serverTimestamp() });
+                 const {circleId, ...post} = postData;
+                 batch.set(postRef, { ...post, createdAt: serverTimestamp() });
             });
             await batch.commit();
 
@@ -246,7 +286,7 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
     } catch (error) {
         console.error("Error fetching posts for circle: ", error);
         // Fallback with structured mock data to prevent crashes
-        return circlePosts
+        return seedPosts
             .filter(p => p.circleId === circleId)
             .map((p, index) => ({
                 ...p,
@@ -264,7 +304,6 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
 function mapDocToPost(doc: any): CirclePost {
     const data = doc.data();
     
-    // Safely convert Timestamps to ISO strings for both post and comments
     const comments = (data.comments || []).map((comment: any) => {
         let commentDate;
         if (comment.createdAt instanceof Timestamp) {
@@ -272,7 +311,6 @@ function mapDocToPost(doc: any): CirclePost {
         } else if (typeof comment.createdAt === 'string') {
             commentDate = comment.createdAt;
         } else {
-            // Fallback for pending server timestamps or other cases
             commentDate = new Date().toISOString(); 
         }
         
