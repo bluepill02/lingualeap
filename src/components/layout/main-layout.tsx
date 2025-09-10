@@ -35,6 +35,7 @@ import {
   Moon,
   Sun,
   LogOut,
+  Loader2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -53,11 +54,12 @@ import { Separator } from '../ui/separator';
 import { useLanguage, Language } from '@/context/language-context';
 import { translations } from '@/lib/i18n';
 import { useTheme } from 'next-themes';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { app } from '@/lib/firebase';
-import { useUser } from '@/context/user-context';
+import { useUser, UserProvider } from '@/context/user-context';
+import { Skeleton } from '../ui/skeleton';
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+function MainLayoutContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const { language, setLanguage } = useLanguage();
@@ -227,5 +229,42 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       </SidebarInset>
     </SidebarProvider>
     </div>
+  );
+}
+
+function MainLayoutSkeleton() {
+  return (
+    <div className="flex h-screen w-screen items-center justify-center">
+        <div className="flex items-center gap-2">
+            <Loader2 className="h-8 w-8 animate-spin text-primary"/>
+            <p className="text-muted-foreground">Initializing Application...</p>
+        </div>
+    </div>
+  )
+}
+
+
+export default function MainLayout({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = React.useState<React.ComponentProps<typeof UserProvider>['user']>(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (isLoading) {
+    return <MainLayoutSkeleton />;
+  }
+
+  return (
+    <UserProvider user={user}>
+      <MainLayoutContent>{children}</MainLayoutContent>
+    </UserProvider>
   );
 }
