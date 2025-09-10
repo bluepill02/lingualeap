@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3, ChevronDown, Headphones } from 'lucide-react';
+import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3, ChevronDown, Headphones, Lock } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideInterviewFeedback, InterviewFeedbackOutput } from '@/ai/flows/interview-feedback-flow';
 import { generateInterviewQuestion } from '@/ai/flows/interview-question-generator';
@@ -279,6 +279,27 @@ export default function InterviewPrepPage() {
                     <CardContent>
                         <Link href="/auth">
                             <Button>Log In or Sign Up</Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+            </div>
+        )
+    }
+
+    if (!user.isPro) {
+        return (
+            <div className="flex items-center justify-center h-full">
+                <Card className="max-w-md text-center p-8">
+                     <CardHeader>
+                        <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit">
+                            <Lock className="w-8 h-8 text-primary"/>
+                        </div>
+                        <CardTitle className="mt-4">Pro Feature</CardTitle>
+                        <CardDescription>The AI Mock Interview Simulator is a premium feature. Upgrade to LinguaLeap Pro to get unlimited practice and AI-powered feedback.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <Link href="/upgrade">
+                            <Button>Upgrade to Pro</Button>
                         </Link>
                     </CardContent>
                 </Card>
@@ -612,5 +633,3 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
-
-    

@@ -13,8 +13,11 @@ import { DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFoot
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { createCircle } from '@/services/circles';
-import { Loader2 } from 'lucide-react';
-import { Auth } from 'firebase/auth';
+import { Loader2, Lock } from 'lucide-react';
+import { Auth, getAuth } from 'firebase/auth';
+import { useUser } from '@/context/user-context';
+import Link from 'next/link';
+import { Alert, AlertTitle, AlertDescription } from '../ui/alert';
 
 const createCircleSchema = z.object({
   name: z.string().min(5, 'Name must be at least 5 characters.'),
@@ -31,11 +34,11 @@ type CreateCircleValues = z.infer<typeof createCircleSchema>;
 
 interface CreateCircleFormProps {
   onCircleCreated: () => void;
-  auth: Auth;
 }
 
-export function CreateCircleForm({ onCircleCreated, auth }: CreateCircleFormProps) {
+export function CreateCircleForm({ onCircleCreated }: CreateCircleFormProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useUser();
   const { toast } = useToast();
   const form = useForm<CreateCircleValues>({
     resolver: zodResolver(createCircleSchema),
@@ -47,13 +50,13 @@ export function CreateCircleForm({ onCircleCreated, auth }: CreateCircleFormProp
   });
 
   async function onSubmit(data: CreateCircleValues) {
-    if (!auth.currentUser) {
+    if (!user) {
         toast({ variant: 'destructive', title: 'Error', description: 'You must be logged in to create a circle.' });
         return;
     }
     setIsLoading(true);
     try {
-      await createCircle(data, auth.currentUser.uid, auth.currentUser.displayName || 'Anonymous');
+      await createCircle(data, user.uid, user.displayName || 'Anonymous');
       toast({
         title: 'Circle Created!',
         description: `Your new circle "${data.name}" is now live.`,
@@ -69,6 +72,27 @@ export function CreateCircleForm({ onCircleCreated, auth }: CreateCircleFormProp
     } finally {
       setIsLoading(false);
     }
+  }
+
+  if (!user?.isPro) {
+    return (
+        <DialogContent>
+            <DialogHeader>
+                <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit">
+                    <Lock className="w-8 h-8 text-primary"/>
+                </div>
+                <DialogTitle className="text-center mt-4">Pro Feature</DialogTitle>
+                 <DialogDescription className="text-center">
+                    Creating new Companion Circles is a premium feature. Upgrade to LinguaLeap Pro to build your own study communities.
+                </DialogDescription>
+            </DialogHeader>
+            <DialogFooter className="sm:justify-center">
+                 <Link href="/upgrade">
+                    <Button>Upgrade to Pro</Button>
+                </Link>
+            </DialogFooter>
+        </DialogContent>
+    )
   }
 
   return (

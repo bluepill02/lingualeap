@@ -245,16 +245,6 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
     }
   }, [lesson.id, isLessonCompleted]);
 
-  useEffect(() => {
-    if (isLessonCompleted && nextLessonId) {
-      router.push(`/lessons/${nextLessonId}`);
-    } else if (isLessonCompleted && !nextLessonId) {
-      // Last lesson in the deck, navigate back to the language page
-      const languagePath = deck.id.split('-')[1];
-      router.push(`/language/${languagePath}`);
-    }
-  }, [isLessonCompleted, nextLessonId, deck.id, router]);
-
   return (
     <div className="max-w-4xl mx-auto space-y-8 p-4 sm:p-6 md:p-8">
       <header className="flex items-center justify-between">
@@ -302,13 +292,17 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
       
       <div className="flex justify-center">
         {nextLessonId ? (
-          <Button size="lg" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
-              {isLessonCompleted ? <>Lesson Complete</> : <>Complete & Go to Next Lesson</>} <Check className="ml-2"/>
-          </Button>
+          <Link href={`/lessons/${nextLessonId}`}>
+            <Button size="lg" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
+                {isLessonCompleted ? <>Lesson Complete</> : <>Complete & Go to Next Lesson</>} <Check className="ml-2"/>
+            </Button>
+          </Link>
         ) : (
-           <Button size="lg" variant="secondary" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
-              {isLessonCompleted ? <>Deck Complete!</> : <>Complete Deck! Back to Course Page</>}
-          </Button>
+           <Link href={`/language/${deck.id.split('-')[1]}`}>
+                <Button size="lg" variant="secondary" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
+                    {isLessonCompleted ? <>Deck Complete!</> : <>Complete Deck! Back to Course Page</>}
+                </Button>
+           </Link>
         )}
       </div>
     </div>

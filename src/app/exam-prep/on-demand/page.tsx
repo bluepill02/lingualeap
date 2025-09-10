@@ -151,6 +151,27 @@ export default function OnDemandQuizPage() {
     })
   }
 
+  if (!user?.isPro) {
+    return (
+        <div className="flex items-center justify-center h-full">
+            <Card className="max-w-md text-center p-8">
+                <CardHeader>
+                    <div className="mx-auto bg-primary/10 rounded-full p-3 w-fit">
+                        <Lock className="w-8 h-8 text-primary"/>
+                    </div>
+                    <CardTitle className="mt-4">Pro Feature</CardTitle>
+                    <CardDescription>The On-Demand Practice Generator is a premium feature. Upgrade to LinguaLeap Pro to create unlimited custom quizzes and flashcards.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Link href="/upgrade">
+                        <Button>Upgrade to Pro</Button>
+                    </Link>
+                </CardContent>
+            </Card>
+        </div>
+    )
+  }
+
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">

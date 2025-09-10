@@ -146,19 +146,13 @@ export default function CompanionCirclesPage() {
     const [activeTab, setActiveTab] = useState('active_now');
     const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
-    const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
+    const { user } = useUser();
 
     useEffect(() => {
-        const authInstance = getAuth(app);
-        const unsubscribe = onAuthStateChanged(authInstance, async (user) => {
-            setCurrentUser(user);
-            fetchCircles(user);
-        });
-
-        return () => unsubscribe();
+        fetchCircles();
     }, []);
 
-    const fetchCircles = async (user: FirebaseUser | null = currentUser) => {
+    const fetchCircles = async () => {
         setIsLoading(true);
         try {
             const circles = await getCircles();
@@ -197,7 +191,7 @@ export default function CompanionCirclesPage() {
         return matchesSearch && matchesSubject && matchesLevel && matchesFormat && matchesType && matchesTab;
     });
 
-    const myCirclesCount = currentUser ? allCircles.filter(c => c.members.some(m => m.id === currentUser.uid)).length : 0;
+    const myCirclesCount = user ? allCircles.filter(c => c.members.some(m => m.id === user.uid)).length : 0;
     
     const dynamicStats = [
         { ...stats[0], value: myCirclesCount },
@@ -214,14 +208,13 @@ export default function CompanionCirclesPage() {
                 </div>
                 <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
                     <DialogTrigger asChild>
-                        <Button disabled={!currentUser}>
+                        <Button disabled={!user}>
                             <PlusCircle className="mr-2" />
                             Create Circle
                         </Button>
                     </DialogTrigger>
-                    {currentUser && (
-                        <CreateCircleForm 
-                            auth={getAuth(app)}
+                    {user && (
+                        <CreateCircleForm
                             onCircleCreated={() => {
                                 fetchCircles();
                                 setIsCreateDialogOpen(false);

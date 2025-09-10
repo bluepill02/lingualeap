@@ -160,10 +160,10 @@ export default function DashboardPage() {
   const cefrLevel = proficiencyMap[userData.proficiency] || 'A1';
 
   const stats = [
-    { icon: Trophy, value: userData.streak, label: 'Day Streak', color: 'text-yellow-500', href: '/flashcards' },
-    { icon: BrainCircuit, value: flashcardStats.mastered, label: 'Words Mastered', color: 'text-green-500', href: '/flashcards' },
-    { icon: Clock, value: flashcardStats.dueToday, label: 'Due Today', color: 'text-primary', href: '/flashcards' },
-    { icon: Users, value: myCirclesCount, label: 'My Circles', color: 'text-blue-400', href: '/companion-circles' },
+    { icon: Trophy, value: userData.streak, label: 'Day Streak', href: '/flashcards' },
+    { icon: BrainCircuit, value: flashcardStats.mastered, label: 'Words Mastered', href: '/flashcards' },
+    { icon: Clock, value: flashcardStats.dueToday, label: 'Due Today', href: '/flashcards' },
+    { icon: Users, value: myCirclesCount, label: 'My Circles', href: '/companion-circles' },
   ];
 
   const levelProgress = userData.xp > 0 ? (userData.xp % 1000 / 1000) * 100 : 0;
@@ -295,7 +295,7 @@ export default function DashboardPage() {
             <Link href={stat.href} key={stat.label} className="group">
                 <Card className="text-center h-full hover:bg-muted transition-colors">
                   <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
-                    <stat.icon className={`h-8 w-8 ${stat.color}`} />
+                    <stat.icon className="h-8 w-8 text-primary" />
                     <p className="text-2xl font-bold">{stat.value}</p>
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </CardContent>
