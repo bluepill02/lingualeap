@@ -18,17 +18,29 @@ import Link from 'next/link';
 import { allLessonDecks } from '@/lib/data';
 import { getLessonProgress } from '@/services/lesson-progress';
 import { useState, useEffect } from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 
 export default function BengaliPage() {
-  const decks = allLessonDecks.filter(deck => deck.id.startsWith('deck-bengali-'));
+  const allDecks = allLessonDecks.filter(deck => deck.id.startsWith('deck-bengali-'));
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
   
   useEffect(() => {
     setCompletedLessons(getLessonProgress());
   }, []);
 
-  const totalLessons = decks.reduce((sum, deck) => sum + deck.lessons.length, 0);
-  const completedCount = decks.flatMap(deck => deck.lessons).filter(lesson => completedLessons.includes(lesson.id)).length;
+  const decksByLevel = {
+    Foundations: allDecks.filter(d => d.level === 'Foundations'),
+    Intermediate: allDecks.filter(d => d.level === 'Intermediate'),
+    Advanced: allDecks.filter(d => d.level === 'Advanced'),
+  };
+
+  const totalLessons = allDecks.reduce((sum, deck) => sum + deck.lessons.length, 0);
+  const completedCount = allDecks.flatMap(deck => deck.lessons).filter(lesson => completedLessons.includes(lesson.id)).length;
   const progressPercentage = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
 
   return (
@@ -44,34 +56,45 @@ export default function BengaliPage() {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {decks.map((deck) => (
-          <Card key={deck.id} className="flex flex-col">
-            <CardHeader>
-                <div className="flex items-center gap-3">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                       <Briefcase className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                        <CardTitle className="font-headline text-xl">{deck.title}</CardTitle>
-                        <Badge variant="secondary" className="mt-1">{deck.level}</Badge>
-                    </div>
-                </div>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-muted-foreground text-sm">{deck.description}</p>
-            </CardContent>
-            <CardFooter>
-                <Link href={`/lessons/${deck.lessons[0].id}`} className="w-full">
-                    <Button className="w-full">
-                        <Play className="w-4 h-4 mr-2" />
-                        Start Deck
-                    </Button>
-                </Link>
-            </CardFooter>
-          </Card>
+      <Accordion type="multiple" defaultValue={['Foundations', 'Intermediate', 'Advanced']} className="w-full space-y-4">
+        {Object.entries(decksByLevel).map(([level, decks]) => decks.length > 0 && (
+          <AccordionItem value={level} key={level}>
+            <AccordionTrigger className="text-xl font-bold font-headline px-4 bg-muted/50 rounded-md hover:bg-muted/80">
+              {level}
+            </AccordionTrigger>
+            <AccordionContent className="pt-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {decks.map((deck) => (
+                  <Card key={deck.id} className="flex flex-col">
+                    <CardHeader>
+                        <div className="flex items-center gap-3">
+                            <div className="p-3 bg-primary/10 rounded-lg">
+                              <Briefcase className="w-6 h-6 text-primary" />
+                            </div>
+                            <div>
+                                <CardTitle className="font-headline text-xl">{deck.title}</CardTitle>
+                                <Badge variant="secondary" className="mt-1">{deck.level}</Badge>
+                            </div>
+                        </div>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground text-sm">{deck.description}</p>
+                    </CardContent>
+                    <CardFooter>
+                        <Link href={`/lessons/${deck.lessons[0].id}`} className="w-full">
+                            <Button className="w-full">
+                                <Play className="w-4 h-4 mr-2" />
+                                Start Deck
+                            </Button>
+                        </Link>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
         ))}
-      </div>
+      </Accordion>
 
 
       <div className="mt-8 space-y-4">
