@@ -13,13 +13,27 @@ import { PersonalTutorInputSchema, PersonalTutorOutputSchema } from '@/lib/serve
 
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
-  return personalTutorFlow(input);
-}
+  const fullLanguageName = languageMap[input.language as Language] || input.language;
 
+  // Create a new input object that conforms to the schema expected by the prompt.
+  const promptInput = {
+    ...input,
+    language: fullLanguageName,
+  };
+
+  return personalTutorFlow(promptInput);
+}
 
 const prompt = ai.definePrompt({
   name: 'personalTutorPrompt',
-  input: { schema: PersonalTutorInputSchema },
+  input: { schema: z.object({
+      history: z.array(z.object({
+        role: z.enum(['user', 'model']),
+        content: z.string(),
+      })),
+      message: z.string(),
+      language: z.string(),
+  }) },
   output: { schema: PersonalTutorOutputSchema },
   prompt: `You are LinguaLeap's AI Personal Tutor, a friendly and expert language guide. Your primary goal is to help the user master the language they have chosen: {{{language}}}. All of your responses, explanations, and examples should be tailored to teaching this specific language. Be patient, encouraging, and clear in your explanations.
 
@@ -40,7 +54,14 @@ User: {{{message}}}
 const personalTutorFlow = ai.defineFlow(
   {
     name: 'personalTutorFlow',
-    inputSchema: PersonalTutorInputSchema,
+    inputSchema: z.object({
+      history: z.array(z.object({
+        role: z.enum(['user', 'model']),
+        content: z.string(),
+      })),
+      message: z.string(),
+      language: z.string(),
+    }),
     outputSchema: PersonalTutorOutputSchema,
   },
   async (input) => {
@@ -53,11 +74,8 @@ const personalTutorFlow = ai.defineFlow(
         }
     });
 
-    const fullLanguageName = languageMap[input.language as Language] || input.language;
-    
     const { output } = await prompt({
         ...input,
-        language: fullLanguageName,
         history: historyForPrompt
     });
 
@@ -67,5 +85,3 @@ const personalTutorFlow = ai.defineFlow(
     return output;
   }
 );
-
-    
