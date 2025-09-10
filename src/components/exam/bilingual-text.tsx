@@ -4,6 +4,7 @@
 import * as React from 'react';
 import { MarkdownRenderer } from './markdown-renderer';
 import { cn } from '@/lib/utils';
+import { Slot } from '@radix-ui/react-slot';
 
 interface BilingualTextProps {
   english: string;
@@ -17,9 +18,11 @@ export const BilingualText: React.FC<BilingualTextProps> = ({ english, tamil, cl
     ? `${english} <span class="tamil-text">(${tamil})</span>` 
     : english;
 
+  const Comp = as === 'span' ? 'span' : 'div';
+
   return (
-    <div className={cn('prose dark:prose-invert max-w-none [&>p]:inline [&>span]:inline', className)}>
+    <Comp className={cn('prose dark:prose-invert max-w-none [&>p]:inline [&>span]:inline', className)}>
       <MarkdownRenderer as={as}>{combinedText}</MarkdownRenderer>
-    </div>
+    </Comp>
   );
 };
