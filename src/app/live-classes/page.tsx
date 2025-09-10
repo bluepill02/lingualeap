@@ -1,16 +1,15 @@
 
-'use client';
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Clock, Video, User, Zap } from 'lucide-react';
-import { liveClasses } from '@/lib/data';
+import { getLiveClasses } from '@/services/live-classes';
 import { Separator } from '@/components/ui/separator';
 import { format } from 'date-fns';
 
-export default function LiveClassesPage() {
+export default async function LiveClassesPage() {
+    const liveClasses = await getLiveClasses();
     const now = new Date();
     const liveNowClasses = liveClasses.filter(c => new Date(c.startTime) <= now && new Date(c.endTime) > now);
     const upcomingClasses = liveClasses.filter(c => new Date(c.startTime) > now);
@@ -94,7 +93,11 @@ export default function LiveClassesPage() {
                         ))}
                     </div>
                 ) : (
-                    <p className="text-muted-foreground">No upcoming classes scheduled. Please check back later.</p>
+                    <Card>
+                        <CardContent className="p-12 text-center text-muted-foreground">
+                            <p>No upcoming classes are scheduled at this time. Please check back later!</p>
+                        </CardContent>
+                    </Card>
                 )}
             </div>
         </div>
