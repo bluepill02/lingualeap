@@ -237,15 +237,9 @@ export default function ExamPrepClientPage() {
                         </CardHeader>
                         <CardContent className="flex-grow">
                              <p className="text-xs text-muted-foreground p-2 bg-muted rounded-md">
-                                <strong>Warning:</strong> This is a community-provided module. Content has not been officially verified.
+                                <strong>Warning:</strong> This is a community-provided module. Content has not been officially verified and this feature is for demonstration only.
                             </p>
                         </CardContent>
-                        <div className="p-6 pt-0">
-                           {/* The link will need to be dynamic based on module type in a real app */}
-                           <Button className="w-full" variant="secondary" disabled>
-                             View Module <ArrowRight className="ml-2 h-4 w-4" />
-                           </Button>
-                        </div>
                     </Card>
                 ))}
             </div>
