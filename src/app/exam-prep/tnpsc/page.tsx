@@ -33,22 +33,9 @@ import Link from 'next/link';
 
 export default function TnpscContentScreen() {
   const [selectedSubject, setSelectedSubject] = useState<string>('all')
-  const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all')
   const [isOfflineMode, setIsOfflineMode] = useState(false)
-  const [userProgress, setUserProgress] = useState<Record<string, number>>({})
-  const [studyStreak, setStudyStreak] = useState(0)
 
   useEffect(() => {
-    const savedProgress = localStorage.getItem('tnpsc-progress')
-    if (savedProgress) {
-      setUserProgress(JSON.parse(savedProgress))
-    }
-
-    const savedStreak = localStorage.getItem('tnpsc-streak')
-    if (savedStreak) {
-      setStudyStreak(parseInt(savedStreak))
-    }
-
     if ('serviceWorker' in navigator) {
       setIsOfflineMode(navigator.onLine === false)
     }
@@ -66,21 +53,28 @@ export default function TnpscContentScreen() {
     { id: 'language', name: 'Language Papers', nameTamil: 'மொழித் தாள்கள்', icon: Languages, color: 'bg-orange-500' },
   ];
 
-  const getFilteredModules = (): TnpscModule[] => {
-    let modules = Object.values(TnpscContentDatabase)
+  const getFilteredModules = (): Record<string, TnpscModule[]> => {
+    const allModules = Object.values(TnpscContentDatabase);
+    const modulesBySubject: Record<string, TnpscModule[]> = {};
+
+    subjects.forEach(subject => {
+      if (subject.id !== 'all') {
+        const filtered = allModules
+          .filter(module => module.subject === subject.id)
+          .sort((a, b) => b.weightage - a.weightage);
+        if (filtered.length > 0) {
+          modulesBySubject[subject.id] = filtered;
+        }
+      }
+    });
     
-    if (selectedSubject !== 'all') {
-      modules = modules.filter(module => module.subject === selectedSubject)
-    }
-    
-    if (selectedDifficulty !== 'all') {
-      modules = modules.filter(module => module.difficultyLevel === selectedDifficulty)
-    }
-    
-    return modules.sort((a, b) => b.weightage - a.weightage)
+    return modulesBySubject;
   }
   
-   const filteredModules = getFilteredModules();
+  const filteredModulesBySubject = getFilteredModules();
+  
+  const subjectOrder = ['history', 'polity', 'geography', 'economy', 'science', 'aptitude', 'current-affairs', 'language'];
+
 
   const handleDownloadOfflineContent = async () => {
     try {
@@ -121,55 +115,59 @@ export default function TnpscContentScreen() {
           </div>
         </header>
 
-        <div className="flex flex-wrap gap-2">
-            {subjects.map(s => (
-                <Button key={s.id} variant={selectedSubject === s.id ? "default" : "outline"} onClick={() => setSelectedSubject(s.id)}>
-                    <s.icon className="h-4 w-4 mr-2" />
-                    {s.name}
-                </Button>
-            ))}
-        </div>
+        {subjectOrder.map(subjectId => {
+          const subjectInfo = subjects.find(s => s.id === subjectId);
+          const modules = filteredModulesBySubject[subjectId];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredModules.map((module) => {
-            const subjectInfo = subjects.find(s => s.id === module.subject)
-            
-            return (
-              <Link href={`/exam-prep/tnpsc/${module.id}`} key={module.id} className="group">
-                <Card className="hover:border-primary transition-all h-full flex flex-col">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      {subjectInfo && <Badge variant="secondary" className="bg-opacity-20 text-foreground">
-                        <subjectInfo.icon className="h-3 w-3 mr-1.5" style={{ color: subjectInfo.color }} />
-                        {subjectInfo.name}
-                      </Badge>}
-                       <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
-                                        module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
-                        {module.difficultyLevel}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors h-16">
-                      {module.title}
-                    </CardTitle>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0 flex-grow flex flex-col justify-end">
-                     <div className="flex items-center justify-between text-sm text-muted-foreground border-t pt-4">
-                        <div className="flex items-center gap-1.5">
-                            <FileQuestion className="h-4 w-4"/>
-                            <span>{module.examPattern.mcqCount} MCQs</span>
+          if (!subjectInfo || !modules) return null;
+
+          return (
+            <div key={subjectId} className="space-y-4">
+               <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-full ${subjectInfo.color}`}>
+                    <subjectInfo.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold font-headline">{subjectInfo.name}</h2>
+                    <p className="text-muted-foreground">{subjectInfo.nameTamil}</p>
+                  </div>
+               </div>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {modules.map((module) => (
+                  <Link href={`/exam-prep/tnpsc/${module.id}`} key={module.id} className="group">
+                    <Card className="hover:border-primary transition-all h-full flex flex-col">
+                      <CardHeader className="pb-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <Badge variant={module.difficultyLevel === 'Foundation' ? 'success' : 
+                                            module.difficultyLevel === 'Intermediate' ? 'warning' : 'destructive'}>
+                            {module.difficultyLevel}
+                          </Badge>
+                          <Badge variant="secondary">Weightage: {module.weightage}%</Badge>
                         </div>
-                         <div className="flex items-center gap-1.5">
-                            <span>Start Learning</span>
-                            <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
-                        </div>
-                     </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            )
-          })}
-        </div>
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors h-16">
+                          {module.title}
+                        </CardTitle>
+                      </CardHeader>
+                      
+                      <CardContent className="pt-0 flex-grow flex flex-col justify-end">
+                         <div className="flex items-center justify-between text-sm text-muted-foreground border-t pt-4">
+                            <div className="flex items-center gap-1.5">
+                                <FileQuestion className="h-4 w-4"/>
+                                <span>{module.examPattern.mcqCount} MCQs</span>
+                            </div>
+                             <div className="flex items-center gap-1.5">
+                                <span>Start Learning</span>
+                                <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
+                            </div>
+                         </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+               </div>
+            </div>
+          )
+        })}
     </div>
   )
 }
