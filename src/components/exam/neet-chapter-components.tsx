@@ -66,7 +66,7 @@ export function ConceptNotesCard({ content }: { content: (ConceptNote | Bilingua
                              <CardHeader className="card-padding-lg">
                                 <CardTitle className="flex items-center gap-3">
                                     <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-lg">{index + 1}</span>
-                                    <BilingualText english={heading.english} tamil={heading.tamil} className="not-prose text-xl font-bold font-headline" />
+                                    <BilingualText english={heading.english} tamil={heading.tamil} className="not-prose text-xl font-bold font-headline" as="span" />
                                 </CardTitle>
                             </CardHeader>
                            )}
@@ -102,7 +102,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                     <CardHeader className="card-padding-lg flex flex-row justify-between items-start">
                         <div>
                             <CardTitle>
-                                <BilingualText english={example.title} tamil={example.titleTamil} />
+                                <BilingualText english={example.title} tamil={example.titleTamil} as="span" />
                             </CardTitle>
                         </div>
                          <Badge variant={
@@ -143,7 +143,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                             <Lightbulb className="h-4 w-4" />
                             <AlertTitle>NEET Hack</AlertTitle>
                             <AlertDescription>
-                               <BilingualText english={example.neetHack} tamil={example.neetHackTamil} />
+                               <BilingualText english={example.neetHack} tamil={example.neetHackTamil} as="span"/>
                             </AlertDescription>
                         </Alert>
                         {example.commonPitfall && (
@@ -151,7 +151,7 @@ export function WorkedExamplesCard({ examples }: { examples: WorkedExample[] }) 
                                 <AlertTriangle className="h-4 w-4" />
                                 <AlertTitle>Common Pitfall</AlertTitle>
                                 <AlertDescription>
-                                     <BilingualText english={example.commonPitfall} tamil={example.commonPitfallTamil} />
+                                     <BilingualText english={example.commonPitfall} tamil={example.commonPitfallTamil} as="span"/>
                                 </AlertDescription>
                             </Alert>
                         )}
@@ -192,7 +192,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
                                         <MarkdownRenderer>{`$$${item.formula}$$`}</MarkdownRenderer>
                                     </TableCell>
                                     <TableCell>
-                                        <BilingualText english={item.description} tamil={item.descriptionTamil} />
+                                        <BilingualText english={item.description} tamil={item.descriptionTamil} as="span"/>
                                     </TableCell>
                                 </TableRow>
                             ))}

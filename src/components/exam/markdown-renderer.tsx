@@ -30,56 +30,61 @@ function getRawTextContent(node: React.ReactNode): string {
 }
 
 
-export const MarkdownRenderer: React.FC<{ children: string | null | undefined }> = ({ children }) => {
+export const MarkdownRenderer: React.FC<{ children: string | null | undefined, as?: 'p' | 'span' }> = ({ children, as = 'p' }) => {
     if (!children) return null;
+
+    const components = {
+        p: ({ node, ...props }: any) => {
+            const textContent = getRawTextContent(props.children);
+            
+            if (textContent.includes('{{')) {
+                if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
+                    return <div className="not-prose my-4"><InertiaAnimation /></div>;
+                }
+                if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
+                    return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
+                }
+                if (textContent.trim() === '{{LIFT_ANIMATION}}') {
+                    return <div className="not-prose my-4"><LiftAnimation /></div>;
+                }
+                if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
+                    return <div className="not-prose my-4"><ProjectileAnimation /></div>;
+                }
+                 if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
+                    return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
+                }
+                if (textContent.trim() === '{{ICE_SKATER_ANIMATION}}') {
+                    return <div className="not-prose my-4"><IceSkaterAnimation /></div>;
+                }
+                if (textContent.trim() === '{{OHMS_LAW_SIMULATOR}}') {
+                    return <div className="not-prose my-4"><LabSimulator /></div>;
+                }
+                 if (textContent.trim() === '{{ATOM_MODEL_VIEWER}}') {
+                    return <div className="not-prose my-4"><ModelViewer /></div>;
+                }
+                 if (textContent.includes('FBD_BUILDER')) {
+                    try {
+                        const fbdData = JSON.parse(textContent.replace('{{FBD_BUILDER:', '').replace('}}', ''));
+                        return <div className="not-prose my-4"><FbdBuilder {...fbdData} /></div>;
+                    } catch (e) {
+                        console.error("Failed to parse FBD_BUILDER data", e);
+                        return <p className="text-destructive">Error: Invalid FBD data.</p>
+                    }
+                }
+            }
+            // Use the 'as' prop to determine which tag to render
+            if (as === 'span') {
+                return <span {...props}>{props.children}</span>;
+            }
+            return <p {...props}>{props.children}</p>;
+        },
+    };
 
     return (
         <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkMath]}
             rehypePlugins={[rehypeRaw, rehypeKatex]}
-            components={{
-                p: ({ node, ...props }) => {
-                    const textContent = getRawTextContent(props.children);
-                    
-                    if (textContent.includes('{{')) {
-                        if (textContent.trim() === '{{INERTIA_ANIMATION}}') {
-                            return <div className="not-prose my-4"><InertiaAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{ACTION_REACTION_ANIMATION}}') {
-                            return <div className="not-prose my-4"><ActionReactionAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{LIFT_ANIMATION}}') {
-                            return <div className="not-prose my-4"><LiftAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{PROJECTILE_ANIMATION}}') {
-                            return <div className="not-prose my-4"><ProjectileAnimation /></div>;
-                        }
-                         if (textContent.trim() === '{{KINEMATICS_GRAPH_ANIMATION}}') {
-                            return <div className="not-prose my-4"><KinematicsGraphAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{ICE_SKATER_ANIMATION}}') {
-                            return <div className="not-prose my-4"><IceSkaterAnimation /></div>;
-                        }
-                        if (textContent.trim() === '{{OHMS_LAW_SIMULATOR}}') {
-                            return <div className="not-prose my-4"><LabSimulator /></div>;
-                        }
-                         if (textContent.trim() === '{{ATOM_MODEL_VIEWER}}') {
-                            return <div className="not-prose my-4"><ModelViewer /></div>;
-                        }
-                         if (textContent.includes('FBD_BUILDER')) {
-                            try {
-                                const fbdData = JSON.parse(textContent.replace('{{FBD_BUILDER:', '').replace('}}', ''));
-                                return <div className="not-prose my-4"><FbdBuilder {...fbdData} /></div>;
-                            } catch (e) {
-                                console.error("Failed to parse FBD_BUILDER data", e);
-                                return <p className="text-destructive">Error: Invalid FBD data.</p>
-                            }
-                        }
-                    }
-
-                    return <p {...props}>{props.children}</p>;
-                },
-            }}
+            components={components}
         >
             {children}
         </ReactMarkdown>

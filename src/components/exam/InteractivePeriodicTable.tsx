@@ -147,7 +147,7 @@ export function InteractivePeriodicTable() {
                                 <span className={cn('px-2 py-1 rounded-md text-sm', categoryColors[selectedElement.category], 'text-white')}>{selectedElement.category.replace(/-/g, ' ')}</span>
                             </DialogTitle>
                             <DialogDescription>
-                               <BilingualText english={selectedElement.name} tamil={selectedElement.nameTamil}/>
+                               <BilingualText english={selectedElement.name} tamil={selectedElement.nameTamil} as="span" />
                             </DialogDescription>
                         </DialogHeader>
                         <div className="space-y-4">
