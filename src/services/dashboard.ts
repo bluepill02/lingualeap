@@ -6,6 +6,7 @@ import { doc, getDoc, collection, query, where, getDocs, limit, Timestamp } from
 import type { User, Flashcard, Lesson, CompanionCircle, DashboardData } from '@/lib/types';
 import { mockUser, lessons as mockLessons, companionCircles } from '@/lib/data';
 import { getUserFlashcards } from './user-flashcards';
+import { getUserSettings } from './user';
 
 /**
  * Fetches all necessary data for the user's dashboard.
@@ -14,9 +15,8 @@ import { getUserFlashcards } from './user-flashcards';
 export async function getDashboardData(userId: string): Promise<DashboardData> {
   try {
     // 1. Fetch the user's profile from Firestore
-    const userRef = doc(db, 'users', userId);
-    const userSnap = await getDoc(userRef);
-    if (!userSnap.exists()) {
+    const userData = await getUserSettings(userId);
+    if (!userData) {
       console.warn(`User document for ${userId} not found. Using mock user.`);
       return {
         userData: { ...mockUser, id: userId },
@@ -25,7 +25,6 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
         companionCircle: null,
       };
     }
-    const userData: User = userSnap.data() as User;
 
     // 2. Fetch user-specific flashcard stats
     const userFlashcards = await getUserFlashcards(userId);
@@ -54,7 +53,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
 
 
     return {
-      userData,
+      userData: userData as User,
       flashcardStats,
       lessons: recommendedLessons,
       companionCircle: userCompanionCircle,

@@ -1,7 +1,49 @@
 
+'use client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { useUser } from '@/context/user-context';
+import { updateUserSettings } from '@/services/user';
+import { useToast } from '@/hooks/use-toast';
+import { Check, Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+export default function UpgradePage() {
+  const { user } = useUser();
+  const { toast } = useToast();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleUpgrade = async () => {
+    if (!user) {
+      toast({
+        variant: "destructive",
+        title: "You're not logged in",
+        description: "Please log in to upgrade your account.",
+      });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      await updateUserSettings(user.uid, { isPro: true });
+      toast({
+        title: "Upgrade Successful!",
+        description: "Welcome to LinguaLeap Pro! All features are now unlocked.",
+      });
+      // Optionally, refresh the page or user context to reflect the change
+      router.refresh(); 
+    } catch (error) {
+      console.error("Upgrade failed:", error);
+      toast({
+        variant: "destructive",
+        title: "Upgrade Failed",
+        description: "We couldn't process your upgrade. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
 const plans = [
   {
@@ -9,12 +51,14 @@ const plans = [
     price: "$0",
     description: "Start your language journey for free.",
     features: [
-      "Access to first 3 lessons",
+      "Access to first 3 lesson decks",
       "Basic flashcard review",
       "Community access",
     ],
     cta: "Your Current Plan",
-    isCurrent: true,
+    isCurrent: !user?.isPro,
+    action: () => {},
+    disabled: true,
   },
   {
     name: "Pro",
@@ -22,18 +66,20 @@ const plans = [
     description: "Unlock all features and learn faster.",
     features: [
       "Unlimited access to all lessons",
-      "AI-powered Smart Scheduler",
-      "Advanced audio comparison",
-      "Detailed progress tracking",
+      "AI-powered Smart Scheduler (Coming Soon)",
+      "Advanced audio comparison (Coming Soon)",
+      "Detailed progress tracking (Coming Soon)",
       "No ads",
     ],
     cta: "Upgrade to Pro",
-    isCurrent: false,
+    isCurrent: user?.isPro,
+    action: handleUpgrade,
+    disabled: isLoading || user?.isPro,
     isFeatured: true,
   },
 ];
 
-export default function UpgradePage() {
+
   return (
     <div className="container mx-auto flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
@@ -65,8 +111,9 @@ export default function UpgradePage() {
                 </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg" disabled={plan.isCurrent}>
-                {plan.cta}
+              <Button className="w-full" size="lg" disabled={plan.disabled} onClick={plan.action}>
+                 {isLoading && !plan.isCurrent ? <Loader2 className="mr-2 animate-spin" /> : null}
+                {plan.isCurrent ? "Your Current Plan" : plan.cta}
               </Button>
             </CardFooter>
           </Card>

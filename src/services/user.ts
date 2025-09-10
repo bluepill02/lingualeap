@@ -43,7 +43,7 @@ export async function createUserInFirestore(uid: string, name: string, email: st
  * @param userId The ID of the user to fetch.
  * @returns The user's data object or null if not found.
  */
-export async function getUserSettings(userId: string): Promise<Partial<User> | null> {
+export async function getUserSettings(userId: string): Promise<User | null> {
     if (!userId) {
         console.warn("User ID is missing, cannot fetch settings.");
         return null;
@@ -91,4 +91,3 @@ export async function updateUserSettings(userId: string, settings: Partial<User>
         throw new Error("Could not save user settings.");
     }
 }
-
