@@ -1,5 +1,4 @@
 
-
 import type { User, Lesson, Flashcard, LessonDeck, MicroLesson, CompanionCircle, LiveClass, CirclePost, LessonPlanWeek } from './types';
 import { learnerPersonas } from './personas';
 
@@ -234,98 +233,79 @@ export const lessons: Lesson[] = [
   },
 ];
 
-export const businessHindiLessonDecks: LessonDeck[] = [
+const languages = [
+  'assamese', 'bengali', 'bodo', 'dogri', 'gujarati', 'hindi', 'kannada', 'kashmiri',
+  'konkani', 'maithili', 'malayalam', 'manipuri', 'marathi', 'nepali', 'odia', 'punjabi',
+  'sanskrit', 'santali', 'sindhi', 'tamil', 'telugu', 'urdu'
+];
+
+const levels = {
+  Foundations: 3,
+  Intermediate: 2,
+  Advanced: 2
+};
+
+const descriptions = {
+  Foundations: [
+    "Master the basics, from alphabet to simple sentences.",
+    "Build a solid base with essential vocabulary and grammar.",
+    "Learn to introduce yourself and handle everyday greetings."
+  ],
+  Intermediate: [
+    "Expand your conversational skills for more complex topics.",
+    "Understand past, present, and future tenses with confidence."
+  ],
+  Advanced: [
+    "Dive into nuanced expressions and professional communication.",
+    "Discuss complex topics and understand native media."
+  ]
+};
+
+const titles = {
+  Foundations: ["First Steps", "Building Blocks", "Daily Conversations"],
+  Intermediate: ["Expanding Horizons", "Complex Sentences"],
+  Advanced: ["Fluent Expressions", "Mastering Nuances"]
+};
+
+export const allLessonDecks: LessonDeck[] = languages.flatMap(lang => {
+  const decks: LessonDeck[] = [];
+  let deckCounter = 1;
+  Object.entries(levels).forEach(([level, count]) => {
+    for (let i = 0; i < count; i++) {
+      decks.push({
+        id: `deck-${lang}-${deckCounter++}`,
+        title: `${titles[level as keyof typeof titles][i]} in ${lang.charAt(0).toUpperCase() + lang.slice(1)}`,
+        description: descriptions[level as keyof typeof descriptions][i],
+        level: level as 'Foundations' | 'Intermediate' | 'Advanced',
+        lessons: [{ id: `lesson-${lang}-${deckCounter - 1}`, title: `Lesson 1`, duration: '3-5 min' }]
+      });
+    }
+  });
+  return decks;
+}).concat([
     {
       id: 'deck-bh-1',
       title: 'Chennai Café Conversation',
       description: 'Real-world conversations and vocabulary for ordering food and drinks.',
       level: 'Foundations',
-      lessons: [
-        {
-          id: 'lesson-bh-1',
-          title: 'Ordering a Coffee',
-          duration: '2-3 min',
-        }
-      ],
+      lessons: [{ id: 'lesson-bh-1', title: 'Ordering a Coffee', duration: '2-3 min' }]
     },
     {
       id: 'deck-bh-2',
       title: 'Office Meetings',
       description: 'Learn key phrases for participating in professional meetings.',
       level: 'Intermediate',
-      lessons: [],
+      lessons: [{ id: 'lesson-bh-2', title: 'Presenting a Report', duration: '4-6 min' }]
     },
     {
       id: 'deck-bh-3',
       title: 'Professional Phone Calls',
       description: 'Master etiquette and vocabulary for phone conversations in a business context.',
       level: 'Advanced',
-      lessons: [],
+      lessons: [{ id: 'lesson-bh-3', title: 'Scheduling an Appointment', duration: '3-5 min' }]
     }
-];
+]);
 
-export const allLessonDecks: LessonDeck[] = [
-  // Hindi
-  { id: 'deck-hindi-1', title: 'Delhi Market Bargaining', description: 'Learn to haggle like a local!', level: 'Foundations', lessons: [{ id: 'lesson-hindi-1', title: 'Buying Souvenirs', duration: '2-3 min' }]},
-  { id: 'deck-hindi-2', title: 'Giving a Rickshaw Driver Directions', description: 'Navigate the city with confidence.', level: 'Intermediate', lessons: [{ id: 'lesson-hindi-2', title: 'From Connaught Place to India Gate', duration: '3-4 min' }]},
-  
-  // Bengali
-  { id: 'deck-bengali-1', title: 'Kolkata Sweet Shop', description: 'Order famous Bengali sweets.', level: 'Foundations', lessons: [{ id: 'lesson-bengali-1', title: 'Ordering Mishti', duration: '2-3 min' }]},
-  { id: 'deck-bengali-2', title: 'Discussing Football at a Tea Stall', description: 'Chat about Mohun Bagan vs East Bengal.', level: 'Intermediate', lessons: [{ id: 'lesson-bengali-2', title: 'Passion for Football', duration: '4-5 min' }]},
-
-  // Telugu
-  { id: 'deck-telugu-1', title: 'Hyderabad Biryani House', description: 'Savoring the famous Hyderabadi biryani.', level: 'Foundations', lessons: [{ id: 'lesson-telugu-1', title: 'Ordering Biryani', duration: '2-3 min' }]},
-  { id: 'deck-telugu-2', title: 'Talking about a Telugu Movie', description: 'Discussing the latest blockbuster.', level: 'Intermediate', lessons: [{ id: 'lesson-telugu-2', title: 'Movie Review Chat', duration: '4-5 min' }]},
-
-  // Marathi
-  { id: 'deck-marathi-1', title: 'Mumbai Local Train', description: 'Navigating the bustling local trains.', level: 'Foundations', lessons: [{ id: 'lesson-marathi-1', title: 'Asking for Directions', duration: '2-3 min' }]},
-  { id: 'deck-marathi-2', title: 'Discussing Ganesh Chaturthi Plans', description: 'Chat about festival preparations.', level: 'Intermediate', lessons: [{ id: 'lesson-marathi-2', title: 'Festival Preparations', duration: '3-4 min' }]},
-
-  // Tamil
-  { id: 'deck-tamil-1', title: 'Chennai Silk Saree Shopping', description: 'Experience traditional shopping.', level: 'Foundations', lessons: [{ id: 'lesson-tamil-1', title: 'Buying a Saree', duration: '2-3 min' }]},
-  { id: 'deck-tamil-2', title: 'At a Carnatic Music Concert', description: 'Appreciating classical music.', level: 'Intermediate', lessons: [{ id: 'lesson-tamil-2', title: 'Praising a Performance', duration: '3-4 min' }]},
-
-  // Gujarati
-  { id: 'deck-gujarati-1', title: 'Ahmedabad Kite Festival', description: 'Enjoy the vibrant Uttarayan festival.', level: 'Foundations', lessons: [{ id: 'lesson-gujarati-1', title: 'Flying Kites', duration: '2-3 min' }]},
-  { id: 'deck-gujarati-2', title: 'Planning a Garba Night', description: 'Discussing Navratri festivities.', level: 'Intermediate', lessons: [{ id: 'lesson-gujarati-2', title: 'Garba Practice', duration: '3-4 min' }]},
-
-  // Urdu
-  { id: 'deck-urdu-1', title: 'Lucknow Poetry Gathering', description: 'Immerse in the world of Shayari.', level: 'Foundations', lessons: [{ id: 'lesson-urdu-1', title: 'Appreciating Poetry', duration: '2-3 min' }]},
-  { id: 'deck-urdu-2', title: 'Ordering Kebabs at Tunday Kababi', description: 'A culinary delight in Lucknow.', level: 'Intermediate', lessons: [{ id: 'lesson-urdu-2', title: 'Foodie Conversation', duration: '3-4 min' }]},
-
-  // Kannada
-  { id: 'deck-kannada-1', title: 'Bengaluru Tech Park Cafe', description: 'Conversations in a modern cafe.', level: 'Foundations', lessons: [{ id: 'lesson-kannada-1', title: 'Tech Talk over Coffee', duration: '2-3 min' }]},
-  { id: 'deck-kannada-2', title: 'Visiting Lalbagh Botanical Garden', description: 'Discussing nature and flowers.', level: 'Intermediate', lessons: [{ id: 'lesson-kannada-2', title: 'A Walk in the Park', duration: '3-4 min' }]},
-
-  // Malayalam
-  { id: 'deck-malayalam-1', title: 'Kerala Backwaters Houseboat', description: 'Relaxing on the serene backwaters.', level: 'Foundations', lessons: [{ id: 'lesson-malayalam-1', title: 'Talking to the Boatman', duration: '2-3 min' }]},
-  { id: 'deck-malayalam-2', title: 'Celebrating Onam Sadhya', description: 'A traditional feast.', level: 'Intermediate', lessons: [{ id: 'lesson-malayalam-2', title: 'About the Sadhya', duration: '4-5 min' }]},
-
-  // Odia
-  { id: 'deck-odia-1', title: 'Puri Beach Handicrafts', description: 'Buying local crafts by the sea.', level: 'Foundations', lessons: [{ id: 'lesson-odia-1', title: 'Shopping for Handicrafts', duration: '2-3 min' }]},
-  { id: 'deck-odia-2', title: 'Visiting the Konark Sun Temple', description: 'Discussing history and architecture.', level: 'Intermediate', lessons: [{ id: 'lesson-odia-2', title: 'An Architectural Marvel', duration: '4-5 min' }]},
-  
-  // Punjabi
-  { id: 'deck-punjabi-1', title: 'Amritsar Langar Seva', description: 'Volunteering at the Golden Temple.', level: 'Foundations', lessons: [{ id: 'lesson-punjabi-1', title: 'Serving at Langar', duration: '2-3 min' }]},
-  { id: 'deck-punjabi-2', title: 'A Bhangra Practice Session', description: 'Learning the energetic dance form.', level: 'Intermediate', lessons: [{ id: 'lesson-punjabi-2', title: 'Lets Dance!', duration: '3-4 min' }]},
-
-  // Assamese
-  { id: 'deck-assamese-1', title: 'Guwahati Bihu Festival', description: 'Celebrating the Assamese New Year.', level: 'Foundations', lessons: [{ id: 'lesson-assamese-1', title: 'Enjoying Bihu', duration: '2-3 min' }]},
-  { id: 'deck-assamese-2', title: 'A Visit to Kaziranga National Park', description: 'Spotting the one-horned rhino.', level: 'Intermediate', lessons: [{ id: 'lesson-assamese-2', title: 'Wildlife Safari', duration: '4-5 min' }]},
-  
-  // Stubs for other languages
-  { id: 'deck-bodo-1', title: 'Bodo Village Visit', description: 'Exploring local life.', level: 'Foundations', lessons: [{id: 'lesson-bodo-1', title: 'Greetings', duration: '2-3 min'}] },
-  { id: 'deck-dogri-1', title: 'Jammu Temple Visit', description: 'A spiritual journey.', level: 'Foundations', lessons: [{id: 'lesson-dogri-1', title: 'At the Temple', duration: '2-3 min'}] },
-  { id: 'deck-kashmiri-1', title: 'Srinagar Shikara Ride', description: 'Floating on Dal Lake.', level: 'Foundations', lessons: [{id: 'lesson-kashmiri-1', title: 'On the Shikara', duration: '2-3 min'}] },
-  { id: 'deck-konkani-1', title: 'Goa Fish Market', description: 'The fresh catch of the day.', level: 'Foundations', lessons: [{id: 'lesson-konkani-1', title: 'Buying Fish', duration: '2-3 min'}] },
-  { id: 'deck-maithili-1', title: 'Madhubani Art Village', description: 'Discovering ancient art.', level: 'Foundations', lessons: [{id: 'lesson-maithili-1', title: 'Learning about Art', duration: '2-3 min'}] },
-  { id: 'deck-manipuri-1', title: 'Imphal Market Shopping', description: 'The famous Ima Keithel.', level: 'Foundations', lessons: [{id: 'lesson-manipuri-1', title: 'At the Market', duration: '2-3 min'}] },
-  { id: 'deck-nepali-1', title: 'Darjeeling Tea Estate', description: 'From leaf to cup.', level: 'Foundations', lessons: [{id: 'lesson-nepali-1', title: 'Tea Tasting', duration: '2-3 min'}] },
-  { id: 'deck-sanskrit-1', title: 'Varanasi Morning Chants', description: 'Spiritual beginnings.', level: 'Foundations', lessons: [{id: 'lesson-sanskrit-1', title: 'Morning Prayers', duration: '2-3 min'}] },
-  { id: 'deck-santali-1', title: 'Santal Village Festival', description: 'Celebrating community.', level: 'Foundations', lessons: [{id: 'lesson-santali-1', title: 'Festival Greetings', duration: '2-3 min'}] },
-  { id: 'deck-sindhi-1', title: 'Ulhasnagar Jhulelal Celebration', description: 'A vibrant festival.', level: 'Foundations', lessons: [{id: 'lesson-sindhi-1', title: 'Festival Fun', duration: '2-3 min'}] },
-  ...businessHindiLessonDecks
-];
 
 const genericLesson: Omit<MicroLesson, 'id' | 'title' | 'deckId'> = {
     vocabulary: [
@@ -364,7 +344,7 @@ const populatedLessons: MicroLesson[] = allLessonDecks.flatMap(deck =>
         title: lesson.title,
         deckId: deck.id,
     }))
-).filter(lesson => lesson.id !== 'lesson-bh-1');
+).filter(lesson => !lesson.id.startsWith('lesson-bh-'));
 
 
 export const allMicroLessons: MicroLesson[] = [
@@ -400,6 +380,18 @@ export const allMicroLessons: MicroLesson[] = [
             }
         ],
         followUp: 'Next time you\'re at a café, try greeting the server with "Namaste!"'
+    },
+    {
+      id: 'lesson-bh-2',
+      title: 'Presenting a Report',
+      deckId: 'deck-bh-2',
+      ...genericLesson,
+    },
+    {
+      id: 'lesson-bh-3',
+      title: 'Scheduling an Appointment',
+      deckId: 'deck-bh-3',
+      ...genericLesson,
     },
     ...populatedLessons,
 ];
