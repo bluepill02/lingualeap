@@ -61,7 +61,7 @@ export function LessonCarousel({ lessons }: LessonCarouselProps) {
                   </div>
                 </div>
                 <CardFooter>
-                   <Link href={`/lessons/${lesson.id}`} className="w-full" asChild>
+                   <Link href={`/lessons/${lesson.id}`} className="w-full">
                     <Button className="w-full">
                         Start Lesson
                     </Button>
