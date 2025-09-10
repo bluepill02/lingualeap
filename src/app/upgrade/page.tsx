@@ -128,7 +128,7 @@ export default function UpgradePage() {
         <Card className={cn("flex flex-col border-2", !isPro && "border-primary")}>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Free</CardTitle>
-              <CardDescription>Access essential features to kickstart your learning.</CardDescription>
+              <CardDescription>Access essential features to kickstart your learning, supported by ads.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
@@ -140,13 +140,13 @@ export default function UpgradePage() {
                        <Users className="h-5 w-5 text-green-500" />
                         <span>Peer-to-Peer Study Circles</span>
                     </li>
-                     <li className="flex items-center gap-3 text-muted-foreground line-through">
-                       <Lock className="h-5 w-5" />
-                        <span>Mentor-led & Specialized Circles</span>
+                     <li className="flex items-center gap-3">
+                       <Sparkles className="h-5 w-5 text-green-500" />
+                       <span>Access to all Lessons & AI Tools</span>
                     </li>
                      <li className="flex items-center gap-3 text-muted-foreground line-through">
                        <Lock className="h-5 w-5" />
-                        <span>Ad-Free Experience</span>
+                        <span>Mentor-led & Specialized Circles</span>
                     </li>
                 </ul>
             </CardContent>
@@ -174,15 +174,15 @@ export default function UpgradePage() {
                 </div>
                 <ul className="space-y-4 text-sm">
                      <li className="flex items-center gap-3 font-medium">
-                        <Users className="h-5 w-5 text-primary" />
-                        <span>Peer-to-Peer Study Circles</span>
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        <span>All Features from Free Plan</span>
                     </li>
                      <li className="flex items-center gap-3 font-medium">
-                        <Sparkles className="h-5 w-5 text-primary" />
+                        <Users className="h-5 w-5 text-primary" />
                         <span>Mentor-led & Specialized Circles</span>
                     </li>
                      <li className="flex items-center gap-3 font-medium">
-                        <Sparkles className="h-5 w-5 text-primary" />
+                        <Check className="h-5 w-5 text-primary" />
                         <span>Ad-Free Experience</span>
                     </li>
                 </ul>
