@@ -5,15 +5,15 @@ export const rpscRajasthaniVocabulary: ExamModule = {
     id: 'exam-rpsc-rajasthani-vocab',
     title: 'RPSC: Rajasthani Vocabulary & Idioms',
     examName: 'RPSC',
-    language: 'Rajasthani',
+    language: 'Rajasthani / Marwari',
     category: 'Vocabulary & Idioms',
     vocabulary: [
         {
             word: 'खम्मा घणी (Khamma Ghani)',
             romanization: 'Khamma Ghani',
-            definition: 'A respectful greeting, equivalent to "hello" or "greetings".',
+            definition: 'A respectful greeting, equivalent to "hello" or "greetings". It literally means "many greetings/forgiveness".',
             partOfSpeech: 'Phrase',
-            sentence: 'म्हेمانों का स्वागत खम्मा घणी कहकर किया गया।',
+            sentence: 'म्हेمانوں کا استقبال खम्मा घणी कहकर किया गया।',
             sentenceRoman: 'Mehmano ka swagat khamma ghani kehkar kiya gaya.',
             sentenceTranslation: 'The guests were welcomed by saying "Khamma Ghani".'
         },
@@ -45,13 +45,31 @@ export const rpscRajasthaniVocabulary: ExamModule = {
             sentenceTranslation: 'It is very sunny today.'
         },
         {
-            word: 'बात की बतंगड़ बणाणो (Baat ki batangad banana)',
+            word: 'बात की बतंगड़ बणाणो',
             romanization: 'Baat ki batangad banana',
             definition: 'To make a mountain out of a molehill.',
             partOfSpeech: 'Idiom',
             sentence: 'छोटी सी समस्या थी, उसने तो बात की बतंगड़ बणा दी।',
             sentenceRoman: 'Chhoti si samasya thi, usne toh baat ki batangad bana di.',
             sentenceTranslation: 'It was a small problem, he made a mountain out of a molehill.'
+        },
+        {
+            word: 'हिवड़ै (Hivdai)',
+            romanization: 'Hivdai',
+            definition: 'In the heart, of the heart.',
+            partOfSpeech: 'Noun/Adverb',
+            sentence: 'माटी री महक म्हारे हिवड़ै में बसी है।',
+            sentenceRoman: 'Maati ri mehak mhare hivdai mein basi hai.',
+            sentenceTranslation: 'The fragrance of the soil resides in my heart.'
+        },
+        {
+            word: 'आंगणै (Aanganai)',
+            romanization: 'Aanganai',
+            definition: 'In the courtyard.',
+            partOfSpeech: 'Noun',
+            sentence: 'आंगणै में टाबर खेल रैया है।',
+            sentenceRoman: 'Aanganai mein taabar khel raiya hai.',
+            sentenceTranslation: 'Children are playing in the courtyard.'
         }
     ],
     quizzes: [
@@ -82,6 +100,17 @@ export const rpscRajasthaniVocabulary: ExamModule = {
             question: 'If a mother calls her child "म्हारो काळजो", what does she mean?',
             options: ['My liver', 'My problem', 'My darling', 'My guest'],
             answer: 'My darling'
+        },
+        {
+            type: 'multiple-choice',
+            question: 'The word "हिवड़ै" refers to what part of the body metaphorically?',
+            options: ['Hand', 'Head', 'Stomach', 'Heart'],
+            answer: 'Heart'
+        },
+        {
+            type: 'fill-in-the-blank',
+            question: 'Children playing "आंगणै में" means they are playing in the ____.',
+            answer: 'courtyard'
         }
     ],
     errorAnalysis: [
@@ -92,6 +121,10 @@ export const rpscRajasthaniVocabulary: ExamModule = {
         {
             pitfall: 'Misusing "Ghano"',
             tip: '"Ghano" is a very common adverb in Rajasthani. It can be used to intensify adjectives (like "ghano sundar" - very beautiful) or to quantify nouns ("ghano paani" - a lot of water). Practice using it in different contexts to understand its versatility.'
+        },
+        {
+            pitfall: 'Literal Translation of "Kaljo"',
+            tip: 'While "काळजो" literally means liver or heart, in common parlance it is an term of endearment, similar to "darling" or "sweetheart". Understanding this idiomatic usage is key for comprehension passages in the RPSC exam.'
         }
     ]
 };
