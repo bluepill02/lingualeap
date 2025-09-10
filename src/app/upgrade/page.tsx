@@ -13,7 +13,7 @@ import {
 import { useUser } from '@/context/user-context';
 import { updateUserSettings } from '@/services/user';
 import { useToast } from '@/hooks/use-toast';
-import { Check, Loader2, Sparkles, Star, Users, Lock, Bot, Camera, FileQuestion, Megaphone, Radio } from 'lucide-react';
+import { Check, Loader2, Sparkles, Star, Users, Lock, Bot, Camera, FileQuestion, Megaphone, Radio, ShieldCheck } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { getUserSettings } from '@/services/user';
@@ -114,6 +114,9 @@ export default function UpgradePage() {
       { icon: Users, text: 'Peer-to-Peer Study Circles' },
       { icon: FileQuestion, text: 'On-Demand Quiz Generator' },
       { icon: Camera, text: 'AR Immersion Tool' },
+      { icon: Bot, text: 'AI Personal Tutor (Limited)' },
+      { icon: Megaphone, text: 'Peer-Teaching Missions' },
+      { icon: Radio, text: 'Limited Live Classes' },
   ];
 
   const proFeatures = [
