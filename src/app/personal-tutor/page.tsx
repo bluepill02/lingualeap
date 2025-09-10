@@ -133,7 +133,14 @@ export default function PersonalTutorPage() {
 
   const { toast } = useToast();
   
-  const pronunciationWord = messages.length > 2 ? messages[messages.length - 2].content.split(' ').pop()?.replace(/[.,?]/g, '') : "Namaste";
+  const extractLastWord = (text: string) => {
+    // Simple regex to find the last word, ignoring punctuation
+    const words = text.match(/(\b[a-zA-Z\u0900-\u097F]+\b)/g);
+    return words ? words[words.length - 1] : null;
+  }
+  
+  const lastModelMessage = messages.filter(m => m.role === 'model').pop()?.content || '';
+  const pronunciationWord = extractLastWord(lastModelMessage) || "Namaste";
 
   const scrollToBottom = useCallback(() => {
     setTimeout(() => {
@@ -245,7 +252,7 @@ export default function PersonalTutorPage() {
        toast({
         variant: 'destructive',
         title: 'Recognition Error',
-        description: 'Sorry, I couldn\'t understand that. Please try again.',
+        description: 'Sorry, I couldn\\'t understand that. Please try again.',
       });
     };
 
@@ -363,7 +370,7 @@ export default function PersonalTutorPage() {
         <div className="md:col-span-1">
              <PronunciationPractice 
                 key={pronunciationWord} // Re-mount component when word changes
-                word={pronunciationWord || "Namaste"} 
+                word={pronunciationWord} 
                 onResult={(isCorrect) => {
                     if (isCorrect) {
                         toast({
