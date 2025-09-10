@@ -24,6 +24,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { StructuredData } from '@/components/seo/structured-data';
 
 export default function HindiPage() {
   const allDecks = allLessonDecks.filter(deck => deck.id.startsWith('deck-hindi-'));
@@ -43,7 +44,21 @@ export default function HindiPage() {
   const completedCount = allDecks.flatMap(deck => deck.lessons).filter(lesson => completedLessons.includes(lesson.id)).length;
   const progressPercentage = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
 
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Hindi Language Course",
+    "description": "Learn to speak, read, and write Hindi with interactive lessons covering grammar, vocabulary, and real-world conversations.",
+    "provider": {
+      "@type": "Organization",
+      "name": "LinguaLeap",
+      "url": "https://lingualeap-jjwfq.web.app"
+    }
+  };
+
   return (
+    <>
+    <StructuredData data={courseSchema} />
     <div className="max-w-4xl mx-auto py-8 px-4">
       <Link href="/language-selection" className="flex items-center gap-2 text-primary mb-4">
         <ArrowLeft className="w-5 h-5" />
@@ -123,5 +138,6 @@ export default function HindiPage() {
         </Card>
       </div>
     </div>
+    </>
   );
 }

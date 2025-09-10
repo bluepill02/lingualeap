@@ -5,6 +5,7 @@ import 'katex/dist/katex.min.css';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from '@/context/theme-provider';
 import { UserProvider } from '@/context/user-context';
+import { StructuredData } from '@/components/seo/structured-data';
 
 export const metadata: Metadata = {
   title: {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | LinguaLeap',
   },
   description: 'Master new languages and ace competitive exams like NEET & TNPSC with LinguaLeap. Your personalized, AI-driven learning journey with gamified lessons, companion circles, and interactive practice.',
-  keywords: ['language learning', 'NEET preparation', 'TNPSC exam', 'AI tutor', 'learn Tamil', 'learn Hindi', 'exam prep app', 'companion circles', 'study buddy'],
+  keywords: ['language learning', 'NEET preparation', 'TNPSC exam', 'UPSC preparation', 'competitive exams India', 'AI tutor', 'learn Tamil', 'learn Hindi', 'exam prep app', 'companion circles', 'study buddy'],
   authors: [{ name: 'LinguaLeap Team' }],
   creator: 'LinguaLeap',
   publisher: 'LinguaLeap',
@@ -63,9 +64,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LinguaLeap",
+    "url": "https://lingualeap-jjwfq.web.app",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://lingualeap-jjwfq.web.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <StructuredData data={websiteSchema} />
         <meta name="google-adsense-account" content="ca-pub-4280161410958958" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
