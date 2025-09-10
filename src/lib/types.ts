@@ -482,3 +482,11 @@ export const NeetFlashcardGeneratorOutputSchema = z.object({
     flashcards: z.array(FlashcardSchema),
 });
 export type NeetFlashcardGeneratorOutput = z.infer<typeof NeetFlashcardGeneratorOutputSchema>;
+
+export const SpeakInputSchema = z.string();
+export type SpeakInput = z.infer<typeof SpeakInputSchema>;
+
+export const SpeakOutputSchema = z.object({
+  media: z.string().describe('The generated audio as a data URI.'),
+});
+export type SpeakOutput = z.infer<typeof SpeakOutputSchema>;
