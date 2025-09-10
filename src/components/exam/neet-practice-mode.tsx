@@ -100,17 +100,28 @@ export function PracticeMode({
                     <CardContent className="space-y-3">
                         <div className="text-sm prose dark:prose-invert max-w-none"><MarkdownRenderer>{mcq.question}</MarkdownRenderer></div>
                         <div className="space-y-2">
-                            {mcq.options.map((option, oIndex) => (
-                                <Button 
-                                    key={oIndex}
-                                    variant={answers[qIndex] === option ? 'secondary' : 'outline'}
-                                    className="w-full h-auto justify-start text-left py-2 flex-wrap whitespace-normal"
-                                    onClick={() => onOptionSelect(qIndex, option)}
-                                >
-                                    <span className="mr-2 font-bold">{option.charAt(0)}.</span>
-                                    <div className="prose dark:prose-invert max-w-none text-sm"><MarkdownRenderer>{option.substring(2)}</MarkdownRenderer></div>
-                                </Button>
-                            ))}
+                            {mcq.options.map((option, oIndex) => {
+                                const isSelected = answers[qIndex] === option;
+                                let variant: "success" | "destructive" | "outline" | "secondary" = 'outline';
+                                if (submitted) {
+                                    if (option === mcq.answer) variant = 'success';
+                                    else if (isSelected) variant = 'destructive';
+                                } else {
+                                    if (isSelected) variant = 'secondary';
+                                }
+                                return (
+                                    <Button 
+                                        key={oIndex}
+                                        variant={variant}
+                                        className="w-full h-auto justify-start text-left py-2 flex-wrap whitespace-normal"
+                                        onClick={() => onOptionSelect(qIndex, option)}
+                                        disabled={submitted}
+                                    >
+                                        <span className="mr-2 font-bold">{option.charAt(0)}.</span>
+                                        <div className="prose dark:prose-invert max-w-none text-sm"><MarkdownRenderer>{option.substring(2)}</MarkdownRenderer></div>
+                                    </Button>
+                                )
+                            })}
                         </div>
                     </CardContent>
                 </Card>
