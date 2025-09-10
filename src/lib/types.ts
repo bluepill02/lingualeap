@@ -193,7 +193,7 @@ export interface KeyDiagram {
     title: string;
     description: string;
     diagram?: string;
-    fbd?: FBDstep;
+    fbd?: Fbdstep;
 }
 
 export interface BilingualContent {
@@ -469,5 +469,3 @@ export interface AnalyzeImageOutput {
     };
     mnemonic: string;
 }
-
-    
