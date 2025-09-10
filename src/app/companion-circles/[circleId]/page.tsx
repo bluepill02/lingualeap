@@ -15,7 +15,7 @@ async function CircleDetailsPage({ params }: { params: { circleId: string } }) {
   }
 
   // Fetch initial data on the server
-  const memberIds = circleData.members.map(m => typeof m === 'string' ? m : m.id);
+  const memberIds = circleData.members.map(m => m.id);
   const memberData = await getCircleMembers(memberIds);
   const postData = await getPostsForCircle(circleData.id);
 

@@ -65,11 +65,11 @@ export async function seedCirclesData() {
 export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'members' | 'memberCount' | 'posts' | 'resources'>): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    const newCircle: Omit<CompanionCircle, 'id'> & { id?: string } = {
+    const newCircle: Omit<CompanionCircle, 'id'> & { id: string } = {
         ...circleData,
         id: newDocRef.id,
-        members: [mockUser.id], // Start with the creator's ID
-        memberCount: 50, // Default member count
+        members: [{id: mockUser.id, name: mockUser.name, avatarUrl: mockUser.avatarUrl}],
+        memberCount: 50,
         posts: 0,
         resources: 0,
         groupNorms: [
@@ -82,7 +82,7 @@ export async function createCircle(circleData: Omit<CompanionCircle, 'id' | 'mem
 
     try {
         await setDoc(newDocRef, newCircle);
-        return { ...newCircle, id: newDocRef.id } as CompanionCircle;
+        return newCircle as CompanionCircle;
     } catch (error) {
         console.error("Error creating circle: ", error);
         throw new Error("Failed to create the circle in the database.");
@@ -124,24 +124,22 @@ export async function getCircle(id: string): Promise<CompanionCircle | null> {
 }
 
 export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
-    if (!memberIds || memberIds.length === 0) {
+     if (!memberIds || memberIds.length === 0) {
         return [];
     }
     try {
-        // Fetch users from the 'users' collection in Firestore
         const usersRef = collection(db, 'users');
         const q = query(usersRef, where('id', 'in', memberIds));
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
-            console.warn(`No users found for IDs: ${memberIds.join(', ')}. Falling back to mock data for existing IDs.`);
+            console.warn(`No users found for IDs: ${memberIds.join(', ')}. Falling back to mock data.`);
             return allUsers.filter(user => memberIds.includes(user.id));
         }
 
         return querySnapshot.docs.map(doc => doc.data() as User);
     } catch (error) {
          console.error("Error fetching circle members from Firestore: ", error);
-         // Fallback to mock data on error to prevent UI crashing
         return allUsers.filter(user => memberIds.includes(user.id));
     }
 }
@@ -149,9 +147,17 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
+        const userDoc = allUsers.find(u => u.id === userId);
+        if (!userDoc) throw new Error("User not found in mock data.");
+        
+        const memberData = {
+            id: userDoc.id,
+            name: userDoc.name,
+            avatarUrl: userDoc.avatarUrl
+        };
         
         await updateDoc(circleRef, {
-            members: arrayUnion(userId)
+            members: arrayUnion(memberData)
         });
     } catch (error) {
         console.error("Error joining circle: ", error);
@@ -162,9 +168,17 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        
+        const userDoc = allUsers.find(u => u.id === userId);
+        if (!userDoc) throw new Error("User not found in mock data.");
+
+        const memberData = {
+            id: userDoc.id,
+            name: userDoc.name,
+            avatarUrl: userDoc.avatarUrl
+        };
+
         await updateDoc(circleRef, {
-            members: arrayRemove(userId)
+            members: arrayRemove(memberData)
         });
 
     } catch (error) {
