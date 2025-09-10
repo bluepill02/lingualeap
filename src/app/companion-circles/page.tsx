@@ -16,7 +16,7 @@ import Link from 'next/link';
 import { mockUser } from '@/lib/data';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { CreateCircleForm } from '@/components/circles/create-circle-form';
-import { getAuth, Auth } from 'firebase/auth';
+import { getAuth, Auth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { app } from '@/lib/firebase';
 
 const stats = [
@@ -144,31 +144,31 @@ export default function CompanionCirclesPage() {
     const [selectedCircle, setSelectedCircle] = useState<CompanionCircleType | null>(null);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [auth, setAuth] = useState<Auth | null>(null);
+    const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
 
 
     useEffect(() => {
         const authInstance = getAuth(app);
         setAuth(authInstance);
+        const unsubscribe = onAuthStateChanged(authInstance, (user) => {
+            setCurrentUser(user);
+            fetchCircles(user);
+        });
 
-        const fetchCircles = async () => {
-            setIsLoading(true);
-            try {
-                const circles = await getCircles();
-                setAllCircles(circles);
-            } catch (error) {
-                console.error("Failed to fetch circles:", error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        fetchCircles();
+        return () => unsubscribe();
     }, []);
 
-    const fetchCircles = async () => {
+    const fetchCircles = async (user: FirebaseUser | null = currentUser) => {
         setIsLoading(true);
         try {
             const circles = await getCircles();
-            setAllCircles(circles);
+            if (user) {
+                const myCircles = circles.filter(c => c.members.some(m => m.id === user.uid));
+                const otherCircles = circles.filter(c => !c.members.some(m => m.id === user.uid));
+                setAllCircles([...myCircles, ...otherCircles]);
+            } else {
+                setAllCircles(circles);
+            }
         } catch (error) {
             console.error("Failed to fetch circles:", error);
         } finally {
@@ -214,12 +214,12 @@ export default function CompanionCirclesPage() {
                 </div>
                 <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
                     <DialogTrigger asChild>
-                        <Button disabled={!auth?.currentUser}>
+                        <Button disabled={!currentUser}>
                             <PlusCircle className="mr-2" />
                             Create Circle
                         </Button>
                     </DialogTrigger>
-                    {auth && (
+                    {auth && currentUser && (
                         <CreateCircleForm 
                             auth={auth}
                             onCircleCreated={() => {
@@ -262,10 +262,10 @@ export default function CompanionCirclesPage() {
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="all">All Subjects</SelectItem>
-                                <SelectItem value="physics">Physics</SelectItem>
-                                <SelectItem value="chemistry">Chemistry</SelectItem>
-                                <SelectItem value="biology">Biology</SelectItem>
-                                <SelectItem value="calculus">Calculus</SelectItem>
+                                <SelectItem value="Physics">Physics</SelectItem>
+                                <SelectItem value="Chemistry">Chemistry</SelectItem>
+                                <SelectItem value="Biology">Biology</SelectItem>
+                                <SelectItem value="Calculus">Calculus</SelectItem>
                             </SelectContent>
                         </Select>
                          <Select onValueChange={value => setFilters(f => ({...f, level: value}))} defaultValue="all">
@@ -274,9 +274,9 @@ export default function CompanionCirclesPage() {
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="all">All Difficulties</SelectItem>
-                                <SelectItem value="foundation">Foundation</SelectItem>
-                                <SelectItem value="bridge">Bridge</SelectItem>
-                                <SelectItem value="core">Core</SelectItem>
+                                <SelectItem value="Foundation">Foundation</SelectItem>
+                                <SelectItem value="Bridge">Bridge</SelectItem>
+                                <SelectItem value="Core">Core</SelectItem>
                             </SelectContent>
                         </Select>
                         <Select onValueChange={value => setFilters(f => ({...f, format: value}))} defaultValue="all">
@@ -285,9 +285,9 @@ export default function CompanionCirclesPage() {
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="all">All Formats</SelectItem>
-                                <SelectItem value="chat">Chat</SelectItem>
-                                <SelectItem value="live-session">Live Session</SelectItem>
-                                <SelectItem value="resource-hub">Resource Hub</SelectItem>
+                                <SelectItem value="Chat">Chat</SelectItem>
+                                <SelectItem value="Live Session">Live Session</SelectItem>
+                                <SelectItem value="Resource Hub">Resource Hub</SelectItem>
                             </SelectContent>
                         </Select>
                          <Select onValueChange={value => setFilters(f => ({...f, type: value}))} defaultValue="all">

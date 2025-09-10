@@ -16,7 +16,8 @@ import {
     addDoc,
     serverTimestamp,
     orderBy,
-    setDoc
+    setDoc,
+    Timestamp
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
@@ -68,8 +69,7 @@ export async function createCircle(
 ): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    // Fetch creator's avatar URL from mock data for now
-    const creatorUser = allUsers.find(u => u.id === userId) || allUsers.find(u => u.id === 'user-1');
+    const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: 'https://picsum.photos/100/100?a=1' };
 
     const newCircle = {
         ...circleData,
@@ -77,7 +77,7 @@ export async function createCircle(
         members: [{
             id: userId,
             name: userName,
-            avatarUrl: creatorUser?.avatarUrl || 'https://picsum.photos/100/100?a=1'
+            avatarUrl: creatorUser.avatarUrl
         }],
         memberCount: 50,
         posts: 0,
@@ -136,12 +136,17 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
         return [];
     }
     try {
-        // In a real app, this would query a 'users' collection.
-        // For now, we filter the mock data.
-        return allUsers.filter(user => memberIds.includes(user.id));
+        const usersRef = collection(db, 'users');
+        const q = query(usersRef, where('id', 'in', memberIds));
+        const snapshot = await getDocs(q);
+        if (snapshot.empty) {
+             // Fallback to mock data if no users are found in Firestore (useful for dev)
+            return allUsers.filter(user => memberIds.includes(user.id));
+        }
+        return snapshot.docs.map(doc => doc.data() as User);
     } catch (error) {
          console.error("Error fetching circle members: ", error);
-        return [];
+        return allUsers.filter(user => memberIds.includes(user.id));
     }
 }
 
@@ -158,8 +163,8 @@ export async function getCircleWithMembers(id: string): Promise<{ circle: Compan
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
     try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
-        if (!userDoc) throw new Error("User not found in mock data.");
+        const userDoc = allUsers.find(u => u.id === userId); 
+        if (!userDoc) throw new Error("User not found.");
         
         const memberData = {
             id: userDoc.id,
@@ -179,17 +184,19 @@ export async function joinCircle(userId: string, circleId: string): Promise<void
 export async function leaveCircle(userId: string, circleId: string): Promise<void> {
      try {
         const circleRef = doc(db, 'companion-circles', circleId);
-        const userDoc = allUsers.find(u => u.id === userId); // Using mock data for user info
-        if (!userDoc) throw new Error("User not found in mock data.");
+        const circleSnap = await getDoc(circleRef);
+        if (!circleSnap.exists()) throw new Error("Circle not found");
+        
+        const circleData = circleSnap.data() as CompanionCircle;
+        const memberToRemove = circleData.members.find(m => m.id === userId);
 
-        const memberData = {
-            id: userDoc.id,
-            name: userDoc.name,
-            avatarUrl: userDoc.avatarUrl
-        };
+        if (!memberToRemove) {
+            console.warn("User to remove not found in circle's member list.");
+            return;
+        }
 
         await updateDoc(circleRef, {
-            members: arrayRemove(memberData)
+            members: arrayRemove(memberToRemove)
         });
 
     } catch (error) {
@@ -205,7 +212,7 @@ export async function addPostToCircle(circleId: string, content: string): Promis
     try {
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
         await addDoc(postsCollection, {
-            authorId: mockUser.id,
+            authorId: mockUser.id, // In a real app, this would be the current authenticated user's ID
             authorName: mockUser.name,
             authorAvatarUrl: mockUser.avatarUrl,
             content: content,
@@ -225,40 +232,60 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
         const postsCollection = collection(db, 'companion-circles', circleId, 'posts');
         const q = query(postsCollection, orderBy('isPinned', 'desc'), orderBy('createdAt', 'desc'));
         const snapshot = await getDocs(q);
-        
-        const mapDocToPost = (doc: any) => {
-            const data = doc.data();
-            const comments = (data.comments || []).map((comment: any) => ({
-                ...comment,
-                createdAt: comment.createdAt?.toDate ? comment.createdAt.toDate().toISOString() : new Date().toISOString()
-            }));
-
-            return {
-                id: doc.id,
-                ...data,
-                createdAt: data.createdAt?.toDate ? data.createdAt.toDate().toISOString() : new Date().toISOString(),
-                comments,
-            } as CirclePost;
-        };
 
         if (snapshot.empty) {
+            // Seeding mock posts if collection is empty
+            const batch = writeBatch(db);
             const mockPosts = circlePosts.filter(p => p.circleId === circleId);
-            if (mockPosts.length > 0) {
-                 return mockPosts.map(p => ({...p, id: `mock-${Math.random()}`} as CirclePost));
-            }
-            return [];
-        }
+            mockPosts.forEach(postData => {
+                 const postRef = doc(postsCollection);
+                 batch.set(postRef, { ...postData, createdAt: serverTimestamp() });
+            });
+            await batch.commit();
 
+            const newSnapshot = await getDocs(q);
+             if (newSnapshot.empty) return [];
+            return newSnapshot.docs.map(mapDocToPost);
+        }
+        
         return snapshot.docs.map(mapDocToPost);
+
     } catch (error) {
         console.error("Error fetching posts for circle: ", error);
-        return circlePosts.filter(p => p.circleId === circleId).map(p => ({
+         return circlePosts.filter(p => p.circleId === circleId).map(p => ({
             ...p,
             id: `mock-${Math.random()}`,
             comments: p.comments.map(c => ({...c, id: `mock-comment-${Math.random()}`}))
         })) as CirclePost[];
     }
 }
+
+function mapDocToPost(doc: any): CirclePost {
+    const data = doc.data();
+    // Safely convert Timestamps to ISO strings for both post and comments
+    const comments = (data.comments || []).map((comment: any) => {
+        const commentDate = comment.createdAt instanceof Timestamp 
+            ? comment.createdAt.toDate().toISOString() 
+            : new Date().toISOString();
+        return {
+            ...comment,
+            id: comment.id || `mock-comment-${Math.random()}`,
+            createdAt: commentDate
+        };
+    });
+
+    const postDate = data.createdAt instanceof Timestamp
+        ? data.createdAt.toDate().toISOString()
+        : new Date().toISOString();
+    
+    return {
+        id: doc.id,
+        ...data,
+        createdAt: postDate,
+        comments,
+    } as CirclePost;
+}
+
 
 export async function togglePostReaction(circleId: string, postId: string, userId: string, reactionType: ReactionType): Promise<void> {
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
@@ -297,13 +324,12 @@ export async function addCommentToPost(circleId: string, postId: string, comment
     }
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     
-    const newComment = {
-        id: doc(collection(db, 'dummy')).id, 
+    const newComment: Omit<PostComment, 'id'> = {
         authorId: mockUser.id,
         authorName: mockUser.name,
         authorAvatarUrl: mockUser.avatarUrl,
         content: commentContent,
-        createdAt: serverTimestamp() 
+        createdAt: serverTimestamp() as any // Let Firestore handle the timestamp
     };
 
     try {
@@ -315,6 +341,5 @@ export async function addCommentToPost(circleId: string, postId: string, comment
         throw error;
     }
 }
-
 
     
