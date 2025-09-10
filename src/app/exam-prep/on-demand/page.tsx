@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -25,6 +25,9 @@ type Subject = 'Physics' | 'Chemistry' | 'Biology' | 'History' | 'Polity' | 'Geo
 type Difficulty = 'Easy' | 'Medium' | 'Hard';
 type Language = 'English' | 'Tamil';
 
+const neetSubjects: Subject[] = ['Physics', 'Chemistry', 'Biology'];
+const tnpscSubjects: Subject[] = ['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language'];
+
 export default function OnDemandQuizPage() {
   const [prompt, setPrompt] = useState('Optics');
   const [examType, setExamType] = useState<ExamType>('NEET');
@@ -38,6 +41,14 @@ export default function OnDemandQuizPage() {
   const [quizState, setQuizState] = useState<QuizState | null>(null);
 
   const { toast } = useToast();
+
+  const availableSubjects = examType === 'NEET' ? neetSubjects : tnpscSubjects;
+
+  useEffect(() => {
+    // Reset subject when exam type changes
+    setSubject(availableSubjects[0]);
+  }, [examType]);
+
 
   const handleGenerateQuiz = async () => {
     if (!prompt) {
@@ -101,10 +112,6 @@ export default function OnDemandQuizPage() {
       ).length;
   }
 
-  const neetSubjects: Subject[] = ['Physics', 'Chemistry', 'Biology'];
-  const tnpscSubjects: Subject[] = ['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language'];
-  const availableSubjects = examType === 'NEET' ? neetSubjects : tnpscSubjects;
-
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -130,7 +137,7 @@ export default function OnDemandQuizPage() {
             </div>
              <div>
                 <Label htmlFor="exam-type">Exam Type</Label>
-                <Select value={examType} onValueChange={(value: ExamType) => {setExamType(value); setSubject(value === 'NEET' ? 'Physics' : 'History')}} disabled={isLoading}>
+                <Select value={examType} onValueChange={(value: ExamType) => setExamType(value)} disabled={isLoading}>
                     <SelectTrigger id="exam-type">
                         <SelectValue placeholder="Select exam type" />
                     </SelectTrigger>
