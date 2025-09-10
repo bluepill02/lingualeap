@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play } from 'lucide-react';
+import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideInterviewFeedback, InterviewFeedbackOutput } from '@/ai/flows/interview-feedback-flow';
 import { generateInterviewQuestion } from '@/ai/flows/interview-question-generator';
@@ -17,23 +17,20 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 
-const SESSION_LENGTH = 3; // Number of questions in one session
-
 const countFillerWords = (text: string): number => {
     const fillerWords = /\b(um|uh|er|ah|like|okay|right|so|you know)\b/gi;
     const matches = text.match(fillerWords);
     return matches ? matches.length : 0;
-}
+};
 
 const highlightSTAR = (text: string, part: string | undefined): string => {
     if (!part || !text) return text;
-    // Escape special regex characters from the part string
     const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`(${escapedPart})`, 'gi');
     return text.replace(regex, `<mark class="bg-primary/20 rounded-sm p-0.5">$1</mark>`);
 };
 
-type SessionState = 'idle' | 'generating_questions' | 'in_progress' | 'analyzing' | 'report';
+type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'analyzing' | 'report';
 
 interface AnswerRecord {
     question: string;
@@ -47,9 +44,8 @@ export default function InterviewPrepPage() {
     const [sessionState, setSessionState] = useState<SessionState>('idle');
 
     // Session data
-    const [questions, setQuestions] = useState<string[]>([]);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [answers, setAnswers] = useState<AnswerRecord[]>([]);
+    const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
+    const [sessionHistory, setSessionHistory] = useState<AnswerRecord[]>([]);
     
     // Recording state
     const [isRecording, setIsRecording] = useState(false);
@@ -69,15 +65,14 @@ export default function InterviewPrepPage() {
         recognition.continuous = true;
         recognition.interimResults = true;
 
-        let finalTranscript = '';
-
         recognition.onstart = () => {
-            finalTranscript = ''; // Reset transcript for the new recording
+            setCurrentTranscript('');
             setIsRecording(true);
         };
 
         recognition.onresult = (event: any) => {
             let interimTranscript = '';
+            let finalTranscript = '';
             for (let i = event.resultIndex; i < event.results.length; ++i) {
                 if (event.results[i].isFinal) {
                     finalTranscript += event.results[i][0].transcript + ' ';
@@ -85,7 +80,7 @@ export default function InterviewPrepPage() {
                     interimTranscript += event.results[i][0].transcript;
                 }
             }
-            setCurrentTranscript(finalTranscript + interimTranscript);
+            setCurrentTranscript(prev => finalTranscript ? finalTranscript : prev + interimTranscript);
         };
 
         recognition.onerror = (event: any) => {
@@ -96,61 +91,58 @@ export default function InterviewPrepPage() {
 
         recognition.onend = () => {
             setIsRecording(false);
-            if (!finalTranscript.trim()) {
-                toast({ variant: 'warning', title: 'No answer recorded', description: 'Please try recording your answer again.' });
-                setCurrentTranscript('');
-                return;
-            }
-            
-            const newAnswer: AnswerRecord = {
-                question: questions[currentQuestionIndex],
-                transcript: finalTranscript.trim(),
-                feedback: null,
-            };
-            
-            const updatedAnswers = [...answers, newAnswer];
-            setAnswers(updatedAnswers);
-            setCurrentTranscript('');
-
-            if (currentQuestionIndex < questions.length - 1) {
-                setCurrentQuestionIndex(prev => prev + 1);
-            } else {
-                generateAllFeedback(updatedAnswers);
-            }
         };
         
         recognitionRef.current = recognition;
 
-    }, [questions, currentQuestionIndex, toast, answers]); 
+    }, [toast]); 
 
      useEffect(() => {
         initializeSpeechRecognition();
     }, [initializeSpeechRecognition]);
 
 
-    const startInterviewSession = async () => {
-        setSessionState('generating_questions');
-        setAnswers([]);
-        setCurrentQuestionIndex(0);
-        setCurrentTranscript('');
-
+    const fetchNextQuestion = async () => {
+        setSessionState('generating_question');
+        setCurrentQuestion(null);
         try {
-            const generatedQuestions = await Promise.all(
-                Array.from({ length: SESSION_LENGTH }).map(() => generateInterviewQuestion({ jobRole }))
-            );
-            setQuestions(generatedQuestions.map(q => q.question));
+            const result = await generateInterviewQuestion({ jobRole });
+            setCurrentQuestion(result.question);
             setSessionState('in_progress');
         } catch (e) {
-            console.error("Failed to generate questions", e);
-            toast({ variant: 'destructive', title: 'Failed to Start Session', description: 'Could not generate interview questions. Please try again.'});
-            setSessionState('idle');
+            console.error("Failed to generate next question", e);
+            toast({ variant: 'destructive', title: 'Failed to Get Question', description: 'Could not generate the next interview question. Please try again.'});
+            setSessionState('in_progress'); // Revert to allow user to try again
         }
     };
+
+    const startInterviewSession = async () => {
+        setSessionHistory([]);
+        setCurrentTranscript('');
+        await fetchNextQuestion();
+    };
     
-    const generateAllFeedback = async (finalAnswers: AnswerRecord[]) => {
+    const handleAnswerSubmission = () => {
+        if (!currentTranscript.trim() || !currentQuestion) {
+            toast({ variant: 'warning', title: 'No answer recorded', description: 'Please record an answer before proceeding.' });
+            return;
+        }
+        
+        const newAnswer: AnswerRecord = {
+            question: currentQuestion,
+            transcript: currentTranscript.trim(),
+            feedback: null, // Feedback will be generated at the end
+        };
+        
+        setSessionHistory(prev => [...prev, newAnswer]);
+        setCurrentTranscript('');
+        setCurrentQuestion(null); // Clear current question to show "Next Question" button
+    };
+
+    const generateFinalReport = async () => {
         setSessionState('analyzing');
         try {
-            const feedbackPromises = finalAnswers.map(ans => 
+            const feedbackPromises = sessionHistory.map(ans => 
                 provideInterviewFeedback({
                     question: ans.question,
                     answer: ans.transcript,
@@ -158,32 +150,19 @@ export default function InterviewPrepPage() {
                 })
             );
             const feedbacks = await Promise.all(feedbackPromises);
-            const updatedAnswers = finalAnswers.map((ans, index) => ({
+            const updatedHistory = sessionHistory.map((ans, index) => ({
                 ...ans,
                 feedback: feedbacks[index],
             }));
-            setAnswers(updatedAnswers);
+            setSessionHistory(updatedHistory);
             setSessionState('report');
         } catch (err) {
              console.error("Error getting feedback:", err);
             toast({ variant: 'destructive', title: 'Feedback Failed', description: 'Could not get feedback for one or more answers.' });
-            setSessionState('in_progress'); // Go back to allow retry? Or idle?
+            setSessionState('in_progress');
         }
     };
-
-    const startRecording = () => {
-        if (recognitionRef.current) {
-            setCurrentTranscript('');
-            recognitionRef.current.start();
-        }
-    }
     
-    const stopRecording = () => {
-        if (recognitionRef.current) {
-            recognitionRef.current.stop();
-        }
-    }
-
     if (!user) {
         return (
              <div className="flex items-center justify-center h-full">
@@ -214,34 +193,32 @@ export default function InterviewPrepPage() {
                  </CardContent>
             </Card>
             <div className="text-center">
-                <Button size="lg" onClick={startInterviewSession}>
+                <Button size="lg" onClick={startInterviewSession} disabled={!jobRole.trim()}>
                     <Play className="mr-2"/>
-                    Start Mock Interview ({SESSION_LENGTH} Questions)
+                    Start Mock Interview
                 </Button>
             </div>
         </>
     );
 
-    const renderGeneratingState = () => (
-        <div className="text-center space-y-4 py-12">
-            <Loader2 className="w-12 h-12 mx-auto animate-spin text-primary"/>
-            <h2 className="text-xl font-semibold">Preparing your interview session...</h2>
-            <p className="text-muted-foreground">Generating questions tailored for a '{jobRole}'.</p>
-        </div>
-    );
-    
     const renderInProgressState = () => (
         <>
-            <Card>
+            <Card className="min-h-[200px]">
                 <CardHeader>
-                    <div className="flex justify-between items-center">
-                       <CardTitle>Question {currentQuestionIndex + 1} of {SESSION_LENGTH}</CardTitle>
-                       <Progress value={((currentQuestionIndex + 1) / SESSION_LENGTH) * 100} className="w-1/2" />
+                   <div className="flex justify-between items-center">
+                       <CardTitle>Question {sessionHistory.length + 1}</CardTitle>
+                       <Progress value={((sessionHistory.length) / 5) * 100} className="w-1/2" />
                     </div>
-                    <CardDescription>Read the question, then click the microphone to answer.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-lg font-semibold">{questions[currentQuestionIndex]}</p>
+                    {sessionState === 'generating_question' ? (
+                         <div className="flex items-center gap-2 text-muted-foreground">
+                            <Loader2 className="animate-spin"/>
+                            <span>Generating next question...</span>
+                        </div>
+                    ) : (
+                        <p className="text-lg font-semibold">{currentQuestion}</p>
+                    )}
                 </CardContent>
             </Card>
             
@@ -249,8 +226,8 @@ export default function InterviewPrepPage() {
                  <Button 
                     size="lg" 
                     className={cn("h-16 w-16 rounded-full transition-all duration-300", isRecording && "bg-destructive scale-110")}
-                    onClick={isRecording ? stopRecording : startRecording}
-                    disabled={sessionState !== 'in_progress'}
+                    onClick={() => isRecording ? recognitionRef.current.stop() : recognitionRef.current.start()}
+                    disabled={sessionState !== 'in_progress' || !currentQuestion}
                     aria-label={isRecording ? 'Stop Recording' : 'Start Recording'}
                 >
                     {isRecording ? <MicOff/> : <Mic/>}
@@ -268,12 +245,32 @@ export default function InterviewPrepPage() {
                     </CardContent>
                 </Card>
             )}
+            
+            {!currentQuestion && currentTranscript && !isRecording && (
+                <div className="text-center">
+                    <Button onClick={handleAnswerSubmission}>Submit Answer &amp; Continue</Button>
+                </div>
+            )}
 
-            <div className="text-center mt-6">
+            <Separator/>
+            
+             <div className="text-center mt-6 flex justify-center items-center gap-4">
                 <Button variant="outline" onClick={() => setSessionState('idle')}>
                     <RefreshCw className="mr-2"/>
                     Restart Session
                 </Button>
+                {sessionHistory.length > 0 && (
+                    <Button onClick={generateFinalReport}>
+                        End Session & Get Report
+                        <ArrowRight className="ml-2"/>
+                    </Button>
+                )}
+                 {!currentQuestion && sessionHistory.length < 5 && (
+                    <Button onClick={fetchNextQuestion} disabled={sessionState === 'generating_question'}>
+                        Next Question
+                        <ArrowRight className="ml-2"/>
+                    </Button>
+                )}
             </div>
         </>
     );
@@ -282,12 +279,12 @@ export default function InterviewPrepPage() {
          <div className="text-center space-y-4 py-12">
             <Loader2 className="w-12 h-12 mx-auto animate-spin text-primary"/>
             <h2 className="text-xl font-semibold">Generating Your Feedback Report...</h2>
-            <p className="text-muted-foreground">The AI coach is analyzing your answers.</p>
+            <p className="text-muted-foreground">The AI coach is analyzing your {sessionHistory.length} answers.</p>
         </div>
     );
     
     const renderReportState = () => {
-        if (answers.length === 0) return renderIdleState();
+        if (sessionHistory.length === 0) return renderIdleState();
 
         const getHighlightedTranscript = (answer: AnswerRecord): string => {
             if (!answer.feedback) return answer.transcript;
@@ -314,10 +311,10 @@ export default function InterviewPrepPage() {
                 <CardHeader className="text-center">
                     <Wand2 className="w-10 h-10 mx-auto text-primary mb-2"/>
                     <CardTitle className="text-2xl">AI Feedback Report</CardTitle>
-                    <CardDescription>Here's a breakdown of your performance across {answers.length} questions.</CardDescription>
+                    <CardDescription>Here's a breakdown of your performance across {sessionHistory.length} questions for the '{jobRole}' role.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
-                    {answers.map((answer, index) => {
+                    {sessionHistory.map((answer, index) => {
                         const feedback = answer.feedback;
                         if (!feedback) return null;
                         
@@ -395,8 +392,9 @@ export default function InterviewPrepPage() {
     const renderContent = () => {
         switch (sessionState) {
             case 'idle': return renderIdleState();
-            case 'generating_questions': return renderGeneratingState();
-            case 'in_progress': return renderInProgressState();
+            case 'in_progress':
+            case 'generating_question': 
+                return renderInProgressState();
             case 'analyzing': return renderAnalyzingState();
             case 'report': return renderReportState();
             default: return renderIdleState();
@@ -415,3 +413,5 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
+
+    
