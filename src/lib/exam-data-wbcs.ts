@@ -6,12 +6,12 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
     title: 'WBCS: Bengali Synonyms & Antonyms',
     examName: 'WBCS',
     language: 'Bengali',
-    category: 'Synonyms & Antonyms',
+    category: 'Vocabulary (সমার্থক ও বিপরীতার্থক শব্দ)',
     vocabulary: [
         {
             word: 'অম্বু (Ombu)',
             romanization: 'Ombu',
-            definition: 'Synonym: জল (Jol), বারি (Bari); Antonym: অগ্নি (Ogni)',
+            definition: 'Synonym: জল (Jol), বারি (Bari), সলিল (Sholil); Antonym: অগ্নি (Ogni)',
             partOfSpeech: 'Noun',
             sentence: 'তৃষ্ণার্ত পথিক গাছের ছায়ায় বসে অম্বু পান করল।',
             sentenceRoman: 'Trishnarto pothik gachher chhayay bose ombu paan korlo.',
@@ -20,7 +20,7 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
         {
             word: 'উন্নতি (Unnoti)',
             romanization: 'Unnoti',
-            definition: 'Synonym: उत्कर्ष (Utkorsho), শ্রীবৃদ্ধি (Shribriddhi); Antonym: অবনতি (Obonoti)',
+            definition: 'Synonym: उत्कर्ष (Utkorsho), শ্রীবৃদ্ধি (Shribriddhi), উন্নতি (Unnati); Antonym: অবনতি (Obonoti), অধঃপতন (Odhahpoton)',
             partOfSpeech: 'Noun',
             sentence: 'কঠোর পরিশ্রমে তার ব্যবসার উন্নতি হয়েছে।',
             sentenceRoman: 'Kothor porishrome tar byabshar unnoti hoyeche.',
@@ -29,7 +29,7 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
         {
             word: 'সরল (Shorol)',
             romanization: 'Shorol',
-            definition: 'Synonym: সহজ (Sohoj), ঋজু (Riju); Antonym: জটিল (Jotil), বক্র (Bokro)',
+            definition: 'Synonym: সহজ (Sohoj), ঋজু (Riju), অকপট (Okopot); Antonym: জটিল (Jotil), বক্র (Bokro), কুটিল (Kutil)',
             partOfSpeech: 'Adjective',
             sentence: 'তিনি একজন অত্যন্ত সরল মনের মানুষ।',
             sentenceRoman: 'Tini ekjon otyonto shorol moner manush.',
@@ -38,7 +38,7 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
         {
             word: 'প্রাচীন (Prachin)',
             romanization: 'Prachin',
-            definition: 'Synonym: পুরাতন (Puraton), সনাতন (Shonaton); Antonym: নবীন (Nobin), আধুনিক (Adhunik)',
+            definition: 'Synonym: পুরাতন (Puraton), সনাতن (Shonaton), সাবেক (Shabek); Antonym: নবীন (Nobin), আধুনিক (Adhunik), অধুনা (Odhuna)',
             partOfSpeech: 'Adjective',
             sentence: 'এই মন্দিরটি একটি প্রাচীন স্থাপত্যের নিদর্শন।',
             sentenceRoman: 'Ei mondirti ekti prachin sthaphotyer nidorśon.',
@@ -47,11 +47,29 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
         {
             word: 'ঐক্য (Oikko)',
             romanization: 'Oikko',
-            definition: 'Synonym: মিলন (Milon), সদ্ভাব (Sodbhab); Antonym: অনৈক্য (Onoikko), বিভেদ (Bibhed)',
+            definition: 'Synonym: মিলন (Milon), সদ্ভাব (Sodbhab), একতা (Ekota); Antonym: অনৈক্য (Onoikko), বিভেদ (Bibhed), বিচ্ছেদ (Bichchhed)',
             partOfSpeech: 'Noun',
             sentence: 'ঐক্যই একটি জাতির উন্নতির মূল চাবিকাঠি।',
             sentenceRoman: 'Oikkoi ekti jatir unnotir mul chabikathi.',
             sentenceTranslation: 'Unity is the main key to a nation\'s progress.'
+        },
+        {
+            word: 'আকাশ (Akash)',
+            romanization: 'Akash',
+            definition: 'Synonym: গগন (Gogon), অম্বর (Ombor), ব্যোম (Byom); Antonym: পাতাল (Patal), ভূতল (Bhutol)',
+            partOfSpeech: 'Noun',
+            sentence: 'আজ আকাশ মেঘমুক্ত এবং পরিষ্কার।',
+            sentenceRoman: 'Aaj akash meghmukto ebong porishkar.',
+            sentenceTranslation: 'Today the sky is cloudless and clear.'
+        },
+        {
+            word: 'সুন্দর (Shundor)',
+            romanization: 'Shundor',
+            definition: 'Synonym: মনোরম (Monorom), চারু (Charu), সুদর্শন (Shudorshon); Antonym: কুৎসিত (Kutsit), বিশ্রী (Bishri)',
+            partOfSpeech: 'Adjective',
+            sentence: 'কাশ্মীরের প্রাকৃতিক দৃশ্য খুবই সুন্দর।',
+            sentenceRoman: 'Kashmir-er prakritik drishyo khubi shundor.',
+            sentenceTranslation: 'The natural scenery of Kashmir is very beautiful.'
         }
     ],
     quizzes: [
@@ -82,6 +100,18 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
             question: 'Which word means the opposite of "ঐক্য" (Oikko)?',
             options: ['মিলন (Milon)', 'বিভেদ (Bibhed)', 'সংহতি (Shonghoti)', 'একতা (Ekota)'],
             answer: 'বিভেদ (Bibhed)'
+        },
+        {
+            type: 'multiple-choice',
+            question: 'What is a synonym for "আকাশ" (Akash)?',
+            options: ['পাতাল (Patal)', 'পৃথিবী (Prithibi)', 'গগন (Gogon)', 'সমুদ্র (Shomudro)'],
+            answer: 'গগন (Gogon)'
+        },
+        {
+            type: 'multiple-choice',
+            question: 'What is the antonym of "সুন্দর" (Shundor)?',
+            options: ['মনোরম (Monorom)', 'চারু (Charu)', 'কুৎসিত (Kutsit)', 'আকর্ষণীয় (Akorshoniyo)'],
+            answer: 'কুৎসিত (Kutsit)'
         }
     ],
     errorAnalysis: [
@@ -92,6 +122,10 @@ export const wbcsBengaliSynonymsAntonyms: ExamModule = {
         {
             pitfall: 'Incorrectly Forming Antonyms with Prefixes',
             tip: 'Many Bengali antonyms are formed by adding prefixes like "অ-" (o-), "অন-" (on-), or "বি-" (bi-). However, the rules are not always straightforward. For example, the antonym of "ঐক্য" (Oikko) is "অনৈক্য" (Onoikko), not "অঐক্য." It is better to memorize the specific antonym for common words rather than trying to guess the prefix.'
+        },
+        {
+            pitfall: 'Choosing a Close but Incorrect Synonym',
+            tip: 'Some words might have similar meanings but are not true synonyms. For example, "সহজ" (sohoj - easy) is a better synonym for "সরল" (shorol - simple) than "সাধারণ" (shadharon - ordinary). Pay attention to the nuance and context provided in the question.'
         }
     ]
 };
