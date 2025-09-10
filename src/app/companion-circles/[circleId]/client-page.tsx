@@ -8,7 +8,7 @@ import type { CompanionCircle, User, CirclePost, PostComment, ReactionType } fro
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper, Pin, Megaphone } from 'lucide-react';
+import { ArrowLeft, Users, MessageSquare, Loader2, UserPlus, LogOut, MessageCircle, Smile, Lightbulb, Brain, ShieldCheck, Calendar, PartyPopper, Pin, Megaphone, Lock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
@@ -26,6 +26,8 @@ import { ProgressHeatmap } from '@/components/analytics/progress-heatmap';
 import { FieldValue, Timestamp } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { app } from '@/lib/firebase';
+import { getUserSettings } from '@/services/user';
+import Link from 'next/link';
 
 
 function CommentCard({ comment }: { comment: PostComment }) {
@@ -304,14 +306,24 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
   const [showWelcomeWizard, setShowWelcomeWizard] = useState(false);
   
   const [currentUser, setCurrentUser] = useState<FirebaseUser | null>(null);
+  const [isProUser, setIsProUser] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const router = useRouter();
   const { toast } = useToast();
 
   useEffect(() => {
     const auth = getAuth(app);
-    const unsubscribe = onAuthStateChanged(auth, user => {
-      setCurrentUser(user);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        setIsLoading(true);
+        setCurrentUser(user);
+        if (user) {
+            const userSettings = await getUserSettings(user.uid);
+            setIsProUser(userSettings?.isPro || false);
+        } else {
+            setIsProUser(false);
+        }
+        setIsLoading(false);
     });
     return () => unsubscribe();
   }, []);
@@ -385,6 +397,38 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
       } finally {
           setIsPosting(false);
       }
+  }
+  
+  if (isLoading) {
+      return (
+          <div className="flex h-screen items-center justify-center">
+              <Loader2 className="h-12 w-12 animate-spin text-primary"/>
+          </div>
+      )
+  }
+
+  if (circle.type === 'Mentor-led' && !isProUser) {
+    return (
+        <div className="container mx-auto flex items-center justify-center h-full">
+            <Card className="max-w-md text-center">
+                <CardHeader>
+                    <CardTitle className="flex items-center justify-center gap-2"><Lock className="text-primary"/> Pro Access Required</CardTitle>
+                    <CardDescription>This is a Mentor-led circle, which is a Pro feature.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-sm text-muted-foreground">Upgrade to Pro to join exclusive circles with expert mentors, structured lesson plans, and more.</p>
+                </CardContent>
+                <CardFooter className="flex-col gap-2">
+                    <Button asChild className="w-full">
+                        <Link href="/upgrade">Upgrade to Pro</Link>
+                    </Button>
+                    <Button asChild variant="ghost" className="w-full">
+                         <Link href="/companion-circles">Back to Circles</Link>
+                    </Button>
+                </CardFooter>
+            </Card>
+        </div>
+    )
   }
 
   return (

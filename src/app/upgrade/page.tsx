@@ -9,26 +9,52 @@ import { Check, Loader2, Sparkles, Star, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
+import { getUserSettings } from '@/services/user';
+import { getAuth } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
-const features = [
-    'Unlimited Access to All Lessons',
-    'Basic & Advanced Flashcard Review',
-    'Peer-to-Peer & Mentor-led Circles',
-    'AI Personal Tutor for Conversational Practice',
-    'AR Immersion for Vocabulary',
+const proFeatures = [
+    'Ad-Free Experience',
+    'Mentor-led & specialized circles',
+    'AI Personal Tutor',
+    'AR Immersion Vocabulary Tool',
     'On-Demand Quiz Generator',
-    'Live Classes with Tutors',
     'AI-Powered Mission Feedback',
+    'Access to All Lessons & Decks',
+];
+
+const freeFeatures = [
+    'Access to Foundation Lessons',
+    'Basic Flashcard Review',
+    'Peer-to-Peer Study Circles',
+    'Ad-Supported',
 ];
 
 export default function UpgradePage() {
-  const { user, loading } = useUser();
-  const { toast } = useToast();
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+    const { user: authUser, loading: authLoading } = useUser();
+    const [userProfile, setUserProfile] = useState<any>(null);
+    const [isProfileLoading, setIsProfileLoading] = useState(true);
+    const { toast } = useToast();
+    const router = useRouter();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    React.useEffect(() => {
+        async function loadUser() {
+            if (authUser) {
+                const profile = await getUserSettings(authUser.uid);
+                setUserProfile(profile);
+            }
+            setIsProfileLoading(false);
+        }
+        if (!authLoading) {
+            loadUser();
+        }
+    }, [authUser, authLoading]);
 
   const handleUpgrade = async () => {
-    if (!user) {
+    if (!authUser) {
       toast({
         variant: "destructive",
         title: "You're not logged in",
@@ -36,14 +62,14 @@ export default function UpgradePage() {
       });
       return router.push('/auth');
     }
-    setIsLoading(true);
+    setIsSubmitting(true);
     try {
-      await updateUserSettings(user.uid, { isPro: true });
+      await updateUserSettings(authUser.uid, { isPro: true });
+      setUserProfile((prev: any) => ({ ...prev, isPro: true }));
       toast({
         title: "Upgrade Successful!",
         description: "Welcome to LinguaLeap Pro! All features are now unlocked.",
       });
-      // The user context will automatically update, re-rendering the page
     } catch (error) {
       console.error("Upgrade failed:", error);
       toast({
@@ -52,11 +78,30 @@ export default function UpgradePage() {
         description: "We couldn't process your upgrade. Please try again.",
       });
     } finally {
-      setIsLoading(false);
+      setIsSubmitting(false);
     }
   };
 
-  if (loading) {
+  const handleDowngrade = async () => {
+      if (!authUser) return;
+      setIsSubmitting(true);
+      try {
+        await updateUserSettings(authUser.uid, { isPro: false });
+        setUserProfile((prev: any) => ({...prev, isPro: false}));
+        toast({ title: 'Plan Changed', description: 'You have been switched to the Free plan.' });
+      } catch(error) {
+           console.error("Downgrade failed:", error);
+            toast({
+                variant: "destructive",
+                title: "Downgrade Failed",
+                description: "Could not switch plans. Please try again.",
+            });
+      } finally {
+        setIsSubmitting(false);
+      }
+  }
+
+  if (authLoading || isProfileLoading) {
     return (
       <div className="flex justify-center items-center h-full">
         <Loader2 className="w-12 h-12 animate-spin text-primary" />
@@ -64,84 +109,70 @@ export default function UpgradePage() {
     )
   }
 
-  const isPro = user?.isPro || false;
+  const isPro = userProfile?.isPro || false;
 
   return (
     <div className="container mx-auto flex flex-col items-center">
       <div className="text-center max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold font-headline">Choose Your Plan</h1>
         <p className="mt-4 text-lg text-muted-foreground">
-          Unlock your full potential with LinguaLeap Pro for an ad-free experience, or enjoy all our features for free with ads.
+          Unlock your full potential with LinguaLeap Pro or get started for free.
         </p>
       </div>
 
       <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:max-w-5xl">
         {/* Free Plan Card */}
-        <Card className="flex flex-col border-2">
+        <Card className={cn("flex flex-col border-2", !isPro && "border-primary")}>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Free</CardTitle>
-              <CardDescription>Access all features, supported by ads.</CardDescription>
+              <CardDescription>Access essential features, supported by ads.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
                     <span className="text-5xl font-bold">₹0</span>
-                    <span className="text-muted-foreground">/forever</span>
+                    <span className="text-muted-foreground">/month</span>
                 </div>
-                <ul className="space-y-4">
-                    {features.map((feature, i) => (
+                <ul className="space-y-4 text-sm">
+                    {freeFeatures.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3">
-                       <Check className="h-5 w-5 text-primary" />
+                       <Check className="h-5 w-5 text-green-500" />
                         <span>{feature}</span>
                     </li>
                     ))}
-                    <li className="flex items-center gap-3 text-muted-foreground">
-                        <X className="h-5 w-5"/>
-                        <span>Ad-Free Experience</span>
-                    </li>
                 </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg" variant="outline" disabled={!isPro} onClick={() => {
-                if (user) {
-                  updateUserSettings(user.uid, { isPro: false });
-                  toast({ title: 'Plan Changed', description: 'You have been switched to the Free plan.' });
-                }
-              }}>
-                {isPro ? 'Downgrade to Free' : 'Your Current Plan'}
+              <Button className="w-full" size="lg" variant="outline" disabled={isSubmitting || !isPro} onClick={handleDowngrade}>
+                 {isSubmitting && isPro ? <Loader2 className="mr-2 animate-spin" /> : null}
+                 {isPro ? 'Downgrade to Free' : 'Your Current Plan'}
               </Button>
             </CardFooter>
         </Card>
 
          {/* Pro Plan Card */}
-        <Card className="flex flex-col border-2 border-primary ring-4 ring-primary/20 relative">
-            <div className="absolute top-0 right-4 -translate-y-1/2">
-                <Badge variant="warning" className="text-base py-1 px-3"><Star className="mr-2"/>Most Popular</Badge>
-            </div>
+        <Card className={cn("flex flex-col border-2", isPro && "border-primary")}>
+            <Badge variant="warning" className="absolute top-0 right-4 -translate-y-1/2 text-base py-1 px-3"><Star className="mr-2"/>Most Popular</Badge>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Pro</CardTitle>
-              <CardDescription>Support the app and enjoy an ad-free experience.</CardDescription>
+              <CardDescription>Unlock all features and get an ad-free experience.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
                     <span className="text-5xl font-bold">₹99</span>
                     <span className="text-muted-foreground">/month</span>
                 </div>
-                <ul className="space-y-4">
-                    {features.map((feature, i) => (
-                     <li key={i} className="flex items-center gap-3">
-                        <Check className="h-5 w-5 text-primary" />
+                <ul className="space-y-4 text-sm">
+                     {proFeatures.map((feature, i) => (
+                     <li key={i} className="flex items-center gap-3 font-medium">
+                        <Sparkles className="h-5 w-5 text-primary" />
                         <span>{feature}</span>
                     </li>
                     ))}
-                     <li className="flex items-center gap-3 font-bold text-primary">
-                        <Sparkles className="h-5 w-5"/>
-                        <span>Ad-Free Experience</span>
-                    </li>
                 </ul>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" size="lg" disabled={isPro || isLoading} onClick={handleUpgrade}>
-                {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}
+              <Button className="w-full" size="lg" disabled={isSubmitting || isPro} onClick={handleUpgrade}>
+                {isSubmitting && !isPro ? <Loader2 className="mr-2 animate-spin" /> : null}
                 {isPro ? "You're a Pro!" : 'Upgrade to Pro'}
               </Button>
             </CardFooter>
