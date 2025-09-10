@@ -22,13 +22,6 @@ import { useUser } from '@/context/user-context';
 import { cn } from '@/lib/utils';
 import { getUserSettings } from '@/services/user';
 
-const stats = [
-    { title: 'My Circles', value: 0, subtitle: 'என் வட்டங்கள்' },
-    { title: 'Mentor-Led', value: 2, subtitle: 'வழிகாட்டியுடன்' },
-    { title: 'Active Now', value: 2, subtitle: 'இப்போது செயலில்' },
-    { title: 'Live Sessions', value: 2, subtitle: 'நேரலை அமர்வுகள்' },
-]
-
 const getSubjectIcon = (subject: string) => {
     switch (subject.toLowerCase()) {
         case 'physics':
@@ -192,10 +185,15 @@ export default function CompanionCirclesPage() {
     });
 
     const myCirclesCount = user ? allCircles.filter(c => c.members.some(m => m.id === user.uid)).length : 0;
-    
+    const mentorLedCount = allCircles.filter(c => c.type === 'Mentor-led').length;
+    const activeNowCount = allCircles.filter(c => c.members.length > 5).length;
+    const liveSessionsCount = allCircles.filter(c => (c.upcomingEvents?.length || 0) > 0).length;
+
     const dynamicStats = [
-        { ...stats[0], value: myCirclesCount },
-        ...stats.slice(1)
+        { title: 'My Circles', value: myCirclesCount, subtitle: 'என் வட்டங்கள்' },
+        { title: 'Mentor-Led', value: mentorLedCount, subtitle: 'வழிகாட்டியுடன்' },
+        { title: 'Active Now', value: activeNowCount, subtitle: 'இப்போது செயலில்' },
+        { title: 'Live Sessions', value: liveSessionsCount, subtitle: 'நேரலை அமர்வுகள்' },
     ];
 
 
