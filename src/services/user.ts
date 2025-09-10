@@ -2,8 +2,41 @@
 'use server';
 
 import { db } from '@/lib/firebase';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, setDoc, serverTimestamp, collection } from 'firebase/firestore';
 import type { User } from '@/lib/types';
+import { learnerPersonas } from '@/lib/personas';
+
+
+/**
+ * Creates a new user document in Firestore after sign-up.
+ * @param uid The user's unique ID from Firebase Authentication.
+ * @param name The user's full name.
+ * @param email The user's email address.
+ */
+export async function createUserInFirestore(uid: string, name: string, email: string): Promise<void> {
+    try {
+        const userRef = doc(db, 'users', uid);
+        await setDoc(userRef, {
+            id: uid,
+            name: name,
+            email: email,
+            avatarUrl: `https://picsum.photos/seed/${uid}/100/100`, // Default avatar
+            streak: 0,
+            xp: 0,
+            language: 'Hindi', // Default language
+            timezone: 'Asia/Kolkata', // Default timezone
+            isPro: false,
+            proficiency: 'Beginner',
+            goals: ['Travel'],
+            persona: learnerPersonas[0].type,
+            createdAt: serverTimestamp(),
+        });
+    } catch (error) {
+        console.error("Error creating user in Firestore: ", error);
+        throw new Error("Could not create user profile.");
+    }
+}
+
 
 /**
  * Fetches a user's settings from Firestore.

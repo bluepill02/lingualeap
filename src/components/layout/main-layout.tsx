@@ -34,7 +34,7 @@ import {
   Calendar,
   Moon,
   Sun,
-  Loader2,
+  LogOut,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { LinguaLeapLogo } from '@/components/icons';
@@ -49,13 +49,13 @@ import {
   DropdownMenuRadioItem,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { mockUser } from '@/lib/data';
 import { Separator } from '../ui/separator';
 import { useLanguage, Language } from '@/context/language-context';
 import { translations } from '@/lib/i18n';
 import { useTheme } from 'next-themes';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { app } from '@/lib/firebase';
+import { useUser } from '@/context/user-context';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -63,58 +63,25 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   const { language, setLanguage } = useLanguage();
   const { setTheme } = useTheme();
   const t = translations[language];
+  const { user } = useUser();
+  const auth = getAuth(app);
+  
+  const handleLogout = () => {
+    auth.signOut().then(() => {
+      router.push('/auth');
+    });
+  };
 
   const menuItems = [
-    {
-      href: '/dashboard',
-      labelKey: 'dashboard',
-      icon: Home,
-    },
-    {
-      href: '/language-selection',
-      labelKey: 'lessons',
-      icon: BookOpen,
-    },
-    {
-      href: '/flashcards',
-      labelKey: 'flashcards',
-      icon: GraduationCap,
-    },
-     {
-      href: '/calendar',
-      labelKey: 'calendar',
-      icon: Calendar,
-    },
-    {
-      href: '/personal-tutor',
-      labelKey: 'personalTutor',
-      icon: Bot,
-    },
-    {
-      href: '/companion-circles',
-      labelKey: 'companionCircles',
-      icon: Users,
-    },
-    {
-      href: '/ar-immersion',
-      labelKey: 'arImmersion',
-      icon: Camera,
-    },
-    {
-      href: '/live-classes',
-      labelKey: 'liveClasses',
-      icon: Radio,
-    },
-    {
-      href: '/peer-teaching',
-      labelKey: 'peerTeaching',
-      icon: Megaphone,
-    },
-    {
-      href: '/settings',
-      labelKey: 'settings',
-      icon: Settings,
-    },
+    { href: '/dashboard', labelKey: 'dashboard', icon: Home, },
+    { href: '/language-selection', labelKey: 'lessons', icon: BookOpen, },
+    { href: '/flashcards', labelKey: 'flashcards', icon: GraduationCap, },
+     { href: '/calendar', labelKey: 'calendar', icon: Calendar, },
+    { href: '/personal-tutor', labelKey: 'personalTutor', icon: Bot, },
+    { href: '/companion-circles', labelKey: 'companionCircles', icon: Users, },
+    { href: '/ar-immersion', labelKey: 'arImmersion', icon: Camera, },
+    { href: '/live-classes', labelKey: 'liveClasses', icon: Radio, },
+    { href: '/peer-teaching', labelKey: 'peerTeaching', icon: Megaphone, },
   ];
 
   return (
@@ -147,12 +114,21 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
           </SidebarMenu>
         </SidebarContent>
         <SidebarFooter>
-          <Link href="/upgrade">
-            <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              <CreditCard className="mr-2" />
-              Upgrade to Pro
-            </Button>
-          </Link>
+           <Separator className="my-2" />
+           <SidebarMenuItem>
+             <Link href="/settings" aria-label={t.sidebar.settings}>
+               <SidebarMenuButton isActive={pathname.startsWith('/settings')} tooltip={t.sidebar.settings}>
+                 <Settings />
+                 <span>{t.sidebar.settings}</span>
+               </SidebarMenuButton>
+             </Link>
+           </SidebarMenuItem>
+           <SidebarMenuItem>
+             <Button variant="ghost" className="w-full justify-start" onClick={handleLogout}>
+                <LogOut className="mr-2" />
+                Log Out
+             </Button>
+           </SidebarMenuItem>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset className="p-0">
@@ -208,17 +184,17 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full" aria-label="Open user menu">
                     <Avatar>
-                    <AvatarImage src={mockUser.avatarUrl} alt={mockUser.name} />
-                    <AvatarFallback>{mockUser.name.charAt(0)}</AvatarFallback>
+                    <AvatarImage src={user?.photoURL || undefined} alt={user?.displayName || 'User'} />
+                    <AvatarFallback>{user?.displayName?.charAt(0) || 'U'}</AvatarFallback>
                     </Avatar>
                 </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none font-headline">{mockUser.name}</p>
+                    <p className="text-sm font-medium leading-none font-headline">{user?.displayName || 'Guest User'}</p>
                     <p className="text-xs leading-none text-muted-foreground">
-                        {mockUser.email}
+                        {user?.email}
                     </p>
                     </div>
                 </DropdownMenuLabel>
@@ -227,15 +203,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                     <DropdownMenuItem>Profile</DropdownMenuItem>
                 </Link>
                  <Link href="/upgrade">
-                    <DropdownMenuItem>Billing</DropdownMenuItem>
-                </Link>
-                <Link href="/settings">
-                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>Upgrade to Pro</DropdownMenuItem>
                 </Link>
                 <DropdownMenuSeparator />
-                <Link href="/auth">
-                    <DropdownMenuItem>Log out</DropdownMenuItem>
-                </Link>
+                <DropdownMenuItem onClick={handleLogout}>Log out</DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
           </div>

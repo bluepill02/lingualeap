@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -22,9 +22,10 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { app } from "@/lib/firebase"; // Import the initialized Firebase app
+import { app } from "@/lib/firebase"; 
 import { Separator } from "@/components/ui/separator";
 import { ArrowRight } from "lucide-react";
+import { createUserInFirestore } from "@/services/user";
 
 export default function AuthPage() {
   const [name, setName] = useState('');
@@ -37,9 +38,21 @@ export default function AuthPage() {
   const auth = getAuth(app);
 
   const handleSignUp = async () => {
+    if (!name) {
+        toast({ variant: "destructive", title: "Sign Up Failed", description: "Please enter your full name." });
+        return;
+    }
     setLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      
+      // Update Firebase Auth profile
+      await updateProfile(user, { displayName: name });
+      
+      // Create user document in Firestore
+      await createUserInFirestore(user.uid, name, user.email!);
+
       toast({
         title: "Account Created!",
         description: "You've successfully signed up. Redirecting to dashboard...",
@@ -86,7 +99,7 @@ export default function AuthPage() {
         <Tabs defaultValue="signup" className="w-full max-w-md">
         <Card>
             <CardHeader className="text-center">
-                <CardTitle className="text-2xl font-headline">Welcome to Bite-Size Lingo</CardTitle>
+                <CardTitle className="text-2xl font-headline">Welcome to LinguaLeap</CardTitle>
                 <CardDescription>
                 Sign in to continue your language journey
                 </CardDescription>
