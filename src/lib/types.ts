@@ -17,6 +17,7 @@ export interface User {
   proficiency: 'Beginner' | 'Intermediate' | 'Advanced';
   goals: string[];
   persona: string;
+  createdAt?: any;
 }
 
 export interface Lesson {
@@ -367,6 +368,7 @@ export interface DashboardData {
     };
     lessons: Lesson[];
     companionCircle: CompanionCircle | null;
+    myCirclesCount: number;
 }
 
 export type Language = 'en' | 'ta' | 'hi' | 'ml' | 'kn' | 'te';

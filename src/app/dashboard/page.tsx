@@ -150,7 +150,7 @@ export default function DashboardPage() {
     );
   }
 
-  const { userData, flashcardStats, lessons, companionCircle } = dashboardData;
+  const { userData, flashcardStats, lessons, companionCircle, myCirclesCount } = dashboardData;
 
   const proficiencyMap: { [key: string]: string } = {
     'Beginner': 'A1',
@@ -158,8 +158,6 @@ export default function DashboardPage() {
     'Advanced': 'B1',
   };
   const cefrLevel = proficiencyMap[userData.proficiency] || 'A1';
-
-  const myCirclesCount = companionCircle ? 1 : 0; // Simplified for now
 
   const stats = [
     { icon: Trophy, value: userData.streak, label: 'Day Streak', color: 'text-yellow-500', href: '/flashcards' },
@@ -294,8 +292,8 @@ export default function DashboardPage() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
-            <Link href={stat.href} key={stat.label}>
-                <Card className="text-center h-full hover:bg-muted transition-colors">
+            <Link href={stat.href} key={stat.label} className="group">
+                <Card className="text-center h-full group-hover:bg-muted transition-colors">
                   <CardContent className="p-4 flex flex-col items-center justify-center gap-2">
                     <stat.icon className={`h-8 w-8 ${stat.color}`} />
                     <p className="text-2xl font-bold">{stat.value}</p>

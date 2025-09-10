@@ -23,6 +23,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
         flashcardStats: { mastered: 0, dueToday: 0, total: 0 },
         lessons: mockLessons.slice(0, 4),
         companionCircle: null,
+        myCirclesCount: 0,
       };
     }
 
@@ -38,14 +39,16 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
     // 3. Fetch recommended lessons (can be personalized later)
     const recommendedLessons = mockLessons.slice(0, 4);
 
-    // 4. Fetch the user's first companion circle from Firestore
+    // 4. Fetch all of the user's companion circles from Firestore
     const circlesQuery = query(
       collection(db, 'companion-circles'),
-      where('members', 'array-contains', userId),
-      limit(1)
+      where('members', 'array-contains', userId)
     );
     const circleSnapshot = await getDocs(circlesQuery);
+    
+    const myCirclesCount = circleSnapshot.size;
     let userCompanionCircle: CompanionCircle | null = null;
+    
     if (!circleSnapshot.empty) {
       const circleDoc = circleSnapshot.docs[0];
       userCompanionCircle = { ...circleDoc.data(), id: circleDoc.id } as CompanionCircle;
@@ -57,6 +60,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
       flashcardStats,
       lessons: recommendedLessons,
       companionCircle: userCompanionCircle,
+      myCirclesCount: myCirclesCount,
     };
   } catch (error) {
     console.error("Error fetching dashboard data:", error);
@@ -66,6 +70,7 @@ export async function getDashboardData(userId: string): Promise<DashboardData> {
       flashcardStats: { mastered: 0, dueToday: 0, total: 0 },
       lessons: mockLessons.slice(0, 4),
       companionCircle: null, // Default to no circle on error
+      myCirclesCount: 0,
     };
   }
 }
