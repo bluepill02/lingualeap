@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
               name: 'LinguaLeap Pro',
               description: 'Unlimited access to all features.',
             },
-            unit_amount: 99 * 100, // 99 INR in paise
+            unit_amount: 9900, // 99 INR in paise
             recurring: {
               interval: 'month',
             },
