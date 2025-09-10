@@ -125,11 +125,11 @@ export default function ARImmersionPage() {
             className="w-full justify-start items-center h-auto py-2"
             onClick={() => !isSubmitted && setSelectedOption(option)}
         >
-            <div className="flex-shrink-0 w-6">
-                {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4" />}
-                {isSubmitted && isSelected && !isCorrectAnswer && <X className="h-4 w-4" />}
+            <div className="flex-grow text-left whitespace-normal flex items-center gap-2">
+                {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4 flex-shrink-0" />}
+                {isSubmitted && isSelected && !isCorrectAnswer && <X className="h-4 w-4 flex-shrink-0" />}
+                <span className="flex-1">{option}</span>
             </div>
-            <span className="flex-grow text-left whitespace-normal">{option}</span>
         </Button>
     );
   }
