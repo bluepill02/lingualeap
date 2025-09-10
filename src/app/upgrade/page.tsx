@@ -149,7 +149,7 @@ export default function UpgradePage() {
           </CardHeader>
           <CardContent className="flex-1">
             <div className="my-4">
-              <span className="text-5xl font-bold">₹0</span>
+              <span className="text-5xl font-bold">INR 0</span>
               <span className="text-muted-foreground">/month</span>
             </div>
             <ul className="space-y-4 text-sm">
@@ -193,7 +193,7 @@ export default function UpgradePage() {
           </CardHeader>
           <CardContent className="flex-1">
             <div className="my-4">
-              <span className="text-5xl font-bold">₹99</span>
+              <span className="text-5xl font-bold">INR 99</span>
               <span className="text-muted-foreground">/month</span>
             </div>
             <ul className="space-y-4 text-sm">
