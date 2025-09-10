@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI flow for providing feedback on a user's answer to a mock interview question.
@@ -11,14 +12,26 @@ import { z } from 'zod';
 export const InterviewFeedbackInputSchema = z.object({
   question: z.string().describe('The interview question that was asked.'),
   answer: z.string().describe("The user's spoken answer to the question."),
+  jobRole: z.string().optional().describe("The specific job role the user is preparing for, e.g., 'Software Engineer'."),
 });
 export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
 
+const STARAnalysisSchema = z.object({
+  situation: z.string().optional().describe("The specific part of the user's answer that describes the 'Situation'."),
+  task: z.string().optional().describe("The specific part of the user's answer that describes the 'Task'."),
+  action: z.string().optional().describe("The specific part of the user's answer that describes the 'Action'."),
+  result: z.string().optional().describe("The specific part of the user's answer that describes the 'Result'."),
+  situationFeedback: z.string().describe("Feedback on how well the user established the context."),
+  taskFeedback: z.string().describe("Feedback on how well the user explained their specific responsibility."),
+  actionFeedback: z.string().describe("Feedback on the description of the actions taken. Were they specific and impactful?"),
+  resultFeedback: z.string().describe("Feedback on the outcome. Was it quantified? Did it show impact?"),
+});
+
 export const InterviewFeedbackOutputSchema = z.object({
-  contentFeedback: z.string().describe("Feedback on the substance and structure of the answer. Does it follow the STAR method? Is it relevant?"),
-  clarityFeedback: z.string().describe("Feedback on the clarity, conciseness, and confidence of the delivery."),
-  exampleAnswer: z.string().describe("An improved, example answer that the user can learn from."),
-  confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer."),
+  starAnalysis: STARAnalysisSchema,
+  keywordFeedback: z.string().describe("Analyzes the use of keywords relevant to the job role. Suggests powerful action verbs and industry-specific terms."),
+  actionableTips: z.array(z.string()).describe("A list of 3-4 concrete, actionable tips for the user to improve their answer next time."),
+  confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer, based on clarity, pace, and conviction."),
 });
 export type InterviewFeedbackOutput = z.infer<typeof InterviewFeedbackOutputSchema>;
 
@@ -31,20 +44,30 @@ const prompt = ai.definePrompt({
     name: 'interviewFeedbackPrompt',
     input: { schema: InterviewFeedbackInputSchema },
     output: { schema: InterviewFeedbackOutputSchema },
-    prompt: `You are an expert career coach and interview trainer. A user is practicing for a job interview.
+    prompt: `You are an expert career coach and interview trainer for the role of: '{{{jobRole}}}'. A user is practicing for a job interview.
+
 They were asked the following question:
 "{{{question}}}"
 
 They gave the following answer:
 "{{{answer}}}"
 
-Your task is to provide constructive feedback.
-1.  **Content Feedback**: Analyze the answer's structure and content. Is it well-structured (like the STAR method)? Is it concise? Does it directly answer the question?
-2.  **Clarity Feedback**: Comment on the perceived clarity and confidence of the answer based on the language used.
-3.  **Example Answer**: Provide a well-structured, improved example answer that effectively demonstrates how to answer the question.
-4.  **Confidence Score**: Rate the confidence of the answer on a scale of 1 to 10, where 1 is not confident and 10 is very confident.
+Your task is to provide expert, constructive feedback based on the STAR method (Situation, Task, Action, Result).
 
-Provide your feedback now in the required format.
+1.  **STAR Analysis**:
+    *   Carefully analyze the user's answer. For each part of STAR, extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
+    *   For each part (Situation, Task, Action, Result), provide concise feedback on its effectiveness. If it's missing, state that clearly in the feedback.
+
+2.  **Keyword Feedback**:
+    *   Analyze the language used. Did they use strong action verbs? Did they use keywords relevant to a '{{{jobRole}}}'? Provide suggestions for more impactful language.
+
+3.  **Actionable Tips**:
+    *   Provide a short, bulleted list of 3-4 of the most important, actionable tips for improving this specific answer.
+
+4.  **Confidence Score**:
+    *   Rate the confidence of the answer on a scale of 1 to 10, where 1 is not confident and 10 is very confident. Base this on clarity, directness, and assertive language.
+
+Provide your feedback now in the required structured format.
 `,
 });
 
@@ -63,3 +86,5 @@ const interviewFeedbackFlow = ai.defineFlow(
     return output;
   }
 );
+
+    

@@ -1,0 +1,55 @@
+
+'use server';
+/**
+ * @fileOverview An AI flow for generating a mock interview question based on a job role.
+ *
+ * - generateInterviewQuestion - A function that creates a relevant question.
+ */
+
+import { ai } from '@/ai/genkit';
+import { z } from 'zod';
+
+export const InterviewQuestionInputSchema = z.object({
+  jobRole: z.string().describe('The job role the user is preparing for, e.g., "Software Engineer".'),
+});
+export type InterviewQuestionInput = z.infer<typeof InterviewQuestionInputSchema>;
+
+export const InterviewQuestionOutputSchema = z.object({
+  question: z.string().describe("A single, relevant behavioral interview question for the specified job role. It should be a common question asked in real interviews."),
+});
+export type InterviewQuestionOutput = z.infer<typeof InterviewQuestionOutputSchema>;
+
+
+export async function generateInterviewQuestion(input: InterviewQuestionInput): Promise<InterviewQuestionOutput> {
+  return interviewQuestionFlow(input);
+}
+
+const prompt = ai.definePrompt({
+    name: 'interviewQuestionPrompt',
+    input: { schema: InterviewQuestionInputSchema },
+    output: { schema: InterviewQuestionOutputSchema },
+    prompt: `You are an expert interviewer. Generate a single, common, but insightful behavioral interview question for a candidate applying for the role of '{{{jobRole}}}'.
+    
+    The question should prompt the candidate to provide a specific example from their past experience. Avoid simple "yes/no" questions.
+
+    For example, for "Software Engineer", a good question would be "Tell me about a time you had a disagreement with a colleague on a technical decision. How did you handle it?".
+`,
+});
+
+
+const interviewQuestionFlow = ai.defineFlow(
+  {
+    name: 'interviewQuestionFlow',
+    inputSchema: InterviewQuestionInputSchema,
+    outputSchema: InterviewQuestionOutputSchema,
+  },
+  async (input) => {
+    const { output } = await prompt(input);
+    if (!output) {
+      throw new Error('Failed to generate interview question.');
+    }
+    return output;
+  }
+);
+
+    

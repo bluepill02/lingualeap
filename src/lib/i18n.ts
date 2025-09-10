@@ -7,7 +7,7 @@ export const translations = {
             flashcards: 'Flashcards',
             personalTutor: 'Personal Tutor',
             companionCircles: 'Companion Circles',
-            examPrep: 'Exam Module',
+            examPrep: 'Exam Prep',
             arImmersion: 'AR Immersion',
             liveClasses: 'Live Classes',
             peerTeaching: 'Peer Teaching',
@@ -97,3 +97,5 @@ export const translations = {
         }
     }
 };
+
+    

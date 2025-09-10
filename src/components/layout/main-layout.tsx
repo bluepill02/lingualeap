@@ -95,6 +95,7 @@ function MainLayoutContent({ children }: { children: React.ReactNode }) {
     { href: '/ar-immersion', labelKey: 'arImmersion', icon: Camera, },
     { href: '/live-classes', labelKey: 'liveClasses', icon: Radio, },
     { href: '/peer-teaching', labelKey: 'peerTeaching', icon: Megaphone, },
+    { href: '/exam-prep', labelKey: 'examPrep', icon: ShieldCheck },
   ];
 
   if (isLoading) {
@@ -258,3 +259,5 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <MainLayoutContent>{children}</MainLayoutContent>
   );
 }
+
+    
