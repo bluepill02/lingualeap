@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const santaliDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const santaliDecks: LessonDeck[] = [
 ];
 
 export const santaliLessons: MicroLesson[] = [
-  { id: 'lesson-santali-1', title: 'Lesson 1', deckId: 'deck-santali-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-2', title: 'Lesson 2', deckId: 'deck-santali-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-3', title: 'Lesson 3', deckId: 'deck-santali-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-4', title: 'Lesson 4', deckId: 'deck-santali-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-5', title: 'Lesson 5', deckId: 'deck-santali-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-6', title: 'Lesson 6', deckId: 'deck-santali-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-santali-7', title: 'Lesson 7', deckId: 'deck-santali-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-1', title: 'Lesson 1', deckId: 'deck-santali-1', ...{ vocabulary: [{ word: 'ᱡᱚᱦᱟᱨ', romanization: 'Johar', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-2', title: 'Lesson 2', deckId: 'deck-santali-2', ...{ vocabulary: [{ word: 'ᱫᱟᱜ', romanization: 'Daag', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-3', title: 'Lesson 3', deckId: 'deck-santali-3', ...{ vocabulary: [{ word: 'ᱪᱮᱫ ᱞᱮᱠᱟ?', romanization: 'Ched leka?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-4', title: 'Lesson 4', deckId: 'deck-santali-4', ...{ vocabulary: [{ word: 'ᱤᱧ ᱪᱟᱞᱟᱜ ᱠᱟᱱᱟ', romanization: 'Ing chalag kana', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-5', title: 'Lesson 5', deckId: 'deck-santali-5', ...{ vocabulary: [{ word: 'ᱱᱚᱣᱟ ᱨᱮᱭᱟᱜ ᱜᱚᱱᱚᱝ ᱛᱤᱱᱟᱹᱜ?', romanization: 'Noa reyag gonong tinag?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-6', title: 'Lesson 6', deckId: 'deck-santali-6', ...{ vocabulary: [{ word: 'ᱮᱱᱛᱮ', romanization: 'Ente', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-santali-7', title: 'Lesson 7', deckId: 'deck-santali-7', ...{ vocabulary: [{ word: 'ᱤᱧᱟᱜ 趣味', romanization: 'Ingag hobby', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const kannadaDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const kannadaDecks: LessonDeck[] = [
 ];
 
 export const kannadaLessons: MicroLesson[] = [
-  { id: 'lesson-kannada-1', title: 'Lesson 1', deckId: 'deck-kannada-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-2', title: 'Lesson 2', deckId: 'deck-kannada-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-3', title: 'Lesson 3', deckId: 'deck-kannada-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-4', title: 'Lesson 4', deckId: 'deck-kannada-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-5', title: 'Lesson 5', deckId: 'deck-kannada-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-6', title: 'Lesson 6', deckId: 'deck-kannada-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-kannada-7', title: 'Lesson 7', deckId: 'deck-kannada-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-1', title: 'Lesson 1', deckId: 'deck-kannada-1', ...{ vocabulary: [{ word: 'ನಮಸ್ಕಾರ', romanization: 'Namaskara', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-2', title: 'Lesson 2', deckId: 'deck-kannada-2', ...{ vocabulary: [{ word: 'ನೀರು', romanization: 'Neeru', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-3', title: 'Lesson 3', deckId: 'deck-kannada-3', ...{ vocabulary: [{ word: 'ನೀವು ಹೇಗಿದ್ದೀರಾ?', romanization: 'Neevu hegiddira?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-4', title: 'Lesson 4', deckId: 'deck-kannada-4', ...{ vocabulary: [{ word: 'ನಾನು ಹೋಗುತ್ತೇನೆ', romanization: 'Naanu hoguttene', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-5', title: 'Lesson 5', deckId: 'deck-kannada-5', ...{ vocabulary: [{ word: 'இதರ ಬೆಲೆ ಎಷ್ಟು?', romanization: 'Idara bele eshtu?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-6', title: 'Lesson 6', deckId: 'deck-kannada-6', ...{ vocabulary: [{ word: 'ಏಕೆಂದರೆ', romanization: 'Ekendare', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-kannada-7', title: 'Lesson 7', deckId: 'deck-kannada-7', ...{ vocabulary: [{ word: 'ನನ್ನ ಹವ್ಯಾಸ', romanization: 'Nanna havyasa', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

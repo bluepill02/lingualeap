@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const punjabiDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const punjabiDecks: LessonDeck[] = [
 ];
 
 export const punjabiLessons: MicroLesson[] = [
-  { id: 'lesson-punjabi-1', title: 'Lesson 1', deckId: 'deck-punjabi-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-2', title: 'Lesson 2', deckId: 'deck-punjabi-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-3', title: 'Lesson 3', deckId: 'deck-punjabi-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-4', title: 'Lesson 4', deckId: 'deck-punjabi-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-5', title: 'Lesson 5', deckId: 'deck-punjabi-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-6', title: 'Lesson 6', deckId: 'deck-punjabi-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-punjabi-7', title: 'Lesson 7', deckId: 'deck-punjabi-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-1', title: 'Lesson 1', deckId: 'deck-punjabi-1', ...{ vocabulary: [{ word: 'ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ', romanization: 'Sat Sri Akal', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-2', title: 'Lesson 2', deckId: 'deck-punjabi-2', ...{ vocabulary: [{ word: 'ਪਾਣੀ', romanization: 'Paani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-3', title: 'Lesson 3', deckId: 'deck-punjabi-3', ...{ vocabulary: [{ word: 'ਤੁਹਾਡਾ ਕੀ ਹਾਲ ਹੈ?', romanization: 'Tuhada ki haal hai?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-4', title: 'Lesson 4', deckId: 'deck-punjabi-4', ...{ vocabulary: [{ word: 'ਮੈਂ ਜਾਂਦਾ ਹਾਂ', romanization: 'Main jaanda haan', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-5', title: 'Lesson 5', deckId: 'deck-punjabi-5', ...{ vocabulary: [{ word: 'ਇਸਦਾ ਕੀ ਮੁੱਲ ਹੈ?', romanization: 'Isda ki mul hai?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-6', title: 'Lesson 6', deckId: 'deck-punjabi-6', ...{ vocabulary: [{ word: 'ਕਿਉਂਕਿ', romanization: 'Kyonki', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-punjabi-7', title: 'Lesson 7', deckId: 'deck-punjabi-7', ...{ vocabulary: [{ word: 'ਮੇਰਾ ਸ਼ੌਕ', romanization: 'Mera shauk', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

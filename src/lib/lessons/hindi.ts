@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const hindiDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const hindiDecks: LessonDeck[] = [
 ];
 
 export const hindiLessons: MicroLesson[] = [
-  { id: 'lesson-hindi-1', title: 'Lesson 1', deckId: 'deck-hindi-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-2', title: 'Lesson 2', deckId: 'deck-hindi-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-3', title: 'Lesson 3', deckId: 'deck-hindi-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-4', title: 'Lesson 4', deckId: 'deck-hindi-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-5', title: 'Lesson 5', deckId: 'deck-hindi-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-6', title: 'Lesson 6', deckId: 'deck-hindi-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-hindi-7', title: 'Lesson 7', deckId: 'deck-hindi-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-1', title: 'Lesson 1', deckId: 'deck-hindi-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello', ipa: '/nəməˈsteː/', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-2', title: 'Lesson 2', deckId: 'deck-hindi-2', ...{ vocabulary: [{ word: 'पानी', romanization: 'Paani', definition: 'Water', ipa: '/pɑː.niː/', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-3', title: 'Lesson 3', deckId: 'deck-hindi-3', ...{ vocabulary: [{ word: 'आप कैसे हैं?', romanization: 'Aap kaise hain?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-4', title: 'Lesson 4', deckId: 'deck-hindi-4', ...{ vocabulary: [{ word: 'मैं जाता हूँ', romanization: 'Main jaata hoon', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-5', title: 'Lesson 5', deckId: 'deck-hindi-5', ...{ vocabulary: [{ word: 'इसका दाम क्या है?', romanization: 'Iska daam kya hai?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-6', title: 'Lesson 6', deckId: 'deck-hindi-6', ...{ vocabulary: [{ word: 'क्योंकि', romanization: 'Kyonki', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-hindi-7', title: 'Lesson 7', deckId: 'deck-hindi-7', ...{ vocabulary: [{ word: 'मेरा शौक़', romanization: 'Mera shauk', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

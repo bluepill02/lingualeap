@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const dogriDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const dogriDecks: LessonDeck[] = [
 ];
 
 export const dogriLessons: MicroLesson[] = [
-  { id: 'lesson-dogri-1', title: 'Lesson 1', deckId: 'deck-dogri-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-2', title: 'Lesson 2', deckId: 'deck-dogri-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-3', title: 'Lesson 3', deckId: 'deck-dogri-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-4', title: 'Lesson 4', deckId: 'deck-dogri-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-5', title: 'Lesson 5', deckId: 'deck-dogri-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-6', title: 'Lesson 6', deckId: 'deck-dogri-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-dogri-7', title: 'Lesson 7', deckId: 'deck-dogri-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-1', title: 'Lesson 1', deckId: 'deck-dogri-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-2', title: 'Lesson 2', deckId: 'deck-dogri-2', ...{ vocabulary: [{ word: 'पानी', romanization: 'Pani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-3', title: 'Lesson 3', deckId: 'deck-dogri-3', ...{ vocabulary: [{ word: 'तुस किद्दां ओ?', romanization: 'Tus kiddan o?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-4', title: 'Lesson 4', deckId: 'deck-dogri-4', ...{ vocabulary: [{ word: 'मैं जांदा हां', romanization: 'Main jaanda haan', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-5', title: 'Lesson 5', deckId: 'deck-dogri-5', ...{ vocabulary: [{ word: 'इसदा के मूल्य ऐ?', romanization: 'Isda ke mulya ai?', definition: 'What is the price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-6', title: 'Lesson 6', deckId: 'deck-dogri-6', ...{ vocabulary: [{ word: 'क्योंकि', romanization: 'Kyunki', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-dogri-7', title: 'Lesson 7', deckId: 'deck-dogri-7', ...{ vocabulary: [{ word: 'मेरा शौक़', romanization: 'Mera shauk', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

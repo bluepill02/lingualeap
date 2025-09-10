@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const konkaniDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const konkaniDecks: LessonDeck[] = [
 ];
 
 export const konkaniLessons: MicroLesson[] = [
-  { id: 'lesson-konkani-1', title: 'Lesson 1', deckId: 'deck-konkani-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-2', title: 'Lesson 2', deckId: 'deck-konkani-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-3', title: 'Lesson 3', deckId: 'deck-konkani-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-4', title: 'Lesson 4', deckId: 'deck-konkani-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-5', title: 'Lesson 5', deckId: 'deck-konkani-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-6', title: 'Lesson 6', deckId: 'deck-konkani-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-konkani-7', title: 'Lesson 7', deckId: 'deck-konkani-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-1', title: 'Lesson 1', deckId: 'deck-konkani-1', ...{ vocabulary: [{ word: 'देव बरे करुं', romanization: 'Dev bare karun', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-2', title: 'Lesson 2', deckId: 'deck-konkani-2', ...{ vocabulary: [{ word: 'उदक', romanization: 'Udak', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-3', title: 'Lesson 3', deckId: 'deck-konkani-3', ...{ vocabulary: [{ word: 'तुवें कसो आसा?', romanization: 'Tuvem koso asa?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-4', title: 'Lesson 4', deckId: 'deck-konkani-4', ...{ vocabulary: [{ word: 'हांव वतां', romanization: 'Hanv vetam', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-5', title: 'Lesson 5', deckId: 'deck-konkani-5', ...{ vocabulary: [{ word: 'हाचो मोले कसो?', romanization: 'Hacho mol koso?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-6', title: 'Lesson 6', deckId: 'deck-konkani-6', ...{ vocabulary: [{ word: 'कारण', romanization: 'Karan', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-konkani-7', title: 'Lesson 7', deckId: 'deck-konkani-7', ...{ vocabulary: [{ word: 'माझो छंद', romanization: 'Mazho chhand', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

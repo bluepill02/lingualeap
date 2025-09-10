@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const sindhiDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const sindhiDecks: LessonDeck[] = [
 ];
 
 export const sindhiLessons: MicroLesson[] = [
-  { id: 'lesson-sindhi-1', title: 'Lesson 1', deckId: 'deck-sindhi-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-2', title: 'Lesson 2', deckId: 'deck-sindhi-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-3', title: 'Lesson 3', deckId: 'deck-sindhi-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-4', title: 'Lesson 4', deckId: 'deck-sindhi-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-5', title: 'Lesson 5', deckId: 'deck-sindhi-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-6', title: 'Lesson 6', deckId: 'deck-sindhi-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-sindhi-7', title: 'Lesson 7', deckId: 'deck-sindhi-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-1', title: 'Lesson 1', deckId: 'deck-sindhi-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-2', title: 'Lesson 2', deckId: 'deck-sindhi-2', ...{ vocabulary: [{ word: 'पाणी', romanization: 'Paani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-3', title: 'Lesson 3', deckId: 'deck-sindhi-3', ...{ vocabulary: [{ word: 'तव्हां कीयं आह्यो?', romanization: 'Tavhaan keeyan aahyo?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-4', title: 'Lesson 4', deckId: 'deck-sindhi-4', ...{ vocabulary: [{ word: 'आऊं वञां थो', romanization: 'Aau vanyan tho', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-5', title: 'Lesson 5', deckId: 'deck-sindhi-5', ...{ vocabulary: [{ word: 'هن جو مُلهه ڇا آهي؟', romanization: 'Hin jo mulhu chha aahe?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-6', title: 'Lesson 6', deckId: 'deck-sindhi-6', ...{ vocabulary: [{ word: 'ڇاڪاڻ ته', romanization: 'Chhaakaan tah', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-sindhi-7', title: 'Lesson 7', deckId: 'deck-sindhi-7', ...{ vocabulary: [{ word: 'منهنجو شوق', romanization: 'Muhinjo shauq', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

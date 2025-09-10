@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const maithiliDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const maithiliDecks: LessonDeck[] = [
 ];
 
 export const maithiliLessons: MicroLesson[] = [
-  { id: 'lesson-maithili-1', title: 'Lesson 1', deckId: 'deck-maithili-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-2', title: 'Lesson 2', deckId: 'deck-maithili-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-3', title: 'Lesson 3', deckId: 'deck-maithili-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-4', title: 'Lesson 4', deckId: 'deck-maithili-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-5', title: 'Lesson 5', deckId: 'deck-maithili-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-6', title: 'Lesson 6', deckId: 'deck-maithili-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-maithili-7', title: 'Lesson 7', deckId: 'deck-maithili-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-1', title: 'Lesson 1', deckId: 'deck-maithili-1', ...{ vocabulary: [{ word: 'प्रणाम', romanization: 'Pranaam', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-2', title: 'Lesson 2', deckId: 'deck-maithili-2', ...{ vocabulary: [{ word: 'पाइन', romanization: 'Paain', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-3', title: 'Lesson 3', deckId: 'deck-maithili-3', ...{ vocabulary: [{ word: 'अहाँ केहन छी?', romanization: 'Ahan kehan chhi?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-4', title: 'Lesson 4', deckId: 'deck-maithili-4', ...{ vocabulary: [{ word: 'हम जाइत छी', romanization: 'Hum jaait chhi', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-5', title: 'Lesson 5', deckId: 'deck-maithili-5', ...{ vocabulary: [{ word: 'एकर दाम कतेक छै?', romanization: 'Ekar daam katek chhai?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-6', title: 'Lesson 6', deckId: 'deck-maithili-6', ...{ vocabulary: [{ word: 'किएक तँ', romanization: 'Kiyek tan', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-maithili-7', title: 'Lesson 7', deckId: 'deck-maithili-7', ...{ vocabulary: [{ word: 'हमर शौक', romanization: 'Hamar shauk', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

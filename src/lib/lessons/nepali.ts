@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const nepaliDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const nepaliDecks: LessonDeck[] = [
 ];
 
 export const nepaliLessons: MicroLesson[] = [
-  { id: 'lesson-nepali-1', title: 'Lesson 1', deckId: 'deck-nepali-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-2', title: 'Lesson 2', deckId: 'deck-nepali-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-3', title: 'Lesson 3', deckId: 'deck-nepali-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-4', title: 'Lesson 4', deckId: 'deck-nepali-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-5', title: 'Lesson 5', deckId: 'deck-nepali-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-6', title: 'Lesson 6', deckId: 'deck-nepali-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-nepali-7', title: 'Lesson 7', deckId: 'deck-nepali-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-1', title: 'Lesson 1', deckId: 'deck-nepali-1', ...{ vocabulary: [{ word: 'नमस्ते', romanization: 'Namaste', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-2', title: 'Lesson 2', deckId: 'deck-nepali-2', ...{ vocabulary: [{ word: 'पानी', romanization: 'Paani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-3', title: 'Lesson 3', deckId: 'deck-nepali-3', ...{ vocabulary: [{ word: 'तपाईंलाई कस्तो छ?', romanization: 'Tapaai lai kasto chha?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-4', title: 'Lesson 4', deckId: 'deck-nepali-4', ...{ vocabulary: [{ word: 'म जान्छु', romanization: 'Ma jaanchu', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-5', title: 'Lesson 5', deckId: 'deck-nepali-5', ...{ vocabulary: [{ word: 'यसको मूल्य कति हो?', romanization: 'Yasko mulya kati ho?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-6', title: 'Lesson 6', deckId: 'deck-nepali-6', ...{ vocabulary: [{ word: 'किनभने', romanization: 'Kinabhane', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-nepali-7', title: 'Lesson 7', deckId: 'deck-nepali-7', ...{ vocabulary: [{ word: 'मेरो रुचि', romanization: 'Mero ruchi', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

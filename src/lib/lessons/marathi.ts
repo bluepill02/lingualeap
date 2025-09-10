@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const marathiDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const marathiDecks: LessonDeck[] = [
 ];
 
 export const marathiLessons: MicroLesson[] = [
-  { id: 'lesson-marathi-1', title: 'Lesson 1', deckId: 'deck-marathi-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-2', title: 'Lesson 2', deckId: 'deck-marathi-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-3', title: 'Lesson 3', deckId: 'deck-marathi-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-4', title: 'Lesson 4', deckId: 'deck-marathi-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-5', title: 'Lesson 5', deckId: 'deck-marathi-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-6', title: 'Lesson 6', deckId: 'deck-marathi-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-marathi-7', title: 'Lesson 7', deckId: 'deck-marathi-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-1', title: 'Lesson 1', deckId: 'deck-marathi-1', ...{ vocabulary: [{ word: 'नमस्कार', romanization: 'Namaskar', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-2', title: 'Lesson 2', deckId: 'deck-marathi-2', ...{ vocabulary: [{ word: 'पाणी', romanization: 'Paani', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-3', title: 'Lesson 3', deckId: 'deck-marathi-3', ...{ vocabulary: [{ word: 'तुम्ही कसे आहात?', romanization: 'Tumhi kase ahat?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-4', title: 'Lesson 4', deckId: 'deck-marathi-4', ...{ vocabulary: [{ word: 'मी जातो', romanization: 'Mi jaato', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-5', title: 'Lesson 5', deckId: 'deck-marathi-5', ...{ vocabulary: [{ word: 'याची किंमत काय आहे?', romanization: 'Yachi kimmat kaay aahe?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-6', title: 'Lesson 6', deckId: 'deck-marathi-6', ...{ vocabulary: [{ word: 'कारण', romanization: 'Karan', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-marathi-7', title: 'Lesson 7', deckId: 'deck-marathi-7', ...{ vocabulary: [{ word: 'माझा छंद', romanization: 'Majha chhand', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];

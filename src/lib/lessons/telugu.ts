@@ -1,5 +1,6 @@
 
 import type { LessonDeck, MicroLesson } from '@/lib/types';
+import { placeholderAudioDataUri } from '@/lib/placeholder-audio';
 
 export const teluguDecks: LessonDeck[] = [
   // Foundations
@@ -15,11 +16,11 @@ export const teluguDecks: LessonDeck[] = [
 ];
 
 export const teluguLessons: MicroLesson[] = [
-  { id: 'lesson-telugu-1', title: 'Lesson 1', deckId: 'deck-telugu-1', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-2', title: 'Lesson 2', deckId: 'deck-telugu-2', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-3', title: 'Lesson 3', deckId: 'deck-telugu-3', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-4', title: 'Lesson 4', deckId: 'deck-telugu-4', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-5', title: 'Lesson 5', deckId: 'deck-telugu-5', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-6', title: 'Lesson 6', deckId: 'deck-telugu-6', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
-  { id: 'lesson-telugu-7', title: 'Lesson 7', deckId: 'deck-telugu-7', ...{ vocabulary: [], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-1', title: 'Lesson 1', deckId: 'deck-telugu-1', ...{ vocabulary: [{ word: 'నమస్కారం', romanization: 'Namaskaram', definition: 'Hello/Greetings', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-2', title: 'Lesson 2', deckId: 'deck-telugu-2', ...{ vocabulary: [{ word: 'నీరు', romanization: 'Neeru', definition: 'Water', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-3', title: 'Lesson 3', deckId: 'deck-telugu-3', ...{ vocabulary: [{ word: 'మీరు ఎలా ఉన్నారు?', romanization: 'Meeru ela unnaru?', definition: 'How are you?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-4', title: 'Lesson 4', deckId: 'deck-telugu-4', ...{ vocabulary: [{ word: 'నేను వెళ్తున్నాను', romanization: 'Nenu velthunnanu', definition: 'I go', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-5', title: 'Lesson 5', deckId: 'deck-telugu-5', ...{ vocabulary: [{ word: 'దీని ధర ఎంత?', romanization: 'Deeni dhara entha?', definition: 'What is its price?', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-6', title: 'Lesson 6', deckId: 'deck-telugu-6', ...{ vocabulary: [{ word: 'ఎందుకంటే', romanization: 'Endukante', definition: 'Because', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
+  { id: 'lesson-telugu-7', title: 'Lesson 7', deckId: 'deck-telugu-7', ...{ vocabulary: [{ word: 'నా హాబీ', romanization: 'Naa hobby', definition: 'My hobby', ipa: '', audioUrl: placeholderAudioDataUri }], dialogue: [], culturalTip: '', quizzes: [], followUp: '' } },
 ];
