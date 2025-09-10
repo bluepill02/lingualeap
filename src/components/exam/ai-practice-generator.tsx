@@ -20,6 +20,7 @@ interface AiPracticeGeneratorProps {
   chapter: string;
   quizGeneratorFn: (input: any) => Promise<NeetQuizGeneratorOutput>;
   flashcardGeneratorFn?: (input: any) => Promise<NeetFlashcardGeneratorOutput>;
+  isFlashcardSupported?: boolean;
 }
 
 type QuizState = {
@@ -29,9 +30,8 @@ type QuizState = {
 
 type Language = 'English' | 'Tamil';
 type PracticeType = 'mcq' | 'flashcards';
-const NEET_SUBJECTS = ['Physics', 'Chemistry', 'Biology'];
 
-export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashcardGeneratorFn }: AiPracticeGeneratorProps) {
+export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashcardGeneratorFn, isFlashcardSupported = false }: AiPracticeGeneratorProps) {
   const [numItems, setNumItems] = useState(5);
   const [difficulty, setDifficulty] = useState<'Easy' | 'Medium' | 'Hard'>('Medium');
   const [language, setLanguage] = useState<Language>('English');
@@ -47,8 +47,6 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
 
   const { toast } = useToast();
   
-  const isFlashcardSupported = NEET_SUBJECTS.includes(subject) && !!flashcardGeneratorFn;
-
   const handleGenerate = async () => {
     setIsLoading(true);
     setQuizData(null);

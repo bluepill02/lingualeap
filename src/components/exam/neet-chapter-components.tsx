@@ -174,7 +174,7 @@ export function KeyFormulasCard({ content }: { content: NeetModule['keyFormulasA
     return (
         <Card>
             <CardHeader className="card-padding-lg">
-                <CardTitle className="flex items-center gap-2"><FileText />Key Formulas &amp; Diagrams</CardTitle>
+                <CardTitle className="flex items-center gap-2"><FileText />Key Formulas & Diagrams</CardTitle>
             </CardHeader>
             <CardContent className="card-padding-lg space-y-6">
                 {hasFormulas && (
@@ -402,6 +402,7 @@ export function PracticeSectionCard({ module }: { module: NeetModule }) {
                             chapter={chapter} 
                             quizGeneratorFn={generateNeetQuiz}
                             flashcardGeneratorFn={generateNeetFlashcards}
+                            isFlashcardSupported={true}
                         />
                     </TabsContent>
                 </Tabs>

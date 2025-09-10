@@ -549,6 +549,7 @@ function TnpscModuleViewer({ module }: { module: TnpscModule }) {
               subject={module.subject as 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science'} 
               chapter={module.title} 
               quizGeneratorFn={generateTnpscQuiz}
+              isFlashcardSupported={false}
             />
           </TabsContent>
           <TabsContent value="srs" className="mt-4 space-y-6">
