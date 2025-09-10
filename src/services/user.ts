@@ -45,7 +45,8 @@ export async function createUserInFirestore(uid: string, name: string, email: st
  */
 export async function getUserSettings(userId: string): Promise<Partial<User> | null> {
     if (!userId) {
-        throw new Error("User ID is required to fetch settings.");
+        console.warn("User ID is missing, cannot fetch settings.");
+        return null;
     }
     try {
         const userRef = doc(db, 'users', userId);
@@ -59,7 +60,9 @@ export async function getUserSettings(userId: string): Promise<Partial<User> | n
         }
     } catch (error) {
         console.error("Error fetching user settings from Firestore:", error);
-        throw new Error("Could not retrieve user settings.");
+        // Instead of throwing an error that crashes the app, return null.
+        // The UI component will handle the null case.
+        return null;
     }
 }
 
