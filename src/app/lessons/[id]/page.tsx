@@ -1,7 +1,8 @@
 
+
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { notFound, useRouter } from 'next/navigation';
 import { allMicroLessons, allLessonDecks } from '@/lib/data';
 import {
@@ -45,6 +46,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import Link from 'next/link';
+import { getLessonProgress, saveLessonProgress } from '@/services/lesson-progress';
 
 function VocabularyTable({
   vocabulary,
@@ -52,8 +54,10 @@ function VocabularyTable({
   vocabulary: MicroLesson['vocabulary'];
 }) {
   const playAudio = (audioUrl: string) => {
-    const audio = new Audio(audioUrl);
-    audio.play();
+    if (audioUrl) {
+        const audio = new Audio(audioUrl);
+        audio.play().catch(e => console.error("Error playing audio:", e));
+    }
   };
 
   return (
@@ -83,7 +87,7 @@ function VocabularyTable({
                 <TableCell>{item.romanization}</TableCell>
                 <TableCell>{item.definition}</TableCell>
                 <TableCell className="text-right">
-                  <Button variant="ghost" size="icon" onClick={() => playAudio(item.audioUrl)} aria-label={`Listen to ${item.word}`}>
+                  <Button variant="ghost" size="icon" onClick={() => playAudio(item.audioUrl || '')} aria-label={`Listen to ${item.word}`}>
                     <Volume2 className="h-5 w-5" />
                   </Button>
                 </TableCell>
@@ -238,11 +242,31 @@ export default function LessonPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const lesson = allMicroLessons.find((l) => l.id === params.id);
   const deck = allLessonDecks.find((d) => d.id === lesson?.deckId);
+  
   const [isQuizComplete, setIsQuizComplete] = useState(false);
+  const [isLessonCompleted, setIsLessonCompleted] = useState(false);
+
+  useEffect(() => {
+    if (lesson) {
+      const progress = getLessonProgress();
+      setIsLessonCompleted(progress.includes(lesson.id));
+    }
+  }, [lesson]);
 
   if (!lesson || !deck) {
     notFound();
   }
+  
+  const handleCompleteLesson = () => {
+    saveLessonProgress(lesson.id);
+    setIsLessonCompleted(true);
+    if(nextLessonId) {
+        router.push(`/lessons/${nextLessonId}`);
+    } else {
+        router.push(`/language/${deck.id.split('-')[1]}`);
+    }
+  }
+
 
   const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
   const totalLessonsInDeck = deck.lessons.length;
@@ -295,18 +319,18 @@ export default function LessonPage({ params }: { params: { id: string } }) {
       </Card>
       
       <div className="flex justify-center">
-        {nextLessonId ? (
-          <Link href={`/lessons/${nextLessonId}`}>
-            <Button size="lg" disabled={!isQuizComplete}>
-                Complete & Go to Next Lesson <Check className="ml-2"/>
+        {isLessonCompleted ? (
+            <Button size="lg" disabled>
+                Lesson Completed <Check className="ml-2"/>
             </Button>
-          </Link>
+        ) : nextLessonId ? (
+          <Button size="lg" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
+              Complete & Go to Next Lesson <Check className="ml-2"/>
+          </Button>
         ) : (
-          <Link href={`/language/${deck.id.split('-')[1]}`}>
-             <Button size="lg" variant="secondary" disabled={!isQuizComplete}>
-                Complete Deck! Back to Course Page
-            </Button>
-          </Link>
+           <Button size="lg" variant="secondary" onClick={handleCompleteLesson} disabled={!isQuizComplete}>
+              Complete Deck! Back to Course Page
+          </Button>
         )}
       </div>
     </div>
