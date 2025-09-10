@@ -1,18 +1,22 @@
 
 'use server';
 /**
- * @fileOverview An AI flow for providing feedback on a user's answer to a mock interview question.
+ * @fileOverview An AI flow for providing feedback on a user's answers in a mock interview session.
  *
- * - provideInterviewFeedback - A function that analyzes a user's response and provides constructive feedback.
+ * - provideInterviewFeedback - A function that analyzes a user's responses and provides constructive feedback.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
+const AnswerRecordSchema = z.object({
+    question: z.string().describe('The interview question that was asked.'),
+    answer: z.string().describe("The user's spoken answer to the question."),
+});
+
 export const InterviewFeedbackInputSchema = z.object({
-  question: z.string().describe('The interview question that was asked.'),
-  answer: z.string().describe("The user's spoken answer to the question."),
   jobRole: z.string().optional().describe("The specific job role the user is preparing for, e.g., 'Software Engineer'."),
+  sessionHistory: z.array(AnswerRecordSchema).describe("An array of all questions asked and the user's answers for the entire session.")
 });
 export type InterviewFeedbackInput = z.infer<typeof InterviewFeedbackInputSchema>;
 
@@ -27,11 +31,22 @@ const STARAnalysisSchema = z.object({
   resultFeedback: z.string().describe("Feedback on the outcome. Was it quantified? Did it show impact?"),
 });
 
+const IndividualFeedbackSchema = z.object({
+    question: z.string().describe("The original question this feedback pertains to."),
+    starAnalysis: STARAnalysisSchema,
+    keywordFeedback: z.string().describe("Analyzes the use of keywords relevant to the job role. Suggests powerful action verbs and industry-specific terms."),
+    confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer, based on clarity, pace, and conviction."),
+});
+
+const OverallFeedbackSchema = z.object({
+    summary: z.string().describe("A brief, encouraging overview of the user's performance across the entire session."),
+    strengths: z.string().describe("Two to three key strengths the user demonstrated consistently across their answers."),
+    areasForImprovement: z.string().describe("The two or three most critical areas the user should focus on for improvement, based on patterns observed across all answers."),
+});
+
 export const InterviewFeedbackOutputSchema = z.object({
-  starAnalysis: STARAnalysisSchema,
-  keywordFeedback: z.string().describe("Analyzes the use of keywords relevant to the job role. Suggests powerful action verbs and industry-specific terms."),
-  actionableTips: z.array(z.string()).describe("A list of 3-4 concrete, actionable tips for the user to improve their answer next time."),
-  confidenceScore: z.number().min(1).max(10).describe("A score from 1 to 10 representing the perceived confidence of the answer, based on clarity, pace, and conviction."),
+  overallFeedback: OverallFeedbackSchema,
+  detailedFeedback: z.array(IndividualFeedbackSchema),
 });
 export type InterviewFeedbackOutput = z.infer<typeof InterviewFeedbackOutputSchema>;
 
@@ -44,30 +59,38 @@ const prompt = ai.definePrompt({
     name: 'interviewFeedbackPrompt',
     input: { schema: InterviewFeedbackInputSchema },
     output: { schema: InterviewFeedbackOutputSchema },
-    prompt: `You are an expert career coach and interview trainer for the role of: '{{{jobRole}}}'. A user is practicing for a job interview.
+    prompt: `You are an expert career coach and interview trainer for the role of: '{{{jobRole}}}'. A user has just completed a mock interview session.
 
-They were asked the following question:
-"{{{question}}}"
+You will be provided with a history of the questions they were asked and the answers they gave.
 
-They gave the following answer:
-"{{{answer}}}"
+Your task is to provide expert, constructive feedback in two parts:
 
-Your task is to provide expert, constructive feedback based on the STAR method (Situation, Task, Action, Result).
+**Part 1: Overall Session Feedback**
+Analyze all the answers together to identify patterns. Provide a holistic summary of their performance.
+- **Summary**: Write a brief, encouraging overview.
+- **Strengths**: Identify 2-3 key strengths they showed consistently.
+- **Areas for Improvement**: Pinpoint the 2-3 most important areas they should work on based on recurring weaknesses.
 
+**Part 2: Detailed Question-by-Question Feedback**
+For EACH question and answer pair in the session history, provide a detailed analysis:
 1.  **STAR Analysis**:
     *   Carefully analyze the user's answer. For each part of STAR (situation, task, action, result), extract the EXACT corresponding sentence or phrase from their answer. If a part is missing, leave the corresponding field empty.
     *   For each part, provide concise feedback on its effectiveness. If it's missing, state that clearly in the feedback.
-
 2.  **Keyword Feedback**:
     *   Analyze the language used. Did they use strong action verbs? Did they use keywords relevant to a '{{{jobRole}}}'? Provide suggestions for more impactful language.
-
-3.  **Actionable Tips**:
-    *   Provide a short, bulleted list of 3-4 of the most important, actionable tips for improving this specific answer.
-
-4.  **Confidence Score**:
+3.  **Confidence Score**:
     *   Rate the confidence of the answer on a scale of 1 to 10, where 1 is not confident and 10 is very confident. Base this on clarity, directness, and assertive language.
 
-Provide your feedback now in the required structured format.
+Here is the full interview session:
+{{#each sessionHistory}}
+---
+**Question {{add @index 1}}**: "{{this.question}}"
+
+**User's Answer**: "{{this.answer}}"
+---
+{{/each}}
+
+Provide your complete, structured feedback now.
 `,
 });
 

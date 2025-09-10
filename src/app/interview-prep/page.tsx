@@ -3,8 +3,8 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Mic, MicOff, RefreshCw, Loader2, Wand2, Star, MessageSquare, BookCheck, Sparkles, CheckCircle, Play, ArrowRight, Repeat, Info, UserCheck, BarChart3 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { provideInterviewFeedback, InterviewFeedbackOutput } from '@/ai/flows/interview-feedback-flow';
 import { generateInterviewQuestion } from '@/ai/flows/interview-question-generator';
@@ -48,11 +48,10 @@ type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'session_co
 
 interface AnswerRecord {
     question: string;
-    transcript: string;
-    feedback: InterviewFeedbackOutput | null;
+    answer: string;
 }
 
-const MAX_QUESTIONS = 5;
+const MAX_QUESTIONS = 3;
 
 export default function InterviewPrepPage() {
     const { user } = useUser();
@@ -60,12 +59,12 @@ export default function InterviewPrepPage() {
     const [sessionState, setSessionState] = useState<SessionState>('idle');
 
     // Session data
-    const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
     const [sessionHistory, setSessionHistory] = useState<AnswerRecord[]>([]);
+    const [finalFeedback, setFinalFeedback] = useState<InterviewFeedbackOutput | null>(null);
+    const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
     
     // Single question practice state
-    const [practicedQuestion, setPracticedQuestion] = useState<string | null>(null);
-    const [singleFeedback, setSingleFeedback] = useState<InterviewFeedbackOutput | null>(null);
+    const [singleFeedback, setSingleFeedback] = useState<InterviewFeedbackOutput['detailedFeedback'][0] | null>(null);
     const [singleTranscript, setSingleTranscript] = useState<string>('');
 
 
@@ -98,8 +97,14 @@ export default function InterviewPrepPage() {
         if (sessionState === 'practicing_single') {
              setSessionState('analyzing_single');
              try {
-                const feedbackResult = await provideInterviewFeedback({ question: currentQuestion, answer: transcript, jobRole });
-                setSingleFeedback(feedbackResult);
+                // For a retry, we send only that single exchange for feedback.
+                const feedbackResult = await provideInterviewFeedback({
+                    jobRole,
+                    sessionHistory: [{ question: currentQuestion, answer: transcript }],
+                });
+                if(feedbackResult.detailedFeedback.length > 0) {
+                    setSingleFeedback(feedbackResult.detailedFeedback[0]);
+                }
                 setSingleTranscript(transcript);
                 setSessionState('single_report');
              } catch(e) {
@@ -114,8 +119,7 @@ export default function InterviewPrepPage() {
 
         const newAnswer: AnswerRecord = {
             question: currentQuestion,
-            transcript: transcript || '(No answer recorded)',
-            feedback: null,
+            answer: transcript || '(No answer recorded)',
         };
         
         const updatedHistory = [...sessionHistory, newAnswer];
@@ -152,6 +156,7 @@ export default function InterviewPrepPage() {
         };
         recognition.onend = () => {
              setIsRecording(false);
+             // Use a short timeout to ensure the final transcript is captured before submitting
              setTimeout(() => {
                 handleAnswerSubmission();
              }, 300);
@@ -182,6 +187,7 @@ export default function InterviewPrepPage() {
 
     const startInterviewSession = async () => {
         setSessionHistory([]);
+        setFinalFeedback(null);
         finalTranscriptRef.current = '';
         setInterimTranscript('');
         await fetchNextQuestion();
@@ -191,7 +197,6 @@ export default function InterviewPrepPage() {
         finalTranscriptRef.current = '';
         setInterimTranscript('');
         setCurrentQuestion(question);
-        setPracticedQuestion(question);
         setSingleFeedback(null);
         setSingleTranscript('');
         setSessionState('practicing_single');
@@ -201,24 +206,8 @@ export default function InterviewPrepPage() {
         if (!history || history.length === 0) return;
         setSessionState('analyzing');
         try {
-            const feedbackPromises = history
-              .filter(ans => ans.transcript !== '(No answer recorded)')
-              .map(ans => 
-                provideInterviewFeedback({
-                    question: ans.question,
-                    answer: ans.transcript,
-                    jobRole,
-                }).then(feedback => ({ question: ans.question, feedback }))
-            );
-            const feedbacks = await Promise.all(feedbackPromises);
-            
-            const feedbackMap = new Map(feedbacks.map(f => [f.question, f.feedback]));
-
-            const updatedHistory = history.map(ans => ({
-                ...ans,
-                feedback: feedbackMap.get(ans.question) || null,
-            }));
-            setSessionHistory(updatedHistory);
+            const feedbackResult = await provideInterviewFeedback({ jobRole, sessionHistory: history });
+            setFinalFeedback(feedbackResult);
             setSessionState('report');
         } catch (err) {
              console.error("Error getting feedback:", err);
@@ -284,7 +273,7 @@ export default function InterviewPrepPage() {
                 >
                     {isRecording ? <MicOff/> : <Mic/>}
                 </Button>
-                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop and submit answer.' : 'Click to start recording your answer.'}</p>
+                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop.' : 'Click to start recording your answer.'}</p>
             </div>
 
             {interimTranscript && (
@@ -300,7 +289,7 @@ export default function InterviewPrepPage() {
         </>
     )
 
-    const renderFeedbackCard = (question: string, transcript: string, feedback: InterviewFeedbackOutput | null) => {
+    const renderFeedbackCard = (question: string, transcript: string, feedback: InterviewFeedbackOutput['detailedFeedback'][0] | null) => {
         if (!feedback) {
             return (
                 <Card className="p-4 text-muted-foreground">
@@ -361,15 +350,6 @@ export default function InterviewPrepPage() {
                     <AlertTitle>Keyword Feedback</AlertTitle>
                     <AlertDescription>{feedback.keywordFeedback}</AlertDescription>
                 </Alert>
-                <Alert variant="success">
-                    <BookCheck className="h-4 w-4"/>
-                    <AlertTitle>Actionable Tips</AlertTitle>
-                    <AlertDescription>
-                        <ul className="list-disc list-inside">
-                            {feedback.actionableTips.map((tip, i) => <li key={i}>{tip}</li>)}
-                        </ul>
-                    </AlertDescription>
-                </Alert>
              </div>
         );
     }
@@ -405,13 +385,8 @@ export default function InterviewPrepPage() {
             <div className="text-center mt-6 flex justify-center items-center gap-4">
                 <Button variant="outline" onClick={() => setSessionState('idle')}>
                     <RefreshCw className="mr-2"/>
-                    Restart Session
+                    End & Restart Session
                 </Button>
-                 {sessionHistory.length > 0 && sessionHistory.length < MAX_QUESTIONS && (
-                    <Button onClick={() => generateFinalReport(sessionHistory)}>
-                        End Session Early & Get Report
-                    </Button>
-                )}
             </div>
         </>
     );
@@ -431,11 +406,12 @@ export default function InterviewPrepPage() {
          <Card>
             <CardHeader>
                 <CardTitle>Feedback for Your Retry</CardTitle>
+                <CardDescription>Question: {currentQuestion}</CardDescription>
             </CardHeader>
             <CardContent>
-                {renderFeedbackCard(practicedQuestion || '', singleTranscript, singleFeedback)}
+                {renderFeedbackCard(currentQuestion || '', singleTranscript, singleFeedback)}
                  <div className="mt-4 flex gap-4">
-                     <Button className="w-full" onClick={() => handleRetryQuestion(practicedQuestion!)}>
+                     <Button className="w-full" onClick={() => handleRetryQuestion(currentQuestion!)}>
                         <Repeat className="mr-2"/> Try Again
                      </Button>
                      <Button variant="outline" className="w-full" onClick={() => setSessionState('report')}>
@@ -470,9 +446,10 @@ export default function InterviewPrepPage() {
     );
     
     const renderReportState = () => {
-        if (sessionHistory.length === 0) return renderIdleState();
+        if (!finalFeedback) return renderIdleState();
 
-        const overallConfidence = Math.round(sessionHistory.reduce((acc, ans) => acc + (ans.feedback?.confidenceScore || 0), 0) / sessionHistory.filter(ans => ans.feedback).length) || 0;
+        const avgConfidence = Math.round(finalFeedback.detailedFeedback.reduce((acc, ans) => acc + ans.confidenceScore, 0) / finalFeedback.detailedFeedback.length) || 0;
+        const totalFillerWords = sessionHistory.reduce((acc, ans) => acc + countFillerWords(ans.answer), 0);
 
         return (
              <Card className="animate-in fade-in-50">
@@ -482,23 +459,57 @@ export default function InterviewPrepPage() {
                     <CardDescription>Here's a breakdown of your performance for the '{jobRole}' role.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
-                    {sessionHistory.map((answer, index) => (
-                         <details key={index} className="group border-b pb-4">
-                            <summary className="cursor-pointer list-none">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-semibold text-lg">Q{index + 1}: {answer.question}</h3>
-                                    <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
-                                        <span>View Details</span>
-                                        <ArrowRight className="h-4 w-4 transition-transform group-open:rotate-90"/>
-                                    </div>
-                                </div>
-                            </summary>
-                            {renderFeedbackCard(answer.question, answer.transcript, answer.feedback)}
-                             <Button variant="secondary" size="sm" className="mt-4" onClick={() => handleRetryQuestion(answer.question)}>
-                                <Repeat className="mr-2"/> Retry This Question
-                            </Button>
-                        </details>
-                    ))}
+                    <Card className="bg-muted/50">
+                        <CardHeader>
+                            <CardTitle>Session Overview</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <Card>
+                                    <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><Star/>Avg. Confidence</CardTitle></CardHeader>
+                                    <CardContent><p className="text-3xl font-bold">{avgConfidence}/10</p></CardContent>
+                                </Card>
+                                <Card>
+                                    <CardHeader className="pb-2"><CardTitle className="text-base flex items-center gap-2"><MessageSquare/>Total Filler Words</CardTitle></CardHeader>
+                                    <CardContent><p className="text-3xl font-bold">{totalFillerWords}</p></CardContent>
+                                </Card>
+                            </div>
+                            <Alert>
+                                <UserCheck className="h-4 w-4"/>
+                                <AlertTitle>Overall Strengths</AlertTitle>
+                                <AlertDescription>{finalFeedback.overallFeedback.strengths}</AlertDescription>
+                            </Alert>
+                             <Alert variant="warning">
+                                <BarChart3 className="h-4 w-4"/>
+                                <AlertTitle>Top Areas for Improvement</AlertTitle>
+                                <AlertDescription>{finalFeedback.overallFeedback.areasForImprovement}</AlertDescription>
+                            </Alert>
+                        </CardContent>
+                    </Card>
+                    
+                    <div>
+                        <h3 className="text-xl font-bold mb-4">Detailed Breakdown</h3>
+                        {finalFeedback.detailedFeedback.map((feedbackItem, index) => {
+                             const userAnswer = sessionHistory.find(h => h.question === feedbackItem.question)?.answer || '';
+                             return (
+                                 <details key={index} className="group border-b pb-4 mb-4">
+                                    <summary className="cursor-pointer list-none">
+                                        <div className="flex items-center justify-between">
+                                            <h4 className="font-semibold text-lg">Q{index + 1}: {feedbackItem.question}</h4>
+                                            <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-primary">
+                                                <span>View Details</span>
+                                                <ArrowRight className="h-4 w-4 transition-transform group-open:rotate-90"/>
+                                            </div>
+                                        </div>
+                                    </summary>
+                                    {renderFeedbackCard(feedbackItem.question, userAnswer, feedbackItem)}
+                                     <Button variant="secondary" size="sm" className="mt-4" onClick={() => handleRetryQuestion(feedbackItem.question)}>
+                                        <Repeat className="mr-2"/> Retry This Question
+                                    </Button>
+                                </details>
+                             )
+                        })}
+                    </div>
                     <div className="text-center pt-4">
                         <Button onClick={() => setSessionState('idle')}>
                             <RefreshCw className="mr-2"/> Start New Session
