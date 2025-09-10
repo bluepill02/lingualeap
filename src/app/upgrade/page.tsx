@@ -1,11 +1,12 @@
 
 'use client';
+import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useUser } from '@/context/user-context';
 import { updateUserSettings } from '@/services/user';
 import { useToast } from '@/hooks/use-toast';
-import { Check, Loader2, Sparkles, Star, X } from 'lucide-react';
+import { Check, Loader2, Sparkles, Star } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
@@ -30,15 +31,17 @@ const freeFeatures = [
     'Basic Flashcard Review',
     'Peer-to-Peer Study Circles',
     'Ad-Supported',
+    'AR Immersion Vocabulary Tool',
+    'On-Demand Quiz Generator'
 ];
 
 export default function UpgradePage() {
     const { user: authUser, loading: authLoading } = useUser();
-    const [userProfile, setUserProfile] = useState<any>(null);
-    const [isProfileLoading, setIsProfileLoading] = useState(true);
+    const [userProfile, setUserProfile] = React.useState<any>(null);
+    const [isProfileLoading, setIsProfileLoading] = React.useState(true);
     const { toast } = useToast();
     const router = useRouter();
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
 
     React.useEffect(() => {
         async function loadUser() {
@@ -125,7 +128,7 @@ export default function UpgradePage() {
         <Card className={cn("flex flex-col border-2", !isPro && "border-primary")}>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Free</CardTitle>
-              <CardDescription>Access essential features, supported by ads.</CardDescription>
+              <CardDescription>Access essential features to kickstart your learning.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1">
                 <div className="my-4">
@@ -150,8 +153,10 @@ export default function UpgradePage() {
         </Card>
 
          {/* Pro Plan Card */}
-        <Card className={cn("flex flex-col border-2", isPro && "border-primary")}>
-            <Badge variant="warning" className="absolute top-0 right-4 -translate-y-1/2 text-base py-1 px-3"><Star className="mr-2"/>Most Popular</Badge>
+        <Card className="flex flex-col border-2 border-primary ring-4 ring-primary/20 relative">
+            <div className="absolute top-0 right-4 -translate-y-1/2">
+                <Badge variant="warning" className="text-base py-1 px-3"><Star className="mr-2"/>Most Popular</Badge>
+            </div>
             <CardHeader className="text-left">
               <CardTitle className="text-2xl font-headline">Pro</CardTitle>
               <CardDescription>Unlock all features and get an ad-free experience.</CardDescription>
