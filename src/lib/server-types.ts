@@ -1,4 +1,5 @@
 
+
 import { z } from 'genkit';
 import { languageMap } from './types';
 
@@ -11,8 +12,9 @@ export const PersonalTutorInputSchema = z.object({
     content: z.string(),
   })),
   message: z.string().describe("The user's latest message."),
-  language: z.nativeEnum(languageMap),
+  language: z.string().describe("The full name of the language, e.g., 'English', 'Tamil'."),
 });
+
 
 export const PersonalTutorOutputSchema = z.object({
   response: z.string(),

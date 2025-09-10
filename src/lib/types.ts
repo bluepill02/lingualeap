@@ -462,15 +462,16 @@ export interface AnalyzeImageInput {
 }
 
 export interface AnalyzeImageOutput {
-    objectName: string;
-    translatedWord: string;
-    romanization: string;
-    quiz: {
+    isObjectFound: boolean;
+    objectName?: string;
+    translatedWord?: string;
+    romanization?: string;
+    quiz?: {
         question: string;
         options: string[];
         answer: string;
     };
-    mnemonic: string;
+    mnemonic?: string;
 }
 
 export interface InterviewQuestionInput {

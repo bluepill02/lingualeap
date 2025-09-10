@@ -1,4 +1,5 @@
 
+
 'use server';
 /**
  * @fileOverview A Genkit flow for an AI-powered personal language tutor.
@@ -9,7 +10,7 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { languageMap, type Language, type PersonalTutorInput, type PersonalTutorOutput, type Message } from '@/lib/types';
-import { PersonalTutorInputSchema, PersonalTutorOutputSchema } from '@/lib/server-types';
+import { PersonalTutorInputSchema as ClientInputSchema, PersonalTutorOutputSchema } from '@/lib/server-types';
 
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
@@ -24,16 +25,19 @@ export async function personalTutor(input: PersonalTutorInput): Promise<Personal
   return personalTutorFlow(promptInput);
 }
 
+const ServerTutorInputSchema = z.object({
+  history: z.array(z.object({
+    role: z.enum(['user', 'model']),
+    content: z.string(),
+  })),
+  message: z.string().describe("The user's latest message."),
+  language: z.string().describe("The full name of the language, e.g., 'English', 'Tamil'."),
+});
+
+
 const prompt = ai.definePrompt({
   name: 'personalTutorPrompt',
-  input: { schema: z.object({
-      history: z.array(z.object({
-        role: z.enum(['user', 'model']),
-        content: z.string(),
-      })),
-      message: z.string(),
-      language: z.string(),
-  }) },
+  input: { schema: ServerTutorInputSchema },
   output: { schema: PersonalTutorOutputSchema },
   prompt: `You are LinguaLeap's AI Personal Tutor, a friendly and expert language guide. Your primary goal is to help the user master the language they have chosen: {{{language}}}. All of your responses, explanations, and examples should be tailored to teaching this specific language. Be patient, encouraging, and clear in your explanations.
 
@@ -54,14 +58,7 @@ User: {{{message}}}
 const personalTutorFlow = ai.defineFlow(
   {
     name: 'personalTutorFlow',
-    inputSchema: z.object({
-      history: z.array(z.object({
-        role: z.enum(['user', 'model']),
-        content: z.string(),
-      })),
-      message: z.string(),
-      language: z.string(),
-    }),
+    inputSchema: ServerTutorInputSchema,
     outputSchema: PersonalTutorOutputSchema,
   },
   async (input) => {
