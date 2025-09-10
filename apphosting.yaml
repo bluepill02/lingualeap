@@ -13,3 +13,7 @@ headers:
     headers:
       - key: 'Access-Control-Allow-Origin'
         value: '*'
+
+rewrites:
+  - source: /ads.txt
+    destination: /ads.txt
