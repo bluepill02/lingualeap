@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { notFound, useRouter } from 'next/navigation';
 import {
   ArrowLeft,
@@ -52,14 +52,18 @@ function VocabularyTable({
 }: {
   vocabulary: MicroLesson['vocabulary'];
 }) {
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const playAudio = (audioUrl: string) => {
+  useEffect(() => {
+    audioRef.current = new Audio();
+  }, []);
+
+  const playAudio = useCallback((audioUrl: string) => {
     if (audioRef.current && audioUrl) {
       audioRef.current.src = audioUrl;
       audioRef.current.play().catch(e => console.error("Error playing audio:", e));
     }
-  };
+  }, []);
 
   return (
     <Card>
@@ -67,8 +71,6 @@ function VocabularyTable({
         <CardTitle>Vocabulary</CardTitle>
       </CardHeader>
       <CardContent>
-        {/* Hidden audio element for playback */}
-        <audio ref={audioRef} className="hidden" />
         <Table>
           <TableHeader>
             <TableRow>
@@ -250,9 +252,14 @@ export default function LessonPageComponent({ lesson, deck }: { lesson: MicroLes
     const progress = getLessonProgress();
     setIsLessonCompleted(progress.includes(lesson.id));
   }, [lesson.id]);
+  
+  useEffect(() => {
+    if (isLessonCompleted) {
+        saveLessonProgress(lesson.id);
+    }
+  }, [isLessonCompleted, lesson.id])
 
   const handleCompleteLesson = () => {
-    saveLessonProgress(lesson.id);
     setIsLessonCompleted(true);
     if(nextLessonId) {
         router.push(`/lessons/${nextLessonId}`);
