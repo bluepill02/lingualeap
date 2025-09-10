@@ -80,10 +80,11 @@ export async function getLatestMissionSubmission(
 export async function publishMissionToCommunity(submission: MissionSubmissionInput): Promise<void> {
     try {
         const communityModulesRef = collection(db, 'community-modules');
+        const newDocRef = doc(communityModulesRef); // Create a reference with a new ID first
 
         // Transform the submission into an ExamModule structure
         const communityModule: Partial<ExamModule> = {
-            id: `community-${uuidv4()}`,
+            id: newDocRef.id, // Use the generated ID
             title: `Community: ${submission.concept}`,
             examName: 'NEET',
             language: 'English',
@@ -107,7 +108,7 @@ export async function publishMissionToCommunity(submission: MissionSubmissionInp
             errorAnalysis: []
         };
         
-        await addDoc(communityModulesRef, communityModule);
+        await setDoc(newDocRef, communityModule); // Use setDoc with the ref
 
     } catch(error) {
          console.error("Error publishing mission to community: ", error);
