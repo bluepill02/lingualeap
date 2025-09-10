@@ -8,32 +8,12 @@ import { updateUserSettings } from '@/services/user';
 import { useToast } from '@/hooks/use-toast';
 import { Check, Loader2, Sparkles, Star, Users, Lock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { getUserSettings } from '@/services/user';
 import { getAuth } from 'firebase/auth';
 import { app } from '@/lib/firebase';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-
-const proFeatures = [
-    'Ad-Free Experience',
-    'Mentor-led & specialized circles',
-    'AI Personal Tutor',
-    'AR Immersion Vocabulary Tool',
-    'On-Demand Quiz Generator',
-    'AI-Powered Mission Feedback',
-    'Access to All Lessons & Decks',
-];
-
-const freeFeatures = [
-    'Access to All Lessons & Decks',
-    'Basic Flashcard Review',
-    'Peer-to-Peer Study Circles',
-    'Ad-Supported',
-    'AR Immersion Vocabulary Tool',
-    'On-Demand Quiz Generator'
-];
 
 export default function UpgradePage() {
     const { user: authUser, loading: authLoading } = useUser();
@@ -46,8 +26,13 @@ export default function UpgradePage() {
     React.useEffect(() => {
         async function loadUser() {
             if (authUser) {
-                const profile = await getUserSettings(authUser.uid);
-                setUserProfile(profile);
+                try {
+                    const profile = await getUserSettings(authUser.uid);
+                    setUserProfile(profile);
+                } catch (error) {
+                     console.error("Failed to load user profile on upgrade page", error);
+                     setUserProfile(null);
+                }
             }
             setIsProfileLoading(false);
         }
@@ -142,11 +127,7 @@ export default function UpgradePage() {
                     </li>
                      <li className="flex items-center gap-3">
                        <Sparkles className="h-5 w-5 text-green-500" />
-                       <span>Access to all Lessons & AI Tools</span>
-                    </li>
-                     <li className="flex items-center gap-3 text-muted-foreground line-through">
-                       <Lock className="h-5 w-5" />
-                        <span>Mentor-led & Specialized Circles</span>
+                       <span>Access to All Lessons & AI Tools</span>
                     </li>
                 </ul>
             </CardContent>
