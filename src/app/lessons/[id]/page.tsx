@@ -238,25 +238,16 @@ function QuizSection({ lessonTitle, quizzes, onQuizComplete }: { lessonTitle: st
   );
 }
 
-export default function LessonPage({ params }: { params: { id: string } }) {
+function LessonPageComponent({ lesson, deck }: { lesson: MicroLesson, deck: LessonDeck }) {
   const router = useRouter();
-  const lesson = allMicroLessons.find((l) => l.id === params.id);
-  const deck = allLessonDecks.find((d) => d.id === lesson?.deckId);
-  
   const [isQuizComplete, setIsQuizComplete] = useState(false);
   const [isLessonCompleted, setIsLessonCompleted] = useState(false);
 
   useEffect(() => {
-    if (lesson) {
-      const progress = getLessonProgress();
-      setIsLessonCompleted(progress.includes(lesson.id));
-    }
-  }, [lesson]);
+    const progress = getLessonProgress();
+    setIsLessonCompleted(progress.includes(lesson.id));
+  }, [lesson.id]);
 
-  if (!lesson || !deck) {
-    notFound();
-  }
-  
   const handleCompleteLesson = () => {
     saveLessonProgress(lesson.id);
     setIsLessonCompleted(true);
@@ -266,7 +257,6 @@ export default function LessonPage({ params }: { params: { id: string } }) {
         router.push(`/language/${deck.id.split('-')[1]}`);
     }
   }
-
 
   const currentLessonIndex = deck.lessons.findIndex(l => l.id === lesson.id);
   const totalLessonsInDeck = deck.lessons.length;
@@ -335,4 +325,16 @@ export default function LessonPage({ params }: { params: { id: string } }) {
       </div>
     </div>
   );
+}
+
+
+export default async function LessonPage({ params }: { params: { id: string } }) {
+  const lesson = allMicroLessons.find((l) => l.id === params.id);
+  const deck = allLessonDecks.find((d) => d.id === lesson?.deckId);
+
+  if (!lesson || !deck) {
+    notFound();
+  }
+
+  return <LessonPageComponent lesson={lesson} deck={deck} />;
 }
