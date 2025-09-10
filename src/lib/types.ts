@@ -349,6 +349,10 @@ export interface CalendarEvent {
     date: Date;
     type: 'peer-study' | 'mentor-session' | 'live-class' | 'deadline';
     group?: string;
+    circleId?: string;
+    liveClassId?: string;
+    missionId?: string;
+    userIds?: string[];
 }
 
 export interface DashboardData {

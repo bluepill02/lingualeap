@@ -2,13 +2,13 @@
 'use client';
 
 import * as React from 'react';
-import { Calendar as CalendarIcon, Users, User, Video, Flag, Clock } from 'lucide-react';
-import { addDays, format, isSameDay } from 'date-fns';
+import { Calendar as CalendarIcon, Users, User, Video, Flag, Clock, Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { format, isSameDay, startOfDay } from 'date-fns';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar } from '@/components/ui/calendar';
-import { events } from '@/lib/calendar-data';
+import { getEventsForUser, eventTypeConfig } from '@/services/calendar';
 import type { CalendarEvent } from '@/lib/types';
-import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -19,38 +19,80 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { getAuth, onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
+import { app } from '@/lib/firebase';
+import { Skeleton } from '@/components/ui/skeleton';
 
-const eventTypeConfig = {
-    'peer-study': {
-        icon: Users,
-        color: 'bg-green-500',
-        label: 'Peer Study Group',
-        action: 'View Details',
-    },
-    'mentor-session': {
-        icon: User,
-        color: 'bg-blue-500',
-        label: 'Mentor Session',
-        action: 'View Details',
-    },
-    'live-class': {
-        icon: Video,
-        color: 'bg-purple-500',
-        label: 'Live Class',
-        action: 'Join Now',
-    },
-    'deadline': {
-        icon: Flag,
-        color: 'bg-red-500',
-        label: 'Deadline',
-        action: 'View Mission',
-    }
+function CalendarSkeleton() {
+    return (
+        <Card>
+            <CardContent className="p-0">
+                 <div className="grid grid-cols-1 md:grid-cols-3">
+                    <div className="md:col-span-2 md:border-r p-6">
+                        <Skeleton className="h-[300px] w-full" />
+                    </div>
+                    <div className="md:col-span-1 p-6 space-y-4">
+                        <Skeleton className="h-6 w-1/2" />
+                        <Skeleton className="h-16 w-full" />
+                        <Skeleton className="h-16 w-full" />
+                    </div>
+                 </div>
+            </CardContent>
+        </Card>
+    )
 }
+
 
 export default function CalendarPage() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [currentUser, setCurrentUser] = React.useState<FirebaseUser | null>(null);
+  const [events, setEvents] = React.useState<CalendarEvent[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
-  const selectedDayEvents = date ? events.filter(event => isSameDay(event.date, date)) : [];
+  const router = useRouter();
+
+  React.useEffect(() => {
+    const auth = getAuth(app);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            setCurrentUser(user);
+            const fetchedEvents = await getEventsForUser(user.uid);
+            setEvents(fetchedEvents);
+        } else {
+            setCurrentUser(null);
+            setEvents([]);
+        }
+        setIsLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const selectedDayEvents = date
+    ? events.filter(event => isSameDay(event.date, date))
+    : [];
+
+  const handleActionClick = (event: CalendarEvent) => {
+      setIsDialogOpen(false); // Close dialog before navigating
+      switch(event.type) {
+          case 'peer-study':
+          case 'mentor-session':
+              if (event.circleId) router.push(`/companion-circles/${event.circleId}`);
+              break;
+          case 'live-class':
+              router.push('/live-classes');
+              break;
+          case 'deadline':
+              router.push('/peer-teaching');
+              break;
+          default:
+              break;
+      }
+  }
+  
+  if (isLoading) {
+    return <CalendarSkeleton />
+  }
 
   return (
     <div className="container mx-auto space-y-8">
@@ -71,12 +113,9 @@ export default function CalendarPage() {
                     onSelect={setDate}
                     className="p-3"
                     components={{
-                        DayContent: ({ date, ...props }) => {
-                            const dayEvents = events.filter(event => isSameDay(event.date, date));
-                            const dayNumber = format(date, 'd');
-
-                            // Use DayPicker's default rendering for other props
-                            const defaultContent = <div {...props.dayProps}>{dayNumber}</div>;
+                        DayContent: ({ date: dayDate, ...props }) => {
+                            const dayEvents = events.filter(event => isSameDay(event.date, dayDate));
+                            const dayNumber = format(dayDate, 'd');
 
                             if (dayEvents.length > 0) {
                                 return (
@@ -90,8 +129,7 @@ export default function CalendarPage() {
                                     </div>
                                 )
                             }
-                            // Fallback to default if no events
-                            return defaultContent;
+                            return <div {...props.dayProps}>{dayNumber}</div>;
                         }
                     }}
                  />
@@ -106,7 +144,7 @@ export default function CalendarPage() {
                             const config = eventTypeConfig[event.type];
                             const Icon = config.icon;
                             return (
-                                <Dialog key={event.id}>
+                                <Dialog key={event.id} onOpenChange={setIsDialogOpen}>
                                   <DialogTrigger asChild>
                                     <button className="w-full text-left p-3 rounded-lg hover:bg-muted transition-colors">
                                       <div className="flex items-start gap-4">
@@ -140,9 +178,9 @@ export default function CalendarPage() {
                                       </p>
                                       <div className="flex items-center gap-2 text-sm">
                                         <Clock className="w-4 h-4 text-muted-foreground"/>
-                                        <span>{format(event.date, 'eeee, MMMM d, yyyy • p')}</span>
+                                        <span>{format(new Date(event.date), 'eeee, MMMM d, yyyy • p')}</span>
                                       </div>
-                                      <Button className="w-full">
+                                      <Button className="w-full" onClick={() => handleActionClick(event)}>
                                         <Icon className="mr-2 h-4 w-4" />
                                         {config.action}
                                       </Button>
