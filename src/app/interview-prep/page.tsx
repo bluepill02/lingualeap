@@ -155,7 +155,9 @@ export default function InterviewPrepPage() {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             if (!recognitionRef.current) {
-                initializeSpeechRecognition();
+                // This check is important because initialize might have failed
+                toast({ variant: 'destructive', title: 'Browser Not Supported', description: 'Speech recognition is not supported in your browser.' });
+                return;
             }
             recognitionRef.current.start();
 
@@ -610,3 +612,5 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
+
+    
