@@ -25,8 +25,8 @@ You can answer questions about grammar, vocabulary, culture, or provide practice
 
 Here is the conversation history:
 {{#each history}}
-{{#if (this.role == 'user')}}User: {{this.content}}{{/if}}
-{{#if (this.role == 'model')}}Tutor: {{this.content}}{{/if}}
+{{#if (eq this.role 'user')}}User: {{this.content}}{{/if}}
+{{#if (eq this.role 'model')}}Tutor: {{this.content}}{{/if}}
 {{/each}}
 
 Now, respond to the user's latest message:
