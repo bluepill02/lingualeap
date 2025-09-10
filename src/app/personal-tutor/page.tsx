@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Bot, Loader2, Send, Mic, Volume2, User, Check, RefreshCcw, ThumbsUp } from 'lucide-react';
+import { Bot, Loader2, Send, Mic, Volume2, User, Check, RefreshCcw, ThumbsUp, Languages } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -12,18 +12,19 @@ import { personalTutor } from '@/ai/flows/personal-tutor-flow';
 import { speak } from '@/ai/flows/speak-flow';
 import { analyzePronunciation } from '@/ai/flows/pronunciation-flow';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import type { PersonalTutorInput, PronunciationAnalysisOutput } from '@/lib/types';
+import type { PersonalTutorInput, PronunciationAnalysisOutput, Language } from '@/lib/types';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { useLanguage } from '@/context/language-context';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface Message {
   role: 'user' | 'model';
   content: string;
 }
 
-function PronunciationPractice({ word, onResult }: { word: string; onResult: (isCorrect: boolean) => void }) {
+function PronunciationPractice({ word, language, onResult }: { word: string; language: Language, onResult: (isCorrect: boolean) => void }) {
     const [isRecording, setIsRecording] = useState(false);
     const [analysis, setAnalysis] = useState<PronunciationAnalysisOutput | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -31,8 +32,7 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     const audioRef = useRef<HTMLAudioElement | null>(null);
-    const { language } = useLanguage();
-
+    
     const { toast } = useToast();
 
     const handlePlayWord = async () => {
@@ -149,13 +149,13 @@ function PronunciationPractice({ word, onResult }: { word: string; onResult: (is
 
 
 export default function PersonalTutorPage() {
-  const { language } = useLanguage();
+  const [language, setLanguage] = useState<Language>('en');
+  const getInitialMessage = () => `Hello ${mockUser.name}! I'm your AI Personal Tutor for ${languageMap[language]}. How can I help you today? You can type or use the microphone to ask me anything.`;
+  
   const [messages, setMessages] = useState<Message[]>([
-    {
-      role: 'model',
-      content: `Hello ${mockUser.name}! I'm your AI Personal Tutor. How can I help you with your language learning today? You can type or use the microphone to ask me anything.`,
-    },
+    { role: 'model', content: getInitialMessage() },
   ]);
+
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
@@ -166,6 +166,20 @@ export default function PersonalTutorPage() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const { toast } = useToast();
+
+  const languageMap: Record<Language, string> = {
+    en: 'English',
+    ta: 'Tamil',
+    hi: 'Hindi',
+    ml: 'Malayalam',
+    kn: 'Kannada',
+    te: 'Telugu',
+  };
+
+  const handleLanguageChange = (newLang: Language) => {
+    setLanguage(newLang);
+    setMessages([{ role: 'model', content: `Hello ${mockUser.name}! I'm now your AI Personal Tutor for ${languageMap[newLang]}. How can I assist you?`}]);
+  }
   
   const extractLastWord = (text: string) => {
     // Simple regex to find the last word, ignoring punctuation
@@ -303,9 +317,27 @@ export default function PersonalTutorPage() {
         <div className="md:col-span-2 flex flex-col h-full">
             <div className="mb-4">
                 <h1 className="text-3xl font-bold font-headline">AI Personal Tutor</h1>
-                <p className="text-muted-foreground">
-                Ask me anything about your selected language!
-                </p>
+                <div className="flex items-end gap-4 mt-2">
+                     <p className="text-muted-foreground">
+                        Ask me anything about your selected language!
+                    </p>
+                    <div className="w-full max-w-xs">
+                        <Label htmlFor="language-select" className="text-xs">Tutor Language</Label>
+                        <Select value={language} onValueChange={(value: Language) => handleLanguageChange(value)}>
+                            <SelectTrigger id="language-select" className="h-9">
+                                <SelectValue placeholder="Select language..." />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="en">English</SelectItem>
+                                <SelectItem value="ta">Tamil</SelectItem>
+                                <SelectItem value="hi">Hindi</SelectItem>
+                                <SelectItem value="ml">Malayalam</SelectItem>
+                                <SelectItem value="kn">Kannada</SelectItem>
+                                <SelectItem value="te">Telugu</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+                </div>
             </div>
 
             <Card className="flex-1 flex flex-col">
@@ -403,8 +435,9 @@ export default function PersonalTutorPage() {
         </div>
         <div className="md:col-span-1">
              <PronunciationPractice 
-                key={pronunciationWord} // Re-mount component when word changes
+                key={`${pronunciationWord}-${language}`}
                 word={pronunciationWord} 
+                language={language}
                 onResult={(isCorrect) => {
                     if (isCorrect) {
                         toast({
@@ -419,3 +452,5 @@ export default function PersonalTutorPage() {
     </div>
   );
 }
+
+    
