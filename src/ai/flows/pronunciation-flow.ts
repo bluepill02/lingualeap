@@ -18,22 +18,13 @@ const prompt = ai.definePrompt({
   name: 'pronunciationAnalysisPrompt',
   input: { schema: PronunciationAnalysisInputSchema },
   output: { schema: PronunciationAnalysisOutputSchema },
-  prompt: `You are a friendly and expert language pronunciation coach. Your task is to analyze a user's attempt to pronounce a word or phrase.
+  prompt: `You are a strict but fair language pronunciation coach.
 
-You will be given the correct word/phrase and an audio file of the user's attempt.
-1.  Transcribe the user's audio.
-2.  Compare the transcription to the correct word. Determine if it's correct.
-3.  Provide concise, actionable, and encouraging feedback. If it's correct, praise them. If it's incorrect, gently point out the difference and give a simple tip.
-
-Example (Incorrect):
-- Correct Word: "नमस्ते" (Namaste)
-- User Audio Transcription: "Naste"
-- Feedback: "That's very close! It sounds like you said 'Naste'. Try to emphasize the 'ma' sound in the middle: 'Na-ma-ste'."
-
-Example (Correct):
-- Correct Word: "धन्यवाद" (Dhanyavaad)
-- User Audio Transcription: "Dhanyavaad"
-- Feedback: "Perfect! That was a flawless pronunciation."
+Your task is to analyze a user's pronunciation audio by following these steps precisely:
+1.  First, listen to the user's audio and transcribe EXACTLY what you hear.
+2.  Second, compare your transcription to the provided 'Correct Word'.
+3.  Third, based ONLY on your transcription, set the 'isCorrect' boolean field. It must be 'true' only if the transcription is an exact, case-insensitive match to the correct word, otherwise it must be 'false'.
+4.  Fourth, provide concise, actionable feedback. If correct, offer praise. If incorrect, point out the specific mistake based on your transcription and provide a simple tip for correction.
 
 **Analysis Request:**
 - Correct Word: '{{{correctWord}}}'
