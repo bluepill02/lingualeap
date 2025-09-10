@@ -7,7 +7,8 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { AnalyzeImageInputSchema, AnalyzeImageOutputSchema, AnalyzeImageInput, AnalyzeImageOutput } from '@/lib/types';
+import { AnalyzeImageInput, AnalyzeImageOutput } from '@/lib/types';
+import { AnalyzeImageInputSchema, AnalyzeImageOutputSchema } from '@/lib/server-types';
 
 
 export async function analyzeImageForLearning(input: AnalyzeImageInput): Promise<AnalyzeImageOutput> {
@@ -53,3 +54,5 @@ const analyzeImageFlow = ai.defineFlow(
     return output!;
   }
 );
+
+    

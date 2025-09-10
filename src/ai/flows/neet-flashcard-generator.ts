@@ -7,12 +7,14 @@
  */
 
 import { ai } from '@/ai/genkit';
-import {
-    NeetFlashcardGeneratorInputSchema,
-    NeetFlashcardGeneratorOutputSchema,
+import type {
     NeetFlashcardGeneratorInput,
     NeetFlashcardGeneratorOutput
 } from '@/lib/types';
+import {
+    NeetFlashcardGeneratorInputSchema,
+    NeetFlashcardGeneratorOutputSchema
+} from '@/lib/server-types';
 
 
 export async function generateNeetFlashcards(input: NeetFlashcardGeneratorInput): Promise<NeetFlashcardGeneratorOutput> {
@@ -54,3 +56,5 @@ const neetFlashcardGeneratorFlow = ai.defineFlow(
     return output;
   }
 );
+
+    

@@ -7,7 +7,9 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
-import { TnpscQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema, TnpscQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import type { TnpscQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import { TnpscQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema } from '@/lib/server-types';
+
 
 export async function generateTnpscQuiz(input: TnpscQuizGeneratorInput): Promise<NeetQuizGeneratorOutput> {
   return tnpscQuizGeneratorFlow(input);
@@ -50,3 +52,5 @@ const tnpscQuizGeneratorFlow = ai.defineFlow(
     return output;
   }
 );
+
+    

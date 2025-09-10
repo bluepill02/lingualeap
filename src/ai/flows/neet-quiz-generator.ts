@@ -7,7 +7,8 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { NeetQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema, NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import type { NeetQuizGeneratorInput, NeetQuizGeneratorOutput } from '@/lib/types';
+import { NeetQuizGeneratorInputSchema, NeetQuizGeneratorOutputSchema } from '@/lib/server-types';
 
 
 export async function generateNeetQuiz(input: NeetQuizGeneratorInput): Promise<NeetQuizGeneratorOutput> {
@@ -51,3 +52,5 @@ const neetQuizGeneratorFlow = ai.defineFlow(
     return output;
   }
 );
+
+    

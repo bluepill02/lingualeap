@@ -1,5 +1,4 @@
 
-import { z } from 'genkit';
 import { FieldValue } from 'firebase/firestore';
 
 // --- Plain TypeScript Types (Safe for Client & Server) ---
@@ -394,99 +393,81 @@ export interface PersonalTutorInput {
 export interface PersonalTutorOutput {
   response: string;
 }
+export interface MissionSubmissionInput {
+    concept: string;
+    script: string;
+    diagramDescription: string;
+    mcqs: {
+        question: string;
+        options: string[];
+        correctAnswer: string;
+    }[];
+}
 
+export interface MissionFeedbackOutput {
+    clarityFeedback: string;
+    accuracyFeedback: string;
+    analogySuggestion: string;
+    teachingStars: number;
+}
+export interface NeetQuizGeneratorInput {
+  subject: 'Physics' | 'Chemistry' | 'Biology';
+  chapter: string;
+  numQuestions: number;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  language: 'English' | 'Tamil';
+}
 
-export const MissionSubmissionInputSchema = z.object({
-    concept: z.string(),
-    script: z.string(),
-    diagramDescription: z.string(),
-    mcqs: z.array(z.object({
-        question: z.string(),
-        options: z.array(z.string()),
-        correctAnswer: z.string()
-    }))
-});
-export type MissionSubmissionInput = z.infer<typeof MissionSubmissionInputSchema>;
+export interface NeetQuizQuestion {
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+}
 
-export const MissionFeedbackOutputSchema = z.object({
-    clarityFeedback: z.string(),
-    accuracyFeedback: z.string(),
-    analogySuggestion: z.string(),
-    teachingStars: z.number().min(0).max(5)
-});
-export type MissionFeedbackOutput = z.infer<typeof MissionFeedbackOutputSchema>;
+export interface NeetQuizGeneratorOutput {
+    title?: string;
+    quizzes: NeetQuizQuestion[];
+}
 
-// AI Related types
-export const NeetQuizQuestionSchema = z.object({
-  question: z.string().describe('The quiz question, formatted with LaTeX for equations if necessary.'),
-  options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options for the quiz.'),
-  answer: z.string().describe('The correct answer from the options.'),
-  explanation: z.string().describe('A detailed step-by-step explanation for the correct answer.'),
-});
+export interface TnpscQuizGeneratorInput {
+    subject: 'History' | 'Polity' | 'Geography' | 'Economy' | 'General Science' | 'Aptitude' | 'Current Affairs' | 'Language';
+    chapter: string;
+    numQuestions: number;
+    difficulty: 'Easy' | 'Medium' | 'Hard';
+    language: 'English' | 'Tamil';
+}
+export interface FlashcardSchema {
+  front: string;
+  back: string;
+}
 
-export const NeetQuizGeneratorInputSchema = z.object({
-  subject: z.enum(['Physics', 'Chemistry', 'Biology']).describe('The subject for the quiz.'),
-  chapter: z.string().describe('The specific chapter or topic for the questions.'),
-  numQuestions: z.number().min(1).max(10).describe('The number of questions to generate.'),
-  difficulty: z.enum(['Easy', 'Medium', 'Hard']).describe('The desired difficulty level of the questions.'),
-  language: z.enum(['English', 'Tamil']).describe('The language for the generated quiz.'),
-});
-export type NeetQuizGeneratorInput = z.infer<typeof NeetQuizGeneratorInputSchema>;
+export interface NeetFlashcardGeneratorInput extends Omit<NeetQuizGeneratorInput, 'numQuestions'> {
+    numFlashcards: number;
+}
+export interface NeetFlashcardGeneratorOutput {
+    flashcards: FlashcardSchema[];
+}
+export type SpeakInput = string;
 
-export const NeetQuizGeneratorOutputSchema = z.object({
-    title: z.string().optional().describe("A suitable title for the generated quiz."),
-    quizzes: z.array(NeetQuizQuestionSchema),
-});
-export type NeetQuizGeneratorOutput = z.infer<typeof NeetQuizGeneratorOutputSchema>;
+export interface SpeakOutput {
+  media: string;
+}
+export interface AnalyzeImageInput {
+  photoDataUri: string;
+  targetLanguage: string;
+}
 
-export const TnpscQuizGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
-    subject: z.enum(['History', 'Polity', 'Geography', 'Economy', 'General Science', 'Aptitude', 'Current Affairs', 'Language']),
-});
-export type TnpscQuizGeneratorInput = z.infer<typeof TnpscQuizGeneratorInputSchema>;
+export interface AnalyzeImageOutput {
+    objectName: string;
+    translatedWord: string;
+    romanization: string;
+    quiz: {
+        question: string;
+        options: string[];
+        answer: string;
+    };
+    mnemonic: string;
+}
 
-export const FlashcardSchema = z.object({
-  front: z.string().describe('The front of the flashcard, containing a key term, concept, or question. Should be concise.'),
-  back: z.string().describe('The back of the flashcard, containing the definition, explanation, or answer. Should be clear and detailed.'),
-});
-
-export const NeetFlashcardGeneratorInputSchema = NeetQuizGeneratorInputSchema.extend({
-    numFlashcards: z.number().min(1).max(10).describe('The number of flashcards to generate.'),
-}).omit({ numQuestions: true });
-
-export type NeetFlashcardGeneratorInput = z.infer<typeof NeetFlashcardGeneratorInputSchema>;
-
-export const NeetFlashcardGeneratorOutputSchema = z.object({
-    flashcards: z.array(FlashcardSchema),
-});
-export type NeetFlashcardGeneratorOutput = z.infer<typeof NeetFlashcardGeneratorOutputSchema>;
-
-export const SpeakInputSchema = z.string();
-export type SpeakInput = z.infer<typeof SpeakInputSchema>;
-
-export const SpeakOutputSchema = z.object({
-  media: z.string().describe('The generated audio as a data URI.'),
-});
-export type SpeakOutput = z.infer<typeof SpeakOutputSchema>;
-
-export const AnalyzeImageInputSchema = z.object({
-  photoDataUri: z
-    .string()
-    .describe(
-      "A photo of an object, as a data URI that must include a MIME type and use Base64 encoding. Expected format: 'data:<mimetype>;base64,<encoded_data>'."
-    ),
-  targetLanguage: z.string().describe('The language to translate the object name into.'),
-});
-export type AnalyzeImageInput = z.infer<typeof AnalyzeImageInputSchema>;
-
-export const AnalyzeImageOutputSchema = z.object({
-    objectName: z.string().describe('The name of the identified object in English.'),
-    translatedWord: z.string().describe('The translated name of the object in the target language.'),
-    romanization: z.string().describe('A romanized (phonetic) spelling of the translated word.'),
-    quiz: z.object({
-        question: z.string().describe('A simple multiple-choice question about the object.'),
-        options: z.array(z.string()).min(4).max(4).describe('An array of exactly four options.'),
-        answer: z.string().describe('The correct answer from the options.'),
-    }),
-    mnemonic: z.string().describe('A clever mnemonic or short sentence to help remember the translated word.'),
-});
-export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
+    

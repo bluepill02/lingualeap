@@ -8,7 +8,8 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { MissionSubmissionInputSchema, MissionFeedbackOutputSchema, MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
+import type { MissionSubmissionInput, MissionFeedbackOutput } from '@/lib/types';
+import { MissionSubmissionInputSchema, MissionFeedbackOutputSchema } from '@/lib/server-types';
 
 
 export async function provideMissionFeedback(input: MissionSubmissionInput): Promise<MissionFeedbackOutput> {
@@ -64,3 +65,5 @@ const missionFeedbackFlow = ai.defineFlow(
     return output;
   }
 );
+
+    

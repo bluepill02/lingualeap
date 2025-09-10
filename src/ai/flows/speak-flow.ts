@@ -8,7 +8,8 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 import wav from 'wav';
-import { SpeakInputSchema, SpeakOutputSchema, SpeakInput, SpeakOutput } from '@/lib/types';
+import type { SpeakInput, SpeakOutput } from '@/lib/types';
+import { SpeakInputSchema, SpeakOutputSchema } from '@/lib/server-types';
 
 // This function converts raw PCM audio data from Gemini into a standard WAV format
 // that can be played in a browser. It returns the WAV data as a Base64 string.

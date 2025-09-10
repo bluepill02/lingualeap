@@ -8,22 +8,8 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
-import { Language, languageMap, type PersonalTutorInput, type PersonalTutorOutput, type Message } from '@/lib/types';
-
-
-// Define Zod schemas here, on the server, where they are used.
-const PersonalTutorInputSchema = z.object({
-  history: z.array(z.object({
-    role: z.enum(['user', 'model']),
-    content: z.string(),
-  })),
-  message: z.string().describe("The user's latest message."),
-  language: z.nativeEnum(languageMap),
-});
-
-const PersonalTutorOutputSchema = z.object({
-  response: z.string(),
-});
+import { languageMap, type Language, type PersonalTutorInput, type PersonalTutorOutput, type Message } from '@/lib/types';
+import { PersonalTutorInputSchema, PersonalTutorOutputSchema } from '@/lib/server-types';
 
 
 export async function personalTutor(input: PersonalTutorInput): Promise<PersonalTutorOutput> {
@@ -81,3 +67,5 @@ const personalTutorFlow = ai.defineFlow(
     return output;
   }
 );
+
+    
