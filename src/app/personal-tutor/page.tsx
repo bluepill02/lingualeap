@@ -283,7 +283,7 @@ export default function PersonalTutorPage() {
        toast({
         variant: 'destructive',
         title: 'Recognition Error',
-        description: 'Sorry, I couldn\\'t understand that. Please try again.',
+        description: "Sorry, I couldn't understand that. Please try again.",
       });
     };
 
@@ -416,5 +416,3 @@ export default function PersonalTutorPage() {
     </div>
   );
 }
-
-    
