@@ -11,7 +11,6 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { Sparkles, Loader2, CheckCircle, XCircle, FileQuestion, Copy, RefreshCw } from 'lucide-react';
 import type { NeetQuizGeneratorOutput, TnpscQuizGeneratorInput, NeetFlashcardGeneratorInput, NeetFlashcardGeneratorOutput, NeetQuizGeneratorInput } from '@/lib/types';
-import { generateNeetFlashcards } from '@/ai/flows/neet-flashcard-generator';
 import { MarkdownRenderer } from './markdown-renderer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from "framer-motion";
@@ -78,6 +77,7 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
   };
 
   const handleGenerateMcqs = async () => {
+    if (!quizGeneratorFn) return;
     const formattedSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
     const input = {
         subject: formattedSubject,
@@ -316,6 +316,10 @@ export function AiPracticeGenerator({ subject, chapter, quizGeneratorFn, flashca
                          </div>
                     ))}
                  </div>
+                  <Button onClick={handleGenerate} variant="outline" className="w-full mt-4" disabled={isLoading}>
+                    {isLoading ? <Loader2 className="mr-2 animate-spin" /> : null}
+                    Generate New Flashcards
+                </Button>
              </div>
         )}
 
