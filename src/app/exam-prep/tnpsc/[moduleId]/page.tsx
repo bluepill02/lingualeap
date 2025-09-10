@@ -5,11 +5,16 @@ import TnpscContentViewer from './client-page';
 import type { TnpscModule } from '@/lib/exam-data-tnpsc';
 
 export default async function TnpscModulePage({ params }: { params: { moduleId: string } }) {
-  const module = getTnpscModuleById(params.moduleId) as TnpscModule | null;
+  try {
+    const module = getTnpscModuleById(params.moduleId) as TnpscModule | null;
 
-  if (!module) {
+    if (!module) {
+      notFound();
+    }
+
+    return <TnpscContentViewer module={module} />;
+  } catch (error) {
+    console.error(`Failed to load content for TNPSC module: ${params.moduleId}`, error);
     notFound();
   }
-
-  return <TnpscContentViewer module={module} />;
 }

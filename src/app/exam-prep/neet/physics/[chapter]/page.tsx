@@ -6,11 +6,16 @@ import { NeetModule } from '@/lib/types';
 
 
 export default async function NeetPhysicsChapterPage({ params }: { params: { chapter: string } }) {
-    const content = getNeetContent(params.chapter) as NeetModule | undefined;
+    try {
+        const content = getNeetContent(params.chapter) as NeetModule | undefined;
 
-    if (!content) {
+        if (!content) {
+            notFound();
+        }
+        
+        return <NeetChapterClientPage content={content} />;
+    } catch (error) {
+        console.error(`Failed to load content for chapter: ${params.chapter}`, error);
         notFound();
     }
-    
-    return <NeetChapterClientPage content={content} />;
 }
