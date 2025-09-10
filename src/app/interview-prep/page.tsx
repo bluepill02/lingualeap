@@ -25,10 +25,12 @@ const countFillerWords = (text: string): number => {
 
 const highlightSTAR = (text: string, part: string | undefined): string => {
     if (!part || !text) return text;
-    const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Escape special characters for regex, and handle potential whitespace differences
+    const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
     const regex = new RegExp(`(${escapedPart})`, 'gi');
     return text.replace(regex, `<mark class="bg-primary/20 rounded-sm p-0.5">$1</mark>`);
 };
+
 
 type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'analyzing' | 'report';
 
@@ -37,6 +39,8 @@ interface AnswerRecord {
     transcript: string;
     feedback: InterviewFeedbackOutput | null;
 }
+
+const MAX_QUESTIONS = 5;
 
 export default function InterviewPrepPage() {
     const { user } = useUser();
@@ -49,11 +53,51 @@ export default function InterviewPrepPage() {
     
     // Recording state
     const [isRecording, setIsRecording] = useState(false);
-    const [currentTranscript, setCurrentTranscript] = useState('');
+    const [interimTranscript, setInterimTranscript] = useState('');
+    const finalTranscriptRef = useRef('');
 
     const recognitionRef = useRef<any>(null);
     const { toast } = useToast();
     
+    const fetchNextQuestion = useCallback(async () => {
+        setSessionState('generating_question');
+        setCurrentQuestion(null);
+        try {
+            const result = await generateInterviewQuestion({ jobRole });
+            setCurrentQuestion(result.question);
+            setSessionState('in_progress');
+        } catch (e) {
+            console.error("Failed to generate next question", e);
+            toast({ variant: 'destructive', title: 'Failed to Get Question', description: 'Could not generate the next interview question. Please try again.'});
+            setSessionState('idle'); 
+        }
+    }, [jobRole, toast]);
+
+    const handleAnswerSubmission = useCallback(async () => {
+        const transcript = finalTranscriptRef.current.trim();
+        if (!transcript || !currentQuestion) {
+            return;
+        }
+        
+        const newAnswer: AnswerRecord = {
+            question: currentQuestion,
+            transcript: transcript,
+            feedback: null, // Feedback will be generated at the end
+        };
+        
+        setSessionHistory(prev => [...prev, newAnswer]);
+        finalTranscriptRef.current = '';
+        setInterimTranscript('');
+        
+        if (sessionHistory.length + 1 < MAX_QUESTIONS) {
+            await fetchNextQuestion();
+        } else {
+            await generateFinalReport([...sessionHistory, newAnswer]);
+        }
+
+    }, [currentQuestion, sessionHistory, fetchNextQuestion]);
+
+
     const initializeSpeechRecognition = useCallback(() => {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SpeechRecognition) {
@@ -65,84 +109,53 @@ export default function InterviewPrepPage() {
         recognition.continuous = true;
         recognition.interimResults = true;
 
-        recognition.onstart = () => {
-            setCurrentTranscript('');
-            setIsRecording(true);
-        };
-
-        recognition.onresult = (event: any) => {
-            let interimTranscript = '';
-            let finalTranscript = '';
-            for (let i = event.resultIndex; i < event.results.length; ++i) {
-                if (event.results[i].isFinal) {
-                    finalTranscript += event.results[i][0].transcript + ' ';
-                } else {
-                    interimTranscript += event.results[i][0].transcript;
-                }
-            }
-            setCurrentTranscript(prev => finalTranscript ? finalTranscript : prev + interimTranscript);
-        };
-
+        recognition.onstart = () => setIsRecording(true);
         recognition.onerror = (event: any) => {
             console.error("Speech recognition error:", event.error);
             toast({ variant: 'destructive', title: 'Recognition Error', description: "Sorry, I couldn't understand that. Please try again." });
-            setIsRecording(false);
+        };
+        recognition.onend = () => {
+             setIsRecording(false);
+             if (finalTranscriptRef.current.trim()) {
+                 handleAnswerSubmission();
+             }
         };
 
-        recognition.onend = () => {
-            setIsRecording(false);
+        recognition.onresult = (event: any) => {
+            let final = '';
+            let interim = '';
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    final += event.results[i][0].transcript + ' ';
+                } else {
+                    interim += event.results[i][0].transcript;
+                }
+            }
+             finalTranscriptRef.current += final;
+             setInterimTranscript(finalTranscriptRef.current + interim);
         };
         
         recognitionRef.current = recognition;
 
-    }, [toast]); 
+    }, [toast, handleAnswerSubmission]); 
 
      useEffect(() => {
         initializeSpeechRecognition();
     }, [initializeSpeechRecognition]);
 
 
-    const fetchNextQuestion = async () => {
-        setSessionState('generating_question');
-        setCurrentQuestion(null);
-        try {
-            const result = await generateInterviewQuestion({ jobRole });
-            setCurrentQuestion(result.question);
-            setSessionState('in_progress');
-        } catch (e) {
-            console.error("Failed to generate next question", e);
-            toast({ variant: 'destructive', title: 'Failed to Get Question', description: 'Could not generate the next interview question. Please try again.'});
-            setSessionState('in_progress'); // Revert to allow user to try again
-        }
-    };
-
     const startInterviewSession = async () => {
         setSessionHistory([]);
-        setCurrentTranscript('');
+        finalTranscriptRef.current = '';
+        setInterimTranscript('');
         await fetchNextQuestion();
     };
-    
-    const handleAnswerSubmission = () => {
-        if (!currentTranscript.trim() || !currentQuestion) {
-            toast({ variant: 'warning', title: 'No answer recorded', description: 'Please record an answer before proceeding.' });
-            return;
-        }
-        
-        const newAnswer: AnswerRecord = {
-            question: currentQuestion,
-            transcript: currentTranscript.trim(),
-            feedback: null, // Feedback will be generated at the end
-        };
-        
-        setSessionHistory(prev => [...prev, newAnswer]);
-        setCurrentTranscript('');
-        setCurrentQuestion(null); // Clear current question to show "Next Question" button
-    };
 
-    const generateFinalReport = async () => {
+    const generateFinalReport = async (history: AnswerRecord[]) => {
+        if (!history || history.length === 0) return;
         setSessionState('analyzing');
         try {
-            const feedbackPromises = sessionHistory.map(ans => 
+            const feedbackPromises = history.map(ans => 
                 provideInterviewFeedback({
                     question: ans.question,
                     answer: ans.transcript,
@@ -150,7 +163,7 @@ export default function InterviewPrepPage() {
                 })
             );
             const feedbacks = await Promise.all(feedbackPromises);
-            const updatedHistory = sessionHistory.map((ans, index) => ({
+            const updatedHistory = history.map((ans, index) => ({
                 ...ans,
                 feedback: feedbacks[index],
             }));
@@ -206,8 +219,8 @@ export default function InterviewPrepPage() {
             <Card className="min-h-[200px]">
                 <CardHeader>
                    <div className="flex justify-between items-center">
-                       <CardTitle>Question {sessionHistory.length + 1}</CardTitle>
-                       <Progress value={((sessionHistory.length) / 5) * 100} className="w-1/2" />
+                       <CardTitle>Question {sessionHistory.length + 1}/{MAX_QUESTIONS}</CardTitle>
+                       <Progress value={((sessionHistory.length) / MAX_QUESTIONS) * 100} className="w-1/2" />
                     </div>
                 </CardHeader>
                 <CardContent>
@@ -226,32 +239,34 @@ export default function InterviewPrepPage() {
                  <Button 
                     size="lg" 
                     className={cn("h-16 w-16 rounded-full transition-all duration-300", isRecording && "bg-destructive scale-110")}
-                    onClick={() => isRecording ? recognitionRef.current.stop() : recognitionRef.current.start()}
+                    onClick={() => {
+                        if (isRecording) {
+                            recognitionRef.current.stop();
+                        } else {
+                            finalTranscriptRef.current = '';
+                            setInterimTranscript('');
+                            recognitionRef.current.start();
+                        }
+                    }}
                     disabled={sessionState !== 'in_progress' || !currentQuestion}
                     aria-label={isRecording ? 'Stop Recording' : 'Start Recording'}
                 >
                     {isRecording ? <MicOff/> : <Mic/>}
                 </Button>
-                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop.' : 'Click to start recording your answer.'}</p>
+                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop and submit.' : 'Click to start recording your answer.'}</p>
             </div>
 
-            {currentTranscript && (
+            {interimTranscript && (
                  <Card className="bg-muted">
                     <CardHeader>
                         <CardTitle>Your Answer (In Progress)</CardTitle>
                     </CardHeader>
                     <CardContent>
-                         <p className="italic text-muted-foreground">{currentTranscript}</p>
+                         <p className="italic text-muted-foreground">{interimTranscript}</p>
                     </CardContent>
                 </Card>
             )}
             
-            {!currentQuestion && currentTranscript && !isRecording && (
-                <div className="text-center">
-                    <Button onClick={handleAnswerSubmission}>Submit Answer &amp; Continue</Button>
-                </div>
-            )}
-
             <Separator/>
             
              <div className="text-center mt-6 flex justify-center items-center gap-4">
@@ -260,15 +275,8 @@ export default function InterviewPrepPage() {
                     Restart Session
                 </Button>
                 {sessionHistory.length > 0 && (
-                    <Button onClick={generateFinalReport}>
-                        End Session & Get Report
-                        <ArrowRight className="ml-2"/>
-                    </Button>
-                )}
-                 {!currentQuestion && sessionHistory.length < 5 && (
-                    <Button onClick={fetchNextQuestion} disabled={sessionState === 'generating_question'}>
-                        Next Question
-                        <ArrowRight className="ml-2"/>
+                    <Button onClick={() => generateFinalReport(sessionHistory)}>
+                        End Session Early & Get Report
                     </Button>
                 )}
             </div>
@@ -413,5 +421,3 @@ export default function InterviewPrepPage() {
         </div>
     );
 }
-
-    
