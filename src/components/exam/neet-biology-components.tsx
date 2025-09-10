@@ -89,7 +89,6 @@ export function BiologyLearnCard({ content }: { content: NeetModule }) {
         subject="Biology"
         chapter={content.title}
         quizGeneratorFn={generateNeetQuiz}
-        flashcardGeneratorFn={generateNeetFlashcards}
         isFlashcardSupported={true}
       />
     </div>
