@@ -2,8 +2,11 @@
 'use client';
 
 import MainLayout from '@/components/layout/main-layout';
-import { ReactNode } from 'react';
 
-export default function ExamPrepLayout({ children }: { children: ReactNode }) {
+export default function AppFeatureLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <MainLayout>{children}</MainLayout>;
 }
