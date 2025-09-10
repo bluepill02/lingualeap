@@ -27,12 +27,13 @@ const highlightSTAR = (text: string, part: string | undefined): string => {
     if (!part || !text) return text;
     // Escape special characters for regex, and handle potential whitespace differences
     const escapedPart = part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+    if (!escapedPart) return text;
     const regex = new RegExp(`(${escapedPart})`, 'gi');
     return text.replace(regex, `<mark class="bg-primary/20 rounded-sm p-0.5">$1</mark>`);
 };
 
 
-type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'analyzing' | 'report';
+type SessionState = 'idle' | 'generating_question' | 'in_progress' | 'session_complete' | 'analyzing' | 'report';
 
 interface AnswerRecord {
     question: string;
@@ -76,6 +77,7 @@ export default function InterviewPrepPage() {
     const handleAnswerSubmission = useCallback(async () => {
         const transcript = finalTranscriptRef.current.trim();
         if (!transcript || !currentQuestion) {
+            toast({ variant: 'destructive', title: 'Empty Answer', description: 'Please provide an answer before stopping.'});
             return;
         }
         
@@ -85,17 +87,18 @@ export default function InterviewPrepPage() {
             feedback: null, // Feedback will be generated at the end
         };
         
-        setSessionHistory(prev => [...prev, newAnswer]);
+        const updatedHistory = [...sessionHistory, newAnswer];
+        setSessionHistory(updatedHistory);
         finalTranscriptRef.current = '';
         setInterimTranscript('');
         
-        if (sessionHistory.length + 1 < MAX_QUESTIONS) {
+        if (updatedHistory.length < MAX_QUESTIONS) {
             await fetchNextQuestion();
         } else {
-            await generateFinalReport([...sessionHistory, newAnswer]);
+            setSessionState('session_complete');
         }
 
-    }, [currentQuestion, sessionHistory, fetchNextQuestion]);
+    }, [currentQuestion, sessionHistory, fetchNextQuestion, toast]);
 
 
     const initializeSpeechRecognition = useCallback(() => {
@@ -108,17 +111,22 @@ export default function InterviewPrepPage() {
         const recognition = new SpeechRecognition();
         recognition.continuous = true;
         recognition.interimResults = true;
+        recognition.lang = 'en-US';
 
         recognition.onstart = () => setIsRecording(true);
         recognition.onerror = (event: any) => {
             console.error("Speech recognition error:", event.error);
             toast({ variant: 'destructive', title: 'Recognition Error', description: "Sorry, I couldn't understand that. Please try again." });
+            setIsRecording(false);
         };
         recognition.onend = () => {
              setIsRecording(false);
-             if (finalTranscriptRef.current.trim()) {
-                 handleAnswerSubmission();
-             }
+             // Use a short timeout to ensure final result has time to process
+             setTimeout(() => {
+                if (finalTranscriptRef.current.trim()) {
+                    handleAnswerSubmission();
+                }
+             }, 300);
         };
 
         recognition.onresult = (event: any) => {
@@ -172,7 +180,7 @@ export default function InterviewPrepPage() {
         } catch (err) {
              console.error("Error getting feedback:", err);
             toast({ variant: 'destructive', title: 'Feedback Failed', description: 'Could not get feedback for one or more answers.' });
-            setSessionState('in_progress');
+            setSessionState('idle');
         }
     };
     
@@ -253,7 +261,7 @@ export default function InterviewPrepPage() {
                 >
                     {isRecording ? <MicOff/> : <Mic/>}
                 </Button>
-                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop and submit.' : 'Click to start recording your answer.'}</p>
+                <p className="text-sm text-muted-foreground">{isRecording ? 'Recording... Click to stop and submit answer.' : 'Click to start recording your answer.'}</p>
             </div>
 
             {interimTranscript && (
@@ -281,6 +289,21 @@ export default function InterviewPrepPage() {
                 )}
             </div>
         </>
+    );
+
+    const renderSessionCompleteState = () => (
+        <Card className="text-center p-8">
+            <CardHeader>
+                <CheckCircle className="w-12 h-12 mx-auto text-green-500 mb-4"/>
+                <CardTitle className="text-2xl">Interview Session Complete!</CardTitle>
+                <CardDescription>You've answered all {MAX_QUESTIONS} questions. Ready to see how you did?</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Button size="lg" onClick={() => generateFinalReport(sessionHistory)}>
+                    <Sparkles className="mr-2"/> Generate Final Report
+                </Button>
+            </CardContent>
+        </Card>
     );
     
     const renderAnalyzingState = () => (
@@ -400,9 +423,10 @@ export default function InterviewPrepPage() {
     const renderContent = () => {
         switch (sessionState) {
             case 'idle': return renderIdleState();
-            case 'in_progress':
             case 'generating_question': 
+            case 'in_progress':
                 return renderInProgressState();
+            case 'session_complete': return renderSessionCompleteState();
             case 'analyzing': return renderAnalyzingState();
             case 'report': return renderReportState();
             default: return renderIdleState();
