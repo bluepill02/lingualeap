@@ -1,3 +1,4 @@
+
 'use server';
 
 import { db } from '@/lib/firebase';
@@ -57,6 +58,7 @@ export async function getUserSettings(userId: string): Promise<User | null> {
             const createdAt = data.createdAt instanceof Timestamp ? data.createdAt.toDate().toISOString() : new Date().toISOString();
             return {
                 ...data,
+                id: userId, // Ensure the id field is populated
                 createdAt: createdAt, // Make sure this property exists and is a string
             } as User;
         } else {
