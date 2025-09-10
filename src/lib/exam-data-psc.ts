@@ -1,96 +1,132 @@
+
 import type { ExamModule } from './types';
 
 export const pscHindiProverbsAndSayings: ExamModule = {
     id: 'exam-psc-hindi-proverbs-sayings',
-    title: 'State PSC Proverbs & Sayings',
+    title: 'State PSC: Hindi Proverbs & Vocabulary',
     examName: 'State PSC',
     language: 'Hindi',
-    category: 'Proverbs & Sayings',
+    category: 'General Hindi',
     vocabulary: [
         {
-            word: 'अधजल गगरी छलकत जाए (Adhjal gagri chhalkat jaye)',
+            word: 'अधजल गगरी छलकत जाए',
             romanization: 'Adhjal gagri chhalkat jaye',
             definition: 'A person with little knowledge boasts the most (empty vessels make the most noise).',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (कहावत)',
             sentence: 'उसे आता कुछ नहीं, बस अधजल गगरी छलकत जाए वाली बात है।',
             sentenceRoman: 'Use aata kuch nahi, bas adhjal gagri chhalkat jaye wali baat hai.',
             sentenceTranslation: 'He doesn\'t know anything, it\'s just a case of an empty vessel making the most noise.'
         },
         {
-            word: 'नाच न जाने आँगन टेढ़ा (Naach na jaane aangan tedha)',
+            word: 'नाच न जाने आँगन टेढ़ा',
             romanization: 'Naach na jaane aangan tedha',
             definition: 'Blaming one\'s tools for one\'s own incompetence (a bad workman quarrels with his tools).',
-            partOfSpeech: 'Proverb',
+            partOfSpeech: 'Proverb (कहावत)',
             sentence: 'जब वह परीक्षा में फेल हो गया, तो उसने कहा कि प्रश्नपत्र कठिन था - नाच न जाने आँगन टेढ़ा।',
             sentenceRoman: 'Jab vah pariksha mein fail ho gaya, to usne kaha ki prashnapatra kathin tha - naach na jaane aangan tedha.',
             sentenceTranslation: 'When he failed the exam, he said the paper was difficult - a bad workman quarrels with his tools.'
         },
         {
-            word: 'बन्दर क्या जाने अदरक का स्वाद (Bandar kya jaane adrak ka swaad)',
-            romanization: 'Bandar kya jaane adrak ka swaad',
-            definition: 'Someone who cannot appreciate something of value (casting pearls before swine).',
-            partOfSpeech: 'Proverb',
-            sentence: 'उसे शास्त्रीय संगीत सुनाना तो बन्दर क्या जाने अदरक का स्वाद वाली बात है।',
-            sentenceRoman: 'Use shastriya sangeet sunana toh bandar kya jaane adrak ka swaad wali baat hai.',
-            sentenceTranslation: 'Making him listen to classical music is like casting pearls before swine.'
+            word: 'आँख का अँधा नाम नयनसुख',
+            romanization: 'Aankh ka andha naam nayansukh',
+            definition: 'Name is opposite to one\'s qualities (e.g., a blind person named "Joy of the Eyes").',
+            partOfSpeech: 'Proverb (कहावत)',
+            sentence: 'उसका नाम तो अमीरचंद है पर वह बहुत गरीब है, यह तो वही बात हुई, आँख का अँधा नाम नयनसुख।',
+            sentenceRoman: 'Uska naam toh Amirchand hai par vah bahut gareeb hai, yeh toh wahi baat hui, aankh ka andha naam nayansukh.',
+            sentenceTranslation: 'His name is Amirchand (lord of the rich) but he is very poor, this is a case of name being opposite to qualities.'
         },
         {
-            word: 'सौ सुनार की, एक लोहार की (Sau sunar ki, ek lohar ki)',
-            romanization: 'Sau sunar ki, ek lohar ki',
-            definition: 'A single decisive blow is more effective than many feeble ones.',
-            partOfSpeech: 'Proverb',
-            sentence: 'वे उसे महीनों तक परेशान करते रहे, पर उसने एक ही शिकायत में उनकी नौकरी खतरे में डाल दी - सौ सुनार की, एक लोहार की।',
-            sentenceRoman: 'Ve use mahino tak pareshan karte rahe, par usne ek hi shikayat mein unki naukri khatre mein daal di - sau sunar ki, ek lohar ki.',
-            sentenceTranslation: 'They bothered him for months, but with one complaint he put their jobs at risk - a single blow of a blacksmith is more effective.'
+            word: 'अपना हाथ जगन्नाथ',
+            romanization: 'Apna haath Jagannath',
+            definition: 'One should rely on one\'s own efforts and abilities.',
+            partOfSpeech: 'Proverb (कहावत)',
+            sentence: 'दूसरों की मदद का इंतजार मत करो, अपना हाथ जगन्नाथ।',
+            sentenceRoman: 'Doosron ki madad ka intezar mat karo, apna haath Jagannath.',
+            sentenceTranslation: 'Don\'t wait for others\' help, rely on your own hands.'
         },
         {
-            word: 'घर का भेदी लंका ढाए (Ghar ka bhedi lanka dhaye)',
-            romanization: 'Ghar ka bhedi lanka dhaye',
-            definition: 'An insider\'s betrayal can bring down a mighty fortress.',
-            partOfSpeech: 'Proverb',
-            sentence: 'विभीषण घर का भेदी था जिसने रावण की लंका ढहा दी।',
-            sentenceRoman: 'Vibhishan ghar ka bhedi tha jisne Ravan ki Lanka dhaha di.',
-            sentenceTranslation: 'Vibhishan was the insider who brought down Ravana\'s Lanka.'
+            word: 'अँगूठा दिखाना',
+            romanization: 'Angootha dikhana',
+            definition: 'To refuse flatly.',
+            partOfSpeech: 'Idiom (मुहावरा)',
+            sentence: 'जब मैंने उससे मदद माँगी, तो उसने मुझे अँगूठा दिखा दिया।',
+            sentenceRoman: 'Jab maine usse madad maangi, to usne mujhe angootha dikha diya.',
+            sentenceTranslation: 'When I asked him for help, he flatly refused me.'
+        },
+        {
+            word: 'आँखें फेर लेना',
+            romanization: 'Aankhein pher lena',
+            definition: 'To become indifferent or hostile.',
+            partOfSpeech: 'Idiom (मुहावरा)',
+            sentence: 'काम निकलते ही उसने मुझसे आँखें फेर लीं।',
+            sentenceRoman: 'Kaam nikalte hi usne mujhse aankhein pher leen.',
+            sentenceTranslation: 'As soon as his work was done, he became indifferent to me.'
+        },
+        {
+            word: 'जो ईश्वर में विश्वास रखता हो',
+            romanization: 'Jo Ishwar mein vishwas rakhta ho',
+            definition: 'One who believes in God.',
+            partOfSpeech: 'One-Word Substitution',
+            sentence: 'आस्तिक (Aastik)',
+            sentenceTranslation: 'Theist'
+        },
+        {
+            word: 'जिसका कोई शत्रु न जन्मा हो',
+            romanization: 'Jiska koi shatru na janma ho',
+            definition: 'One whose enemy is not yet born.',
+            partOfSpeech: 'One-Word Substitution',
+            sentence: 'अजातशत्रु (Ajatshatru)',
+            sentenceTranslation: 'A person without enemies'
         }
     ],
     quizzes: [
         {
             type: 'multiple-choice',
-            question: 'What is the correct meaning of "नाच न जाने आँगन टेढ़ा"?',
-            options: ['Someone who loves to dance', 'A crooked courtyard', 'Blaming tools for one\'s own failure', 'Dancing in a difficult place'],
-            answer: 'Blaming tools for one\'s own failure'
+            question: 'What is the meaning of the idiom "अँगूठा दिखाना"?',
+            options: ['To show thumb', 'To challenge', 'To refuse flatly', 'To praise'],
+            answer: 'To refuse flatly'
         },
         {
             type: 'multiple-choice',
-            question: 'The proverb "घर का भेदी लंका ढाए" warns against what?',
-            options: ['Building a weak house', 'Fighting with family', 'The danger of traitors or insiders', 'Leaving your home'],
-            answer: 'The danger of traitors or insiders'
+            question: 'The proverb "नाच न जाने आँगन टेढ़ा" is used for someone who:',
+            options: ['Is a good dancer', 'Has a crooked house', 'Blames their tools for their own failure', 'Likes to dance in courtyards'],
+            answer: 'Blames their tools for their own failure'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'A person with little knowledge showing off is like "अधजल गगरी ____ जाए".',
-            answer: 'छलकत'
+            question: 'The one-word substitution for "One who believes in God" is ____.',
+            answer: 'आस्तिक'
         },
         {
             type: 'fill-in-the-blank',
-            question: 'Offering something valuable to someone who can\'t appreciate it is like "____ क्या जाने अदरक का स्वाद".',
-            answer: 'बन्दर'
+            question: 'The proverb "अपना हाथ ____" promotes self-reliance.',
+            answer: 'जगन्नाथ'
         },
         {
             type: 'multiple-choice',
-            question: 'Which proverb signifies that one strong action is better than many weak ones?',
-            options: ['घर का भेदी लंका ढाए', 'सौ सुनार की, एक लोहार की', 'बन्दर क्या जाने अदरक का स्वाद', 'अधजल गगरी छलकत जाए'],
-            answer: 'सौ सुनार की, एक लोहार की'
+            question: 'What does "आँखें फेर लेना" signify?',
+            options: ['To look away', 'To become hostile or indifferent', 'To have sore eyes', 'To inspect closely'],
+            answer: 'To become hostile or indifferent'
+        },
+        {
+            type: 'multiple-choice',
+            question: 'A person named "Shantanu" (peaceful) who is always angry is an example of which proverb?',
+            options: ['अपना हाथ जगन्नाथ', 'अधजल गगरी छलकत जाए', 'आँख का अँधा नाम नयनसुख', 'नाच न जाने आँगन टेढ़ा'],
+            answer: 'आँख का अँधा नाम नयनसुख'
         }
     ],
     errorAnalysis: [
         {
-            pitfall: 'Misinterpreting the Context',
-            tip: 'Proverbs are deeply cultural. For instance, "Ghar ka bhedi lanka dhaye" refers to the story of Vibhishana from the Ramayana. Understanding the mythological or historical context can greatly clarify the meaning and ensure correct application in sentence-formation tasks.'
+            pitfall: 'Literal Interpretation of Proverbs & Idioms',
+            tip: 'Proverbs (कहावतें) and idioms (मुहावरे) are metaphorical. "Naach na jaane aangan tedha" is not about dancing or courtyards; it\'s about blaming external factors for personal shortcomings. Always focus on the figurative, moral, or contextual meaning.'
         },
         {
-            pitfall: 'Using Proverbs in Inappropriate Situations',
-            tip: 'While you might know the meaning, using a proverb in the wrong social or formal context can be awkward. Pay attention to the sample sentences. Proverbs are often used to comment on a situation, so ensure the context of your sentence matches the proverb\'s wisdom.'
+            pitfall: 'Incorrect Contextual Usage',
+            tip: 'Knowing the meaning is one thing, but using a proverb correctly in a sentence is another. For descriptive papers in PSC exams, ensure the situation you describe logically leads to the proverb as a conclusion. For example, describe someone boasting with little knowledge, and then conclude with "...यह तो अधजल गगरी छलकत जाए वाली बात हुई।"'
+        },
+        {
+            pitfall: 'Confusing Idioms and Proverbs',
+            tip: 'An idiom (मुहावरा) is a phrase whose meaning is not deducible from the individual words (e.g., "to kick the bucket"). A proverb (कहावत) is a short sentence stating a general truth or piece of advice (e.g., "slow and steady wins the race"). Identify which is which as questions can be specific.'
         }
     ]
 };
