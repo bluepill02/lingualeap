@@ -16,9 +16,20 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import Link from 'next/link';
 import { allLessonDecks } from '@/lib/data';
+import { getLessonProgress } from '@/services/lesson-progress';
+import { useState, useEffect } from 'react';
 
 export default function SanskritPage() {
   const decks = allLessonDecks.filter(deck => deck.id.startsWith('deck-sanskrit-'));
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  
+  useEffect(() => {
+    setCompletedLessons(getLessonProgress());
+  }, []);
+
+  const totalLessons = decks.reduce((sum, deck) => sum + deck.lessons.length, 0);
+  const completedCount = decks.flatMap(deck => deck.lessons).filter(lesson => completedLessons.includes(lesson.id)).length;
+  const progressPercentage = totalLessons > 0 ? (completedCount / totalLessons) * 100 : 0;
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
@@ -68,9 +79,9 @@ export default function SanskritPage() {
           <CardContent className="p-4">
             <p className="text-sm font-medium mb-2">Your Progress</p>
             <div className="flex items-center gap-4">
-              <Progress value={0} className="h-2 flex-1" />
+              <Progress value={progressPercentage} className="h-2 flex-1" />
               <span className="text-sm text-muted-foreground">
-                0 of {decks.length} decks completed
+                {completedCount} of {totalLessons} lessons completed
               </span>
             </div>
           </CardContent>
