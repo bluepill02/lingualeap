@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Camera, Zap, RefreshCcw, Loader2, Info, Lightbulb, HelpCircle, Check, X, Video } from 'lucide-react';
+import { Camera, Zap, RefreshCcw, Loader2, Info, Lightbulb, HelpCircle, Check, X, Video, VideoOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 export default function ARImmersionPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
   const [hasCameraPermission, setHasCameraPermission] = useState<boolean | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<AnalyzeImageOutput | null>(null);
@@ -24,8 +25,6 @@ export default function ARImmersionPage() {
   const { toast } = useToast();
 
   useEffect(() => {
-    let stream: MediaStream | null = null;
-    
     const getCameraPermission = async () => {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         toast({
@@ -37,7 +36,8 @@ export default function ARImmersionPage() {
         return;
       }
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+        streamRef.current = stream;
         setHasCameraPermission(true);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
@@ -59,7 +59,8 @@ export default function ARImmersionPage() {
     getCameraPermission();
 
     return () => {
-      stream?.getTracks().forEach(track => track.stop());
+      // Cleanup: stop all tracks on the stream when the component unmounts.
+      streamRef.current?.getTracks().forEach(track => track.stop());
     };
   }, [toast]);
 
@@ -121,14 +122,14 @@ export default function ARImmersionPage() {
         <Button 
             key={option}
             variant={getVariant()}
-            className="w-full justify-start items-center"
+            className="w-full justify-start items-center h-auto py-2"
             onClick={() => !isSubmitted && setSelectedOption(option)}
         >
             <div className="flex-shrink-0 w-6">
                 {isSubmitted && isCorrectAnswer && <Check className="h-4 w-4" />}
                 {isSubmitted && isSelected && !isCorrectAnswer && <X className="h-4 w-4" />}
             </div>
-            <span className="flex-grow text-left">{option}</span>
+            <span className="flex-grow text-left whitespace-normal">{option}</span>
         </Button>
     );
   }
@@ -153,16 +154,17 @@ export default function ARImmersionPage() {
               </div>
             )}
              {hasCameraPermission === false && (
-                <Alert variant="destructive" className="m-4">
-                  <AlertTitle>Camera Access Required</AlertTitle>
-                  <AlertDescription>Please allow camera access to use this feature.</AlertDescription>
-                </Alert>
+                <div className="text-center p-4 text-destructive">
+                    <VideoOff className="w-12 h-12 mx-auto mb-4"/>
+                    <h3 className="font-semibold">Camera Not Available</h3>
+                    <p className="text-sm">Please enable camera permissions in your browser.</p>
+                </div>
             )}
             {hasCameraPermission && (
                 <>
                      <video ref={videoRef} className={cn("w-full h-full object-cover transition-opacity duration-500", isCameraOn ? 'opacity-100' : 'opacity-0')} autoPlay muted playsInline />
-                     {!isCameraOn && (
-                         <div className="absolute inset-0 flex items-center justify-center text-center">
+                     {!isCameraOn && hasCameraPermission && (
+                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
                             <Video className="w-12 h-12 mx-auto text-muted-foreground mb-4"/>
                             <h3 className="font-semibold">Starting camera...</h3>
                         </div>
@@ -242,4 +244,3 @@ export default function ARImmersionPage() {
     </div>
   );
 }
-
