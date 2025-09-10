@@ -17,7 +17,8 @@ import {
     serverTimestamp,
     orderBy,
     setDoc,
-    Timestamp
+    Timestamp,
+    DocumentReference
 } from 'firebase/firestore';
 import { companionCircles, allUsers, mockUser, circlePosts } from '@/lib/data';
 import type { CompanionCircle, User, CirclePost, PostComment, ReactionType, LessonPlanWeek } from '@/lib/types';
@@ -69,14 +70,14 @@ export async function createCircle(
 ): Promise<CompanionCircle> {
     const newDocRef = doc(circlesCollection);
     
-    const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: 'https://picsum.photos/100/100?a=1' };
+    const creatorUser = allUsers.find(u => u.id === userId) || { avatarUrl: 'https://picsum.photos/100/100?a=1', name: userName || 'New User' };
 
     const newCircle = {
         ...circleData,
         id: newDocRef.id,
         members: [{
             id: userId,
-            name: userName,
+            name: creatorUser.name,
             avatarUrl: creatorUser.avatarUrl
         }],
         memberCount: 50,
@@ -115,21 +116,6 @@ export async function getCircles(): Promise<CompanionCircle[]> {
     }
 }
 
-export async function getCircle(id: string): Promise<CompanionCircle | null> {
-    try {
-        const docRef = doc(db, 'companion-circles', id);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-            return { ...docSnap.data(), id: docSnap.id } as CompanionCircle;
-        } else {
-            console.warn(`No circle found with id: ${id}.`);
-            return null;
-        }
-    } catch (error) {
-        console.error("Error fetching circle: ", error);
-        return null;
-    }
-}
 
 export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
      if (!memberIds || memberIds.length === 0) {
@@ -151,13 +137,24 @@ export async function getCircleMembers(memberIds: string[]): Promise<User[]> {
 }
 
 export async function getCircleWithMembers(id: string): Promise<{ circle: CompanionCircle, members: User[] } | null> {
-    const circle = await getCircle(id);
-    if (!circle) {
+    try {
+        const docRef = doc(db, 'companion-circles', id);
+        const docSnap = await getDoc(docRef);
+        
+        if (!docSnap.exists()) {
+            console.warn(`No circle found with id: ${id}.`);
+            return null;
+        }
+
+        const circle = { ...docSnap.data(), id: docSnap.id } as CompanionCircle;
+        const memberIds = circle.members.map(m => m.id);
+        const members = await getCircleMembers(memberIds);
+
+        return { circle, members };
+    } catch (error) {
+        console.error("Error fetching circle with members: ", error);
         return null;
     }
-    const memberIds = circle.members.map(m => m.id);
-    const members = await getCircleMembers(memberIds);
-    return { circle, members };
 }
 
 export async function joinCircle(userId: string, circleId: string): Promise<void> {
@@ -252,26 +249,42 @@ export async function getPostsForCircle(circleId: string): Promise<CirclePost[]>
 
     } catch (error) {
         console.error("Error fetching posts for circle: ", error);
-         return circlePosts.filter(p => p.circleId === circleId).map(p => ({
-            ...p,
-            id: `mock-${Math.random()}`,
-            comments: p.comments.map(c => ({...c, id: `mock-comment-${Math.random()}`}))
-        })) as CirclePost[];
+        // Fallback with structured mock data to prevent crashes
+        return circlePosts
+            .filter(p => p.circleId === circleId)
+            .map((p, index) => ({
+                ...p,
+                id: `mock-${index}`,
+                createdAt: new Date().toISOString(), // Ensure createdAt is a string
+                comments: (p.comments || []).map((c, cIndex) => ({
+                    ...c,
+                    id: `mock-comment-${cIndex}`,
+                    createdAt: new Date().toISOString() // Ensure comment createdAt is a string
+                }))
+            } as CirclePost));
     }
 }
 
 function mapDocToPost(doc: any): CirclePost {
     const data = doc.data();
+    
     // Safely convert Timestamps to ISO strings for both post and comments
     const comments = (data.comments || []).map((comment: any) => {
-        const commentDate = comment.createdAt instanceof Timestamp 
-            ? comment.createdAt.toDate().toISOString() 
-            : new Date().toISOString();
+        let commentDate;
+        if (comment.createdAt instanceof Timestamp) {
+            commentDate = comment.createdAt.toDate().toISOString();
+        } else if (typeof comment.createdAt === 'string') {
+            commentDate = comment.createdAt;
+        } else {
+            // Fallback for pending server timestamps or other cases
+            commentDate = new Date().toISOString(); 
+        }
+        
         return {
             ...comment,
             id: comment.id || `mock-comment-${Math.random()}`,
             createdAt: commentDate
-        };
+        } as PostComment;
     });
 
     const postDate = data.createdAt instanceof Timestamp
@@ -324,12 +337,12 @@ export async function addCommentToPost(circleId: string, postId: string, comment
     }
     const postRef = doc(db, 'companion-circles', circleId, 'posts', postId);
     
-    const newComment: Omit<PostComment, 'id'> = {
+    const newComment: Omit<PostComment, 'id'| 'createdAt'> & { createdAt: any } = {
         authorId: mockUser.id,
         authorName: mockUser.name,
         authorAvatarUrl: mockUser.avatarUrl,
         content: commentContent,
-        createdAt: serverTimestamp() as any // Let Firestore handle the timestamp
+        createdAt: serverTimestamp() // Let Firestore handle the timestamp
     };
 
     try {
@@ -341,5 +354,3 @@ export async function addCommentToPost(circleId: string, postId: string, comment
         throw error;
     }
 }
-
-    

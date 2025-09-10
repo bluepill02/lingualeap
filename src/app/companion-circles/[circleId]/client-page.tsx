@@ -24,8 +24,11 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { LessonPlanTimeline } from '@/components/circles/lesson-plan-timeline';
 import { MarkdownRenderer } from '@/components/exam/markdown-renderer';
 import { ProgressHeatmap } from '@/components/analytics/progress-heatmap';
+import { Timestamp } from 'firebase/firestore';
+
 
 function CommentCard({ comment }: { comment: PostComment }) {
+    const createdAtDate = comment.createdAt ? new Date(comment.createdAt as string) : new Date();
     return (
         <div className="flex gap-3">
              <Avatar className="h-8 w-8">
@@ -36,7 +39,7 @@ function CommentCard({ comment }: { comment: PostComment }) {
                 <div className="flex items-center gap-2">
                     <p className="font-semibold text-sm">{comment.authorName}</p>
                     <p className="text-xs text-muted-foreground">
-                        {formatDistanceToNow(new Date(comment.createdAt), { addSuffix: true })}
+                        {formatDistanceToNow(createdAtDate, { addSuffix: true })}
                     </p>
                 </div>
                 <div className="text-sm text-muted-foreground prose dark:prose-invert max-w-none">
@@ -89,7 +92,8 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
         try {
             await addCommentToPost(circleId, post.id, newComment);
             setNewComment('');
-            onUpdate();
+            onUpdate(); // Trigger a re-fetch to get the latest state with the new comment
+            setShowComments(true); // Ensure comments section is open
         } catch (error) {
             console.error("Failed to add comment:", error);
             toast({ variant: 'destructive', title: 'Error', description: 'Could not add comment.' });
@@ -201,8 +205,8 @@ function PostCard({ post, circleId, onUpdate }: { post: CirclePost, circleId: st
                 
                 {showComments && (
                     <div className="mt-4 space-y-4">
-                        {post.comments.sort((a,b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()).map(comment => (
-                            <CommentCard key={comment.id} comment={comment} />
+                        {post.comments.sort((a,b) => new Date(a.createdAt as string).getTime() - new Date(b.createdAt as string).getTime()).map((comment, index) => (
+                            <CommentCard key={comment.id || index} comment={comment} />
                         ))}
                         <div className="flex gap-3">
                             <Avatar className="h-8 w-8">
@@ -275,6 +279,15 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
       }
   }, [circle.id, toast]);
 
+  const refreshCircleData = useCallback(async () => {
+    const updatedCircleData = await getCircleWithMembers(circle.id);
+    if (updatedCircleData) {
+        setCircle(updatedCircleData.circle);
+        setMembers(updatedCircleData.members);
+    }
+  }, [circle.id]);
+
+
   useEffect(() => {
     setIsMember(circle.members.some(m => m.id === mockUser.id));
     fetchPosts();
@@ -292,12 +305,7 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
               toast({ title: 'Welcome!', description: `You have joined "${circle.name}".` });
               setShowWelcomeWizard(true);
           }
-          // Re-fetch circle and member data to ensure UI is consistent
-          const updatedCircleData = await getCircleWithMembers(circle.id);
-          if (updatedCircleData) {
-              setCircle(updatedCircleData.circle);
-              setMembers(updatedCircleData.members);
-          }
+          await refreshCircleData();
       } catch (error) {
           console.error("Failed to update membership:", error);
           toast({ variant: 'destructive', title: 'Error', description: 'Could not update membership. Please try again.' });
@@ -462,5 +470,3 @@ export default function CircleDetailsClientPage({ initialCircle, initialMembers,
     </Dialog>
   );
 }
-
-    

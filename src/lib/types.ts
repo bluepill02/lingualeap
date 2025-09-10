@@ -1,5 +1,6 @@
 
 import { z } from 'genkit';
+import { FieldValue } from 'firebase/firestore';
 
 export interface User {
   id: string;
@@ -141,7 +142,7 @@ export interface WorkedExample {
     difficulty: 'Easy' | 'Medium' | 'Hard';
     problem: string;
     problemTamil?: string;
-    fbd?: FBDstep[];
+fbd?: FBDstep[];
     solutionSteps: {
         step: number;
         explanation: string;
@@ -308,7 +309,7 @@ export interface PostComment {
     authorName: string;
     authorAvatarUrl: string;
     content: string;
-    createdAt: string; // ISO string
+    createdAt: string | FieldValue;
 }
 
 export type ReactionType = 'madeMeSmile' | 'helpful' | 'interesting' | 'mentorApproved';
@@ -452,6 +453,7 @@ export const NeetQuizGeneratorInputSchema = z.object({
 export type NeetQuizGeneratorInput = z.infer<typeof NeetQuizGeneratorInputSchema>;
 
 export const NeetQuizGeneratorOutputSchema = z.object({
+    title: z.string().optional().describe("A suitable title for the generated quiz."),
     quizzes: z.array(NeetQuizQuestionSchema),
 });
 export type NeetQuizGeneratorOutput = z.infer<typeof NeetQuizGeneratorOutputSchema>;
