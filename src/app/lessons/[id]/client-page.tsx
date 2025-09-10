@@ -52,10 +52,12 @@ function VocabularyTable({
 }: {
   vocabulary: MicroLesson['vocabulary'];
 }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   const playAudio = (audioUrl: string) => {
-    if (audioUrl) {
-        const audio = new Audio(audioUrl);
-        audio.play().catch(e => console.error("Error playing audio:", e));
+    if (audioRef.current && audioUrl) {
+      audioRef.current.src = audioUrl;
+      audioRef.current.play().catch(e => console.error("Error playing audio:", e));
     }
   };
 
@@ -65,6 +67,8 @@ function VocabularyTable({
         <CardTitle>Vocabulary</CardTitle>
       </CardHeader>
       <CardContent>
+        {/* Hidden audio element for playback */}
+        <audio ref={audioRef} className="hidden" />
         <Table>
           <TableHeader>
             <TableRow>
